@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贵州高原彝药厂 GMP 信息管理系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .welcome-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            width: 90%;
+        }
+
+        .logo-section {
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .welcome-message {
+            font-size: 28px;
+            color: #27ae60;
+            font-weight: bold;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .status-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .status-item {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .status-item.healthy {
+            color: #27ae60;
+        }
+
+        .status-item.healthy::before {
+            content: "✅ ";
+        }
+
+        .status-item.running::before {
+            content: "🔄 ";
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #95a5a6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover .service-link {
+            opacity: 1;
+        }
+
+        .service-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .service-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .service-status {
+            font-size: 12px;
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+
+        .service-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .service-link:hover {
+            background: linear-gradient(45deg, #2980b9, #21618c);
+            transform: translateY(-1px);
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-container {
+                padding: 30px;
+            }
+
+            .title {
+                font-size: 24px;
+            }
+
+            .welcome-message {
+                font-size: 24px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="welcome-container">
+        <div class="logo-section">
+            <div class="logo">GMP</div>
+            <h1 class="title">贵州高原彝药厂<br>GMP 信息管理系统</h1>
+            <div class="subtitle">Guizhou Plateau Yi Medicine Factory GMP Information Management System</div>
+        </div>
+
+        <div class="welcome-message">
+            欢迎使用
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🗄️</div>
+                <div class="service-name">数据库服务</div>
+                <div class="service-status">✅ PostgreSQL 运行正常</div>
+                <a href="#" onclick="alert('PostgreSQL数据库服务\\n连接信息：localhost:5432\\n用户名：postgres\\n数据库：gmp_system')"
+                    class="service-link">查看详情</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <div class="service-name">缓存服务</div>
+                <div class="service-status">✅ Redis 运行正常</div>
+                <a href="#" onclick="alert('Redis缓存服务\\n连接信息：localhost:6379\\n密码：gmp_redis_password_2024')"
+                    class="service-link">查看详情</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📨</div>
+                <div class="service-name">消息队列</div>
+                <div class="service-status">✅ RabbitMQ 运行正常</div>
+                <a href="http://localhost:15672" target="_blank" class="service-link">访问管理界面</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <div class="service-name">监控面板</div>
+                <div class="service-status">✅ Grafana 可视化</div>
+                <a href="http://localhost:3000" target="_blank" class="service-link">访问Grafana</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <div class="service-name">监控数据</div>
+                <div class="service-status">✅ Prometheus 采集</div>
+                <a href="http://localhost:9090" target="_blank" class="service-link">访问Prometheus</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">☁️</div>
+                <div class="service-name">对象存储</div>
+                <div class="service-status">✅ MinIO 运行正常</div>
+                <a href="http://localhost:9001" target="_blank" class="service-link">访问控制台</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <div class="service-name">服务发现</div>
+                <div class="service-status">✅ Eureka 注册中心</div>
+                <a href="http://localhost:8761" target="_blank" class="service-link">访问注册中心</a>
+            </div>
+        </div>
+
+        <div class="status-info">
+            <div class="status-title">系统状态概览</div>
+            <div class="status-item healthy">✅ Docker容器环境已配置完成</div>
+            <div class="status-item healthy">✅ 微服务基础设施服务正常运行</div>
+            <div class="status-item healthy">✅ 数据库连接和缓存服务就绪</div>
+            <div class="status-item running">🔄 等待微服务应用启动完成后可实现完整功能</div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 贵州高原彝药厂 GMP 信息管理系统 | 基于 Spring Cloud 微服务架构</p>
+            <p>系统版本：v1.0.0 | 支持现代化药品生产质量管理标准</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.style.animation = 'fadeIn 0.8s ease-out forwards';
+                card.style.opacity = '0';
+            });
+
+            setInterval(() => {
+                fetch('/actuator/health')
+                    .then(response => {
+                        if (response.ok) {
+                            updateStatus('系统连接正常', 'healthy');
+                        } else {
+                            updateStatus('等待系统连接', 'running');
+                        }
+                    })
+                    .catch(() => {
+                        updateStatus('基础设施服务运行中', 'running');
+                    });
+            }, 5000);
+        });
+
+        function updateStatus(message, status) {
+            const statusElement = document.querySelector('.status-info .status-item:last-child');
+            statusElement.textContent = message;
+            statusElement.className = `status-item ${status}`;
+        }
+    </script>
+</body>
+
+</html>

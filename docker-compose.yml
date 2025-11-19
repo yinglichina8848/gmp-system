@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # Eureka服务发现
   eureka-server:
-    image: springcloud/eureka:1.4.6
+    image: yunterry/spring-cloud-eureka:latest
     container_name: gmp-eureka
     ports:
       - "8761:8761"
@@ -12,7 +12,7 @@ services:
       - EUREKA_CLIENT_REGISTER_WITH_EUREKA=false
       - EUREKA_CLIENT_FETCH_REGISTRY=false
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8761"]
+      test: [ "CMD", "curl", "-f", "http://localhost:8761" ]
       interval: 30s
       timeout: 10s
       retries: 5
@@ -34,7 +34,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./infrastructure/postgres/init:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
       interval: 30s
       timeout: 10s
       retries: 5
@@ -53,7 +53,7 @@ services:
       - redis_data:/data
       - ./infrastructure/redis/redis.conf:/etc/redis/redis.conf
     healthcheck:
-      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
       interval: 30s
       timeout: 10s
       retries: 5
@@ -97,7 +97,7 @@ services:
     volumes:
       - minio_data:/data
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9000"]
+      test: [ "CMD", "curl", "-f", "http://localhost:9000" ]
       interval: 30s
       timeout: 10s
       retries: 5
@@ -132,7 +132,7 @@ services:
     environment:
       GF_SECURITY_ADMIN_USER: admin
       GF_SECURITY_ADMIN_PASSWORD: admin123
-      GF_USERS_ALLOW_SIGN_UP: false
+      GF_USERS_ALLOW_SIGN_UP: "false"
     ports:
       - "3000:3000"
     volumes:

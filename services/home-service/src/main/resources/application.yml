@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gmp-home-service
+  main:
+    web-application-type: reactive
+
+logging:
+  level:
+    com.gmp.home: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
