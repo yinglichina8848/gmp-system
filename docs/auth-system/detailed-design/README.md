@@ -1,0 +1,744 @@
+# 用户认证、权限管理和登录系统 - 详细设计
+
+## 📋 文档信息
+
+| 属性 | 值 |
+|------|---|
+| 文档标题 | 用户认证、权限管理和登录系统 - 详细设计 |
+| 版本号 | v0.3.0-draft |
+| 创建日期 | 2025年11月19日 |
+| 更新日期 | 2025年11月19日 |
+| 作者 | GMP系统开发团队 |
+| 状态 | 草稿 |
+
+## 📊 数据库设计
+
+### 数据库架构
+
+```sql
+-- GMP认证系统数据库
+CREATE DATABASE auth_db;
+
+-- 连接到auth_db
+\c auth_db;
+```
+
+### 核心数据表
+
+#### 1. 用户表 (sys_users)
+
+```sql
+-- 用户基本信息表
+CREATE TABLE sys_users (
+    id BIGSERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) UNIQUE,
+    mobile VARCHAR(20),
+    full_name VARCHAR(100) NOT NULL,
+    password_hash VARCHAR(200) NOT NULL,
+    user_status VARCHAR(20) DEFAULT 'ACTIVE' CHECK (user_status IN ('ACTIVE', 'INACTIVE', 'LOCKED', 'EXPIRED')),
+    last_login_time TIMESTAMP,
+    last_login_ip VARCHAR(50),
+    password_expired_at TIMESTAMP,
+    login_attempts INTEGER DEFAULT 0,
+    locked_until TIMESTAMP,
+
+    -- 审计字段
+    created_by BIGINT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by BIGINT,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    version INTEGER DEFAULT 1
+);
+
+-- 索引创建
+CREATE UNIQUE INDEX idx_users_username ON sys_users(username);
+CREATE UNIQUE INDEX idx_users_email ON sys_users(email);
+CREATE INDEX idx_users_status ON sys_users(user_status);
+CREATE INDEX idx_users_last_login ON sys_users(last_login_time);
+```
+
+#### 2. 角色表 (sys_roles)
+
+```sql
+-- 角色定义表
+CREATE TABLE sys_roles (
+    id BIGSERIAL PRIMARY KEY,
+    role_code VARCHAR(50) NOT NULL UNIQUE,
+    role_name VARCHAR(100) NOT NULL,
+    description TEXT,
+    priority INTEGER DEFAULT 0,
+    is_builtin BOOLEAN DEFAULT FALSE,
+    is_active BOOLEAN DEFAULT TRUE,
+
+    -- 审计字段
+    created_by BIGINT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by BIGINT,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    version INTEGER DEFAULT 1
+);
+
+-- 预设数据
+INSERT INTO sys_roles (role_code, role_name, description, is_builtin, is_active) VALUES
+('ROLE_SYSTEM_ADMIN', '系统管理员', '系统超级管理员，拥有所有权限', TRUE, TRUE),
+('ROLE_GMP_ADMIN', 'GMP管理员', 'GMP系统管理员，管理药品生产合规', TRUE, TRUE),
+('ROLE_QMS_MANAGER', '质量管理员', '质量管理体系管理员', TRUE, TRUE),
+('ROLE_MES_MANAGER', '生产管理员', '生产执行系统管理员', TRUE, TRUE),
+('ROLE_LIMS_MANAGER', '实验室管理员', '实验室信息管理系统管理员', TRUE, TRUE),
+('ROLE_OPERATOR', '操作员', '普通操作员', TRUE, TRUE);
+```
+
+#### 3. 权限表 (sys_permissions)
+
+```sql
+-- 权限定义表
+CREATE TABLE sys_permissions (
+    id BIGSERIAL PRIMARY KEY,
+    permission_code VARCHAR(100) NOT NULL UNIQUE,
+    permission_name VARCHAR(200) NOT NULL,
+    resource_type VARCHAR(50) NOT NULL, -- MENU, API, BUTTON, DATA
+    resource_url VARCHAR(200),
+    http_method VARCHAR(10), -- GET, POST, PUT, DELETE
+    description TEXT,
+    is_active BOOLEAN DEFAULT TRUE,
+
+    -- 审计字段
+    created_by BIGINT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by BIGINT,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    version INTEGER DEFAULT 1
+);
+
+-- 预设权限数据
+INSERT INTO sys_permissions (permission_code, permission_name, resource_type, resource_url, http_method, description) VALUES
+-- 系统管理
+('PERMISSION_USER_MANAGE', '用户管理', 'MENU', '/api/auth/users', 'ALL', '用户增删改查'),
+('PERMISSION_ROLE_MANAGE', '角色管理', 'MENU', '/api/auth/roles', 'ALL', '角色权限配置'),
+('PERMISSION_SYSTEM_CONFIG', '系统配置', 'MENU', '/api/auth/config', 'ALL', '系统参数设置'),
+
+-- QMS权限
+('PERMISSION_DEVIATION_MANAGE', '偏差管理', 'API', '/api/qms/deviations', 'ALL', '偏差记录管理'),
+('PERMISSION_CAPA_MANAGE', 'CAPA管理', 'API', '/api/qms/capas', 'ALL', '纠正预防措施管理'),
+('PERMISSION_INCIDENT_MANAGE', '不良事件管理', 'API', '/api/qms/incidents', 'ALL', '不良事件记录管理'),
+
+-- MES权限
+('PERMISSION_BATCH_MANAGE', '批次管理', 'API', '/api/mes/batches', 'ALL', '生产批次生命周期管理'),
+('PERMISSION_PLAN_MANAGE', '计划管理', 'API', '/api/mes/plans', 'ALL', '生产计划制定与执行'),
+('PERMISSION_EQUIPMENT_MANAGE', '设备管理', 'API', '/api/mes/equipment', 'ALL', '生产设备监控与维护'),
+
+-- LIMS权限
+('PERMISSION_SAMPLE_MANAGE', '样品管理', 'API', '/api/lims/samples', 'ALL', '实验室样品管理'),
+('PERMISSION_METHOD_MANAGE', '检测方法管理', 'API', '/api/lims/methods', 'ALL', '检测方法定义与维护'),
+('PERMISSION_RESULT_MANAGE', '结果审核', 'API', '/api/lims/results', 'ALL', '测试结果审核发布');
+```
+
+#### 4. 用户角色关联表 (user_roles)
+
+```sql
+-- 用户角色关联表
+CREATE TABLE user_roles (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    role_id BIGINT NOT NULL,
+
+    -- 时间控制
+    assigned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expired_at TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE,
+
+    -- 审计字段
+    assigned_by BIGINT,
+    assigned_at_audit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (user_id) REFERENCES sys_users(id) ON DELETE CASCADE,
+    FOREIGN KEY (role_id) REFERENCES sys_roles(id) ON DELETE CASCADE,
+    CONSTRAINT uk_user_role UNIQUE (user_id, role_id)
+);
+
+-- 索引
+CREATE INDEX idx_user_roles_user_id ON user_roles(user_id);
+CREATE INDEX idx_user_roles_role_id ON user_roles(role_id);
+CREATE INDEX idx_user_roles_active ON user_roles(is_active);
+```
+
+#### 5. 角色权限关联表 (role_permissions)
+
+```sql
+-- 角色权限关联表
+CREATE TABLE role_permissions (
+    id BIGSERIAL PRIMARY KEY,
+    role_id BIGINT NOT NULL,
+    permission_id BIGINT NOT NULL,
+
+    -- 时间控制
+    granted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expired_at TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE,
+
+    -- 审计字段
+    granted_by BIGINT,
+    granted_at_audit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (role_id) REFERENCES sys_roles(id) ON DELETE CASCADE,
+    FOREIGN KEY (permission_id) REFERENCES sys_permissions(id) ON DELETE CASCADE,
+    CONSTRAINT uk_role_permission UNIQUE (role_id, permission_id)
+);
+
+-- 索引
+CREATE INDEX idx_role_perm_role_id ON role_permissions(role_id);
+CREATE INDEX idx_role_perm_perm_id ON role_permissions(permission_id);
+CREATE INDEX idx_role_perm_active ON role_permissions(is_active);
+```
+
+#### 6. JWT令牌黑名单表 (jwt_blacklist)
+
+```sql
+-- JWT令牌黑名单表
+CREATE TABLE jwt_blacklist (
+    id BIGSERIAL PRIMARY KEY,
+    token_id VARCHAR(100) NOT NULL UNIQUE,
+    token_content TEXT,
+    expired_at TIMESTAMP NOT NULL,
+    blacklisted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    blacklist_reason VARCHAR(200),
+
+    -- 关联用户
+    user_id BIGINT,
+    username VARCHAR(50),
+
+    FOREIGN KEY (user_id) REFERENCES sys_users(id)
+);
+
+-- 索引
+CREATE UNIQUE INDEX idx_jwt_token_id ON jwt_blacklist(token_id);
+CREATE INDEX idx_jwt_expired_at ON jwt_blacklist(expired_at);
+CREATE INDEX idx_jwt_user_id ON jwt_blacklist(user_id);
+```
+
+### 审计日志表
+
+#### 7. 用户操作日志 (user_operation_logs)
+
+```sql
+-- 用户操作审计日志
+CREATE TABLE user_operation_logs (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT,
+    username VARCHAR(50),
+    operation VARCHAR(100) NOT NULL, -- LOGIN, LOGOUT, ROLE_CHANGE, etc.
+    module VARCHAR(50) NOT NULL, -- AUTH, USER, ROLE, PERMISSION
+    action VARCHAR(200) NOT NULL, -- 具体操作描述
+    result VARCHAR(20) DEFAULT 'SUCCESS' CHECK (result IN ('SUCCESS', 'FAILED')),
+
+    -- 请求信息
+    ip_address VARCHAR(50),
+    user_agent TEXT,
+
+    -- 请求数据
+    request_data JSONB,
+    response_data JSONB,
+
+    -- 时间信息
+    operation_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    duration_ms INTEGER, -- 操作耗时
+
+    -- 元数据
+    metadata JSONB
+);
+
+-- 索引
+CREATE INDEX idx_logs_user_id ON user_operation_logs(user_id);
+CREATE INDEX idx_logs_username ON user_operation_logs(username);
+CREATE INDEX idx_logs_operation ON user_operation_logs(operation);
+CREATE INDEX idx_logs_module ON user_operation_logs(module);
+CREATE INDEX idx_logs_time ON user_operation_logs(operation_time);
+CREATE INDEX idx_logs_result ON user_operation_logs(result);
+```
+
+## 🔌 API接口设计
+
+### API设计原则
+
+1. **RESTful设计**：遵循RESTful规范
+2. **版本控制**：API版本管理 `/api/v1/auth`
+3. **文档化**：Swagger/OpenAPI文档
+4. **安全性**：HTTPS + JWT认证
+5. **统一响应**：标准JSON响应格式
+
+### 统一响应格式
+
+```typescript
+// 成功响应
+{
+    "success": true,
+    "code": "200",
+    "message": "操作成功",
+    "data": { /* 业务数据 */ },
+    "timestamp": "2025-11-19T10:30:00Z"
+}
+
+// 失败响应
+{
+    "success": false,
+    "code": "401",
+    "message": "认证失败",
+    "data": null,
+    "timestamp": "2025-11-19T10:30:00Z"
+}
+
+// 分页响应
+{
+    "success": true,
+    "code": "200",
+    "data": {
+        "records": [...],  // 数据列表
+        "total": 100,
+        "current": 1,
+        "size": 10,
+        "pages": 10
+    }
+}
+```
+
+### 认证API接口
+
+#### 用户登录 (POST /api/auth/v1/login)
+
+```typescript
+// 请求
+{
+    "username": "admin",
+    "password": "Admin123!",
+    "rememberMe": false
+}
+
+// 响应
+{
+    "success": true,
+    "code": "200",
+    "data": {
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+        "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+        "tokenType": "Bearer",
+        "expiresIn": 86400,
+        "username": "admin",
+        "fullName": "系统管理员",
+        "roles": ["ROLE_SYSTEM_ADMIN"],
+        "permissions": ["PERMISSION_USER_MANAGE", "..."]
+    }
+}
+```
+
+#### 令牌刷新 (POST /api/auth/v1/refresh)
+
+```typescript
+// 请求
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+
+// 响应
+{
+    "success": true,
+    "code": "200",
+    "data": {
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+        "expiresIn": 86400
+    }
+}
+```
+
+#### 用户登出 (POST /api/auth/v1/logout)
+
+```typescript
+// 请求 Headers: Authorization: Bearer {token}
+
+// 响应
+{
+    "success": true,
+    "code": "200",
+    "message": "登出成功"
+}
+```
+
+### 用户管理API
+
+#### 获取用户信息 (GET /api/auth/v1/users/me)
+
+```typescript
+// 响应
+{
+    "success": true,
+    "code": "200",
+    "data": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@gmp-system.com",
+        "fullName": "系统管理员",
+        "userStatus": "ACTIVE",
+        "lastLoginTime": "2025-11-19T09:30:00",
+        "roles": [
+            {
+                "id": 1,
+                "roleCode": "ROLE_SYSTEM_ADMIN",
+                "roleName": "系统管理员"
+            }
+        ]
+    }
+}
+```
+
+#### 用户列表查询 (GET /api/auth/v1/users)
+
+**查询参数**：
+- `page`: 页码 (默认1)
+- `size`: 页大小 (默认10)
+- `sort`: 排序字段
+- `order`: 排序方向 (asc/desc)
+- `username`: 用户名模糊查询
+- `status`: 用户状态过滤
+
+#### 创建用户 (POST /api/auth/v1/users)
+
+```typescript
+// 请求
+{
+    "username": "john.doe",
+    "email": "john.doe@gmp-system.com",
+    "fullName": "John Doe",
+    "password": "TempPass123!",
+    "mobile": "13800138000",
+    "roleIds": [2, 3]  // GMP_ADMIN, QMS_MANAGER
+}
+
+// 响应
+{
+    "success": true,
+    "code": "201",
+    "data": {
+        "id": 10010,
+        "username": "john.doe",
+        "createdAt": "2025-11-19T10:30:00"
+    }
+}
+```
+
+### 角色管理API
+
+#### 角色权限配置 (PUT /api/auth/v1/roles/{roleId}/permissions)
+
+```typescript
+// 请求
+{
+    "permissionIds": [1, 2, 3, 4, 5]
+}
+
+// 响应
+{
+    "success": true,
+    "code": "200",
+    "message": "角色权限配置成功"
+}
+```
+
+### 权限验证API
+
+#### 令牌验证 (POST /api/auth/v1/verify)
+
+```typescript
+// 请求
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "requiredPermissions": ["PERMISSION_USER_MANAGE"]
+}
+
+// 响应
+{
+    "success": true,
+    "code": "200",
+    "data": {
+        "valid": true,
+        "user": {
+            "id": 1,
+            "username": "admin"
+        },
+        "permissions": ["PERMISSION_USER_MANAGE", "..."]
+    }
+}
+```
+
+## 🖥️ 前端界面设计
+
+### 页面架构
+
+```
+┌─────────────┬─────────────┬─────────────┐
+│             │             │             │
+│   登录页    │  用户管理   │  角色管理   │
+│             │             │             │
+├─────────────┼─────────────┼─────────────┤
+│             │             │             │
+│ 用户列表    │ 权限配置    │ 系统监控    │
+│             │             │             │
+├─────────────┼─────────────┼─────────────┤
+│             │             │             │
+│ 操作日志    │ 安全设置    │   设置       │
+│             │             │             │
+└─────────────┴─────────────┴─────────────┘
+```
+
+### 登录页面设计
+
+```html
+<form id="loginForm" class="login-form">
+    <div class="form-header">
+        <h2>GMP信息管理系统</h2>
+        <p>请使用您的账号登录</p>
+    </div>
+
+    <div class="form-group">
+        <label for="username">用户名</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">密码</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+
+    <div class="form-options">
+        <label class="checkbox">
+            <input type="checkbox" name="rememberMe">
+            记住我
+        </label>
+        <a href="/forgot-password" class="link">忘记密码？</a>
+    </div>
+
+    <button type="submit" class="login-btn">登录</button>
+    <div id="errorMessage" class="error-message" style="display:none;"></div>
+</form>
+```
+
+### 管理控制台设计
+
+```html
+<div class="admin-dashboard">
+    <!-- 页面头部 -->
+    <header class="dashboard-header">
+        <div class="logo">GMP Auth</div>
+        <nav class="nav-menu">
+            <a href="/admin/users">用户管理</a>
+            <a href="/admin/roles">角色管理</a>
+            <a href="/admin/logs">操作日志</a>
+            <a href="/logout">退出登录</a>
+        </nav>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main class="dashboard-body">
+        <!-- 统计卡片 -->
+        <div class="stats-cards">
+            <div class="stat-card">
+                <h3>总用户数</h3>
+                <div class="number">1250</div>
+                <div class="change positive">+12%</div>
+            </div>
+            <!-- 其他统计卡片 -->
+        </div>
+
+        <!--导航菜单-->
+        <nav class="sys-nav">
+            <ul>
+                <li><a href="#users" id="menu-users">用户管理</a></li>
+                <li><a href="#roles" id="menu-roles">角色管理</a></li>
+                <li><a href="#permissions" id="menu-permissions">权限管理</a></li>
+                <li><a href="#logs" id="menu-logs">操作日志</a></li>
+            </ul>
+        </nav>
+
+        <!--数据表格-->
+        <section id="content-section" class="content">
+            <!--动态加载页面内容-->
+        </section>
+    </main>
+</div>
+```
+
+## 🔐 安全实现方案
+
+### JWT实现细节
+
+```java
+@Configuration
+public class JwtConfig {
+
+    @Value("${jwt.secret:default-secret}")
+    private String secret;
+
+    @Value("${jwt.expiration:86400000}")
+    private Long expiration;
+
+    public String generateToken(User user) {
+        Map<String, Object> claims = Map.of(
+            "sub", user.getUsername(),
+            "iat", System.currentTimeMillis() / 1000,
+            "exp", (System.currentTimeMillis() / 1000) + expiration,
+            "roles", user.getRoles().stream()
+                .map(Role::getRoleCode)
+                .collect(Collectors.toList()),
+            "permissions", user.getPermissions()
+        );
+
+        return Jwts.builder()
+            .setClaims(claims)
+            .signWith(SignatureAlgorithm.HS256, secret.getBytes())
+            .compact();
+    }
+}
+```
+
+### 网关过滤器实现
+
+```java
+@Component
+public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAuthenticationFilter.Config> {
+
+    @Autowired
+    private AuthServiceFeignClient authClient;
+
+    @Override
+    public GatewayFilter apply(Config config) {
+        return (exchange, chain) -> {
+            String token = extractToken(exchange);
+
+            if (token == null) {
+                return onError(exchange, "Missing JWT token");
+            }
+
+            try {
+                // 验证令牌
+                TokenVerificationResult result = authClient.verifyToken(token);
+
+                // 添加用户信息到请求头
+                exchange.getRequest().mutate()
+                    .header("X-Authenticated-User", result.getUsername())
+                    .header("X-User-Roles", String.join(",", result.getRoles()))
+                    .build();
+
+                return chain.filter(exchange);
+
+            } catch (Exception e) {
+                return onError(exchange, "Invalid JWT token");
+            }
+        };
+    }
+}
+```
+
+## 📊 监控与审计
+
+### Prometheus监控指标
+
+```
+# HTTP请求计数器
+http_requests_total{method,endpoint,status}
+
+# 认证操作计数器
+auth_operations_total{operation,type,result}
+
+# 用户会话统计
+active_user_sessions{gauge}
+
+# JWT令牌验证延迟
+jwt_verification_duration_seconds{quantile}
+
+# 数据库连接池使用率
+db_connection_pool_usage{gauge}
+```
+
+### 日志架构
+
+```java
+@Slf4j
+@Component
+public class OperationLogger {
+
+    @PostConstruct
+    public void init() {
+        MDC.put("service", "auth-service");
+    }
+
+    public void logUserOperation(UserOperationLog operation) {
+        log.info("User operation: user={}, operation={}, module={}, action={}",
+            operation.getUsername(),
+            operation.getOperation(),
+            operation.getModule(),
+            operation.getAction()
+        );
+
+        // 保存到数据库
+        operationLogRepository.save(operation);
+    }
+}
+```
+
+## 🚀 部署配置
+
+### Docker配置
+
+```dockerfile
+# auth-service Dockerfile
+FROM openjdk:17-jre-slim
+
+COPY target/auth-service.jar /app/app.jar
+
+EXPOSE 8085
+
+CMD ["java", "-jar", "/app/app.jar", "--spring.profiles.active=prod"]
+```
+
+### Docker Compose配置
+
+```yaml
+services:
+  auth-service:
+    image: gmp/auth-service:v0.3.0
+    container_name: gmp-auth-service
+    ports:
+      - "8085:8085"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/auth_db
+      - SPRING_DATASOURCE_USERNAME=auth_user
+      - SPRING_DATASOURCE_PASSWORD=${AUTH_DB_PASSWORD}
+      - SPRING_REDIS_HOST=redis
+      - SPRING_REDIS_PASSWORD=${REDIS_PASSWORD}
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - gmp-network
+```
+
+## 📋 实现进度表
+
+| 模块 | 状态 | 预计完成日期 | 负责人 |
+|------|------|--------------|--------|
+| 数据库设计 | ✅ 完成 | 2025-11-19 | 系统架构师 |
+| 用户管理API | 🔄 开发中 | 2025-11-22 | 后端开发工程师 |
+| 角色权限系统 | ⏳ 待开发 | 2025-11-25 | 后端开发工程师 |
+| JWT认证模块 | 🔄 开发中 | 2025-11-22 | 后端开发工程师 |
+| 前端登录页面 | ⏳ 待开发 | 2025-11-26 | 前端开发工程师 |
+| 管理控制台 | ⏳ 待开发 | 2025-11-28 | 前端开发工程师 |
+| 审计日志系统 | ⏳ 待开发 | 2025-11-25 | 后端开发工程师 |
+| 单元测试 | ⏳ 待开发 | 2025-11-30 | 测试工程师 |
+| 集成测试 | ⏳ 待开发 | 2025-12-02 | 测试工程师 |
+
+---
+
+*文档版本：v0.3.0-draft*
+*审核状态：待审核*
+*下次更新：实现完成后*
