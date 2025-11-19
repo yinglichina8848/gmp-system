@@ -318,7 +318,7 @@ INSERT INTO sys_users (
     'admin',
     'admin@gmp-system.com',
     '系统管理员',
-    '$2a$10$wKjRhzMMvKLWkOrZ7VpSJOB9SRjvLjUJEJhE8jxQsEQqQxZUIRzZm', -- Admin123!
+    '$2b$12$gYHtbNJUOSD/VdzW2V3ZJ.7nQT/DJupfYlW7wd.7D/OtiQd3f2AOW', -- admin123
     'ACTIVE',
     1
 );
