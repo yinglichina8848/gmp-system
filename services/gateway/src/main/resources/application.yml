@@ -1,0 +1,137 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gmp-gateway
+  profiles:
+    active: dev
+  cloud:
+    gateway:
+      routes:
+        # QMS Service - 质量管理系统
+        - id: qms-service
+          uri: lb://qms-service
+          predicates:
+            - Path=/api/qms/**
+          filters:
+            - StripPrefix=1
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 100
+                redis-rate-limiter.burstCapacity: 200
+                key-resolver: "#{@userKeyResolver}"
+
+        # MES Service - 生产执行系统
+        - id: mes-service
+          uri: lb://mes-service
+          predicates:
+            - Path=/api/mes/**
+          filters:
+            - StripPrefix=1
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 100
+                redis-rate-limiter.burstCapacity: 200
+                key-resolver: "#{@userKeyResolver}"
+
+        # LIMS Service - 实验室信息管理系统
+        - id: lims-service
+          uri: lb://lims-service
+          predicates:
+            - Path=/api/lims/**
+          filters:
+            - StripPrefix=1
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 50
+                redis-rate-limiter.burstCapacity: 100
+                key-resolver: "#{@userKeyResolver}"
+
+        # EDMS Service - 电子文档管理系统
+        - id: edms-service
+          uri: lb://edms-service
+          predicates:
+            - Path=/api/edms/**
+          filters:
+            - StripPrefix=1
+
+        # Auth Service - 认证服务
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=1
+
+        # File Service - 文件服务
+        - id: file-service
+          uri: lb://file-service
+          predicates:
+            - Path=/api/files/**
+          filters:
+            - StripPrefix=1
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
+        - name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: forward:/fallback
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
+            allow-credentials: true
+            max-age: 3600
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+logging:
+  level:
+    com.gmp.gateway: DEBUG
+    org.springframework.cloud.gateway: DEBUG
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace-id:-},%X{span-id:-}]"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  redis:
+    host: localhost
+    port: 6379
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  redis:
+    host: redis-service
+    port: 6379

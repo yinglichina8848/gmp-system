@@ -1,0 +1,155 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: qms-service
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/qms_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      max-lifetime: 1200000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.SnakeCasePhysicalNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        show_sql: false
+        jdbc:
+          batch_size: 25
+        order_inserts: true
+        order_updates: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 2000ms
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus,auditevents
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      service: qms-service
+
+logging:
+  level:
+    com.gmp.qms: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace-id:-},%X{span-id:-}]"
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# JWT配置
+jwt:
+  secret: gmp-system-quality-management-service-secret-key-2024
+  expiration: 86400000  # 24小时
+
+# 文件上传配置
+file:
+  upload:
+    max-size: 50MB
+    temp-dir: ${java.io.tmpdir}/qms-uploads
+
+# QMS业务配置
+qms:
+  deviation:
+    auto-escalation:
+      enabled: true
+      levels:
+        - days: 3
+          severity: HIGH
+        - days: 7
+          severity: MEDIUM
+  capa:
+    reminder:
+      enabled: true
+      days-before-due: 3
+  audit:
+    retention:
+      years: 5
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:postgresql://postgres-service:5432/qms_db
+    username: ${DB_USERNAME:qms_user}
+    password: ${DB_PASSWORD}
+  redis:
+    host: redis-service
+    port: 6379
+  rabbitmq:
+    host: rabbitmq-service
+    port: 5672
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:h2:mem:qms_test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  flyway:
+    enabled: false
+  h2:
+    console:
+      enabled: true
