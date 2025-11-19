@@ -188,12 +188,178 @@ public class HomeController {
                 "    <div class=\"container\">\n" +
                 "        <div class=\"logo\">GMP</div>\n" +
                 "        <h1 class=\"title\">贵州高原彝药厂<br>GMP 信息管理系统</h1>\n" +
-                "        <div class=\"subtitle\">Guizhou Plateau Yi Medicine Factory GMP Information Management System</div>\n" +
+                "        <div class=\"subtitle\">Guizhou Plateau Yi Pharmaceutical Factory Co., Ltd.</div>\n" +
+            "\n" +
+            "        <!-- GMP 信息管理系统各子系统 -->\n" +
+            "        <div class=\"system-section gmp-section\">\n" +
+            "            <h2 class=\"section-title gmp-title\">🏭 GMP 信息管理系统</h2>\n" +
+            "            <p class=\"section-desc\">药品生产质量管理体系核心业务系统</p>\n" +
+            "\n" +
+            "            <div class=\"nav-grid gmp-grid\">\n" +
+            "                <div class=\"nav-card gmp-card\">\n" +
+            "                    <div class=\"nav-header\">\n" +
+            "                        <div class=\"nav-icon\">🔍</div>\n" +
+            "                        <div class=\"nav-title\">质量管理系统</div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"nav-desc\">质量管理与合规执行系统<br>GMP质量体系的核心模块</div>\n" +
+            "                    <a href=\"/qms\" class=\"nav-link\">进入系统</a>\n" +
+            "                </div>\n" +
+            "\n" +
+            "                <div class=\"nav-card gmp-card\">\n" +
+            "                    <div class=\"nav-header\">\n" +
+            "                        <div class=\"nav-icon\">⚙️</div>\n" +
+            "                        <div class=\"nav-title\">生产执行系统</div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"nav-desc\">生产批次管理与执行跟踪<br>MES生产管控核心功能</div>\n" +
+            "                    <a href=\"/mes\" class=\"nav-link\">进入系统</a>\n" +
+            "                </div>\n" +
+            "\n" +
+            "                <div class=\"nav-card gmp-card\">\n" +
+            "                    <div class=\"nav-header\">\n" +
+            "                        <div class=\"nav-icon\">🧪</div>\n" +
+            "                        <div class=\"nav-title\">实验室信息系统</div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"nav-desc\">实验室检验与测试管理<br>LIMS样本检测追溯</div>\n" +
+            "                    <a href=\"/lims\" class=\"nav-link\">进入系统</a>\n" +
+            "                </div>\n" +
+            "\n" +
+            "                <div class=\"nav-card gmp-card\">\n" +
+            "                    <div class=\"nav-header\">\n" +
+            "                        <div class=\"nav-icon\">📄</div>\n" +
+            "                        <div class=\"nav-title\">电子文档管理</div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"nav-desc\">文档审批与版本控制<br>GMP电子文档管理系统</div>\n" +
+            "                    <a href=\"/edms\" class=\"nav-link\">进入系统</a>\n" +
+            "                </div>\n" +
+            "\n" +
+            "                <div class=\"nav-card gmp-card\">\n" +
+            "                    <div class=\"nav-header\">\n" +
+            "                        <div class=\"nav-icon\">👥</div>\n" +
+            "                        <div class=\"nav-title\">用户认证系统</div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"nav-desc\">用户管理与权限控制<br>企业级安全认证平台</div>\n" +
+            "                    <a href=\"/auth\" class=\"nav-link\">进入系统</a>\n" +
+            "                </div>\n" +
+            "\n" +
+            "                <div class=\"nav-card gmp-card\">\n" +
+            "                    <div class=\"nav-header\">\n" +
+            "                        <div class=\"nav-icon\">📁</div>\n" +
+            "                        <div class=\"nav-title\">文件管理系统</div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"nav-desc\">文件存储与归档管理<br>统一的文件服务平台</div>\n" +
+            "                    <a href=\"/files\" class=\"nav-link\">进入系统</a>\n" +
+            "                </div>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <!-- 分隔符 -->\n" +
+            "        <div class=\"section-separator\">\n" +
+            "            <hr class=\"divider\">\n" +
+            "            <span class=\"divider-text\">平台基础设施服务</span>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <!-- 微服务基础设施 -->\n" +
+            "        <div class=\"system-section infra-section\">\n" +
+            "            <h2 class=\"section-title infra-title\">🚀 微服务基础设施</h2>\n" +
+            "            <p class=\"section-desc\">支撑应用系统的关键中间件与监控服务</p>\n" +
+            "\n" +
+            "            <div class=\"nav-grid infra-grid\">\n" +
+                "            <div class=\"nav-card infra-card\">\n" +
+                "                <div class=\"nav-header\">\n" +
+                "                    <div class=\"nav-icon\">🗄️</div>\n" +
+                "                    <div class=\"nav-title\">PostgreSQL 数据库</div>\n" +
+                "                </div>\n" +
+                "                <div class=\"nav-desc\">核心业务数据存储系统<br>关系型数据库服务</div>\n" +
+                "                <a href=\"http://localhost:5432\" target=\"_blank\" class=\"nav-link\">管理连接</a>\n" +
+                "            </div>\n" +
                 "\n" +
-                "        <div class=\"welcome-msg\">\n" +
-                "            🎊 欢迎使用 - GMP微服务系统已完全部署！\n" +
+                "            <div class=\"nav-card infra-card\">\n" +
+                "                <div class=\"nav-header\">\n" +
+                "                    <div class=\"nav-icon\">⚡</div>\n" +
+                "                    <div class=\"nav-title\">Redis 缓存</div>\n" +
+                "                </div>\n" +
+                "                <div class=\"nav-desc\">高性能内存缓存服务<br>认证令牌存储</div>\n" +
+                "                <a href=\"javascript:alert('Redis服务信息：\\n🔗 地址: localhost:6379\\n🔐 密码: gmp_redis_password_2024')\" class=\"nav-link\">连接信息</a>\n" +
+                "            </div>\n" +
+                "\n" +
+                "            <div class=\"nav-card infra-card\">\n" +
+                "                <div class=\"nav-header\">\n" +
+                "                    <div class=\"nav-icon\">📨</div>\n" +
+                "                    <div class=\"nav-title\">RabbitMQ 消息队列</div>\n" +
+                "                </div>\n" +
+                "                <div class=\"nav-desc\">企业级消息中间件<br>异步处理服务</div>\n" +
+                "                <a href=\"http://localhost:15672\" target=\"_blank\" class=\"nav-link\">管理界面</a>\n" +
+                "            </div>\n" +
+                "\n" +
+                "            <div class=\"nav-card infra-card\">\n" +
+                "                <div class=\"nav-header\">\n" +
+                "                    <div class=\"nav-icon\">📊</div>\n" +
+                "                    <div class=\"nav-title\">Grafana 监控面板</div>\n" +
+                "                </div>\n" +
+                "                <div class=\"nav-desc\">可视化系统监控面板<br>业务指标展示</div>\n" +
+                "                <a href=\"http://localhost:3000\" target=\"_blank\" class=\"nav-link\">访问监控</a>\n" +
+                "            </div>\n" +
+                "\n" +
+                "            <div class=\"nav-card infra-card\">\n" +
+                "                <div class=\"nav-header\">\n" +
+                "                    <div class=\"nav-icon\">📈</div>\n" +
+                "                    <div class=\"nav-title\">Prometheus 监控</div>\n" +
+                "                </div>\n" +
+                "                <div class=\"nav-desc\">指标收集与告警系统<br>性能数据收集</div>\n" +
+                "                <a href=\"http://localhost:9090\" target=\"_blank\" class=\"nav-link\">访问控制台</a>\n" +
+                "            </div>\n" +
+                "\n" +
+                "            <div class=\"nav-card infra-card\">\n" +
+                "                <div class=\"nav-header\">\n" +
+                "                    <div class=\"nav-icon\">☁️</div>\n" +
+                "                    <div class=\"nav-title\">MinIO 对象存储</div>\n" +
+                "                </div>\n" +
+                "                <div class=\"nav-desc\">高性能对象存储系统<br>文件存储服务</div>\n" +
+                "                <a href=\"http://localhost:9001\" target=\"_blank\" class=\"nav-link\">访问面板</a>\n" +
+                "            </div>\n" +
+                "\n" +
+                "            <div class=\"nav-card infra-card\">\n" +
+                "                <div class=\"nav-header\">\n" +
+                "                    <div class=\"nav-icon\">🏗️</div>\n" +
+                "                    <div class=\"nav-title\">Eureka 注册中心</div>\n" +
+                "                </div>\n" +
+                "                <div class=\"nav-desc\">微服务注册发现中心<br>服务治理中心</div>\n" +
+                "                <a href=\"http://localhost:8761\" target=\"_blank\" class=\"nav-link\">服务注册</a>\n" +
+                "            </div>\n" +
                 "        </div>\n" +
+                "    </div>\n" +
                 "\n" +
+                "    <!-- 欢迎信息 -->\n" +
+                "    <div class=\"welcome-msg\">\n" +
+                "        🎊 欢迎使用 - GMP微服务系统已完全部署！\n" +
+                "    </div>\n" +
+                "\n" +
+            "        <div class=\"status-info\">\n" +
+            "            <div class=\"status-title\">🎯 系统部署状态</div>\n" +
+            "            <div class=\"status-item\">GMP微服务架构已完全部署</div>\n" +
+            "            <div class=\"status-item\">Spring Cloud Gateway运行 (端口 8080)</div>\n" +
+            "            <div class=\"status-item\">所有容器服务正常运行</div>\n" +
+            "            <div class=\"status-item\">数据库和用户认证系统已初始化</div>\n" +
+            "            <div class=\"status-item\">准备接受各业务微服务注册</div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"footer\">\n" +
+            "            <p>© 2025 贵州高原彝药厂 GMP 信息管理系统 | 基于 Spring Cloud 微服务架构</p>\n" +
+            "            <p>系统版本 0.2.1 | 现代化药品生产质量管理系统 | 支持 GMP 标准</p>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <!-- GMP 分隔标识 -->\n" +
+            "        <div class=\"gmp-identification\">\n" +
+            "            <div class=\"gmp-badge\">GMP COMPLIANT</div>\n" +
+            "            <div class=\"gmp-desc\">符合药品生产质量管理规范</div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <!-- 联系方式 -->\n" +
+            "        <div class=\"contact-info\">\n" +
+            "            📞 技术支持：GMP系统开发团队 | 📧 admin@gmp-system.com\n" +
+            "        </div>\n" +
+            "\n" +
+            "    </div>\n" +
                 "        <div class=\"nav-grid\">\n" +
                 "            <div class=\"nav-card\">\n" +
                 "                <div class=\"nav-header\">\n" +
