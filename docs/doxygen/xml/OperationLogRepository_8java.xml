@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="OperationLogRepository_8java" kind="file" language="Java">
+    <compoundname>OperationLogRepository.java</compoundname>
+    <includes local="no">com.gmp.auth.entity.OperationLog</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/repository/OperationLogRepository.java</label>
+        <link refid="OperationLogRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.entity.OperationLog</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository" prot="public">com::gmp::auth::repository::OperationLogRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1repository">com::gmp::auth::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1auth_1_1repository" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.auth.entity.OperationLog;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="18" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository" kindref="compound">OperationLogRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;OperationLog,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>ol<sp/>FROM<sp/>OperationLog<sp/>ol<sp/>WHERE<sp/>ol.userId<sp/>=<sp/>:userId<sp/>ORDER<sp/>BY<sp/>ol.operationTime<sp/>DESC&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="24" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1ac5ab511710a0fdce76194eed944f515a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1ac5ab511710a0fdce76194eed944f515a" kindref="member">findByUserIdOrderByOperationTimeDesc</ref>(@Param(&quot;userId&quot;)<sp/>Long<sp/>userId);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ol<sp/>FROM<sp/>OperationLog<sp/>ol<sp/>WHERE<sp/>ol.username<sp/>=<sp/>:username<sp/>ORDER<sp/>BY<sp/>ol.operationTime<sp/>DESC&quot;)</highlight></codeline>
+<codeline lineno="30" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1ace4dce19990dd06892bd7f3588cd6d52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1ace4dce19990dd06892bd7f3588cd6d52" kindref="member">findByUsernameOrderByOperationTimeDesc</ref>(@Param(&quot;username&quot;)<sp/>String<sp/>username);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ol<sp/>FROM<sp/>OperationLog<sp/>ol<sp/>WHERE<sp/>ol.operationTime<sp/>BETWEEN<sp/>:startTime<sp/>AND<sp/>:endTime<sp/>ORDER<sp/>BY<sp/>ol.operationTime<sp/>DESC&quot;)</highlight></codeline>
+<codeline lineno="36" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1a1801939114e0d01392e7a68d063ee960" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1a1801939114e0d01392e7a68d063ee960" kindref="member">findByOperationTimeBetween</ref>(@Param(&quot;startTime&quot;)<sp/>LocalDateTime<sp/>startTime,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;endTime&quot;)<sp/>LocalDateTime<sp/>endTime);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ol<sp/>FROM<sp/>OperationLog<sp/>ol<sp/>WHERE<sp/>ol.operation<sp/>=<sp/>:operation<sp/>ORDER<sp/>BY<sp/>ol.operationTime<sp/>DESC&quot;)</highlight></codeline>
+<codeline lineno="43" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1aefe7573f66faf99983da5f91e43f3119" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1aefe7573f66faf99983da5f91e43f3119" kindref="member">findByOperation</ref>(@Param(&quot;operation&quot;)<sp/>String<sp/>operation);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ol<sp/>FROM<sp/>OperationLog<sp/>ol<sp/>WHERE<sp/>ol.module<sp/>=<sp/>:module<sp/>ORDER<sp/>BY<sp/>ol.operationTime<sp/>DESC&quot;)</highlight></codeline>
+<codeline lineno="49" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1af6c410d25b243a1329f589a7f2b32a58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1af6c410d25b243a1329f589a7f2b32a58" kindref="member">findByModule</ref>(@Param(&quot;module&quot;)<sp/>String<sp/>module);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ol<sp/>FROM<sp/>OperationLog<sp/>ol<sp/>WHERE<sp/>ol.ipAddress<sp/>=<sp/>:ipAddress<sp/>ORDER<sp/>BY<sp/>ol.operationTime<sp/>DESC&quot;)</highlight></codeline>
+<codeline lineno="55" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1a6d85b11c352b76940e067d57e691f208" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1a6d85b11c352b76940e067d57e691f208" kindref="member">findByIpAddress</ref>(@Param(&quot;ipAddress&quot;)<sp/>String<sp/>ipAddress);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ol<sp/>FROM<sp/>OperationLog<sp/>ol<sp/>WHERE<sp/>ol.operation<sp/>=<sp/>&apos;LOGIN&apos;<sp/>ORDER<sp/>BY<sp/>ol.operationTime<sp/>DESC&quot;)</highlight></codeline>
+<codeline lineno="61" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1afed5b1c440ae2f5cbfbf5dd151306bdf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1afed5b1c440ae2f5cbfbf5dd151306bdf" kindref="member">findLoginLogs</ref>();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ol<sp/>FROM<sp/>OperationLog<sp/>ol<sp/>WHERE<sp/>ol.result<sp/>=<sp/>&apos;FAILED&apos;<sp/>AND<sp/>ol.operationTime<sp/>&gt;=<sp/>:since<sp/>ORDER<sp/>BY<sp/>ol.operationTime<sp/>DESC&quot;)</highlight></codeline>
+<codeline lineno="67" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1a7324a98697d416de06f17d0c36cf54b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1a7324a98697d416de06f17d0c36cf54b9" kindref="member">findFailedOperationsSince</ref>(@Param(&quot;since&quot;)<sp/>LocalDateTime<sp/>since);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;DELETE<sp/>FROM<sp/>OperationLog<sp/>ol<sp/>WHERE<sp/>ol.operationTime<sp/>&lt;<sp/>:beforeDate&quot;)</highlight></codeline>
+<codeline lineno="73" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1a9600406c0cac1561ab942a27d6983bd1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1OperationLogRepository_1a9600406c0cac1561ab942a27d6983bd1" kindref="member">deleteLogsBefore</ref>(@Param(&quot;beforeDate&quot;)<sp/>LocalDateTime<sp/>beforeDate);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/repository/OperationLogRepository.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.service</a> &gt; <span class="el_source">AuthServiceImpl.java</span></div><h1>AuthServiceImpl.java</h1><pre class="source lang-java linenums">package com.gmp.auth.service;
+
+import com.gmp.auth.config.JwtConfig;
+import com.gmp.auth.dto.LoginRequest;
+import com.gmp.auth.dto.LoginResponse;
+import com.gmp.auth.dto.TokenResponse;
+import com.gmp.auth.entity.OperationLog;
+import com.gmp.auth.entity.User;
+import com.gmp.auth.repository.OperationLogRepository;
+import com.gmp.auth.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 认证服务实现类
+ *
+ * @author GMP系统开发团队
+ */
+@Service
+<span class="fc" id="L29">public class AuthServiceImpl implements AuthService {</span>
+
+<span class="fc" id="L31">    private static final Logger log = LoggerFactory.getLogger(AuthServiceImpl.class);</span>
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    @Autowired
+    private OperationLogRepository operationLogRepository;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    
+    @Autowired
+    private JwtConfig jwtConfig;
+    
+    @Autowired
+    private RedisTemplate&lt;String, Object&gt; redisTemplate;
+
+    @Override
+    @Transactional
+    public LoginResponse login(LoginRequest request, String ipAddress, String userAgent) {
+<span class="fc" id="L51">        String username = request.getUsername();</span>
+<span class="fc" id="L52">        String password = request.getPassword();</span>
+
+        // 查找用户
+<span class="fc" id="L55">        User user = userRepository.findByUsername(username)</span>
+<span class="pc" id="L56">                .orElseThrow(() -&gt; new RuntimeException(&quot;用户名或密码错误&quot;));</span>
+
+        // 检查用户状态
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        if (user.getUserStatus() == User.UserStatus.LOCKED) {</span>
+            // 记录失败登录
+<span class="nc" id="L61">            logFailedLoginAttempt(user, &quot;账户已锁定&quot;, ipAddress, userAgent);</span>
+<span class="nc" id="L62">            throw new RuntimeException(&quot;账户已被锁定，请联系管理员&quot;);</span>
+        }
+
+        // 检查密码
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (!passwordEncoder.matches(password, user.getPassword())) {</span>
+            // 增加登录尝试次数
+<span class="nc" id="L68">            user.incrementLoginAttempts();</span>
+            
+            // 如果尝试次数超过限制，锁定账户
+<span class="nc bnc" id="L71" title="All 2 branches missed.">            if (user.getLoginAttempts() &gt;= 5) {</span>
+<span class="nc" id="L72">                user.lockAccount(15); // 锁定15分钟</span>
+<span class="nc" id="L73">                logFailedLoginAttempt(user, &quot;密码错误，账户已锁定&quot;, ipAddress, userAgent);</span>
+<span class="nc" id="L74">                throw new RuntimeException(&quot;密码错误次数过多，账户已被锁定&quot;);</span>
+            }
+            
+<span class="nc" id="L77">            userRepository.save(user);</span>
+<span class="nc" id="L78">            logFailedLoginAttempt(user, &quot;密码错误&quot;, ipAddress, userAgent);</span>
+<span class="nc" id="L79">            throw new RuntimeException(&quot;用户名或密码错误&quot;);</span>
+        }
+
+        // 登录成功，重置登录尝试次数
+<span class="nc" id="L83">        user.resetLoginAttempts();</span>
+<span class="nc" id="L84">        user.setLastLoginTime(LocalDateTime.now());</span>
+<span class="nc" id="L85">        user.setLastLoginIp(ipAddress);</span>
+<span class="nc" id="L86">        userRepository.save(user);</span>
+
+        // 获取用户角色和权限
+<span class="nc" id="L89">        Set&lt;String&gt; roles = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L90">        List&lt;String&gt; permissions = new ArrayList&lt;&gt;();</span>
+        
+        // 假设roles现在已经是字符串集合
+<span class="nc" id="L93">        roles.addAll(user.getRoles());</span>
+        // 假设permissions已经是字符串列表
+<span class="nc" id="L95">        permissions.addAll(user.getPermissions());</span>
+        // 注意：这里假设User类已经实现了getPermissions()方法
+
+        // 生成JWT令牌
+<span class="nc" id="L99">        String accessToken = jwtConfig.generateToken(username, roles, permissions);</span>
+<span class="nc" id="L100">        String refreshToken = jwtConfig.generateRefreshToken(username);</span>
+
+        // 记录成功登录
+<span class="nc" id="L103">        logSuccessfulLogin(user, ipAddress, userAgent);</span>
+
+        // 创建登录响应
+<span class="nc" id="L106">        LoginResponse response = new LoginResponse();</span>
+        // 直接设置字段值，不使用setter方法以避免Lombok问题
+<span class="nc" id="L108">        response.accessToken = accessToken;</span>
+<span class="nc" id="L109">        response.refreshToken = refreshToken;</span>
+<span class="nc" id="L110">        response.tokenType = &quot;Bearer&quot;;</span>
+<span class="nc" id="L111">        response.expiresIn = jwtConfig.getExpiration() / 1000;</span>
+<span class="nc" id="L112">        response.username = user.getUsername();</span>
+<span class="nc" id="L113">        response.fullName = user.getFullName();</span>
+<span class="nc" id="L114">        response.roles = new ArrayList&lt;&gt;(roles);</span>
+<span class="nc" id="L115">        response.permissions = permissions;</span>
+<span class="nc" id="L116">        response.loginTime = LocalDateTime.now();</span>
+<span class="nc" id="L117">        return response;</span>
+    }
+
+    @Override
+    @Transactional
+    public void logout(String username, String token) {
+        // 将令牌加入黑名单
+<span class="fc" id="L124">        String tokenKey = &quot;blacklist:token:&quot; + UUID.randomUUID();</span>
+<span class="nc" id="L125">        redisTemplate.opsForValue().set(tokenKey, token);</span>
+<span class="nc" id="L126">        redisTemplate.expire(tokenKey, jwtConfig.getExpiration(), TimeUnit.MILLISECONDS);</span>
+
+        // 记录登出日志
+<span class="nc" id="L129">        operationLogRepository.save(</span>
+<span class="nc" id="L130">                OperationLog.createLogoutLog(</span>
+<span class="nc" id="L131">                        userRepository.findByUsername(username)</span>
+<span class="nc" id="L132">                                .map(User::getId)</span>
+<span class="nc" id="L133">                                .orElse(null),</span>
+                        username,
+                        null));
+<span class="nc" id="L136">    }</span>
+
+    @Override
+    public TokenResponse refreshToken(String refreshToken) {
+        // 检查刷新令牌是否有效
+<span class="pc bpc" id="L141" title="1 of 2 branches missed.">        if (!jwtConfig.validateToken(refreshToken)) {</span>
+<span class="fc" id="L142">            throw new RuntimeException(&quot;无效的刷新令牌&quot;);</span>
+        }
+
+        // 从令牌中获取用户名
+<span class="nc" id="L146">        String username = jwtConfig.extractUsername(refreshToken);</span>
+        
+        // 查找用户
+<span class="nc" id="L149">        User user = userRepository.findByUsername(username)</span>
+<span class="nc" id="L150">                .orElseThrow(() -&gt; new RuntimeException(&quot;用户不存在&quot;));</span>
+
+        // 获取用户角色和权限
+<span class="nc" id="L153">        Set&lt;String&gt; roles = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L154">        List&lt;String&gt; permissions = new ArrayList&lt;&gt;();</span>
+        
+        // 假设roles现在已经是字符串集合
+<span class="nc" id="L157">        roles.addAll(user.getRoles());</span>
+        // 假设permissions已经是字符串列表
+<span class="nc" id="L159">        permissions.addAll(user.getPermissions());</span>
+
+        // 生成新的访问令牌
+<span class="nc" id="L162">        String accessToken = jwtConfig.refreshAccessToken(refreshToken, roles, permissions);</span>
+
+        // 创建令牌响应
+<span class="nc" id="L165">        TokenResponse response = new TokenResponse();</span>
+        // 显式使用setter方法
+<span class="nc" id="L167">        response.setAccessToken(accessToken);</span>
+<span class="nc" id="L168">        response.setTokenType(&quot;Bearer&quot;);</span>
+<span class="nc" id="L169">        response.setExpiresIn(jwtConfig.getExpiration() / 1000);</span>
+<span class="nc" id="L170">        return response;</span>
+    }
+
+    @Override
+    public boolean validateToken(String token) {
+<span class="fc" id="L175">        return jwtConfig.validateToken(token);</span>
+    }
+
+    /**
+     * 记录登录失败
+     */
+    private void logFailedLoginAttempt(User user, String reason, String ipAddress, String userAgent) {
+<span class="nc" id="L182">        log.warn(&quot;登录失败 - 用户名: {}, 原因: {}&quot;, user.getUsername(), reason);</span>
+<span class="nc" id="L183">        operationLogRepository.save(</span>
+<span class="nc" id="L184">                OperationLog.createLoginLog(</span>
+<span class="nc" id="L185">                        user.getId(),</span>
+<span class="nc" id="L186">                        user.getUsername(),</span>
+                        ipAddress,
+                        userAgent,
+                        false));
+<span class="nc" id="L190">    }</span>
+
+    /**
+     * 记录登录成功
+     */
+    private void logSuccessfulLogin(User user, String ipAddress, String userAgent) {
+<span class="nc" id="L196">        log.info(&quot;登录成功 - 用户名: {}&quot;, user.getUsername());</span>
+<span class="nc" id="L197">        operationLogRepository.save(</span>
+<span class="nc" id="L198">                OperationLog.createLoginLog(</span>
+<span class="nc" id="L199">                        user.getId(),</span>
+<span class="nc" id="L200">                        user.getUsername(),</span>
+                        ipAddress,
+                        userAgent,
+                        true));
+<span class="nc" id="L204">    }</span>
+    
+    @Override
+    public java.util.Set&lt;String&gt; getUserRoles(String username) {
+<span class="fc" id="L208">        User user = userRepository.findByUsername(username)</span>
+<span class="pc" id="L209">                .orElseThrow(() -&gt; new RuntimeException(&quot;用户不存在: &quot; + username));</span>
+<span class="nc" id="L210">        return user.getRoles();</span>
+    }
+    
+    @Override
+    public java.util.List&lt;String&gt; getUserPermissions(String username) {
+<span class="fc" id="L215">        User user = userRepository.findByUsername(username)</span>
+<span class="pc" id="L216">                .orElseThrow(() -&gt; new RuntimeException(&quot;用户不存在: &quot; + username));</span>
+<span class="nc" id="L217">        return user.getPermissions();</span>
+    }
+    
+    @Override
+    public boolean hasPermission(String username, String... requiredPermissions) {
+<span class="nc" id="L222">        java.util.List&lt;String&gt; userPermissions = getUserPermissions(username);</span>
+<span class="nc" id="L223">        java.util.Set&lt;String&gt; requiredPermSet = java.util.Arrays.stream(requiredPermissions).collect(java.util.stream.Collectors.toSet());</span>
+<span class="nc" id="L224">        return userPermissions.containsAll(requiredPermSet);</span>
+    }
+    
+    @Override
+    public boolean hasRole(String username, String... requiredRoles) {
+<span class="nc" id="L229">        java.util.Set&lt;String&gt; userRoles = getUserRoles(username);</span>
+<span class="nc" id="L230">        java.util.Set&lt;String&gt; requiredRoleSet = java.util.Arrays.stream(requiredRoles).collect(java.util.stream.Collectors.toSet());</span>
+<span class="nc" id="L231">        return userRoles.containsAll(requiredRoleSet);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

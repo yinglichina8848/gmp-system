@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Permission.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.entity</a> &gt; <span class="el_source">Permission.java</span></div><h1>Permission.java</h1><pre class="source lang-java linenums">package com.gmp.auth.entity;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
+
+/**
+ * GMP系统权限实体
+ *
+ * @author GMP系统开发团队
+ */
+<span class="pc bnc" id="L20" title="All 110 branches missed.">@Data</span>
+<span class="fc" id="L21">@NoArgsConstructor</span>
+<span class="fc" id="L22">@AllArgsConstructor</span>
+<span class="pc bfc" id="L23" title="All 4 branches covered.">@Builder</span>
+@Entity
+@Table(name = &quot;sys_permissions&quot;)
+@EntityListeners(AuditingEntityListener.class)
+public class Permission {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L31">    private Long id;</span>
+
+    @NotBlank(message = &quot;权限代码不能为空&quot;)
+    @Size(min = 5, max = 100, message = &quot;权限代码长度必须在5-100字符之间&quot;)
+    @Pattern(regexp = &quot;^PERMISSION_[A-Z_]+$&quot;, message = &quot;权限代码必须以PERMISSION_开头并使用大写字母和下划线&quot;)
+    @Column(name = &quot;permission_code&quot;, unique = true, nullable = false)
+<span class="fc" id="L37">    private String permissionCode;</span>
+
+    @NotBlank(message = &quot;权限名称不能为空&quot;)
+    @Size(max = 200, message = &quot;权限名称长度不能超过200字符&quot;)
+    @Column(name = &quot;permission_name&quot;, nullable = false)
+<span class="fc" id="L42">    private String permissionName;</span>
+
+    @NotBlank(message = &quot;资源类型不能为空&quot;)
+    @Pattern(regexp = &quot;^(MENU|API|BUTTON|DATA)$&quot;, message = &quot;资源类型必须是MENU、API、BUTTON或DATA&quot;)
+    @Column(name = &quot;resource_type&quot;, nullable = false)
+<span class="fc" id="L47">    private String resourceType;</span>
+
+    @Size(max = 200, message = &quot;资源URL长度不能超过200字符&quot;)
+    @Column(name = &quot;resource_url&quot;)
+<span class="fc" id="L51">    private String resourceUrl;</span>
+
+    @Builder.Default
+    @Pattern(regexp = &quot;^(GET|POST|PUT|DELETE|ALL)$&quot;, message = &quot;HTTP方法必须是GET、POST、PUT、DELETE或ALL&quot;)
+    @Column(name = &quot;http_method&quot;)
+<span class="fc" id="L56">    private String httpMethod = &quot;ALL&quot;;</span>
+
+    @Size(max = 500, message = &quot;权限描述长度不能超过500字符&quot;)
+<span class="fc" id="L59">    private String description;</span>
+
+    @Builder.Default
+    @Column(name = &quot;is_active&quot;, nullable = false)
+<span class="fc" id="L63">    private Boolean isActive = true;</span>
+
+    // 审计字段
+    @CreatedDate
+    @Column(name = &quot;created_at&quot;, nullable = false, updatable = false)
+<span class="fc" id="L68">    private LocalDateTime createdAt;</span>
+
+    @LastModifiedDate
+    @Column(name = &quot;updated_at&quot;, nullable = false)
+<span class="fc" id="L72">    private LocalDateTime updatedAt;</span>
+
+    @Column(name = &quot;created_by&quot;)
+<span class="nc" id="L75">    private Long createdBy;</span>
+
+    @Column(name = &quot;updated_by&quot;)
+<span class="nc" id="L78">    private Long updatedBy;</span>
+
+<span class="fc" id="L80">    @Version</span>
+    @Column(nullable = false)
+<span class="fc" id="L82">    private Integer version = 1;</span>
+
+    /**
+     * 检查权限是否有效
+     */
+    @Transient
+    public boolean isValid() {
+<span class="pc bpc" id="L89" title="1 of 6 branches missed.">        return this.isActive &amp;&amp; this.permissionCode != null &amp;&amp; !this.permissionCode.trim().isEmpty();</span>
+    }
+
+    /**
+     * 检查是否匹配给定的请求
+     */
+    @Transient
+    public boolean matches(String url, String method) {
+<span class="fc bfc" id="L97" title="All 4 branches covered.">        if (!this.isActive || this.resourceUrl == null) {</span>
+<span class="fc" id="L98">            return false;</span>
+        }
+
+        // URL匹配 (简单的路径前缀匹配)
+<span class="pc bpc" id="L102" title="1 of 4 branches missed.">        boolean urlMatch = url != null &amp;&amp; url.startsWith(this.resourceUrl.replace(&quot;/**&quot;, &quot;&quot;));</span>
+
+        // HTTP方法匹配
+<span class="pc bpc" id="L105" title="2 of 4 branches missed.">        boolean methodMatch = &quot;ALL&quot;.equals(this.httpMethod) ||</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">                (method != null &amp;&amp; this.httpMethod.equals(method));</span>
+
+<span class="fc bfc" id="L108" title="All 4 branches covered.">        return urlMatch &amp;&amp; methodMatch;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

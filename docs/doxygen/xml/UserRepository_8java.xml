@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="UserRepository_8java" kind="file" language="Java">
+    <compoundname>UserRepository.java</compoundname>
+    <includes local="no">com.gmp.auth.entity.User</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/repository/UserRepository.java</label>
+        <link refid="UserRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.entity.User</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository" prot="public">com::gmp::auth::repository::UserRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1repository">com::gmp::auth::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.auth.entity.User;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="19" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository" kindref="compound">UserRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;User,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a23dff8ec8a7e7f168ad9746f6475bcb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;User&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a23dff8ec8a7e7f168ad9746f6475bcb3" kindref="member">findByUsername</ref>(String<sp/>username);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a490a25167517b09b72125ad9f30ed368" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;User&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a490a25167517b09b72125ad9f30ed368" kindref="member">findByEmail</ref>(String<sp/>email);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a61e4b26e7405430695a4b5047647e9d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;User&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a61e4b26e7405430695a4b5047647e9d7" kindref="member">findByMobile</ref>(String<sp/>mobile);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>u<sp/>FROM<sp/>User<sp/>u<sp/>WHERE<sp/>u.username<sp/>=<sp/>:usernameOrEmail<sp/>OR<sp/>u.email<sp/>=<sp/>:usernameOrEmail&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="40" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a49f03adeb967cf37fe65a4191836e9c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;User&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a49f03adeb967cf37fe65a4191836e9c2" kindref="member">findByUsernameOrEmail</ref>(@Param(&quot;usernameOrEmail&quot;)<sp/>String<sp/>usernameOrEmail);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>u<sp/>FROM<sp/>User<sp/>u<sp/>WHERE<sp/>u.userStatus<sp/>=<sp/>&apos;ACTIVE&apos;&quot;)</highlight></codeline>
+<codeline lineno="46" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a2b57fffb00b28071ea740b6e6575d135" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;User&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a2b57fffb00b28071ea740b6e6575d135" kindref="member">findAllActiveUsers</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>u<sp/>FROM<sp/>User<sp/>u<sp/>WHERE<sp/>u.userStatus<sp/>=<sp/>&apos;LOCKED&apos;&quot;)</highlight></codeline>
+<codeline lineno="52" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1af849eb45e25486693c4b1c387a71542c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;User&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1af849eb45e25486693c4b1c387a71542c" kindref="member">findLockedUsers</ref>();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>u<sp/>FROM<sp/>User<sp/>u<sp/>WHERE<sp/>u.passwordExpiredAt<sp/>&lt;<sp/>:now<sp/>AND<sp/>u.userStatus<sp/>=<sp/>&apos;ACTIVE&apos;&quot;)</highlight></codeline>
+<codeline lineno="58" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1ade76ef21e3f0c2255a44d68f43c9d64c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;User&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1ade76ef21e3f0c2255a44d68f43c9d64c" kindref="member">findPasswordExpiredUsers</ref>(@Param(&quot;now&quot;)<sp/>LocalDateTime<sp/>now);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>u<sp/>FROM<sp/>User<sp/>u<sp/>WHERE<sp/>LOWER(u.username)<sp/>LIKE<sp/>LOWER(CONCAT(&apos;%&apos;,<sp/>:keyword,<sp/>&apos;%&apos;))<sp/>OR<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;LOWER(u.fullName)<sp/>LIKE<sp/>LOWER(CONCAT(&apos;%&apos;,<sp/>:keyword,<sp/>&apos;%&apos;))<sp/>OR<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;LOWER(u.email)<sp/>LIKE<sp/>LOWER(CONCAT(&apos;%&apos;,<sp/>:keyword,<sp/>&apos;%&apos;))&quot;)</highlight></codeline>
+<codeline lineno="66" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a00b04f64960151f37d7634bc6f123711" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;User&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a00b04f64960151f37d7634bc6f123711" kindref="member">searchUsers</ref>(@Param(&quot;keyword&quot;)<sp/>String<sp/>keyword);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>u.userStatus,<sp/>COUNT(u)<sp/>FROM<sp/>User<sp/>u<sp/>GROUP<sp/>BY<sp/>u.userStatus&quot;)</highlight></codeline>
+<codeline lineno="72" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a52d72238dbcdb9ce4f7c99db465e7373" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a52d72238dbcdb9ce4f7c99db465e7373" kindref="member">countUsersByStatus</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>u<sp/>FROM<sp/>User<sp/>u<sp/>WHERE<sp/>u.lockedUntil<sp/>&lt;<sp/>:now<sp/>AND<sp/>u.userStatus<sp/>=<sp/>&apos;LOCKED&apos;&quot;)</highlight></codeline>
+<codeline lineno="78" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1aa94ff740ebcddd4bf662ccbb244240ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;User&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1aa94ff740ebcddd4bf662ccbb244240ea" kindref="member">findUsersToUnlock</ref>(@Param(&quot;now&quot;)<sp/>LocalDateTime<sp/>now);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>u<sp/>FROM<sp/>User<sp/>u<sp/>WHERE<sp/>u.lastLoginTime<sp/>&gt;=<sp/>:since<sp/>ORDER<sp/>BY<sp/>u.lastLoginTime<sp/>DESC&quot;)</highlight></codeline>
+<codeline lineno="84" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1addc18107d44f4045243f5cce3364404b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;User&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1addc18107d44f4045243f5cce3364404b" kindref="member">findRecentlyLoggedInUsers</ref>(@Param(&quot;since&quot;)<sp/>LocalDateTime<sp/>since);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a9120ed13e0f701057ec842d10e0c58cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a9120ed13e0f701057ec842d10e0c58cc" kindref="member">existsByUsername</ref>(String<sp/>username);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a1bd20cfef111011089d500e02c81383e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a1bd20cfef111011089d500e02c81383e" kindref="member">existsByEmail</ref>(String<sp/>email);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a47697febd326ff54a1627d2ed88b208b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository_1a47697febd326ff54a1627d2ed88b208b" kindref="member">existsByMobile</ref>(String<sp/>mobile);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/repository/UserRepository.java"/>
+  </compounddef>
+</doxygen>

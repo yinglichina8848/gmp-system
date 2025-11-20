@@ -79,9 +79,16 @@ echo "🔄 生成聚合覆盖率报告..."
 mvn jacoco:merge jacoco:report-aggregate -q
 
 if [ $? -eq 0 ]; then
+    # 原始聚合报告路径
     AGGREGATE_REPORT="$AUTH_SERVICE_DIR/target/jacoco/aggregate-report/index.html"
     if [ -f "$AGGREGATE_REPORT" ]; then
         echo "📊 聚合覆盖率报告已生成: $AGGREGATE_REPORT"
+        
+        # 复制到新的统一报告目录
+        NEW_REPORT_DIR="$PROJECT_ROOT/docs/coverage/auth-service"
+        mkdir -p "$NEW_REPORT_DIR"
+        cp -r "$AUTH_SERVICE_DIR/target/jacoco/aggregate-report"/* "$NEW_REPORT_DIR/"
+        echo "📋 报告已复制到统一目录: $NEW_REPORT_DIR/index.html"
     fi
 fi
 

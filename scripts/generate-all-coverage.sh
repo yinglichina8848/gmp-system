@@ -12,7 +12,7 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SERVICES_DIR="$PROJECT_ROOT/services"
 
 # 创建聚合报告目录
-AGGREGATE_DIR="$PROJECT_ROOT/target/coverage-aggregate"
+AGGREGATE_DIR="$PROJECT_ROOT/docs/coverage"
 mkdir -p "$AGGREGATE_DIR"
 
 echo "项目根目录: $PROJECT_ROOT"

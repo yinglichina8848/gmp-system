@@ -1,0 +1,603 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::auth::service::AuthServiceImpl</compoundname>
+    <basecompoundref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService" prot="public" virt="non-virtual">com.gmp.auth.service.AuthService</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1aff7de5c4baa28f9b65b8e21736948f95" prot="private" static="yes" mutable="no">
+        <type>final Logger</type>
+        <definition>final Logger com.gmp.auth.service.AuthServiceImpl.log</definition>
+        <argsstring></argsstring>
+        <name>log</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.log</qualifiedname>
+        <initializer>= LoggerFactory.getLogger(AuthServiceImpl.class)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="31" column="33" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="31" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a5331b72a7f3c517a2e7180d055e5c48c" compoundref="AuthServiceImpl_8java" startline="181" endline="190">com.gmp.auth.service.AuthServiceImpl.logFailedLoginAttempt</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1aa8737be9547fb61271eb23812bd4a755" compoundref="AuthServiceImpl_8java" startline="195" endline="204">com.gmp.auth.service.AuthServiceImpl.logSuccessfulLogin</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a228bf7ed6333eea7dde95e828835d7a7" prot="private" static="no" mutable="no">
+        <type>UserRepository</type>
+        <definition>UserRepository com.gmp.auth.service.AuthServiceImpl.userRepository</definition>
+        <argsstring></argsstring>
+        <name>userRepository</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.userRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="34" column="28" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="34" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af576e98912d4b2cbb9f3d9a650a90727" compoundref="AuthServiceImpl_8java" startline="214" endline="218">com.gmp.auth.service.AuthServiceImpl.getUserPermissions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1afda4e7e6ae5e22bd8f58f38f3de82593" compoundref="AuthServiceImpl_8java" startline="207" endline="211">com.gmp.auth.service.AuthServiceImpl.getUserRoles</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af86233b1ee0e621242cf194a0babce06" compoundref="AuthServiceImpl_8java" startline="50" endline="118">com.gmp.auth.service.AuthServiceImpl.login</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a58fd1b4193ebe028319cdd8c9ca1e916" compoundref="AuthServiceImpl_8java" startline="122" endline="136">com.gmp.auth.service.AuthServiceImpl.logout</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a289f43025bd6e90b56f0dc01bba6d0ca" compoundref="AuthServiceImpl_8java" startline="139" endline="171">com.gmp.auth.service.AuthServiceImpl.refreshToken</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a6053b1c71eabd0bb850c7e5087ca7838" prot="private" static="no" mutable="no">
+        <type>OperationLogRepository</type>
+        <definition>OperationLogRepository com.gmp.auth.service.AuthServiceImpl.operationLogRepository</definition>
+        <argsstring></argsstring>
+        <name>operationLogRepository</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.operationLogRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="37" column="36" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a5331b72a7f3c517a2e7180d055e5c48c" compoundref="AuthServiceImpl_8java" startline="181" endline="190">com.gmp.auth.service.AuthServiceImpl.logFailedLoginAttempt</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a58fd1b4193ebe028319cdd8c9ca1e916" compoundref="AuthServiceImpl_8java" startline="122" endline="136">com.gmp.auth.service.AuthServiceImpl.logout</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1aa8737be9547fb61271eb23812bd4a755" compoundref="AuthServiceImpl_8java" startline="195" endline="204">com.gmp.auth.service.AuthServiceImpl.logSuccessfulLogin</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a462694274ff578d5887583f1063d23be" prot="private" static="no" mutable="no">
+        <type>PasswordEncoder</type>
+        <definition>PasswordEncoder com.gmp.auth.service.AuthServiceImpl.passwordEncoder</definition>
+        <argsstring></argsstring>
+        <name>passwordEncoder</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.passwordEncoder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="40" column="29" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="40" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af86233b1ee0e621242cf194a0babce06" compoundref="AuthServiceImpl_8java" startline="50" endline="118">com.gmp.auth.service.AuthServiceImpl.login</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1ae52b3a81c98163b828bdedc9300a9ae3" prot="private" static="no" mutable="no">
+        <type>JwtConfig</type>
+        <definition>JwtConfig com.gmp.auth.service.AuthServiceImpl.jwtConfig</definition>
+        <argsstring></argsstring>
+        <name>jwtConfig</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.jwtConfig</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="43" column="23" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="43" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af86233b1ee0e621242cf194a0babce06" compoundref="AuthServiceImpl_8java" startline="50" endline="118">com.gmp.auth.service.AuthServiceImpl.login</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a58fd1b4193ebe028319cdd8c9ca1e916" compoundref="AuthServiceImpl_8java" startline="122" endline="136">com.gmp.auth.service.AuthServiceImpl.logout</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a289f43025bd6e90b56f0dc01bba6d0ca" compoundref="AuthServiceImpl_8java" startline="139" endline="171">com.gmp.auth.service.AuthServiceImpl.refreshToken</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a0a77c894c0ee30a5350ec5b434806bd1" compoundref="AuthServiceImpl_8java" startline="174" endline="176">com.gmp.auth.service.AuthServiceImpl.validateToken</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a8a7ed7732a47b9af02c336fdb779e028" prot="private" static="no" mutable="no">
+        <type>RedisTemplate&lt; String, Object &gt;</type>
+        <definition>RedisTemplate&lt;String, Object&gt; com.gmp.auth.service.AuthServiceImpl.redisTemplate</definition>
+        <argsstring></argsstring>
+        <name>redisTemplate</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.redisTemplate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="46" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="46" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a58fd1b4193ebe028319cdd8c9ca1e916" compoundref="AuthServiceImpl_8java" startline="122" endline="136">com.gmp.auth.service.AuthServiceImpl.logout</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af86233b1ee0e621242cf194a0babce06" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>LoginResponse</type>
+        <definition>LoginResponse com.gmp.auth.service.AuthServiceImpl.login</definition>
+        <argsstring>(LoginRequest request, String ipAddress, String userAgent)</argsstring>
+        <name>login</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.login</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a8bdb53a5ac6276565af51d441a65068b">login</reimplements>
+        <param>
+          <type>LoginRequest</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>ipAddress</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userAgent</declname>
+        </param>
+        <briefdescription>
+<para>用户登录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>登录请求 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ipAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>客户端IP地址 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userAgent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户代理 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>登录响应，包含JWT令牌 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="50" column="26" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="50" bodyend="118"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1ae52b3a81c98163b828bdedc9300a9ae3" compoundref="AuthServiceImpl_8java" startline="43">com.gmp.auth.service.AuthServiceImpl.jwtConfig</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a5331b72a7f3c517a2e7180d055e5c48c" compoundref="AuthServiceImpl_8java" startline="181" endline="190">com.gmp.auth.service.AuthServiceImpl.logFailedLoginAttempt</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1aa8737be9547fb61271eb23812bd4a755" compoundref="AuthServiceImpl_8java" startline="195" endline="204">com.gmp.auth.service.AuthServiceImpl.logSuccessfulLogin</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a462694274ff578d5887583f1063d23be" compoundref="AuthServiceImpl_8java" startline="40">com.gmp.auth.service.AuthServiceImpl.passwordEncoder</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a289f43025bd6e90b56f0dc01bba6d0ca" compoundref="AuthServiceImpl_8java" startline="139" endline="171">com.gmp.auth.service.AuthServiceImpl.refreshToken</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a228bf7ed6333eea7dde95e828835d7a7" compoundref="AuthServiceImpl_8java" startline="34">com.gmp.auth.service.AuthServiceImpl.userRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a58fd1b4193ebe028319cdd8c9ca1e916" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.AuthServiceImpl.logout</definition>
+        <argsstring>(String username, String token)</argsstring>
+        <name>logout</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.logout</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aac1a5a81a2cce2db14483da07657dfd6">logout</reimplements>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>用户登出 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JWT令牌 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="122" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="122" bodyend="136"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1ae52b3a81c98163b828bdedc9300a9ae3" compoundref="AuthServiceImpl_8java" startline="43">com.gmp.auth.service.AuthServiceImpl.jwtConfig</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a6053b1c71eabd0bb850c7e5087ca7838" compoundref="AuthServiceImpl_8java" startline="37">com.gmp.auth.service.AuthServiceImpl.operationLogRepository</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a8a7ed7732a47b9af02c336fdb779e028" compoundref="AuthServiceImpl_8java" startline="46">com.gmp.auth.service.AuthServiceImpl.redisTemplate</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a228bf7ed6333eea7dde95e828835d7a7" compoundref="AuthServiceImpl_8java" startline="34">com.gmp.auth.service.AuthServiceImpl.userRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a289f43025bd6e90b56f0dc01bba6d0ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TokenResponse</type>
+        <definition>TokenResponse com.gmp.auth.service.AuthServiceImpl.refreshToken</definition>
+        <argsstring>(String refreshToken)</argsstring>
+        <name>refreshToken</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.refreshToken</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1adb27f7683da7c5f6a2a6b9bb5021778d">refreshToken</reimplements>
+        <param>
+          <type>String</type>
+          <declname>refreshToken</declname>
+        </param>
+        <briefdescription>
+<para>刷新访问令牌 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>refreshToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>刷新令牌 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>新的令牌响应 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="139" column="26" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="139" bodyend="171"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1ae52b3a81c98163b828bdedc9300a9ae3" compoundref="AuthServiceImpl_8java" startline="43">com.gmp.auth.service.AuthServiceImpl.jwtConfig</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a289f43025bd6e90b56f0dc01bba6d0ca" compoundref="AuthServiceImpl_8java" startline="139" endline="171">com.gmp.auth.service.AuthServiceImpl.refreshToken</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a228bf7ed6333eea7dde95e828835d7a7" compoundref="AuthServiceImpl_8java" startline="34">com.gmp.auth.service.AuthServiceImpl.userRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af86233b1ee0e621242cf194a0babce06" compoundref="AuthServiceImpl_8java" startline="50" endline="118">com.gmp.auth.service.AuthServiceImpl.login</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a289f43025bd6e90b56f0dc01bba6d0ca" compoundref="AuthServiceImpl_8java" startline="139" endline="171">com.gmp.auth.service.AuthServiceImpl.refreshToken</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a0a77c894c0ee30a5350ec5b434806bd1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.service.AuthServiceImpl.validateToken</definition>
+        <argsstring>(String token)</argsstring>
+        <name>validateToken</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.validateToken</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1ae6163a7c818a2e18ff58821b1b6ce713">validateToken</reimplements>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>验证JWT令牌 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JWT令牌 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否有效 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="174" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="174" bodyend="176"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1ae52b3a81c98163b828bdedc9300a9ae3" compoundref="AuthServiceImpl_8java" startline="43">com.gmp.auth.service.AuthServiceImpl.jwtConfig</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1afda4e7e6ae5e22bd8f58f38f3de82593" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>java.util.Set&lt; String &gt;</type>
+        <definition>java.util.Set&lt; String &gt; com.gmp.auth.service.AuthServiceImpl.getUserRoles</definition>
+        <argsstring>(String username)</argsstring>
+        <name>getUserRoles</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.getUserRoles</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a4b4fb9114511f7c20928d57bd6485fdc">getUserRoles</reimplements>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>获取用户所有角色 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>角色列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="207" column="24" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="207" bodyend="211"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a228bf7ed6333eea7dde95e828835d7a7" compoundref="AuthServiceImpl_8java" startline="34">com.gmp.auth.service.AuthServiceImpl.userRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a6bdff2aa124a0706cd715f59b9d984b2" compoundref="AuthServiceImpl_8java" startline="228" endline="232">com.gmp.auth.service.AuthServiceImpl.hasRole</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af576e98912d4b2cbb9f3d9a650a90727" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>java.util.List&lt; String &gt;</type>
+        <definition>java.util.List&lt; String &gt; com.gmp.auth.service.AuthServiceImpl.getUserPermissions</definition>
+        <argsstring>(String username)</argsstring>
+        <name>getUserPermissions</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.getUserPermissions</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a07e978f3b73c352df91170738341df9d">getUserPermissions</reimplements>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>获取用户所有权限 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>权限列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="214" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="214" bodyend="218"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a228bf7ed6333eea7dde95e828835d7a7" compoundref="AuthServiceImpl_8java" startline="34">com.gmp.auth.service.AuthServiceImpl.userRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a9ce2f2eb429c7012b4ffaf2b8f65cb05" compoundref="AuthServiceImpl_8java" startline="221" endline="225">com.gmp.auth.service.AuthServiceImpl.hasPermission</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a9ce2f2eb429c7012b4ffaf2b8f65cb05" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.service.AuthServiceImpl.hasPermission</definition>
+        <argsstring>(String username, String... requiredPermissions)</argsstring>
+        <name>hasPermission</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.hasPermission</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aa568eff98b61485ca32edbf8c747405d">hasPermission</reimplements>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String...</type>
+          <declname>requiredPermissions</declname>
+        </param>
+        <briefdescription>
+<para>验证用户权限 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>requiredPermissions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>需要的权限列表 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否有权限 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="221" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="221" bodyend="225"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af576e98912d4b2cbb9f3d9a650a90727" compoundref="AuthServiceImpl_8java" startline="214" endline="218">com.gmp.auth.service.AuthServiceImpl.getUserPermissions</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a6bdff2aa124a0706cd715f59b9d984b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.service.AuthServiceImpl.hasRole</definition>
+        <argsstring>(String username, String... requiredRoles)</argsstring>
+        <name>hasRole</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.hasRole</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1ada8b79ae20b6eb69b5a0dd2fadf24a69">hasRole</reimplements>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String...</type>
+          <declname>requiredRoles</declname>
+        </param>
+        <briefdescription>
+<para>验证用户角色 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>requiredRoles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>需要的角色列表 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否有角色 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="228" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="228" bodyend="232"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1afda4e7e6ae5e22bd8f58f38f3de82593" compoundref="AuthServiceImpl_8java" startline="207" endline="211">com.gmp.auth.service.AuthServiceImpl.getUserRoles</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a5331b72a7f3c517a2e7180d055e5c48c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.AuthServiceImpl.logFailedLoginAttempt</definition>
+        <argsstring>(User user, String reason, String ipAddress, String userAgent)</argsstring>
+        <name>logFailedLoginAttempt</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.logFailedLoginAttempt</qualifiedname>
+        <param>
+          <type>User</type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>reason</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>ipAddress</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userAgent</declname>
+        </param>
+        <briefdescription>
+<para>记录登录失败 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="181" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="181" bodyend="190"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1aff7de5c4baa28f9b65b8e21736948f95" compoundref="AuthServiceImpl_8java" startline="31">com.gmp.auth.service.AuthServiceImpl.log</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a6053b1c71eabd0bb850c7e5087ca7838" compoundref="AuthServiceImpl_8java" startline="37">com.gmp.auth.service.AuthServiceImpl.operationLogRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af86233b1ee0e621242cf194a0babce06" compoundref="AuthServiceImpl_8java" startline="50" endline="118">com.gmp.auth.service.AuthServiceImpl.login</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1aa8737be9547fb61271eb23812bd4a755" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.AuthServiceImpl.logSuccessfulLogin</definition>
+        <argsstring>(User user, String ipAddress, String userAgent)</argsstring>
+        <name>logSuccessfulLogin</name>
+        <qualifiedname>com.gmp.auth.service.AuthServiceImpl.logSuccessfulLogin</qualifiedname>
+        <param>
+          <type>User</type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>ipAddress</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userAgent</declname>
+        </param>
+        <briefdescription>
+<para>记录登录成功 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="195" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="195" bodyend="204"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1aff7de5c4baa28f9b65b8e21736948f95" compoundref="AuthServiceImpl_8java" startline="31">com.gmp.auth.service.AuthServiceImpl.log</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a6053b1c71eabd0bb850c7e5087ca7838" compoundref="AuthServiceImpl_8java" startline="37">com.gmp.auth.service.AuthServiceImpl.operationLogRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af86233b1ee0e621242cf194a0babce06" compoundref="AuthServiceImpl_8java" startline="50" endline="118">com.gmp.auth.service.AuthServiceImpl.login</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>认证服务实现类 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>com.gmp.auth.service.AuthServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.service.AuthService</label>
+        <link refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="7">
+        <label>JwtConfig</label>
+      </node>
+      <node id="5">
+        <label>OperationLogRepository</label>
+      </node>
+      <node id="6">
+        <label>PasswordEncoder</label>
+      </node>
+      <node id="8">
+        <label>RedisTemplate&lt; String, Object &gt;</label>
+      </node>
+      <node id="4">
+        <label>UserRepository</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.auth.service.AuthServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>log</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>userRepository</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>operationLogRepository</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>passwordEncoder</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>jwtConfig</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>redisTemplate</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.service.AuthService</label>
+        <link refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService"/>
+      </node>
+      <node id="3">
+        <label>static final Logger</label>
+      </node>
+    </collaborationgraph>
+    <location file="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" line="29" column="7" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthServiceImpl.java" bodystart="29" bodyend="233"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af576e98912d4b2cbb9f3d9a650a90727" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>getUserPermissions</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1afda4e7e6ae5e22bd8f58f38f3de82593" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>getUserRoles</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a9ce2f2eb429c7012b4ffaf2b8f65cb05" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>hasPermission</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a6bdff2aa124a0706cd715f59b9d984b2" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>hasRole</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1ae52b3a81c98163b828bdedc9300a9ae3" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>jwtConfig</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1aff7de5c4baa28f9b65b8e21736948f95" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>log</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a5331b72a7f3c517a2e7180d055e5c48c" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>logFailedLoginAttempt</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1af86233b1ee0e621242cf194a0babce06" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>login</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a58fd1b4193ebe028319cdd8c9ca1e916" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>logout</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1aa8737be9547fb61271eb23812bd4a755" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>logSuccessfulLogin</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a6053b1c71eabd0bb850c7e5087ca7838" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>operationLogRepository</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a462694274ff578d5887583f1063d23be" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>passwordEncoder</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a8a7ed7732a47b9af02c336fdb779e028" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>redisTemplate</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a289f43025bd6e90b56f0dc01bba6d0ca" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>refreshToken</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a228bf7ed6333eea7dde95e828835d7a7" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>userRepository</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl_1a0a77c894c0ee30a5350ec5b434806bd1" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::AuthServiceImpl</scope><name>validateToken</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
