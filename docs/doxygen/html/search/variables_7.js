@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jwtconfig_0',['jwtConfig',['../classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl.html#ae52b3a81c98163b828bdedc9300a9ae3',1,'com::gmp::auth::service::AuthServiceImpl']]]
+  ['jwtconfig_0',['jwtconfig',['../classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController.html#a440b93ec6952ca34087a848ff1bde771',1,'com.gmp.auth.controller.AuthController.jwtConfig'],['../classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl.html#ae52b3a81c98163b828bdedc9300a9ae3',1,'com.gmp.auth.service.AuthServiceImpl.jwtConfig']]]
 ];

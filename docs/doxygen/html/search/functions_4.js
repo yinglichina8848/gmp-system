@@ -8,5 +8,6 @@ var searchData=
   ['extractclaim_5',['extractClaim',['../classcom_1_1gmp_1_1auth_1_1config_1_1JwtConfig.html#ae46ebf8ffed6863ae3d1d604e6047018',1,'com::gmp::auth::config::JwtConfig']]],
   ['extractpermissions_6',['extractPermissions',['../classcom_1_1gmp_1_1auth_1_1config_1_1JwtConfig.html#a1fa82e0cc4e7aadeb932df3c4d891ac8',1,'com::gmp::auth::config::JwtConfig']]],
   ['extractroles_7',['extractRoles',['../classcom_1_1gmp_1_1auth_1_1config_1_1JwtConfig.html#ae9297ada70cc90ae5bbda66d21d5a271',1,'com::gmp::auth::config::JwtConfig']]],
-  ['extractusername_8',['extractUsername',['../classcom_1_1gmp_1_1auth_1_1config_1_1JwtConfig.html#af8deb49941cc01bbc0239583ffcdd1a4',1,'com::gmp::auth::config::JwtConfig']]]
+  ['extractusername_8',['extractUsername',['../classcom_1_1gmp_1_1auth_1_1config_1_1JwtConfig.html#af8deb49941cc01bbc0239583ffcdd1a4',1,'com::gmp::auth::config::JwtConfig']]],
+  ['extractusernamefromtoken_9',['extractUsernameFromToken',['../classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController.html#a54f266da69ad24907e3da8ff02681fbd',1,'com::gmp::auth::controller::AuthController']]]
 ];

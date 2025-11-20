@@ -1,5 +1,14 @@
 var classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse =
 [
+    [ "getAccessToken", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#ac65540cddc94f76bd7bf4942ed6d9fd3", null ],
+    [ "getExpiresIn", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#ae739a9b56e10f4754371c11f5fee5a35", null ],
+    [ "getFullName", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#a6501a3c9622743971fadd75cbac9efcc", null ],
+    [ "getLoginTime", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#adb09f957fef772be971e881649da7f6f", null ],
+    [ "getPermissions", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#a810bea9c2d346eecb0e5caeba2f47dcc", null ],
+    [ "getRefreshToken", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#ac81421c46645a0a0d3ed33120ecb80d7", null ],
+    [ "getRoles", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#af74861dbf1b11dc8a91ee200cfb0c771", null ],
+    [ "getTokenType", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#a86fc2f7cdb9064aea97ca11b662cd9fd", null ],
+    [ "getUsername", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#a445feff4289606584dd7bd20ccca679a", null ],
     [ "setAccessToken", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#a81ba9e096187dee5d24a1eddb81279fb", null ],
     [ "setExpiresIn", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#a95b24437a62097422e12e3be66fb8991", null ],
     [ "setFullName", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#af2f4f603d6c081cf186abf00dff6cfdb", null ],

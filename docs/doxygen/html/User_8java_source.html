@@ -166,187 +166,204 @@ $(document).ready(function(){initNavTree('User_8java_source.html',''); initResiz
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    </div>
 <div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ae33dd3dad5df8253ac9dba6d483f3700">   67</a></span>    <span class="keyword">public</span> Set&lt;String&gt; <a class="code hl_function" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ae33dd3dad5df8253ac9dba6d483f3700">getRoles</a>() {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="comment">// 临时实现，实际应通过UserRepository或UserService获取角色信息</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="comment">// 临时实现，根据用户名判断角色</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        Set&lt;String&gt; roles = <span class="keyword">new</span> HashSet&lt;&gt;();</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        roles.add(<span class="stringliteral">&quot;USER&quot;</span>); <span class="comment">// 默认角色</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> roles;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">if</span> (<span class="stringliteral">&quot;admin&quot;</span>.equals(username)) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            roles.add(<span class="stringliteral">&quot;ADMIN&quot;</span>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            roles.add(<span class="stringliteral">&quot;USER&quot;</span>);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            roles.add(<span class="stringliteral">&quot;USER&quot;</span>); <span class="comment">// 默认角色</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">return</span> roles;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
 </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    </div>
-<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a543078f5efdb86774836f409d4f3895f">   78</a></span>    <span class="keyword">public</span> List&lt;String&gt; <a class="code hl_function" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a543078f5efdb86774836f409d4f3895f">getPermissions</a>() {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="comment">// 临时实现，实际应通过UserRepository或UserService获取权限信息</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        List&lt;String&gt; permissions = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        permissions.add(<span class="stringliteral">&quot;user:read&quot;</span>); <span class="comment">// 默认权限</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">return</span> permissions;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a543078f5efdb86774836f409d4f3895f">   83</a></span>    <span class="keyword">public</span> List&lt;String&gt; <a class="code hl_function" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a543078f5efdb86774836f409d4f3895f">getPermissions</a>() {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="comment">// 临时实现，根据用户角色返回相应权限</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        List&lt;String&gt; permissions = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="comment">// 基础权限</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        permissions.add(<span class="stringliteral">&quot;user:read&quot;</span>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        permissions.add(<span class="stringliteral">&quot;user:write&quot;</span>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="comment">// 管理员额外权限</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">if</span> (<span class="stringliteral">&quot;admin&quot;</span>.equals(username)) {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            permissions.add(<span class="stringliteral">&quot;admin:read&quot;</span>);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            permissions.add(<span class="stringliteral">&quot;admin:write&quot;</span>);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            permissions.add(<span class="stringliteral">&quot;user:list&quot;</span>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            permissions.add(<span class="stringliteral">&quot;user:delete&quot;</span>);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">return</span> permissions;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
 </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    </div>
-<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a106477d3812b8974a4376817f4315791">   85</a></span>    <span class="keyword">public</span> <a class="code hl_class" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html">UserStatus</a> <a class="code hl_function" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a106477d3812b8974a4376817f4315791">getUserStatus</a>() {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">return</span> userStatus;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    </div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a106477d3812b8974a4376817f4315791">  102</a></span>    <span class="keyword">public</span> <a class="code hl_class" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html">UserStatus</a> <a class="code hl_function" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a106477d3812b8974a4376817f4315791">getUserStatus</a>() {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">return</span> userStatus;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
 </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    </div>
-<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a175c69d5c3c00dcd1a64df02f51bb6d9">   89</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a175c69d5c3c00dcd1a64df02f51bb6d9">setLastLoginTime</a>(LocalDateTime lastLoginTime) {</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        this.lastLoginTime = lastLoginTime;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    </div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a175c69d5c3c00dcd1a64df02f51bb6d9">  106</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a175c69d5c3c00dcd1a64df02f51bb6d9">setLastLoginTime</a>(LocalDateTime lastLoginTime) {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        this.lastLoginTime = lastLoginTime;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
 </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    </div>
-<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a417978e3cd6de4ac75797de6bf5024e9">   93</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a417978e3cd6de4ac75797de6bf5024e9">setLastLoginIp</a>(String lastLoginIp) {</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        this.lastLoginIp = lastLoginIp;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    </div>
+<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a417978e3cd6de4ac75797de6bf5024e9">  110</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a417978e3cd6de4ac75797de6bf5024e9">setLastLoginIp</a>(String lastLoginIp) {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        this.lastLoginIp = lastLoginIp;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
 </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    @Id</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    @GeneratedValue(strategy = GenerationType.IDENTITY)</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a1d7a0d4a2a41f14f9e65c8d8ea727737">   99</a></span>    private Long <span class="keywordtype">id</span>;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    @NotBlank(message = &quot;用户名不能为空&quot;)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    @Size(min = 3, max = 50, message = &quot;用户名长度必须在3-50字符之间&quot;)</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    @Pattern(regexp = &quot;^[a-zA-Z0-9_]+$&quot;, message = &quot;用户名只能包含字母、数字和下划线&quot;)</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    @Column(unique = true, nullable = false)</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#af6ead296286873e0387a23caf3d340a4">  105</a></span>    private String username;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    @Email(message = &quot;邮箱格式不正确&quot;)</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    @Size(max = 100, message = &quot;邮箱长度不能超过100字符&quot;)</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    @Column(unique = true)</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ab75c500d1e9145dfe96696c150a44d4b">  110</a></span>    private String email;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    @Size(max = 20, message = &quot;手机号长度不能超过20字符&quot;)</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    @Pattern(regexp = &quot;^1[3-9]\\d{9}$<span class="stringliteral">&quot;, message = &quot;</span>手机号格式不正确<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ad1d80c3a77b9e932ca90fc30888cdf3e">  114</a></span><span class="stringliteral">    private String mobile;</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="stringliteral">    @NotBlank(message = &quot;</span>用户姓名不能为空<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="stringliteral">    @Size(max = 100, message = &quot;</span>用户姓名长度不能超过100字符<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="stringliteral">    @Column(name = &quot;</span>full_name<span class="stringliteral">&quot;, nullable = false)</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a37b1f33df6be152417aaab12cb63ba4e">  119</a></span><span class="stringliteral">    private String fullName;</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="stringliteral">    @NotBlank(message = &quot;</span>密码不能为空<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="stringliteral">    @Size(max = 200, message = &quot;</span>密码哈希长度不能超过200字符<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="stringliteral">    @Column(name = &quot;</span>password_hash<span class="stringliteral">&quot;, nullable = false)</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a32d4a8273628679a9ca5000af35adf67">  124</a></span><span class="stringliteral">    private String passwordHash;</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="stringliteral">    @Builder.Default</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="stringliteral">    @NotNull(message = &quot;</span>用户状态不能为空<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="stringliteral">    @Enumerated(EnumType.STRING)</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="stringliteral">    @Column(name = &quot;</span>user_status<span class="stringliteral">&quot;, nullable = false)</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ad44445a9206a7d8d4a9a8a0272721d67">  130</a></span><span class="stringliteral">    private UserStatus userStatus = UserStatus.ACTIVE;</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="stringliteral">    @Column(name = &quot;</span>last_login_time<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a1473810dbb869efdd6da25eb8d9e7896">  133</a></span><span class="stringliteral">    private LocalDateTime lastLoginTime;</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="stringliteral">    @Size(max = 50, message = &quot;</span>登录IP长度不能超过50字符<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="stringliteral">    @Column(name = &quot;</span>last_login_ip<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#abe91191b1dd603b0428cd121422cff54">  137</a></span><span class="stringliteral">    private String lastLoginIp;</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="stringliteral">    @Column(name = &quot;</span>password_expired_at<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#aa71ec0274e69f936df8db563555b04f4">  140</a></span><span class="stringliteral">    private LocalDateTime passwordExpiredAt;</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="stringliteral">    @Builder.Default</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="stringliteral">    @Min(value = 0, message = &quot;</span>登录尝试次数不能为负数<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="stringliteral">    @Max(value = 10, message = &quot;</span>登录尝试次数不能超过10次<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="stringliteral">    @Column(name = &quot;</span>login_attempts<span class="stringliteral">&quot;, nullable = false)</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#aec7385b0b78b718121388d064164fdc0">  146</a></span><span class="stringliteral">    private Integer loginAttempts = 0;</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="stringliteral">    @Column(name = &quot;</span>locked_until<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a1a7f7416563a0a224e40c326f293c635">  149</a></span><span class="stringliteral">    private LocalDateTime lockedUntil;</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="stringliteral">    // 审计字段</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="stringliteral">    @CreatedDate</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="stringliteral">    @Column(name = &quot;</span>created_at<span class="stringliteral">&quot;, nullable = false, updatable = false)</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a9e7ff354026e321a9b61af8ab6c5274a">  154</a></span><span class="stringliteral">    private LocalDateTime createdAt;</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    @Id</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    @GeneratedValue(strategy = GenerationType.IDENTITY)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a1d7a0d4a2a41f14f9e65c8d8ea727737">  116</a></span>    private Long <span class="keywordtype">id</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    @NotBlank(message = &quot;用户名不能为空&quot;)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    @Size(min = 3, max = 50, message = &quot;用户名长度必须在3-50字符之间&quot;)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    @Pattern(regexp = &quot;^[a-zA-Z0-9_]+$&quot;, message = &quot;用户名只能包含字母、数字和下划线&quot;)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    @Column(unique = true, nullable = false)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#af6ead296286873e0387a23caf3d340a4">  122</a></span>    private String username;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    @Email(message = &quot;邮箱格式不正确&quot;)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    @Size(max = 100, message = &quot;邮箱长度不能超过100字符&quot;)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    @Column(unique = true)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ab75c500d1e9145dfe96696c150a44d4b">  127</a></span>    private String email;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    @Size(max = 20, message = &quot;手机号长度不能超过20字符&quot;)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    @Pattern(regexp = &quot;^1[3-9]\\d{9}$<span class="stringliteral">&quot;, message = &quot;</span>手机号格式不正确<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ad1d80c3a77b9e932ca90fc30888cdf3e">  131</a></span><span class="stringliteral">    private String mobile;</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="stringliteral">    @NotBlank(message = &quot;</span>用户姓名不能为空<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="stringliteral">    @Size(max = 100, message = &quot;</span>用户姓名长度不能超过100字符<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="stringliteral">    @Column(name = &quot;</span>full_name<span class="stringliteral">&quot;, nullable = false)</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a37b1f33df6be152417aaab12cb63ba4e">  136</a></span><span class="stringliteral">    private String fullName;</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="stringliteral">    @NotBlank(message = &quot;</span>密码不能为空<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="stringliteral">    @Size(max = 200, message = &quot;</span>密码哈希长度不能超过200字符<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="stringliteral">    @Column(name = &quot;</span>password_hash<span class="stringliteral">&quot;, nullable = false)</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a32d4a8273628679a9ca5000af35adf67">  141</a></span><span class="stringliteral">    private String passwordHash;</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="stringliteral">    @Builder.Default</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="stringliteral">    @NotNull(message = &quot;</span>用户状态不能为空<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="stringliteral">    @Enumerated(EnumType.STRING)</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="stringliteral">    @Column(name = &quot;</span>user_status<span class="stringliteral">&quot;, nullable = false)</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ad44445a9206a7d8d4a9a8a0272721d67">  147</a></span><span class="stringliteral">    private UserStatus userStatus = UserStatus.ACTIVE;</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="stringliteral">    @Column(name = &quot;</span>last_login_time<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a1473810dbb869efdd6da25eb8d9e7896">  150</a></span><span class="stringliteral">    private LocalDateTime lastLoginTime;</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="stringliteral">    @Size(max = 50, message = &quot;</span>登录IP长度不能超过50字符<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="stringliteral">    @Column(name = &quot;</span>last_login_ip<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#abe91191b1dd603b0428cd121422cff54">  154</a></span><span class="stringliteral">    private String lastLoginIp;</span></div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="stringliteral">    @LastModifiedDate</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="stringliteral">    @Column(name = &quot;</span>updated_at<span class="stringliteral">&quot;, nullable = false)</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a4cabbbb8584416567bfea5bf21b72ecb">  158</a></span><span class="stringliteral">    private LocalDateTime updatedAt;</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="stringliteral">    @Column(name = &quot;</span>created_by<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#af5116f46a55b1ac5072cf3d377fa5dee">  161</a></span><span class="stringliteral">    private Long createdBy;</span></div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="stringliteral">    @Column(name = &quot;</span>updated_by<span class="stringliteral">&quot;)</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ad5887e23b1ee52a5898893fe133e2ff6">  164</a></span><span class="stringliteral">    private Long updatedBy;</span></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="stringliteral">    @Builder.Default</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="stringliteral">    @Version</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="stringliteral">    @Column(nullable = false)</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ade5ec9cd5ab199f4b7f69becedb58266">  169</a></span><span class="stringliteral">    private Integer version = 1;</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="stringliteral"></span> </div>
-<div class="foldopen" id="foldopen00174" data-start="{" data-end="};">
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html">  174</a></span>    public enum UserStatus {</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#a59b349693f5948c3e2cdc3540a51ce25">  175</a></span>        ACTIVE(&quot;活跃<span class="stringliteral">&quot;),</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#af6c4c2415283f9ac7e900c9e71e0a460">  176</a></span><span class="stringliteral">        INACTIVE(&quot;</span>未激活<span class="stringliteral">&quot;),</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#a1f9516ce077ecfa8ce5312630ead632e">  177</a></span><span class="stringliteral">        LOCKED(&quot;</span>锁定<span class="stringliteral">&quot;),</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#aa00a5289d9e5ea917d13134278a55ce8">  178</a></span><span class="stringliteral">        EXPIRED(&quot;</span>过期<span class="stringliteral">&quot;);</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="stringliteral">    @Column(name = &quot;</span>password_expired_at<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#aa71ec0274e69f936df8db563555b04f4">  157</a></span><span class="stringliteral">    private LocalDateTime passwordExpiredAt;</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="stringliteral">    @Builder.Default</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="stringliteral">    @Min(value = 0, message = &quot;</span>登录尝试次数不能为负数<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="stringliteral">    @Max(value = 10, message = &quot;</span>登录尝试次数不能超过10次<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="stringliteral">    @Column(name = &quot;</span>login_attempts<span class="stringliteral">&quot;, nullable = false)</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#aec7385b0b78b718121388d064164fdc0">  163</a></span><span class="stringliteral">    private Integer loginAttempts = 0;</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="stringliteral">    @Column(name = &quot;</span>locked_until<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a1a7f7416563a0a224e40c326f293c635">  166</a></span><span class="stringliteral">    private LocalDateTime lockedUntil;</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="stringliteral">    // 审计字段</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="stringliteral">    @CreatedDate</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="stringliteral">    @Column(name = &quot;</span>created_at<span class="stringliteral">&quot;, nullable = false, updatable = false)</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a9e7ff354026e321a9b61af8ab6c5274a">  171</a></span><span class="stringliteral">    private LocalDateTime createdAt;</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="stringliteral">    @LastModifiedDate</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="stringliteral">    @Column(name = &quot;</span>updated_at<span class="stringliteral">&quot;, nullable = false)</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a4cabbbb8584416567bfea5bf21b72ecb">  175</a></span><span class="stringliteral">    private LocalDateTime updatedAt;</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="stringliteral">    @Column(name = &quot;</span>created_by<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#af5116f46a55b1ac5072cf3d377fa5dee">  178</a></span><span class="stringliteral">    private Long createdBy;</span></div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#acb509e08bb4bb8bafc69096b35630316">  180</a></span><span class="stringliteral">        private final String description;</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="stringliteral"></span> </div>
-<div class="foldopen" id="foldopen00182" data-start="{" data-end="}">
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#a931ae78519812d0c5bbf3daa356872e9">  182</a></span><span class="stringliteral">        UserStatus(String description) {</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="stringliteral">            this.description = description;</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="stringliteral">        }</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="stringliteral">    @Column(name = &quot;</span>updated_by<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ad5887e23b1ee52a5898893fe133e2ff6">  181</a></span><span class="stringliteral">    private Long updatedBy;</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="stringliteral">    @Builder.Default</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="stringliteral">    @Version</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="stringliteral">    @Column(nullable = false)</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ade5ec9cd5ab199f4b7f69becedb58266">  186</a></span><span class="stringliteral">    private Integer version = 1;</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="stringliteral"></span> </div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="};">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html">  191</a></span>    public enum UserStatus {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#a59b349693f5948c3e2cdc3540a51ce25">  192</a></span>        ACTIVE(&quot;活跃<span class="stringliteral">&quot;),</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#af6c4c2415283f9ac7e900c9e71e0a460">  193</a></span><span class="stringliteral">        INACTIVE(&quot;</span>未激活<span class="stringliteral">&quot;),</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#a1f9516ce077ecfa8ce5312630ead632e">  194</a></span><span class="stringliteral">        LOCKED(&quot;</span>锁定<span class="stringliteral">&quot;),</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#aa00a5289d9e5ea917d13134278a55ce8">  195</a></span><span class="stringliteral">        EXPIRED(&quot;</span>过期<span class="stringliteral">&quot;);</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#acb509e08bb4bb8bafc69096b35630316">  197</a></span><span class="stringliteral">        private final String description;</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="stringliteral"></span> </div>
+<div class="foldopen" id="foldopen00199" data-start="{" data-end="}">
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#a931ae78519812d0c5bbf3daa356872e9">  199</a></span><span class="stringliteral">        UserStatus(String description) {</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="stringliteral">            this.description = description;</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="stringliteral">        }</span></div>
 </div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="stringliteral"></span> </div>
-<div class="foldopen" id="foldopen00186" data-start="{" data-end="}">
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#a209645571eaec13b19f090dfcae4e2d8">  186</a></span><span class="stringliteral">        public String getDescription() {</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="stringliteral">            return description;</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="stringliteral">        }</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="stringliteral"></span> </div>
+<div class="foldopen" id="foldopen00203" data-start="{" data-end="}">
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html#a209645571eaec13b19f090dfcae4e2d8">  203</a></span><span class="stringliteral">        public String getDescription() {</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="stringliteral">            return description;</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="stringliteral">        }</span></div>
 </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="stringliteral">    }</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="stringliteral">    }</span></div>
 </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    @Transient</div>
-<div class="foldopen" id="foldopen00195" data-start="{" data-end="}">
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#af52bbbda2f129dfe872c0f0931bc7de7">  195</a></span>    public boolean isLocked() {</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        return this.userStatus == UserStatus.LOCKED ||</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                (this.lockedUntil != null &amp;&amp; LocalDateTime.now().isBefore(this.lockedUntil));</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    }</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    @Transient</div>
+<div class="foldopen" id="foldopen00212" data-start="{" data-end="}">
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#af52bbbda2f129dfe872c0f0931bc7de7">  212</a></span>    public boolean isLocked() {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        return this.userStatus == UserStatus.LOCKED ||</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                (this.lockedUntil != null &amp;&amp; LocalDateTime.now().isBefore(this.lockedUntil));</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    }</div>
 </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    @Transient</div>
-<div class="foldopen" id="foldopen00204" data-start="{" data-end="}">
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a340b66736a7f237581109b5c5fa57116">  204</a></span>    public boolean isPasswordExpired() {</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        return this.passwordExpiredAt != null &amp;&amp; LocalDateTime.now().isAfter(this.passwordExpiredAt);</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    }</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    @Transient</div>
+<div class="foldopen" id="foldopen00221" data-start="{" data-end="}">
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a340b66736a7f237581109b5c5fa57116">  221</a></span>    public boolean isPasswordExpired() {</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        return this.passwordExpiredAt != null &amp;&amp; LocalDateTime.now().isAfter(this.passwordExpiredAt);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    }</div>
 </div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="foldopen" id="foldopen00211" data-start="{" data-end="}">
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a4c7401f42bd1de6b23970bffb70febb8">  211</a></span>    public void incrementLoginAttempts() {</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        this.loginAttempts = (this.loginAttempts == null ? 0 : this.loginAttempts) + 1;</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    }</div>
-</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="foldopen" id="foldopen00218" data-start="{" data-end="}">
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a97cfaf83975e0bb0a7e9b4bd29915708">  218</a></span>    public void resetLoginAttempts() {</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        this.loginAttempts = 0;</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        this.lockedUntil = null;</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    }</div>
-</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="foldopen" id="foldopen00226" data-start="{" data-end="}">
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#aabe406d34183476578c39dc0575581d1">  226</a></span>    public void lockAccount(int lockMinutes) {</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        this.userStatus = UserStatus.LOCKED;</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        this.lockedUntil = LocalDateTime.now().plusMinutes(lockMinutes);</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        this.loginAttempts = 0;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="foldopen" id="foldopen00228" data-start="{" data-end="}">
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a4c7401f42bd1de6b23970bffb70febb8">  228</a></span>    public void incrementLoginAttempts() {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        this.loginAttempts = (this.loginAttempts == null ? 0 : this.loginAttempts) + 1;</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    }</div>
 </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>}</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="foldopen" id="foldopen00235" data-start="{" data-end="}">
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a97cfaf83975e0bb0a7e9b4bd29915708">  235</a></span>    public void resetLoginAttempts() {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        this.loginAttempts = 0;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        this.lockedUntil = null;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    }</div>
+</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="foldopen" id="foldopen00243" data-start="{" data-end="}">
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#aabe406d34183476578c39dc0575581d1">  243</a></span>    public void lockAccount(int lockMinutes) {</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        this.userStatus = UserStatus.LOCKED;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        this.lockedUntil = LocalDateTime.now().plusMinutes(lockMinutes);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        this.loginAttempts = 0;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    }</div>
+</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>}</div>
 </div>
 <div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html">com.gmp.auth.entity.User</a></div><div class="ttdoc">GMP系统用户实体</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00031">User.java:31</a></div></div>
-<div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a106477d3812b8974a4376817f4315791"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a106477d3812b8974a4376817f4315791">com.gmp.auth.entity.User.getUserStatus</a></div><div class="ttdeci">UserStatus getUserStatus()</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00085">User.java:85</a></div></div>
-<div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a175c69d5c3c00dcd1a64df02f51bb6d9"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a175c69d5c3c00dcd1a64df02f51bb6d9">com.gmp.auth.entity.User.setLastLoginTime</a></div><div class="ttdeci">void setLastLoginTime(LocalDateTime lastLoginTime)</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00089">User.java:89</a></div></div>
+<div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a106477d3812b8974a4376817f4315791"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a106477d3812b8974a4376817f4315791">com.gmp.auth.entity.User.getUserStatus</a></div><div class="ttdeci">UserStatus getUserStatus()</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00102">User.java:102</a></div></div>
+<div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a175c69d5c3c00dcd1a64df02f51bb6d9"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a175c69d5c3c00dcd1a64df02f51bb6d9">com.gmp.auth.entity.User.setLastLoginTime</a></div><div class="ttdeci">void setLastLoginTime(LocalDateTime lastLoginTime)</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00106">User.java:106</a></div></div>
 <div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a2059f9fe3e12ae46e47590c8d498280a"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a2059f9fe3e12ae46e47590c8d498280a">com.gmp.auth.entity.User.getFullName</a></div><div class="ttdeci">String getFullName()</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00051">User.java:51</a></div></div>
 <div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a2224323200e291cf1261cb7d1598141e"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a2224323200e291cf1261cb7d1598141e">com.gmp.auth.entity.User.getLoginAttempts</a></div><div class="ttdeci">Integer getLoginAttempts()</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00046">User.java:46</a></div></div>
-<div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a417978e3cd6de4ac75797de6bf5024e9"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a417978e3cd6de4ac75797de6bf5024e9">com.gmp.auth.entity.User.setLastLoginIp</a></div><div class="ttdeci">void setLastLoginIp(String lastLoginIp)</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00093">User.java:93</a></div></div>
-<div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a543078f5efdb86774836f409d4f3895f"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a543078f5efdb86774836f409d4f3895f">com.gmp.auth.entity.User.getPermissions</a></div><div class="ttdeci">List&lt; String &gt; getPermissions()</div><div class="ttdoc">获取用户权限 注：实际项目中应从用户-角色-权限关联表获取</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00078">User.java:78</a></div></div>
+<div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a417978e3cd6de4ac75797de6bf5024e9"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a417978e3cd6de4ac75797de6bf5024e9">com.gmp.auth.entity.User.setLastLoginIp</a></div><div class="ttdeci">void setLastLoginIp(String lastLoginIp)</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00110">User.java:110</a></div></div>
+<div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a543078f5efdb86774836f409d4f3895f"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a543078f5efdb86774836f409d4f3895f">com.gmp.auth.entity.User.getPermissions</a></div><div class="ttdeci">List&lt; String &gt; getPermissions()</div><div class="ttdoc">获取用户权限 注：实际项目中应从用户-权限关联表或角色-权限关联表获取</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00083">User.java:83</a></div></div>
 <div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a76d2b28ec294ff15acc5f1ca2fba0496"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a76d2b28ec294ff15acc5f1ca2fba0496">com.gmp.auth.entity.User.getId</a></div><div class="ttdeci">Long getId()</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00034">User.java:34</a></div></div>
 <div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a7fcd740a0efcc3d8f420b8bd0af15adf"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a7fcd740a0efcc3d8f420b8bd0af15adf">com.gmp.auth.entity.User.getPassword</a></div><div class="ttdeci">String getPassword()</div><div class="ttdoc">获取密码哈希 用于密码验证</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00059">User.java:59</a></div></div>
 <div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_a9a8718cd452b4a677373f54ed73f189e"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a9a8718cd452b4a677373f54ed73f189e">com.gmp.auth.entity.User.getUsername</a></div><div class="ttdeci">String getUsername()</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00038">User.java:38</a></div></div>
 <div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_acae6d26839c308b7e8c2e9eab0f815f0"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#acae6d26839c308b7e8c2e9eab0f815f0">com.gmp.auth.entity.User.getLoginIp</a></div><div class="ttdeci">String getLoginIp()</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00042">User.java:42</a></div></div>
 <div class="ttc" id="aclasscom_1_1gmp_1_1auth_1_1entity_1_1User_html_ae33dd3dad5df8253ac9dba6d483f3700"><div class="ttname"><a href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#ae33dd3dad5df8253ac9dba6d483f3700">com.gmp.auth.entity.User.getRoles</a></div><div class="ttdeci">Set&lt; String &gt; getRoles()</div><div class="ttdoc">获取用户角色 注：实际项目中应从用户-角色关联表获取</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00067">User.java:67</a></div></div>
-<div class="ttc" id="aenumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_html"><div class="ttname"><a href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html">com.gmp.auth.entity.User.UserStatus</a></div><div class="ttdoc">用户状态枚举</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00174">User.java:174</a></div></div>
+<div class="ttc" id="aenumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_html"><div class="ttname"><a href="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus.html">com.gmp.auth.entity.User.UserStatus</a></div><div class="ttdoc">用户状态枚举</div><div class="ttdef"><b>Definition</b> <a href="User_8java_source.html#l00191">User.java:191</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

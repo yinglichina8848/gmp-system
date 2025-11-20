@@ -3,10 +3,11 @@ var hierarchy =
     [ "com.gmp.auth.dto.ApiResponse< T >", "classcom_1_1gmp_1_1auth_1_1dto_1_1ApiResponse.html", null ],
     [ "com.gmp.auth.dto.ApiResponseTest", "classcom_1_1gmp_1_1auth_1_1dto_1_1ApiResponseTest.html", null ],
     [ "com.gmp.auth.AuthApplication", "classcom_1_1gmp_1_1auth_1_1AuthApplication.html", null ],
+    [ "com.gmp.auth.controller.AuthController", "classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController.html", null ],
+    [ "com.gmp.auth.AuthIntegrationTest", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest.html", null ],
     [ "com.gmp.auth.service.AuthService", "interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService.html", [
       [ "com.gmp.auth.service.AuthServiceImpl", "classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl.html", null ]
     ] ],
-    [ "com.gmp.auth.service.AuthServiceTest", "classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest.html", null ],
     [ "com.gmp.auth.AuthServiceTestApplication", "classcom_1_1gmp_1_1auth_1_1AuthServiceTestApplication.html", null ],
     [ "com.gmp.auth.entity.OperationLog.Builder", "classcom_1_1gmp_1_1auth_1_1entity_1_1OperationLog_1_1Builder.html", null ],
     [ "com.gmp.auth.config.JwtConfig.ClaimsResolver< T >", "interfacecom_1_1gmp_1_1auth_1_1config_1_1JwtConfig_1_1ClaimsResolver.html", null ],
@@ -29,6 +30,7 @@ var hierarchy =
     [ "com.gmp.auth.entity.PermissionTest", "classcom_1_1gmp_1_1auth_1_1entity_1_1PermissionTest.html", null ],
     [ "com.gmp.qms.QmsApplication", "classcom_1_1gmp_1_1qms_1_1QmsApplication.html", null ],
     [ "com.gmp.auth.config.RedisConfig", "classcom_1_1gmp_1_1auth_1_1config_1_1RedisConfig.html", null ],
+    [ "com.gmp.auth.config.RedisConfigTest", "classcom_1_1gmp_1_1auth_1_1config_1_1RedisConfigTest.html", null ],
     [ "com.gmp.auth.entity.OperationLog.Result", "enumcom_1_1gmp_1_1auth_1_1entity_1_1OperationLog_1_1Result.html", null ],
     [ "com.gmp.auth.entity.Role", "classcom_1_1gmp_1_1auth_1_1entity_1_1Role.html", null ],
     [ "com.gmp.auth.entity.RoleTest", "classcom_1_1gmp_1_1auth_1_1entity_1_1RoleTest.html", null ],

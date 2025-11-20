@@ -7,5 +7,5 @@ var searchData=
   ['resetloginattempts_4',['resetLoginAttempts',['../classcom_1_1gmp_1_1auth_1_1entity_1_1User.html#a97cfaf83975e0bb0a7e9b4bd29915708',1,'com::gmp::auth::entity::User']]],
   ['resolve_5',['resolve',['../interfacecom_1_1gmp_1_1auth_1_1config_1_1JwtConfig_1_1ClaimsResolver.html#a2d011cfea5c6820549289ef2da177366',1,'com::gmp::auth::config::JwtConfig::ClaimsResolver']]],
   ['responsedata_6',['responseData',['../classcom_1_1gmp_1_1auth_1_1entity_1_1OperationLog_1_1Builder.html#aa9a21cc89edf763a04ef20b698e2c601',1,'com::gmp::auth::entity::OperationLog::Builder']]],
-  ['result_7',['result',['../classcom_1_1gmp_1_1auth_1_1entity_1_1OperationLog_1_1Builder.html#a09dea599605009172c805fcff63b26e8',1,'com.gmp.auth.entity.OperationLog.Builder.result()'],['../enumcom_1_1gmp_1_1auth_1_1entity_1_1OperationLog_1_1Result.html#a8d5a4607578bafede35b7d416a7e74c5',1,'com.gmp.auth.entity.OperationLog.Result.Result()']]]
+  ['result_7',['result',['../enumcom_1_1gmp_1_1auth_1_1entity_1_1OperationLog_1_1Result.html#a8d5a4607578bafede35b7d416a7e74c5',1,'com.gmp.auth.entity.OperationLog.Result.Result()'],['../classcom_1_1gmp_1_1auth_1_1entity_1_1OperationLog_1_1Builder.html#a09dea599605009172c805fcff63b26e8',1,'com.gmp.auth.entity.OperationLog.Builder.result()']]]
 ];

@@ -6,8 +6,12 @@ var annotated_dup =
           [ "config", "namespacecom_1_1gmp_1_1auth_1_1config.html", [
             [ "JwtConfig", "classcom_1_1gmp_1_1auth_1_1config_1_1JwtConfig.html", "classcom_1_1gmp_1_1auth_1_1config_1_1JwtConfig" ],
             [ "RedisConfig", "classcom_1_1gmp_1_1auth_1_1config_1_1RedisConfig.html", "classcom_1_1gmp_1_1auth_1_1config_1_1RedisConfig" ],
+            [ "RedisConfigTest", "classcom_1_1gmp_1_1auth_1_1config_1_1RedisConfigTest.html", "classcom_1_1gmp_1_1auth_1_1config_1_1RedisConfigTest" ],
             [ "SecurityConfig", "classcom_1_1gmp_1_1auth_1_1config_1_1SecurityConfig.html", "classcom_1_1gmp_1_1auth_1_1config_1_1SecurityConfig" ],
             [ "SecurityConfigTest", "classcom_1_1gmp_1_1auth_1_1config_1_1SecurityConfigTest.html", "classcom_1_1gmp_1_1auth_1_1config_1_1SecurityConfigTest" ]
+          ] ],
+          [ "controller", "namespacecom_1_1gmp_1_1auth_1_1controller.html", [
+            [ "AuthController", "classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController.html", "classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController" ]
           ] ],
           [ "dto", "namespacecom_1_1gmp_1_1auth_1_1dto.html", [
             [ "ApiResponse", "classcom_1_1gmp_1_1auth_1_1dto_1_1ApiResponse.html", "classcom_1_1gmp_1_1auth_1_1dto_1_1ApiResponse" ],
@@ -36,10 +40,10 @@ var annotated_dup =
           ] ],
           [ "service", "namespacecom_1_1gmp_1_1auth_1_1service.html", [
             [ "AuthService", "interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService.html", "interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService" ],
-            [ "AuthServiceImpl", "classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl.html", "classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl" ],
-            [ "AuthServiceTest", "classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest.html", "classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest" ]
+            [ "AuthServiceImpl", "classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl.html", "classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceImpl" ]
           ] ],
           [ "AuthApplication", "classcom_1_1gmp_1_1auth_1_1AuthApplication.html", "classcom_1_1gmp_1_1auth_1_1AuthApplication" ],
+          [ "AuthIntegrationTest", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest.html", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest" ],
           [ "AuthServiceTestApplication", "classcom_1_1gmp_1_1auth_1_1AuthServiceTestApplication.html", "classcom_1_1gmp_1_1auth_1_1AuthServiceTestApplication" ]
         ] ],
         [ "gateway", "namespacecom_1_1gmp_1_1gateway.html", [

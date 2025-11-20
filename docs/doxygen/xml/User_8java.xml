@@ -76,148 +76,165 @@
 <codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="67" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ae33dd3dad5df8253ac9dba6d483f3700" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Set&lt;String&gt;<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ae33dd3dad5df8253ac9dba6d483f3700" kindref="member">getRoles</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>临时实现，实际应通过UserRepository或UserService获取角色信息</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>临时实现，根据用户名判断角色</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Set&lt;String&gt;<sp/>roles<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HashSet&lt;&gt;();</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>roles.add(</highlight><highlight class="stringliteral">&quot;USER&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>默认角色</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>roles;</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="78" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a543078f5efdb86774836f409d4f3895f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;String&gt;<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a543078f5efdb86774836f409d4f3895f" kindref="member">getPermissions</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>临时实现，实际应通过UserRepository或UserService获取权限信息</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;String&gt;<sp/>permissions<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;();</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>permissions.add(</highlight><highlight class="stringliteral">&quot;user:read&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>默认权限</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>permissions;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="85" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a106477d3812b8974a4376817f4315791" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus" kindref="compound">UserStatus</ref><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a106477d3812b8974a4376817f4315791" kindref="member">getUserStatus</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>userStatus;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="89" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a175c69d5c3c00dcd1a64df02f51bb6d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a175c69d5c3c00dcd1a64df02f51bb6d9" kindref="member">setLastLoginTime</ref>(LocalDateTime<sp/>lastLoginTime)<sp/>{</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lastLoginTime<sp/>=<sp/>lastLoginTime;</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="93" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a417978e3cd6de4ac75797de6bf5024e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a417978e3cd6de4ac75797de6bf5024e9" kindref="member">setLastLoginIp</ref>(String<sp/>lastLoginIp)<sp/>{</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lastLoginIp<sp/>=<sp/>lastLoginIp;</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
-<codeline lineno="99" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a1d7a0d4a2a41f14f9e65c8d8ea727737" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;用户名不能为空&quot;)</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(min<sp/>=<sp/>3,<sp/>max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;用户名长度必须在3-50字符之间&quot;)</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>@Pattern(regexp<sp/>=<sp/>&quot;^[a-zA-Z0-9_]+$&quot;,<sp/>message<sp/>=<sp/>&quot;用户名只能包含字母、数字和下划线&quot;)</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(unique<sp/>=<sp/>true,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
-<codeline lineno="105" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af6ead296286873e0387a23caf3d340a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>username;</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>@Email(message<sp/>=<sp/>&quot;邮箱格式不正确&quot;)</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;邮箱长度不能超过100字符&quot;)</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(unique<sp/>=<sp/>true)</highlight></codeline>
-<codeline lineno="110" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ab75c500d1e9145dfe96696c150a44d4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>email;</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>20,<sp/>message<sp/>=<sp/>&quot;手机号长度不能超过20字符&quot;)</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>@Pattern(regexp<sp/>=<sp/>&quot;^1[3-9]\\d{9}$</highlight><highlight class="stringliteral">&quot;,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">手机号格式不正确</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="114" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ad1d80c3a77b9e932ca90fc30888cdf3e" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>mobile;</highlight></codeline>
-<codeline lineno="115"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="116"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">用户姓名不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="117"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">用户姓名长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="118"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">full_name</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
-<codeline lineno="119" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a37b1f33df6be152417aaab12cb63ba4e" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>fullName;</highlight></codeline>
-<codeline lineno="120"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="121"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">密码不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="122"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">密码哈希长度不能超过200字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="123"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">password_hash</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
-<codeline lineno="124" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a32d4a8273628679a9ca5000af35adf67" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>passwordHash;</highlight></codeline>
-<codeline lineno="125"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="126"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
-<codeline lineno="127"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotNull(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">用户状态不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="128"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
-<codeline lineno="129"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">user_status</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
-<codeline lineno="130" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ad44445a9206a7d8d4a9a8a0272721d67" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>UserStatus<sp/>userStatus<sp/>=<sp/>UserStatus.ACTIVE;</highlight></codeline>
-<codeline lineno="131"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="132"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">last_login_time</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="133" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a1473810dbb869efdd6da25eb8d9e7896" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lastLoginTime;</highlight></codeline>
-<codeline lineno="134"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="135"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">登录IP长度不能超过50字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="136"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">last_login_ip</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="137" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1abe91191b1dd603b0428cd121422cff54" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>lastLoginIp;</highlight></codeline>
-<codeline lineno="138"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="139"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">password_expired_at</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="140" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aa71ec0274e69f936df8db563555b04f4" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>passwordExpiredAt;</highlight></codeline>
-<codeline lineno="141"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="142"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
-<codeline lineno="143"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Min(value<sp/>=<sp/>0,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">登录尝试次数不能为负数</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="144"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Max(value<sp/>=<sp/>10,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">登录尝试次数不能超过10次</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="145"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">login_attempts</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
-<codeline lineno="146" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aec7385b0b78b718121388d064164fdc0" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>loginAttempts<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="147"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="148"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">locked_until</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="149" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a1a7f7416563a0a224e40c326f293c635" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lockedUntil;</highlight></codeline>
-<codeline lineno="150"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="151"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>审计字段</highlight></codeline>
-<codeline lineno="152"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
-<codeline lineno="153"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">created_at</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
-<codeline lineno="154" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a9e7ff354026e321a9b61af8ab6c5274a" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="stringliteral">&quot;admin&quot;</highlight><highlight class="normal">.equals(username))<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>roles.add(</highlight><highlight class="stringliteral">&quot;ADMIN&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>roles.add(</highlight><highlight class="stringliteral">&quot;USER&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>roles.add(</highlight><highlight class="stringliteral">&quot;USER&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>默认角色</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>roles;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="83" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a543078f5efdb86774836f409d4f3895f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;String&gt;<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a543078f5efdb86774836f409d4f3895f" kindref="member">getPermissions</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>临时实现，根据用户角色返回相应权限</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;String&gt;<sp/>permissions<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>基础权限</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>permissions.add(</highlight><highlight class="stringliteral">&quot;user:read&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>permissions.add(</highlight><highlight class="stringliteral">&quot;user:write&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>管理员额外权限</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="stringliteral">&quot;admin&quot;</highlight><highlight class="normal">.equals(username))<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>permissions.add(</highlight><highlight class="stringliteral">&quot;admin:read&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>permissions.add(</highlight><highlight class="stringliteral">&quot;admin:write&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>permissions.add(</highlight><highlight class="stringliteral">&quot;user:list&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>permissions.add(</highlight><highlight class="stringliteral">&quot;user:delete&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>permissions;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a106477d3812b8974a4376817f4315791" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus" kindref="compound">UserStatus</ref><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a106477d3812b8974a4376817f4315791" kindref="member">getUserStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>userStatus;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="106" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a175c69d5c3c00dcd1a64df02f51bb6d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a175c69d5c3c00dcd1a64df02f51bb6d9" kindref="member">setLastLoginTime</ref>(LocalDateTime<sp/>lastLoginTime)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lastLoginTime<sp/>=<sp/>lastLoginTime;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a417978e3cd6de4ac75797de6bf5024e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a417978e3cd6de4ac75797de6bf5024e9" kindref="member">setLastLoginIp</ref>(String<sp/>lastLoginIp)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lastLoginIp<sp/>=<sp/>lastLoginIp;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="116" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a1d7a0d4a2a41f14f9e65c8d8ea727737" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;用户名不能为空&quot;)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(min<sp/>=<sp/>3,<sp/>max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;用户名长度必须在3-50字符之间&quot;)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>@Pattern(regexp<sp/>=<sp/>&quot;^[a-zA-Z0-9_]+$&quot;,<sp/>message<sp/>=<sp/>&quot;用户名只能包含字母、数字和下划线&quot;)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(unique<sp/>=<sp/>true,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="122" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af6ead296286873e0387a23caf3d340a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>username;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Email(message<sp/>=<sp/>&quot;邮箱格式不正确&quot;)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;邮箱长度不能超过100字符&quot;)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(unique<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="127" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ab75c500d1e9145dfe96696c150a44d4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>email;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>20,<sp/>message<sp/>=<sp/>&quot;手机号长度不能超过20字符&quot;)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>@Pattern(regexp<sp/>=<sp/>&quot;^1[3-9]\\d{9}$</highlight><highlight class="stringliteral">&quot;,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">手机号格式不正确</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="131" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ad1d80c3a77b9e932ca90fc30888cdf3e" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>mobile;</highlight></codeline>
+<codeline lineno="132"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="133"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">用户姓名不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="134"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">用户姓名长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="135"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">full_name</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="136" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a37b1f33df6be152417aaab12cb63ba4e" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>fullName;</highlight></codeline>
+<codeline lineno="137"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="138"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">密码不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="139"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">密码哈希长度不能超过200字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="140"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">password_hash</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="141" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a32d4a8273628679a9ca5000af35adf67" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>passwordHash;</highlight></codeline>
+<codeline lineno="142"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="143"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="144"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotNull(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">用户状态不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="145"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="146"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">user_status</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="147" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ad44445a9206a7d8d4a9a8a0272721d67" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>UserStatus<sp/>userStatus<sp/>=<sp/>UserStatus.ACTIVE;</highlight></codeline>
+<codeline lineno="148"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="149"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">last_login_time</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="150" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a1473810dbb869efdd6da25eb8d9e7896" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lastLoginTime;</highlight></codeline>
+<codeline lineno="151"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="152"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">登录IP长度不能超过50字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="153"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">last_login_ip</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="154" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1abe91191b1dd603b0428cd121422cff54" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>lastLoginIp;</highlight></codeline>
 <codeline lineno="155"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="156"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
-<codeline lineno="157"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">updated_at</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
-<codeline lineno="158" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a4cabbbb8584416567bfea5bf21b72ecb" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
-<codeline lineno="159"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="160"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">created_by</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="161" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af5116f46a55b1ac5072cf3d377fa5dee" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>createdBy;</highlight></codeline>
-<codeline lineno="162"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="163"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">updated_by</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
-<codeline lineno="164" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ad5887e23b1ee52a5898893fe133e2ff6" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>updatedBy;</highlight></codeline>
-<codeline lineno="165"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="166"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
-<codeline lineno="167"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Version</highlight></codeline>
-<codeline lineno="168"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(nullable<sp/>=<sp/>false)</highlight></codeline>
-<codeline lineno="169" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ade5ec9cd5ab199f4b7f69becedb58266" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>version<sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="170"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="174" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/>UserStatus<sp/>{</highlight></codeline>
-<codeline lineno="175" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a59b349693f5948c3e2cdc3540a51ce25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ACTIVE(&quot;活跃</highlight><highlight class="stringliteral">&quot;),</highlight></codeline>
-<codeline lineno="176" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1af6c4c2415283f9ac7e900c9e71e0a460" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>INACTIVE(&quot;</highlight><highlight class="normal">未激活</highlight><highlight class="stringliteral">&quot;),</highlight></codeline>
-<codeline lineno="177" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a1f9516ce077ecfa8ce5312630ead632e" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOCKED(&quot;</highlight><highlight class="normal">锁定</highlight><highlight class="stringliteral">&quot;),</highlight></codeline>
-<codeline lineno="178" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1aa00a5289d9e5ea917d13134278a55ce8" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EXPIRED(&quot;</highlight><highlight class="normal">过期</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="156"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">password_expired_at</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="157" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aa71ec0274e69f936df8db563555b04f4" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>passwordExpiredAt;</highlight></codeline>
+<codeline lineno="158"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="159"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="160"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Min(value<sp/>=<sp/>0,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">登录尝试次数不能为负数</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="161"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Max(value<sp/>=<sp/>10,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">登录尝试次数不能超过10次</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="162"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">login_attempts</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="163" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aec7385b0b78b718121388d064164fdc0" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>loginAttempts<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="164"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="165"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">locked_until</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="166" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a1a7f7416563a0a224e40c326f293c635" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lockedUntil;</highlight></codeline>
+<codeline lineno="167"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="168"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>审计字段</highlight></codeline>
+<codeline lineno="169"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="170"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">created_at</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="171" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a9e7ff354026e321a9b61af8ab6c5274a" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="172"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="173"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="174"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">updated_at</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="175" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a4cabbbb8584416567bfea5bf21b72ecb" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="176"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="177"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">created_by</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="178" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af5116f46a55b1ac5072cf3d377fa5dee" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>createdBy;</highlight></codeline>
 <codeline lineno="179"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="180" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1acb509e08bb4bb8bafc69096b35630316" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>private<sp/>final<sp/>String<sp/>description;</highlight></codeline>
-<codeline lineno="181"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="182" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a931ae78519812d0c5bbf3daa356872e9" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UserStatus(String<sp/>description)<sp/>{</highlight></codeline>
-<codeline lineno="183"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.description<sp/>=<sp/>description;</highlight></codeline>
-<codeline lineno="184"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="185"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="186" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a209645571eaec13b19f090dfcae4e2d8" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>public<sp/>String<sp/>getDescription()<sp/>{</highlight></codeline>
-<codeline lineno="187"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>description;</highlight></codeline>
-<codeline lineno="188"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="189"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="190"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
-<codeline lineno="195" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af52bbbda2f129dfe872c0f0931bc7de7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>isLocked()<sp/>{</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>this.userStatus<sp/>==<sp/>UserStatus.LOCKED<sp/>||</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(this.lockedUntil<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>LocalDateTime.now().isBefore(this.lockedUntil));</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"></highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
-<codeline lineno="204" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a340b66736a7f237581109b5c5fa57116" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>isPasswordExpired()<sp/>{</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>this.passwordExpiredAt<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>LocalDateTime.now().isAfter(this.passwordExpiredAt);</highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"></highlight></codeline>
-<codeline lineno="211" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a4c7401f42bd1de6b23970bffb70febb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>incrementLoginAttempts()<sp/>{</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.loginAttempts<sp/>=<sp/>(this.loginAttempts<sp/>==<sp/>null<sp/>?<sp/>0<sp/>:<sp/>this.loginAttempts)<sp/>+<sp/>1;</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"></highlight></codeline>
-<codeline lineno="218" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a97cfaf83975e0bb0a7e9b4bd29915708" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>resetLoginAttempts()<sp/>{</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.loginAttempts<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lockedUntil<sp/>=<sp/>null;</highlight></codeline>
-<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="222"><highlight class="normal"></highlight></codeline>
-<codeline lineno="226" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aabe406d34183476578c39dc0575581d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>lockAccount(int<sp/>lockMinutes)<sp/>{</highlight></codeline>
-<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.userStatus<sp/>=<sp/>UserStatus.LOCKED;</highlight></codeline>
-<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lockedUntil<sp/>=<sp/>LocalDateTime.now().plusMinutes(lockMinutes);</highlight></codeline>
-<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.loginAttempts<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="180"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">updated_by</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="181" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ad5887e23b1ee52a5898893fe133e2ff6" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="182"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="183"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="184"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Version</highlight></codeline>
+<codeline lineno="185"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="186" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ade5ec9cd5ab199f4b7f69becedb58266" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>version<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="187"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="191" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/>UserStatus<sp/>{</highlight></codeline>
+<codeline lineno="192" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a59b349693f5948c3e2cdc3540a51ce25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ACTIVE(&quot;活跃</highlight><highlight class="stringliteral">&quot;),</highlight></codeline>
+<codeline lineno="193" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1af6c4c2415283f9ac7e900c9e71e0a460" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>INACTIVE(&quot;</highlight><highlight class="normal">未激活</highlight><highlight class="stringliteral">&quot;),</highlight></codeline>
+<codeline lineno="194" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a1f9516ce077ecfa8ce5312630ead632e" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOCKED(&quot;</highlight><highlight class="normal">锁定</highlight><highlight class="stringliteral">&quot;),</highlight></codeline>
+<codeline lineno="195" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1aa00a5289d9e5ea917d13134278a55ce8" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EXPIRED(&quot;</highlight><highlight class="normal">过期</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="196"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="197" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1acb509e08bb4bb8bafc69096b35630316" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>private<sp/>final<sp/>String<sp/>description;</highlight></codeline>
+<codeline lineno="198"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="199" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a931ae78519812d0c5bbf3daa356872e9" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UserStatus(String<sp/>description)<sp/>{</highlight></codeline>
+<codeline lineno="200"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.description<sp/>=<sp/>description;</highlight></codeline>
+<codeline lineno="201"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="203" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a209645571eaec13b19f090dfcae4e2d8" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>public<sp/>String<sp/>getDescription()<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>description;</highlight></codeline>
+<codeline lineno="205"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="212" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af52bbbda2f129dfe872c0f0931bc7de7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>isLocked()<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>this.userStatus<sp/>==<sp/>UserStatus.LOCKED<sp/>||</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(this.lockedUntil<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>LocalDateTime.now().isBefore(this.lockedUntil));</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="221" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a340b66736a7f237581109b5c5fa57116" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>isPasswordExpired()<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>this.passwordExpiredAt<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>LocalDateTime.now().isAfter(this.passwordExpiredAt);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a4c7401f42bd1de6b23970bffb70febb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>incrementLoginAttempts()<sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.loginAttempts<sp/>=<sp/>(this.loginAttempts<sp/>==<sp/>null<sp/>?<sp/>0<sp/>:<sp/>this.loginAttempts)<sp/>+<sp/>1;</highlight></codeline>
 <codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="231"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a97cfaf83975e0bb0a7e9b4bd29915708" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>resetLoginAttempts()<sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.loginAttempts<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lockedUntil<sp/>=<sp/>null;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aabe406d34183476578c39dc0575581d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>lockAccount(int<sp/>lockMinutes)<sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.userStatus<sp/>=<sp/>UserStatus.LOCKED;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lockedUntil<sp/>=<sp/>LocalDateTime.now().plusMinutes(lockMinutes);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.loginAttempts<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="auth-service/src/main/java/com/gmp/auth/entity/User.java"/>
   </compounddef>
