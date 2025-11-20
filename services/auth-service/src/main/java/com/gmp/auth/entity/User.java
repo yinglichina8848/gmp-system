@@ -11,7 +11,10 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
+import java.util.HashSet;
+import java.util.ArrayList;
 
 /**
  * GMP系统用户实体
@@ -26,6 +29,70 @@ import java.util.Set;
 @Table(name = "sys_users")
 @EntityListeners(AuditingEntityListener.class)
 public class User {
+    
+    // 添加显式getter方法以确保编译通过，解决可能的Lombok依赖问题
+    public Long getId() {
+        return id;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+    
+    public String getLoginIp() {
+        return lastLoginIp;
+    }
+    
+    public Integer getLoginAttempts() {
+        return loginAttempts;
+    }
+    
+    // 添加更多缺失的方法
+    public String getFullName() {
+        return fullName;
+    }
+    
+    /**
+     * 获取密码哈希
+     * 用于密码验证
+     */
+    public String getPassword() {
+        return passwordHash;
+    }
+    
+    /**
+     * 获取用户角色
+     * 注：实际项目中应从用户-角色关联表获取
+     */
+    public Set<String> getRoles() {
+        // 临时实现，实际应通过UserRepository或UserService获取角色信息
+        Set<String> roles = new HashSet<>();
+        roles.add("USER"); // 默认角色
+        return roles;
+    }
+    
+    /**
+     * 获取用户权限
+     * 注：实际项目中应从用户-角色-权限关联表获取
+     */
+    public List<String> getPermissions() {
+        // 临时实现，实际应通过UserRepository或UserService获取权限信息
+        List<String> permissions = new ArrayList<>();
+        permissions.add("user:read"); // 默认权限
+        return permissions;
+    }
+    
+    public UserStatus getUserStatus() {
+        return userStatus;
+    }
+    
+    public void setLastLoginTime(LocalDateTime lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
+    
+    public void setLastLoginIp(String lastLoginIp) {
+        this.lastLoginIp = lastLoginIp;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,6 +123,7 @@ public class User {
     @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 
+    @Builder.Default
     @NotNull(message = "用户状态不能为空")
     @Enumerated(EnumType.STRING)
     @Column(name = "user_status", nullable = false)
@@ -71,6 +139,7 @@ public class User {
     @Column(name = "password_expired_at")
     private LocalDateTime passwordExpiredAt;
 
+    @Builder.Default
     @Min(value = 0, message = "登录尝试次数不能为负数")
     @Max(value = 10, message = "登录尝试次数不能超过10次")
     @Column(name = "login_attempts", nullable = false)
@@ -94,6 +163,7 @@ public class User {
     @Column(name = "updated_by")
     private Long updatedBy;
 
+    @Builder.Default
     @Version
     @Column(nullable = false)
     private Integer version = 1;

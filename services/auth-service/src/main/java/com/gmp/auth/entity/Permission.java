@@ -50,6 +50,7 @@ public class Permission {
     @Column(name = "resource_url")
     private String resourceUrl;
 
+    @Builder.Default
     @Pattern(regexp = "^(GET|POST|PUT|DELETE|ALL)$", message = "HTTP方法必须是GET、POST、PUT、DELETE或ALL")
     @Column(name = "http_method")
     private String httpMethod = "ALL";

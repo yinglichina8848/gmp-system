@@ -2,7 +2,8 @@ package com.gmp.auth.config;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -15,8 +16,9 @@ import java.util.*;
  * @author GMP系统开发团队
  */
 @Component
-@Slf4j
 public class JwtConfig {
+    
+    private static final Logger log = LoggerFactory.getLogger(JwtConfig.class);
 
     @Value("${jwt.secret:gmp-auth-jwt-secret-key-2024-very-secure-long-key}")
     private String secret;

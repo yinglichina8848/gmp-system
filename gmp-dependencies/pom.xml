@@ -4,13 +4,41 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.gmp</groupId>
-        <artifactId>gmp-system</artifactId>
-        <version>0.1.1</version>
-    </parent>
+    <!-- 移除循环依赖父模块 -->
 
+    <groupId>com.gmp</groupId>
     <artifactId>gmp-dependencies</artifactId>
+    <version>0.1.1</version>
+    
+    <properties>
+        <!-- Spring Boot Version -->
+        <spring-boot.version>3.2.5</spring-boot.version>
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
+
+        <!-- Common Dependencies -->
+        <lombok.version>1.18.30</lombok.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <flyway.version>9.22.3</flyway.version>
+
+        <!-- Security -->
+        <jjwt.version>0.11.5</jjwt.version>
+        <bcrypt.version>0.10.2</bcrypt.version>
+
+        <!-- Database -->
+        <postgresql.version>42.7.1</postgresql.version>
+        <h2.version>2.2.224</h2.version>
+        <redis.version>4.3.0</redis.version>
+
+        <!-- Message Queue -->
+        <amqp.version>3.1.0</amqp.version>
+
+        <!-- Monitoring -->
+        <micrometer.version>1.12.2</micrometer.version>
+        <prometheus.version>0.16.0</prometheus.version>
+
+        <!-- Documentation -->
+        <swagger.version>2.2.22</swagger.version>
+    </properties>
     <packaging>pom</packaging>
     <name>GMP Dependencies</name>
     <description>GMP System Dependencies Management</description>
@@ -217,6 +245,12 @@
             </dependency>
 
             <!-- Common Utils -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>

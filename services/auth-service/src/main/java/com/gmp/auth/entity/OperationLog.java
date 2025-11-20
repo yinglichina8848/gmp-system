@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import com.fasterxml.jackson.databind.JsonNode;
 
 import java.time.LocalDateTime;
 
@@ -16,10 +15,6 @@ import java.time.LocalDateTime;
  *
  * @author GMP系统开发团队
  */
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "user_operation_logs")
 public class OperationLog {
@@ -57,11 +52,11 @@ public class OperationLog {
     @Column(name = "user_agent", columnDefinition = "TEXT")
     private String userAgent;
 
-    @Column(name = "request_data", columnDefinition = "JSONB")
-    private JsonNode requestData;
+    @Column(name = "request_data", columnDefinition = "TEXT")
+    private String requestData;
 
-    @Column(name = "response_data", columnDefinition = "JSONB")
-    private JsonNode responseData;
+    @Column(name = "response_data", columnDefinition = "TEXT")
+    private String responseData;
 
     @NotNull(message = "操作时间不能为空")
     @Column(name = "operation_time", nullable = false)
@@ -70,8 +65,255 @@ public class OperationLog {
     @Column(name = "duration_ms")
     private Integer durationMs;
 
-    @Column(columnDefinition = "JSONB")
-    private JsonNode metadata;
+    @Column(columnDefinition = "TEXT")
+    private String metadata;
+    
+    /**
+     * 无参构造函数
+     */
+    public OperationLog() {
+        this.operationTime = LocalDateTime.now();
+        this.result = Result.SUCCESS;
+    }
+    
+    /**
+     * 全参构造函数
+     */
+    public OperationLog(Long id, Long userId, String username, String operation, String module, 
+                       String action, Result result, String ipAddress, String userAgent, 
+                       String requestData, String responseData, LocalDateTime operationTime, 
+                       Integer durationMs, String metadata) {
+        this.id = id;
+        this.userId = userId;
+        this.username = username;
+        this.operation = operation;
+        this.module = module;
+        this.action = action;
+        this.result = result;
+        this.ipAddress = ipAddress;
+        this.userAgent = userAgent;
+        this.requestData = requestData;
+        this.responseData = responseData;
+        this.operationTime = operationTime;
+        this.durationMs = durationMs;
+        this.metadata = metadata;
+    }
+    
+    /**
+     * Builder方法实现
+     */
+    public static Builder builder() {
+        return new Builder();
+    }
+    
+    /**
+     * Builder内部类
+     */
+    public static class Builder {
+        private Long id;
+        private Long userId;
+        private String username;
+        private String operation;
+        private String module;
+        private String action;
+        private Result result = Result.SUCCESS;
+        private String ipAddress;
+        private String userAgent;
+        private String requestData;
+        private String responseData;
+        private LocalDateTime operationTime = LocalDateTime.now();
+        private Integer durationMs;
+        private String metadata;
+        
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+        
+        public Builder userId(Long userId) {
+            this.userId = userId;
+            return this;
+        }
+        
+        public Builder username(String username) {
+            this.username = username;
+            return this;
+        }
+        
+        public Builder operation(String operation) {
+            this.operation = operation;
+            return this;
+        }
+        
+        public Builder module(String module) {
+            this.module = module;
+            return this;
+        }
+        
+        public Builder action(String action) {
+            this.action = action;
+            return this;
+        }
+        
+        public Builder result(Result result) {
+            this.result = result;
+            return this;
+        }
+        
+        public Builder ipAddress(String ipAddress) {
+            this.ipAddress = ipAddress;
+            return this;
+        }
+        
+        public Builder userAgent(String userAgent) {
+            this.userAgent = userAgent;
+            return this;
+        }
+        
+        public Builder requestData(String requestData) {
+            this.requestData = requestData;
+            return this;
+        }
+        
+        public Builder responseData(String responseData) {
+            this.responseData = responseData;
+            return this;
+        }
+        
+        public Builder operationTime(LocalDateTime operationTime) {
+            this.operationTime = operationTime;
+            return this;
+        }
+        
+        public Builder durationMs(Integer durationMs) {
+            this.durationMs = durationMs;
+            return this;
+        }
+        
+        public Builder metadata(String metadata) {
+            this.metadata = metadata;
+            return this;
+        }
+        
+        public OperationLog build() {
+            return new OperationLog(id, userId, username, operation, module, action, result, 
+                                  ipAddress, userAgent, requestData, responseData, operationTime, 
+                                  durationMs, metadata);
+        }
+    }
+    
+    // Getter and Setter methods
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public Long getUserId() {
+        return userId;
+    }
+    
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    public String getOperation() {
+        return operation;
+    }
+    
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+    
+    public String getModule() {
+        return module;
+    }
+    
+    public void setModule(String module) {
+        this.module = module;
+    }
+    
+    public String getAction() {
+        return action;
+    }
+    
+    public void setAction(String action) {
+        this.action = action;
+    }
+    
+    public Result getResult() {
+        return result;
+    }
+    
+    public void setResult(Result result) {
+        this.result = result;
+    }
+    
+    public String getIpAddress() {
+        return ipAddress;
+    }
+    
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
+    
+    public String getUserAgent() {
+        return userAgent;
+    }
+    
+    public void setUserAgent(String userAgent) {
+        this.userAgent = userAgent;
+    }
+    
+    public String getRequestData() {
+        return requestData;
+    }
+    
+    public void setRequestData(String requestData) {
+        this.requestData = requestData;
+    }
+    
+    public String getResponseData() {
+        return responseData;
+    }
+    
+    public void setResponseData(String responseData) {
+        this.responseData = responseData;
+    }
+    
+    public LocalDateTime getOperationTime() {
+        return operationTime;
+    }
+    
+    public void setOperationTime(LocalDateTime operationTime) {
+        this.operationTime = operationTime;
+    }
+    
+    public Integer getDurationMs() {
+        return durationMs;
+    }
+    
+    public void setDurationMs(Integer durationMs) {
+        this.durationMs = durationMs;
+    }
+    
+    public String getMetadata() {
+        return metadata;
+    }
+    
+    public void setMetadata(String metadata) {
+        this.metadata = metadata;
+    }
 
     /**
      * 操作结果枚举

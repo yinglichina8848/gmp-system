@@ -66,11 +66,12 @@ public class UserRole {
      */
     @PrePersist
     protected void onCreate() {
+        LocalDateTime now = LocalDateTime.now();
         if (assignedAt == null) {
-            assignedAt = LocalDateTime.now();
+            assignedAt = now;
         }
         if (assignedAtAudit == null) {
-            assignedAtAudit = LocalDateTime.now();
+            assignedAtAudit = now;
         }
     }
 }

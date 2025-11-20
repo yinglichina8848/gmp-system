@@ -9,6 +9,10 @@ GMPSystem是一套完整的GMP（Good Manufacturing Practice）信息管理系�
 ### 📋 文档总览
 - **[📖 项目文档总览](./docs/00_项目文档总览.md)** - 完整的文档体系说明和使用指南
 - **[📋 文档更新日志](./docs/文档更新日志.md)** - 文档版本历史和更新记录
+- **[📊 代码覆盖率报告](./target/coverage-aggregate/index.html)** - 单元测试覆盖率报告
+- **[📝 Doxygen技术文档](./target/doxygen/html/index.html)** - 自动生成的代码技术文档
+- **[🔢 版本信息](./VERSION)** - 当前软件版本号
+- **[📝 变更日志](./CHANGELOG.md)** - 软件版本更新历史记录
 
 ### 📊 核心文档
 1. **[技术可行性分析报告](./docs/01_技术可行性分析报告.md)** - 开源调研、技术选型、架构设计
