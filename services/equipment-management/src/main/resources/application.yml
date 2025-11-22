@@ -1,0 +1,233 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: equipment-management
+
+  profiles:
+    active: dev
+
+  datasource:
+    url: jdbc:postgresql://postgres:5432/ems_db
+    username: ems_user
+    password: ${EMS_DB_PASSWORD:ems123456}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 60000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        use_sql_comments: true
+        jdbc:
+          batch_size: 25
+        order_inserts: true
+        order_updates: true
+
+  data:
+    redis:
+      host: redis
+      port: 6379
+      password: ${REDIS_PASSWORD:redis123}
+      timeout: 2000ms
+      database: 2
+      jedis:
+        pool:
+          max-active: 8
+          max-wait: -1ms
+          max-idle: 8
+          min-idle: 0
+
+  security:
+    enabled: false  # 禁用自动安全配置，由网关统一处理
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+    registry-fetch-interval-seconds: 10
+    instance-info-replication-interval-seconds: 10
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+
+# GMP设备管理特有配置
+equipment:
+  monitoring:
+    enabled: true
+    mqtt:
+      broker-url: tcp://mqtt-broker:1883
+      client-id: ems-monitoring-${server.port}
+      topics:
+        sensor-data: equipment/sensor/+/data
+        alert-data: equipment/sensor/+/alert
+    health-check-interval: 30000  # 30秒监测间隔
+    alert-threshold:
+      temperature-high: 80.0     # 温度告警阈值(℃)
+      vibration-high: 10.0       # 振动告警阈值(mm/s)
+      pressure-low: 0.5          # 压力低告警阈值(MPa)
+
+  maintenance:
+    auto-schedule: true         # 自动生成维护计划
+    reminder-days: 7           # 维护提醒提前天数
+    completion-window: 24      # 维护超时窗口(小时)
+    max-overdue-days: 30       # 最大逾期天数
+
+  calibration:
+    alert-days: 15             # 校准到期提醒提前天数
+    tolerance-threshold: 5.0   # 校准偏差容限(%)
+    auto-lock: true            # 校准过期自动锁定设备
+
+# 文件上传配置
+file:
+  upload:
+    max-size: 50MB
+    temp-dir: ${java.io.tmpdir}/ems-uploads/
+    allowed-types: .pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.gif
+  maintenance-docs: /opt/ems/files/maintenance/
+  calibration-docs: /opt/ems/files/calibration/
+
+# 绩效分析配置
+analytics:
+  enabled: true
+  metrics:
+    availability-target: 95.0     # 设备可用性目标(95%)
+    mtbf-threshold: 30            # MTBF阈值(天)
+    mttr-threshold: 4             # MTTR阈值(小时)
+  report-interval: 7              # 定期报表生成间隔(天)
+
+# 预警通知配置
+notification:
+  enabled: true
+  channels:
+    email: true
+    sms: false
+    websocket: true
+  alert-levels:
+    critical: immediate          # 紧急: 立即通知
+    major: within-1hour         # 重大: 1小时内通知
+    minor: end-of-day           # 次要: 工作日结束通知
+
+# 生命周期管理
+lifecycle:
+  data-retention-years: 10      # 数据保留年限
+  archive-threshold-years: 3    # 存档阈值年限
+  audit-enabled: true           # 操作审计启用
+
+# 管理端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+# API文档
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+
+# 日志配置
+logging:
+  level:
+    com.gmp.equipment: INFO
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: WARN
+    com.gmp.equipment.monitoring: DEBUG
+    com.gmp.equipment.mqtt: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+---
+# 开发环境配置
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ems_db
+    username: ems_user
+    password: ems123456
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+logging:
+  level:
+    com.gmp.equipment: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+
+---
+# 测试环境配置
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    url: jdbc:h2:mem:testems
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+equipment:
+  monitoring:
+    enabled: false
+
+---
+# 生产环境配置
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 10
+
+  jpa:
+    show-sql: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus,env,configprops
+
+logging:
+  level:
+    com.gmp.equipment: WARN

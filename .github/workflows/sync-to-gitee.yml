@@ -1,0 +1,86 @@
+name: 🔁 SSH 同步 main & gh-pages 到 Gitee
+
+on:
+  push:
+    branches:
+      - main
+      - gh-pages
+  workflow_dispatch:  # 手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout current branch
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: 🔐 配置 SSH 密钥用于 Gitee 推送
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.GITEE_SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan gitee.com >> ~/.ssh/known_hosts
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/known_hosts
+        shell: bash
+
+      - name: 🚀 推送当前分支到 Gitee
+        run: |
+          CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          echo "Current branch: $CURRENT_BRANCH"
+
+          git config user.name "YingLi"
+          git config user.email "8586728+yinglichina@users.noreply.github.com"
+
+          git remote add gitee git@gitee.com:yinglichina/gmp-system.git
+          git push --force-with-lease gitee "$CURRENT_BRANCH":"$CURRENT_BRANCH"
+        shell: bash
+
+      - name: ✅ 验证推送结果name: 🔁 SSH 同步 main & gh-pages 到 Gitee
+
+on:
+  push:
+    branches:
+      - main
+      - gh-pages
+  workflow_dispatch:  # 手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout current branch
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: 🔐 配置 SSH 密钥用于 Gitee 推送
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.GITEE_SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan gitee.com >> ~/.ssh/known_hosts
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/known_hosts
+        shell: bash
+
+      - name: 🚀 推送当前分支到 Gitee
+        run: |
+          CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          echo "Current branch: $CURRENT_BRANCH"
+
+          git config user.name "YingLi"
+          git config user.email "8586728+yinglichina@users.noreply.github.com"
+
+          git remote add gitee git@gitee.com:yinglichina/gmp-system.git
+          git push --force-with-lease gitee "$CURRENT_BRANCH":"$CURRENT_BRANCH"
+        shell: bash
+
+      - name: ✅ 验证推送结果
+        run: |
+          echo "✅ 同步任务完成"
+        shell: bash

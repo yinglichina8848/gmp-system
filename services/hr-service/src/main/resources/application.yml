@@ -1,0 +1,290 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: hr-service
+
+  profiles:
+    active: dev
+
+  datasource:
+    url: jdbc:postgresql://postgres:5432/hr_db
+    username: hr_user
+    password: ${HR_DB_PASSWORD:hr123456}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 60000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        use_sql_comments: true
+        jdbc:
+          batch_size: 25
+        order_inserts: true
+        order_updates: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    schemas: hr
+    baseline-on-migrate: true
+    validate-on-migrate: false
+
+  data:
+    redis:
+      host: redis
+      port: 6379
+      password: ${REDIS_PASSWORD:redis123}
+      timeout: 2000ms
+      database: 2
+      jedis:
+        pool:
+          max-active: 8
+          max-wait: -1ms
+          max-idle: 8
+          min-idle: 0
+
+  security:
+    enabled: false  # 禁用Spring Security自动配置，使用JWT认证
+
+  mail:
+    host: smtp.example.com
+    port: 587
+    username: ${MAIL_USERNAME:hr@example.com}
+    password: ${MAIL_PASSWORD:password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+# Eureka服务注册
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+    registry-fetch-interval-seconds: 10
+    instance-info-replication-interval-seconds: 10
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+
+# JWT配置
+jwt:
+  secret: ${JWT_SECRET:gmp-hr-jwt-secret-key-2024-very-secure-long-key}
+  expiration: 86400000  # 24小时 (24 * 60 * 60 * 1000)
+  refresh-expiration: 604800000  # 7天 (7 * 24 * 60 * 60 * 1000)
+  issuer: gmp-system-hr
+
+# MinIO文件存储配置
+minio:
+  endpoint: http://minio:9000
+  access-key: ${MINIO_ACCESS_KEY:minioadmin}
+  secret-key: ${MINIO_SECRET_KEY:minioadmin}
+  bucket: hr-documents
+  secure: false
+
+# RabbitMQ消息队列配置
+rabbitmq:
+  host: rabbitmq
+  port: 5672
+  username: ${RABBITMQ_USERNAME:guest}
+  password: ${RABBITMQ_PASSWORD:guest}
+  exchange:
+    name: hr_events
+    type: topic
+    durable: true
+
+# HR业务配置
+hr:
+  # 员工配置
+  employee:
+    photo-max-size: 5MB
+    document-max-size: 10MB
+    
+  # 考勤配置
+  attendance:
+    late-tolerance-minutes: 15
+    early-leave-tolerance-minutes: 30
+    
+  # 培训配置
+  training:
+    certificate-expiry-warning-days: 60
+    required-training-period: 365  # 天
+    
+  # 绩效配置
+  performance:
+    evaluation-period-months: 12
+    rating-scale: 5
+    
+  # 薪酬配置
+  compensation:
+    tax-rate-threshold: 3500
+    working-days-per-month: 21.75
+
+# 密码策略
+password:
+  encoder: bcrypt
+  strength: 12
+
+# 会话管理
+session:
+  timeout-minutes: 120
+  max-concurrent-sessions: 1
+  remember-me-days: 7
+
+# GMP合规配置
+gmp:
+  compliance:
+    audit-enabled: true
+    log-all-operations: true
+    qualification-tracking: true
+    training-records-required: true
+    document-version-control: true
+
+# 管理端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+# API文档
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+  info:
+    title: HR Service API
+    description: GMP Human Resource Management Service API
+    version: 1.0.0
+
+# 日志配置
+logging:
+  level:
+    com.gmp.hr: INFO
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework.amqp: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: /var/log/hr-service/application.log
+    max-size: 100MB
+    max-history: 30
+
+---
+# 开发环境配置
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hr_db
+    username: hr_user
+    password: hr123456
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 
+
+  mail:
+    host: smtp.gmail.com
+    username: dev@example.com
+    password: dev123
+
+logging:
+  level:
+    com.gmp.hr: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+
+---
+# 测试环境配置
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  flyway:
+    enabled: false  # 测试环境不使用Flyway
+
+---
+# 生产环境配置
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 10
+
+  jpa:
+    show-sql: false
+
+  data:
+    redis:
+      database: 3
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus,env,configprops
+
+logging:
+  level:
+    com.gmp.hr: WARN
+    root: WARN
+  file:
+    name: /var/log/hr-service/application.log
+    max-size: 200MB
+    max-history: 60

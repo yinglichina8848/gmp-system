@@ -1,0 +1,1281 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.gmp:auth-service >------------------------
+[INFO] Building auth-service 0.2.4
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (prepare-agent) @ auth-service ---
+[INFO] argLine set to -javaagent:/home/liying/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/home/liying/gmp-system/services/auth-service/target/jacoco.exec,excludes=**/*Test.class:**/*IT.class
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ auth-service ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ auth-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ auth-service ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ auth-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ auth-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.gmp.auth.AuthIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2025-11-20 22:07:51 [main] INFO  com.gmp.auth.AuthIntegrationTest - Starting AuthIntegrationTest using Java 17.0.16 with PID 2591439 (started by liying in /home/liying/gmp-system/services/auth-service)
+2025-11-20 22:07:51 [main] DEBUG com.gmp.auth.AuthIntegrationTest - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-11-20 22:07:51 [main] INFO  com.gmp.auth.AuthIntegrationTest - The following 1 profile is active: "test"
+2025-11-20 22:07:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-11-20 22:07:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-20 22:07:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 136 ms. Found 2 JPA repository interfaces.
+2025-11-20 22:07:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-11-20 22:07:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-11-20 22:07:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gmp.auth.repository.OperationLogRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-11-20 22:07:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gmp.auth.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-11-20 22:07:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-11-20 22:07:54 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-20 22:07:54 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-11-20 22:07:54 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-20 22:07:54 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-20 22:07:54 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-20 22:07:55 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-11-20 22:07:55 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-20 22:07:55 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-20 22:07:56 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-20 22:07:56 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists sys_permissions cascade 
+2025-11-20 22:07:56 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists sys_roles cascade 
+2025-11-20 22:07:56 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists sys_users cascade 
+2025-11-20 22:07:56 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists user_operation_logs cascade 
+2025-11-20 22:07:56 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists user_roles cascade 
+2025-11-20 22:07:56 [main] DEBUG org.hibernate.SQL - 
+    create table sys_permissions (
+        is_active boolean not null,
+        version integer not null,
+        created_at timestamp(6) not null,
+        created_by bigint,
+        id bigint generated by default as identity,
+        updated_at timestamp(6) not null,
+        updated_by bigint,
+        permission_code varchar(100) not null unique,
+        permission_name varchar(200) not null,
+        resource_url varchar(200),
+        description varchar(500),
+        http_method varchar(255),
+        resource_type varchar(255) not null,
+        primary key (id)
+    )
+2025-11-20 22:07:56 [main] DEBUG org.hibernate.SQL - 
+    create table sys_roles (
+        is_active boolean not null,
+        is_builtin boolean not null,
+        priority integer check (priority>=0),
+        version integer not null,
+        created_at timestamp(6) not null,
+        created_by bigint,
+        id bigint generated by default as identity,
+        updated_at timestamp(6) not null,
+        updated_by bigint,
+        role_code varchar(50) not null unique,
+        role_name varchar(100) not null,
+        description varchar(500),
+        primary key (id)
+    )
+2025-11-20 22:07:56 [main] DEBUG org.hibernate.SQL - 
+    create table sys_users (
+        login_attempts integer not null check ((login_attempts<=10) and (login_attempts>=0)),
+        version integer not null,
+        created_at timestamp(6) not null,
+        created_by bigint,
+        id bigint generated by default as identity,
+        last_login_time timestamp(6),
+        locked_until timestamp(6),
+        password_expired_at timestamp(6),
+        updated_at timestamp(6) not null,
+        updated_by bigint,
+        mobile varchar(20),
+        last_login_ip varchar(50),
+        username varchar(50) not null unique,
+        email varchar(100) unique,
+        full_name varchar(100) not null,
+        password_hash varchar(200) not null,
+        user_status varchar(255) not null check (user_status in ('ACTIVE','INACTIVE','LOCKED','EXPIRED')),
+        primary key (id)
+    )
+2025-11-20 22:07:56 [main] DEBUG org.hibernate.SQL - 
+    create table user_operation_logs (
+        duration_ms integer,
+        id bigint generated by default as identity,
+        operation_time timestamp(6) not null,
+        user_id bigint,
+        action varchar(255) not null,
+        ip_address varchar(255),
+        metadata TEXT,
+        module varchar(255) not null,
+        operation varchar(255) not null,
+        request_data TEXT,
+        response_data TEXT,
+        result varchar(255) not null check (result in ('SUCCESS','FAILED')),
+        user_agent TEXT,
+        username varchar(255),
+        primary key (id)
+    )
+2025-11-20 22:07:56 [main] DEBUG org.hibernate.SQL - 
+    create table user_roles (
+        is_active boolean not null,
+        assigned_at timestamp(6) not null,
+        assigned_at_audit timestamp(6),
+        assigned_by bigint,
+        expired_at timestamp(6),
+        id bigint generated by default as identity,
+        role_id bigint not null,
+        user_id bigint not null,
+        primary key (id)
+    )
+2025-11-20 22:07:56 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-20 22:07:56 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-20 22:07:57 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-20 22:07:58 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d0b58553-3945-4f76-9329-3fc1075f4e92
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-20 22:07:58 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-11-20 22:07:58 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d071dfb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@689144f9, org.springframework.security.web.context.SecurityContextHolderFilter@53952e01, org.springframework.security.web.header.HeaderWriterFilter@62fcf799, org.springframework.web.filter.CorsFilter@5a92b726, org.springframework.security.web.csrf.CsrfFilter@1adf4095, org.springframework.security.web.authentication.logout.LogoutFilter@74108fbe, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5dbb393e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@55cb3c5c, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1a184f5a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@137bdeea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b073046, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@773e2c35, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ff57127, org.springframework.security.web.access.ExceptionTranslationFilter@7e53a1, org.springframework.security.web.access.intercept.AuthorizationFilter@4070cc26]
+2025-11-20 22:07:59 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-11-20 22:07:59 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-11-20 22:07:59 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected StandardServletMultipartResolver
+2025-11-20 22:07:59 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-11-20 22:07:59 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected FixedThemeResolver
+2025-11-20 22:07:59 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@189fcd0
+2025-11-20 22:07:59 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@42c45344
+2025-11-20 22:07:59 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-11-20 22:07:59 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 3 ms
+2025-11-20 22:07:59 [main] INFO  com.gmp.auth.AuthIntegrationTest - Started AuthIntegrationTest in 7.791 seconds (process running for 9.111)
+2025-11-20 22:07:59 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 0, missCount = 1, failureCount = 0]
+2025-11-20 22:07:59 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:07:59 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:07:59 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 1, missCount = 1, failureCount = 0]
+2025-11-20 22:07:59 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 2, missCount = 1, failureCount = 0]
+2025-11-20 22:07:59 [main] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [AuthIntegrationTest], method [testUserPermissionCheck], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:07:59 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - Explicit transaction definition [PROPAGATION_REQUIRED,ISOLATION_DEFAULT] found for test class [com.gmp.auth.AuthIntegrationTest] and test method [testUserPermissionCheck]
+2025-11-20 22:07:59 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 3, missCount = 1, failureCount = 0]
+2025-11-20 22:07:59 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - No method-level @Rollback override: using default rollback [true] for test method [void com.gmp.auth.AuthIntegrationTest.testUserPermissionCheck() throws java.lang.Exception]
+2025-11-20 22:07:59 [main] DEBUG o.s.t.c.t.TransactionContext - Began transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testUserPermissionCheck]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@305e8885]; rollback [true]
+2025-11-20 22:07:59 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 4, missCount = 1, failureCount = 0]
+2025-11-20 22:07:59 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 5, missCount = 1, failureCount = 0]
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2025-11-20 22:07:59 [main] INFO  com.gmp.auth.AuthIntegrationTest - 🔄 准备集成测试环境数据...
+2025-11-20 22:07:59 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.created_by,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.last_login_ip,
+        u1_0.last_login_time,
+        u1_0.locked_until,
+        u1_0.login_attempts,
+        u1_0.mobile,
+        u1_0.password_expired_at,
+        u1_0.password_hash,
+        u1_0.updated_at,
+        u1_0.updated_by,
+        u1_0.user_status,
+        u1_0.username,
+        u1_0.version 
+    from
+        sys_users u1_0
+2025-11-20 22:07:59 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        ol1_0.id,
+        ol1_0.action,
+        ol1_0.duration_ms,
+        ol1_0.ip_address,
+        ol1_0.metadata,
+        ol1_0.module,
+        ol1_0.operation,
+        ol1_0.operation_time,
+        ol1_0.request_data,
+        ol1_0.response_data,
+        ol1_0.result,
+        ol1_0.user_agent,
+        ol1_0.user_id,
+        ol1_0.username 
+    from
+        user_operation_logs ol1_0
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 6, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 7, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 8, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 9, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 10, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionContext - Rolled back transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testUserPermissionCheck]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [AuthIntegrationTest], method [testUserPermissionCheck], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 11, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 12, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 13, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [AuthIntegrationTest], method [testCompleteUserFlow], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - Explicit transaction definition [PROPAGATION_REQUIRED,ISOLATION_DEFAULT] found for test class [com.gmp.auth.AuthIntegrationTest] and test method [testCompleteUserFlow]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 14, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - No method-level @Rollback override: using default rollback [true] for test method [void com.gmp.auth.AuthIntegrationTest.testCompleteUserFlow() throws java.lang.Exception]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionContext - Began transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testCompleteUserFlow]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@305e8885]; rollback [true]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 15, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 16, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] INFO  com.gmp.auth.AuthIntegrationTest - 🔄 准备集成测试环境数据...
+2025-11-20 22:08:00 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.created_by,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.last_login_ip,
+        u1_0.last_login_time,
+        u1_0.locked_until,
+        u1_0.login_attempts,
+        u1_0.mobile,
+        u1_0.password_expired_at,
+        u1_0.password_hash,
+        u1_0.updated_at,
+        u1_0.updated_by,
+        u1_0.user_status,
+        u1_0.username,
+        u1_0.version 
+    from
+        sys_users u1_0
+2025-11-20 22:08:00 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        ol1_0.id,
+        ol1_0.action,
+        ol1_0.duration_ms,
+        ol1_0.ip_address,
+        ol1_0.metadata,
+        ol1_0.module,
+        ol1_0.operation,
+        ol1_0.operation_time,
+        ol1_0.request_data,
+        ol1_0.response_data,
+        ol1_0.result,
+        ol1_0.user_agent,
+        ol1_0.user_id,
+        ol1_0.username 
+    from
+        user_operation_logs ol1_0
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 17, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 18, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 19, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 20, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 21, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionContext - Rolled back transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testCompleteUserFlow]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [AuthIntegrationTest], method [testCompleteUserFlow], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 22, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 23, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 24, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [AuthIntegrationTest], method [testUserRoleCheck], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - Explicit transaction definition [PROPAGATION_REQUIRED,ISOLATION_DEFAULT] found for test class [com.gmp.auth.AuthIntegrationTest] and test method [testUserRoleCheck]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 25, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - No method-level @Rollback override: using default rollback [true] for test method [void com.gmp.auth.AuthIntegrationTest.testUserRoleCheck() throws java.lang.Exception]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionContext - Began transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testUserRoleCheck]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@305e8885]; rollback [true]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 26, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 27, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] INFO  com.gmp.auth.AuthIntegrationTest - 🔄 准备集成测试环境数据...
+2025-11-20 22:08:00 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.created_by,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.last_login_ip,
+        u1_0.last_login_time,
+        u1_0.locked_until,
+        u1_0.login_attempts,
+        u1_0.mobile,
+        u1_0.password_expired_at,
+        u1_0.password_hash,
+        u1_0.updated_at,
+        u1_0.updated_by,
+        u1_0.user_status,
+        u1_0.username,
+        u1_0.version 
+    from
+        sys_users u1_0
+2025-11-20 22:08:00 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        ol1_0.id,
+        ol1_0.action,
+        ol1_0.duration_ms,
+        ol1_0.ip_address,
+        ol1_0.metadata,
+        ol1_0.module,
+        ol1_0.operation,
+        ol1_0.operation_time,
+        ol1_0.request_data,
+        ol1_0.response_data,
+        ol1_0.result,
+        ol1_0.user_agent,
+        ol1_0.user_id,
+        ol1_0.username 
+    from
+        user_operation_logs ol1_0
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 28, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 29, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 30, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 31, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 32, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionContext - Rolled back transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testUserRoleCheck]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [AuthIntegrationTest], method [testUserRoleCheck], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 33, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 34, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 35, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [AuthIntegrationTest], method [testSuccessfulUserLogin], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - Explicit transaction definition [PROPAGATION_REQUIRED,ISOLATION_DEFAULT] found for test class [com.gmp.auth.AuthIntegrationTest] and test method [testSuccessfulUserLogin]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 36, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - No method-level @Rollback override: using default rollback [true] for test method [void com.gmp.auth.AuthIntegrationTest.testSuccessfulUserLogin() throws java.lang.Exception]
+2025-11-20 22:08:00 [main] DEBUG o.s.t.c.t.TransactionContext - Began transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testSuccessfulUserLogin]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@305e8885]; rollback [true]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 37, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 38, missCount = 1, failureCount = 0]
+2025-11-20 22:08:00 [main] INFO  com.gmp.auth.AuthIntegrationTest - 🔄 准备集成测试环境数据...
+2025-11-20 22:08:00 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.created_by,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.last_login_ip,
+        u1_0.last_login_time,
+        u1_0.locked_until,
+        u1_0.login_attempts,
+        u1_0.mobile,
+        u1_0.password_expired_at,
+        u1_0.password_hash,
+        u1_0.updated_at,
+        u1_0.updated_by,
+        u1_0.user_status,
+        u1_0.username,
+        u1_0.version 
+    from
+        sys_users u1_0
+2025-11-20 22:08:00 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        ol1_0.id,
+        ol1_0.action,
+        ol1_0.duration_ms,
+        ol1_0.ip_address,
+        ol1_0.metadata,
+        ol1_0.module,
+        ol1_0.operation,
+        ol1_0.operation_time,
+        ol1_0.request_data,
+        ol1_0.response_data,
+        ol1_0.result,
+        ol1_0.user_agent,
+        ol1_0.user_id,
+        ol1_0.username 
+    from
+        user_operation_logs ol1_0
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 39, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 40, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 41, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 42, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 43, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionContext - Rolled back transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testSuccessfulUserLogin]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [AuthIntegrationTest], method [testSuccessfulUserLogin], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 44, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 45, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 46, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [AuthIntegrationTest], method [testUserLogout], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - Explicit transaction definition [PROPAGATION_REQUIRED,ISOLATION_DEFAULT] found for test class [com.gmp.auth.AuthIntegrationTest] and test method [testUserLogout]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 47, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - No method-level @Rollback override: using default rollback [true] for test method [void com.gmp.auth.AuthIntegrationTest.testUserLogout() throws java.lang.Exception]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionContext - Began transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testUserLogout]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@305e8885]; rollback [true]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 48, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 49, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] INFO  com.gmp.auth.AuthIntegrationTest - 🔄 准备集成测试环境数据...
+2025-11-20 22:08:01 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.created_by,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.last_login_ip,
+        u1_0.last_login_time,
+        u1_0.locked_until,
+        u1_0.login_attempts,
+        u1_0.mobile,
+        u1_0.password_expired_at,
+        u1_0.password_hash,
+        u1_0.updated_at,
+        u1_0.updated_by,
+        u1_0.user_status,
+        u1_0.username,
+        u1_0.version 
+    from
+        sys_users u1_0
+2025-11-20 22:08:01 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        ol1_0.id,
+        ol1_0.action,
+        ol1_0.duration_ms,
+        ol1_0.ip_address,
+        ol1_0.metadata,
+        ol1_0.module,
+        ol1_0.operation,
+        ol1_0.operation_time,
+        ol1_0.request_data,
+        ol1_0.response_data,
+        ol1_0.result,
+        ol1_0.user_agent,
+        ol1_0.user_id,
+        ol1_0.username 
+    from
+        user_operation_logs ol1_0
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 50, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 51, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 52, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 53, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 54, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionContext - Rolled back transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testUserLogout]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [AuthIntegrationTest], method [testUserLogout], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 55, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 56, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 57, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [AuthIntegrationTest], method [testGetUserPermissions], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - Explicit transaction definition [PROPAGATION_REQUIRED,ISOLATION_DEFAULT] found for test class [com.gmp.auth.AuthIntegrationTest] and test method [testGetUserPermissions]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 58, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - No method-level @Rollback override: using default rollback [true] for test method [void com.gmp.auth.AuthIntegrationTest.testGetUserPermissions() throws java.lang.Exception]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionContext - Began transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testGetUserPermissions]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@305e8885]; rollback [true]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 59, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 60, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] INFO  com.gmp.auth.AuthIntegrationTest - 🔄 准备集成测试环境数据...
+2025-11-20 22:08:01 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.created_by,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.last_login_ip,
+        u1_0.last_login_time,
+        u1_0.locked_until,
+        u1_0.login_attempts,
+        u1_0.mobile,
+        u1_0.password_expired_at,
+        u1_0.password_hash,
+        u1_0.updated_at,
+        u1_0.updated_by,
+        u1_0.user_status,
+        u1_0.username,
+        u1_0.version 
+    from
+        sys_users u1_0
+2025-11-20 22:08:01 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        ol1_0.id,
+        ol1_0.action,
+        ol1_0.duration_ms,
+        ol1_0.ip_address,
+        ol1_0.metadata,
+        ol1_0.module,
+        ol1_0.operation,
+        ol1_0.operation_time,
+        ol1_0.request_data,
+        ol1_0.response_data,
+        ol1_0.result,
+        ol1_0.user_agent,
+        ol1_0.user_id,
+        ol1_0.username 
+    from
+        user_operation_logs ol1_0
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 61, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 62, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 63, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 64, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 65, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionContext - Rolled back transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testGetUserPermissions]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [AuthIntegrationTest], method [testGetUserPermissions], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 66, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 67, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 68, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [AuthIntegrationTest], method [testFailedLoginWithWrongPassword], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - Explicit transaction definition [PROPAGATION_REQUIRED,ISOLATION_DEFAULT] found for test class [com.gmp.auth.AuthIntegrationTest] and test method [testFailedLoginWithWrongPassword]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 69, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - No method-level @Rollback override: using default rollback [true] for test method [void com.gmp.auth.AuthIntegrationTest.testFailedLoginWithWrongPassword() throws java.lang.Exception]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionContext - Began transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testFailedLoginWithWrongPassword]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@305e8885]; rollback [true]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 70, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 71, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] INFO  com.gmp.auth.AuthIntegrationTest - 🔄 准备集成测试环境数据...
+2025-11-20 22:08:01 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.created_by,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.last_login_ip,
+        u1_0.last_login_time,
+        u1_0.locked_until,
+        u1_0.login_attempts,
+        u1_0.mobile,
+        u1_0.password_expired_at,
+        u1_0.password_hash,
+        u1_0.updated_at,
+        u1_0.updated_by,
+        u1_0.user_status,
+        u1_0.username,
+        u1_0.version 
+    from
+        sys_users u1_0
+2025-11-20 22:08:01 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        ol1_0.id,
+        ol1_0.action,
+        ol1_0.duration_ms,
+        ol1_0.ip_address,
+        ol1_0.metadata,
+        ol1_0.module,
+        ol1_0.operation,
+        ol1_0.operation_time,
+        ol1_0.request_data,
+        ol1_0.response_data,
+        ol1_0.result,
+        ol1_0.user_agent,
+        ol1_0.user_id,
+        ol1_0.username 
+    from
+        user_operation_logs ol1_0
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 72, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 73, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 74, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 75, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 76, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionContext - Rolled back transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testFailedLoginWithWrongPassword]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [AuthIntegrationTest], method [testFailedLoginWithWrongPassword], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 77, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 78, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 79, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [AuthIntegrationTest], method [testHealthCheck], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - Explicit transaction definition [PROPAGATION_REQUIRED,ISOLATION_DEFAULT] found for test class [com.gmp.auth.AuthIntegrationTest] and test method [testHealthCheck]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 80, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionalTestExecutionListener - No method-level @Rollback override: using default rollback [true] for test method [void com.gmp.auth.AuthIntegrationTest.testHealthCheck() throws java.lang.Exception]
+2025-11-20 22:08:01 [main] DEBUG o.s.t.c.t.TransactionContext - Began transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testHealthCheck]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@305e8885]; rollback [true]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 81, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 82, missCount = 1, failureCount = 0]
+2025-11-20 22:08:01 [main] INFO  com.gmp.auth.AuthIntegrationTest - 🔄 准备集成测试环境数据...
+2025-11-20 22:08:01 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.created_by,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.last_login_ip,
+        u1_0.last_login_time,
+        u1_0.locked_until,
+        u1_0.login_attempts,
+        u1_0.mobile,
+        u1_0.password_expired_at,
+        u1_0.password_hash,
+        u1_0.updated_at,
+        u1_0.updated_by,
+        u1_0.user_status,
+        u1_0.username,
+        u1_0.version 
+    from
+        sys_users u1_0
+2025-11-20 22:08:01 [main] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        ol1_0.id,
+        ol1_0.action,
+        ol1_0.duration_ms,
+        ol1_0.ip_address,
+        ol1_0.metadata,
+        ol1_0.module,
+        ol1_0.operation,
+        ol1_0.operation_time,
+        ol1_0.request_data,
+        ol1_0.response_data,
+        ol1_0.result,
+        ol1_0.user_agent,
+        ol1_0.user_id,
+        ol1_0.username 
+    from
+        user_operation_logs ol1_0
+2025-11-20 22:08:02 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 83, missCount = 1, failureCount = 0]
+2025-11-20 22:08:02 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 84, missCount = 1, failureCount = 0]
+2025-11-20 22:08:02 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 85, missCount = 1, failureCount = 0]
+2025-11-20 22:08:02 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 86, missCount = 1, failureCount = 0]
+2025-11-20 22:08:02 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 87, missCount = 1, failureCount = 0]
+2025-11-20 22:08:02 [main] DEBUG o.s.t.c.t.TransactionContext - Rolled back transaction (1) for test class [com.gmp.auth.AuthIntegrationTest]; test method [testHealthCheck]
+2025-11-20 22:08:02 [main] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [AuthIntegrationTest], method [testHealthCheck], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+2025-11-20 22:08:02 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test class com.gmp.auth.AuthIntegrationTest
+2025-11-20 22:08:02 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@7a1895dd size = 1, maxSize = 32, parentContextCount = 0, hitCount = 88, missCount = 1, failureCount = 0]
+2025-11-20 22:08:02 [main] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test class: class [AuthIntegrationTest], class annotated with @DirtiesContext [false] with mode [null]
+[ERROR] Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 11.22 s <<< FAILURE! -- in com.gmp.auth.AuthIntegrationTest
+[ERROR] com.gmp.auth.AuthIntegrationTest.testUserPermissionCheck -- Time elapsed: 1.075 s <<< ERROR!
+jakarta.validation.ConstraintViolationException: 
+Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+]
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:151)
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:81)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.preInsert(EntityIdentityInsertAction.java:186)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:75)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:378)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:298)
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:211)
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:847)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:833)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy172.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy177.save(Unknown Source)
+	at com.gmp.auth.AuthIntegrationTest.createTestUser(AuthIntegrationTest.java:104)
+	at com.gmp.auth.AuthIntegrationTest.setUp(AuthIntegrationTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.gmp.auth.AuthIntegrationTest.testCompleteUserFlow -- Time elapsed: 0.260 s <<< ERROR!
+jakarta.validation.ConstraintViolationException: 
+Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:151)
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:81)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.preInsert(EntityIdentityInsertAction.java:186)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:75)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:378)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:298)
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:211)
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:847)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:833)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy172.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy177.save(Unknown Source)
+	at com.gmp.auth.AuthIntegrationTest.createTestUser(AuthIntegrationTest.java:104)
+	at com.gmp.auth.AuthIntegrationTest.setUp(AuthIntegrationTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.gmp.auth.AuthIntegrationTest.testUserRoleCheck -- Time elapsed: 0.241 s <<< ERROR!
+jakarta.validation.ConstraintViolationException: 
+Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:151)
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:81)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.preInsert(EntityIdentityInsertAction.java:186)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:75)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:378)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:298)
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:211)
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:847)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:833)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy172.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy177.save(Unknown Source)
+	at com.gmp.auth.AuthIntegrationTest.createTestUser(AuthIntegrationTest.java:104)
+	at com.gmp.auth.AuthIntegrationTest.setUp(AuthIntegrationTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.gmp.auth.AuthIntegrationTest.testSuccessfulUserLogin -- Time elapsed: 0.233 s <<< ERROR!
+jakarta.validation.ConstraintViolationException: 
+Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:151)
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:81)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.preInsert(EntityIdentityInsertAction.java:186)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:75)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:378)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:298)
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:211)
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:847)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:833)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy172.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy177.save(Unknown Source)
+	at com.gmp.auth.AuthIntegrationTest.createTestUser(AuthIntegrationTest.java:104)
+	at com.gmp.auth.AuthIntegrationTest.setUp(AuthIntegrationTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.gmp.auth.AuthIntegrationTest.testUserLogout -- Time elapsed: 0.243 s <<< ERROR!
+jakarta.validation.ConstraintViolationException: 
+Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:151)
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:81)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.preInsert(EntityIdentityInsertAction.java:186)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:75)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:378)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:298)
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:211)
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:847)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:833)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy172.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy177.save(Unknown Source)
+	at com.gmp.auth.AuthIntegrationTest.createTestUser(AuthIntegrationTest.java:104)
+	at com.gmp.auth.AuthIntegrationTest.setUp(AuthIntegrationTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.gmp.auth.AuthIntegrationTest.testGetUserPermissions -- Time elapsed: 0.262 s <<< ERROR!
+jakarta.validation.ConstraintViolationException: 
+Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:151)
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:81)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.preInsert(EntityIdentityInsertAction.java:186)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:75)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:378)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:298)
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:211)
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:847)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:833)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy172.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy177.save(Unknown Source)
+	at com.gmp.auth.AuthIntegrationTest.createTestUser(AuthIntegrationTest.java:104)
+	at com.gmp.auth.AuthIntegrationTest.setUp(AuthIntegrationTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.gmp.auth.AuthIntegrationTest.testFailedLoginWithWrongPassword -- Time elapsed: 0.240 s <<< ERROR!
+jakarta.validation.ConstraintViolationException: 
+Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:151)
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:81)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.preInsert(EntityIdentityInsertAction.java:186)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:75)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:378)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:298)
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:211)
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:847)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:833)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy172.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy177.save(Unknown Source)
+	at com.gmp.auth.AuthIntegrationTest.createTestUser(AuthIntegrationTest.java:104)
+	at com.gmp.auth.AuthIntegrationTest.setUp(AuthIntegrationTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.gmp.auth.AuthIntegrationTest.testHealthCheck -- Time elapsed: 0.250 s <<< ERROR!
+jakarta.validation.ConstraintViolationException: 
+Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:151)
+	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:81)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.preInsert(EntityIdentityInsertAction.java:186)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:75)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:378)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:298)
+	at org.hibernate.event.internal.DefaultMergeEventListener.merge(DefaultMergeEventListener.java:211)
+	at org.hibernate.event.internal.DefaultMergeEventListener.doMerge(DefaultMergeEventListener.java:146)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:130)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:84)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:847)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:833)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy172.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:621)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy177.save(Unknown Source)
+	at com.gmp.auth.AuthIntegrationTest.createTestUser(AuthIntegrationTest.java:104)
+	at com.gmp.auth.AuthIntegrationTest.setUp(AuthIntegrationTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   AuthIntegrationTest.setUp:80->createTestUser:104 » ConstraintViolation Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+[ERROR]   AuthIntegrationTest.setUp:80->createTestUser:104 » ConstraintViolation Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+[ERROR]   AuthIntegrationTest.setUp:80->createTestUser:104 » ConstraintViolation Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+[ERROR]   AuthIntegrationTest.setUp:80->createTestUser:104 » ConstraintViolation Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+[ERROR]   AuthIntegrationTest.setUp:80->createTestUser:104 » ConstraintViolation Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+[ERROR]   AuthIntegrationTest.setUp:80->createTestUser:104 » ConstraintViolation Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+[ERROR]   AuthIntegrationTest.setUp:80->createTestUser:104 » ConstraintViolation Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+]
+[ERROR]   AuthIntegrationTest.setUp:80->createTestUser:104 » ConstraintViolation Validation failed for classes [com.gmp.auth.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='邮箱格式不正确', propertyPath=email, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='邮箱格式不正确'}
+	ConstraintViolationImpl{interpolatedMessage='用户名只能包含字母、数字和下划线', propertyPath=username, rootBeanClass=class com.gmp.auth.entity.User, messageTemplate='用户名只能包含字母、数字和下划线'}
+]
+[INFO] 
+[ERROR] Tests run: 8, Failures: 0, Errors: 8, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.002 s
+[INFO] Finished at: 2025-11-20T22:08:02+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project auth-service: 
+[ERROR] 
+[ERROR] Please refer to /home/liying/gmp-system/services/auth-service/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

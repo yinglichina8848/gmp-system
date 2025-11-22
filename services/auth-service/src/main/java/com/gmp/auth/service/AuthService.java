@@ -77,4 +77,29 @@ public interface AuthService {
      * @return 角色列表
      */
     java.util.Set<String> getUserRoles(String username);
+    
+    /**
+     * 修改密码
+     *
+     * @param username 用户名
+     * @param request 密码修改请求
+     * @return 是否成功
+     */
+    boolean changePassword(String username, com.gmp.auth.dto.PasswordChangeRequest request);
+    
+    /**
+     * 重置密码
+     *
+     * @param username 用户名
+     * @param newPassword 新密码
+     * @return 是否成功
+     */
+    boolean resetPassword(String username, String newPassword);
+    
+    /**
+     * 获取密码复杂度要求
+     *
+     * @return 密码复杂度要求描述
+     */
+    String getPasswordComplexityRequirements();
 }

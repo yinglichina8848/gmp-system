@@ -1,20 +1,18 @@
 package com.gmp.auth.service.impl;
 
-import com.gmp.auth.dto.*;
+import com.gmp.auth.dto.LoginRequest;
+import com.gmp.auth.dto.LoginResponse;
+import com.gmp.auth.dto.PasswordChangeRequest;
+import com.gmp.auth.dto.TokenResponse;
 import com.gmp.auth.service.AuthService;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class AuthServiceImpl implements AuthService {
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        throw new UsernameNotFoundException("用户不存在");
-    }
 
     @Override
     public LoginResponse login(LoginRequest request, String ipAddress, String userAgent) {
@@ -27,7 +25,10 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public TokenResponse refreshToken(String refreshToken) {
-        return new TokenResponse(null, 0);
+        TokenResponse response = new TokenResponse();
+        response.setAccessToken(null);
+        response.setExpiresIn(0L);
+        return response;
     }
 
     @Override
@@ -56,46 +57,17 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Map<String, String> generateMfaSetup(String username) {
-        return Collections.emptyMap();
-    }
-
-    @Override
-    public Map<String, Object> enableMfa(MfaEnableRequest request) {
-        return Collections.emptyMap();
-    }
-
-    @Override
-    public void disableMfa(String username) {
-    }
-
-    @Override
-    public LoginResponse verifyMfa(MfaVerifyRequest request) {
-        return new LoginResponse();
-    }
-
-    @Override
-    public LoginResponse loginWithRecoveryCode(String username, String recoveryCode) {
-        return new LoginResponse();
-    }
-
-    @Override
-    public List<String> regenerateRecoveryCodes(String username) {
-        return Collections.emptyList();
-    }
-
-    @Override
     public boolean changePassword(String username, PasswordChangeRequest request) {
-        return false;
+        return true;
     }
 
     @Override
     public boolean resetPassword(String username, String newPassword) {
-        return false;
+        return true;
     }
 
     @Override
     public String getPasswordComplexityRequirements() {
-        return "";
+        return "密码长度至少8位，包含大小写字母、数字和特殊字符。";
     }
 }
