@@ -2,13 +2,15 @@ package com.gmp.auth.service;
 
 import com.gmp.auth.dto.LoginRequest;
 import com.gmp.auth.dto.LoginResponse;
+import com.gmp.auth.dto.MfaVerifyRequest;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * 认证服务接口
  *
  * @author GMP系统开发团队
  */
-public interface AuthService {
+public interface AuthService extends UserDetailsService {
 
     /**
      * 用户登录
@@ -102,4 +104,20 @@ public interface AuthService {
      * @return 密码复杂度要求描述
      */
     String getPasswordComplexityRequirements();
+    
+    /**
+     * 验证MFA
+     *
+     * @param request MFA验证请求
+     * @return 登录响应
+     */
+    LoginResponse verifyMfa(MfaVerifyRequest request);
+    
+    /**
+     * 重新生成恢复码
+     *
+     * @param username 用户名
+     * @return 新的恢复码列表
+     */
+    java.util.List<String> regenerateRecoveryCodes(String username);
 }

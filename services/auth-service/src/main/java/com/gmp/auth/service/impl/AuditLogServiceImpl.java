@@ -38,6 +38,36 @@ public class AuditLogServiceImpl implements AuditLogService {
     private ObjectMapper objectMapper;
     
     @Override
+    public void logLogout(String username) {
+        // 实现登出日志记录逻辑
+        logger.info("User {} logged out", username);
+    }
+    
+    @Override
+    public void logLoginSuccess(String username, String ipAddress, String userAgent) {
+        // 实现登录成功日志记录逻辑
+        logger.info("User {} successfully logged in from IP {} using agent {}", username, ipAddress, userAgent);
+    }
+    
+    @Override
+    public void logLoginFailure(String username, String ipAddress, String userAgent, String reason) {
+        // 实现登录失败日志记录逻辑
+        logger.warn("User {} failed to login from IP {} using agent {}: {}", username, ipAddress, userAgent, reason);
+    }
+    
+    @Override
+    public void logPasswordChange(String username) {
+        // 实现密码修改日志记录逻辑
+        logger.info("User {} changed password", username);
+    }
+    
+    @Override
+    public void logPasswordReset(String username) {
+        // 实现密码重置日志记录逻辑
+        logger.info("User {} reset password", username);
+    }
+    
+    @Override
     public void logPasswordReset(Long userId, String username, String ipAddress) {
         // 简化实现，避免使用可能不存在的常量
         OperationLog log = OperationLog.builder()

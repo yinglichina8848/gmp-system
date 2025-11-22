@@ -4,7 +4,10 @@ import com.gmp.auth.dto.LoginRequest;
 import com.gmp.auth.dto.LoginResponse;
 import com.gmp.auth.dto.PasswordChangeRequest;
 import com.gmp.auth.dto.TokenResponse;
+import com.gmp.auth.dto.MfaVerifyRequest;
 import com.gmp.auth.service.AuthService;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -13,6 +16,11 @@ import java.util.Set;
 
 @Service
 public class AuthServiceImpl implements AuthService {
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
+    }
 
     @Override
     public LoginResponse login(LoginRequest request, String ipAddress, String userAgent) {
@@ -58,16 +66,27 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public boolean changePassword(String username, PasswordChangeRequest request) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean resetPassword(String username, String newPassword) {
-        return true;
+        return false;
+    }
+
+    @Override
+    public List<String> regenerateRecoveryCodes(String username) {
+        // 返回空列表作为占位符实现
+        return Collections.emptyList();
     }
 
     @Override
     public String getPasswordComplexityRequirements() {
-        return "密码长度至少8位，包含大小写字母、数字和特殊字符。";
+        return "No requirements";
+    }
+
+    @Override
+    public LoginResponse verifyMfa(MfaVerifyRequest request) {
+        return new LoginResponse();
     }
 }

@@ -186,4 +186,40 @@ public interface AuditLogService {
      * @param ipAddress IP地址
      */
     void logPasswordReset(Long userId, String username, String ipAddress);
+    
+    /**
+     * 记录密码重置（简化版）
+     * @param username 用户名
+     */
+    void logPasswordReset(String username);
+    
+    /**
+     * 记录密码修改（简化版）
+     * @param username 用户名
+     */
+    void logPasswordChange(String username);
+    
+    /**
+     * 记录登录成功（简化版）
+     * @param username 用户名
+     * @param ipAddress IP地址
+     * @param userAgent 用户代理
+     */
+    void logLoginSuccess(String username, String ipAddress, String userAgent);
+    
+    /**
+     * 记录登录失败
+     * @param username 用户名
+     * @param ipAddress IP地址
+     * @param userAgent 用户代理
+     * @param reason 失败原因
+     */
+    void logLoginFailure(String username, String ipAddress, String userAgent, String reason);
+    
+    /**
+     * 记录登出（简化版）
+     * @param username 用户名
+     */
+    void logLogout(String username);
+    
 }
