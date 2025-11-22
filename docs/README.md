@@ -40,6 +40,7 @@
 | [移动应用平台](mobile-app) | [总体需求.md](mobile-app/总体需求.md) | - | [内外网访问方案.md](mobile-app/内外网访问方案.md) | [TODO-list.md](mobile-app/TODO-list.md) | [用例与用户故事.md](mobile-app/用例与用户故事.md) | - | - | [文档总览.md](mobile-app/文档总览.md) |
 | [仓库管理系统](warehouse-management) | [总体需求.md](warehouse-management/总体需求.md) | [详细需求.md](warehouse-management/详细需求.md) | [TODO-list.md](warehouse-management/TODO-list.md) | - | - | - | - | [文档总览.md](warehouse-management/文档总览.md) |
 | [AI智能分析平台](ai-integration) | - | - | [AI应用场景评估.md](ai-integration/AI应用场景评估.md) | - | - | - | - | [文档总览.md](ai-integration/文档总览.md) |
+| [中药材检验子系统](chinese-medicine-testing) | [总体需求.md](chinese-medicine-testing/总体需求.md) | - | - | - | [用例与用户故事.md](chinese-medicine-testing/用例与用户故事.md) | - | [用例图和用例描述.md](chinese-medicine-testing/用例图和用例描述.md) | - |
 | [培训管理系统](training-management) | [总体需求.md](training-management/总体需求.md) | [详细需求.md](training-management/详细需求.md) | [架构设计.md](training-management/架构设计.md) | [TODO-list.md](training-management/TODO-list.md) | [用例与用户故事.md](training-management/用例与用户故事.md) | [测试计划.md](training-management/测试计划.md) | [用例图和用例描述.md](training-management/用例图和用例描述.md) | [文档总览.md](training-management/文档总览.md) |
 | [配置中心](config-service) | [总体需求.md](config-service/总体需求.md) | [详细需求.md](config-service/详细需求.md) | [架构设计.md](config-service/架构设计.md) | [TODO-list.md](config-service/TODO-list.md) | [用例与用户故事.md](config-service/用例与用户故事.md) | [测试计划.md](config-service/测试计划.md) | [用例图和用例描述.md](config-service/用例图和用例描述.md) | [文档总览.md](config-service/文档总览.md) |
 

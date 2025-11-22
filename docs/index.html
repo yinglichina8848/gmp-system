@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,15 +15,18 @@
             padding: 20px;
             background-color: #f9f9f9;
         }
+
         h1 {
             color: #2c3e50;
             border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
         }
+
         h2 {
             color: #34495e;
             margin-top: 30px;
         }
+
         .card {
             background-color: #fff;
             border-radius: 8px;
@@ -30,15 +34,18 @@
             padding: 20px;
             margin-bottom: 20px;
         }
+
         .card-title {
             font-size: 1.2em;
             font-weight: bold;
             margin-bottom: 10px;
             color: #2c3e50;
         }
+
         .card-content {
             margin-bottom: 15px;
         }
+
         .link-button {
             display: inline-block;
             padding: 10px 15px;
@@ -48,15 +55,18 @@
             border-radius: 4px;
             font-weight: bold;
         }
+
         .link-button:hover {
             background-color: #2980b9;
         }
+
         .note {
             background-color: #fff8e1;
             border-left: 4px solid #ffc107;
             padding: 10px 15px;
             margin: 15px 0;
         }
+
         .footer {
             margin-top: 50px;
             padding-top: 20px;
@@ -67,23 +77,27 @@
         }
     </style>
 </head>
+
 <body>
     <h1>GMP系统文档索引</h1>
-    
+
     <div class="card">
         <div class="card-title">覆盖率报告</div>
         <div class="card-content">
             <p>包含项目的单元测试覆盖率信息，目前已为auth-service模块生成详细的测试覆盖率报告。</p>
             <ul>
-                <li><strong>聚合报告索引：</strong> <a href="../../target/coverage-aggregate/index.html" class="link-button">查看聚合报告</a></li>
-                <li><strong>auth-service详细报告：</strong> <a href="../../services/auth-service/target/site/jacoco/index.html" class="link-button">查看详细报告</a></li>
+                <li><strong>聚合报告索引：</strong> <a href="../../target/coverage-aggregate/index.html"
+                        class="link-button">查看聚合报告</a></li>
+                <li><strong>auth-service详细报告：</strong> <a
+                        href="../../services/auth-service/target/site/jacoco/index.html" class="link-button">查看详细报告</a>
+                </li>
             </ul>
             <div class="note">
                 <strong>注意：</strong> 覆盖率报告包含了代码执行路径、分支覆盖率和类覆盖率等详细信息，可用于评估测试质量和指导测试改进。
             </div>
         </div>
     </div>
-    
+
     <div class="card">
         <div class="card-title">Doxygen技术文档</div>
         <div class="card-content">
@@ -94,7 +108,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="card">
         <div class="card-title">项目现有文档</div>
         <div class="card-content">
@@ -113,7 +127,7 @@
             </ul>
         </div>
     </div>
-    
+
     <div class="card">
         <div class="card-title">子系统文档</div>
         <div class="card-content">
@@ -124,6 +138,8 @@
                 <li><a href="qms/详细需求.md">质量管理系统 (qms)</a></li>
                 <li><a href="mes/详细需求.md">制造执行系统 (mes)</a></li>
                 <li><a href="lims/详细需求.md">实验室信息管理系统 (lims)</a></li>
+                <li><strong><a href="chinese-medicine-testing/总体需求.md" style="color: #e74c3c;">中药材检验子系统
+                            (chinese-medicine-testing) 🌟 NEW</a></strong></li>
                 <li><a href="edms/详细需求.md">文档管理系统 (edms)</a></li>
                 <li><a href="equipment-management/详细需求.md">设备管理 (equipment-management)</a></li>
                 <li><a href="hr-management/总体需求.md">人事管理 (hr-management)</a></li>
@@ -141,15 +157,16 @@
             </ul>
         </div>
     </div>
-    
+
     <div class="footer">
         <p>文档生成时间：<span id="generation-time">2025-11-20</span></p>
         <p>&copy; GMP系统 - 技术文档</p>
     </div>
-    
+
     <script>
         // 更新生成时间为当前日期
         document.getElementById('generation-time').textContent = new Date().toLocaleDateString();
     </script>
 </body>
+
 </html>
