@@ -19,6 +19,9 @@
 | 07 | 代码实现方案 | [07_代码实现方案.md](07_代码实现方案.md) | 项目结构、核心代码、前端实现、配置管理 | 开发工程师、测试工程师 |
 | 08 | 实施时间计划 | [08_实施时间计划.md](08_实施时间计划.md) | 时间安排、周计划、资源分配、风险管理 | 项目经理、团队负责人 |
 | 09 | 开发环境配置指南 | [09_开发环境配置指南.md](09_开发环境配置指南.md) | 环境安装、系统配置、测试验证、问题解答 | 开发工程师、运维工程师 |
+| 10 | GMP系统需求文档评估报告 | [10_GMP系统需求文档评估报告.md](10_GMP系统需求文档评估报告.md) | 需求文档完整性评估、改进建议 | 产品经理、文档维护人员 |
+| 11 | GMP系统用例文档与用户故事 | [11_GMP系统用例文档与用户故事.md](11_GMP系统用例文档与用户故事.md) | 系统整体用例图、用户故事集合 | 产品经理、业务分析师 |
+| 12 | GMP信息管理系统评估报告 | [12_GMP信息管理系统评估报告.md](12_GMP信息管理系统评估报告.md) | 系统评估、对比分析、改进建议 | 项目经理、架构师 |
 
 ### 🧩 子系统文档总览
 
@@ -38,6 +41,17 @@
 | [仓库管理系统](warehouse-management) | [总体需求.md](warehouse-management/总体需求.md) | [详细需求.md](warehouse-management/详细需求.md) | [TODO-list.md](warehouse-management/TODO-list.md) | - | - | - | - | [文档总览.md](warehouse-management/文档总览.md) |
 | [AI智能分析平台](ai-integration) | - | - | [AI应用场景评估.md](ai-integration/AI应用场景评估.md) | - | - | - | - | [文档总览.md](ai-integration/文档总览.md) |
 | [培训管理系统](training-management) | [总体需求.md](training-management/总体需求.md) | [详细需求.md](training-management/详细需求.md) | [架构设计.md](training-management/架构设计.md) | [TODO-list.md](training-management/TODO-list.md) | [用例与用户故事.md](training-management/用例与用户故事.md) | [测试计划.md](training-management/测试计划.md) | [用例图和用例描述.md](training-management/用例图和用例描述.md) | [文档总览.md](training-management/文档总览.md) |
+| [配置中心](config-service) | [总体需求.md](config-service/总体需求.md) | [详细需求.md](config-service/详细需求.md) | [架构设计.md](config-service/架构设计.md) | [TODO-list.md](config-service/TODO-list.md) | [用例与用户故事.md](config-service/用例与用户故事.md) | [测试计划.md](config-service/测试计划.md) | [用例图和用例描述.md](config-service/用例图和用例描述.md) | [文档总览.md](config-service/文档总览.md) |
+
+## 💻 开发环境部署指南
+
+为了满足不同开发者的环境需求，我们提供了多种操作系统的开发环境部署文档：
+
+| 操作系统 | 文档链接 | 说明 |
+|---------|---------|------|
+| macOS | [Mac M3 Mini开发环境安装部署指南](09_开发环境配置指南.md) | 针对Mac M3芯片的完整环境配置指南 |
+| Ubuntu | [Ubuntu开发环境部署指南](Ubuntu开发环境部署指南.md) | 针对Ubuntu操作系统的环境配置指南 |
+| Windows 10/11 | [Win10/11 + WSL开发环境部署指南](Win10-11-WSL开发环境部署指南.md) | 使用WSL在Windows上部署开发环境 |
 
 ## 🎯 快速开始指南
 
@@ -47,7 +61,7 @@
 3. **需求收集分析**：基于 [02_需求分析文档.md](02_需求分析文档.md) 开展工作
 
 ### 👨‍💻 开发团队
-1. **环境搭建**：按照 [09_开发环境配置指南.md](09_开发环境配置指南.md) 配置开发环境
+1. **环境搭建**：根据您的操作系统选择合适的开发环境部署指南
 2. **架构理解**：阅读 [03_系统架构设计文档.md](03_系统架构设计文档.md) 和 [04_系统架构设计文档-补充版.md](04_系统架构设计文档-补充版.md)
 3. **代码开发**：参考 [07_代码实现方案.md](07_代码实现方案.md) 进行开发
 4. **需求确认**：对照 [05_详细需求分析.md](05_详细需求分析.md) 确保功能完整
@@ -110,4 +124,3 @@
 - **最佳实践**：分享项目实施经验
 
 ---
-**© 2024 GMP系统项目组 - 保留所有权利**
