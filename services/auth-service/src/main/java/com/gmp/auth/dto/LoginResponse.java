@@ -50,11 +50,50 @@ public class LoginResponse {
         this.roles = roles;
     }
     
-    public void setPermissions(List<String> permissions) {
-        this.permissions = permissions;
-    }
+
     
     public void setLoginTime(LocalDateTime loginTime) {
         this.loginTime = loginTime;
+    }
+    
+    // 添加getter方法
+    public String getAccessToken() {
+        return accessToken;
+    }
+    
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+    
+    public String getTokenType() {
+        return tokenType;
+    }
+    
+    public Long getExpiresIn() {
+        return expiresIn;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+    
+    public String getFullName() {
+        return fullName;
+    }
+    
+    public List<String> getRoles() {
+        return roles;
+    }
+    
+    public List<String> getPermissions() {
+        return permissions;
+    }
+    
+    public LocalDateTime getLoginTime() {
+        return loginTime;
+    }
+    
+    public void setPermissions(List<String> permissions) {
+        this.permissions = permissions;
     }
 }

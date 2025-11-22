@@ -17,8 +17,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.transaction.annotation.Transactional;
-
-import jakarta.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -189,23 +187,23 @@ public class GMPComprehensiveAuthIntegrationTest {
         permissions.add(Permission.builder().name("PROD_BATCH").description("批次记录").build());
 
         // 质量相关权限（基于质量系统集成）
-        permissions.add(Permission.builder().name("QA_READ").description("质量数据查看").build());
-        permissions.add(Permission.builder().name("QA_WRITE").description("质量数据编辑").build());
-        permissions.add(Permission.builder().name("QA_INSPECT").description("质量检验").build());
-        permissions.add(Permission.builder().name("QA_REPORT").description("质量报告").build());
+        permissions.add(Permission.builder().permissionCode("PERMISSION_QA_READ").permissionName("质量数据查看").description("质量数据查看").build());
+        permissions.add(Permission.builder().permissionCode("PERMISSION_QA_WRITE").permissionName("质量数据编辑").description("质量数据编辑").build());
+        permissions.add(Permission.builder().permissionCode("PERMISSION_QA_INSPECT").permissionName("质量检验").description("质量检验").build());
+        permissions.add(Permission.builder().permissionCode("PERMISSION_QA_REPORT").permissionName("质量报告").description("质量报告").build());
 
         // 用户管理权限
-        permissions.add(Permission.builder().name("USER_READ").description("用户查看").build());
-        permissions.add(Permission.builder().name("USER_WRITE").description("用户管理").build());
-        permissions.add(Permission.builder().name("USER_DELETE").description("用户删除").build());
+        permissions.add(Permission.builder().permissionCode("PERMISSION_USER_READ").permissionName("用户查看").description("用户查看").build());
+        permissions.add(Permission.builder().permissionCode("PERMISSION_USER_WRITE").permissionName("用户管理").description("用户管理").build());
+        permissions.add(Permission.builder().permissionCode("PERMISSION_USER_DELETE").permissionName("用户删除").description("用户删除").build());
 
         // 审计权限
-        permissions.add(Permission.builder().name("AUDIT_VIEW").description("审计查看").build());
-        permissions.add(Permission.builder().name("AUDIT_EXPORT").description("审计导出").build());
+        permissions.add(Permission.builder().permissionCode("PERMISSION_AUDIT_VIEW").permissionName("审计查看").description("审计查看").build());
+        permissions.add(Permission.builder().permissionCode("PERMISSION_AUDIT_EXPORT").permissionName("审计导出").description("审计导出").build());
 
         // 系统管理权限
-        permissions.add(Permission.builder().name("SYS_ADMIN").description("系统管理").build());
-        permissions.add(Permission.builder().name("CONFIG_MANAGE").description("配置管理").build());
+        permissions.add(Permission.builder().permissionCode("PERMISSION_SYS_ADMIN").permissionName("系统管理").description("系统管理").build());
+        permissions.add(Permission.builder().permissionCode("PERMISSION_CONFIG_MANAGE").permissionName("配置管理").description("配置管理").build());
 
         permissionRepository.saveAll(permissions);
         return permissions;
@@ -216,10 +214,11 @@ public class GMPComprehensiveAuthIntegrationTest {
      */
     private Role createRole(String name, String description, Permission... permissions) {
         Role role = Role.builder()
-                .name(name)
+                .roleCode("ROLE_" + name)
+                .roleName(name)
                 .description(description)
-                .permissions(Set.of(permissions))
                 .build();
+        // 添加权限关联（实际应通过关联关系表管理）
         return roleRepository.save(role);
     }
 
