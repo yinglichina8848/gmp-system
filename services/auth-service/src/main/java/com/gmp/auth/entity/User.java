@@ -106,6 +106,27 @@ public class User {
         return UserStatus.ACTIVE.equals(this.userStatus);
     }
     
+    /**
+     * 设置用户活跃状态
+     */
+    public void setActive(boolean active) {
+        this.userStatus = active ? UserStatus.ACTIVE : UserStatus.INACTIVE;
+    }
+    
+    /**
+     * 设置用户锁定状态
+     */
+    public void setLocked(boolean locked) {
+        this.userStatus = locked ? UserStatus.LOCKED : UserStatus.ACTIVE;
+    }
+    
+    /**
+     * 设置用户过期状态
+     */
+    public void setExpired(boolean expired) {
+        this.userStatus = expired ? UserStatus.EXPIRED : UserStatus.ACTIVE;
+    }
+    
     
     
     /**

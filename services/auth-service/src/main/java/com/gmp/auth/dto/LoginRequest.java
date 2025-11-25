@@ -23,6 +23,9 @@ public class LoginRequest {
     private String ipAddress;
     private String userAgent;
     
+    // 组织ID，用于组织结构的用户-组织-角色关联
+    private Long organizationId;
+    
     // 显式添加getter方法以避免Lombok编译问题
     public String getUsername() {
         return username;
@@ -71,5 +74,13 @@ public class LoginRequest {
     
     public void setUserAgent(String userAgent) {
         this.userAgent = userAgent;
+    }
+    
+    public Long getOrganizationId() {
+        return organizationId;
+    }
+    
+    public void setOrganizationId(Long organizationId) {
+        this.organizationId = organizationId;
     }
 }

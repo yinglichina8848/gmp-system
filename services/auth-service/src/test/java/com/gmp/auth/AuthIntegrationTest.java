@@ -10,6 +10,8 @@ import com.gmp.auth.repository.UserRepository;
 import com.gmp.auth.AuthApplication;
 
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -34,7 +36,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *
  * @author GMP系统开发团队
  */
-@Slf4j
 @SpringBootTest(
     webEnvironment = SpringBootTest.WebEnvironment.MOCK,
     classes = AuthApplication.class
@@ -44,6 +45,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Transactional
 @DisplayName("GMP认证系统集成测试") 
 public class AuthIntegrationTest {
+
+    // 使用手动Logger实例替代@Slf4j
+    private static final Logger log = LoggerFactory.getLogger(AuthIntegrationTest.class);
 
     @Autowired
     private MockMvc mockMvc;
@@ -71,19 +75,32 @@ public class AuthIntegrationTest {
 
     /**
      * 测试前准备环境数据
+     * 注意：PostgreSQL环境下，数据初始化通过data-test.sql脚本完成
+     * 这里验证必要的测试数据是否存在，如果不存在则创建
      */
     @BeforeEach
     void setUp() {
         log.info("🔄 准备集成测试环境数据...");
 
-        // 清理可能存在的测试数据
-        userRepository.deleteAll();
+        // 确保操作日志表已清空
         operationLogRepository.deleteAll();
-
-        // 创建测试用户 (admin用户)
-        createTestUser(ADMIN_USERNAME, ADMIN_PASSWORD, "ADMIN");
-        // 创建普通用户
-        createTestUser(USER_USERNAME, USER_PASSWORD, "USER");
+        
+        // 验证测试数据是否已初始化，如果不存在则创建
+        User adminUser = userRepository.findByUsername(ADMIN_USERNAME);
+        User regularUser = userRepository.findByUsername(USER_USERNAME);
+        
+        // 如果用户不存在，则创建
+        if (adminUser == null) {
+            createTestUser(ADMIN_USERNAME, ADMIN_PASSWORD, "ADMIN");
+        } else {
+            validAdminUsername = ADMIN_USERNAME;
+        }
+        
+        if (regularUser == null) {
+            createTestUser(USER_USERNAME, USER_PASSWORD, "USER");
+        } else {
+            validUserUsername = USER_USERNAME;
+        }
 
         log.info("✅ 集成测试环境准备完成");
     }

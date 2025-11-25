@@ -26,6 +26,16 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class Permission {
 
+    /**
+     * 资源类型枚举
+     */
+    public enum ResourceType {
+        MENU,    // 菜单
+        API,     // API接口
+        BUTTON,  // 按钮
+        DATA     // 数据权限
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -23,4 +23,17 @@ public class TokenResponse {
     public void setExpiresIn(Long expiresIn) {
         this.expiresIn = expiresIn;
     }
+    
+    // 添加缺失的getter方法
+    public String getAccessToken() {
+        return accessToken;
+    }
+    
+    public String getTokenType() {
+        return tokenType;
+    }
+    
+    public Long getExpiresIn() {
+        return expiresIn;
+    }
 }

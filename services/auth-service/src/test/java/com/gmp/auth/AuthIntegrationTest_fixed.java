@@ -9,7 +9,8 @@ import com.gmp.auth.repository.OperationLogRepository;
 import com.gmp.auth.repository.UserRepository;
 import com.gmp.auth.AuthApplication;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -34,7 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *
  * @author GMP系统开发团队
  */
-@Slf4j
+// 移除@Slf4j注解
 @SpringBootTest(
     webEnvironment = SpringBootTest.WebEnvironment.MOCK,
     classes = AuthApplication.class
@@ -44,6 +45,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Transactional
 @DisplayName("GMP认证系统集成测试") 
 public class AuthIntegrationTest_fixed {
+    // 添加手动Logger实例
+    private static final Logger log = LoggerFactory.getLogger(AuthIntegrationTest_fixed.class);
 
     @Autowired
     private MockMvc mockMvc;

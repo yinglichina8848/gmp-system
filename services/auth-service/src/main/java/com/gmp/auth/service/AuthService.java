@@ -5,6 +5,10 @@ import com.gmp.auth.dto.LoginResponse;
 import com.gmp.auth.dto.MfaVerifyRequest;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * 认证服务接口
  *
@@ -120,4 +124,59 @@ public interface AuthService extends UserDetailsService {
      * @return 新的恢复码列表
      */
     java.util.List<String> regenerateRecoveryCodes(String username);
+    
+    /**
+     * 验证用户是否有子系统访问权限
+     * @param username 用户名
+     * @param subsystemCode 子系统代码
+     * @return 是否有访问权限
+     */
+    boolean hasSubsystemAccess(String username, String subsystemCode);
+
+    /**
+     * 获取用户对子系统的访问级别
+     * @param username 用户名
+     * @param subsystemCode 子系统代码
+     * @return 访问级别，无权限返回0
+     */
+    Integer getSubsystemAccessLevel(String username, String subsystemCode);
+
+    /**
+     * 获取用户可访问的子系统列表
+     * @param username 用户名
+     * @return 可访问的子系统列表
+     */
+    List<String> getUserAccessibleSubsystems(String username);
+    
+    /**
+     * 获取用户对子系统的访问级别映射
+     * @param username 用户名
+     * @return 子系统代码与访问级别的映射
+     */
+    Map<String, Integer> getUserSubsystemAccessLevels(String username);
+    
+
+    
+    /**
+     * 检查用户是否有子系统的写入权限
+     * @param username 用户名
+     * @param subsystemCode 子系统代码
+     * @return 是否有写入权限
+     */
+    boolean hasSubsystemWriteAccess(String username, String subsystemCode);
+
+    /**
+     * 获取用户可访问的子系统代码集合
+     * @param username 用户名
+     * @return 子系统代码集合
+     */
+    Set<String> getUserAccessibleSubsystemCodes(String username);
+
+    /**
+     * 检查用户是否有子系统的管理权限
+     * @param username 用户名
+     * @param subsystemCode 子系统代码
+     * @return 是否有管理权限
+     */
+    boolean hasSubsystemAdminAccess(String username, String subsystemCode);
 }
