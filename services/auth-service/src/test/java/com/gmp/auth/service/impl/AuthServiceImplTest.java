@@ -13,6 +13,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -54,6 +57,12 @@ class AuthServiceImplTest {
 
     @Mock
     private AuditLogService auditLogService;
+    
+    @Mock
+    private AuthenticationManager authenticationManager;
+    
+    @Mock
+    private UserOrganizationRoleService userOrganizationRoleService;
 
     @InjectMocks
     private AuthServiceImpl authService;
@@ -62,12 +71,15 @@ class AuthServiceImplTest {
 
     @BeforeEach
     void setUp() {
+        // 确保所有依赖都被正确初始化
         MockitoAnnotations.openMocks(this);
         
-        // 初始化测试用户
+        // 初始化测试用户，确保所有必填字段都有值
+        LocalDateTime now = LocalDateTime.now();
         testUser = new User();
         testUser.setId(1L);
         testUser.setUsername("testuser");
+        testUser.setEmail("testuser@example.com"); // 添加邮箱字段，避免null值
         testUser.setPassword("encodedPassword");
         testUser.setFullName("测试用户");
         testUser.setActive(true);
@@ -75,7 +87,23 @@ class AuthServiceImplTest {
         testUser.setExpired(false);
         testUser.setLoginAttempts(0);
         testUser.setMfaEnabled(false);
-        testUser.setPasswordLastChanged(LocalDateTime.now().minusDays(30));
+        testUser.setPasswordLastChanged(now.minusDays(30));
+        // 设置必要的时间戳字段
+        testUser.setCreatedAt(now);
+        testUser.setUpdatedAt(now);
+        
+        // 设置mock行为
+        when(userRepository.findByUsername(anyString())).thenReturn(Optional.of(testUser));
+        when(userRepository.save(any(User.class))).thenReturn(testUser);
+        // 设置密码匹配行为
+        when(passwordEncoder.matches(anyString(), anyString())).thenReturn(true);
+        
+        // 设置AuthenticationManager行为
+        when(authenticationManager.authenticate(any(Authentication.class))).thenReturn(null);
+        
+        // 设置UserOrganizationRoleService行为
+        when(userOrganizationRoleService.getUserOrganizations(anyLong())).thenReturn(Collections.<Long>emptySet());
+        when(userOrganizationRoleService.getUserPermissionCodesAcrossOrganizations(anyLong())).thenReturn(Collections.<String>emptySet());
     }
 
     @Test

@@ -31,6 +31,27 @@ public class JwtUtilTest {
         username = "testuser";
         userDetails = new User(username, "password", 
             Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER")));
+        
+        // 手动设置jwtSecret，使用足够安全的密钥（至少512位）避免NullPointerException
+        try {
+            // 生成符合HS512要求的足够长的密钥（至少64字节 = 512位）
+            String secureJwtSecret = "ThisIsAVeryLongSecretKeyForGMPSystemThatIsAtLeast64BytesLongToMeetTheHS512SecurityRequirements";
+            
+            java.lang.reflect.Field field = JwtUtil.class.getDeclaredField("jwtSecret");
+            field.setAccessible(true);
+            field.set(jwtUtil, secureJwtSecret);
+            
+            // 同时设置其他必要的字段
+            field = JwtUtil.class.getDeclaredField("expiration");
+            field.setAccessible(true);
+            field.set(jwtUtil, 3600L);
+            
+            field = JwtUtil.class.getDeclaredField("refreshExpiration");
+            field.setAccessible(true);
+            field.set(jwtUtil, 86400L);
+        } catch (Exception e) {
+            fail("Failed to set up JwtUtil fields: " + e.getMessage());
+        }
     }
 
     @Test

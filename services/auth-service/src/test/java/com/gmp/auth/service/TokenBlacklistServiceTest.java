@@ -17,41 +17,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
-// 定义接口以修复编译错误
-public interface TokenBlacklistService {
-    void blacklistToken(String token, long expirationTime);
-    boolean isTokenBlacklisted(String token);
-}
-
-// 模拟实现以修复编译错误
-public class RedisTokenBlacklistService implements TokenBlacklistService {
-    private final RedisTemplate<String, String> redisTemplate;
-    
-    public RedisTokenBlacklistService(RedisTemplate<String, String> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
-    
-    @Override
-    public void blacklistToken(String token, long expirationTime) {
-        long currentTime = System.currentTimeMillis();
-        if (token != null && expirationTime > currentTime) {
-            long expireSeconds = (expirationTime - currentTime) / 1000;
-            ValueOperations<String, String> valueOps = redisTemplate.opsForValue();
-            valueOps.set("blacklist:" + token, "1", expireSeconds, TimeUnit.SECONDS);
-        }
-    }
-    
-    @Override
-    public boolean isTokenBlacklisted(String token) {
-        if (token == null) {
-            return false;
-        }
-        ValueOperations<String, String> valueOps = redisTemplate.opsForValue();
-        String value = valueOps.get("blacklist:" + token);
-        return "1".equals(value);
-    }
-}
-
+// 接口和实现应该在单独的文件中定义，这里只保留测试类
 @ExtendWith(MockitoExtension.class)
 public class TokenBlacklistServiceTest {
 

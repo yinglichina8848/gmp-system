@@ -7,6 +7,8 @@ import com.gmp.auth.repository.*;
 import com.gmp.auth.service.TokenBlacklistService;
 import com.gmp.auth.AuthApplication;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,6 +45,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Transactional
 @DisplayName("GMP认证系统高级集成测试") 
 public class AuthAdvancedIntegrationTest {
+    // 显式声明Logger以确保编译通过
+    private static final Logger log = LoggerFactory.getLogger(AuthAdvancedIntegrationTest.class);
 
     @Autowired
     private MockMvc mockMvc;
@@ -134,12 +138,12 @@ public class AuthAdvancedIntegrationTest {
      */
     private void createTestOrganization() {
         testOrganization = Organization.builder()
-            .organizationCode(TEST_ORGANIZATION)
-            .organizationName("测试组织")
-            .status(Organization.Status.ACTIVE)
+            .orgCode(TEST_ORGANIZATION)
+            .orgName("测试组织")
+            .orgStatus(Organization.OrganizationStatus.ACTIVE)
             .build();
         organizationRepository.save(testOrganization);
-        log.info("✅ 创建测试组织: {}", testOrganization.getOrganizationCode());
+        log.info("✅ 创建测试组织: {}", testOrganization.getOrgCode());
     }
     
     /**
@@ -191,52 +195,44 @@ public class AuthAdvancedIntegrationTest {
         Permission sysAdminPerm = Permission.builder()
             .permissionCode("SYS_ADMIN_ACCESS")
             .permissionName("系统管理访问")
-            .groupName("系统管理")
             .build();
         
         Permission auditLogReadPerm = Permission.builder()
             .permissionCode("AUDIT_LOG_READ")
             .permissionName("查看审计日志")
-            .groupName("系统管理")
             .build();
         
         // 用户权限管理
         Permission userReadPerm = Permission.builder()
             .permissionCode("USER_READ")
             .permissionName("读取用户")
-            .groupName("用户与权限管理")
             .build();
         
         Permission userCreatePerm = Permission.builder()
             .permissionCode("USER_CREATE")
             .permissionName("创建用户")
-            .groupName("用户与权限管理")
             .build();
         
         Permission roleAssignPerm = Permission.builder()
             .permissionCode("ROLE_ASSIGN")
             .permissionName("分配角色")
-            .groupName("用户与权限管理")
             .build();
         
         // GMP合规权限
         Permission qualityDocManagePerm = Permission.builder()
             .permissionCode("QUALITY_DOC_MANAGE")
             .permissionName("质量文档管理")
-            .groupName("GMP合规管理")
             .build();
         
         Permission validationManagePerm = Permission.builder()
             .permissionCode("VALIDATION_MANAGE")
             .permissionName("验证管理")
-            .groupName("GMP合规管理")
             .build();
         
         // 生产管理权限
         Permission batchRecordAccessPerm = Permission.builder()
             .permissionCode("BATCH_RECORD_ACCESS")
             .permissionName("批记录访问")
-            .groupName("生产管理")
             .build();
         
         // 保存所有权限
@@ -250,34 +246,88 @@ public class AuthAdvancedIntegrationTest {
         
         // 5. 关联角色和权限 - 基于角色权限矩阵
         // 系统管理员 - 所有权限
-        rolePermissionRepository.save(new RolePermission(adminRole.getId(), sysAdminPerm.getId()));
-        rolePermissionRepository.save(new RolePermission(adminRole.getId(), auditLogReadPerm.getId()));
-        rolePermissionRepository.save(new RolePermission(adminRole.getId(), userReadPerm.getId()));
-        rolePermissionRepository.save(new RolePermission(adminRole.getId(), userCreatePerm.getId()));
-        rolePermissionRepository.save(new RolePermission(adminRole.getId(), roleAssignPerm.getId()));
-        rolePermissionRepository.save(new RolePermission(adminRole.getId(), qualityDocManagePerm.getId()));
-        rolePermissionRepository.save(new RolePermission(adminRole.getId(), validationManagePerm.getId()));
-        rolePermissionRepository.save(new RolePermission(adminRole.getId(), batchRecordAccessPerm.getId()));
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(adminRole.getId())
+                .permissionId(sysAdminPerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(adminRole.getId())
+                .permissionId(auditLogReadPerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(adminRole.getId())
+                .permissionId(userReadPerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(adminRole.getId())
+                .permissionId(userCreatePerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(adminRole.getId())
+                .permissionId(roleAssignPerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(adminRole.getId())
+                .permissionId(qualityDocManagePerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(adminRole.getId())
+                .permissionId(validationManagePerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(adminRole.getId())
+                .permissionId(batchRecordAccessPerm.getId())
+                .build());
         
         // 安全管理员 - 部分系统管理和用户权限
-        rolePermissionRepository.save(new RolePermission(securityAdminRole.getId(), auditLogReadPerm.getId()));
-        rolePermissionRepository.save(new RolePermission(securityAdminRole.getId(), userReadPerm.getId()));
-        rolePermissionRepository.save(new RolePermission(securityAdminRole.getId(), userCreatePerm.getId()));
-        rolePermissionRepository.save(new RolePermission(securityAdminRole.getId(), roleAssignPerm.getId()));
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(securityAdminRole.getId())
+                .permissionId(auditLogReadPerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(securityAdminRole.getId())
+                .permissionId(userReadPerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(securityAdminRole.getId())
+                .permissionId(userCreatePerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(securityAdminRole.getId())
+                .permissionId(roleAssignPerm.getId())
+                .build());
         
         // 审计员 - 审计日志权限
-        rolePermissionRepository.save(new RolePermission(auditorRole.getId(), auditLogReadPerm.getId()));
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(auditorRole.getId())
+                .permissionId(auditLogReadPerm.getId())
+                .build());
         
         // GMP管理员 - GMP相关权限
-        rolePermissionRepository.save(new RolePermission(gmpAdminRole.getId(), qualityDocManagePerm.getId()));
-        rolePermissionRepository.save(new RolePermission(gmpAdminRole.getId(), validationManagePerm.getId()));
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(gmpAdminRole.getId())
+                .permissionId(qualityDocManagePerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(gmpAdminRole.getId())
+                .permissionId(validationManagePerm.getId())
+                .build());
         
         // 质量总监 - 质量管理权限
-        rolePermissionRepository.save(new RolePermission(qualityDirectorRole.getId(), qualityDocManagePerm.getId()));
-        rolePermissionRepository.save(new RolePermission(qualityDirectorRole.getId(), batchRecordAccessPerm.getId()));
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(qualityDirectorRole.getId())
+                .permissionId(qualityDocManagePerm.getId())
+                .build());
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(qualityDirectorRole.getId())
+                .permissionId(batchRecordAccessPerm.getId())
+                .build());
         
         // 普通用户 - 基本读取权限
-        rolePermissionRepository.save(new RolePermission(userRole.getId(), userReadPerm.getId()));
+        rolePermissionRepository.save(RolePermission.builder()
+                .roleId(userRole.getId())
+                .permissionId(userReadPerm.getId())
+                .build());
         
         log.info("✅ 创建测试角色和权限完成 - 基于示例文档定义");
     }
@@ -286,7 +336,8 @@ public class AuthAdvancedIntegrationTest {
      * 创建测试管理员用户
      */
     private void createTestAdminUser() {
-        String validUsername = ADMIN_USERNAME.replaceAll("[^a-zA-Z0-9_", "_");
+        // 使用正确转义的正则表达式，移除所有非字母数字和下划线的字符
+        String validUsername = ADMIN_USERNAME.replaceAll("[^a-zA-Z0-9_]", "_");
         String validEmail = validUsername.toLowerCase() + "@example.com";
         
         User adminUser = User.builder()

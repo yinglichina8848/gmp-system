@@ -149,6 +149,12 @@ public class JwtUtil {
     // 验证令牌
     public Boolean validateToken(String token, UserDetails userDetails) {
         try {
+            // 检查token和userDetails是否为null
+            if (token == null || userDetails == null) {
+                logger.warn("JWT令牌或用户详情为空，验证失败");
+                return false;
+            }
+            
             final String username = getUsernameFromToken(token);
             return (username.equals(userDetails.getUsername()) && 
                    !isTokenExpired(token) && 

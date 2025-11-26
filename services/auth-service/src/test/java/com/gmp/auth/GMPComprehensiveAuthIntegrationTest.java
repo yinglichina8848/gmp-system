@@ -137,7 +137,7 @@ public class GMPComprehensiveAuthIntegrationTest {
         Organization gmpCompany = Organization.builder()
                 .orgName("GMP制药公司")
                 .orgCode("ORG_GMP001")
-                .orgType(Organization.OrganizationType.COMPANY)
+                .orgType(Organization.OrganizationType.PRODUCTION)
                 .build();
         organizationRepository.save(gmpCompany);
 
@@ -163,9 +163,9 @@ public class GMPComprehensiveAuthIntegrationTest {
         // 3. 创建角色（基于GMP角色定义）
         Role adminRole = createRole("ADMIN", "系统管理员", permissions.toArray(new Permission[0]));
         Role prodTechRole = createRole("PROD_TECH", "生产技术员",
-            permissions.stream().filter(p -> p.getName().startsWith("PROD_")).toArray(Permission[]::new));
+            permissions.stream().filter(p -> p.getPermissionCode().startsWith("PERMISSION_PROD_")).toArray(Permission[]::new));
         Role qaInspectorRole = createRole("QA_INSPECTOR", "质量检验员",
-            permissions.stream().filter(p -> p.getName().startsWith("QA_")).toArray(Permission[]::new));
+            permissions.stream().filter(p -> p.getPermissionCode().startsWith("PERMISSION_QA_")).toArray(Permission[]::new));
 
         // 4. 创建测试用户（基于用户场景描述）
         testAdminUsername = createGMPTestUser(ADMIN_USERNAME, ADMIN_PASSWORD, "张管理员", adminRole, gmpCompany);

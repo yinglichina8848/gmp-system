@@ -86,8 +86,8 @@ public class AuthIntegrationTest {
         operationLogRepository.deleteAll();
         
         // 验证测试数据是否已初始化，如果不存在则创建
-        User adminUser = userRepository.findByUsername(ADMIN_USERNAME);
-        User regularUser = userRepository.findByUsername(USER_USERNAME);
+        User adminUser = userRepository.findByUsername(ADMIN_USERNAME).orElse(null);
+        User regularUser = userRepository.findByUsername(USER_USERNAME).orElse(null);
         
         // 如果用户不存在，则创建
         if (adminUser == null) {

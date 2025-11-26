@@ -51,6 +51,10 @@ public class Permission {
     @Column(name = "permission_name", nullable = false)
     private String permissionName;
 
+    @Size(max = 100, message = "权限组名称长度不能超过100字符")
+    @Column(name = "group_name")
+    private String groupName;
+
     @NotBlank(message = "资源类型不能为空")
     @Pattern(regexp = "^(MENU|API|BUTTON|DATA)$", message = "资源类型必须是MENU、API、BUTTON或DATA")
     @Column(name = "resource_type", nullable = false)
