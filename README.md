@@ -42,6 +42,10 @@ GMPSystem是一套完整的GMP（Good Manufacturing Practice）信息管理系�
 8. **[实施时间计划](./docs/08_实施时间计划.md)** - 时间安排、资源分配、风险管理
 9. **[系统实施报告](./docs/06_系统实施报告.md)** - 需求评估、设计方案、风险分析
 
+#### 版本文档
+- **[变更日志 (CHANGELOG.md)](./changelogs/CHANGELOG.md)** - 详细记录版本变更内容
+- **[版本摘要 (VERSION_SUMMARY.md)](./VERSION_SUMMARY.md)** - 系统版本历史和重要变更概述
+
 #### 开发环境配置指南
 为了满足不同开发者的环境需求，我们提供了多种操作系统的开发环境部署文档：
 
