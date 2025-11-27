@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1auth_1_1config_1_1RedisCacheConfig" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::auth::config::RedisCacheConfig</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1config_1_1RedisCacheConfig_1a8bc933f5a2428031ab97d336de26858c" prot="private" static="no" mutable="no">
+        <type><ref refid="classcom_1_1gmp_1_1auth_1_1config_1_1JwtProperties" kindref="compound">JwtProperties</ref></type>
+        <definition>JwtProperties com.gmp.auth.config.RedisCacheConfig.jwtProperties</definition>
+        <argsstring></argsstring>
+        <name>jwtProperties</name>
+        <qualifiedname>com.gmp.auth.config.RedisCacheConfig.jwtProperties</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/config/RedisCacheConfig.java" line="27" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/config/RedisCacheConfig.java" bodystart="27" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1config_1_1RedisCacheConfig_1a4cc4632b0608f7f7fdabb245237f6b94" compoundref="RedisCacheConfig_8java" startline="33" endline="52">com.gmp.auth.config.RedisCacheConfig.cacheManager</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1config_1_1RedisCacheConfig_1a4cc4632b0608f7f7fdabb245237f6b94" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CacheManager</type>
+        <definition>CacheManager com.gmp.auth.config.RedisCacheConfig.cacheManager</definition>
+        <argsstring>(RedisConnectionFactory redisConnectionFactory)</argsstring>
+        <name>cacheManager</name>
+        <qualifiedname>com.gmp.auth.config.RedisCacheConfig.cacheManager</qualifiedname>
+        <param>
+          <type>RedisConnectionFactory</type>
+          <declname>redisConnectionFactory</declname>
+        </param>
+        <briefdescription>
+<para>配置Redis缓存管理器 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/config/RedisCacheConfig.java" line="33" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/config/RedisCacheConfig.java" bodystart="33" bodyend="52"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1config_1_1JwtProperties_1a976b17c400322bd34a017dbf0a5ff3f6" compoundref="JwtProperties_8java" startline="56" endline="58">com.gmp.auth.config.JwtProperties.getRefreshExpiration</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1config_1_1RedisCacheConfig_1a8bc933f5a2428031ab97d336de26858c" compoundref="RedisCacheConfig_8java" startline="27">com.gmp.auth.config.RedisCacheConfig.jwtProperties</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1config_1_1RedisCacheConfig_1a3e63ac1a36960492b566fcfe870c0da0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>RedisTemplate&lt; String, Object &gt;</type>
+        <definition>RedisTemplate&lt; String, Object &gt; com.gmp.auth.config.RedisCacheConfig.redisTemplate</definition>
+        <argsstring>(RedisConnectionFactory redisConnectionFactory)</argsstring>
+        <name>redisTemplate</name>
+        <qualifiedname>com.gmp.auth.config.RedisCacheConfig.redisTemplate</qualifiedname>
+        <param>
+          <type>RedisConnectionFactory</type>
+          <declname>redisConnectionFactory</declname>
+        </param>
+        <briefdescription>
+<para>配置RedisTemplate </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/config/RedisCacheConfig.java" line="58" column="26" bodyfile="auth-service/src/main/java/com/gmp/auth/config/RedisCacheConfig.java" bodystart="58" bodyend="72"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Redis缓存配置 用于配置令牌撤销和权限缓存 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>String</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.auth.config.RedisCacheConfig</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1config_1_1RedisCacheConfig"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>jwtProperties</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.config.JwtProperties</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1config_1_1JwtProperties"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>authHeader</edgelabel>
+          <edgelabel>secret</edgelabel>
+          <edgelabel>tokenPrefix</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>expiration</edgelabel>
+          <edgelabel>refreshExpiration</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>long</label>
+      </node>
+    </collaborationgraph>
+    <location file="auth-service/src/main/java/com/gmp/auth/config/RedisCacheConfig.java" line="24" column="7" bodyfile="auth-service/src/main/java/com/gmp/auth/config/RedisCacheConfig.java" bodystart="24" bodyend="73"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1auth_1_1config_1_1RedisCacheConfig_1a4cc4632b0608f7f7fdabb245237f6b94" prot="public" virt="non-virtual"><scope>com::gmp::auth::config::RedisCacheConfig</scope><name>cacheManager</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1config_1_1RedisCacheConfig_1a8bc933f5a2428031ab97d336de26858c" prot="private" virt="non-virtual"><scope>com::gmp::auth::config::RedisCacheConfig</scope><name>jwtProperties</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1config_1_1RedisCacheConfig_1a3e63ac1a36960492b566fcfe870c0da0" prot="public" virt="non-virtual"><scope>com::gmp::auth::config::RedisCacheConfig</scope><name>redisTemplate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

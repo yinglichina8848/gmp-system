@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::auth::interceptor::SubsystemAccessInterceptor</compoundname>
+    <basecompoundref refid="classHandlerInterceptor" prot="public" virt="non-virtual">HandlerInterceptor</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1abb2276d74cd0e6d7012839acf74535c7" prot="private" static="yes" mutable="no">
+        <type>final Logger</type>
+        <definition>final Logger com.gmp.auth.interceptor.SubsystemAccessInterceptor.log</definition>
+        <argsstring></argsstring>
+        <name>log</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.log</qualifiedname>
+        <initializer>= LoggerFactory.getLogger(SubsystemAccessInterceptor.class)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="29" column="33" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="29" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aaeec2c81b758bedda7b5fd71ab331694" compoundref="SubsystemAccessInterceptor_8java" startline="58" endline="114">com.gmp.auth.interceptor.SubsystemAccessInterceptor.preHandle</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a064ec49b350a254e62cf44e187f04cbf" prot="private" static="yes" mutable="no">
+        <type>final Set&lt; String &gt;</type>
+        <definition>final Set&lt;String&gt; com.gmp.auth.interceptor.SubsystemAccessInterceptor.EXCLUDED_PATHS</definition>
+        <argsstring></argsstring>
+        <name>EXCLUDED_PATHS</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.EXCLUDED_PATHS</qualifiedname>
+        <initializer>= new HashSet&lt;&gt;(Arrays.asList(
+            &quot;/api/auth/login&quot;,
+            &quot;/api/auth/logout&quot;,
+            &quot;/api/subsystems/check/&quot;,
+            &quot;/api/subsystems/accessible/&quot;,
+            &quot;/api/subsystems/access-levels/&quot;
+    ))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="41" column="30" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="41" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aa6e43736df26f8ed2c09bf0db628a795" compoundref="SubsystemAccessInterceptor_8java" startline="119" endline="129">com.gmp.auth.interceptor.SubsystemAccessInterceptor.shouldExclude</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a93f2c31cf14dfc8c04cf0e4d7b744281" prot="private" static="yes" mutable="no">
+        <type>final Set&lt; String &gt;</type>
+        <definition>final Set&lt;String&gt; com.gmp.auth.interceptor.SubsystemAccessInterceptor.SUBSYSTEM_PATHS</definition>
+        <argsstring></argsstring>
+        <name>SUBSYSTEM_PATHS</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.SUBSYSTEM_PATHS</qualifiedname>
+        <initializer>= new HashSet&lt;&gt;(Arrays.asList(
+            &quot;/api/subsystems/&quot;,
+            &quot;/api/users/&quot;,
+            &quot;/api/roles/&quot;,
+            &quot;/api/permissions/&quot;
+    ))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="50" column="30" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1ac01162a3ce58587602c475cbbbe99a8d" prot="private" static="no" mutable="no">
+        <type>JwtConfig</type>
+        <definition>JwtConfig com.gmp.auth.interceptor.SubsystemAccessInterceptor.jwtConfig</definition>
+        <argsstring></argsstring>
+        <name>jwtConfig</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.jwtConfig</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="32" column="23" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="32" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aaeec2c81b758bedda7b5fd71ab331694" compoundref="SubsystemAccessInterceptor_8java" startline="58" endline="114">com.gmp.auth.interceptor.SubsystemAccessInterceptor.preHandle</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a7c863dd4075106e9f4a42045555cadbd" prot="private" static="no" mutable="no">
+        <type>AuthService</type>
+        <definition>AuthService com.gmp.auth.interceptor.SubsystemAccessInterceptor.authService</definition>
+        <argsstring></argsstring>
+        <name>authService</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.authService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="35" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aaeec2c81b758bedda7b5fd71ab331694" compoundref="SubsystemAccessInterceptor_8java" startline="58" endline="114">com.gmp.auth.interceptor.SubsystemAccessInterceptor.preHandle</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a5efef29d5a8c9e4145078059d0c2c8a7" prot="private" static="no" mutable="no">
+        <type>ObjectMapper</type>
+        <definition>ObjectMapper com.gmp.auth.interceptor.SubsystemAccessInterceptor.objectMapper</definition>
+        <argsstring></argsstring>
+        <name>objectMapper</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.objectMapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="38" column="26" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1ac7f00725cbb0a56372de114daf28c650" compoundref="SubsystemAccessInterceptor_8java" startline="173" endline="179">com.gmp.auth.interceptor.SubsystemAccessInterceptor.sendErrorResponse</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aaeec2c81b758bedda7b5fd71ab331694" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.interceptor.SubsystemAccessInterceptor.preHandle</definition>
+        <argsstring>(HttpServletRequest request, HttpServletResponse response, Object handler)</argsstring>
+        <name>preHandle</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.preHandle</qualifiedname>
+        <param>
+          <type>HttpServletRequest</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>HttpServletResponse</type>
+          <declname>response</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>handler</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="58" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="58" bodyend="114"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a7c863dd4075106e9f4a42045555cadbd" compoundref="SubsystemAccessInterceptor_8java" startline="35">com.gmp.auth.interceptor.SubsystemAccessInterceptor.authService</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a7a03442f898af4d25cd0400a2ce6ed60" compoundref="SubsystemAccessInterceptor_8java" startline="145" endline="161">com.gmp.auth.interceptor.SubsystemAccessInterceptor.determineSubsystemCode</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a9ff0cf2fbb01c58453698db823694b8b" compoundref="SubsystemAccessInterceptor_8java" startline="134" endline="140">com.gmp.auth.interceptor.SubsystemAccessInterceptor.extractTokenFromHeader</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1ad92b609c981f760eba3c047f8daabff1" compoundref="SubsystemAccessInterceptor_8java" startline="166" endline="168">com.gmp.auth.interceptor.SubsystemAccessInterceptor.isWriteOperation</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1ac01162a3ce58587602c475cbbbe99a8d" compoundref="SubsystemAccessInterceptor_8java" startline="32">com.gmp.auth.interceptor.SubsystemAccessInterceptor.jwtConfig</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1abb2276d74cd0e6d7012839acf74535c7" compoundref="SubsystemAccessInterceptor_8java" startline="29">com.gmp.auth.interceptor.SubsystemAccessInterceptor.log</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1ac7f00725cbb0a56372de114daf28c650" compoundref="SubsystemAccessInterceptor_8java" startline="173" endline="179">com.gmp.auth.interceptor.SubsystemAccessInterceptor.sendErrorResponse</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aa6e43736df26f8ed2c09bf0db628a795" compoundref="SubsystemAccessInterceptor_8java" startline="119" endline="129">com.gmp.auth.interceptor.SubsystemAccessInterceptor.shouldExclude</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aa6e43736df26f8ed2c09bf0db628a795" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.interceptor.SubsystemAccessInterceptor.shouldExclude</definition>
+        <argsstring>(String requestUri)</argsstring>
+        <name>shouldExclude</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.shouldExclude</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>requestUri</declname>
+        </param>
+        <briefdescription>
+<para>检查路径是否应该被排除在拦截之外 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="119" column="21" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="119" bodyend="129"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a064ec49b350a254e62cf44e187f04cbf" compoundref="SubsystemAccessInterceptor_8java" startline="41">com.gmp.auth.interceptor.SubsystemAccessInterceptor.EXCLUDED_PATHS</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aaeec2c81b758bedda7b5fd71ab331694" compoundref="SubsystemAccessInterceptor_8java" startline="58" endline="114">com.gmp.auth.interceptor.SubsystemAccessInterceptor.preHandle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a9ff0cf2fbb01c58453698db823694b8b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.interceptor.SubsystemAccessInterceptor.extractTokenFromHeader</definition>
+        <argsstring>(HttpServletRequest request)</argsstring>
+        <name>extractTokenFromHeader</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.extractTokenFromHeader</qualifiedname>
+        <param>
+          <type>HttpServletRequest</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para>从请求头中提取令牌 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="134" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="134" bodyend="140"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aaeec2c81b758bedda7b5fd71ab331694" compoundref="SubsystemAccessInterceptor_8java" startline="58" endline="114">com.gmp.auth.interceptor.SubsystemAccessInterceptor.preHandle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a7a03442f898af4d25cd0400a2ce6ed60" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.interceptor.SubsystemAccessInterceptor.determineSubsystemCode</definition>
+        <argsstring>(String requestUri)</argsstring>
+        <name>determineSubsystemCode</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.determineSubsystemCode</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>requestUri</declname>
+        </param>
+        <briefdescription>
+<para>根据请求路径确定对应的子系统代码 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="145" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="145" bodyend="161"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aaeec2c81b758bedda7b5fd71ab331694" compoundref="SubsystemAccessInterceptor_8java" startline="58" endline="114">com.gmp.auth.interceptor.SubsystemAccessInterceptor.preHandle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1ad92b609c981f760eba3c047f8daabff1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.interceptor.SubsystemAccessInterceptor.isWriteOperation</definition>
+        <argsstring>(String method)</argsstring>
+        <name>isWriteOperation</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.isWriteOperation</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>method</declname>
+        </param>
+        <briefdescription>
+<para>判断是否为写入操作 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="166" column="21" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="166" bodyend="168"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aaeec2c81b758bedda7b5fd71ab331694" compoundref="SubsystemAccessInterceptor_8java" startline="58" endline="114">com.gmp.auth.interceptor.SubsystemAccessInterceptor.preHandle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1ac7f00725cbb0a56372de114daf28c650" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.interceptor.SubsystemAccessInterceptor.sendErrorResponse</definition>
+        <argsstring>(HttpServletResponse response, String errorCode, String errorMessage)</argsstring>
+        <name>sendErrorResponse</name>
+        <qualifiedname>com.gmp.auth.interceptor.SubsystemAccessInterceptor.sendErrorResponse</qualifiedname>
+        <param>
+          <type>HttpServletResponse</type>
+          <declname>response</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>errorCode</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>errorMessage</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+<para>发送错误响应 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="173" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="173" bodyend="179"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a5efef29d5a8c9e4145078059d0c2c8a7" compoundref="SubsystemAccessInterceptor_8java" startline="38">com.gmp.auth.interceptor.SubsystemAccessInterceptor.objectMapper</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aaeec2c81b758bedda7b5fd71ab331694" compoundref="SubsystemAccessInterceptor_8java" startline="58" endline="114">com.gmp.auth.interceptor.SubsystemAccessInterceptor.preHandle</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>子系统访问权限控制拦截器 用于拦截API请求，验证用户对子系统的访问权限 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>HandlerInterceptor</label>
+        <link refid="classHandlerInterceptor"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.auth.interceptor.SubsystemAccessInterceptor</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>AuthService</label>
+      </node>
+      <node id="2">
+        <label>HandlerInterceptor</label>
+        <link refid="classHandlerInterceptor"/>
+      </node>
+      <node id="4">
+        <label>JwtConfig</label>
+      </node>
+      <node id="6">
+        <label>ObjectMapper</label>
+      </node>
+      <node id="7">
+        <label>Set&lt; String &gt;</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.auth.interceptor.SubsystemAccessInterceptor</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>log</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>jwtConfig</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>authService</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>objectMapper</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>EXCLUDED_PATHS</edgelabel>
+          <edgelabel>SUBSYSTEM_PATHS</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>static final Logger</label>
+      </node>
+    </collaborationgraph>
+    <location file="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" line="28" column="7" bodyfile="auth-service/src/main/java/com/gmp/auth/interceptor/SubsystemAccessInterceptor.java" bodystart="28" bodyend="180"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a7c863dd4075106e9f4a42045555cadbd" prot="private" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>authService</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a7a03442f898af4d25cd0400a2ce6ed60" prot="private" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>determineSubsystemCode</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a064ec49b350a254e62cf44e187f04cbf" prot="private" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>EXCLUDED_PATHS</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a9ff0cf2fbb01c58453698db823694b8b" prot="private" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>extractTokenFromHeader</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1ad92b609c981f760eba3c047f8daabff1" prot="private" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>isWriteOperation</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1ac01162a3ce58587602c475cbbbe99a8d" prot="private" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>jwtConfig</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1abb2276d74cd0e6d7012839acf74535c7" prot="private" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>log</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a5efef29d5a8c9e4145078059d0c2c8a7" prot="private" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>objectMapper</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aaeec2c81b758bedda7b5fd71ab331694" prot="public" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>preHandle</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1ac7f00725cbb0a56372de114daf28c650" prot="private" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>sendErrorResponse</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1aa6e43736df26f8ed2c09bf0db628a795" prot="private" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>shouldExclude</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1interceptor_1_1SubsystemAccessInterceptor_1a93f2c31cf14dfc8c04cf0e4d7b744281" prot="private" virt="non-virtual"><scope>com::gmp::auth::interceptor::SubsystemAccessInterceptor</scope><name>SUBSYSTEM_PATHS</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

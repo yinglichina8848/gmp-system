@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="UserRoleRepository_8java" kind="file" language="Java">
+    <compoundname>UserRoleRepository.java</compoundname>
+    <includes local="no">com.gmp.auth.entity.UserRole</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/repository/UserRoleRepository.java</label>
+        <link refid="UserRoleRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.entity.UserRole</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository" prot="public">com::gmp::auth::repository::UserRoleRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1repository">com::gmp::auth::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.auth.entity.UserRole;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="18" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository" kindref="compound">UserRoleRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;UserRole,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1ad8c75fb47ccd6e39270ce54b53f24da8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;UserRole&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1ad8c75fb47ccd6e39270ce54b53f24da8" kindref="member">findByUserId</ref>(Long<sp/>userId);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1a6430e33adb7dc849e3bbfa65ebeff908" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;UserRole&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1a6430e33adb7dc849e3bbfa65ebeff908" kindref="member">findByUserIdAndIsActive</ref>(Long<sp/>userId,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isActive);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1aca4b6f93d7a9b866b789a79f2a7ec14c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;UserRole&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1aca4b6f93d7a9b866b789a79f2a7ec14c" kindref="member">findByRoleId</ref>(Long<sp/>roleId);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1aceee76dcb107f830a36361762165c67b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;UserRole&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1aceee76dcb107f830a36361762165c67b" kindref="member">findByUserIdAndRoleId</ref>(Long<sp/>userId,<sp/>Long<sp/>roleId);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1a0810b24963f46b31d88ade1514074d41" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1a0810b24963f46b31d88ade1514074d41" kindref="member">existsByUserIdAndRoleId</ref>(Long<sp/>userId,<sp/>Long<sp/>roleId);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1a551835a2142960634655111fac7c90c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1a551835a2142960634655111fac7c90c7" kindref="member">deleteByUserId</ref>(Long<sp/>userId);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1a95033311f6b12f3b91d618625a3363ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1a95033311f6b12f3b91d618625a3363ce" kindref="member">deleteByRoleId</ref>(Long<sp/>roleId);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>ur<sp/>FROM<sp/>UserRole<sp/>ur<sp/>WHERE<sp/>ur.expiredAt<sp/>IS<sp/>NOT<sp/>NULL<sp/>AND<sp/>ur.expiredAt<sp/>&lt;<sp/>CURRENT_TIMESTAMP<sp/>AND<sp/>ur.isActive<sp/>=<sp/>true&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="59" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1aa15c931a76da3cb2b7f6d8da51494c66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;UserRole&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1aa15c931a76da3cb2b7f6d8da51494c66" kindref="member">findExpiredUserRoles</ref>();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ur.roleId,<sp/>COUNT(ur.userId)<sp/>FROM<sp/>UserRole<sp/>ur<sp/>WHERE<sp/>ur.isActive<sp/>=<sp/>true<sp/>GROUP<sp/>BY<sp/>ur.roleId&quot;)</highlight></codeline>
+<codeline lineno="65" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1ac6f57eeb7dcea454caf3db98132dd9bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRoleRepository_1ac6f57eeb7dcea454caf3db98132dd9bf" kindref="member">countUsersByRole</ref>();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/repository/UserRoleRepository.java"/>
+  </compounddef>
+</doxygen>

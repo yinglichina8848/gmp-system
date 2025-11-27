@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuditLogServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.service.impl</a> &gt; <span class="el_source">AuditLogServiceImpl.java</span></div><h1>AuditLogServiceImpl.java</h1><pre class="source lang-java linenums">package com.gmp.auth.service.impl;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gmp.auth.entity.OperationLog;
+import com.gmp.auth.repository.OperationLogRepository;
+import com.gmp.auth.service.AuditLogService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+/**
+ * 审计日志服务实现类
+ * 提供增强的审计日志功能实现
+ *
+ * @author GMP系统开发团队
+ */
+@Service
+<span class="nc" id="L30">public class AuditLogServiceImpl implements AuditLogService {</span>
+
+<span class="nc" id="L32">    private static final Logger logger = LoggerFactory.getLogger(AuditLogServiceImpl.class);</span>
+
+    @Autowired
+    private OperationLogRepository operationLogRepository;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+    
+    @Override
+    public void logLogout(String username) {
+        // 实现登出日志记录逻辑
+<span class="nc" id="L43">        logger.info(&quot;User {} logged out&quot;, username);</span>
+<span class="nc" id="L44">    }</span>
+    
+    @Override
+    public void logLoginSuccess(String username, String ipAddress, String userAgent) {
+        // 实现登录成功日志记录逻辑
+<span class="nc" id="L49">        logger.info(&quot;User {} successfully logged in from IP {} using agent {}&quot;, username, ipAddress, userAgent);</span>
+<span class="nc" id="L50">    }</span>
+    
+    @Override
+    public void logLoginFailure(String username, String ipAddress, String userAgent, String reason) {
+        // 实现登录失败日志记录逻辑
+<span class="nc" id="L55">        logger.warn(&quot;User {} failed to login from IP {} using agent {}: {}&quot;, username, ipAddress, userAgent, reason);</span>
+<span class="nc" id="L56">    }</span>
+    
+    @Override
+    public void logPasswordChange(String username) {
+        // 实现密码修改日志记录逻辑
+<span class="nc" id="L61">        logger.info(&quot;User {} changed password&quot;, username);</span>
+<span class="nc" id="L62">    }</span>
+    
+    @Override
+    public void logPasswordReset(String username) {
+        // 实现密码重置日志记录逻辑
+<span class="nc" id="L67">        logger.info(&quot;User {} reset password&quot;, username);</span>
+<span class="nc" id="L68">    }</span>
+    
+    @Override
+    public void logPasswordReset(Long userId, String username, String ipAddress) {
+        // 简化实现，避免使用可能不存在的常量
+<span class="nc" id="L73">        OperationLog log = OperationLog.builder()</span>
+<span class="nc" id="L74">                .userId(userId)</span>
+<span class="nc" id="L75">                .username(username)</span>
+<span class="nc" id="L76">                .ipAddress(ipAddress)</span>
+<span class="nc" id="L77">                .build();</span>
+<span class="nc" id="L78">        logOperation(log);</span>
+<span class="nc" id="L79">    }</span>
+    
+    @Override
+    public void logPasswordChange(Long userId, String username, String ipAddress) {
+        // 简化实现
+<span class="nc" id="L84">        OperationLog log = OperationLog.builder()</span>
+<span class="nc" id="L85">                .userId(userId)</span>
+<span class="nc" id="L86">                .username(username)</span>
+<span class="nc" id="L87">                .ipAddress(ipAddress)</span>
+<span class="nc" id="L88">                .build();</span>
+<span class="nc" id="L89">        logOperation(log);</span>
+<span class="nc" id="L90">    }</span>
+    
+    @Override
+    public void logLoginSuccess(Long userId, String username, String ipAddress, String userAgent) {
+        // 简化实现
+<span class="nc" id="L95">        OperationLog log = OperationLog.builder()</span>
+<span class="nc" id="L96">                .userId(userId)</span>
+<span class="nc" id="L97">                .username(username)</span>
+<span class="nc" id="L98">                .ipAddress(ipAddress)</span>
+<span class="nc" id="L99">                .build();</span>
+<span class="nc" id="L100">        logOperation(log);</span>
+<span class="nc" id="L101">    }</span>
+
+    @Override
+    @Transactional
+    public OperationLog logOperation(OperationLog log) {
+        try {
+<span class="nc" id="L107">            return operationLogRepository.save(log);</span>
+<span class="nc" id="L108">        } catch (Exception e) {</span>
+<span class="nc" id="L109">            logger.error(&quot;Failed to log operation: {}&quot;, e.getMessage(), e);</span>
+<span class="nc" id="L110">            throw new RuntimeException(&quot;Failed to log operation&quot;, e);</span>
+        }
+    }
+
+    @Override
+    public OperationLog logLogin(Long userId, String username, String ipAddress, String userAgent,
+                               boolean success, Map&lt;String, Object&gt; additionalInfo) {
+<span class="nc" id="L117">        OperationLog log = OperationLog.builder()</span>
+<span class="nc" id="L118">                .userId(userId)</span>
+<span class="nc" id="L119">                .username(username)</span>
+<span class="nc" id="L120">                .operation(OperationLog.OperationType.LOGIN.name())</span>
+<span class="nc" id="L121">                .module(OperationLog.Module.AUTH.name())</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">                .action(success ? &quot;用户登录成功&quot; : &quot;用户登录失败&quot;)</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">                .result(success ? OperationLog.Result.SUCCESS : OperationLog.Result.FAILED)</span>
+<span class="nc" id="L124">                .ipAddress(ipAddress)</span>
+<span class="nc" id="L125">                .userAgent(userAgent)</span>
+<span class="nc" id="L126">                .build();</span>
+
+        // 添加附加信息作为元数据
+<span class="nc bnc" id="L129" title="All 4 branches missed.">        if (additionalInfo != null &amp;&amp; !additionalInfo.isEmpty()) {</span>
+            try {
+<span class="nc" id="L131">                log.setMetadata(objectMapper.writeValueAsString(additionalInfo));</span>
+<span class="nc" id="L132">            } catch (Exception e) {</span>
+<span class="nc" id="L133">                logger.warn(&quot;Failed to serialize additional info: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L134">            }</span>
+        }
+
+<span class="nc" id="L137">        return logOperation(log);</span>
+    }
+
+    @Override
+    public OperationLog logLogout(Long userId, String username, String ipAddress) {
+<span class="nc" id="L142">        return logOperation(OperationLog.createLogoutLog(userId, username, ipAddress));</span>
+    }
+
+    @Override
+    public OperationLog logUserManagement(Long operatorId, String operatorName,
+                                       Long targetUserId, String targetUsername,
+                                       OperationLog.OperationType operationType,
+                                       boolean success, String details) {
+<span class="nc" id="L150">        Map&lt;String, Object&gt; metadata = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L151">        metadata.put(&quot;targetUserId&quot;, targetUserId);</span>
+<span class="nc" id="L152">        metadata.put(&quot;targetUsername&quot;, targetUsername);</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">        if (details != null) {</span>
+<span class="nc" id="L154">            metadata.put(&quot;details&quot;, details);</span>
+        }
+
+<span class="nc" id="L157">        OperationLog log = OperationLog.builder()</span>
+<span class="nc" id="L158">                .userId(operatorId)</span>
+<span class="nc" id="L159">                .username(operatorName)</span>
+<span class="nc" id="L160">                .operation(operationType.name())</span>
+<span class="nc" id="L161">                .module(OperationLog.Module.USER.name())</span>
+<span class="nc bnc" id="L162" title="All 2 branches missed.">                .action(operationType.getDescription() + (success ? &quot;成功&quot; : &quot;失败&quot;))</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">                .result(success ? OperationLog.Result.SUCCESS : OperationLog.Result.FAILED)</span>
+<span class="nc" id="L164">                .build();</span>
+
+        try {
+<span class="nc" id="L167">            log.setMetadata(objectMapper.writeValueAsString(metadata));</span>
+<span class="nc" id="L168">        } catch (Exception e) {</span>
+<span class="nc" id="L169">            logger.warn(&quot;Failed to serialize user management metadata: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L170">        }</span>
+
+<span class="nc" id="L172">        return logOperation(log);</span>
+    }
+
+    @Override
+    public OperationLog logRolePermissionChange(Long operatorId, String operatorName,
+                                            Long roleId, String roleCode,
+                                            String permissionChanges, boolean success) {
+<span class="nc" id="L179">        Map&lt;String, Object&gt; metadata = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L180">        metadata.put(&quot;roleId&quot;, roleId);</span>
+<span class="nc" id="L181">        metadata.put(&quot;roleCode&quot;, roleCode);</span>
+<span class="nc" id="L182">        metadata.put(&quot;permissionChanges&quot;, permissionChanges);</span>
+
+<span class="nc" id="L184">        OperationLog log = OperationLog.builder()</span>
+<span class="nc" id="L185">                .userId(operatorId)</span>
+<span class="nc" id="L186">                .username(operatorName)</span>
+<span class="nc" id="L187">                .operation(OperationLog.OperationType.ROLE_PERMISSION_CHANGE.name())</span>
+<span class="nc" id="L188">                .module(OperationLog.Module.ROLE.name())</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">                .action(&quot;角色权限变更&quot; + (success ? &quot;成功&quot; : &quot;失败&quot;))</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">                .result(success ? OperationLog.Result.SUCCESS : OperationLog.Result.FAILED)</span>
+<span class="nc" id="L191">                .build();</span>
+
+        try {
+<span class="nc" id="L194">            log.setMetadata(objectMapper.writeValueAsString(metadata));</span>
+<span class="nc" id="L195">        } catch (Exception e) {</span>
+<span class="nc" id="L196">            logger.warn(&quot;Failed to serialize role permission metadata: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L197">        }</span>
+
+<span class="nc" id="L199">        return logOperation(log);</span>
+    }
+
+    @Override
+    public OperationLog logRoleAssignment(Long operatorId, String operatorName,
+                                      Long userId, String username,
+                                      Long roleId, String roleCode,
+                                      boolean isAssign, boolean success) {
+<span class="nc" id="L207">        Map&lt;String, Object&gt; metadata = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L208">        metadata.put(&quot;userId&quot;, userId);</span>
+<span class="nc" id="L209">        metadata.put(&quot;username&quot;, username);</span>
+<span class="nc" id="L210">        metadata.put(&quot;roleId&quot;, roleId);</span>
+<span class="nc" id="L211">        metadata.put(&quot;roleCode&quot;, roleCode);</span>
+
+<span class="nc bnc" id="L213" title="All 2 branches missed.">        String operation = isAssign ? OperationLog.OperationType.ROLE_ASSIGN.name() : </span>
+<span class="nc" id="L214">                                     OperationLog.OperationType.ROLE_REVOKE.name();</span>
+<span class="nc bnc" id="L215" title="All 4 branches missed.">        String action = (isAssign ? &quot;分配角色&quot; : &quot;撤销角色&quot;) + (success ? &quot;成功&quot; : &quot;失败&quot;);</span>
+
+<span class="nc" id="L217">        OperationLog log = OperationLog.builder()</span>
+<span class="nc" id="L218">                .userId(operatorId)</span>
+<span class="nc" id="L219">                .username(operatorName)</span>
+<span class="nc" id="L220">                .operation(operation)</span>
+<span class="nc" id="L221">                .module(OperationLog.Module.USER.name())</span>
+<span class="nc" id="L222">                .action(action)</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">                .result(success ? OperationLog.Result.SUCCESS : OperationLog.Result.FAILED)</span>
+<span class="nc" id="L224">                .build();</span>
+
+        try {
+<span class="nc" id="L227">            log.setMetadata(objectMapper.writeValueAsString(metadata));</span>
+<span class="nc" id="L228">        } catch (Exception e) {</span>
+<span class="nc" id="L229">            logger.warn(&quot;Failed to serialize role assignment metadata: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L230">        }</span>
+
+<span class="nc" id="L232">        return logOperation(log);</span>
+    }
+
+    @Override
+    public OperationLog logSecurityEvent(Long userId, String username, 
+                                     String eventType, String severity,
+                                     String details, String ipAddress) {
+<span class="nc" id="L239">        Map&lt;String, Object&gt; metadata = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L240">        metadata.put(&quot;eventType&quot;, eventType);</span>
+<span class="nc" id="L241">        metadata.put(&quot;severity&quot;, severity);</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">        if (details != null) {</span>
+<span class="nc" id="L243">            metadata.put(&quot;details&quot;, details);</span>
+        }
+
+<span class="nc" id="L246">        OperationLog log = OperationLog.builder()</span>
+<span class="nc" id="L247">                .userId(userId)</span>
+<span class="nc" id="L248">                .username(username)</span>
+<span class="nc" id="L249">                .operation(OperationLog.OperationType.AUDIT_REVIEW.name())</span>
+<span class="nc" id="L250">                .module(OperationLog.Module.SYSTEM.name())</span>
+<span class="nc" id="L251">                .action(&quot;安全事件：&quot; + eventType)</span>
+<span class="nc" id="L252">                .result(OperationLog.Result.FAILED) // 安全事件通常被视为失败</span>
+<span class="nc" id="L253">                .ipAddress(ipAddress)</span>
+<span class="nc" id="L254">                .build();</span>
+
+        try {
+<span class="nc" id="L257">            log.setMetadata(objectMapper.writeValueAsString(metadata));</span>
+<span class="nc" id="L258">        } catch (Exception e) {</span>
+<span class="nc" id="L259">            logger.warn(&quot;Failed to serialize security event metadata: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L260">        }</span>
+
+<span class="nc" id="L262">        return logOperation(log);</span>
+    }
+
+    @Override
+    public Page&lt;OperationLog&gt; findLogsByPage(Pageable pageable, Map&lt;String, Object&gt; filters) {
+        // 这里可以实现更复杂的动态查询逻辑
+        // 暂时返回所有日志的分页结果
+<span class="nc" id="L269">        return operationLogRepository.findAll(pageable);</span>
+    }
+
+    @Override
+    public Page&lt;OperationLog&gt; findLogsByUserId(Long userId, Pageable pageable) {
+<span class="nc" id="L274">        List&lt;OperationLog&gt; logs = operationLogRepository.findByUserIdOrderByOperationTimeDesc(userId);</span>
+<span class="nc" id="L275">        int start = Math.min((int) pageable.getOffset(), logs.size());</span>
+<span class="nc" id="L276">        int end = Math.min((start + pageable.getPageSize()), logs.size());</span>
+<span class="nc" id="L277">        return new org.springframework.data.domain.PageImpl&lt;&gt;(</span>
+<span class="nc" id="L278">                logs.subList(start, end),</span>
+                pageable,
+<span class="nc" id="L280">                logs.size()</span>
+        );
+    }
+
+    @Override
+    public Page&lt;OperationLog&gt; findLogsByTimeRange(LocalDateTime startTime, LocalDateTime endTime, Pageable pageable) {
+<span class="nc" id="L286">        List&lt;OperationLog&gt; logs = operationLogRepository.findByOperationTimeBetween(startTime, endTime);</span>
+<span class="nc" id="L287">        int start = Math.min((int) pageable.getOffset(), logs.size());</span>
+<span class="nc" id="L288">        int end = Math.min((start + pageable.getPageSize()), logs.size());</span>
+<span class="nc" id="L289">        return new org.springframework.data.domain.PageImpl&lt;&gt;(</span>
+<span class="nc" id="L290">                logs.subList(start, end),</span>
+                pageable,
+<span class="nc" id="L292">                logs.size()</span>
+        );
+    }
+
+    @Override
+    public Page&lt;OperationLog&gt; findFailedOperations(LocalDateTime since, Pageable pageable) {
+<span class="nc" id="L298">        List&lt;OperationLog&gt; logs = operationLogRepository.findFailedOperationsSince(since);</span>
+<span class="nc" id="L299">        int start = Math.min((int) pageable.getOffset(), logs.size());</span>
+<span class="nc" id="L300">        int end = Math.min((start + pageable.getPageSize()), logs.size());</span>
+<span class="nc" id="L301">        return new org.springframework.data.domain.PageImpl&lt;&gt;(</span>
+<span class="nc" id="L302">                logs.subList(start, end),</span>
+                pageable,
+<span class="nc" id="L304">                logs.size()</span>
+        );
+    }
+
+    @Override
+    public Map&lt;String, Object&gt; getOperationStatistics(LocalDateTime startTime, LocalDateTime endTime) {
+<span class="nc" id="L310">        List&lt;OperationLog&gt; logs = operationLogRepository.findByOperationTimeBetween(startTime, endTime);</span>
+        
+<span class="nc" id="L312">        Map&lt;String, Object&gt; statistics = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L313">        statistics.put(&quot;totalOperations&quot;, logs.size());</span>
+        
+        // 按结果统计
+<span class="nc bnc" id="L316" title="All 2 branches missed.">        long successCount = logs.stream().filter(log -&gt; log.getResult() == OperationLog.Result.SUCCESS).count();</span>
+<span class="nc" id="L317">        long failedCount = logs.size() - successCount;</span>
+<span class="nc" id="L318">        statistics.put(&quot;successCount&quot;, successCount);</span>
+<span class="nc" id="L319">        statistics.put(&quot;failedCount&quot;, failedCount);</span>
+        
+        // 按操作类型统计
+<span class="nc" id="L322">        Map&lt;String, Long&gt; operationTypeStats = logs.stream()</span>
+<span class="nc" id="L323">                .collect(Collectors.groupingBy(OperationLog::getOperation, Collectors.counting()));</span>
+<span class="nc" id="L324">        statistics.put(&quot;operationTypeStats&quot;, operationTypeStats);</span>
+        
+        // 按模块统计
+<span class="nc" id="L327">        Map&lt;String, Long&gt; moduleStats = logs.stream()</span>
+<span class="nc" id="L328">                .collect(Collectors.groupingBy(OperationLog::getModule, Collectors.counting()));</span>
+<span class="nc" id="L329">        statistics.put(&quot;moduleStats&quot;, moduleStats);</span>
+        
+<span class="nc" id="L331">        return statistics;</span>
+    }
+
+    @Override
+    @Transactional
+    public int cleanupOldLogs(int daysToKeep) {
+<span class="nc" id="L337">        LocalDateTime cutoffDate = LocalDateTime.now().minusDays(daysToKeep);</span>
+        try {
+<span class="nc" id="L339">            List&lt;OperationLog&gt; oldLogs = operationLogRepository.findByOperationTimeBetween(</span>
+                    LocalDateTime.MIN, cutoffDate);
+<span class="nc" id="L341">            int count = oldLogs.size();</span>
+<span class="nc" id="L342">            operationLogRepository.deleteLogsBefore(cutoffDate);</span>
+<span class="nc" id="L343">            return count;</span>
+<span class="nc" id="L344">        } catch (Exception e) {</span>
+<span class="nc" id="L345">            logger.error(&quot;Failed to cleanup old logs: {}&quot;, e.getMessage(), e);</span>
+<span class="nc" id="L346">            throw new RuntimeException(&quot;Failed to cleanup old logs&quot;, e);</span>
+        }
+    }
+
+    @Override
+    public byte[] exportLogs(Map&lt;String, Object&gt; filters, String format) {
+        try {
+            // 获取要导出的日志
+<span class="nc" id="L354">            List&lt;OperationLog&gt; logs = operationLogRepository.findAll();</span>
+            
+<span class="nc" id="L356">            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();</span>
+            
+            // 暂时只支持JSON格式导出
+<span class="nc bnc" id="L359" title="All 2 branches missed.">            if (&quot;json&quot;.equalsIgnoreCase(format)) {</span>
+<span class="nc" id="L360">                objectMapper.writerWithDefaultPrettyPrinter().writeValue(outputStream, logs);</span>
+            } else {
+<span class="nc" id="L362">                throw new IllegalArgumentException(&quot;Unsupported export format: &quot; + format);</span>
+            }
+            
+<span class="nc" id="L365">            return outputStream.toByteArray();</span>
+<span class="nc" id="L366">        } catch (IOException e) {</span>
+<span class="nc" id="L367">            logger.error(&quot;Failed to export logs: {}&quot;, e.getMessage(), e);</span>
+<span class="nc" id="L368">            throw new RuntimeException(&quot;Failed to export logs&quot;, e);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="home-service_2src_2main_2java_2com_2gmp_2home_2GatewayConfig_8java" kind="file" language="Java">
+    <compoundname>GatewayConfig.java</compoundname>
+    <includes local="no">org.springframework.context.annotation.Bean</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>home-service/src/main/java/com/gmp/home/GatewayConfig.java</label>
+        <link refid="home-service_2src_2main_2java_2com_2gmp_2home_2GatewayConfig_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.springframework.context.annotation.Bean</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1gateway_1_1GatewayConfig" prot="public">com::gmp::gateway::GatewayConfig</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1gateway">com::gmp::gateway</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.gateway;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.context.annotation.Bean;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.context.annotation.Configuration;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.MediaType;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.reactive.function.server.RouterFunction;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.reactive.function.server.ServerResponse;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.springframework.web.reactive.function.server.RequestPredicates.GET;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.springframework.web.reactive.function.server.RouterFunctions.route;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">@Configuration</highlight></codeline>
+<codeline lineno="16" refid="classcom_1_1gmp_1_1gateway_1_1GatewayConfig" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1gateway_1_1GatewayConfig" kindref="compound">GatewayConfig</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean</highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1gmp_1_1gateway_1_1GatewayConfig_1aa05cc7dec57dc88035685d4f42e27b73" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>RouterFunction&lt;ServerResponse&gt;<sp/><ref refid="classcom_1_1gmp_1_1gateway_1_1GatewayConfig_1aa05cc7dec57dc88035685d4f42e27b73" kindref="member">homeRoute</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>route(GET(</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>request<sp/>-&gt;<sp/>ServerResponse.ok()</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.TEXT_HTML)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.bodyValue(<ref refid="classcom_1_1gmp_1_1gateway_1_1GatewayConfig_1a81f23ff124f5bdd4ef9d7ca6043a05df" kindref="member">getHomePageHtml</ref>()));</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1gateway_1_1GatewayConfig_1a81f23ff124f5bdd4ef9d7ca6043a05df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1gateway_1_1GatewayConfig_1a81f23ff124f5bdd4ef9d7ca6043a05df" kindref="member">getHomePageHtml</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;&lt;html&gt;&lt;body&gt;&lt;h1&gt;贵州高原彝药厂<sp/>GMP<sp/>信息管理系统&lt;/h1&gt;&lt;p&gt;系统首页&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="home-service/src/main/java/com/gmp/home/GatewayConfig.java"/>
+  </compounddef>
+</doxygen>

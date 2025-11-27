@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="util_2MfaSessionManager_8java" kind="file" language="Java">
+    <compoundname>MfaSessionManager.java</compoundname>
+    <includes local="no">org.springframework.stereotype.Component</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/util/MfaSessionManager.java</label>
+        <link refid="util_2MfaSessionManager_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.springframework.stereotype.Component</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1auth_1_1util_1_1MfaSessionManager" prot="public">com::gmp::auth::util::MfaSessionManager</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1util">com::gmp::auth::util</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.util;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Component;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">@Component</highlight></codeline>
+<codeline lineno="9" refid="classcom_1_1gmp_1_1auth_1_1util_1_1MfaSessionManager" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1auth_1_1util_1_1MfaSessionManager" kindref="compound">MfaSessionManager</ref><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证MFA会话</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="classcom_1_1gmp_1_1auth_1_1util_1_1MfaSessionManager_1ae968d0d5fd8ec5aa9e8d1460b4b072b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1util_1_1MfaSessionManager_1ae968d0d5fd8ec5aa9e8d1460b4b072b0" kindref="member">validateMfaSession</ref>(String<sp/>sessionId)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简单实现，实际项目中应验证会话有效性</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sessionId<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>!sessionId.isEmpty();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>生成MFA会话ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classcom_1_1gmp_1_1auth_1_1util_1_1MfaSessionManager_1aab56eac7a9d58a4471db6569a8195cb2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1util_1_1MfaSessionManager_1aab56eac7a9d58a4471db6569a8195cb2" kindref="member">generateMfaSessionId</ref>(String<sp/>username)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简单实现，实际项目中应使用安全的会话ID生成方式</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;mfa-session-&quot;</highlight><highlight class="normal"><sp/>+<sp/>username;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/util/MfaSessionManager.java"/>
+  </compounddef>
+</doxygen>

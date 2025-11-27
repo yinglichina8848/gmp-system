@@ -1,0 +1,4 @@
+var EquipmentQueryDTO_8java =
+[
+    [ "com.gmp.equipment.dto.EquipmentQueryDTO", "db/d34/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentQueryDTO.html", "db/d34/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentQueryDTO" ]
+];

@@ -123,11 +123,23 @@ public class JwtUtil {
         
         return doGenerateToken(claims, userDetails.getUsername(), expiration);
     }
+    
+    // 添加缺失的generateToken方法，用于兼容测试和其他调用
+    public String generateToken(String username) {
+        Map<String, Object> claims = new HashMap<>();
+        return doGenerateToken(claims, username, expiration);
+    }
 
     // 生成刷新令牌
     public String generateRefreshToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
         return doGenerateToken(claims, userDetails.getUsername(), refreshExpiration);
+    }
+    
+    // 添加缺失的generateRefreshToken方法，用于兼容测试和其他调用
+    public String generateRefreshToken(String username) {
+        Map<String, Object> claims = new HashMap<>();
+        return doGenerateToken(claims, username, refreshExpiration);
     }
 
     // 创建令牌
@@ -159,8 +171,53 @@ public class JwtUtil {
             return (username.equals(userDetails.getUsername()) && 
                    !isTokenExpired(token) && 
                    !isTokenRevoked(token));
-        } catch (JwtException e) {
-            logger.error("JWT令牌验证失败: {}", e.getMessage());
+        } catch (Exception e) {
+            logger.error("JWT令牌验证异常: {}", e.getMessage());
+            return false;
+        }
+    }
+    
+    // 添加单参数版本的validateToken方法，用于兼容测试和其他调用
+    // 仅检查令牌是否过期和是否被撤销
+    public Boolean validateToken(String token) {
+        try {
+            if (token == null) {
+                logger.warn("JWT令牌为空，验证失败");
+                return false;
+            }
+            
+            // 检查令牌是否被撤销
+            if (isTokenRevoked(token)) {
+                logger.warn("JWT令牌已被撤销");
+                return false;
+            }
+            
+            // 检查令牌是否过期
+            if (isTokenExpired(token)) {
+                logger.warn("JWT令牌已过期");
+                return false;
+            }
+            
+            // 验证签名
+            Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token);
+            return true;
+        } catch (SignatureException e) {
+            logger.error("JWT签名验证失败: {}", e.getMessage());
+            return false;
+        } catch (MalformedJwtException e) {
+            logger.error("无效的JWT令牌: {}", e.getMessage());
+            return false;
+        } catch (ExpiredJwtException e) {
+            logger.error("JWT令牌已过期: {}", e.getMessage());
+            return false;
+        } catch (UnsupportedJwtException e) {
+            logger.error("不支持的JWT令牌: {}", e.getMessage());
+            return false;
+        } catch (IllegalArgumentException e) {
+            logger.error("JWT声明字符串为空: {}", e.getMessage());
+            return false;
+        } catch (Exception e) {
+            logger.error("JWT验证异常: {}", e.getMessage());
             return false;
         }
     }
@@ -189,5 +246,34 @@ public class JwtUtil {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
+    }
+    
+    // 添加公共方法用于测试获取令牌的claims
+    public Claims parseToken(String token) {
+        return getAllClaimsFromToken(token);
+    }
+    
+    // 添加接收额外声明的generateToken方法，用于测试
+    public String generateToken(Map<String, Object> extraClaims, String username) {
+        return doGenerateToken(extraClaims, username, expiration);
+    }
+    
+    // 实现refreshToken方法，用于刷新令牌
+    public String refreshToken(String refreshToken) {
+        try {
+            // 验证刷新令牌
+            if (!validateToken(refreshToken)) {
+                throw new IllegalArgumentException("无效的刷新令牌");
+            }
+            
+            // 从刷新令牌中获取用户名
+            String username = getUsernameFromToken(refreshToken);
+            
+            // 生成新的访问令牌
+            return generateToken(username);
+        } catch (Exception e) {
+            logger.error("刷新令牌失败: {}", e.getMessage());
+            throw e;
+        }
     }
 }

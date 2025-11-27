@@ -1,0 +1,26 @@
+var classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed =
+[
+    [ "createTestUser", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#ab8f6d943184758ed968ecffc077af843", null ],
+    [ "performLoginAndGetToken", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#aa340b5e515fcb579a9dc6b68e4e2a096", null ],
+    [ "setUp", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a1278368b77c534f8d7bb56d789fc30e6", null ],
+    [ "testCompleteUserFlow", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a969a94d613cc6e6d260d4833caccf374", null ],
+    [ "testFailedLoginWithWrongPassword", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a1ab97e39788299885d8b65f0bde8472d", null ],
+    [ "testGetUserPermissions", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a18aacdf40963ef41a2b1b9d6b4fa7684", null ],
+    [ "testHealthCheck", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a1cba264e6ef83f45b8a61ec13cac6482", null ],
+    [ "testSuccessfulUserLogin", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a491945e46c14d22d4b9da517c8242f86", null ],
+    [ "testUserLogout", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a5aa4f575c230f2de4afe28836919566f", null ],
+    [ "testUserPermissionCheck", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a1c785d596d39ddfef539bd660fa7f179", null ],
+    [ "testUserRoleCheck", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a66a79ff12f01eb6ce3f2c53b58e22f73", null ],
+    [ "ADMIN_PASSWORD", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#afb05547a78dbcb5640b2ab6cf7de4642", null ],
+    [ "ADMIN_USERNAME", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a2ace12cd4ae520b0b28c10322adb5d32", null ],
+    [ "log", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#ae2306092d5b8c03164d9d80a1c8b0380", null ],
+    [ "mockMvc", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#adac56d3023195f0707e104cbe8cd3de0", null ],
+    [ "objectMapper", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a32503373b41ccf56f620ad742b24828e", null ],
+    [ "operationLogRepository", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a1a84da082b3ffa3c2764db113b649721", null ],
+    [ "passwordEncoder", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a6efe31f46d49ae455740de42e7e7c5ee", null ],
+    [ "USER_PASSWORD", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#ac2907200b14cdcb6a75d3549c8ded39e", null ],
+    [ "USER_USERNAME", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a55fa597445d70ca844e21699eb1a93cc", null ],
+    [ "userRepository", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a2d30aec8d8da4edb21293373e9b76a7c", null ],
+    [ "validAdminUsername", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a90922d7db1f624a94cad07e348f7b95b", null ],
+    [ "validUserUsername", "classcom_1_1gmp_1_1auth_1_1AuthIntegrationTest__fixed.html#a34d959abe815f2a3499a6fc65835c0ec", null ]
+];

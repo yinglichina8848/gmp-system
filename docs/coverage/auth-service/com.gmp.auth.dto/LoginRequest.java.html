@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.dto</a> &gt; <span class="el_source">LoginRequest.java</span></div><h1>LoginRequest.java</h1><pre class="source lang-java linenums">package com.gmp.auth.dto;
+
+import jakarta.validation.constraints.NotBlank;
+
+/**
+ * 用户登录请求DTO
+ *
+ * @author GMP系统开发团队
+ */
+<span class="fc" id="L10">public class LoginRequest {</span>
+
+    @NotBlank(message = &quot;用户名不能为空&quot;)
+    private String username;
+
+    @NotBlank(message = &quot;密码不能为空&quot;)
+    private String password;
+
+<span class="fc" id="L18">    private Boolean rememberMe = false;</span>
+
+    private String captchaCode;
+    
+    // 添加额外字段以匹配AuthServiceImpl的使用
+    private String ipAddress;
+    private String userAgent;
+    
+    // 组织ID，用于组织结构的用户-组织-角色关联
+    private Long organizationId;
+    
+    // 显式添加getter方法以避免Lombok编译问题
+    public String getUsername() {
+<span class="fc" id="L31">        return username;</span>
+    }
+    
+    public String getPassword() {
+<span class="fc" id="L35">        return password;</span>
+    }
+    
+    public Boolean getRememberMe() {
+<span class="fc" id="L39">        return rememberMe;</span>
+    }
+    
+    public String getCaptchaCode() {
+<span class="fc" id="L43">        return captchaCode;</span>
+    }
+    
+    public String getIpAddress() {
+<span class="fc" id="L47">        return ipAddress;</span>
+    }
+    
+    public String getUserAgent() {
+<span class="fc" id="L51">        return userAgent;</span>
+    }
+    
+    // Setter methods
+    public void setUsername(String username) {
+<span class="nc" id="L56">        this.username = username;</span>
+<span class="nc" id="L57">    }</span>
+    
+    public void setPassword(String password) {
+<span class="nc" id="L60">        this.password = password;</span>
+<span class="nc" id="L61">    }</span>
+    
+    public void setRememberMe(boolean rememberMe) {
+<span class="nc" id="L64">        this.rememberMe = rememberMe;</span>
+<span class="nc" id="L65">    }</span>
+    
+    public void setCaptchaCode(String captchaCode) {
+<span class="nc" id="L68">        this.captchaCode = captchaCode;</span>
+<span class="nc" id="L69">    }</span>
+    
+    public void setIpAddress(String ipAddress) {
+<span class="nc" id="L72">        this.ipAddress = ipAddress;</span>
+<span class="nc" id="L73">    }</span>
+    
+    public void setUserAgent(String userAgent) {
+<span class="nc" id="L76">        this.userAgent = userAgent;</span>
+<span class="nc" id="L77">    }</span>
+    
+    public Long getOrganizationId() {
+<span class="fc" id="L80">        return organizationId;</span>
+    }
+    
+    public void setOrganizationId(Long organizationId) {
+<span class="nc" id="L84">        this.organizationId = organizationId;</span>
+<span class="nc" id="L85">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,28 @@
+var classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl =
+[
+    [ "cleanupOldLogs", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#aca4bc1602888ea25c0a88d468a198193", null ],
+    [ "exportLogs", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a0b716c72360450d48ae2330ce5318ab2", null ],
+    [ "findFailedOperations", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#ab379357aa31f4e68639e354971104d1b", null ],
+    [ "findLogsByPage", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a7af910afc96c5acdfbece8330787e8cd", null ],
+    [ "findLogsByTimeRange", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a0224e9ba4f448f1b4cb241942fff22a2", null ],
+    [ "findLogsByUserId", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a8b9eca9703a1420923e4969283d5a762", null ],
+    [ "getOperationStatistics", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a36172a917e68ef068ea1d7f1435faae4", null ],
+    [ "logLogin", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a9e1c21699a664e1ea730d4156a40c90e", null ],
+    [ "logLoginFailure", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#addfd6d2f15f6dcec4ee7c550816e2723", null ],
+    [ "logLoginSuccess", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a1c196a6aaea6fee65c8807db112a5f3a", null ],
+    [ "logLoginSuccess", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#ac68c111390771f1e9738d32e52f8079b", null ],
+    [ "logLogout", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a13b90bfa6b9c16b94452eab0740fc012", null ],
+    [ "logLogout", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a0398e14f9882963c8a4e7154619bf2a9", null ],
+    [ "logOperation", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a9fc4fc5dd941306edc94397967728e30", null ],
+    [ "logPasswordChange", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a67bce7f0c99abd61386a963913bf2485", null ],
+    [ "logPasswordChange", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#acf5c8cbd5f508ca174feaaf41a541b59", null ],
+    [ "logPasswordReset", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a3b1a94ad4273f14a5515105362f0cf02", null ],
+    [ "logPasswordReset", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a6838e04ef756446e21c0e651fd91c8a0", null ],
+    [ "logRoleAssignment", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a2154e2e532ce4918475966ec1551aaa9", null ],
+    [ "logRolePermissionChange", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a410bf5d173899e0ea9177796d0328869", null ],
+    [ "logSecurityEvent", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#ae72889541bb474261112d72a8d6d9dbc", null ],
+    [ "logUserManagement", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a3c0e35787cac9c2f661ef874ec9dfd59", null ],
+    [ "logger", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a17e592b09f9e8b8a707a7100f024c26c", null ],
+    [ "objectMapper", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a0617bbd4e9397ffcfe64617de6664984", null ],
+    [ "operationLogRepository", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl.html#a54c9a855f90a0156cf02b42cd8b0613d", null ]
+];

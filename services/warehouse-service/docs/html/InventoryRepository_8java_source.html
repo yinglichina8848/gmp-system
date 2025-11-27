@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GMP Warehouse Management Service: src/main/java/com/gmp/warehouse/repository/InventoryRepository.java 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GMP Warehouse Management Service<span id="projectnumber">&#160;0.1.0</span>
+   </div>
+   <div id="projectbrief">GMP系统仓库管理服务模块</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5eb159725f84c66aafd839904a4acdd0.html">main</a></li><li class="navelem"><a class="el" href="dir_fd3f6763802dee1ad875f6c80eac0bda.html">java</a></li><li class="navelem"><a class="el" href="dir_d8517d8b842053dc3dd7dde525dd9163.html">com</a></li><li class="navelem"><a class="el" href="dir_39f78651b4a5c9adbf8c270fa78f636e.html">gmp</a></li><li class="navelem"><a class="el" href="dir_bdf6939b5dbe1a37fa4e850111541d17.html">warehouse</a></li><li class="navelem"><a class="el" href="dir_340ba24eea77b5390222be0120785167.html">repository</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">InventoryRepository.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="InventoryRepository_8java.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacecom_1_1gmp_1_1warehouse_1_1repository.html">    1</a></span><span class="keyword">package </span>com.gmp.warehouse.repository;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> com.gmp.warehouse.entity.Inventory;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> org.springframework.data.jpa.repository.JpaRepository;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> org.springframework.data.jpa.repository.JpaSpecificationExecutor;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> org.springframework.data.jpa.repository.Query;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">import</span> org.springframework.data.repository.query.Param;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> org.springframework.stereotype.Repository;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">import</span> java.util.Optional;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>@Repository</div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html">   24</a></span><span class="keyword">public</span> <span class="keyword">interface </span><a class="code hl_interface" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html">InventoryRepository</a> <span class="keyword">extends</span> JpaRepository&lt;Inventory, Long&gt;, JpaSpecificationExecutor&lt;Inventory&gt; {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a45b969e55dba0070ef892d29b481d18e">   32</a></span>    List&lt;Inventory&gt; <a class="code hl_function" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a45b969e55dba0070ef892d29b481d18e">findByMaterialId</a>(Long materialId);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#abbc15e6062a2a403ec299cdbe1dd4d05">   40</a></span>    List&lt;Inventory&gt; <a class="code hl_function" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#abbc15e6062a2a403ec299cdbe1dd4d05">findByWarehouseId</a>(Long warehouseId);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a7a51479735c496181ce3b643c85cb5d9">   48</a></span>    List&lt;Inventory&gt; <a class="code hl_function" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a7a51479735c496181ce3b643c85cb5d9">findByLocationId</a>(Long locationId);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a90d05325db24e1e8f49ab01b0638dc38">   57</a></span>    List&lt;Inventory&gt; <a class="code hl_function" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a90d05325db24e1e8f49ab01b0638dc38">findByMaterialIdAndWarehouseId</a>(Long materialId, Long warehouseId);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#af0f724d5d625dd0de2ef10e2c2f94127">   67</a></span>    Optional&lt;Inventory&gt; <a class="code hl_function" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#af0f724d5d625dd0de2ef10e2c2f94127">findByMaterialIdAndWarehouseIdAndBatchNo</a>(Long materialId, Long warehouseId, String batchNo);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a76cfe6ccdada42e530f5b1a5cb437265">   76</a></span>    Optional&lt;Inventory&gt; <a class="code hl_function" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a76cfe6ccdada42e530f5b1a5cb437265">findByMaterialIdAndLocationId</a>(Long materialId, Long locationId);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    @Query(<span class="stringliteral">&quot;SELECT i FROM Inventory i WHERE i.availableQuantity &lt; i.minSafetyStock&quot;</span>)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a929f0f792297744804ffeffccf841cbc">   84</a></span>    List&lt;Inventory&gt; <a class="code hl_function" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a929f0f792297744804ffeffccf841cbc">findInventoryShortages</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    @Query(&quot;SELECT i FROM Inventory i WHERE i.expiryDate IS NOT NULL AND i.expiryDate &lt;= CURRENT_DATE + :days&quot;)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#aa4a30c281af9110fe52b7e1b5d18fdd2">   93</a></span>    List&lt;Inventory&gt; <a class="code hl_function" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#aa4a30c281af9110fe52b7e1b5d18fdd2">findExpiringMaterials</a>(@Param(&quot;days&quot;) <span class="keywordtype">int</span> days);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    @Query(&quot;SELECT COUNT(DISTINCT i.materialId) FROM Inventory i WHERE i.warehouseId = :warehouseId&quot;)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a5c03bf584a0762f16c4482c0af63a061">  102</a></span>    Long <a class="code hl_function" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a5c03bf584a0762f16c4482c0af63a061">countMaterialsInWarehouse</a>(@Param(&quot;warehouseId&quot;) Long warehouseId);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    @Query(&quot;SELECT SUM(i.currentQuantity) FROM Inventory i WHERE i.warehouseId = :warehouseId&quot;)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a2e0158253944abcf67dcb2f8933e3648">  111</a></span>    Double <a class="code hl_function" href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a2e0158253944abcf67dcb2f8933e3648">getTotalInventoryInWarehouse</a>(@Param(&quot;warehouseId&quot;) Long warehouseId);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
+</div>
+<div class="ttc" id="ainterfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_html"><div class="ttname"><a href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html">com.gmp.warehouse.repository.InventoryRepository</a></div><div class="ttdef"><b>Definition</b> <a href="InventoryRepository_8java_source.html#l00024">InventoryRepository.java:24</a></div></div>
+<div class="ttc" id="ainterfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_html_a2e0158253944abcf67dcb2f8933e3648"><div class="ttname"><a href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a2e0158253944abcf67dcb2f8933e3648">com.gmp.warehouse.repository.InventoryRepository.getTotalInventoryInWarehouse</a></div><div class="ttdeci">Double getTotalInventoryInWarehouse(@Param(&quot;warehouseId&quot;) Long warehouseId)</div></div>
+<div class="ttc" id="ainterfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_html_a45b969e55dba0070ef892d29b481d18e"><div class="ttname"><a href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a45b969e55dba0070ef892d29b481d18e">com.gmp.warehouse.repository.InventoryRepository.findByMaterialId</a></div><div class="ttdeci">List&lt; Inventory &gt; findByMaterialId(Long materialId)</div></div>
+<div class="ttc" id="ainterfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_html_a5c03bf584a0762f16c4482c0af63a061"><div class="ttname"><a href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a5c03bf584a0762f16c4482c0af63a061">com.gmp.warehouse.repository.InventoryRepository.countMaterialsInWarehouse</a></div><div class="ttdeci">Long countMaterialsInWarehouse(@Param(&quot;warehouseId&quot;) Long warehouseId)</div></div>
+<div class="ttc" id="ainterfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_html_a76cfe6ccdada42e530f5b1a5cb437265"><div class="ttname"><a href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a76cfe6ccdada42e530f5b1a5cb437265">com.gmp.warehouse.repository.InventoryRepository.findByMaterialIdAndLocationId</a></div><div class="ttdeci">Optional&lt; Inventory &gt; findByMaterialIdAndLocationId(Long materialId, Long locationId)</div></div>
+<div class="ttc" id="ainterfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_html_a7a51479735c496181ce3b643c85cb5d9"><div class="ttname"><a href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a7a51479735c496181ce3b643c85cb5d9">com.gmp.warehouse.repository.InventoryRepository.findByLocationId</a></div><div class="ttdeci">List&lt; Inventory &gt; findByLocationId(Long locationId)</div></div>
+<div class="ttc" id="ainterfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_html_a90d05325db24e1e8f49ab01b0638dc38"><div class="ttname"><a href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a90d05325db24e1e8f49ab01b0638dc38">com.gmp.warehouse.repository.InventoryRepository.findByMaterialIdAndWarehouseId</a></div><div class="ttdeci">List&lt; Inventory &gt; findByMaterialIdAndWarehouseId(Long materialId, Long warehouseId)</div></div>
+<div class="ttc" id="ainterfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_html_a929f0f792297744804ffeffccf841cbc"><div class="ttname"><a href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#a929f0f792297744804ffeffccf841cbc">com.gmp.warehouse.repository.InventoryRepository.findInventoryShortages</a></div><div class="ttdeci">List&lt; Inventory &gt; findInventoryShortages()</div></div>
+<div class="ttc" id="ainterfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_html_aa4a30c281af9110fe52b7e1b5d18fdd2"><div class="ttname"><a href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#aa4a30c281af9110fe52b7e1b5d18fdd2">com.gmp.warehouse.repository.InventoryRepository.findExpiringMaterials</a></div><div class="ttdeci">List&lt; Inventory &gt; findExpiringMaterials(@Param(&quot;days&quot;) int days)</div></div>
+<div class="ttc" id="ainterfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_html_abbc15e6062a2a403ec299cdbe1dd4d05"><div class="ttname"><a href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#abbc15e6062a2a403ec299cdbe1dd4d05">com.gmp.warehouse.repository.InventoryRepository.findByWarehouseId</a></div><div class="ttdeci">List&lt; Inventory &gt; findByWarehouseId(Long warehouseId)</div></div>
+<div class="ttc" id="ainterfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_html_af0f724d5d625dd0de2ef10e2c2f94127"><div class="ttname"><a href="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository.html#af0f724d5d625dd0de2ef10e2c2f94127">com.gmp.warehouse.repository.InventoryRepository.findByMaterialIdAndWarehouseIdAndBatchNo</a></div><div class="ttdeci">Optional&lt; Inventory &gt; findByMaterialIdAndWarehouseIdAndBatchNo(Long materialId, Long warehouseId, String batchNo)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

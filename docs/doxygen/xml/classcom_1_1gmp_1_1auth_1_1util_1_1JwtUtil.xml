@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::auth::util::JwtUtil</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1aeed604d0a1ab81d5ea2883a4f9a552be" prot="private" static="yes" mutable="no">
+        <type>final Logger</type>
+        <definition>final Logger com.gmp.auth.util.JwtUtil.logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.logger</qualifiedname>
+        <initializer>= LoggerFactory.getLogger(JwtUtil.class)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="21" column="33" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a1b8b21e539ac2d1d507d1e1819790ed2" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String com.gmp.auth.util.JwtUtil.jwtSecret</definition>
+        <argsstring></argsstring>
+        <name>jwtSecret</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.jwtSecret</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="25" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1ab13d772761b60a8e2021090c88a125cf" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long com.gmp.auth.util.JwtUtil.expiration</definition>
+        <argsstring></argsstring>
+        <name>expiration</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.expiration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="28" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a383141a35785abf954f601116fbfd278" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long com.gmp.auth.util.JwtUtil.refreshExpiration</definition>
+        <argsstring></argsstring>
+        <name>refreshExpiration</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.refreshExpiration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="31" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a2431190de7ef802e549f52a934c7bfb8" prot="private" static="no" mutable="no">
+        <type>Set&lt; String &gt;</type>
+        <definition>Set&lt;String&gt; com.gmp.auth.util.JwtUtil.revokedTokens</definition>
+        <argsstring></argsstring>
+        <name>revokedTokens</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.revokedTokens</qualifiedname>
+        <initializer>= Collections.synchronizedSet(new HashSet&lt;&gt;())</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="34" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1aaab50f1e1d3dd50683df94f38a60770a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.util.JwtUtil.getUsernameFromToken</definition>
+        <argsstring>(String token)</argsstring>
+        <name>getUsernameFromToken</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.getUsernameFromToken</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="37" column="19" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="37" bodyend="39"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1aa9f84e2cebe667e19375ddd0e56a15ea" compoundref="JwtUtilTest_8java" startline="58" endline="66">com.gmp.auth.util.JwtUtilTest.testGenerateAccessToken_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a7fe1433cefa56f42b6419233379f272e" compoundref="JwtUtilTest_8java" startline="120" endline="129">com.gmp.auth.util.JwtUtilTest.testGetUsernameFromToken_Success</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a88e6c43c17206a9529eb44e277e8ac57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Date</type>
+        <definition>Date com.gmp.auth.util.JwtUtil.getExpirationDateFromToken</definition>
+        <argsstring>(String token)</argsstring>
+        <name>getExpirationDateFromToken</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.getExpirationDateFromToken</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="42" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="42" bodyend="44"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a16cef5d340f3f539e5dd96fcd6691b70" compoundref="JwtUtilTest_8java" startline="145" endline="156">com.gmp.auth.util.JwtUtilTest.testGetExpirationDateFromToken_Success</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a62ce38bd61ae7f3e9a3ab3b6040311fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.util.JwtUtil.getTokenIdFromToken</definition>
+        <argsstring>(String token)</argsstring>
+        <name>getTokenIdFromToken</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.getTokenIdFromToken</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="47" column="19" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="47" bodyend="49"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a901c06698a5e1968253c9c67a22f262b" compoundref="JwtUtilTest_8java" startline="196" endline="206">com.gmp.auth.util.JwtUtilTest.testGetTokenIdFromToken_Success</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1af47503f708085db94cf26b1f5d190deb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean com.gmp.auth.util.JwtUtil.isTokenExpired</definition>
+        <argsstring>(String token)</argsstring>
+        <name>isTokenExpired</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.isTokenExpired</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="95" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="95" bodyend="103"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1adc099d4bd78929ae1f4424f198e533c5" compoundref="JwtUtilTest_8java" startline="159" endline="168">com.gmp.auth.util.JwtUtilTest.testIsTokenExpired_NotExpired</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a74a52418681f7d9e1c401105da484bc8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean com.gmp.auth.util.JwtUtil.isTokenRevoked</definition>
+        <argsstring>(String token)</argsstring>
+        <name>isTokenRevoked</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.isTokenRevoked</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="106" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="106" bodyend="114"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1ad60d6862799a2798d963f165ed3b92ec" compoundref="JwtUtilTest_8java" startline="171" endline="180">com.gmp.auth.util.JwtUtilTest.testIsTokenRevoked_NotRevoked</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a177f4949e49e7d12c33b27a0775a01b6" compoundref="JwtUtilTest_8java" startline="183" endline="193">com.gmp.auth.util.JwtUtilTest.testRevokeToken_Success</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a588ea3d4a6159ffc1c7303c05a4c32a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.util.JwtUtil.generateAccessToken</definition>
+        <argsstring>(UserDetails userDetails)</argsstring>
+        <name>generateAccessToken</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.generateAccessToken</qualifiedname>
+        <param>
+          <type>UserDetails</type>
+          <declname>userDetails</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="117" column="19" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="117" bodyend="125"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1aa9f84e2cebe667e19375ddd0e56a15ea" compoundref="JwtUtilTest_8java" startline="58" endline="66">com.gmp.auth.util.JwtUtilTest.testGenerateAccessToken_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a16cef5d340f3f539e5dd96fcd6691b70" compoundref="JwtUtilTest_8java" startline="145" endline="156">com.gmp.auth.util.JwtUtilTest.testGetExpirationDateFromToken_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a901c06698a5e1968253c9c67a22f262b" compoundref="JwtUtilTest_8java" startline="196" endline="206">com.gmp.auth.util.JwtUtilTest.testGetTokenIdFromToken_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a7fe1433cefa56f42b6419233379f272e" compoundref="JwtUtilTest_8java" startline="120" endline="129">com.gmp.auth.util.JwtUtilTest.testGetUsernameFromToken_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1adc099d4bd78929ae1f4424f198e533c5" compoundref="JwtUtilTest_8java" startline="159" endline="168">com.gmp.auth.util.JwtUtilTest.testIsTokenExpired_NotExpired</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1ad60d6862799a2798d963f165ed3b92ec" compoundref="JwtUtilTest_8java" startline="171" endline="180">com.gmp.auth.util.JwtUtilTest.testIsTokenRevoked_NotRevoked</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a33f15af96b969cfdbd7c126cc8126bb7" compoundref="JwtUtilTest_8java" startline="209" endline="219">com.gmp.auth.util.JwtUtilTest.testParseTokenWithoutValidation_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a177f4949e49e7d12c33b27a0775a01b6" compoundref="JwtUtilTest_8java" startline="183" endline="193">com.gmp.auth.util.JwtUtilTest.testRevokeToken_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a78b8374c5e8cb8d6822f6f8db2c12143" compoundref="JwtUtilTest_8java" startline="87" endline="96">com.gmp.auth.util.JwtUtilTest.testValidateToken_ValidToken</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a42a932d72a278bdf901a41ff5bfa37b0" compoundref="JwtUtilTest_8java" startline="262" endline="271">com.gmp.auth.util.JwtUtilTest.testValidateTokenForUserDetails_NullUserDetails</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a8bd9799d81cfffde56efa15e6dadb886" compoundref="JwtUtilTest_8java" startline="222" endline="231">com.gmp.auth.util.JwtUtilTest.testValidateTokenForUserDetails_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1abc8e3af17147bc2d20f73e9a5f076f3c" compoundref="JwtUtilTest_8java" startline="274" endline="283">com.gmp.auth.util.JwtUtilTest.testValidateTokenForUserDetails_ValidToken</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1abe5d1a7a59051945b661b0fa92b49f45" compoundref="JwtUtilTest_8java" startline="234" endline="250">com.gmp.auth.util.JwtUtilTest.testValidateTokenForUserDetails_WrongUsername</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a2534af230a406b560ceb19d177bb3b2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.util.JwtUtil.generateRefreshToken</definition>
+        <argsstring>(UserDetails userDetails)</argsstring>
+        <name>generateRefreshToken</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.generateRefreshToken</qualifiedname>
+        <param>
+          <type>UserDetails</type>
+          <declname>userDetails</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="128" column="19" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="128" bodyend="131"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a1f8b21d2c6561589a36f34eab660528c" compoundref="JwtUtilTest_8java" startline="69" endline="76">com.gmp.auth.util.JwtUtilTest.testGenerateRefreshToken_Success</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a090fde827fdeacfac0dd642a9d5176b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean com.gmp.auth.util.JwtUtil.validateToken</definition>
+        <argsstring>(String token, UserDetails userDetails)</argsstring>
+        <name>validateToken</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.validateToken</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>UserDetails</type>
+          <declname>userDetails</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="150" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="150" bodyend="166"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1ab106c3fae92b8a77a4f6e652a0cc703b" compoundref="JwtUtilTest_8java" startline="108" endline="117">com.gmp.auth.util.JwtUtilTest.testValidateToken_InvalidToken</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a7e11ef4f5724a8c3b7f9ba67fa8cfc90" compoundref="JwtUtilTest_8java" startline="99" endline="105">com.gmp.auth.util.JwtUtilTest.testValidateToken_NullToken</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a78b8374c5e8cb8d6822f6f8db2c12143" compoundref="JwtUtilTest_8java" startline="87" endline="96">com.gmp.auth.util.JwtUtilTest.testValidateToken_ValidToken</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1ae0c4845c56b64c39251de1938e8d015f" compoundref="JwtUtilTest_8java" startline="253" endline="259">com.gmp.auth.util.JwtUtilTest.testValidateTokenForUserDetails_NullToken</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a42a932d72a278bdf901a41ff5bfa37b0" compoundref="JwtUtilTest_8java" startline="262" endline="271">com.gmp.auth.util.JwtUtilTest.testValidateTokenForUserDetails_NullUserDetails</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a8bd9799d81cfffde56efa15e6dadb886" compoundref="JwtUtilTest_8java" startline="222" endline="231">com.gmp.auth.util.JwtUtilTest.testValidateTokenForUserDetails_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1abc8e3af17147bc2d20f73e9a5f076f3c" compoundref="JwtUtilTest_8java" startline="274" endline="283">com.gmp.auth.util.JwtUtilTest.testValidateTokenForUserDetails_ValidToken</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1abe5d1a7a59051945b661b0fa92b49f45" compoundref="JwtUtilTest_8java" startline="234" endline="250">com.gmp.auth.util.JwtUtilTest.testValidateTokenForUserDetails_WrongUsername</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a6c8d8371ad6896e3258d9ddd34d86d33" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.util.JwtUtil.revokeToken</definition>
+        <argsstring>(String token)</argsstring>
+        <name>revokeToken</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.revokeToken</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="169" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="169" bodyend="177"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a177f4949e49e7d12c33b27a0775a01b6" compoundref="JwtUtilTest_8java" startline="183" endline="193">com.gmp.auth.util.JwtUtilTest.testRevokeToken_Success</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1acbdefa3f8cff4ef8b85ae0f8043d25e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.util.JwtUtil.cleanupRevokedTokens</definition>
+        <argsstring>()</argsstring>
+        <name>cleanupRevokedTokens</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.cleanupRevokedTokens</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="180" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="180" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1aa5354b21d88437ac84e5b2480978777d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Claims</type>
+        <definition>Claims com.gmp.auth.util.JwtUtil.parseTokenWithoutValidation</definition>
+        <argsstring>(String token)</argsstring>
+        <name>parseTokenWithoutValidation</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.parseTokenWithoutValidation</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="185" column="19" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="185" bodyend="192"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a33f15af96b969cfdbd7c126cc8126bb7" compoundref="JwtUtilTest_8java" startline="209" endline="219">com.gmp.auth.util.JwtUtilTest.testParseTokenWithoutValidation_Success</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="package-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a9b4670e3faf5c63d48be8b2fe90e0d48" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>public&lt; T &gt; T</type>
+        <definition>public&lt; T &gt; T com.gmp.auth.util.JwtUtil.getClaimFromToken</definition>
+        <argsstring>(String token, Function&lt; Claims, T &gt; claimsResolver)</argsstring>
+        <name>getClaimFromToken</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.getClaimFromToken</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>Function&lt; Claims, T &gt;</type>
+          <declname>claimsResolver</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="52" column="15" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="52" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a322f44946705ca25279f71b60eb32787" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Claims</type>
+        <definition>Claims com.gmp.auth.util.JwtUtil.getAllClaimsFromToken</definition>
+        <argsstring>(String token)</argsstring>
+        <name>getAllClaimsFromToken</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.getAllClaimsFromToken</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="58" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="58" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1ae76fe48f38c20075fd22084c9b887611" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Key</type>
+        <definition>Key com.gmp.auth.util.JwtUtil.getSigningKey</definition>
+        <argsstring>()</argsstring>
+        <name>getSigningKey</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.getSigningKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="85" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="85" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a5675a9694f48fd1a0dfbf168b2ceda11" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.util.JwtUtil.doGenerateToken</definition>
+        <argsstring>(Map&lt; String, Object &gt; claims, String subject, long expiration)</argsstring>
+        <name>doGenerateToken</name>
+        <qualifiedname>com.gmp.auth.util.JwtUtil.doGenerateToken</qualifiedname>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>claims</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>subject</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>expiration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="134" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="134" bodyend="147"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="5">
+        <label>Set&lt; String &gt;</label>
+      </node>
+      <node id="3">
+        <label>String</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.auth.util.JwtUtil</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>logger</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>jwtSecret</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>expiration</edgelabel>
+          <edgelabel>refreshExpiration</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>revokedTokens</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>long</label>
+      </node>
+      <node id="2">
+        <label>static final Logger</label>
+      </node>
+    </collaborationgraph>
+    <location file="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" line="19" column="7" bodyfile="auth-service/src/main/java/com/gmp/auth/util/JwtUtil.java" bodystart="19" bodyend="193"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1acbdefa3f8cff4ef8b85ae0f8043d25e2" prot="public" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>cleanupRevokedTokens</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a5675a9694f48fd1a0dfbf168b2ceda11" prot="private" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>doGenerateToken</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1ab13d772761b60a8e2021090c88a125cf" prot="private" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>expiration</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a588ea3d4a6159ffc1c7303c05a4c32a1" prot="public" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>generateAccessToken</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a2534af230a406b560ceb19d177bb3b2c" prot="public" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>generateRefreshToken</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a322f44946705ca25279f71b60eb32787" prot="private" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>getAllClaimsFromToken</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a9b4670e3faf5c63d48be8b2fe90e0d48" prot="package" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>getClaimFromToken</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a88e6c43c17206a9529eb44e277e8ac57" prot="public" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>getExpirationDateFromToken</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1ae76fe48f38c20075fd22084c9b887611" prot="private" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>getSigningKey</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a62ce38bd61ae7f3e9a3ab3b6040311fb" prot="public" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>getTokenIdFromToken</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1aaab50f1e1d3dd50683df94f38a60770a" prot="public" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>getUsernameFromToken</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1af47503f708085db94cf26b1f5d190deb" prot="public" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>isTokenExpired</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a74a52418681f7d9e1c401105da484bc8" prot="public" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>isTokenRevoked</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a1b8b21e539ac2d1d507d1e1819790ed2" prot="private" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>jwtSecret</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1aeed604d0a1ab81d5ea2883a4f9a552be" prot="private" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>logger</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1aa5354b21d88437ac84e5b2480978777d" prot="public" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>parseTokenWithoutValidation</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a383141a35785abf954f601116fbfd278" prot="private" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>refreshExpiration</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a2431190de7ef802e549f52a934c7bfb8" prot="private" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>revokedTokens</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a6c8d8371ad6896e3258d9ddd34d86d33" prot="public" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>revokeToken</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a090fde827fdeacfac0dd642a9d5176b8" prot="public" virt="non-virtual"><scope>com::gmp::auth::util::JwtUtil</scope><name>validateToken</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

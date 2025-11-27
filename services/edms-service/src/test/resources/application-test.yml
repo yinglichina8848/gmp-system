@@ -1,0 +1,35 @@
+# 测试环境配置
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:edms-test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+  h2:
+    console:
+      enabled: true
+  
+# MinIO配置
+minio:
+  url: http://localhost:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket-name: edms-files
+  default-bucket: edms-files
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.gmp: DEBUG
+    org.springframework: INFO
+    org.hibernate: INFO

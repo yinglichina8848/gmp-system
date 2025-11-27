@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::auth::service::RedisTokenBlacklistService</compoundname>
+    <basecompoundref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistService" prot="public" virt="non-virtual">com.gmp.auth.service.TokenBlacklistService</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a169d442efe7ceaeeefe32e45b4387874" prot="private" static="no" mutable="no">
+        <type>final RedisTemplate&lt; String, String &gt;</type>
+        <definition>final RedisTemplate&lt;String, String&gt; com.gmp.auth.service.RedisTokenBlacklistService.redisTemplate</definition>
+        <argsstring></argsstring>
+        <name>redisTemplate</name>
+        <qualifiedname>com.gmp.auth.service.RedisTokenBlacklistService.redisTemplate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java" line="12" column="33" bodyfile="auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java" bodystart="12" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3807497f77de98f8858f760284cd3ba5" compoundref="RedisTokenBlacklistService_8java" startline="19" endline="26">com.gmp.auth.service.RedisTokenBlacklistService.blacklistToken</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3437ff0e0fe65ddc056a363a92d93089" compoundref="RedisTokenBlacklistService_8java" startline="29" endline="36">com.gmp.auth.service.RedisTokenBlacklistService.isTokenBlacklisted</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1ab2a1265b55dee38d92e3c04cc012575e" compoundref="RedisTokenBlacklistService_8java" startline="14" endline="16">com.gmp.auth.service.RedisTokenBlacklistService.RedisTokenBlacklistService</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1ab2a1265b55dee38d92e3c04cc012575e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.gmp.auth.service.RedisTokenBlacklistService.RedisTokenBlacklistService</definition>
+        <argsstring>(RedisTemplate&lt; String, String &gt; redisTemplate)</argsstring>
+        <name>RedisTokenBlacklistService</name>
+        <qualifiedname>com.gmp.auth.service.RedisTokenBlacklistService.RedisTokenBlacklistService</qualifiedname>
+        <param>
+          <type>RedisTemplate&lt; String, String &gt;</type>
+          <declname>redisTemplate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java" line="14" column="12" bodyfile="auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java" bodystart="14" bodyend="16"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a169d442efe7ceaeeefe32e45b4387874" compoundref="RedisTokenBlacklistService_8java" startline="12">com.gmp.auth.service.RedisTokenBlacklistService.redisTemplate</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3807497f77de98f8858f760284cd3ba5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.RedisTokenBlacklistService.blacklistToken</definition>
+        <argsstring>(String token, long expirationTime)</argsstring>
+        <name>blacklistToken</name>
+        <qualifiedname>com.gmp.auth.service.RedisTokenBlacklistService.blacklistToken</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistService_1a51e506f87078c67245c9ec393d1cf7cc">blacklistToken</reimplements>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>expiration</declname>
+        </param>
+        <briefdescription>
+<para>将令牌加入黑名单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JWT令牌 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>expiration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>令牌过期时间（毫秒） </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java" line="19" column="17" bodyfile="auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java" bodystart="19" bodyend="26"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a169d442efe7ceaeeefe32e45b4387874" compoundref="RedisTokenBlacklistService_8java" startline="12">com.gmp.auth.service.RedisTokenBlacklistService.redisTemplate</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1ac3bd26536817a38b2325e9e0e3828004" compoundref="TokenBlacklistServiceTest_8java" startline="59" endline="68">com.gmp.auth.service.TokenBlacklistServiceTest.testBlacklistToken_AlreadyExpired</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1ac64623ecb72132c827ae2af04b52319c" compoundref="TokenBlacklistServiceTest_8java" startline="46" endline="56">com.gmp.auth.service.TokenBlacklistServiceTest.testBlacklistToken_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a99021cf16ed5155fa4434847973e0a6b" compoundref="TokenBlacklistServiceTest_8java" startline="107" endline="131">com.gmp.auth.service.TokenBlacklistServiceTest.testBlacklistTokenWithDifferentExpirations</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a395c57a1d603d3a4eb083e037c7840c2" compoundref="TokenBlacklistServiceTest_8java" startline="134" endline="143">com.gmp.auth.service.TokenBlacklistServiceTest.testBlacklistTokenWithZeroExpiration</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3437ff0e0fe65ddc056a363a92d93089" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.service.RedisTokenBlacklistService.isTokenBlacklisted</definition>
+        <argsstring>(String token)</argsstring>
+        <name>isTokenBlacklisted</name>
+        <qualifiedname>com.gmp.auth.service.RedisTokenBlacklistService.isTokenBlacklisted</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistService_1a7ea23e124c27e4d512b6336af4657e9d">isTokenBlacklisted</reimplements>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>检查令牌是否在黑名单中 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JWT令牌 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true表示令牌在黑名单中，false表示不在 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java" line="29" column="20" bodyfile="auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java" bodystart="29" bodyend="36"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a169d442efe7ceaeeefe32e45b4387874" compoundref="RedisTokenBlacklistService_8java" startline="12">com.gmp.auth.service.RedisTokenBlacklistService.redisTemplate</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a85c1895d4bd11c077680908b5c0c20a2" compoundref="TokenBlacklistServiceTest_8java" startline="97" endline="104">com.gmp.auth.service.TokenBlacklistServiceTest.testIsTokenBlacklisted_NullToken</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a065459d7c4888466eb5e64a79c7e9b67" compoundref="TokenBlacklistServiceTest_8java" startline="71" endline="81">com.gmp.auth.service.TokenBlacklistServiceTest.testIsTokenBlacklisted_TokenIsBlacklisted</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a3c5ba1c84ce22c2db4f60f265ddc60be" compoundref="TokenBlacklistServiceTest_8java" startline="84" endline="94">com.gmp.auth.service.TokenBlacklistServiceTest.testIsTokenBlacklisted_TokenNotBlacklisted</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistService_1a7cc1302203d509a8144fe1f787b93a75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.TokenBlacklistService.removeTokenFromBlacklist</definition>
+        <argsstring>(String token)</argsstring>
+        <name>removeTokenFromBlacklist</name>
+        <qualifiedname>com.gmp.auth.service.TokenBlacklistService.removeTokenFromBlacklist</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TokenBlacklistServiceImpl_1ae8c2f582608828120791c7a657472992">removeTokenFromBlacklist</reimplementedby>
+        <param>
+          <type>String</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>从黑名单中移除令牌 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JWT令牌 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TokenBlacklistService.java" line="27" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistService_1afaa40d8e4813968f05554c0c9fb08b74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.TokenBlacklistService.cleanExpiredTokens</definition>
+        <argsstring>()</argsstring>
+        <name>cleanExpiredTokens</name>
+        <qualifiedname>com.gmp.auth.service.TokenBlacklistService.cleanExpiredTokens</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TokenBlacklistServiceImpl_1aeb64dcc3e8bc5bfbcc13f2918b8c6922">cleanExpiredTokens</reimplementedby>
+        <briefdescription>
+<para>清理过期的黑名单令牌 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TokenBlacklistService.java" line="32" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Redis实现的Token黑名单服务 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>com.gmp.auth.service.RedisTokenBlacklistService</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.service.TokenBlacklistService</label>
+        <link refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistService"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>com.gmp.auth.service.RedisTokenBlacklistService</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>redisTemplate</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.service.TokenBlacklistService</label>
+        <link refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistService"/>
+      </node>
+      <node id="3">
+        <label>final RedisTemplate&lt; String, String &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java" line="11" column="7" bodyfile="auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java" bodystart="11" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3807497f77de98f8858f760284cd3ba5" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::RedisTokenBlacklistService</scope><name>blacklistToken</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistService_1afaa40d8e4813968f05554c0c9fb08b74" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::RedisTokenBlacklistService</scope><name>cleanExpiredTokens</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3437ff0e0fe65ddc056a363a92d93089" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::RedisTokenBlacklistService</scope><name>isTokenBlacklisted</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a169d442efe7ceaeeefe32e45b4387874" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::RedisTokenBlacklistService</scope><name>redisTemplate</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1ab2a1265b55dee38d92e3c04cc012575e" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::RedisTokenBlacklistService</scope><name>RedisTokenBlacklistService</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistService_1a7cc1302203d509a8144fe1f787b93a75" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::RedisTokenBlacklistService</scope><name>removeTokenFromBlacklist</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

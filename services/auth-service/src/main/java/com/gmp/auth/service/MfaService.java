@@ -1,51 +1,38 @@
 package com.gmp.auth.service;
 
 import org.springframework.stereotype.Service;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
-import java.time.Instant;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * MFA服务类，提供多因素认证相关功能
+ */
 @Service
 public class MfaService {
-    private static final int SECRET_KEY_LENGTH = 16; // 16 bytes = 128 bits
-    private static final int TOTP_TIME_STEP = 30; // 30 seconds
-    private static final int TOTP_CODE_LENGTH = 6; // 6 digits
     private static final int RECOVERY_CODES_COUNT = 10;
     private static final int RECOVERY_CODE_LENGTH = 8;
-
     private final SecureRandom secureRandom = new SecureRandom();
 
     /**
      * 生成新的MFA密钥
      */
     public String generateSecretKey() {
-        byte[] key = new byte[SECRET_KEY_LENGTH];
-        secureRandom.nextBytes(key);
-        return Base64.getEncoder().encodeToString(key);
+        return TotpUtils.generateSecretKey();
     }
 
     /**
      * 生成TOTP验证码
      */
     public String generateTotpCode(String secretKey) {
-        return generateTotpCode(secretKey, Instant.now().getEpochSecond());
+        return TotpUtils.generateTotpCode(secretKey);
     }
 
     /**
      * 验证TOTP验证码
      */
     public boolean verifyTotpCode(String secretKey, String code) {
-        try {
-            // 验证当前时间戳和前后一个时间戳的验证码，以允许时钟偏差
-            long currentTime = Instant.now().getEpochSecond();
-            return verifyTotpCode(secretKey, code, currentTime) ||
-                   verifyTotpCode(secretKey, code, currentTime - TOTP_TIME_STEP) ||
-                   verifyTotpCode(secretKey, code, currentTime + TOTP_TIME_STEP);
-        } catch (Exception e) {
-            return false;
-        }
+        return TotpUtils.verifyTotpCode(secretKey, code);
     }
 
     /**
@@ -74,59 +61,38 @@ public class MfaService {
      * 生成用于Google Authenticator等应用的二维码URL
      */
     public String generateQrCodeUrl(String username, String secretKey, String issuer) {
-        String label = issuer + ":" + username;
-        String encodedLabel = Base64.getEncoder().encodeToString(label.getBytes(StandardCharsets.UTF_8));
-        String encodedSecret = Base64.getEncoder().encodeToString(secretKey.getBytes(StandardCharsets.UTF_8));
-        return String.format("otpauth://totp/%s?secret=%s&issuer=%s&algorithm=SHA1&digits=6&period=30",
-                encodedLabel, encodedSecret, issuer);
+        return TotpUtils.generateTotpUri(secretKey, username, issuer);
     }
 
     /**
-     * 内部方法：根据指定时间戳生成TOTP码
+     * 获取TOTP验证码的剩余有效期（秒）
      */
-    private String generateTotpCode(String secretKey, long timestamp) {
-        try {
-            byte[] key = Base64.getDecoder().decode(secretKey);
-            long timeStep = timestamp / TOTP_TIME_STEP;
-            
-            // 将时间戳转换为字节数组
-            ByteBuffer buffer = ByteBuffer.allocate(8);
-            buffer.putLong(0, timeStep);
-            byte[] timeBytes = buffer.array();
-            
-            // 使用HMAC-SHA1算法计算
-            byte[] hmacResult = hmacSha1(key, timeBytes);
-            
-            // 动态截断
-            int offset = hmacResult[hmacResult.length - 1] & 0xF;
-            int binary = ((hmacResult[offset] & 0x7F) << 24) |
-                        ((hmacResult[offset + 1] & 0xFF) << 16) |
-                        ((hmacResult[offset + 2] & 0xFF) << 8) |
-                        (hmacResult[offset + 3] & 0xFF);
-            
-            // 生成6位验证码
-            int otp = binary % (int) Math.pow(10, TOTP_CODE_LENGTH);
-            return String.format("%0" + TOTP_CODE_LENGTH + "d", otp);
-        } catch (Exception e) {
-            throw new RuntimeException("生成TOTP码失败", e);
+    public int getRemainingSeconds() {
+        return TotpUtils.getRemainingSeconds();
+    }
+
+    /**
+     * 验证恢复码是否有效
+     * @param userRecoveryCodes 用户存储的恢复码
+     * @param providedCode 用户提供的恢复码
+     * @return 是否有效
+     */
+    public boolean verifyRecoveryCode(List<String> userRecoveryCodes, String providedCode) {
+        if (userRecoveryCodes == null || providedCode == null || providedCode.length() != RECOVERY_CODE_LENGTH) {
+            return false;
         }
+        return userRecoveryCodes.contains(providedCode);
     }
 
     /**
-     * 内部方法：验证指定时间戳的TOTP码
+     * 从用户的恢复码列表中移除已使用的恢复码
+     * @param recoveryCodes 用户的恢复码列表
+     * @param usedCode 已使用的恢复码
+     * @return 更新后的恢复码列表
      */
-    private boolean verifyTotpCode(String secretKey, String code, long timestamp) {
-        String expectedCode = generateTotpCode(secretKey, timestamp);
-        return expectedCode.equals(code);
-    }
-
-    /**
-     * 内部方法：计算HMAC-SHA1
-     */
-    private byte[] hmacSha1(byte[] key, byte[] data) throws Exception {
-        javax.crypto.Mac mac = javax.crypto.Mac.getInstance("HmacSHA1");
-        javax.crypto.spec.SecretKeySpec secretKeySpec = new javax.crypto.spec.SecretKeySpec(key, "HmacSHA1");
-        mac.init(secretKeySpec);
-        return mac.doFinal(data);
+    public List<String> removeUsedRecoveryCode(List<String> recoveryCodes, String usedCode) {
+        List<String> updatedCodes = new ArrayList<>(recoveryCodes);
+        updatedCodes.remove(usedCode);
+        return updatedCodes;
     }
 }

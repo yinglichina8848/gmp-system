@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="AuthSystemApplicationInitializer_8java" kind="file" language="Java">
+    <compoundname>AuthSystemApplicationInitializer.java</compoundname>
+    <includes local="no">org.slf4j.Logger</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/init/AuthSystemApplicationInitializer.java</label>
+        <link refid="AuthSystemApplicationInitializer_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.slf4j.Logger</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1auth_1_1init_1_1AuthSystemApplicationInitializer" prot="public">com::gmp::auth::init::AuthSystemApplicationInitializer</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1init">com::gmp::auth::init</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1auth_1_1init" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.init;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GMP系统认证初始化器</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>最小化实现，只负责初始化组织结构</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.slf4j.Logger;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.slf4j.LoggerFactory;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.boot.ApplicationArguments;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.boot.ApplicationRunner;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.core.annotation.Order;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Component;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@Component</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@Order(10)<sp/><sp/></highlight><highlight class="comment">//<sp/>设置执行顺序</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@ConditionalOnProperty(</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;gmp.auth.initialization.enabled&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>havingValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;true&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>matchIfMissing<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>默认为false，必须显式启用</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1auth_1_1init_1_1AuthSystemApplicationInitializer" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1init_1_1AuthSystemApplicationInitializer" kindref="compound">AuthSystemApplicationInitializer</ref><sp/>implements<sp/><ref refid="classApplicationRunner" kindref="compound">ApplicationRunner</ref><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classcom_1_1gmp_1_1auth_1_1init_1_1AuthSystemApplicationInitializer_1a4537b4922a8585e2460755e4aec0a8c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/>log<sp/>=<sp/>LoggerFactory.getLogger(<ref refid="classcom_1_1gmp_1_1auth_1_1init_1_1AuthSystemApplicationInitializer" kindref="compound">AuthSystemApplicationInitializer</ref>.class);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1auth_1_1init_1_1AuthSystemApplicationInitializer_1afb1a4169914497473ab74ba4ebc3a30d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1init_1_1OrganizationStructureInitializer" kindref="compound">OrganizationStructureInitializer</ref><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1init_1_1AuthSystemApplicationInitializer_1afb1a4169914497473ab74ba4ebc3a30d" kindref="member">organizationInitializer</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1gmp_1_1auth_1_1init_1_1AuthSystemApplicationInitializer_1aedecd4660718730e3e51dd0564371209" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1init_1_1AuthSystemApplicationInitializer_1aedecd4660718730e3e51dd0564371209" kindref="member">AuthSystemApplicationInitializer</ref>(<ref refid="classcom_1_1gmp_1_1auth_1_1init_1_1OrganizationStructureInitializer" kindref="compound">OrganizationStructureInitializer</ref><sp/>organizationInitializer)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.organizationInitializer<sp/>=<sp/>organizationInitializer;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1auth_1_1init_1_1AuthSystemApplicationInitializer_1adfd6ca071b38db45d464b64f3597f652" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1init_1_1AuthSystemApplicationInitializer_1adfd6ca071b38db45d464b64f3597f652" kindref="member">run</ref>(ApplicationArguments<sp/>args)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>仅执行组织结构初始化</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log.info(</highlight><highlight class="stringliteral">&quot;执行系统初始化...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>organizationInitializer.<ref refid="classcom_1_1gmp_1_1auth_1_1init_1_1OrganizationStructureInitializer_1a4ac97a596597ecaa3b1bcfca7e969495" kindref="member">initializeOrganizations</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log.info(</highlight><highlight class="stringliteral">&quot;系统初始化完成&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log.error(</highlight><highlight class="stringliteral">&quot;初始化时发生异常:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classRuntimeException" kindref="compound">RuntimeException</ref>(</highlight><highlight class="stringliteral">&quot;系统初始化失败&quot;</highlight><highlight class="normal">,<sp/>e);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/init/AuthSystemApplicationInitializer.java"/>
+  </compounddef>
+</doxygen>

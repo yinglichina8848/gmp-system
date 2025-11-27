@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthTestErrorHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.test</a> &gt; <span class="el_source">AuthTestErrorHandler.java</span></div><h1>AuthTestErrorHandler.java</h1><pre class="source lang-java linenums">package com.gmp.auth.test;
+
+// ============================================================================\n//                    GMP系统认证测试错误处理器\n// 提供认证测试过程中的错误处理和异常管理\n//\n// WHY: 为了确保认证测试脚本在遇到异常时能够优雅地处理，提供详细的错误信息，\n//      并在可能的情况下进行恢复，避免测试因单点失败而完全终止。\n//\n// WHAT: 本错误处理器提供了统一的异常处理机制，包括异常分类、错误日志记录、\n//      错误恢复策略和测试状态跟踪等功能。\n//\n// HOW: 采用面向切面的设计模式，捕获并处理测试过程中的异常，记录详细的错误\n//      信息，并根据异常类型提供相应的恢复策略。\n// ============================================================================\n
+import org.springframework.dao.DataAccessException;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+
+/**
+ * GMP系统认证测试错误处理器
+ * 
+ * 提供统一的错误处理机制，确保测试脚本能够优雅地处理异常
+ */
+@Component
+public class AuthTestErrorHandler {
+    
+    // 错误类型枚举
+<span class="nc" id="L24">    public enum ErrorType {</span>
+<span class="nc" id="L25">        INITIALIZATION_ERROR,     // 初始化错误</span>
+<span class="nc" id="L26">        DATABASE_ERROR,           // 数据库错误</span>
+<span class="nc" id="L27">        AUTHENTICATION_ERROR,     // 认证错误</span>
+<span class="nc" id="L28">        PERMISSION_ERROR,         // 权限错误</span>
+<span class="nc" id="L29">        CONFIGURATION_ERROR,      // 配置错误</span>
+<span class="nc" id="L30">        NETWORK_ERROR,            // 网络错误</span>
+<span class="nc" id="L31">        VALIDATION_ERROR,         // 验证错误</span>
+<span class="nc" id="L32">        OTHER_ERROR               // 其他错误</span>
+    }
+    
+    // 测试状态
+<span class="nc" id="L36">    private final Map&lt;String, TestStatus&gt; testStatusMap = new ConcurrentHashMap&lt;&gt;();</span>
+    
+    // 错误计数
+<span class="nc" id="L39">    private final Map&lt;ErrorType, Integer&gt; errorCountMap = new EnumMap&lt;&gt;(ErrorType.class);</span>
+    
+    // 错误历史记录
+<span class="nc" id="L42">    private final List&lt;ErrorRecord&gt; errorHistory = new ArrayList&lt;&gt;();</span>
+    
+    // 最大重试次数
+    
+    // 日志记录器
+<span class="nc" id="L47">    private static final Logger log = LoggerFactory.getLogger(AuthTestErrorHandler.class);</span>
+    private static final int MAX_RETRY_COUNT = 3;
+    
+<span class="nc" id="L50">    public AuthTestErrorHandler() {</span>
+        // 初始化错误计数
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        for (ErrorType type : ErrorType.values()) {</span>
+<span class="nc" id="L53">            errorCountMap.put(type, 0);</span>
+        }
+<span class="nc" id="L55">    }</span>
+    
+    /**
+     * 处理测试方法执行过程中的异常
+     */
+    public &lt;T&gt; T handleTestMethod(String testMethodName, TestMethod&lt;T&gt; method) {
+<span class="nc" id="L61">        TestStatus status = new TestStatus(testMethodName);</span>
+<span class="nc" id="L62">        testStatusMap.put(testMethodName, status);</span>
+        
+<span class="nc" id="L64">        log.info(&quot;开始执行测试方法: {}&quot;, testMethodName);</span>
+<span class="nc" id="L65">        status.setStartTime(LocalDateTime.now());</span>
+        
+<span class="nc" id="L67">        int retryCount = 0;</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        while (retryCount &lt;= MAX_RETRY_COUNT) {</span>
+            try {
+<span class="nc" id="L70">                T result = method.execute();</span>
+<span class="nc" id="L71">                status.setSuccess(true);</span>
+<span class="nc" id="L72">                status.setEndTime(LocalDateTime.now());</span>
+<span class="nc" id="L73">                log.info(&quot;测试方法 {} 执行成功&quot;, testMethodName);</span>
+<span class="nc" id="L74">                return result;</span>
+                
+<span class="nc" id="L76">            } catch (Exception e) {</span>
+<span class="nc" id="L77">                ErrorType errorType = classifyError(e);</span>
+<span class="nc" id="L78">                handleException(e, testMethodName, errorType, retryCount);</span>
+                
+                // 增加错误计数
+<span class="nc" id="L81">                errorCountMap.put(errorType, errorCountMap.get(errorType) + 1);</span>
+                
+                // 记录错误
+<span class="nc" id="L84">                ErrorRecord errorRecord = new ErrorRecord(</span>
+                        testMethodName,
+                        errorType,
+<span class="nc" id="L87">                        e.getMessage(),</span>
+<span class="nc" id="L88">                        LocalDateTime.now(),</span>
+                        retryCount
+                );
+<span class="nc" id="L91">                errorHistory.add(errorRecord);</span>
+                
+                // 更新测试状态
+<span class="nc" id="L94">                status.setSuccess(false);</span>
+<span class="nc" id="L95">                status.setErrorMessage(e.getMessage());</span>
+<span class="nc" id="L96">                status.setErrorType(errorType);</span>
+                
+                // 判断是否需要重试
+<span class="nc bnc" id="L99" title="All 2 branches missed.">                if (shouldRetry(errorType, retryCount)) {</span>
+<span class="nc" id="L100">                    retryCount++;</span>
+<span class="nc" id="L101">                    log.warn(&quot;将重试测试方法 {}，重试次数: {}/{}&quot;, </span>
+<span class="nc" id="L102">                            testMethodName, retryCount, MAX_RETRY_COUNT);</span>
+                    try {
+                        // 重试前等待一段时间
+<span class="nc" id="L105">                        Thread.sleep(calculateRetryDelay(retryCount));</span>
+<span class="nc" id="L106">                    } catch (InterruptedException ie) {</span>
+<span class="nc" id="L107">                        Thread.currentThread().interrupt();</span>
+<span class="nc" id="L108">                        log.error(&quot;重试等待被中断&quot;, ie);</span>
+<span class="nc" id="L109">                        break;</span>
+<span class="nc" id="L110">                    }</span>
+                } else {
+<span class="nc" id="L112">                    status.setEndTime(LocalDateTime.now());</span>
+<span class="nc" id="L113">                    throw new TestExecutionException(&quot;测试方法 &quot; + testMethodName + &quot; 执行失败，已达到最大重试次数&quot;, e);</span>
+                }
+<span class="nc" id="L115">            }</span>
+        }
+        
+<span class="nc" id="L118">        status.setEndTime(LocalDateTime.now());</span>
+<span class="nc" id="L119">        throw new TestExecutionException(&quot;测试方法 &quot; + testMethodName + &quot; 执行失败，已达到最大重试次数&quot;);</span>
+    }
+    
+    /**
+     * 分类错误类型
+     */
+    private ErrorType classifyError(Exception e) {
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        if (e instanceof AuthenticationException) {</span>
+<span class="nc" id="L127">            return ErrorType.AUTHENTICATION_ERROR;</span>
+<span class="nc bnc" id="L128" title="All 4 branches missed.">        } else if (e instanceof DataAccessException || e instanceof SQLException) {</span>
+<span class="nc" id="L129">            return ErrorType.DATABASE_ERROR;</span>
+<span class="nc bnc" id="L130" title="All 4 branches missed.">        } else if (e instanceof IllegalStateException || e instanceof IllegalArgumentException) {</span>
+<span class="nc" id="L131">            return ErrorType.VALIDATION_ERROR;</span>
+<span class="nc bnc" id="L132" title="All 4 branches missed.">        } else if (e instanceof NoSuchElementException || e instanceof ClassNotFoundException) {</span>
+<span class="nc" id="L133">            return ErrorType.INITIALIZATION_ERROR;</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">        } else if (e instanceof TestExecutionException) {</span>
+<span class="nc" id="L135">            return ((TestExecutionException) e).getErrorType();</span>
+        } else {
+<span class="nc" id="L137">            return ErrorType.OTHER_ERROR;</span>
+        }
+    }
+    
+    /**
+     * 处理异常
+     */
+    private void handleException(Exception e, String testMethodName, ErrorType errorType, int retryCount) {
+<span class="nc" id="L145">        String errorMessage = String.format(&quot;测试方法 %s 执行失败 (类型: %s, 重试次数: %d): %s&quot;,</span>
+<span class="nc" id="L146">                testMethodName, errorType, retryCount, e.getMessage());</span>
+        
+<span class="nc bnc" id="L148" title="All 5 branches missed.">        switch (errorType) {</span>
+            case DATABASE_ERROR:
+<span class="nc" id="L150">                log.error(errorMessage + &quot;, 数据库连接或操作失败&quot;, e);</span>
+                // 这里可以添加数据库连接恢复逻辑
+<span class="nc" id="L152">                break;</span>
+            case AUTHENTICATION_ERROR:
+<span class="nc" id="L154">                log.warn(errorMessage + &quot;, 认证失败&quot;);</span>
+<span class="nc" id="L155">                break;</span>
+            case INITIALIZATION_ERROR:
+<span class="nc" id="L157">                log.error(errorMessage + &quot;, 初始化资源失败&quot;, e);</span>
+<span class="nc" id="L158">                break;</span>
+            case VALIDATION_ERROR:
+<span class="nc" id="L160">                log.error(errorMessage + &quot;, 参数或数据验证失败&quot;, e);</span>
+<span class="nc" id="L161">                break;</span>
+            default:
+<span class="nc" id="L163">                log.error(errorMessage, e);</span>
+        }
+<span class="nc" id="L165">    }</span>
+    
+    /**
+     * 判断是否需要重试
+     */
+    private boolean shouldRetry(ErrorType errorType, int retryCount) {
+<span class="nc bnc" id="L171" title="All 2 branches missed.">        if (retryCount &gt;= MAX_RETRY_COUNT) {</span>
+<span class="nc" id="L172">            return false;</span>
+        }
+        
+        // 只对特定类型的错误进行重试
+<span class="nc bnc" id="L176" title="All 6 branches missed.">        return errorType == ErrorType.DATABASE_ERROR || </span>
+               errorType == ErrorType.NETWORK_ERROR ||
+               errorType == ErrorType.INITIALIZATION_ERROR;
+    }
+    
+    /**
+     * 计算重试延迟时间（指数退避）
+     */
+    private long calculateRetryDelay(int retryCount) {
+        // 基础延迟时间 1000ms
+<span class="nc" id="L186">        long baseDelay = 1000;</span>
+        // 指数退避，最大不超过 5s
+<span class="nc" id="L188">        return Math.min(baseDelay * (long) Math.pow(2, retryCount), 5000);</span>
+    }
+    
+    /**
+     * 获取测试状态
+     */
+    public TestStatus getTestStatus(String testMethodName) {
+<span class="nc" id="L195">        return testStatusMap.get(testMethodName);</span>
+    }
+    
+    /**
+     * 获取所有测试状态
+     */
+    public Map&lt;String, TestStatus&gt; getAllTestStatuses() {
+<span class="nc" id="L202">        return Collections.unmodifiableMap(testStatusMap);</span>
+    }
+    
+    /**
+     * 获取错误统计信息
+     */
+    public Map&lt;ErrorType, Integer&gt; getErrorStatistics() {
+<span class="nc" id="L209">        return Collections.unmodifiableMap(errorCountMap);</span>
+    }
+    
+    /**
+     * 获取错误历史记录
+     */
+    public List&lt;ErrorRecord&gt; getErrorHistory() {
+<span class="nc" id="L216">        return Collections.unmodifiableList(errorHistory);</span>
+    }
+    
+    /**
+     * 生成错误报告
+     */
+    public String generateErrorReport() {
+<span class="nc" id="L223">        StringBuilder report = new StringBuilder();</span>
+<span class="nc" id="L224">        report.append(&quot;\n=======================================\n&quot;);</span>
+<span class="nc" id="L225">        report.append(&quot;         GMP认证测试错误报告         \n&quot;);</span>
+<span class="nc" id="L226">        report.append(&quot;=======================================\n&quot;);</span>
+<span class="nc" id="L227">        report.append(&quot;生成时间: &quot;).append(LocalDateTime.now()).append(&quot;\n\n&quot;);</span>
+        
+        // 测试状态统计
+<span class="nc" id="L230">        int totalTests = testStatusMap.size();</span>
+<span class="nc" id="L231">        int passedTests = (int) testStatusMap.values().stream().filter(TestStatus::isSuccess).count();</span>
+<span class="nc" id="L232">        int failedTests = totalTests - passedTests;</span>
+        
+<span class="nc" id="L234">        report.append(&quot;测试统计:\n&quot;);</span>
+<span class="nc" id="L235">        report.append(&quot;  总测试数: &quot; + totalTests + &quot;\n&quot;);</span>
+<span class="nc" id="L236">        report.append(&quot;  通过测试: &quot; + passedTests + &quot;\n&quot;);</span>
+<span class="nc" id="L237">        report.append(&quot;  失败测试: &quot; + failedTests + &quot;\n\n&quot;);</span>
+        
+        // 错误类型统计
+<span class="nc" id="L240">        report.append(&quot;错误类型统计:\n&quot;);</span>
+<span class="nc" id="L241">        errorCountMap.forEach((type, count) -&gt; {</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">            if (count &gt; 0) {</span>
+<span class="nc" id="L243">                report.append(&quot;  &quot; + type + &quot;: &quot; + count + &quot;次\n&quot;);</span>
+            }
+<span class="nc" id="L245">        });</span>
+<span class="nc" id="L246">        report.append(&quot;\n&quot;);</span>
+        
+        // 详细错误信息
+<span class="nc bnc" id="L249" title="All 2 branches missed.">        if (!errorHistory.isEmpty()) {</span>
+<span class="nc" id="L250">            report.append(&quot;详细错误记录:\n&quot;);</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">            for (ErrorRecord record : errorHistory) {</span>
+<span class="nc" id="L252">                report.append(&quot;  [&quot; + record.getTimestamp() + &quot;] &quot; + </span>
+<span class="nc" id="L253">                        record.getTestName() + &quot;: &quot; + </span>
+<span class="nc" id="L254">                        record.getErrorType() + &quot; - &quot; + </span>
+<span class="nc" id="L255">                        record.getErrorMessage() + </span>
+<span class="nc" id="L256">                        &quot; (重试: &quot; + record.getRetryCount() + &quot;)\n&quot;);</span>
+<span class="nc" id="L257">            }</span>
+        }
+        
+<span class="nc" id="L260">        report.append(&quot;=======================================\n&quot;);</span>
+<span class="nc" id="L261">        return report.toString();</span>
+    }
+    
+    /**
+     * 重置错误统计
+     */
+    public void resetStatistics() {
+<span class="nc" id="L268">        testStatusMap.clear();</span>
+<span class="nc bnc" id="L269" title="All 2 branches missed.">        for (ErrorType type : ErrorType.values()) {</span>
+<span class="nc" id="L270">            errorCountMap.put(type, 0);</span>
+        }
+<span class="nc" id="L272">        errorHistory.clear();</span>
+<span class="nc" id="L273">        log.info(&quot;已重置错误统计信息&quot;);</span>
+<span class="nc" id="L274">    }</span>
+    
+    /**
+     * 测试方法函数式接口
+     */
+    @FunctionalInterface
+    public interface TestMethod&lt;T&gt; {
+        T execute() throws Exception;
+    }
+    
+    /**
+     * 测试状态类
+     */
+    public static class TestStatus {
+        private final String testName;
+        private LocalDateTime startTime;
+        private LocalDateTime endTime;
+        private boolean success;
+        private String errorMessage;
+        private ErrorType errorType;
+        
+<span class="nc" id="L295">        public TestStatus(String testName) {</span>
+<span class="nc" id="L296">            this.testName = testName;</span>
+<span class="nc" id="L297">            this.success = false;</span>
+<span class="nc" id="L298">        }</span>
+        
+        // Getters and Setters
+<span class="nc" id="L301">        public String getTestName() { return testName; }</span>
+<span class="nc" id="L302">        public LocalDateTime getStartTime() { return startTime; }</span>
+<span class="nc" id="L303">        public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }</span>
+<span class="nc" id="L304">        public LocalDateTime getEndTime() { return endTime; }</span>
+<span class="nc" id="L305">        public void setEndTime(LocalDateTime endTime) { this.endTime = endTime; }</span>
+<span class="nc" id="L306">        public boolean isSuccess() { return success; }</span>
+<span class="nc" id="L307">        public void setSuccess(boolean success) { this.success = success; }</span>
+<span class="nc" id="L308">        public String getErrorMessage() { return errorMessage; }</span>
+<span class="nc" id="L309">        public void setErrorMessage(String errorMessage) { this.errorMessage = errorMessage; }</span>
+<span class="nc" id="L310">        public ErrorType getErrorType() { return errorType; }</span>
+<span class="nc" id="L311">        public void setErrorType(ErrorType errorType) { this.errorType = errorType; }</span>
+        
+        // 获取执行时间（毫秒）
+        public long getExecutionTime() {
+<span class="nc bnc" id="L315" title="All 4 branches missed.">            if (startTime != null &amp;&amp; endTime != null) {</span>
+<span class="nc" id="L316">                return startTime.until(endTime, java.time.temporal.ChronoUnit.MILLIS);</span>
+            }
+<span class="nc" id="L318">            return 0;</span>
+        }
+    }
+    
+    /**
+     * 错误记录类
+     */
+    public static class ErrorRecord {
+        private final String testName;
+        private final ErrorType errorType;
+        private final String errorMessage;
+        private final LocalDateTime timestamp;
+        private final int retryCount;
+        
+        public ErrorRecord(String testName, ErrorType errorType, String errorMessage, 
+<span class="nc" id="L333">                          LocalDateTime timestamp, int retryCount) {</span>
+<span class="nc" id="L334">            this.testName = testName;</span>
+<span class="nc" id="L335">            this.errorType = errorType;</span>
+<span class="nc" id="L336">            this.errorMessage = errorMessage;</span>
+<span class="nc" id="L337">            this.timestamp = timestamp;</span>
+<span class="nc" id="L338">            this.retryCount = retryCount;</span>
+<span class="nc" id="L339">        }</span>
+        
+        // Getters
+<span class="nc" id="L342">        public String getTestName() { return testName; }</span>
+<span class="nc" id="L343">        public ErrorType getErrorType() { return errorType; }</span>
+<span class="nc" id="L344">        public String getErrorMessage() { return errorMessage; }</span>
+<span class="nc" id="L345">        public LocalDateTime getTimestamp() { return timestamp; }</span>
+<span class="nc" id="L346">        public int getRetryCount() { return retryCount; }</span>
+    }
+    
+    /**
+     * 测试执行异常类
+     */
+    public static class TestExecutionException extends RuntimeException {
+        private final ErrorType errorType;
+        
+        public TestExecutionException(String message) {
+<span class="nc" id="L356">            super(message);</span>
+<span class="nc" id="L357">            this.errorType = ErrorType.OTHER_ERROR;</span>
+<span class="nc" id="L358">        }</span>
+        
+        public TestExecutionException(String message, Throwable cause) {
+<span class="nc" id="L361">            super(message, cause);</span>
+<span class="nc" id="L362">            this.errorType = ErrorType.OTHER_ERROR;</span>
+<span class="nc" id="L363">        }</span>
+        
+        public TestExecutionException(String message, ErrorType errorType) {
+<span class="nc" id="L366">            super(message);</span>
+<span class="nc" id="L367">            this.errorType = errorType;</span>
+<span class="nc" id="L368">        }</span>
+        
+        public ErrorType getErrorType() {
+<span class="nc" id="L371">            return errorType;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

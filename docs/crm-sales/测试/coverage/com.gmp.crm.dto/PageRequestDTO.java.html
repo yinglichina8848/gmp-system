@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PageRequestDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crm-sales</a> &gt; <a href="index.source.html" class="el_package">com.gmp.crm.dto</a> &gt; <span class="el_source">PageRequestDTO.java</span></div><h1>PageRequestDTO.java</h1><pre class="source lang-java linenums">package com.gmp.crm.dto;
+
+import lombok.Data;
+
+/**
+ * 分页请求DTO
+ * 
+ * @author TRAE AI
+ */
+<span class="pc bnc" id="L10" title="All 26 branches missed.">@Data</span>
+public class PageRequestDTO {
+
+    /**
+     * 当前页码，默认1
+     */
+<span class="fc" id="L16">    private int page = 1;</span>
+
+    /**
+     * 每页大小，默认10
+     */
+<span class="fc" id="L21">    private int size = 10;</span>
+
+    /**
+     * 排序字段
+     */
+<span class="nc" id="L26">    private String sortField;</span>
+
+    /**
+     * 排序方向：asc/desc
+     */
+<span class="pc" id="L31">    private String sortOrder = &quot;asc&quot;;</span>
+
+    /**
+     * 获取分页开始索引
+     * 
+     * @return 开始索引
+     */
+    public int getStartIndex() {
+<span class="nc" id="L39">        return (page - 1) * size;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="zh">
+  <compounddef id="d3/dde/SalesOrderRequestDTO_8java" kind="file" language="Java">
+    <compoundname>SalesOrderRequestDTO.java</compoundname>
+    <includes local="no">jakarta.validation.constraints</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>SalesOrderRequestDTO.java</label>
+        <link refid="d3/dde/SalesOrderRequestDTO_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.validation.constraints</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d7/dba/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO" prot="public">com::gmp::crm::dto::SalesOrderRequestDTO</innerclass>
+    <innerclass refid="d3/d22/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1_1OrderItemRequestDTO" prot="public">com::gmp::crm::dto::SalesOrderRequestDTO::OrderItemRequestDTO</innerclass>
+    <innernamespace refid="d2/df6/namespacecom_1_1gmp_1_1crm_1_1dto">com::gmp::crm::dto</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.crm.dto;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="14" refid="d7/dba/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d7/dba/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO" kindref="compound">SalesOrderRequestDTO</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">NotNull</ref>(message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;客户ID不能为空&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">Long</ref><sp/><ref refid="d7/dba/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1ac3e383f26c0f0c11d3718b543dc34241" kindref="member">customerId</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>500,<sp/>message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;备注长度不能超过500个字符&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">String</ref><sp/><ref refid="d7/dba/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1a0af1dcdd04186624d43d0fe68193c7e2" kindref="member">remarks</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">NotEmpty</ref>(message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;订单明细不能为空&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">min</ref><sp/>=<sp/>1,<sp/>message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;至少需要一个订单明细&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">List&lt;OrderItemRequestDTO&gt;</ref><sp/><ref refid="d7/dba/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1ab11c7436739d4a30253044430fe5991c" kindref="member">items</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">Data</ref></highlight></codeline>
+<codeline lineno="39" refid="d3/d22/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1_1OrderItemRequestDTO" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d3/d22/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1_1OrderItemRequestDTO" kindref="compound">OrderItemRequestDTO</ref><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">NotBlank</ref>(message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;产品编号不能为空&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>50,<sp/>message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;产品编号长度不能超过50个字符&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">String</ref><sp/><ref refid="d3/d22/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1_1OrderItemRequestDTO_1af539af15e317fbb0b7e8cc8782c47cf5" kindref="member">productCode</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">NotBlank</ref>(message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;产品名称不能为空&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>255,<sp/>message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;产品名称长度不能超过255个字符&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">String</ref><sp/><ref refid="d3/d22/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1_1OrderItemRequestDTO_1a7b94752cecfacc50bc93357f50d51a3c" kindref="member">productName</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">NotNull</ref>(message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;单价不能为空&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">Positive</ref>(message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;单价必须大于0&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">String</ref><sp/><ref refid="d3/d22/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1_1OrderItemRequestDTO_1a22fd5be13a8a23ba87dcaa01d8954a83" kindref="member">unitPrice</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">NotNull</ref>(message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;数量不能为空&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">Positive</ref>(message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;数量必须大于0&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">Integer</ref><sp/><ref refid="d3/d22/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1_1OrderItemRequestDTO_1ad09263347d154b978306da19147cb81c" kindref="member">quantity</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>200,<sp/>message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;备注长度不能超过200个字符&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d9/d3d/classcom_1_1gmp_1_1crm_1_1dto_1_1ApiResponse" kindref="compound">String</ref><sp/><ref refid="d3/d22/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1_1OrderItemRequestDTO_1a641e43a05fb0f1f19ccb579f29244398" kindref="member">remarks</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/main/java/com/gmp/crm/dto/SalesOrderRequestDTO.java"/>
+  </compounddef>
+</doxygen>

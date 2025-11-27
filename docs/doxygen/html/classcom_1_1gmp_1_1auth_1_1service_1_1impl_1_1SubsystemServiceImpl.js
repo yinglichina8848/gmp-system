@@ -1,0 +1,28 @@
+var classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl =
+[
+    [ "addPermissionToSubsystem", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a88748aa2ec0f983a2a0a95c20c9f1cef", null ],
+    [ "createSubsystem", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a1b66a2865d14078a96f80b6287bc1213", null ],
+    [ "deleteSubsystem", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#ae2ae7951f5538d7f2f67092a47457bb4", null ],
+    [ "getAllSubsystems", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a1424b11b6f5344e0e6c435b601d7932d", null ],
+    [ "getEnabledSubsystems", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#af42c604cdfc181d9baa39d7231ae1cf2", null ],
+    [ "getGmpCriticalSubsystems", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a866adf08cd7b83ff8478c1f16920bbe6", null ],
+    [ "getSubsystemAccessLevel", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a45b5fb6fd3a3434d1930b8fc97e42696", null ],
+    [ "getSubsystemByCode", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#ae2e612b3ff803f2643512a39c1e1b047", null ],
+    [ "getSubsystemById", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#af64eecd74162c574efbc4037be067660", null ],
+    [ "getSubsystemPermissions", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a74514fef1e5af6bbc0de4b36654794aa", null ],
+    [ "getUserAccessibleSubsystemCodes", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a689a67ab605c6016ad79eb64d4b4b633", null ],
+    [ "getUserAccessibleSubsystems", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#ae2dbb59d387ca322859de76873f59fdc", null ],
+    [ "getUserSubsystemAccessLevels", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a922aea485936302b3e6ef96fd9908672", null ],
+    [ "hasSubsystemAccess", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#ab3dba04f939a77cf8481f285fbe31b26", null ],
+    [ "hasSubsystemAdminAccess", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#aac056db4157dc8adfeb727a28085f6ce", null ],
+    [ "hasSubsystemWriteAccess", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a91da08021da153e00c4f8360e3cd992e", null ],
+    [ "initializeDefaultSubsystemPermissions", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a21af75176e82adf466fe95f76a61c719", null ],
+    [ "removePermissionFromSubsystem", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#aab7a50d7bb526bb3ce9dc18c881cf202", null ],
+    [ "toggleSubsystemStatus", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#ae9977586733b15316ca25023e0c2524c", null ],
+    [ "updateSubsystem", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#af9180ead2afa80fe960eb0f77411e25e", null ],
+    [ "updateSubsystemPermissionAccessLevel", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a84214519c0263379c78cbf490aa70dc1", null ],
+    [ "logger", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#ae8560cccecd2a4cc0ea3dadb83adb927", null ],
+    [ "permissionRepository", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a6518aa6c5bb0d34420f481d1f7eb3880", null ],
+    [ "subsystemPermissionRepository", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#a75e4efaa8fb6566634665352e64eee35", null ],
+    [ "subsystemRepository", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1SubsystemServiceImpl.html#ae58f28f36fb2710ada4a712a7e907268", null ]
+];

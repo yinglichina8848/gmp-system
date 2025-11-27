@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GlobalExceptionHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.exception</a> &gt; <span class="el_source">GlobalExceptionHandler.java</span></div><h1>GlobalExceptionHandler.java</h1><pre class="source lang-java linenums">package com.gmp.auth.exception;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.LockedException;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+// 移除HttpServletRequest导入
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+/**
+ * 全局异常处理器
+ * 用于统一处理认证相关的异常
+ */
+@ControllerAdvice
+<span class="fc" id="L28">public class GlobalExceptionHandler {</span>
+    
+<span class="fc" id="L30">    private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);</span>
+    
+    /**
+     * 处理认证异常
+     */
+    @ExceptionHandler(AuthenticationException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ResponseBody
+    public ResponseEntity&lt;ErrorResponse&gt; handleAuthenticationException(AuthenticationException ex) {
+<span class="fc" id="L39">        logger.error(&quot;Authentication error: {}&quot;, ex.getMessage());</span>
+        
+<span class="fc" id="L41">        String errorMessage = &quot;认证失败&quot;;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (ex instanceof BadCredentialsException) {</span>
+<span class="fc" id="L43">            errorMessage = &quot;用户名或密码错误&quot;;</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        } else if (ex instanceof DisabledException) {</span>
+<span class="fc" id="L45">            errorMessage = &quot;账号已被禁用&quot;;</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        } else if (ex instanceof LockedException) {</span>
+<span class="fc" id="L47">            errorMessage = &quot;账号已被锁定&quot;;</span>
+        }
+        
+<span class="fc" id="L50">        ErrorResponse errorResponse = new ErrorResponse(</span>
+<span class="fc" id="L51">                HttpStatus.UNAUTHORIZED.value(),</span>
+                &quot;UNAUTHORIZED&quot;,
+                errorMessage,
+                &quot;/api/auth&quot;
+        );
+        
+<span class="fc" id="L57">        return new ResponseEntity&lt;&gt;(errorResponse, HttpStatus.UNAUTHORIZED);</span>
+    }
+    
+    /**
+     * 处理访问被拒绝异常
+     */
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ResponseBody
+    public ResponseEntity&lt;ErrorResponse&gt; handleAccessDeniedException(AccessDeniedException ex) {
+<span class="fc" id="L67">        logger.error(&quot;Access denied: {}&quot;, ex.getMessage());</span>
+        
+<span class="fc" id="L69">        ErrorResponse errorResponse = new ErrorResponse(</span>
+<span class="fc" id="L70">                HttpStatus.FORBIDDEN.value(),</span>
+                &quot;FORBIDDEN&quot;,
+                &quot;没有权限执行此操作&quot;,
+                &quot;/api/auth&quot;
+        );
+        
+<span class="fc" id="L76">        return new ResponseEntity&lt;&gt;(errorResponse, HttpStatus.FORBIDDEN);</span>
+    }
+    
+    /**
+     * 处理请求参数验证异常
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity&lt;ErrorResponse&gt; handleValidationException(MethodArgumentNotValidException ex) {
+<span class="nc" id="L86">        logger.error(&quot;Validation error: {}&quot;, ex.getMessage());</span>
+        
+<span class="nc" id="L88">        String errorMessage = ex.getBindingResult().getFieldErrors().stream()</span>
+<span class="nc" id="L89">                .map(error -&gt; error.getField() + &quot;: &quot; + error.getDefaultMessage())</span>
+<span class="nc" id="L90">                .collect(Collectors.joining(&quot;, &quot;));</span>
+        
+<span class="nc" id="L92">        ErrorResponse errorResponse = new ErrorResponse(</span>
+<span class="nc" id="L93">                HttpStatus.BAD_REQUEST.value(),</span>
+                &quot;VALIDATION_ERROR&quot;,
+                errorMessage,
+                &quot;/api/auth&quot;
+        );
+        
+<span class="nc" id="L99">        return new ResponseEntity&lt;&gt;(errorResponse, HttpStatus.BAD_REQUEST);</span>
+    }
+    
+    /**
+     * 处理令牌相关异常
+     */
+    @ExceptionHandler(TokenException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ResponseBody
+    public ResponseEntity&lt;ErrorResponse&gt; handleTokenException(TokenException ex) {
+<span class="fc" id="L109">        logger.error(&quot;Token error: {}&quot;, ex.getMessage());</span>
+        
+<span class="fc" id="L111">        ErrorResponse errorResponse = new ErrorResponse(</span>
+<span class="fc" id="L112">                HttpStatus.UNAUTHORIZED.value(),</span>
+                &quot;TOKEN_ERROR&quot;,
+<span class="fc" id="L114">                ex.getMessage(),</span>
+                &quot;/api/auth&quot;
+        );
+        
+<span class="fc" id="L118">        return new ResponseEntity&lt;&gt;(errorResponse, HttpStatus.UNAUTHORIZED);</span>
+    }
+    
+    /**
+     * 处理业务异常
+     */
+    @ExceptionHandler(BusinessException.class)
+    @ResponseBody
+    public ResponseEntity&lt;ErrorResponse&gt; handleBusinessException(BusinessException ex) {
+<span class="nc" id="L127">        logger.error(&quot;Business error: {}&quot;, ex.getMessage());</span>
+        
+<span class="nc" id="L129">        ErrorResponse errorResponse = new ErrorResponse(</span>
+<span class="nc" id="L130">                ex.getStatusCode(),</span>
+<span class="nc" id="L131">                ex.getErrorCode(),</span>
+<span class="nc" id="L132">                ex.getMessage(),</span>
+                &quot;/api/auth&quot;
+        );
+        
+<span class="nc" id="L136">        return new ResponseEntity&lt;&gt;(errorResponse, HttpStatus.valueOf(ex.getStatusCode()));</span>
+    }
+    
+    /**
+     * 处理其他所有异常
+     */
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseBody
+    public ResponseEntity&lt;ErrorResponse&gt; handleGenericException(Exception ex) {
+<span class="fc" id="L146">        logger.error(&quot;Unexpected error: {}&quot;, ex.getMessage(), ex);</span>
+        
+<span class="fc" id="L148">        ErrorResponse errorResponse = new ErrorResponse(</span>
+<span class="fc" id="L149">                HttpStatus.INTERNAL_SERVER_ERROR.value(),</span>
+                &quot;INTERNAL_ERROR&quot;,
+                &quot;服务器内部错误&quot;,
+                &quot;/api/auth&quot;
+        );
+        
+<span class="fc" id="L155">        return new ResponseEntity&lt;&gt;(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);</span>
+    }
+    
+    /**
+     * 错误响应类
+     */
+    public static class ErrorResponse {
+        private int status;
+        private String error;
+        private String message;
+        private String path;
+        private long timestamp;
+        private Map&lt;String, Object&gt; details;
+        
+<span class="fc" id="L169">        public ErrorResponse(int status, String error, String message, String path) {</span>
+<span class="fc" id="L170">            this.status = status;</span>
+<span class="fc" id="L171">            this.error = error;</span>
+<span class="fc" id="L172">            this.message = message;</span>
+<span class="fc" id="L173">            this.path = path;</span>
+<span class="fc" id="L174">            this.timestamp = System.currentTimeMillis();</span>
+<span class="fc" id="L175">            this.details = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L176">        }</span>
+        
+        // getter and setter methods
+        public int getStatus() {
+<span class="fc" id="L180">            return status;</span>
+        }
+        
+        public void setStatus(int status) {
+<span class="fc" id="L184">            this.status = status;</span>
+<span class="fc" id="L185">        }</span>
+        
+        public String getError() {
+<span class="fc" id="L188">            return error;</span>
+        }
+        
+        public void setError(String error) {
+<span class="fc" id="L192">            this.error = error;</span>
+<span class="fc" id="L193">        }</span>
+        
+        public String getMessage() {
+<span class="fc" id="L196">            return message;</span>
+        }
+        
+        public void setMessage(String message) {
+<span class="fc" id="L200">            this.message = message;</span>
+<span class="fc" id="L201">        }</span>
+        
+        public String getPath() {
+<span class="fc" id="L204">            return path;</span>
+        }
+        
+        public void setPath(String path) {
+<span class="fc" id="L208">            this.path = path;</span>
+<span class="fc" id="L209">        }</span>
+        
+        public long getTimestamp() {
+<span class="fc" id="L212">            return timestamp;</span>
+        }
+        
+        public void setTimestamp(long timestamp) {
+<span class="fc" id="L216">            this.timestamp = timestamp;</span>
+<span class="fc" id="L217">        }</span>
+        
+        public Map&lt;String, Object&gt; getDetails() {
+<span class="fc" id="L220">            return details;</span>
+        }
+        
+        public void setDetails(Map&lt;String, Object&gt; details) {
+<span class="nc" id="L224">            this.details = details;</span>
+<span class="nc" id="L225">        }</span>
+        
+        public void addDetail(String key, Object value) {
+<span class="fc" id="L228">            this.details.put(key, value);</span>
+<span class="fc" id="L229">        }</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.entity</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package com.gmp.auth.entity;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+// ============================================================================
+//                          GMP系统用户实体
+// dịp
+// WHY: 在GMP信息管理系统中，为确保质量数据记录的真实性和可追溯性，
+//      对用户信息和权限进行严格控制，仅限实名注册用户操作系统。
+//
+// WHAT: 用户实体定义完整用户信息、认证状态、安全控制和操作记录，
+//      支撑身份认证、权限控制、会话管理和审计追踪的核心功能模块。
+//
+// HOW: 使用JPA仓库模式实现对象关系映射，通过Spring Data JPA自动生成CRUD操作
+//      和复杂查询；结合Auditing注解自动填充审计字段；使用枚举类定义用户状态
+//      确保数据类型安全性。
+// ============================================================================
+<span class="pc bnc" id="L33" title="All 178 branches missed.">@Data</span>
+<span class="fc" id="L34">@NoArgsConstructor</span>
+<span class="fc" id="L35">@AllArgsConstructor</span>
+<span class="pc bfc" id="L36" title="All 6 branches covered.">@Builder</span>
+@Entity
+@Table(name = &quot;sys_users&quot;)
+@EntityListeners(AuditingEntityListener.class)
+public class User {
+    
+    // 添加显式getter方法以确保编译通过，解决可能的Lombok依赖问题
+    public Long getId() {
+<span class="fc" id="L44">        return id;</span>
+    }
+    
+    public String getUsername() {
+<span class="fc" id="L48">        return username;</span>
+    }
+    
+    public String getLoginIp() {
+<span class="nc" id="L52">        return lastLoginIp;</span>
+    }
+    
+    public Integer getLoginAttempts() {
+<span class="fc" id="L56">        return loginAttempts;</span>
+    }
+    
+    // 添加更多缺失的方法
+    public String getFullName() {
+<span class="nc" id="L61">        return fullName;</span>
+    }
+    
+    /**
+     * 获取密码哈希
+     * 用于密码验证
+     */
+    public String getPassword() {
+<span class="fc" id="L69">        return passwordHash;</span>
+    }
+    
+    // 用户角色关联
+<span class="fc" id="L73">    @OneToMany(mappedBy = &quot;userId&quot;, cascade = CascadeType.ALL, orphanRemoval = true)</span>
+    private List&lt;UserRole&gt; userRoles = new ArrayList&lt;&gt;();
+    
+    /**
+     * 获取用户角色列表
+     */
+    public List&lt;UserRole&gt; getUserRoles() {
+<span class="nc" id="L80">        return userRoles;</span>
+    }
+    
+    /**
+     * 设置用户角色列表
+     */
+    public void setUserRoles(List&lt;UserRole&gt; userRoles) {
+<span class="nc" id="L87">        this.userRoles = userRoles;</span>
+<span class="nc" id="L88">    }</span>
+    
+    public UserStatus getUserStatus() {
+<span class="fc" id="L91">        return userStatus;</span>
+    }
+    
+    public void setLastLoginTime(LocalDateTime lastLoginTime) {
+<span class="fc" id="L95">        this.lastLoginTime = lastLoginTime;</span>
+<span class="fc" id="L96">    }</span>
+    
+    public void setLastLoginIp(String lastLoginIp) {
+<span class="fc" id="L99">        this.lastLoginIp = lastLoginIp;</span>
+<span class="fc" id="L100">    }</span>
+    
+    /**
+     * 检查用户是否处于活跃状态
+     */
+    public boolean isActive() {
+<span class="fc" id="L106">        return UserStatus.ACTIVE.equals(this.userStatus);</span>
+    }
+    
+    /**
+     * 设置用户活跃状态
+     */
+    public void setActive(boolean active) {
+<span class="fc bfc" id="L113" title="All 2 branches covered.">        this.userStatus = active ? UserStatus.ACTIVE : UserStatus.INACTIVE;</span>
+<span class="fc" id="L114">    }</span>
+    
+    /**
+     * 设置用户锁定状态
+     */
+    public void setLocked(boolean locked) {
+<span class="pc bpc" id="L120" title="1 of 2 branches missed.">        this.userStatus = locked ? UserStatus.LOCKED : UserStatus.ACTIVE;</span>
+<span class="fc" id="L121">    }</span>
+    
+    /**
+     * 设置用户过期状态
+     */
+    public void setExpired(boolean expired) {
+<span class="pc bpc" id="L127" title="1 of 2 branches missed.">        this.userStatus = expired ? UserStatus.EXPIRED : UserStatus.ACTIVE;</span>
+<span class="fc" id="L128">    }</span>
+    
+    
+    
+    /**
+     * 获取上次登录会话ID
+     */
+    public String getLastLoginSession() {
+        // 简化实现，返回一个模拟的会话ID
+<span class="nc" id="L137">        return &quot;session-&quot; + this.username;</span>
+    }
+    
+    /**
+     * 检查密码是否即将过期
+     * @return 是否即将过期
+     */
+    public boolean isPasswordSoonExpired() {
+        // 简单实现，实际项目中应根据密码更新时间和过期策略判断
+<span class="nc" id="L146">        return false;</span>
+    }
+    
+    
+    
+    /**
+     * 设置密码
+     * @param password 密码
+     */
+    public void setPassword(String password) {
+        // 简单实现，实际项目中应有对应的字段
+<span class="fc" id="L157">    }</span>
+    
+    /**
+     * 设置密码最后修改时间
+     * @param passwordLastChanged 密码最后修改时间
+     */
+    public void setPasswordLastChanged(java.time.LocalDateTime passwordLastChanged) {
+        // 简单实现，实际项目中应有对应的字段
+<span class="fc" id="L165">    }</span>
+    
+    /**
+     * 设置密码是否过期
+     * @param passwordExpired 密码过期状态
+     */
+    public void setPasswordExpired(boolean passwordExpired) {
+        // 简单实现，实际项目中应有对应的字段
+<span class="nc" id="L173">    }</span>
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank(message = &quot;用户名不能为空&quot;)
+    @Size(min = 3, max = 50, message = &quot;用户名长度必须在3-50字符之间&quot;)
+    @Pattern(regexp = &quot;^[a-zA-Z0-9_]+$&quot;, message = &quot;用户名只能包含字母、数字和下划线&quot;)
+    @Column(unique = true, nullable = false)
+    private String username;
+
+    @Email(message = &quot;邮箱格式不正确&quot;)
+    @Size(max = 100, message = &quot;邮箱长度不能超过100字符&quot;)
+    @Column(unique = true)
+<span class="fc" id="L188">    private String email;</span>
+
+    @Size(max = 20, message = &quot;手机号长度不能超过20字符&quot;)
+    @Pattern(regexp = &quot;^1[3-9]\\d{9}$&quot;, message = &quot;手机号格式不正确&quot;)
+<span class="nc" id="L192">    private String mobile;</span>
+
+    @NotBlank(message = &quot;用户姓名不能为空&quot;)
+    @Size(max = 100, message = &quot;用户姓名长度不能超过100字符&quot;)
+    @Column(name = &quot;full_name&quot;, nullable = false)
+    private String fullName;
+
+    @NotBlank(message = &quot;密码不能为空&quot;)
+    @Size(max = 200, message = &quot;密码哈希长度不能超过200字符&quot;)
+    @Column(name = &quot;password_hash&quot;, nullable = false)
+<span class="nc" id="L202">    private String passwordHash;</span>
+
+    @Builder.Default
+    @NotNull(message = &quot;用户状态不能为空&quot;)
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;user_status&quot;, nullable = false)
+    private UserStatus userStatus = UserStatus.ACTIVE;
+
+    @Column(name = &quot;last_login_time&quot;)
+<span class="nc" id="L211">    private LocalDateTime lastLoginTime;</span>
+
+    @Size(max = 50, message = &quot;登录IP长度不能超过50字符&quot;)
+    @Column(name = &quot;last_login_ip&quot;)
+<span class="nc" id="L215">    private String lastLoginIp;</span>
+
+    @Column(name = &quot;password_expired_at&quot;)
+<span class="nc" id="L218">    private LocalDateTime passwordExpiredAt;</span>
+
+    @Builder.Default
+    @Min(value = 0, message = &quot;登录尝试次数不能为负数&quot;)
+    @Max(value = 10, message = &quot;登录尝试次数不能超过10次&quot;)
+    @Column(name = &quot;login_attempts&quot;, nullable = false)
+<span class="fc" id="L224">    private Integer loginAttempts = 0;</span>
+
+    @Column(name = &quot;locked_until&quot;)
+<span class="fc" id="L227">    private LocalDateTime lockedUntil;</span>
+
+    // 审计字段
+    @CreatedDate
+    @Column(name = &quot;created_at&quot;, nullable = false, updatable = false)
+<span class="fc" id="L232">    private LocalDateTime createdAt;</span>
+
+    @LastModifiedDate
+    @Column(name = &quot;updated_at&quot;, nullable = false)
+<span class="fc" id="L236">    private LocalDateTime updatedAt;</span>
+
+    @Column(name = &quot;created_by&quot;)
+<span class="nc" id="L239">    private Long createdBy;</span>
+
+    @Column(name = &quot;updated_by&quot;)
+<span class="nc" id="L242">    private Long updatedBy;</span>
+
+    @Builder.Default
+    @Version
+    @Column(nullable = false)
+<span class="fc" id="L247">    private Integer version = 1;</span>
+    
+    // MFA相关字段
+<span class="fc" id="L250">    @Column(name = &quot;mfa_enabled&quot;, nullable = false)</span>
+    private boolean mfaEnabled = false;
+    
+    @Column(name = &quot;mfa_secret_key&quot;, length = 100)
+    private String mfaSecretKey;
+    
+    @Column(name = &quot;mfa_recovery_codes&quot;, length = 500)
+    private String mfaRecoveryCodes; // 存储为逗号分隔的字符串
+    
+    @Column(name = &quot;mfa_last_verified&quot;)
+    private LocalDateTime mfaLastVerified;
+
+    /**
+     * 用户状态枚举
+     */
+<span class="fc" id="L265">    public enum UserStatus {</span>
+<span class="fc" id="L266">        ACTIVE(&quot;活跃&quot;),</span>
+<span class="fc" id="L267">        INACTIVE(&quot;未激活&quot;),</span>
+<span class="fc" id="L268">        LOCKED(&quot;锁定&quot;),</span>
+<span class="fc" id="L269">        EXPIRED(&quot;过期&quot;);</span>
+
+        private final String description;
+
+<span class="fc" id="L273">        UserStatus(String description) {</span>
+<span class="fc" id="L274">            this.description = description;</span>
+<span class="fc" id="L275">        }</span>
+
+        public String getDescription() {
+<span class="fc" id="L278">            return description;</span>
+        }
+    }
+
+    /**
+     * 判断用户是否被锁定
+     */
+    @Transient
+    public boolean isLocked() {
+<span class="fc bfc" id="L287" title="All 4 branches covered.">        return this.userStatus == UserStatus.LOCKED ||</span>
+<span class="fc bfc" id="L288" title="All 2 branches covered.">                (this.lockedUntil != null &amp;&amp; LocalDateTime.now().isBefore(this.lockedUntil));</span>
+    }
+
+    /**
+     * 判断密码是否过期
+     */
+    @Transient
+    public boolean isPasswordExpired() {
+<span class="fc bfc" id="L296" title="All 4 branches covered.">        return this.passwordExpiredAt != null &amp;&amp; LocalDateTime.now().isAfter(this.passwordExpiredAt);</span>
+    }
+
+    /**
+     * 增加登录尝试次数
+     */
+    public void incrementLoginAttempts() {
+<span class="pc bpc" id="L303" title="1 of 2 branches missed.">        this.loginAttempts = (this.loginAttempts == null ? 0 : this.loginAttempts) + 1;</span>
+<span class="fc" id="L304">    }</span>
+
+    /**
+     * 重置登录尝试次数
+     */
+    public void resetLoginAttempts() {
+<span class="fc" id="L310">        this.loginAttempts = 0;</span>
+<span class="fc" id="L311">        this.lockedUntil = null;</span>
+<span class="fc" id="L312">    }</span>
+
+    /**
+     * 锁定用户账户
+     */
+    public void lockAccount(int lockMinutes) {
+<span class="fc" id="L318">        this.userStatus = UserStatus.LOCKED;</span>
+<span class="fc" id="L319">        this.lockedUntil = LocalDateTime.now().plusMinutes(lockMinutes);</span>
+<span class="fc" id="L320">        this.loginAttempts = 0;</span>
+<span class="fc" id="L321">    }</span>
+    
+    // MFA相关方法
+    public boolean isMfaEnabled() {
+<span class="nc" id="L325">        return mfaEnabled;</span>
+    }
+    
+    public void setMfaEnabled(boolean mfaEnabled) {
+<span class="fc" id="L329">        this.mfaEnabled = mfaEnabled;</span>
+<span class="fc" id="L330">    }</span>
+    
+    public String getMfaSecretKey() {
+<span class="nc" id="L333">        return mfaSecretKey;</span>
+    }
+    
+    public void setMfaSecretKey(String mfaSecretKey) {
+<span class="fc" id="L337">        this.mfaSecretKey = mfaSecretKey;</span>
+<span class="fc" id="L338">    }</span>
+    
+    public String getMfaRecoveryCodes() {
+<span class="nc" id="L341">        return mfaRecoveryCodes;</span>
+    }
+    
+    public void setMfaRecoveryCodes(String mfaRecoveryCodes) {
+<span class="nc" id="L345">        this.mfaRecoveryCodes = mfaRecoveryCodes;</span>
+<span class="nc" id="L346">    }</span>
+    
+    public LocalDateTime getMfaLastVerified() {
+<span class="nc" id="L349">        return mfaLastVerified;</span>
+    }
+    
+    public void setMfaLastVerified(LocalDateTime mfaLastVerified) {
+<span class="nc" id="L353">        this.mfaLastVerified = mfaLastVerified;</span>
+<span class="nc" id="L354">    }</span>
+    
+    /**
+     * 获取恢复码列表
+     */
+    public List&lt;String&gt; getRecoveryCodesList() {
+<span class="nc bnc" id="L360" title="All 4 branches missed.">        if (mfaRecoveryCodes == null || mfaRecoveryCodes.isEmpty()) {</span>
+<span class="nc" id="L361">            return new ArrayList&lt;&gt;();</span>
+        }
+<span class="nc" id="L363">        return Arrays.asList(mfaRecoveryCodes.split(&quot;,&quot;));</span>
+    }
+    
+    /**
+     * 设置恢复码列表
+     */
+    public void setRecoveryCodesList(List&lt;String&gt; codes) {
+<span class="nc" id="L370">        this.mfaRecoveryCodes = String.join(&quot;,&quot;, codes);</span>
+<span class="nc" id="L371">    }</span>
+    
+    /**
+     * 获取恢复码哈希值（兼容方法）
+     */
+    public String getRecoveryCodesHash() {
+<span class="nc" id="L377">        return this.mfaRecoveryCodes;</span>
+    }
+    
+    /**
+     * 设置恢复码哈希值（兼容方法）
+     */
+    public void setRecoveryCodesHash(String recoveryCodesHash) {
+<span class="fc" id="L384">        this.mfaRecoveryCodes = recoveryCodesHash;</span>
+<span class="fc" id="L385">    }</span>
+    
+    /**
+     * 设置最后登录会话信息
+     */
+    public void setLastLoginSession(Object session) {
+        // 此方法为兼容接口，暂不实现具体功能
+<span class="fc" id="L392">    }</span>
+    
+    /**
+     * 设置最后登录User-Agent信息（兼容方法）
+     */
+    public void setLastLoginUserAgent(String userAgent) {
+        // 此方法为兼容接口，暂不实现具体功能，因为数据库表中没有对应的字段
+<span class="nc" id="L399">    }</span>
+    
+    /**
+     * 验证并使用恢复码
+     */
+    public boolean useRecoveryCode(String code) {
+<span class="nc" id="L405">        List&lt;String&gt; codes = getRecoveryCodesList();</span>
+<span class="nc bnc" id="L406" title="All 2 branches missed.">        if (codes.contains(code)) {</span>
+<span class="nc" id="L407">            codes.remove(code);</span>
+<span class="nc" id="L408">            setRecoveryCodesList(codes);</span>
+<span class="nc" id="L409">            return true;</span>
+        }
+<span class="nc" id="L411">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

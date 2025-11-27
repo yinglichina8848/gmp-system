@@ -1,0 +1,27 @@
+var classcom_1_1gmp_1_1auth_1_1entity_1_1Organization =
+[
+    [ "OrganizationStatus", "enumcom_1_1gmp_1_1auth_1_1entity_1_1Organization_1_1OrganizationStatus.html", "enumcom_1_1gmp_1_1auth_1_1entity_1_1Organization_1_1OrganizationStatus" ],
+    [ "OrganizationType", "enumcom_1_1gmp_1_1auth_1_1entity_1_1Organization_1_1OrganizationType.html", "enumcom_1_1gmp_1_1auth_1_1entity_1_1Organization_1_1OrganizationType" ],
+    [ "getFullPath", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#ae9fedbfac48c1705afaba411bf550f7f", null ],
+    [ "getResponsibleManager", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a646e81c24f9a4a31d8610f6668ea1be4", null ],
+    [ "isActive", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a741dc1c5bc6b30aa5f15a979768007b7", null ],
+    [ "isGmpOrganization", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#ac456bca40848d3fed1a38aa7201bd550", null ],
+    [ "contactInfo", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a918805de8b31ade45031bfc2e04bb82f", null ],
+    [ "createdAt", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a4c4aee66a76de1fe8224ee87775bd424", null ],
+    [ "createdBy", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a8b47ac4ef727123f12ca86a7e79633a9", null ],
+    [ "description", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a1ba8473f886cbef794a0f14bedb2e740", null ],
+    [ "gmpRelevant", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a83cee62d2742be5f4e7e479ce80cdf13", null ],
+    [ "gmpRequirements", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#acdd1b363a6ca17820307d295b5a389e0", null ],
+    [ "gmpResponsible", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a1153eb669151243a12ecbbd2281bc421", null ],
+    [ "hierarchyLevel", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a96377d64cf7801b80b1fc4a4c5d1221c", null ],
+    [ "id", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a351035bcdf2bf2e86f41e8f5e7c14352", null ],
+    [ "manager", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a033c178e8a9f7a589d0723bb67395e84", null ],
+    [ "orgCode", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a666a840c32f6dee3b29cde95583eb394", null ],
+    [ "orgName", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a5a0a379668e59b325f92f14626ef8613", null ],
+    [ "orgStatus", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#aab9f3954addcc83a4360bf503664c8f5", null ],
+    [ "orgType", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a9be69a803f605fdde53628cbf1497d64", null ],
+    [ "parent", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a6cf9bc480c3a650c4e85197ef160db6c", null ],
+    [ "updatedAt", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a5275c0b3b8f60e93de315fa977cafb2e", null ],
+    [ "updatedBy", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a2fc58203220dcd3c77d592189140dae6", null ],
+    [ "version", "classcom_1_1gmp_1_1auth_1_1entity_1_1Organization.html#a95c5c29eee5813c402e92ae89aa41811", null ]
+];

@@ -1,0 +1,27 @@
+var classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment =
+[
+    [ "prePersist", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a8efac474045b3185e7bf5c039cecffaa", null ],
+    [ "preUpdate", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a786d40f0e8212cf5b216b825eb20938c", null ],
+    [ "acceptanceDate", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#abc38a7a6413aac3e6052ed731ab789a8", null ],
+    [ "code", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#adb4370995a95f2c887d78e10f84ce6d3", null ],
+    [ "commissioningDate", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#ab4efe4a1f07ef38aa79767ec359205ae", null ],
+    [ "createdBy", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a8fbd102751ed401cc032d97791f26043", null ],
+    [ "createdTime", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a77d30844144a334dd7c4f903418869b6", null ],
+    [ "description", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a57c1ab9dfca20383a2f012a11b7b5cc8", null ],
+    [ "enabled", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a6ad0f98d4aaf6715a1742b80d946692b", null ],
+    [ "equipmentType", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a5c2963bad44e81a4db637b57d5a70a5b", null ],
+    [ "id", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a525959d03074c69bc63c9e3aa5bdc076", null ],
+    [ "location", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a6a575534955f71a617b0ede54f3b5539", null ],
+    [ "model", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a4bc83b7a8e48a944c52ed3bb45b397e9", null ],
+    [ "name", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#ae903b0b83262d7dc1d39ea6db6dc5737", null ],
+    [ "nextCalibrationDate", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a1d51664b615fbb9fde07ea124ddb9bec", null ],
+    [ "nextMaintenanceDate", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#aff7fe8cd17328b02d666d021ab30b84c", null ],
+    [ "purchaseDate", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a58cc912ba0f2121c5b35a3ef284e6f18", null ],
+    [ "responsiblePerson", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#ab28a711ed6b6599ae8e9d62b29772f29", null ],
+    [ "serialNumber", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a13d2c268970e8a8819c7683fb32a28b7", null ],
+    [ "status", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#abde265f5998bbc32d54d45aab6ae0ca6", null ],
+    [ "supplier", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#ab9bdc195a1406dd627062d476271f583", null ],
+    [ "updatedBy", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a43f0848bbb3ae5f0a2629f55d722600f", null ],
+    [ "updatedTime", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a61ee7f703df8d339b97eb4c66d84b658", null ],
+    [ "version", "d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment.html#a75ad9e94fc12fad1d947245bce1420a0", null ]
+];

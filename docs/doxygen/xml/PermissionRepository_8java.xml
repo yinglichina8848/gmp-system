@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="PermissionRepository_8java" kind="file" language="Java">
+    <compoundname>PermissionRepository.java</compoundname>
+    <includes local="no">com.gmp.auth.entity.Permission</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java</label>
+        <link refid="PermissionRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.entity.Permission</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository" prot="public">com::gmp::auth::repository::PermissionRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1repository">com::gmp::auth::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.auth.entity.Permission;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="18" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository" kindref="compound">PermissionRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Permission,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a102f26d287b30a5d7d2b62e7ed44c4ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Permission&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a102f26d287b30a5d7d2b62e7ed44c4ae" kindref="member">findByPermissionCode</ref>(String<sp/>permissionCode);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a94f99ffef727b8501dbda527a7f74607" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Permission&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a94f99ffef727b8501dbda527a7f74607" kindref="member">findByIsActiveTrue</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a0edc815688642b8537e45da414e98e71" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Permission&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a0edc815688642b8537e45da414e98e71" kindref="member">findByResourceTypeAndIsActiveTrue</ref>(String<sp/>resourceType);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>p<sp/>FROM<sp/>Permission<sp/>p<sp/>WHERE<sp/>LOWER(p.permissionName)<sp/>LIKE<sp/>LOWER(CONCAT(&apos;%&apos;,<sp/>:keyword,<sp/>&apos;%&apos;))<sp/>OR<sp/>&quot;</highlight><highlight class="normal"><sp/>+</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;LOWER(p.permissionCode)<sp/>LIKE<sp/>LOWER(CONCAT(&apos;%&apos;,<sp/>:keyword,<sp/>&apos;%&apos;))&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="40" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a6b0d037dc55ae4de6d1d93794dfae59b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Permission&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a6b0d037dc55ae4de6d1d93794dfae59b" kindref="member">searchPermissions</ref>(@Param(&quot;keyword&quot;)<sp/>String<sp/>keyword);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a353de95750e65a50f830d1f6461a7ddf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a353de95750e65a50f830d1f6461a7ddf" kindref="member">existsByPermissionCode</ref>(String<sp/>permissionCode);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>p<sp/>FROM<sp/>Permission<sp/>p<sp/>JOIN<sp/>RolePermission<sp/>rp<sp/>ON<sp/>p.</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>rp.permissionId<sp/>WHERE<sp/>rp.roleId<sp/>=<sp/>:roleId<sp/>AND<sp/>rp.isActive<sp/>=<sp/>true<sp/>AND<sp/>p.isActive<sp/>=<sp/>true&quot;)</highlight></codeline>
+<codeline lineno="51" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a661982fe0588e34418ef68dd98736665" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Permission&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a661982fe0588e34418ef68dd98736665" kindref="member">findByRoleId</ref>(@Param(&quot;roleId&quot;)<sp/>Long<sp/>roleId);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>p<sp/>FROM<sp/>Permission<sp/>p<sp/>JOIN<sp/>RolePermission<sp/>rp<sp/>ON<sp/>p.</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>rp.permissionId<sp/>JOIN<sp/>UserRole<sp/>ur<sp/>ON<sp/>rp.roleId<sp/>=<sp/>ur.roleId<sp/>WHERE<sp/>ur.userId<sp/>=<sp/>:userId<sp/>AND<sp/>ur.isActive<sp/>=<sp/>true<sp/>AND<sp/>rp.isActive<sp/>=<sp/>true<sp/>AND<sp/>p.isActive<sp/>=<sp/>true&quot;)</highlight></codeline>
+<codeline lineno="57" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1abd3aaef28807a0fd5ef91a9a638690d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Permission&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1abd3aaef28807a0fd5ef91a9a638690d9" kindref="member">findByUserId</ref>(@Param(&quot;userId&quot;)<sp/>Long<sp/>userId);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java"/>
+  </compounddef>
+</doxygen>

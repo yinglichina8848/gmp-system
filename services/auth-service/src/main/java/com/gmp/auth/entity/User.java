@@ -258,6 +258,9 @@ public class User {
     
     @Column(name = "mfa_last_verified")
     private LocalDateTime mfaLastVerified;
+    
+    @Column(name = "last_mfa_verification_time")
+    private LocalDateTime lastMfaVerificationTime;
 
     /**
      * 用户状态枚举
@@ -343,6 +346,14 @@ public class User {
     
     public void setMfaRecoveryCodes(String mfaRecoveryCodes) {
         this.mfaRecoveryCodes = mfaRecoveryCodes;
+    }
+    
+    public LocalDateTime getLastMfaVerificationTime() {
+        return lastMfaVerificationTime;
+    }
+    
+    public void setLastMfaVerificationTime(LocalDateTime lastMfaVerificationTime) {
+        this.lastMfaVerificationTime = lastMfaVerificationTime;
     }
     
     public LocalDateTime getMfaLastVerified() {

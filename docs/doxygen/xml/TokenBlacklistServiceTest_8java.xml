@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TokenBlacklistServiceTest_8java" kind="file" language="Java">
+    <compoundname>TokenBlacklistServiceTest.java</compoundname>
+    <includes local="no">org.junit.jupiter.api.BeforeEach</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/test/java/com/gmp/auth/service/TokenBlacklistServiceTest.java</label>
+        <link refid="TokenBlacklistServiceTest_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.junit.jupiter.api.BeforeEach</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest" prot="public">com::gmp::auth::service::TokenBlacklistServiceTest</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1service">com::gmp::auth::service</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.service;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.BeforeEach;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertTrue;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertFalse;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.extension.ExtendWith;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.InjectMocks;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.Mock;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.junit.jupiter.MockitoExtension;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.redis.core.RedisTemplate;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.redis.core.ValueOperations;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.TimeUnit;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.any;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.eq;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.Mockito.*;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>接口和实现应该在单独的文件中定义，这里只保留测试类</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@ExtendWith(MockitoExtension.class)</highlight></codeline>
+<codeline lineno="22" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest" kindref="compound">TokenBlacklistServiceTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline lineno="25" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a46f7677e707199553b32632dd46b9440" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>RedisTemplate&lt;String,<sp/>String&gt;<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a46f7677e707199553b32632dd46b9440" kindref="member">redisTemplate</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a25b2925c6be68c15e06b3aeb4bcd1f9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>ValueOperations&lt;String,<sp/>String&gt;<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a25b2925c6be68c15e06b3aeb4bcd1f9b" kindref="member">valueOperations</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>@InjectMocks</highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a14edab74cf79492f2da7cc59c6e370e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService" kindref="compound">RedisTokenBlacklistService</ref><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a14edab74cf79492f2da7cc59c6e370e3" kindref="member">tokenBlacklistService</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1af2b1f81883a91f2ffa6d4434c9a57999" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1af2b1f81883a91f2ffa6d4434c9a57999" kindref="member">testToken</ref>;</highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a5a20a7c26744043562be5e931f4199f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a5a20a7c26744043562be5e931f4199f2" kindref="member">expirationTime</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@BeforeEach</highlight></codeline>
+<codeline lineno="37" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a1907338190a383202de251d4924bec28" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a1907338190a383202de251d4924bec28" kindref="member">setUp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testToken<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;test-jwt-token&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>expirationTime<sp/>=<sp/>System.currentTimeMillis()<sp/>+<sp/>3600000;<sp/></highlight><highlight class="comment">//<sp/>1小时后过期</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟RedisTemplate的opsForValue()方法返回我们的mock</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(redisTemplate.opsForValue()).thenReturn(valueOperations);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="46" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1ac64623ecb72132c827ae2af04b52319c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1ac64623ecb72132c827ae2af04b52319c" kindref="member">testBlacklistToken_Success</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>计算token应该在Redis中存在的时间（以秒为单位）</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>expireSeconds<sp/>=<sp/>(expirationTime<sp/>-<sp/>System.currentTimeMillis())<sp/>/<sp/>1000;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tokenBlacklistService.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3807497f77de98f8858f760284cd3ba5" kindref="member">blacklistToken</ref>(testToken,<sp/>expirationTime);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(valueOperations).set(</highlight><highlight class="stringliteral">&quot;blacklist:&quot;</highlight><highlight class="normal"><sp/>+<sp/>testToken,<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">,<sp/>expireSeconds,<sp/>TimeUnit.SECONDS);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1ac3bd26536817a38b2325e9e0e3828004" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1ac3bd26536817a38b2325e9e0e3828004" kindref="member">testBlacklistToken_AlreadyExpired</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备<sp/>-<sp/>设置一个已经过期的时间戳</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>expiredTime<sp/>=<sp/>System.currentTimeMillis()<sp/>-<sp/>1000;<sp/></highlight><highlight class="comment">//<sp/>1秒前</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行<sp/>-<sp/>应该不会调用Redis操作</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tokenBlacklistService.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3807497f77de98f8858f760284cd3ba5" kindref="member">blacklistToken</ref>(testToken,<sp/>expiredTime);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证<sp/>-<sp/>确认没有调用Redis</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(valueOperations,<sp/>never()).set(anyString(),<sp/>anyString(),<sp/>anyLong(),<sp/>any(TimeUnit.class));</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="71" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a065459d7c4888466eb5e64a79c7e9b67" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a065459d7c4888466eb5e64a79c7e9b67" kindref="member">testIsTokenBlacklisted_TokenIsBlacklisted</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(valueOperations.get(</highlight><highlight class="stringliteral">&quot;blacklist:&quot;</highlight><highlight class="normal"><sp/>+<sp/>testToken)).thenReturn(</highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isBlacklisted<sp/>=<sp/>tokenBlacklistService.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3437ff0e0fe65ddc056a363a92d93089" kindref="member">isTokenBlacklisted</ref>(testToken);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(isBlacklisted);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(valueOperations).get(</highlight><highlight class="stringliteral">&quot;blacklist:&quot;</highlight><highlight class="normal"><sp/>+<sp/>testToken);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="84" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a3c5ba1c84ce22c2db4f60f265ddc60be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a3c5ba1c84ce22c2db4f60f265ddc60be" kindref="member">testIsTokenBlacklisted_TokenNotBlacklisted</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(valueOperations.get(</highlight><highlight class="stringliteral">&quot;blacklist:&quot;</highlight><highlight class="normal"><sp/>+<sp/>testToken)).thenReturn(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isBlacklisted<sp/>=<sp/>tokenBlacklistService.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3437ff0e0fe65ddc056a363a92d93089" kindref="member">isTokenBlacklisted</ref>(testToken);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertFalse(isBlacklisted);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(valueOperations).get(</highlight><highlight class="stringliteral">&quot;blacklist:&quot;</highlight><highlight class="normal"><sp/>+<sp/>testToken);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="97" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a85c1895d4bd11c077680908b5c0c20a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a85c1895d4bd11c077680908b5c0c20a2" kindref="member">testIsTokenBlacklisted_NullToken</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行<sp/>-<sp/>空token应该始终返回false</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isBlacklisted<sp/>=<sp/>tokenBlacklistService.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3437ff0e0fe65ddc056a363a92d93089" kindref="member">isTokenBlacklisted</ref>(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证<sp/>-<sp/>确认没有调用Redis</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertFalse(isBlacklisted);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(valueOperations,<sp/>never()).get(anyString());</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="107" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a99021cf16ed5155fa4434847973e0a6b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a99021cf16ed5155fa4434847973e0a6b" kindref="member">testBlacklistTokenWithDifferentExpirations</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备<sp/>-<sp/>测试不同过期时间的token</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>token1<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;token-1-hour&quot;</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>1小时过期</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>expiration1<sp/>=<sp/>System.currentTimeMillis()<sp/>+<sp/>3600000;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>token2<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;token-1-day&quot;</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>1天过期</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>expiration2<sp/>=<sp/>System.currentTimeMillis()<sp/>+<sp/>86400000;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>token3<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;token-10-minutes&quot;</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>10分钟过期</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>expiration3<sp/>=<sp/>System.currentTimeMillis()<sp/>+<sp/>600000;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tokenBlacklistService.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3807497f77de98f8858f760284cd3ba5" kindref="member">blacklistToken</ref>(token1,<sp/>expiration1);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tokenBlacklistService.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3807497f77de98f8858f760284cd3ba5" kindref="member">blacklistToken</ref>(token2,<sp/>expiration2);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tokenBlacklistService.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3807497f77de98f8858f760284cd3ba5" kindref="member">blacklistToken</ref>(token3,<sp/>expiration3);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证<sp/>-<sp/>确认每个token都被正确地加入黑名单，并且设置了对应的过期时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>expireSeconds1<sp/>=<sp/>(expiration1<sp/>-<sp/>System.currentTimeMillis())<sp/>/<sp/>1000;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>expireSeconds2<sp/>=<sp/>(expiration2<sp/>-<sp/>System.currentTimeMillis())<sp/>/<sp/>1000;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>expireSeconds3<sp/>=<sp/>(expiration3<sp/>-<sp/>System.currentTimeMillis())<sp/>/<sp/>1000;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(valueOperations).set(</highlight><highlight class="stringliteral">&quot;blacklist:&quot;</highlight><highlight class="normal"><sp/>+<sp/>token1,<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">,<sp/>expireSeconds1,<sp/>TimeUnit.SECONDS);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(valueOperations).set(</highlight><highlight class="stringliteral">&quot;blacklist:&quot;</highlight><highlight class="normal"><sp/>+<sp/>token2,<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">,<sp/>expireSeconds2,<sp/>TimeUnit.SECONDS);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(valueOperations).set(</highlight><highlight class="stringliteral">&quot;blacklist:&quot;</highlight><highlight class="normal"><sp/>+<sp/>token3,<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">,<sp/>expireSeconds3,<sp/>TimeUnit.SECONDS);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="134" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a395c57a1d603d3a4eb083e037c7840c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistServiceTest_1a395c57a1d603d3a4eb083e037c7840c2" kindref="member">testBlacklistTokenWithZeroExpiration</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备<sp/>-<sp/>设置零过期时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>zeroExpiration<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行<sp/>-<sp/>应该不会调用Redis操作</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tokenBlacklistService.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3807497f77de98f8858f760284cd3ba5" kindref="member">blacklistToken</ref>(testToken,<sp/>zeroExpiration);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证<sp/>-<sp/>确认没有调用Redis</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(valueOperations,<sp/>never()).set(anyString(),<sp/>anyString(),<sp/>anyLong(),<sp/>any(TimeUnit.class));</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/test/java/com/gmp/auth/service/TokenBlacklistServiceTest.java"/>
+  </compounddef>
+</doxygen>

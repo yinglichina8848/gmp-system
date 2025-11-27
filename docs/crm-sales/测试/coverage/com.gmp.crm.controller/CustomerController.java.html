@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crm-sales</a> &gt; <a href="index.source.html" class="el_package">com.gmp.crm.controller</a> &gt; <span class="el_source">CustomerController.java</span></div><h1>CustomerController.java</h1><pre class="source lang-java linenums">package com.gmp.crm.controller;
+
+import com.gmp.crm.dto.ApiResponse;
+import com.gmp.crm.dto.CustomerDTO;
+import com.gmp.crm.dto.CustomerRequestDTO;
+import com.gmp.crm.dto.PageRequestDTO;
+import com.gmp.crm.service.CustomerService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import jakarta.validation.Valid;
+import java.util.List;
+
+/**
+ * 客户控制器
+ * 
+ * @author TRAE AI
+ */
+@RestController
+@RequestMapping(&quot;/api/customers&quot;)
+<span class="fc" id="L24">@RequiredArgsConstructor(onConstructor = @__(@Autowired))</span>
+public class CustomerController {
+
+    private final CustomerService customerService;
+
+    /**
+     * 创建客户
+     * 
+     * @param request 客户请求DTO
+     * @return 创建的客户DTO
+     */
+    @PostMapping
+    public ResponseEntity&lt;ApiResponse&lt;CustomerDTO&gt;&gt; createCustomer(@Valid @RequestBody CustomerRequestDTO request) {
+<span class="fc" id="L37">        CustomerDTO customerDTO = customerService.createCustomer(request);</span>
+<span class="fc" id="L38">        return ResponseEntity.status(HttpStatus.CREATED)</span>
+<span class="fc" id="L39">                .body(ApiResponse.success(customerDTO));</span>
+    }
+
+    /**
+     * 更新客户
+     * 
+     * @param id      客户ID
+     * @param request 客户请求DTO
+     * @return 更新后的客户DTO
+     */
+    @PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;CustomerDTO&gt;&gt; updateCustomer(
+            @PathVariable Long id,
+            @Valid @RequestBody CustomerRequestDTO request) {
+<span class="fc" id="L53">        CustomerDTO customerDTO = customerService.updateCustomer(id, request);</span>
+<span class="fc" id="L54">        return ResponseEntity.ok(ApiResponse.success(customerDTO));</span>
+    }
+
+    /**
+     * 获取客户详情
+     * 
+     * @param id 客户ID
+     * @return 客户DTO
+     */
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;CustomerDTO&gt;&gt; getCustomer(@PathVariable Long id) {
+<span class="fc" id="L65">        return customerService.getCustomerById(id)</span>
+<span class="fc" id="L66">                .map(customerDTO -&gt; ResponseEntity.ok(ApiResponse.success(customerDTO)))</span>
+<span class="fc" id="L67">                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND)</span>
+<span class="fc" id="L68">                        .body(ApiResponse.error(404, &quot;客户不存在&quot;)));</span>
+    }
+
+    /**
+     * 删除客户
+     * 
+     * @param id 客户ID
+     * @return 操作结果
+     */
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Boolean&gt;&gt; deleteCustomer(@PathVariable Long id) {
+<span class="fc" id="L79">        boolean deleted = customerService.deleteCustomer(id);</span>
+<span class="fc" id="L80">        return ResponseEntity.ok(ApiResponse.success(deleted));</span>
+    }
+
+    /**
+     * 分页查询客户列表
+     * 
+     * @param pageRequest 分页请求
+     * @return 客户分页列表
+     */
+    @GetMapping
+    public ResponseEntity&lt;ApiResponse&lt;ApiResponse.PageResponse&lt;List&lt;CustomerDTO&gt;&gt;&gt;&gt; getCustomers(
+            PageRequestDTO pageRequest) {
+<span class="fc" id="L92">        var customerPage = customerService.getCustomers(pageRequest);</span>
+        
+<span class="fc" id="L94">        ApiResponse.PageResponse&lt;List&lt;CustomerDTO&gt;&gt; pageResponse = new ApiResponse.PageResponse&lt;&gt;();</span>
+<span class="fc" id="L95">        pageResponse.setPage(pageRequest.getPage());</span>
+<span class="fc" id="L96">        pageResponse.setSize(pageRequest.getSize());</span>
+<span class="fc" id="L97">        pageResponse.setTotal(customerPage.getTotalElements());</span>
+<span class="fc" id="L98">        pageResponse.setTotalPages(customerPage.getTotalPages());</span>
+<span class="fc" id="L99">        pageResponse.setList(customerPage.getContent());</span>
+        
+<span class="fc" id="L101">        return ResponseEntity.ok(ApiResponse.success(pageResponse));</span>
+    }
+
+    /**
+     * 搜索客户
+     * 
+     * @param name 客户名称关键字
+     * @return 客户列表
+     */
+    @GetMapping(&quot;/search&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;?&gt;&gt; searchCustomers(
+            @RequestParam String name) {
+<span class="fc" id="L113">        List&lt;CustomerDTO&gt; customers = customerService.searchCustomersByName(name);</span>
+<span class="fc" id="L114">        return ResponseEntity.ok(ApiResponse.success(customers));</span>
+    }
+
+    /**
+     * 检查客户代码是否存在
+     * 
+     * @param code      客户代码
+     * @param excludeId 排除的客户ID
+     * @return 是否存在
+     */
+    @GetMapping(&quot;/check-code&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Boolean&gt;&gt; checkCustomerCode(
+            @RequestParam String code,
+            @RequestParam(required = false) Long excludeId) {
+<span class="fc" id="L128">        boolean exists = customerService.existsByCode(code, excludeId);</span>
+<span class="fc" id="L129">        return ResponseEntity.ok(ApiResponse.success(exists));</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

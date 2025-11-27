@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="zh">
+  <compounddef id="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::equipment::repository::MaintenancePlanRepository</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">JpaRepository&lt; MaintenancePlan, Long &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">JpaSpecificationExecutor&lt; MaintenancePlan &gt;</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1af82b8c7fa384fd434c6adad3f224eca4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.equipment.repository.MaintenancePlanRepository.existsByPlanNumberAndIdNot</definition>
+        <argsstring>(String planNumber, Long id)</argsstring>
+        <name>existsByPlanNumberAndIdNot</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenancePlanRepository.existsByPlanNumberAndIdNot</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>planNumber</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>判断计划单号是否存在（排除指定ID） </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>planNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>计划单号 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>排除的维护计划ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否存在 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenancePlanRepository.java" line="76" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1ab59d9a0cac4c708ee832383895203501" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenancePlan &gt;</type>
+        <definition>List&lt; MaintenancePlan &gt; com.gmp.equipment.repository.MaintenancePlanRepository.findByEquipmentId</definition>
+        <argsstring>(Long equipmentId)</argsstring>
+        <name>findByEquipmentId</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenancePlanRepository.findByEquipmentId</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>equipmentId</declname>
+        </param>
+        <briefdescription>
+<para>根据设备ID查询维护计划列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenancePlanRepository.java" line="31" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1ad637c6f7e6f733bf28bb6b5034aa14cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenancePlan &gt;</type>
+        <definition>List&lt; MaintenancePlan &gt; com.gmp.equipment.repository.MaintenancePlanRepository.findByEquipmentIdAndStatus</definition>
+        <argsstring>(Long equipmentId, String status)</argsstring>
+        <name>findByEquipmentIdAndStatus</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenancePlanRepository.findByEquipmentIdAndStatus</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>equipmentId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>根据设备ID和维护计划状态查询维护计划列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>维护计划状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenancePlanRepository.java" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1ad4c8b670c807f575c923386a0969989d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenancePlan &gt;</type>
+        <definition>List&lt; MaintenancePlan &gt; com.gmp.equipment.repository.MaintenancePlanRepository.findByMaintenanceType</definition>
+        <argsstring>(String maintenanceType)</argsstring>
+        <name>findByMaintenanceType</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenancePlanRepository.findByMaintenanceType</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>maintenanceType</declname>
+        </param>
+        <briefdescription>
+<para>根据维护类型查询维护计划列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maintenanceType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>维护类型 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenancePlanRepository.java" line="45" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1aa9b5b79cbcd3df4097510b1d9f87d101" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenancePlan &gt;</type>
+        <definition>List&lt; MaintenancePlan &gt; com.gmp.equipment.repository.MaintenancePlanRepository.findByPlannedStartDateBeforeAndStatusNot</definition>
+        <argsstring>(Date date, String status)</argsstring>
+        <name>findByPlannedStartDateBeforeAndStatusNot</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenancePlanRepository.findByPlannedStartDateBeforeAndStatusNot</qualifiedname>
+        <param>
+          <type>Date</type>
+          <declname>date</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>查询计划开始日期在指定日期之前且未完成的维护计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>date</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>指定日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenancePlanRepository.java" line="52" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1a283622f7edf4a7fc817417bfc2c94099" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenancePlan &gt;</type>
+        <definition>List&lt; MaintenancePlan &gt; com.gmp.equipment.repository.MaintenancePlanRepository.findByPlannedStartDateBetween</definition>
+        <argsstring>(Date startDate, Date endDate)</argsstring>
+        <name>findByPlannedStartDateBetween</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenancePlanRepository.findByPlannedStartDateBetween</qualifiedname>
+        <param>
+          <type>Date</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>Date</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+<para>根据计划开始日期范围查询维护计划列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenancePlanRepository.java" line="60" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1ac72fc889e4dd70c51f812a3cd3fdb516" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional&lt; MaintenancePlan &gt;</type>
+        <definition>Optional&lt; MaintenancePlan &gt; com.gmp.equipment.repository.MaintenancePlanRepository.findByPlanNumber</definition>
+        <argsstring>(String planNumber)</argsstring>
+        <name>findByPlanNumber</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenancePlanRepository.findByPlanNumber</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>planNumber</declname>
+        </param>
+        <briefdescription>
+<para>根据计划单号查询维护计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>planNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>计划单号 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护计划对象 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenancePlanRepository.java" line="24" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1a25a8cbb2af9f281bcb91229e36937360" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenancePlan &gt;</type>
+        <definition>List&lt; MaintenancePlan &gt; com.gmp.equipment.repository.MaintenancePlanRepository.findByStatus</definition>
+        <argsstring>(String status)</argsstring>
+        <name>findByStatus</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenancePlanRepository.findByStatus</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>根据维护计划状态查询维护计划列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>维护计划状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenancePlanRepository.java" line="38" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>设备维护计划仓库接口 提供维护计划相关的数据访问方法 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JpaRepository&lt; MaintenancePlan, Long &gt;</label>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; MaintenancePlan &gt;</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.equipment.repository.MaintenancePlanRepository</label>
+        <link refid="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JpaRepository&lt; MaintenancePlan, Long &gt;</label>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; MaintenancePlan &gt;</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.equipment.repository.MaintenancePlanRepository</label>
+        <link refid="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/main/java/com/gmp/equipment/repository/MaintenancePlanRepository.java" line="17" column="18" bodyfile="src/main/java/com/gmp/equipment/repository/MaintenancePlanRepository.java" bodystart="17" bodyend="77"/>
+    <listofallmembers>
+      <member refid="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1af82b8c7fa384fd434c6adad3f224eca4" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenancePlanRepository</scope><name>existsByPlanNumberAndIdNot</name></member>
+      <member refid="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1ab59d9a0cac4c708ee832383895203501" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenancePlanRepository</scope><name>findByEquipmentId</name></member>
+      <member refid="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1ad637c6f7e6f733bf28bb6b5034aa14cf" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenancePlanRepository</scope><name>findByEquipmentIdAndStatus</name></member>
+      <member refid="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1ad4c8b670c807f575c923386a0969989d" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenancePlanRepository</scope><name>findByMaintenanceType</name></member>
+      <member refid="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1aa9b5b79cbcd3df4097510b1d9f87d101" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenancePlanRepository</scope><name>findByPlannedStartDateBeforeAndStatusNot</name></member>
+      <member refid="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1a283622f7edf4a7fc817417bfc2c94099" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenancePlanRepository</scope><name>findByPlannedStartDateBetween</name></member>
+      <member refid="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1ac72fc889e4dd70c51f812a3cd3fdb516" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenancePlanRepository</scope><name>findByPlanNumber</name></member>
+      <member refid="d4/da2/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenancePlanRepository_1a25a8cbb2af9f281bcb91229e36937360" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenancePlanRepository</scope><name>findByStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="src_2test_2resources_2AuthService_xE6_xB5_x8B_xE8_xAF_x95_xE6_x8A_xA5_xE5_x91_x8A_8md" kind="file" language="Markdown">
+    <compoundname>AuthService测试报告.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>GMP系统认证服务测试报告</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>1.<sp/>测试概述</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.1<sp/>文档目的</highlight></codeline>
+<codeline><highlight class="normal">本文档提供了GMP系统认证服务（Auth<sp/>Service）的测试报告，总结了集成测试和单元测试的执行情况、测试覆盖范围、测试结果以及相关建议。</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.2<sp/>测试背景</highlight></codeline>
+<codeline><highlight class="normal">认证服务是GMP系统的核心组件之一，负责用户身份验证、权限管理、角色分配等关键功能。为确保系统的安全性、稳定性和功能正确性，对该服务进行了全面的测试。</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.3<sp/>测试环境</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**开发环境**：Spring<sp/>Boot<sp/>Test框架</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**数据库**：H2内存数据库（测试用）</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**测试框架**：JUnit<sp/>5,<sp/>Mockito</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**API测试**：Spring<sp/>MockMvc</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.<sp/>测试策略与方法</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.1<sp/>测试方法</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**集成测试**：验证不同组件之间的交互和协作</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**单元测试**：验证单个类和方法的功能正确性</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**模拟测试**：使用Mockito模拟依赖组件</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**边界测试**：测试各种边界条件和异常情况</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.2<sp/>测试覆盖率目标</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>类覆盖率：≥80%</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>方法覆盖率：≥85%</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>行覆盖率：≥85%</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>3.<sp/>测试用例执行情况</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>3.1<sp/>集成测试</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>3.1.1<sp/>基础认证集成测试<sp/>(`AuthIntegrationTest`)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>测试场景<sp/>|<sp/>测试结果<sp/>|<sp/>测试说明<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|---------|---------|--------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>用户登录成功<sp/>|<sp/>通过<sp/>|<sp/>验证有效凭证下的登录流程<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>用户登录失败（无效凭证）<sp/>|<sp/>通过<sp/>|<sp/>验证无效凭证的处理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>用户登录失败（账号禁用）<sp/>|<sp/>通过<sp/>|<sp/>验证禁用账号的处理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>权限检查测试<sp/>|<sp/>通过<sp/>|<sp/>验证权限控制功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>角色检查测试<sp/>|<sp/>通过<sp/>|<sp/>验证角色分配功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>系统健康检查<sp/>|<sp/>通过<sp/>|<sp/>验证系统运行状态<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>用户登出功能<sp/>|<sp/>通过<sp/>|<sp/>验证会话终止功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>账号锁定机制<sp/>|<sp/>通过<sp/>|<sp/>验证连续失败登录后的账号锁定<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>3.1.2<sp/>高级认证集成测试<sp/>(`AuthAdvancedIntegrationTest`)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>测试场景<sp/>|<sp/>测试结果<sp/>|<sp/>测试说明<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|---------|---------|--------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>组织-角色-权限管理测试<sp/>|<sp/>通过<sp/>|<sp/>验证完整的组织权限体系<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>令牌黑名单机制<sp/>|<sp/>通过<sp/>|<sp/>验证令牌撤销功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>密码重置流程<sp/>|<sp/>通过<sp/>|<sp/>验证密码重置功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>子系统访问权限测试<sp/>|<sp/>通过<sp/>|<sp/>验证跨子系统的权限控制<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>组织管理员操作流程<sp/>|<sp/>通过<sp/>|<sp/>验证组织管理功能<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>3.2<sp/>单元测试</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>3.2.1<sp/>用户角色管理单元测试<sp/>(`UserRoleServiceImplTest`)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>测试场景<sp/>|<sp/>测试结果<sp/>|<sp/>测试说明<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|---------|---------|--------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>分配单个角色给用户<sp/>|<sp/>通过<sp/>|<sp/>验证角色分配功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>分配多个角色给用户<sp/>|<sp/>通过<sp/>|<sp/>验证批量角色分配功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>从用户移除角色<sp/>|<sp/>通过<sp/>|<sp/>验证角色移除功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>获取用户所有角色<sp/>|<sp/>通过<sp/>|<sp/>验证角色查询功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>获取用户角色代码<sp/>|<sp/>通过<sp/>|<sp/>验证角色代码获取功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>角色存在性检查<sp/>|<sp/>通过<sp/>|<sp/>验证角色检查功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>多角色存在性检查<sp/>|<sp/>通过<sp/>|<sp/>验证多个角色检查功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>刷新过期用户角色<sp/>|<sp/>通过<sp/>|<sp/>验证角色过期更新功能<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>异常情况处理<sp/>|<sp/>通过<sp/>|<sp/>验证异常处理机制<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>边界条件测试<sp/>|<sp/>通过<sp/>|<sp/>验证边界情况处理<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>3.2.2<sp/>异常处理单元测试<sp/>(`GlobalExceptionHandlerTest`)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>测试场景<sp/>|<sp/>测试结果<sp/>|<sp/>测试说明<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|---------|---------|--------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>认证异常处理<sp/>|<sp/>通过<sp/>|<sp/>验证各种认证异常的处理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>访问拒绝异常处理<sp/>|<sp/>通过<sp/>|<sp/>验证权限不足异常处理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>参数验证异常处理<sp/>|<sp/>通过<sp/>|<sp/>验证请求参数验证异常处理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>令牌异常处理<sp/>|<sp/>通过<sp/>|<sp/>验证令牌相关异常处理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>通用异常处理<sp/>|<sp/>通过<sp/>|<sp/>验证系统通用异常处理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>响应格式验证<sp/>|<sp/>通过<sp/>|<sp/>验证错误响应的结构和内容<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>4.<sp/>测试覆盖率分析</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>4.1<sp/>代码覆盖率</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**类覆盖率**:<sp/>89%</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**方法覆盖率**:<sp/>92%</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**行覆盖率**:<sp/>90%</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>4.2<sp/>主要组件覆盖情况</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**认证控制器**:<sp/>95%</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**用户角色服务**:<sp/>92%</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**异常处理器**:<sp/>98%</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**令牌处理**:<sp/>87%</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**权限验证**:<sp/>90%</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>5.<sp/>发现的问题与解决方案</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>5.1<sp/>已解决问题</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**问题**:<sp/>角色名称重复导致的冲突</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**解决方案**:<sp/>增加唯一索引约束和验证逻辑</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**问题**:<sp/>令牌过期处理不及时</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**解决方案**:<sp/>优化令牌验证流程，增加过期检查机制</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>5.2<sp/>待优化项</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**性能优化**:<sp/>大型组织的角色查询性能有待提升</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**日志增强**:<sp/>增加更详细的认证失败日志，便于问题定位</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**安全增强**:<sp/>考虑增加更复杂的密码策略和多因素认证</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>6.<sp/>建议与下一步</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>6.1<sp/>功能增强建议</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>实现基于时间的访问控制策略</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>增加IP限制和地理位置验证</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>开发用户行为分析和异常登录检测</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>6.2<sp/>测试改进建议</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>增加性能测试，验证高并发场景下的系统表现</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>开发安全渗透测试，评估系统安全性</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>建立自动化测试流水线，实现持续集成</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>7.<sp/>总结</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">认证服务的测试工作已顺利完成，通过全面的集成测试和单元测试，验证了系统的核心功能、异常处理和边界条件。测试覆盖率达到目标要求，发现的问题已得到解决或记录。</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">测试结果表明，当前认证服务能够满足GMP系统的安全需求，提供稳定可靠的身份验证和权限管理功能。后续可根据业务需求和安全最佳实践，持续优化和增强系统功能。</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**报告生成日期**:<sp/>2024年</highlight></codeline>
+<codeline><highlight class="normal">**测试负责人**:<sp/>技术团队</highlight></codeline>
+<codeline><highlight class="normal">**版本**:<sp/>1.0</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/test/resources/AuthService测试报告.md"/>
+  </compounddef>
+</doxygen>

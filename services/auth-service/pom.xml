@@ -22,12 +22,14 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jacoco.version>0.8.8</jacoco.version>
-        <!-- 覆盖率阈值配置 - 设定初始较低阈值，后续可逐步提高 -->
-        <jacoco.line.coverage>0.15</jacoco.line.coverage>
-        <jacoco.branch.coverage>0.10</jacoco.branch.coverage>
-        <jacoco.class.coverage>0.70</jacoco.class.coverage>
-        <jacoco.method.coverage>0.15</jacoco.method.coverage>
-        <jacoco.complexity.coverage>0.10</jacoco.complexity.coverage>
+        <!-- 覆盖率阈值配置 - 已提高到90%以上 -->
+        <jacoco.line.coverage>0.90</jacoco.line.coverage>
+        <jacoco.branch.coverage>0.90</jacoco.branch.coverage>
+        <jacoco.class.coverage>0.90</jacoco.class.coverage>
+        <jacoco.method.coverage>0.90</jacoco.method.coverage>
+        <jacoco.complexity.coverage>0.90</jacoco.complexity.coverage>
+        <!-- 覆盖率报告输出目录 -->
+        <jacoco.report.dir>${project.basedir}/docs/coverage/auth-service</jacoco.report.dir>
     </properties>
 
     <dependencies>
@@ -163,6 +165,8 @@
                         <exclude>**/*Test.class</exclude>
                         <exclude>**/*IT.class</exclude>
                     </excludes>
+                    <!-- 配置报告输出目录 -->
+                    <outputDirectory>${jacoco.report.dir}</outputDirectory>
                     <rules>
                         <!-- 首先应用通用规则 -->
                         <rule>

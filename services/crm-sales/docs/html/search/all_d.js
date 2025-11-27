@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['remarks_0',['remarks',['../d2/d7e/classcom_1_1gmp_1_1crm_1_1dto_1_1OrderItemDTO.html#a0e4026a58bf282151428d1509b325cf2',1,'com.gmp.crm.dto.OrderItemDTO.remarks'],['../d6/d40/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderDTO.html#af3e594e988d5f3df5c6bf82d37034ae7',1,'com.gmp.crm.dto.SalesOrderDTO.remarks'],['../d7/dba/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO.html#a0af1dcdd04186624d43d0fe68193c7e2',1,'com.gmp.crm.dto.SalesOrderRequestDTO.remarks'],['../d3/d22/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1_1OrderItemRequestDTO.html#a641e43a05fb0f1f19ccb579f29244398',1,'com.gmp.crm.dto.SalesOrderRequestDTO.OrderItemRequestDTO.remarks'],['../da/dfa/classcom_1_1gmp_1_1crm_1_1entity_1_1OrderItem.html#a7af1bc5c864ad1cb90fb61b4b06ece8c',1,'com.gmp.crm.entity.OrderItem.remarks'],['../dc/d29/classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder.html#a31c71fc3900e9391dff8b6e5d4f2459d',1,'com.gmp.crm.entity.SalesOrder.remarks']]],
+  ['removeitem_1',['removeItem',['../dc/d29/classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder.html#a456a9166624e2becbdb4cc76db7de499',1,'com::gmp::crm::entity::SalesOrder']]]
+];

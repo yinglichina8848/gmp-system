@@ -111,8 +111,8 @@ public class AuthIntegrationTest {
     private void createTestUser(String username, String password, String roleName) {
         // 确保用户名符合验证规则（只包含字母、数字和下划线）
         String validUsername = username.replaceAll("[^a-zA-Z0-9_]", "_");
-        // 构造有效的邮箱格式
-        String validEmail = validUsername.toLowerCase() + "@example.com";
+        // 构造有效的邮箱格式 - 确保使用有效的域名
+        String validEmail = validUsername.toLowerCase() + "@test-gmp.com";
         
         // 使用Builder模式创建User对象，确保所有必要字段都被正确设置
         User user = User.builder()

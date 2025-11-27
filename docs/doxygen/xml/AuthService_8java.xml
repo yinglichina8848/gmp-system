@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="AuthService_8java" kind="file" language="Java">
+    <compoundname>AuthService.java</compoundname>
+    <includes local="no">com.gmp.auth.dto.LoginRequest</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/service/AuthService.java</label>
+        <link refid="AuthService_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.dto.LoginRequest</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService" prot="public">com::gmp::auth::service::AuthService</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1service">com::gmp::auth::service</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.service;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.auth.dto.LoginRequest;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.auth.dto.LoginResponse;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.auth.dto.MfaVerifyRequest;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.security.core.userdetails.UserDetailsService;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService" kindref="compound">AuthService</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classUserDetailsService" kindref="compound">UserDetailsService</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a8bdb53a5ac6276565af51d441a65068b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>LoginResponse<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a8bdb53a5ac6276565af51d441a65068b" kindref="member">login</ref>(LoginRequest<sp/>request,<sp/>String<sp/>ipAddress,<sp/>String<sp/>userAgent);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aac1a5a81a2cce2db14483da07657dfd6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aac1a5a81a2cce2db14483da07657dfd6" kindref="member">logout</ref>(String<sp/>username,<sp/>String<sp/>token);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1adb27f7683da7c5f6a2a6b9bb5021778d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1dto_1_1TokenResponse" kindref="compound">com.gmp.auth.dto.TokenResponse</ref><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1adb27f7683da7c5f6a2a6b9bb5021778d" kindref="member">refreshToken</ref>(String<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1adb27f7683da7c5f6a2a6b9bb5021778d" kindref="member">refreshToken</ref>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1ae6163a7c818a2e18ff58821b1b6ce713" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1ae6163a7c818a2e18ff58821b1b6ce713" kindref="member">validateToken</ref>(String<sp/>token);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aa568eff98b61485ca32edbf8c747405d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aa568eff98b61485ca32edbf8c747405d" kindref="member">hasPermission</ref>(String<sp/>username,<sp/>String...<sp/>requiredPermissions);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1ada8b79ae20b6eb69b5a0dd2fadf24a69" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1ada8b79ae20b6eb69b5a0dd2fadf24a69" kindref="member">hasRole</ref>(String<sp/>username,<sp/>String...<sp/>requiredRoles);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a07e978f3b73c352df91170738341df9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>java.util.List&lt;String&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a07e978f3b73c352df91170738341df9d" kindref="member">getUserPermissions</ref>(String<sp/>username);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a4b4fb9114511f7c20928d57bd6485fdc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>java.util.Set&lt;String&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a4b4fb9114511f7c20928d57bd6485fdc" kindref="member">getUserRoles</ref>(String<sp/>username);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a42ae2d07a51c8b7117a7442ce00770d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a42ae2d07a51c8b7117a7442ce00770d4" kindref="member">changePassword</ref>(String<sp/>username,<sp/>com.gmp.auth.dto.PasswordChangeRequest<sp/>request);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="103" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a179fe049b7d6baa9085587cc315d7e33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a179fe049b7d6baa9085587cc315d7e33" kindref="member">resetPassword</ref>(String<sp/>username,<sp/>String<sp/>newPassword);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a1d3f1882e2d140bdafae4e107240cc68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a1d3f1882e2d140bdafae4e107240cc68" kindref="member">getPasswordComplexityRequirements</ref>();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="118" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a197122b3fc4463996e6f65c5c60eecd3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>LoginResponse<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a197122b3fc4463996e6f65c5c60eecd3" kindref="member">verifyMfa</ref>(MfaVerifyRequest<sp/>request);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="126" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a253571b90f3b758091c3b49e1d6407ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>java.util.List&lt;String&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a253571b90f3b758091c3b49e1d6407ab" kindref="member">regenerateRecoveryCodes</ref>(String<sp/>username);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a524baf1ea86566ccf8575435034b01ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a524baf1ea86566ccf8575435034b01ce" kindref="member">hasSubsystemAccess</ref>(String<sp/>username,<sp/>String<sp/>subsystemCode);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a0b64d8b3d8fa5b210c07b008728b6831" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Integer<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a0b64d8b3d8fa5b210c07b008728b6831" kindref="member">getSubsystemAccessLevel</ref>(String<sp/>username,<sp/>String<sp/>subsystemCode);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1ae87f872a134b1233cb450715b8779345" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;String&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1ae87f872a134b1233cb450715b8779345" kindref="member">getUserAccessibleSubsystems</ref>(String<sp/>username);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="156" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a809fb666f82689568ed6f97f46d3d52f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Integer&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a809fb666f82689568ed6f97f46d3d52f" kindref="member">getUserSubsystemAccessLevels</ref>(String<sp/>username);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="166" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aa37afd474eae0f081d0bc9ba2d4a0842" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aa37afd474eae0f081d0bc9ba2d4a0842" kindref="member">hasSubsystemWriteAccess</ref>(String<sp/>username,<sp/>String<sp/>subsystemCode);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a1a12bba034be758552608f388db669a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Set&lt;String&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a1a12bba034be758552608f388db669a9" kindref="member">getUserAccessibleSubsystemCodes</ref>(String<sp/>username);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a99ffc61fae67142d97d2a633f3db1dca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a99ffc61fae67142d97d2a633f3db1dca" kindref="member">hasSubsystemAdminAccess</ref>(String<sp/>username,<sp/>String<sp/>subsystemCode);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java"/>
+  </compounddef>
+</doxygen>

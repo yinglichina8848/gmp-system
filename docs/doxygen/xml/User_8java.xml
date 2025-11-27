@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="User_8java" kind="file" language="Java">
+    <compoundname>User.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/entity/User.java</label>
+        <link refid="User_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User" prot="public">com::gmp::auth::entity::User</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus" prot="public">com::gmp::auth::entity::User::UserStatus</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1entity">com::gmp::auth::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.*;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.NoArgsConstructor;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.AllArgsConstructor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Builder;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.HashSet;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GMP系统用户实体</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dịp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WHY:<sp/>在GMP信息管理系统中，为确保质量数据记录的真实性和可追溯性，</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>对用户信息和权限进行严格控制，仅限实名注册用户操作系统。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WHAT:<sp/>用户实体定义完整用户信息、认证状态、安全控制和操作记录，</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>支撑身份认证、权限控制、会话管理和审计追踪的核心功能模块。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/>HOW:<sp/>使用JPA仓库模式实现对象关系映射，通过Spring<sp/>Data<sp/>JPA自动生成CRUD操作</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>和复杂查询；结合Auditing注解自动填充审计字段；使用枚举类定义用户状态</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>确保数据类型安全性。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">@NoArgsConstructor</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">@AllArgsConstructor</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">@Builder</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sys_users&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="40" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User" kindref="compound">User</ref><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>添加显式getter方法以确保编译通过，解决可能的Lombok依赖问题</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a76d2b28ec294ff15acc5f1ca2fba0496" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a76d2b28ec294ff15acc5f1ca2fba0496" kindref="member">getId</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a9a8718cd452b4a677373f54ed73f189e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a9a8718cd452b4a677373f54ed73f189e" kindref="member">getUsername</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1acae6d26839c308b7e8c2e9eab0f815f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1acae6d26839c308b7e8c2e9eab0f815f0" kindref="member">getLoginIp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lastLoginIp;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a2224323200e291cf1261cb7d1598141e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Integer<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a2224323200e291cf1261cb7d1598141e" kindref="member">getLoginAttempts</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>loginAttempts;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>添加更多缺失的方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a2059f9fe3e12ae46e47590c8d498280a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a2059f9fe3e12ae46e47590c8d498280a" kindref="member">getFullName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fullName;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a7fcd740a0efcc3d8f420b8bd0af15adf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a7fcd740a0efcc3d8f420b8bd0af15adf" kindref="member">getPassword</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>passwordHash;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>用户角色关联</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;userId&quot;</highlight><highlight class="normal">,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="74" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a0d7aaba09f736253827cf7b2fbfb3e3c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserRole" kindref="compound">UserRole</ref>&gt;<sp/>userRoles<sp/>=<sp/>new<sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a33cd7cbb1049f6f5de797f2957c3ed7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserRole" kindref="compound">UserRole</ref>&gt;<sp/>getUserRoles()<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>userRoles;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ac3586f5f1f9985e02fb91e5311e01f04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ac3586f5f1f9985e02fb91e5311e01f04" kindref="member">setUserRoles</ref>(List&lt;UserRole&gt;<sp/>userRoles)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.userRoles<sp/>=<sp/>userRoles;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="90" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a106477d3812b8974a4376817f4315791" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus" kindref="compound">UserStatus</ref><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a106477d3812b8974a4376817f4315791" kindref="member">getUserStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>userStatus;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a175c69d5c3c00dcd1a64df02f51bb6d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a175c69d5c3c00dcd1a64df02f51bb6d9" kindref="member">setLastLoginTime</ref>(LocalDateTime<sp/>lastLoginTime)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lastLoginTime<sp/>=<sp/>lastLoginTime;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a417978e3cd6de4ac75797de6bf5024e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a417978e3cd6de4ac75797de6bf5024e9" kindref="member">setLastLoginIp</ref>(String<sp/>lastLoginIp)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lastLoginIp<sp/>=<sp/>lastLoginIp;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="105" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a02fe60d84af48a31beb4b9208c05c576" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a02fe60d84af48a31beb4b9208c05c576" kindref="member">isActive</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus" kindref="compound">UserStatus</ref>.<ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a59b349693f5948c3e2cdc3540a51ce25" kindref="member">ACTIVE</ref>.equals(this.userStatus);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a64921682cc43c18048dd85ef8ecdee6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a64921682cc43c18048dd85ef8ecdee6d" kindref="member">setActive</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>active)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.userStatus<sp/>=<sp/>active<sp/>?<sp/>UserStatus.ACTIVE<sp/>:<sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus" kindref="compound">UserStatus</ref>.<ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1af6c4c2415283f9ac7e900c9e71e0a460" kindref="member">INACTIVE</ref>;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="119" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a7f46469f6fad32bafd02e1f96b6341ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a7f46469f6fad32bafd02e1f96b6341ac" kindref="member">setLocked</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>locked)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.userStatus<sp/>=<sp/>locked<sp/>?<sp/>UserStatus.LOCKED<sp/>:<sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus" kindref="compound">UserStatus</ref>.<ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a59b349693f5948c3e2cdc3540a51ce25" kindref="member">ACTIVE</ref>;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="126" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1afd2ba083e641d49a2b53ebf22611a8b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1afd2ba083e641d49a2b53ebf22611a8b2" kindref="member">setExpired</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>expired)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.userStatus<sp/>=<sp/>expired<sp/>?<sp/>UserStatus.EXPIRED<sp/>:<sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus" kindref="compound">UserStatus</ref>.<ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a59b349693f5948c3e2cdc3540a51ce25" kindref="member">ACTIVE</ref>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="135" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a02da2e2f488d0520ba1f70ad73db9a2b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a02da2e2f488d0520ba1f70ad73db9a2b" kindref="member">getLastLoginSession</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简化实现，返回一个模拟的会话ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;session-&quot;</highlight><highlight class="normal"><sp/>+<sp/>this.username;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="144" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a4ded4966fc745a5465a3034305c0eaed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a4ded4966fc745a5465a3034305c0eaed" kindref="member">isPasswordSoonExpired</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简单实现，实际项目中应根据密码更新时间和过期策略判断</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="155" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af5538d9df67fc076f0d7c4395a2384af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af5538d9df67fc076f0d7c4395a2384af" kindref="member">setPassword</ref>(String<sp/>password)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简单实现，实际项目中应有对应的字段</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="163" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aeb75c75ac1590e4e3c12aa1970527511" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aeb75c75ac1590e4e3c12aa1970527511" kindref="member">setPasswordLastChanged</ref>(java.time.LocalDateTime<sp/>passwordLastChanged)<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简单实现，实际项目中应有对应的字段</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="171" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a04ae6002b1af8851e54c40eaaf307bc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a04ae6002b1af8851e54c40eaaf307bc6" kindref="member">setPasswordExpired</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>passwordExpired)<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简单实现，实际项目中应有对应的字段</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="177" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a1d7a0d4a2a41f14f9e65c8d8ea727737" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;用户名不能为空&quot;)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(min<sp/>=<sp/>3,<sp/>max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;用户名长度必须在3-50字符之间&quot;)</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>@Pattern(regexp<sp/>=<sp/>&quot;^[a-zA-Z0-9_]+$&quot;,<sp/>message<sp/>=<sp/>&quot;用户名只能包含字母、数字和下划线&quot;)</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(unique<sp/>=<sp/>true,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="183" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af6ead296286873e0387a23caf3d340a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>username;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>@Email(message<sp/>=<sp/>&quot;邮箱格式不正确&quot;)</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;邮箱长度不能超过100字符&quot;)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(unique<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="188" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ab75c500d1e9145dfe96696c150a44d4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>email;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>20,<sp/>message<sp/>=<sp/>&quot;手机号长度不能超过20字符&quot;)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>@Pattern(regexp<sp/>=<sp/>&quot;^1[3-9]\\d{9}$</highlight><highlight class="stringliteral">&quot;,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">手机号格式不正确</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="192" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ad1d80c3a77b9e932ca90fc30888cdf3e" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>mobile;</highlight></codeline>
+<codeline lineno="193"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="194"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">用户姓名不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="195"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">用户姓名长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="196"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">full_name</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="197" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a37b1f33df6be152417aaab12cb63ba4e" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>fullName;</highlight></codeline>
+<codeline lineno="198"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="199"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">密码不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="200"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">密码哈希长度不能超过200字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="201"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">password_hash</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="202" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a32d4a8273628679a9ca5000af35adf67" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>passwordHash;</highlight></codeline>
+<codeline lineno="203"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="204"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="205"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotNull(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">用户状态不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="206"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="207"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">user_status</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="208" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ad44445a9206a7d8d4a9a8a0272721d67" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>UserStatus<sp/>userStatus<sp/>=<sp/>UserStatus.ACTIVE;</highlight></codeline>
+<codeline lineno="209"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="210"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">last_login_time</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="211" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a1473810dbb869efdd6da25eb8d9e7896" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lastLoginTime;</highlight></codeline>
+<codeline lineno="212"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="213"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">登录IP长度不能超过50字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="214"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">last_login_ip</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="215" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1abe91191b1dd603b0428cd121422cff54" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>lastLoginIp;</highlight></codeline>
+<codeline lineno="216"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="217"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">password_expired_at</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="218" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aa71ec0274e69f936df8db563555b04f4" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>passwordExpiredAt;</highlight></codeline>
+<codeline lineno="219"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="220"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="221"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Min(value<sp/>=<sp/>0,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">登录尝试次数不能为负数</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="222"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Max(value<sp/>=<sp/>10,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">登录尝试次数不能超过10次</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="223"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">login_attempts</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="224" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aec7385b0b78b718121388d064164fdc0" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>loginAttempts<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="225"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="226"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">locked_until</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="227" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a1a7f7416563a0a224e40c326f293c635" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lockedUntil;</highlight></codeline>
+<codeline lineno="228"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="229"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>审计字段</highlight></codeline>
+<codeline lineno="230"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="231"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">created_at</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="232" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a9e7ff354026e321a9b61af8ab6c5274a" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="233"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="234"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="235"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">updated_at</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="236" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a4cabbbb8584416567bfea5bf21b72ecb" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="237"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="238"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">created_by</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="239" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af5116f46a55b1ac5072cf3d377fa5dee" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>createdBy;</highlight></codeline>
+<codeline lineno="240"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="241"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">updated_by</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="242" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ad5887e23b1ee52a5898893fe133e2ff6" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="243"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="244"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="245"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Version</highlight></codeline>
+<codeline lineno="246"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="247" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ade5ec9cd5ab199f4b7f69becedb58266" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>version<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="248"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="249"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>MFA相关字段</highlight></codeline>
+<codeline lineno="250"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">mfa_enabled</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="251" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ab595cce94d6b772f06d29c5d8aa94d51" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>boolean<sp/>mfaEnabled<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="252"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="253"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">mfa_secret_key</highlight><highlight class="stringliteral">&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="254" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a925659b2ce333af97376c567aba939a7" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>mfaSecretKey;</highlight></codeline>
+<codeline lineno="255"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="256"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">mfa_recovery_codes</highlight><highlight class="stringliteral">&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="257" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1acd9de48c0f1009a03cdacf470f3749b1" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>mfaRecoveryCodes;<sp/>//<sp/>存储为逗号分隔的字符串</highlight></codeline>
+<codeline lineno="258"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="259"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">mfa_last_verified</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="260" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a9142074f41f0b4c97f9bf1e777d0e621" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>mfaLastVerified;</highlight></codeline>
+<codeline lineno="261"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="265" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/>UserStatus<sp/>{</highlight></codeline>
+<codeline lineno="266" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a59b349693f5948c3e2cdc3540a51ce25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ACTIVE(&quot;活跃</highlight><highlight class="stringliteral">&quot;),</highlight></codeline>
+<codeline lineno="267" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1af6c4c2415283f9ac7e900c9e71e0a460" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>INACTIVE(&quot;</highlight><highlight class="normal">未激活</highlight><highlight class="stringliteral">&quot;),</highlight></codeline>
+<codeline lineno="268" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a1f9516ce077ecfa8ce5312630ead632e" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOCKED(&quot;</highlight><highlight class="normal">锁定</highlight><highlight class="stringliteral">&quot;),</highlight></codeline>
+<codeline lineno="269" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1aa00a5289d9e5ea917d13134278a55ce8" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EXPIRED(&quot;</highlight><highlight class="normal">过期</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="270"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="271" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1acb509e08bb4bb8bafc69096b35630316" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>private<sp/>final<sp/>String<sp/>description;</highlight></codeline>
+<codeline lineno="272"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="273" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a931ae78519812d0c5bbf3daa356872e9" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UserStatus(String<sp/>description)<sp/>{</highlight></codeline>
+<codeline lineno="274"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.description<sp/>=<sp/>description;</highlight></codeline>
+<codeline lineno="275"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="276"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="277" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1User_1_1UserStatus_1a209645571eaec13b19f090dfcae4e2d8" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>public<sp/>String<sp/>getDescription()<sp/>{</highlight></codeline>
+<codeline lineno="278"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>description;</highlight></codeline>
+<codeline lineno="279"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="280"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="281"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="286" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af52bbbda2f129dfe872c0f0931bc7de7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>isLocked()<sp/>{</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>this.userStatus<sp/>==<sp/>UserStatus.LOCKED<sp/>||</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(this.lockedUntil<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>LocalDateTime.now().isBefore(this.lockedUntil));</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="295" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a340b66736a7f237581109b5c5fa57116" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>isPasswordExpired()<sp/>{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>this.passwordExpiredAt<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>LocalDateTime.now().isAfter(this.passwordExpiredAt);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a4c7401f42bd1de6b23970bffb70febb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>incrementLoginAttempts()<sp/>{</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.loginAttempts<sp/>=<sp/>(this.loginAttempts<sp/>==<sp/>null<sp/>?<sp/>0<sp/>:<sp/>this.loginAttempts)<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a97cfaf83975e0bb0a7e9b4bd29915708" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>resetLoginAttempts()<sp/>{</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.loginAttempts<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lockedUntil<sp/>=<sp/>null;</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="317" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aabe406d34183476578c39dc0575581d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>lockAccount(int<sp/>lockMinutes)<sp/>{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.userStatus<sp/>=<sp/>UserStatus.LOCKED;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lockedUntil<sp/>=<sp/>LocalDateTime.now().plusMinutes(lockMinutes);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.loginAttempts<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>MFA相关方法</highlight></codeline>
+<codeline lineno="324" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1adfa9f00a3598bf05f6ffc68dffa967d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>isMfaEnabled()<sp/>{</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>mfaEnabled;</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="328" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a1450e3e782e9758931fadf3e52476bbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>setMfaEnabled(boolean<sp/>mfaEnabled)<sp/>{</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.mfaEnabled<sp/>=<sp/>mfaEnabled;</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="332" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ad65fa2ae3226733cce16bb262fe9d2ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>String<sp/>getMfaSecretKey()<sp/>{</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>mfaSecretKey;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="336" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a00844d11e9da933af4ffa54d03d52723" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>setMfaSecretKey(String<sp/>mfaSecretKey)<sp/>{</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.mfaSecretKey<sp/>=<sp/>mfaSecretKey;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="340" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ac24dd152ee5e21df52f5aabad31d87c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>String<sp/>getMfaRecoveryCodes()<sp/>{</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>mfaRecoveryCodes;</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="344" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a9e562e139ea59c63d6eb0cb6fd369810" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>setMfaRecoveryCodes(String<sp/>mfaRecoveryCodes)<sp/>{</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.mfaRecoveryCodes<sp/>=<sp/>mfaRecoveryCodes;</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="348" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af08c17de9e687846f79853c14f7b3a44" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>LocalDateTime<sp/>getMfaLastVerified()<sp/>{</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>mfaLastVerified;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="352" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a3a55cfe2f220ce04f8b92cf23a13fab0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>setMfaLastVerified(LocalDateTime<sp/>mfaLastVerified)<sp/>{</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.mfaLastVerified<sp/>=<sp/>mfaLastVerified;</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="359" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a2d8d4fb085ecbecfd11459e4dc5ca0a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>List&lt;String&gt;<sp/>getRecoveryCodesList()<sp/>{</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(mfaRecoveryCodes<sp/>==<sp/>null<sp/>||<sp/>mfaRecoveryCodes.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>new<sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>Arrays.asList(mfaRecoveryCodes.split(&quot;,</highlight><highlight class="stringliteral">&quot;));</highlight></codeline>
+<codeline lineno="364"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="365"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="369" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1af9d5cf956833168bf8dc9775b2014501" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>setRecoveryCodesList(List&lt;String&gt;<sp/>codes)<sp/>{</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.mfaRecoveryCodes<sp/>=<sp/>String.join(&quot;,</highlight><highlight class="stringliteral">&quot;,<sp/>codes);</highlight></codeline>
+<codeline lineno="371"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="372"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="376" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a5126742330a679cbf56ff526ba006d6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>String<sp/>getRecoveryCodesHash()<sp/>{</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>this.mfaRecoveryCodes;</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="383" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1aacf5c552c9012411987ea022fbfe8222" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>setRecoveryCodesHash(String<sp/>recoveryCodesHash)<sp/>{</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.mfaRecoveryCodes<sp/>=<sp/>recoveryCodesHash;</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="390" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a7b9c9a41abc9abc70cc99e8114a0cff2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>setLastLoginSession(Object<sp/>session)<sp/>{</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>此方法为兼容接口，暂不实现具体功能</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="397" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1a1074ca8cf87fddb9fec67ae332db04cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>setLastLoginUserAgent(String<sp/>userAgent)<sp/>{</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>此方法为兼容接口，暂不实现具体功能，因为数据库表中没有对应的字段</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="404" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User_1ad74218e794994f93219fb55fc8456731" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>useRecoveryCode(String<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;String&gt;<sp/>codes<sp/>=<sp/>getRecoveryCodesList();</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(codes.contains(code))<sp/>{</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>codes.remove(code);</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setRecoveryCodesList(codes);</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>true;</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="413"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/entity/User.java"/>
+  </compounddef>
+</doxygen>

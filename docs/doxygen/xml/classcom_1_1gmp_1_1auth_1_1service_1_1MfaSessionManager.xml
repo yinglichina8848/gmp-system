@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::auth::service::MfaSessionManager</compoundname>
+    <innerclass refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1_1MfaSession" prot="public">com::gmp::auth::service::MfaSessionManager::MfaSession</innerclass>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a16ff6b33d21b454718c05061663af4cb" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.gmp.auth.service.MfaSessionManager.SESSION_TIMEOUT_MINUTES</definition>
+        <argsstring></argsstring>
+        <name>SESSION_TIMEOUT_MINUTES</name>
+        <qualifiedname>com.gmp.auth.service.MfaSessionManager.SESSION_TIMEOUT_MINUTES</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" line="18" column="30" bodyfile="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" bodystart="18" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a6121d9c31c1deb3b42292886c6f57859" compoundref="service_2MfaSessionManager_8java" startline="72" endline="79">com.gmp.auth.service.MfaSessionManager.cleanupExpiredSessions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a3919299276ffea6bff739f3c3f6a7c78" compoundref="service_2MfaSessionManager_8java" startline="65" endline="67">com.gmp.auth.service.MfaSessionManager.isSessionExpired</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1aea67d7c86cef90763cbfe1c71ed46be4" prot="private" static="no" mutable="no">
+        <type>final Map&lt; String, <ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1_1MfaSession" kindref="compound">MfaSession</ref> &gt;</type>
+        <definition>final Map&lt;String, MfaSession&gt; com.gmp.auth.service.MfaSessionManager.sessions</definition>
+        <argsstring></argsstring>
+        <name>sessions</name>
+        <qualifiedname>com.gmp.auth.service.MfaSessionManager.sessions</qualifiedname>
+        <initializer>= new ConcurrentHashMap&lt;&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" line="21" column="23" bodyfile="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" bodystart="21" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a6121d9c31c1deb3b42292886c6f57859" compoundref="service_2MfaSessionManager_8java" startline="72" endline="79">com.gmp.auth.service.MfaSessionManager.cleanupExpiredSessions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a1adfa09c2062d2b32861f43035515a68" compoundref="service_2MfaSessionManager_8java" startline="26" endline="31">com.gmp.auth.service.MfaSessionManager.createSession</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1aa26dd449561742077d4a10620671c847" compoundref="service_2MfaSessionManager_8java" startline="36" endline="51">com.gmp.auth.service.MfaSessionManager.getSession</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a520811b94222ae61889928d98962cfc7" compoundref="service_2MfaSessionManager_8java" startline="56" endline="60">com.gmp.auth.service.MfaSessionManager.invalidateSession</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a1adfa09c2062d2b32861f43035515a68" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.service.MfaSessionManager.createSession</definition>
+        <argsstring>(User user)</argsstring>
+        <name>createSession</name>
+        <qualifiedname>com.gmp.auth.service.MfaSessionManager.createSession</qualifiedname>
+        <param>
+          <type>User</type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+<para>创建新的MFA会话 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" line="26" column="19" bodyfile="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" bodystart="26" bodyend="31"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1aea67d7c86cef90763cbfe1c71ed46be4" compoundref="service_2MfaSessionManager_8java" startline="21">com.gmp.auth.service.MfaSessionManager.sessions</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1aa26dd449561742077d4a10620671c847" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1_1MfaSession" kindref="compound">MfaSession</ref></type>
+        <definition>MfaSession com.gmp.auth.service.MfaSessionManager.getSession</definition>
+        <argsstring>(String sessionId)</argsstring>
+        <name>getSession</name>
+        <qualifiedname>com.gmp.auth.service.MfaSessionManager.getSession</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>sessionId</declname>
+        </param>
+        <briefdescription>
+<para>获取会话信息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" line="36" column="23" bodyfile="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" bodystart="36" bodyend="51"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a520811b94222ae61889928d98962cfc7" compoundref="service_2MfaSessionManager_8java" startline="56" endline="60">com.gmp.auth.service.MfaSessionManager.invalidateSession</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a3919299276ffea6bff739f3c3f6a7c78" compoundref="service_2MfaSessionManager_8java" startline="65" endline="67">com.gmp.auth.service.MfaSessionManager.isSessionExpired</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1aea67d7c86cef90763cbfe1c71ed46be4" compoundref="service_2MfaSessionManager_8java" startline="21">com.gmp.auth.service.MfaSessionManager.sessions</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a520811b94222ae61889928d98962cfc7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.MfaSessionManager.invalidateSession</definition>
+        <argsstring>(String sessionId)</argsstring>
+        <name>invalidateSession</name>
+        <qualifiedname>com.gmp.auth.service.MfaSessionManager.invalidateSession</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>sessionId</declname>
+        </param>
+        <briefdescription>
+<para>使会话失效 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" line="56" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" bodystart="56" bodyend="60"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1aea67d7c86cef90763cbfe1c71ed46be4" compoundref="service_2MfaSessionManager_8java" startline="21">com.gmp.auth.service.MfaSessionManager.sessions</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1aa26dd449561742077d4a10620671c847" compoundref="service_2MfaSessionManager_8java" startline="36" endline="51">com.gmp.auth.service.MfaSessionManager.getSession</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a6121d9c31c1deb3b42292886c6f57859" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.MfaSessionManager.cleanupExpiredSessions</definition>
+        <argsstring>()</argsstring>
+        <name>cleanupExpiredSessions</name>
+        <qualifiedname>com.gmp.auth.service.MfaSessionManager.cleanupExpiredSessions</qualifiedname>
+        <briefdescription>
+<para>清理过期会话（可以通过定时任务调用） </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" line="72" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" bodystart="72" bodyend="79"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a16ff6b33d21b454718c05061663af4cb" compoundref="service_2MfaSessionManager_8java" startline="18">com.gmp.auth.service.MfaSessionManager.SESSION_TIMEOUT_MINUTES</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1aea67d7c86cef90763cbfe1c71ed46be4" compoundref="service_2MfaSessionManager_8java" startline="21">com.gmp.auth.service.MfaSessionManager.sessions</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a3919299276ffea6bff739f3c3f6a7c78" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.service.MfaSessionManager.isSessionExpired</definition>
+        <argsstring>(MfaSession session)</argsstring>
+        <name>isSessionExpired</name>
+        <qualifiedname>com.gmp.auth.service.MfaSessionManager.isSessionExpired</qualifiedname>
+        <param>
+          <type><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1_1MfaSession" kindref="compound">MfaSession</ref></type>
+          <declname>session</declname>
+        </param>
+        <briefdescription>
+<para>检查会话是否过期 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" line="65" column="21" bodyfile="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" bodystart="65" bodyend="67"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1_1MfaSession_1ab677e37592627722ba0fdd217d05dc91" compoundref="service_2MfaSessionManager_8java" startline="105" endline="107">com.gmp.auth.service.MfaSessionManager.MfaSession.getCreatedAt</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a16ff6b33d21b454718c05061663af4cb" compoundref="service_2MfaSessionManager_8java" startline="18">com.gmp.auth.service.MfaSessionManager.SESSION_TIMEOUT_MINUTES</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1aa26dd449561742077d4a10620671c847" compoundref="service_2MfaSessionManager_8java" startline="36" endline="51">com.gmp.auth.service.MfaSessionManager.getSession</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>MFA会话管理器，用于存储用户在第一阶段登录成功后的临时会话 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>com.gmp.auth.service.MfaSessionManager</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>SESSION_TIMEOUT_MINUTES</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>sessions</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>final Map&lt; String, com.gmp.auth.service.MfaSessionManager.MfaSession &gt;</label>
+      </node>
+      <node id="2">
+        <label>int</label>
+      </node>
+    </collaborationgraph>
+    <location file="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" line="15" column="7" bodyfile="auth-service/src/main/java/com/gmp/auth/service/MfaSessionManager.java" bodystart="15" bodyend="129"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a6121d9c31c1deb3b42292886c6f57859" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::MfaSessionManager</scope><name>cleanupExpiredSessions</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a1adfa09c2062d2b32861f43035515a68" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::MfaSessionManager</scope><name>createSession</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1aa26dd449561742077d4a10620671c847" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::MfaSessionManager</scope><name>getSession</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a520811b94222ae61889928d98962cfc7" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::MfaSessionManager</scope><name>invalidateSession</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a3919299276ffea6bff739f3c3f6a7c78" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::MfaSessionManager</scope><name>isSessionExpired</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1a16ff6b33d21b454718c05061663af4cb" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::MfaSessionManager</scope><name>SESSION_TIMEOUT_MINUTES</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaSessionManager_1aea67d7c86cef90763cbfe1c71ed46be4" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::MfaSessionManager</scope><name>sessions</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

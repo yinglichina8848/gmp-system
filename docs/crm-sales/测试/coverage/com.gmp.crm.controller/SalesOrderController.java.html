@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SalesOrderController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crm-sales</a> &gt; <a href="index.source.html" class="el_package">com.gmp.crm.controller</a> &gt; <span class="el_source">SalesOrderController.java</span></div><h1>SalesOrderController.java</h1><pre class="source lang-java linenums">package com.gmp.crm.controller;
+
+import com.gmp.crm.dto.ApiResponse;
+import com.gmp.crm.dto.PageRequestDTO;
+import com.gmp.crm.dto.SalesOrderDTO;
+import com.gmp.crm.dto.SalesOrderRequestDTO;
+import com.gmp.crm.service.SalesOrderService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import jakarta.validation.Valid;
+import java.security.Principal;
+import java.util.List;
+
+/**
+ * 销售订单控制器
+ * 
+ * @author TRAE AI
+ */
+@RestController
+@RequestMapping(&quot;/api/sales-orders&quot;)
+<span class="fc" id="L25">@RequiredArgsConstructor(onConstructor = @__(@Autowired))</span>
+public class SalesOrderController {
+
+    private final SalesOrderService salesOrderService;
+
+    /**
+     * 创建销售订单
+     * 
+     * @param request   订单请求DTO
+     * @param principal 当前用户信息
+     * @return 创建的订单DTO
+     */
+    @PostMapping
+    public ResponseEntity&lt;ApiResponse&lt;SalesOrderDTO&gt;&gt; createSalesOrder(
+            @Valid @RequestBody SalesOrderRequestDTO request,
+            Principal principal) {
+        // 获取当前用户名，用于记录创建人
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        String createdBy = principal != null ? principal.getName() : &quot;SYSTEM&quot;;</span>
+
+<span class="fc" id="L44">        SalesOrderDTO salesOrderDTO = salesOrderService.createSalesOrder(request, createdBy);</span>
+<span class="fc" id="L45">        return ResponseEntity.status(HttpStatus.CREATED)</span>
+<span class="fc" id="L46">                .body(ApiResponse.success(salesOrderDTO));</span>
+    }
+
+    /**
+     * 更新订单状态
+     * 
+     * @param id     订单ID
+     * @param status 新状态
+     * @return 更新后的订单DTO
+     */
+    @PutMapping(&quot;/{id}/status&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;SalesOrderDTO&gt;&gt; updateOrderStatus(
+            @PathVariable Long id,
+            @RequestParam String status) {
+<span class="fc" id="L60">        SalesOrderDTO salesOrderDTO = salesOrderService.updateOrderStatus(id, status);</span>
+<span class="fc" id="L61">        return ResponseEntity.ok(ApiResponse.success(salesOrderDTO));</span>
+    }
+
+    /**
+     * 获取订单详情
+     * 
+     * @param id 订单ID
+     * @return 订单DTO
+     */
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;SalesOrderDTO&gt;&gt; getSalesOrder(@PathVariable Long id) {
+<span class="fc" id="L72">        return salesOrderService.getSalesOrderById(id)</span>
+<span class="fc" id="L73">                .map(orderDTO -&gt; ResponseEntity.ok(ApiResponse.success(orderDTO)))</span>
+<span class="fc" id="L74">                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND)</span>
+<span class="fc" id="L75">                        .body(ApiResponse.error(404, &quot;订单不存在&quot;)));</span>
+    }
+
+    /**
+     * 根据订单号获取订单
+     * 
+     * @param orderNumber 订单编号
+     * @return 订单DTO
+     */
+    @GetMapping(&quot;/by-number/{orderNumber}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;SalesOrderDTO&gt;&gt; getSalesOrderByNumber(
+            @PathVariable String orderNumber) {
+<span class="fc" id="L87">        return salesOrderService.getSalesOrderByOrderNumber(orderNumber)</span>
+<span class="fc" id="L88">                .map(orderDTO -&gt; ResponseEntity.ok(ApiResponse.success(orderDTO)))</span>
+<span class="fc" id="L89">                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND)</span>
+<span class="fc" id="L90">                        .body(ApiResponse.error(404, &quot;订单不存在&quot;)));</span>
+    }
+
+    /**
+     * 分页查询订单列表
+     * 
+     * @param pageRequest 分页请求
+     * @return 订单分页列表
+     */
+    @GetMapping
+    public ResponseEntity&lt;ApiResponse&lt;?&gt;&gt; getSalesOrders(
+            PageRequestDTO pageRequest) {
+<span class="fc" id="L102">        var orderPage = salesOrderService.getSalesOrders(pageRequest);</span>
+<span class="fc" id="L103">        ApiResponse.PageResponse&lt;List&lt;SalesOrderDTO&gt;&gt; pageResponse = new ApiResponse.PageResponse&lt;&gt;();</span>
+<span class="fc" id="L104">        pageResponse.setPage(pageRequest.getPage());</span>
+<span class="fc" id="L105">        pageResponse.setSize(pageRequest.getSize());</span>
+<span class="fc" id="L106">        pageResponse.setTotal(orderPage.getTotalElements());</span>
+<span class="fc" id="L107">        pageResponse.setTotalPages(orderPage.getTotalPages());</span>
+<span class="fc" id="L108">        pageResponse.setList(orderPage.getContent());</span>
+<span class="fc" id="L109">        return ResponseEntity.ok(ApiResponse.success(pageResponse));</span>
+    }
+
+    /**
+     * 查询客户的订单列表
+     * 
+     * @param customerId  客户ID
+     * @param pageRequest 分页请求
+     * @return 订单分页列表
+     */
+    @GetMapping(&quot;/customer/{customerId}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;?&gt;&gt; getSalesOrdersByCustomer(
+            @PathVariable Long customerId,
+            PageRequestDTO pageRequest) {
+<span class="fc" id="L123">        var orderPage = salesOrderService.getSalesOrdersByCustomer(customerId, pageRequest);</span>
+<span class="fc" id="L124">        ApiResponse.PageResponse&lt;List&lt;SalesOrderDTO&gt;&gt; pageResponse = new ApiResponse.PageResponse&lt;&gt;();</span>
+<span class="fc" id="L125">        pageResponse.setPage(pageRequest.getPage());</span>
+<span class="fc" id="L126">        pageResponse.setSize(pageRequest.getSize());</span>
+<span class="fc" id="L127">        pageResponse.setTotal(orderPage.getTotalElements());</span>
+<span class="fc" id="L128">        pageResponse.setTotalPages(orderPage.getTotalPages());</span>
+<span class="fc" id="L129">        pageResponse.setList(orderPage.getContent());</span>
+<span class="fc" id="L130">        return ResponseEntity.ok(ApiResponse.success(pageResponse));</span>
+    }
+
+    /**
+     * 搜索订单
+     * 
+     * @param keyword     搜索关键字
+     * @param status      订单状态
+     * @param pageRequest 分页请求
+     * @return 订单分页列表
+     */
+    @GetMapping(&quot;/search&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;?&gt;&gt; searchSalesOrders(
+            @RequestParam(required = false) String keyword,
+            @RequestParam(required = false) String status,
+            PageRequestDTO pageRequest) {
+<span class="fc" id="L146">        var orderPage = salesOrderService.searchSalesOrders(keyword, status, pageRequest);</span>
+<span class="fc" id="L147">        ApiResponse.PageResponse&lt;List&lt;SalesOrderDTO&gt;&gt; pageResponse = new ApiResponse.PageResponse&lt;&gt;();</span>
+<span class="fc" id="L148">        pageResponse.setPage(pageRequest.getPage());</span>
+<span class="fc" id="L149">        pageResponse.setSize(pageRequest.getSize());</span>
+<span class="fc" id="L150">        pageResponse.setTotal(orderPage.getTotalElements());</span>
+<span class="fc" id="L151">        pageResponse.setTotalPages(orderPage.getTotalPages());</span>
+<span class="fc" id="L152">        pageResponse.setList(orderPage.getContent());</span>
+<span class="fc" id="L153">        return ResponseEntity.ok(ApiResponse.success(pageResponse));</span>
+    }
+
+    /**
+     * 取消订单
+     * 
+     * @param id 订单ID
+     * @return 操作结果
+     */
+    @PutMapping(&quot;/{id}/cancel&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Boolean&gt;&gt; cancelOrder(@PathVariable Long id) {
+<span class="fc" id="L164">        boolean cancelled = salesOrderService.cancelOrder(id);</span>
+<span class="fc" id="L165">        return ResponseEntity.ok(ApiResponse.success(cancelled));</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

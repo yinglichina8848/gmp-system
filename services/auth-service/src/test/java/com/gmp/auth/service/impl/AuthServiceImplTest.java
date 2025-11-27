@@ -20,6 +20,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -63,6 +64,9 @@ class AuthServiceImplTest {
     
     @Mock
     private UserOrganizationRoleService userOrganizationRoleService;
+    
+    @Mock
+    private TokenBlacklistService tokenBlacklistService;
 
     @InjectMocks
     private AuthServiceImpl authService;
@@ -668,5 +672,103 @@ class AuthServiceImplTest {
         // 测试管理员权限应该有写权限
         boolean hasWriteAccess = authService.hasSubsystemWriteAccess("testuser", "AUTH");
         assertTrue(hasWriteAccess);
+    }
+
+
+    
+    @Test
+    void testChangePassword_PasswordInHistory() {
+        // 准备
+        PasswordChangeRequest request = new PasswordChangeRequest();
+        // 使用反射设置私有字段
+        try {
+            Field oldPasswordField = PasswordChangeRequest.class.getDeclaredField("oldPassword");
+            oldPasswordField.setAccessible(true);
+            oldPasswordField.set(request, "oldpassword");
+            
+            Field newPasswordField = PasswordChangeRequest.class.getDeclaredField("newPassword");
+            newPasswordField.setAccessible(true);
+            newPasswordField.set(request, "PasswordInHistory");
+        } catch (Exception e) {
+            // 忽略异常
+        }
+        
+        when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(testUser));
+        when(passwordEncoder.matches("oldpassword", "encodedPassword")).thenReturn(true);
+        when(passwordPolicyService.validatePassword("PasswordInHistory")).thenReturn(true);
+        when(userPasswordHistoryService.isPasswordInHistory(1L, "PasswordInHistory")).thenReturn(true);
+        
+        // 执行 & 验证
+        assertThrows(InvalidPasswordException.class, () -> 
+            authService.changePassword("testuser", request)
+        );
+    }
+
+    @Test
+    void testHasSubsystemAdminAccess_WithAdminAccess() {
+        // 模拟用户角色有子系统的管理权限（访问级别3）
+        Map<String, Integer> accessLevels = new HashMap<>();
+        accessLevels.put("AUTH", 3);  // 管理权限
+        
+        when(authService.getUserSubsystemAccessLevels("testuser")).thenReturn(accessLevels);
+        
+        // 测试管理员权限
+        boolean hasAdminAccess = authService.hasSubsystemAdminAccess("testuser", "AUTH");
+        assertTrue(hasAdminAccess);
+    }
+    
+    @Test
+    void testHasSubsystemAdminAccess_WithoutAdminAccess() {
+        // 模拟用户角色只有子系统的读写权限（访问级别2）
+        Map<String, Integer> accessLevels = new HashMap<>();
+        accessLevels.put("AUTH", 2);  // 读写权限
+        
+        when(authService.getUserSubsystemAccessLevels("testuser")).thenReturn(accessLevels);
+        
+        // 测试非管理员权限
+        boolean hasAdminAccess = authService.hasSubsystemAdminAccess("testuser", "AUTH");
+        assertFalse(hasAdminAccess);
+    }
+
+    @Test
+    void testGetSubsystemAccessLevel() {
+        // 模拟用户角色有子系统的读写权限（访问级别2）
+        Map<String, Integer> accessLevels = new HashMap<>();
+        accessLevels.put("AUTH", 2);  // 读写权限
+        
+        when(authService.getUserSubsystemAccessLevels("testuser")).thenReturn(accessLevels);
+        
+        // 测试获取特定子系统的访问级别
+        Integer accessLevel = authService.getSubsystemAccessLevel("testuser", "AUTH");
+        assertEquals(2, accessLevel);
+        
+        // 测试获取不存在子系统的访问级别
+        Integer noAccessLevel = authService.getSubsystemAccessLevel("testuser", "NON_EXISTENT");
+        assertEquals(0, noAccessLevel);
+    }
+
+    @Test
+    void testValidateToken_ExpiredToken() {
+        // 准备
+        when(tokenProvider.validateToken("expired_token")).thenReturn(false);
+        
+        // 执行
+        boolean result = authService.validateToken("expired_token");
+        
+        // 验证
+        assertFalse(result);
+    }
+    
+    @Test
+    void testValidateToken_BlacklistedToken() {
+        // 准备
+        when(tokenProvider.validateToken("blacklisted_token")).thenReturn(true);
+        when(tokenBlacklistService.isTokenBlacklisted("blacklisted_token")).thenReturn(true);
+        
+        // 执行
+        boolean result = authService.validateToken("blacklisted_token");
+        
+        // 验证
+        assertFalse(result);
     }
 }

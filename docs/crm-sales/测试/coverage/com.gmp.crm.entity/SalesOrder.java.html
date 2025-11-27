@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SalesOrder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crm-sales</a> &gt; <a href="index.source.html" class="el_package">com.gmp.crm.entity</a> &gt; <span class="el_source">SalesOrder.java</span></div><h1>SalesOrder.java</h1><pre class="source lang-java linenums">package com.gmp.crm.entity;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 销售订单实体
+ * 
+ * @author TRAE AI
+ */
+<span class="nc bnc" id="L18" title="All 86 branches missed.">@Data</span>
+@Entity
+@Table(name = &quot;sales_order&quot;)
+public class SalesOrder {
+
+    /**
+     * 订单ID
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L28">    private Long id;</span>
+
+    /**
+     * 订单编号
+     */
+    @Column(name = &quot;order_number&quot;, nullable = false, unique = true, length = 50)
+<span class="nc" id="L34">    private String orderNumber;</span>
+
+    /**
+     * 客户ID
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;customer_id&quot;, nullable = false)
+<span class="nc" id="L41">    private Customer customer;</span>
+
+    /**
+     * 订单状态
+     */
+<span class="nc" id="L46">    @Column(name = &quot;status&quot;, nullable = false, length = 50)</span>
+<span class="nc" id="L47">    private String status = &quot;PENDING&quot;;</span>
+
+    /**
+     * 总金额
+     */
+    @Column(name = &quot;total_amount&quot;, precision = 19, scale = 4)
+<span class="nc" id="L53">    private BigDecimal totalAmount;</span>
+
+    /**
+     * 备注
+     */
+    @Column(name = &quot;remarks&quot;, length = 500)
+<span class="nc" id="L59">    private String remarks;</span>
+
+    /**
+     * 创建人
+     */
+    @Column(name = &quot;created_by&quot;, length = 100)
+<span class="nc" id="L65">    private String createdBy;</span>
+
+    /**
+     * 创建时间
+     */
+    @CreationTimestamp
+    @Column(name = &quot;created_at&quot;)
+<span class="nc" id="L72">    private LocalDateTime createdAt;</span>
+
+    /**
+     * 更新时间
+     */
+    @UpdateTimestamp
+    @Column(name = &quot;updated_at&quot;)
+<span class="nc" id="L79">    private LocalDateTime updatedAt;</span>
+
+    /**
+     * 订单明细列表
+     */
+<span class="nc" id="L84">    @OneToMany(mappedBy = &quot;order&quot;, cascade = CascadeType.ALL, orphanRemoval = true)</span>
+<span class="nc" id="L85">    private List&lt;OrderItem&gt; items = new ArrayList&lt;&gt;();</span>
+
+    /**
+     * 添加订单项
+     */
+    public void addItem(OrderItem item) {
+<span class="nc" id="L91">        items.add(item);</span>
+<span class="nc" id="L92">        item.setOrder(this);</span>
+<span class="nc" id="L93">    }</span>
+
+    /**
+     * 移除订单项
+     */
+    public void removeItem(OrderItem item) {
+<span class="nc" id="L99">        items.remove(item);</span>
+<span class="nc" id="L100">        item.setOrder(null);</span>
+<span class="nc" id="L101">    }</span>
+
+    /**
+     * 计算总金额
+     */
+    @PrePersist
+    @PreUpdate
+    public void calculateTotalAmount() {
+<span class="nc" id="L109">        this.totalAmount = items.stream()</span>
+<span class="nc" id="L110">                .map(OrderItem::getSubTotal)</span>
+<span class="nc" id="L111">                .reduce(BigDecimal.ZERO, BigDecimal::add);</span>
+<span class="nc" id="L112">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

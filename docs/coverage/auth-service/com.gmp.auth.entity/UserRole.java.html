@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserRole.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.entity</a> &gt; <span class="el_source">UserRole.java</span></div><h1>UserRole.java</h1><pre class="source lang-java linenums">package com.gmp.auth.entity;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
+import java.time.LocalDateTime;
+
+/**
+ * 用户角色关联实体
+ *
+ * @author GMP系统开发团队
+ */
+<span class="pc bnc" id="L17" title="All 70 branches missed.">@Data</span>
+<span class="fc" id="L18">@NoArgsConstructor</span>
+<span class="fc" id="L19">@AllArgsConstructor</span>
+<span class="pc bfc" id="L20" title="All 2 branches covered.">@Builder</span>
+@Entity
+@Table(name = &quot;user_roles&quot;)
+public class UserRole {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L27">    private Long id;</span>
+
+    @NotNull(message = &quot;用户ID不能为空&quot;)
+    @Column(name = &quot;user_id&quot;, nullable = false)
+<span class="fc" id="L31">    private Long userId;</span>
+
+    @NotNull(message = &quot;角色ID不能为空&quot;)
+    @Column(name = &quot;role_id&quot;, nullable = false)
+<span class="fc" id="L35">    private Long roleId;</span>
+
+    @Builder.Default
+    @Column(name = &quot;is_active&quot;, nullable = false)
+<span class="fc" id="L39">    private Boolean isActive = true;</span>
+
+    @Column(name = &quot;assigned_at&quot;, nullable = false)
+<span class="fc" id="L42">    private LocalDateTime assignedAt;</span>
+
+    @Column(name = &quot;expired_at&quot;)
+<span class="nc" id="L45">    private LocalDateTime expiredAt;</span>
+
+    @Column(name = &quot;assigned_by&quot;)
+<span class="fc" id="L48">    private Long assignedBy;</span>
+
+    @Column(name = &quot;assigned_at_audit&quot;)
+<span class="fc" id="L51">    private LocalDateTime assignedAtAudit;</span>
+
+    /**
+     * 检查关联是否有效
+     */
+    @Transient
+    public boolean isValid() {
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (!isActive) {</span>
+<span class="fc" id="L59">            return false;</span>
+        }
+<span class="fc bfc" id="L61" title="All 4 branches covered.">        return expiredAt == null || LocalDateTime.now().isBefore(expiredAt);</span>
+    }
+
+    /**
+     * 预持久化处理
+     */
+    @PrePersist
+    protected void onCreate() {
+<span class="fc" id="L69">        LocalDateTime now = LocalDateTime.now();</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (assignedAt == null) {</span>
+<span class="fc" id="L71">            assignedAt = now;</span>
+        }
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        if (assignedAtAudit == null) {</span>
+<span class="fc" id="L74">            assignedAtAudit = now;</span>
+        }
+<span class="fc" id="L76">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

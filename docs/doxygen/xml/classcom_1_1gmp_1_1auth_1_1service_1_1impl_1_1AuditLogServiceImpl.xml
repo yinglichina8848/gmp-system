@@ -1,0 +1,1482 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::auth::service::impl::AuditLogServiceImpl</compoundname>
+    <basecompoundref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService" prot="public" virt="non-virtual">com.gmp.auth.service.AuditLogService</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" prot="private" static="yes" mutable="no">
+        <type>final Logger</type>
+        <definition>final Logger com.gmp.auth.service.impl.AuditLogServiceImpl.logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logger</qualifiedname>
+        <initializer>= LoggerFactory.getLogger(AuditLogServiceImpl.class)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="32" column="33" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="32" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1aca4bc1602888ea25c0a88d468a198193" compoundref="AuditLogServiceImpl_8java" startline="336" endline="348">com.gmp.auth.service.impl.AuditLogServiceImpl.cleanupOldLogs</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0b716c72360450d48ae2330ce5318ab2" compoundref="AuditLogServiceImpl_8java" startline="351" endline="370">com.gmp.auth.service.impl.AuditLogServiceImpl.exportLogs</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9e1c21699a664e1ea730d4156a40c90e" compoundref="AuditLogServiceImpl_8java" startline="115" endline="138">com.gmp.auth.service.impl.AuditLogServiceImpl.logLogin</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1addfd6d2f15f6dcec4ee7c550816e2723" compoundref="AuditLogServiceImpl_8java" startline="53" endline="56">com.gmp.auth.service.impl.AuditLogServiceImpl.logLoginFailure</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1ac68c111390771f1e9738d32e52f8079b" compoundref="AuditLogServiceImpl_8java" startline="47" endline="50">com.gmp.auth.service.impl.AuditLogServiceImpl.logLoginSuccess</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0398e14f9882963c8a4e7154619bf2a9" compoundref="AuditLogServiceImpl_8java" startline="41" endline="44">com.gmp.auth.service.impl.AuditLogServiceImpl.logLogout</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" compoundref="AuditLogServiceImpl_8java" startline="105" endline="112">com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1acf5c8cbd5f508ca174feaaf41a541b59" compoundref="AuditLogServiceImpl_8java" startline="59" endline="62">com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordChange</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a6838e04ef756446e21c0e651fd91c8a0" compoundref="AuditLogServiceImpl_8java" startline="65" endline="68">com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordReset</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a2154e2e532ce4918475966ec1551aaa9" compoundref="AuditLogServiceImpl_8java" startline="203" endline="233">com.gmp.auth.service.impl.AuditLogServiceImpl.logRoleAssignment</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a410bf5d173899e0ea9177796d0328869" compoundref="AuditLogServiceImpl_8java" startline="176" endline="200">com.gmp.auth.service.impl.AuditLogServiceImpl.logRolePermissionChange</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1ae72889541bb474261112d72a8d6d9dbc" compoundref="AuditLogServiceImpl_8java" startline="236" endline="263">com.gmp.auth.service.impl.AuditLogServiceImpl.logSecurityEvent</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a3c0e35787cac9c2f661ef874ec9dfd59" compoundref="AuditLogServiceImpl_8java" startline="146" endline="173">com.gmp.auth.service.impl.AuditLogServiceImpl.logUserManagement</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a54c9a855f90a0156cf02b42cd8b0613d" prot="private" static="no" mutable="no">
+        <type>OperationLogRepository</type>
+        <definition>OperationLogRepository com.gmp.auth.service.impl.AuditLogServiceImpl.operationLogRepository</definition>
+        <argsstring></argsstring>
+        <name>operationLogRepository</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.operationLogRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="35" column="36" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1aca4bc1602888ea25c0a88d468a198193" compoundref="AuditLogServiceImpl_8java" startline="336" endline="348">com.gmp.auth.service.impl.AuditLogServiceImpl.cleanupOldLogs</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0b716c72360450d48ae2330ce5318ab2" compoundref="AuditLogServiceImpl_8java" startline="351" endline="370">com.gmp.auth.service.impl.AuditLogServiceImpl.exportLogs</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1ab379357aa31f4e68639e354971104d1b" compoundref="AuditLogServiceImpl_8java" startline="297" endline="306">com.gmp.auth.service.impl.AuditLogServiceImpl.findFailedOperations</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a7af910afc96c5acdfbece8330787e8cd" compoundref="AuditLogServiceImpl_8java" startline="266" endline="270">com.gmp.auth.service.impl.AuditLogServiceImpl.findLogsByPage</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0224e9ba4f448f1b4cb241942fff22a2" compoundref="AuditLogServiceImpl_8java" startline="285" endline="294">com.gmp.auth.service.impl.AuditLogServiceImpl.findLogsByTimeRange</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a8b9eca9703a1420923e4969283d5a762" compoundref="AuditLogServiceImpl_8java" startline="273" endline="282">com.gmp.auth.service.impl.AuditLogServiceImpl.findLogsByUserId</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a36172a917e68ef068ea1d7f1435faae4" compoundref="AuditLogServiceImpl_8java" startline="309" endline="332">com.gmp.auth.service.impl.AuditLogServiceImpl.getOperationStatistics</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" compoundref="AuditLogServiceImpl_8java" startline="105" endline="112">com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0617bbd4e9397ffcfe64617de6664984" prot="private" static="no" mutable="no">
+        <type>ObjectMapper</type>
+        <definition>ObjectMapper com.gmp.auth.service.impl.AuditLogServiceImpl.objectMapper</definition>
+        <argsstring></argsstring>
+        <name>objectMapper</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.objectMapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="38" column="26" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0b716c72360450d48ae2330ce5318ab2" compoundref="AuditLogServiceImpl_8java" startline="351" endline="370">com.gmp.auth.service.impl.AuditLogServiceImpl.exportLogs</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9e1c21699a664e1ea730d4156a40c90e" compoundref="AuditLogServiceImpl_8java" startline="115" endline="138">com.gmp.auth.service.impl.AuditLogServiceImpl.logLogin</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a2154e2e532ce4918475966ec1551aaa9" compoundref="AuditLogServiceImpl_8java" startline="203" endline="233">com.gmp.auth.service.impl.AuditLogServiceImpl.logRoleAssignment</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a410bf5d173899e0ea9177796d0328869" compoundref="AuditLogServiceImpl_8java" startline="176" endline="200">com.gmp.auth.service.impl.AuditLogServiceImpl.logRolePermissionChange</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1ae72889541bb474261112d72a8d6d9dbc" compoundref="AuditLogServiceImpl_8java" startline="236" endline="263">com.gmp.auth.service.impl.AuditLogServiceImpl.logSecurityEvent</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a3c0e35787cac9c2f661ef874ec9dfd59" compoundref="AuditLogServiceImpl_8java" startline="146" endline="173">com.gmp.auth.service.impl.AuditLogServiceImpl.logUserManagement</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0398e14f9882963c8a4e7154619bf2a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.impl.AuditLogServiceImpl.logLogout</definition>
+        <argsstring>(String username)</argsstring>
+        <name>logLogout</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logLogout</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a42fda158274156c35a7dd129c4d2b341">logLogout</reimplements>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>记录登出（简化版） </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="41" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="41" bodyend="44"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1ac68c111390771f1e9738d32e52f8079b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.impl.AuditLogServiceImpl.logLoginSuccess</definition>
+        <argsstring>(String username, String ipAddress, String userAgent)</argsstring>
+        <name>logLoginSuccess</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logLoginSuccess</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a6607c121ee5009e90416ac3f5bcdf118">logLoginSuccess</reimplements>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>ipAddress</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userAgent</declname>
+        </param>
+        <briefdescription>
+<para>记录登录成功（简化版） </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ipAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IP地址 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userAgent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户代理 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="47" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="47" bodyend="50"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1addfd6d2f15f6dcec4ee7c550816e2723" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.impl.AuditLogServiceImpl.logLoginFailure</definition>
+        <argsstring>(String username, String ipAddress, String userAgent, String reason)</argsstring>
+        <name>logLoginFailure</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logLoginFailure</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1aa259160284c838f2c6e4c6171cbd2ee1">logLoginFailure</reimplements>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>ipAddress</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userAgent</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>reason</declname>
+        </param>
+        <briefdescription>
+<para>记录登录失败 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ipAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IP地址 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userAgent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户代理 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reason</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>失败原因 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="53" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="53" bodyend="56"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1acf5c8cbd5f508ca174feaaf41a541b59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordChange</definition>
+        <argsstring>(String username)</argsstring>
+        <name>logPasswordChange</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordChange</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a2ea45c4b4758fe576d101c21fde083e6">logPasswordChange</reimplements>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>记录密码修改（简化版） </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="59" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="59" bodyend="62"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a6838e04ef756446e21c0e651fd91c8a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordReset</definition>
+        <argsstring>(String username)</argsstring>
+        <name>logPasswordReset</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordReset</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a39de7f4f53b00c903bdba2de19e0c24a">logPasswordReset</reimplements>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>记录密码重置（简化版） </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="65" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="65" bodyend="68"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a3b1a94ad4273f14a5515105362f0cf02" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordReset</definition>
+        <argsstring>(Long userId, String username, String ipAddress)</argsstring>
+        <name>logPasswordReset</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordReset</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1aa9a9932ba1b8bd6b3d974068f500bb31">logPasswordReset</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>ipAddress</declname>
+        </param>
+        <briefdescription>
+<para>记录密码重置事件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ipAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IP地址 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="71" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="71" bodyend="79"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" compoundref="AuditLogServiceImpl_8java" startline="105" endline="112">com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a67bce7f0c99abd61386a963913bf2485" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordChange</definition>
+        <argsstring>(Long userId, String username, String ipAddress)</argsstring>
+        <name>logPasswordChange</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordChange</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a43ad2a60806c3b45e93d3a5eeab4f893">logPasswordChange</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>ipAddress</declname>
+        </param>
+        <briefdescription>
+<para>记录密码修改事件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ipAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IP地址 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="82" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="82" bodyend="90"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" compoundref="AuditLogServiceImpl_8java" startline="105" endline="112">com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a1c196a6aaea6fee65c8807db112a5f3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.impl.AuditLogServiceImpl.logLoginSuccess</definition>
+        <argsstring>(Long userId, String username, String ipAddress, String userAgent)</argsstring>
+        <name>logLoginSuccess</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logLoginSuccess</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a3ca1ed7f4e7ad06e2f3d0cde5fc49da9">logLoginSuccess</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>ipAddress</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userAgent</declname>
+        </param>
+        <briefdescription>
+<para>记录登录成功 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ipAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IP地址 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userAgent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户代理 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="93" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="93" bodyend="101"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" compoundref="AuditLogServiceImpl_8java" startline="105" endline="112">com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>OperationLog</type>
+        <definition>OperationLog com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</definition>
+        <argsstring>(OperationLog log)</argsstring>
+        <name>logOperation</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1aeb52e6c26346920df86195d3bf8cd648">logOperation</reimplements>
+        <param>
+          <type>OperationLog</type>
+          <declname>log</declname>
+        </param>
+        <briefdescription>
+<para>记录操作日志 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>log</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>操作日志实体 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>保存后的操作日志 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="105" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="105" bodyend="112"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a54c9a855f90a0156cf02b42cd8b0613d" compoundref="AuditLogServiceImpl_8java" startline="35">com.gmp.auth.service.impl.AuditLogServiceImpl.operationLogRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9e1c21699a664e1ea730d4156a40c90e" compoundref="AuditLogServiceImpl_8java" startline="115" endline="138">com.gmp.auth.service.impl.AuditLogServiceImpl.logLogin</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a1c196a6aaea6fee65c8807db112a5f3a" compoundref="AuditLogServiceImpl_8java" startline="93" endline="101">com.gmp.auth.service.impl.AuditLogServiceImpl.logLoginSuccess</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a13b90bfa6b9c16b94452eab0740fc012" compoundref="AuditLogServiceImpl_8java" startline="141" endline="143">com.gmp.auth.service.impl.AuditLogServiceImpl.logLogout</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a67bce7f0c99abd61386a963913bf2485" compoundref="AuditLogServiceImpl_8java" startline="82" endline="90">com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordChange</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a3b1a94ad4273f14a5515105362f0cf02" compoundref="AuditLogServiceImpl_8java" startline="71" endline="79">com.gmp.auth.service.impl.AuditLogServiceImpl.logPasswordReset</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a2154e2e532ce4918475966ec1551aaa9" compoundref="AuditLogServiceImpl_8java" startline="203" endline="233">com.gmp.auth.service.impl.AuditLogServiceImpl.logRoleAssignment</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a410bf5d173899e0ea9177796d0328869" compoundref="AuditLogServiceImpl_8java" startline="176" endline="200">com.gmp.auth.service.impl.AuditLogServiceImpl.logRolePermissionChange</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1ae72889541bb474261112d72a8d6d9dbc" compoundref="AuditLogServiceImpl_8java" startline="236" endline="263">com.gmp.auth.service.impl.AuditLogServiceImpl.logSecurityEvent</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a3c0e35787cac9c2f661ef874ec9dfd59" compoundref="AuditLogServiceImpl_8java" startline="146" endline="173">com.gmp.auth.service.impl.AuditLogServiceImpl.logUserManagement</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9e1c21699a664e1ea730d4156a40c90e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>OperationLog</type>
+        <definition>OperationLog com.gmp.auth.service.impl.AuditLogServiceImpl.logLogin</definition>
+        <argsstring>(Long userId, String username, String ipAddress, String userAgent, boolean success, Map&lt; String, Object &gt; additionalInfo)</argsstring>
+        <name>logLogin</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logLogin</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1af1da3f63f1a4fe8ff55f5c836edd41ba">logLogin</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>ipAddress</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userAgent</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>success</declname>
+        </param>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>additionalInfo</declname>
+        </param>
+        <briefdescription>
+<para>记录登录操作 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ipAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IP地址 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userAgent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户代理 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>success</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>是否成功 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>additionalInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>附加信息 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>保存后的操作日志 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="115" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="115" bodyend="138"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" compoundref="AuditLogServiceImpl_8java" startline="105" endline="112">com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0617bbd4e9397ffcfe64617de6664984" compoundref="AuditLogServiceImpl_8java" startline="38">com.gmp.auth.service.impl.AuditLogServiceImpl.objectMapper</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a13b90bfa6b9c16b94452eab0740fc012" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>OperationLog</type>
+        <definition>OperationLog com.gmp.auth.service.impl.AuditLogServiceImpl.logLogout</definition>
+        <argsstring>(Long userId, String username, String ipAddress)</argsstring>
+        <name>logLogout</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logLogout</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a8fb04d37903dfadf8c927a4aa1a33bb4">logLogout</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>ipAddress</declname>
+        </param>
+        <briefdescription>
+<para>记录登出操作 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ipAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IP地址 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>保存后的操作日志 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="141" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="141" bodyend="143"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" compoundref="AuditLogServiceImpl_8java" startline="105" endline="112">com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a3c0e35787cac9c2f661ef874ec9dfd59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>OperationLog</type>
+        <definition>OperationLog com.gmp.auth.service.impl.AuditLogServiceImpl.logUserManagement</definition>
+        <argsstring>(Long operatorId, String operatorName, Long targetUserId, String targetUsername, OperationLog.OperationType operationType, boolean success, String details)</argsstring>
+        <name>logUserManagement</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logUserManagement</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1adf5e77c2aa3b0e66212bead3f9252dc6">logUserManagement</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>operatorId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operatorName</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>targetUserId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>targetUsername</declname>
+        </param>
+        <param>
+          <type>OperationLog.OperationType</type>
+          <declname>operationType</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>success</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>details</declname>
+        </param>
+        <briefdescription>
+<para>记录用户管理操作 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operatorId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>操作者ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operatorName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>操作者名称 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>targetUserId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>目标用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>targetUsername</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>目标用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operationType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>操作类型 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>success</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>是否成功 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>details</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>操作详情 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>保存后的操作日志 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="146" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="146" bodyend="173"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" compoundref="AuditLogServiceImpl_8java" startline="105" endline="112">com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0617bbd4e9397ffcfe64617de6664984" compoundref="AuditLogServiceImpl_8java" startline="38">com.gmp.auth.service.impl.AuditLogServiceImpl.objectMapper</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a410bf5d173899e0ea9177796d0328869" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>OperationLog</type>
+        <definition>OperationLog com.gmp.auth.service.impl.AuditLogServiceImpl.logRolePermissionChange</definition>
+        <argsstring>(Long operatorId, String operatorName, Long roleId, String roleCode, String permissionChanges, boolean success)</argsstring>
+        <name>logRolePermissionChange</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logRolePermissionChange</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1ad5da62e9d4540b8e5661110a1dd6e8f8">logRolePermissionChange</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>operatorId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operatorName</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>roleId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>roleCode</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>permissionChanges</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>success</declname>
+        </param>
+        <briefdescription>
+<para>记录角色权限变更操作 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operatorId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>操作者ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operatorName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>操作者名称 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roleCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色代码 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>permissionChanges</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限变更详情 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>success</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>是否成功 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>保存后的操作日志 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="176" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="176" bodyend="200"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" compoundref="AuditLogServiceImpl_8java" startline="105" endline="112">com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0617bbd4e9397ffcfe64617de6664984" compoundref="AuditLogServiceImpl_8java" startline="38">com.gmp.auth.service.impl.AuditLogServiceImpl.objectMapper</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a2154e2e532ce4918475966ec1551aaa9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>OperationLog</type>
+        <definition>OperationLog com.gmp.auth.service.impl.AuditLogServiceImpl.logRoleAssignment</definition>
+        <argsstring>(Long operatorId, String operatorName, Long userId, String username, Long roleId, String roleCode, boolean isAssign, boolean success)</argsstring>
+        <name>logRoleAssignment</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logRoleAssignment</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a0263f5425b68d64fcbb530468259a316">logRoleAssignment</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>operatorId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operatorName</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>roleId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>roleCode</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>isAssign</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>success</declname>
+        </param>
+        <briefdescription>
+<para>记录用户角色分配操作 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operatorId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>操作者ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operatorName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>操作者名称 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roleCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色代码 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isAssign</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>是否为分配操作（true为分配，false为撤销） </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>success</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>是否成功 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>保存后的操作日志 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="203" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="203" bodyend="233"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" compoundref="AuditLogServiceImpl_8java" startline="105" endline="112">com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0617bbd4e9397ffcfe64617de6664984" compoundref="AuditLogServiceImpl_8java" startline="38">com.gmp.auth.service.impl.AuditLogServiceImpl.objectMapper</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1ae72889541bb474261112d72a8d6d9dbc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>OperationLog</type>
+        <definition>OperationLog com.gmp.auth.service.impl.AuditLogServiceImpl.logSecurityEvent</definition>
+        <argsstring>(Long userId, String username, String eventType, String severity, String details, String ipAddress)</argsstring>
+        <name>logSecurityEvent</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.logSecurityEvent</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1ae622dca7ceeef16a14d38f37645e2eb6">logSecurityEvent</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>eventType</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>severity</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>details</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>ipAddress</declname>
+        </param>
+        <briefdescription>
+<para>记录安全事件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>eventType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>事件类型 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>severity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>严重程度 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>details</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>事件详情 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ipAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IP地址 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>保存后的操作日志 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="236" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="236" bodyend="263"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" compoundref="AuditLogServiceImpl_8java" startline="105" endline="112">com.gmp.auth.service.impl.AuditLogServiceImpl.logOperation</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0617bbd4e9397ffcfe64617de6664984" compoundref="AuditLogServiceImpl_8java" startline="38">com.gmp.auth.service.impl.AuditLogServiceImpl.objectMapper</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a7af910afc96c5acdfbece8330787e8cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Page&lt; OperationLog &gt;</type>
+        <definition>Page&lt; OperationLog &gt; com.gmp.auth.service.impl.AuditLogServiceImpl.findLogsByPage</definition>
+        <argsstring>(Pageable pageable, Map&lt; String, Object &gt; filters)</argsstring>
+        <name>findLogsByPage</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.findLogsByPage</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a4ac285b053a4d5aaac9d7f1e5be3d84e">findLogsByPage</reimplements>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>filters</declname>
+        </param>
+        <briefdescription>
+<para>分页查询操作日志 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>过滤条件 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页后的操作日志列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="266" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="266" bodyend="270"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a54c9a855f90a0156cf02b42cd8b0613d" compoundref="AuditLogServiceImpl_8java" startline="35">com.gmp.auth.service.impl.AuditLogServiceImpl.operationLogRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a8b9eca9703a1420923e4969283d5a762" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Page&lt; OperationLog &gt;</type>
+        <definition>Page&lt; OperationLog &gt; com.gmp.auth.service.impl.AuditLogServiceImpl.findLogsByUserId</definition>
+        <argsstring>(Long userId, Pageable pageable)</argsstring>
+        <name>findLogsByUserId</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.findLogsByUserId</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a6a6bfb8487b0ef13ead54a2f58b44c82">findLogsByUserId</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>根据用户ID查询操作日志 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页后的操作日志列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="273" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="273" bodyend="282"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a54c9a855f90a0156cf02b42cd8b0613d" compoundref="AuditLogServiceImpl_8java" startline="35">com.gmp.auth.service.impl.AuditLogServiceImpl.operationLogRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0224e9ba4f448f1b4cb241942fff22a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Page&lt; OperationLog &gt;</type>
+        <definition>Page&lt; OperationLog &gt; com.gmp.auth.service.impl.AuditLogServiceImpl.findLogsByTimeRange</definition>
+        <argsstring>(LocalDateTime startTime, LocalDateTime endTime, Pageable pageable)</argsstring>
+        <name>findLogsByTimeRange</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.findLogsByTimeRange</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a85892a13d4a292e6f72a7b6a6a3f8f6a">findLogsByTimeRange</reimplements>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>startTime</declname>
+        </param>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>endTime</declname>
+        </param>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>查询指定时间范围内的操作日志 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始时间 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束时间 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页后的操作日志列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="285" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="285" bodyend="294"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a54c9a855f90a0156cf02b42cd8b0613d" compoundref="AuditLogServiceImpl_8java" startline="35">com.gmp.auth.service.impl.AuditLogServiceImpl.operationLogRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1ab379357aa31f4e68639e354971104d1b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Page&lt; OperationLog &gt;</type>
+        <definition>Page&lt; OperationLog &gt; com.gmp.auth.service.impl.AuditLogServiceImpl.findFailedOperations</definition>
+        <argsstring>(LocalDateTime since, Pageable pageable)</argsstring>
+        <name>findFailedOperations</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.findFailedOperations</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a02a412e362d4d0aac2896845804ee172">findFailedOperations</reimplements>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>since</declname>
+        </param>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>查询失败的操作日志 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>since</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>从什么时间开始 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页后的操作日志列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="297" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="297" bodyend="306"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a54c9a855f90a0156cf02b42cd8b0613d" compoundref="AuditLogServiceImpl_8java" startline="35">com.gmp.auth.service.impl.AuditLogServiceImpl.operationLogRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a36172a917e68ef068ea1d7f1435faae4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; String, Object &gt;</type>
+        <definition>Map&lt; String, Object &gt; com.gmp.auth.service.impl.AuditLogServiceImpl.getOperationStatistics</definition>
+        <argsstring>(LocalDateTime startTime, LocalDateTime endTime)</argsstring>
+        <name>getOperationStatistics</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.getOperationStatistics</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a4f49d6728bc9bd902c7244320c7410cc">getOperationStatistics</reimplements>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>startTime</declname>
+        </param>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>endTime</declname>
+        </param>
+        <briefdescription>
+<para>获取操作统计信息 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始时间 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束时间 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>统计结果 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="309" column="16" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="309" bodyend="332"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a54c9a855f90a0156cf02b42cd8b0613d" compoundref="AuditLogServiceImpl_8java" startline="35">com.gmp.auth.service.impl.AuditLogServiceImpl.operationLogRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1aca4bc1602888ea25c0a88d468a198193" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.gmp.auth.service.impl.AuditLogServiceImpl.cleanupOldLogs</definition>
+        <argsstring>(int daysToKeep)</argsstring>
+        <name>cleanupOldLogs</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.cleanupOldLogs</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a5475163e4755ea0f4341ae9245efea79">cleanupOldLogs</reimplements>
+        <param>
+          <type>int</type>
+          <declname>daysToKeep</declname>
+        </param>
+        <briefdescription>
+<para>清理过期日志 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>daysToKeep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>保留天数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>删除的日志数量 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="336" column="16" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="336" bodyend="348"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a54c9a855f90a0156cf02b42cd8b0613d" compoundref="AuditLogServiceImpl_8java" startline="35">com.gmp.auth.service.impl.AuditLogServiceImpl.operationLogRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0b716c72360450d48ae2330ce5318ab2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] com.gmp.auth.service.impl.AuditLogServiceImpl.exportLogs</definition>
+        <argsstring>(Map&lt; String, Object &gt; filters, String format)</argsstring>
+        <name>exportLogs</name>
+        <qualifiedname>com.gmp.auth.service.impl.AuditLogServiceImpl.exportLogs</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a692829146ce5f362b67adf483572f256">exportLogs</reimplements>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>filters</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+<para>导出日志到指定格式 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>过滤条件 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>导出格式 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>导出的日志数据 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="351" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="351" bodyend="370"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" compoundref="AuditLogServiceImpl_8java" startline="32">com.gmp.auth.service.impl.AuditLogServiceImpl.logger</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0617bbd4e9397ffcfe64617de6664984" compoundref="AuditLogServiceImpl_8java" startline="38">com.gmp.auth.service.impl.AuditLogServiceImpl.objectMapper</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a54c9a855f90a0156cf02b42cd8b0613d" compoundref="AuditLogServiceImpl_8java" startline="35">com.gmp.auth.service.impl.AuditLogServiceImpl.operationLogRepository</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>审计日志服务实现类 提供增强的审计日志功能实现 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>com.gmp.auth.service.impl.AuditLogServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.service.AuditLogService</label>
+        <link refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>ObjectMapper</label>
+      </node>
+      <node id="4">
+        <label>OperationLogRepository</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.auth.service.impl.AuditLogServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>logger</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>operationLogRepository</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>objectMapper</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.service.AuditLogService</label>
+        <link refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService"/>
+      </node>
+      <node id="3">
+        <label>static final Logger</label>
+      </node>
+    </collaborationgraph>
+    <location file="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" line="30" column="7" bodyfile="auth-service/src/main/java/com/gmp/auth/service/impl/AuditLogServiceImpl.java" bodystart="30" bodyend="371"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1aca4bc1602888ea25c0a88d468a198193" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>cleanupOldLogs</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0b716c72360450d48ae2330ce5318ab2" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>exportLogs</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1ab379357aa31f4e68639e354971104d1b" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>findFailedOperations</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a7af910afc96c5acdfbece8330787e8cd" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>findLogsByPage</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0224e9ba4f448f1b4cb241942fff22a2" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>findLogsByTimeRange</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a8b9eca9703a1420923e4969283d5a762" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>findLogsByUserId</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a36172a917e68ef068ea1d7f1435faae4" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>getOperationStatistics</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a17e592b09f9e8b8a707a7100f024c26c" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logger</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9e1c21699a664e1ea730d4156a40c90e" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logLogin</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1addfd6d2f15f6dcec4ee7c550816e2723" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logLoginFailure</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1ac68c111390771f1e9738d32e52f8079b" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logLoginSuccess</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a1c196a6aaea6fee65c8807db112a5f3a" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logLoginSuccess</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0398e14f9882963c8a4e7154619bf2a9" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logLogout</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a13b90bfa6b9c16b94452eab0740fc012" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logLogout</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a9fc4fc5dd941306edc94397967728e30" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logOperation</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1acf5c8cbd5f508ca174feaaf41a541b59" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logPasswordChange</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a67bce7f0c99abd61386a963913bf2485" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logPasswordChange</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a6838e04ef756446e21c0e651fd91c8a0" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logPasswordReset</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a3b1a94ad4273f14a5515105362f0cf02" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logPasswordReset</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a2154e2e532ce4918475966ec1551aaa9" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logRoleAssignment</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a410bf5d173899e0ea9177796d0328869" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logRolePermissionChange</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1ae72889541bb474261112d72a8d6d9dbc" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logSecurityEvent</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a3c0e35787cac9c2f661ef874ec9dfd59" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>logUserManagement</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a0617bbd4e9397ffcfe64617de6664984" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>objectMapper</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuditLogServiceImpl_1a54c9a855f90a0156cf02b42cd8b0613d" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::impl::AuditLogServiceImpl</scope><name>operationLogRepository</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

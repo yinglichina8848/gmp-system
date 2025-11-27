@@ -1,0 +1,992 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::auth::service::UserOrganizationRoleService</compoundname>
+    <derivedcompoundref refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl" prot="public" virt="non-virtual">com.gmp.auth.service.impl.UserOrganizationRoleServiceImpl</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1acc347f44e3eb10e36511dbd3f6dbf2ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>UserOrganizationRole</type>
+        <definition>UserOrganizationRole com.gmp.auth.service.UserOrganizationRoleService.assignRoleToUserInOrganization</definition>
+        <argsstring>(Long userId, Long organizationId, Long roleId, Long assignedBy, String assignmentReason, LocalDateTime effectiveUntil)</argsstring>
+        <name>assignRoleToUserInOrganization</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.assignRoleToUserInOrganization</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1ab93d83598ab8a7cba334aa21d341b751">assignRoleToUserInOrganization</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>roleId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>assignedBy</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>assignmentReason</declname>
+        </param>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>effectiveUntil</declname>
+        </param>
+        <briefdescription>
+<para>为用户分配组织角色 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>assignedBy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分配人ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>assignmentReason</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分配理由 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>effectiveUntil</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>有效期至 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>创建的关联实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="28" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a46fd1a634bd3a33b01d008750a810b97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.service.UserOrganizationRoleService.assignRolesToUserInOrganizations</definition>
+        <argsstring>(Long userId, Map&lt; Long, List&lt; Long &gt; &gt; orgRoleAssignments, Long assignedBy, String assignmentReason)</argsstring>
+        <name>assignRolesToUserInOrganizations</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.assignRolesToUserInOrganizations</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a7000ae3b474c9baba060e25e0e5797a0">assignRolesToUserInOrganizations</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Map&lt; Long, List&lt; Long &gt; &gt;</type>
+          <declname>orgRoleAssignments</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>assignedBy</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>assignmentReason</declname>
+        </param>
+        <briefdescription>
+<para>批量为用户分配组织角色 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>orgRoleAssignments</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织角色分配映射 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>assignedBy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分配人ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>assignmentReason</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分配理由 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>创建的关联实体列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="40" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1ac9a732bf9c8b88d1bc913eb149e2ef25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.UserOrganizationRoleService.removeRoleFromUserInOrganization</definition>
+        <argsstring>(Long userId, Long organizationId, Long roleId)</argsstring>
+        <name>removeRoleFromUserInOrganization</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.removeRoleFromUserInOrganization</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a85f5b7adfa1dc7db9f32809c4fdc60d5">removeRoleFromUserInOrganization</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>roleId</declname>
+        </param>
+        <briefdescription>
+<para>从组织中移除用户角色 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="51" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1ad287cae352ce02ebc76f6852e7c503cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.service.UserOrganizationRoleService.getUserOrganizationRoles</definition>
+        <argsstring>(Long userId)</argsstring>
+        <name>getUserOrganizationRoles</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.getUserOrganizationRoles</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a9c6e5d6abb9afe624dc8b0e9a5cca939">getUserOrganizationRoles</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <briefdescription>
+<para>获取用户在所有组织中的有效角色 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>用户组织角色关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="58" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1aa6d438de738c1c73789e771fbead224f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.service.UserOrganizationRoleService.getUserOrganizationRolesInOrganization</definition>
+        <argsstring>(Long userId, Long organizationId)</argsstring>
+        <name>getUserOrganizationRolesInOrganization</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.getUserOrganizationRolesInOrganization</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1acfe83417fb4e3d8e698f5d76083a96f2">getUserOrganizationRolesInOrganization</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <briefdescription>
+<para>获取用户在指定组织中的有效角色 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>用户组织角色关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="66" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1ab165c25e20c18b57027f495350d32bd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Set&lt; Long &gt;</type>
+        <definition>Set&lt; Long &gt; com.gmp.auth.service.UserOrganizationRoleService.getUserOrganizations</definition>
+        <argsstring>(Long userId)</argsstring>
+        <name>getUserOrganizations</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.getUserOrganizations</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a2eff66f96ac6508cbe0f0df77f771af9">getUserOrganizations</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <briefdescription>
+<para>获取用户拥有的所有组织 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>组织ID集合 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="73" column="9"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1ae9dffb499b9b812164cc6d74ecca1435" compoundref="AuthServiceImpl_8java" startline="501" endline="525">com.gmp.auth.service.impl.AuthServiceImpl.getSubsystemAccessLevel</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1ab7900e9ed85981250147701576c49caa" compoundref="AuthServiceImpl_8java" startline="652" endline="671">com.gmp.auth.service.impl.AuthServiceImpl.getUserAccessibleSubsystemCodes</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1a6042410abac3530382e8af11617ebafb" compoundref="AuthServiceImpl_8java" startline="412" endline="432">com.gmp.auth.service.impl.AuthServiceImpl.getUserRoles</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1af0c2c4c2487285de506cee22c4c64927" compoundref="AuthServiceImpl_8java" startline="351" endline="375">com.gmp.auth.service.impl.AuthServiceImpl.hasRole</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1a0ea1d22ff937164a5f60e30a3de60267" compoundref="AuthServiceImplTest_8java" startline="73" endline="107">com.gmp.auth.service.impl.AuthServiceImplTest.setUp</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1aef7049851f8b69213b925a3e0b9e2c89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Set&lt; String &gt;</type>
+        <definition>Set&lt; String &gt; com.gmp.auth.service.UserOrganizationRoleService.getUserRoleCodesInOrganization</definition>
+        <argsstring>(Long userId, Long organizationId)</argsstring>
+        <name>getUserRoleCodesInOrganization</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.getUserRoleCodesInOrganization</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a5b7c39d5d26c2bc89a3de2e644b3f678">getUserRoleCodesInOrganization</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <briefdescription>
+<para>获取用户在指定组织中的角色代码 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>角色代码集合 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="81" column="9"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1a6042410abac3530382e8af11617ebafb" compoundref="AuthServiceImpl_8java" startline="412" endline="432">com.gmp.auth.service.impl.AuthServiceImpl.getUserRoles</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1af0c2c4c2487285de506cee22c4c64927" compoundref="AuthServiceImpl_8java" startline="351" endline="375">com.gmp.auth.service.impl.AuthServiceImpl.hasRole</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1aae922e9ee392ec8efda1a3ddde2880b8" compoundref="AuthServiceImpl_8java" startline="102" endline="205">com.gmp.auth.service.impl.AuthServiceImpl.login</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1adcf32d42f5d9d8d1ebb26c7bc24a365b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Set&lt; String &gt;</type>
+        <definition>Set&lt; String &gt; com.gmp.auth.service.UserOrganizationRoleService.getUserPermissionCodesInOrganization</definition>
+        <argsstring>(Long userId, Long organizationId)</argsstring>
+        <name>getUserPermissionCodesInOrganization</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.getUserPermissionCodesInOrganization</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a9405d39e2032479771f12a75280fbb18">getUserPermissionCodesInOrganization</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <briefdescription>
+<para>获取用户在指定组织中的权限代码 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>权限代码集合 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="89" column="9"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1a6db708ae3f6c885179817619e1a25cdc" compoundref="AuthServiceImpl_8java" startline="394" endline="409">com.gmp.auth.service.impl.AuthServiceImpl.getUserPermissions</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a6b97f776e1060257862d6f4121bd168b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Set&lt; String &gt;</type>
+        <definition>Set&lt; String &gt; com.gmp.auth.service.UserOrganizationRoleService.getUserPermissionCodesAcrossOrganizations</definition>
+        <argsstring>(Long userId)</argsstring>
+        <name>getUserPermissionCodesAcrossOrganizations</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.getUserPermissionCodesAcrossOrganizations</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a8c31f354bd3ca238e34523119bd1b198">getUserPermissionCodesAcrossOrganizations</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <briefdescription>
+<para>获取用户在所有组织中的所有权限 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>权限代码集合 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="96" column="9"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1a6db708ae3f6c885179817619e1a25cdc" compoundref="AuthServiceImpl_8java" startline="394" endline="409">com.gmp.auth.service.impl.AuthServiceImpl.getUserPermissions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1ad226b79928213037bc766d5c3fc3bf56" compoundref="AuthServiceImpl_8java" startline="331" endline="348">com.gmp.auth.service.impl.AuthServiceImpl.hasPermission</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1a0ea1d22ff937164a5f60e30a3de60267" compoundref="AuthServiceImplTest_8java" startline="73" endline="107">com.gmp.auth.service.impl.AuthServiceImplTest.setUp</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1ac214abe487a1581d37fd2a6aca619e87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.service.UserOrganizationRoleService.hasRoleInOrganization</definition>
+        <argsstring>(Long userId, Long organizationId, String roleCode)</argsstring>
+        <name>hasRoleInOrganization</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.hasRoleInOrganization</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a4525e1d7011dcd9a09b13d81afe9642d">hasRoleInOrganization</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>roleCode</declname>
+        </param>
+        <briefdescription>
+<para>检查用户在指定组织中是否拥有特定角色 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roleCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色代码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否拥有该角色 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="105" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1abd24d9a4a730edf92f5ea17fe06d0208" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.service.UserOrganizationRoleService.hasPermissionInOrganization</definition>
+        <argsstring>(Long userId, Long organizationId, String permissionCode)</argsstring>
+        <name>hasPermissionInOrganization</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.hasPermissionInOrganization</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a99f3dd4c1684256e586d9059dc33e1c2">hasPermissionInOrganization</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>permissionCode</declname>
+        </param>
+        <briefdescription>
+<para>检查用户在指定组织中是否拥有特定权限 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>permissionCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限代码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否拥有该权限 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="114" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1aa0e4d604e0bd78a5e391211023457c2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>UserOrganizationRole</type>
+        <definition>UserOrganizationRole com.gmp.auth.service.UserOrganizationRoleService.updateStatus</definition>
+        <argsstring>(Long id, UserOrganizationRole.AssignmentStatus status, Long updatedBy)</argsstring>
+        <name>updateStatus</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.updateStatus</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1aae9ca572517034855033e0f8de4c1c02">updateStatus</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>UserOrganizationRole.AssignmentStatus</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>updatedBy</declname>
+        </param>
+        <briefdescription>
+<para>更新用户组织角色状态 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>关联ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>新状态 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>updatedBy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>更新人ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>更新后的关联实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="123" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a31669436a78a9d74f3364f7ddbdf2520" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>UserOrganizationRole</type>
+        <definition>UserOrganizationRole com.gmp.auth.service.UserOrganizationRoleService.approveAssignment</definition>
+        <argsstring>(Long id, boolean approved, Long approvedBy, String approvalNote)</argsstring>
+        <name>approveAssignment</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.approveAssignment</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a4acb590e9b7606d187e7e91b29da3448">approveAssignment</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>approved</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>approvedBy</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>approvalNote</declname>
+        </param>
+        <briefdescription>
+<para>审批用户组织角色分配 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>关联ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>approved</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>是否批准 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>approvedBy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>审批人ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>approvalNote</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>审批意见 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>更新后的关联实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="133" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a540cb8fa8f457fc0963b12d1472c3367" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.auth.service.UserOrganizationRoleService.refreshExpiredAssignments</definition>
+        <argsstring>()</argsstring>
+        <name>refreshExpiredAssignments</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.refreshExpiredAssignments</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1aa26a37c63502a848d240c603d86a6cbb">refreshExpiredAssignments</reimplementedby>
+        <briefdescription>
+<para>刷新过期的用户组织角色关联 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="138" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1ad777016da4e10cb708946f7f6b640115" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.service.UserOrganizationRoleService.getExpiringSoonAssignments</definition>
+        <argsstring>(int warningDays)</argsstring>
+        <name>getExpiringSoonAssignments</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.getExpiringSoonAssignments</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a2872292a4b0d42ce6db8b919d57d7b08">getExpiringSoonAssignments</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>warningDays</declname>
+        </param>
+        <briefdescription>
+<para>获取即将过期的用户组织角色关联 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>warningDays</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>预警天数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>即将过期的关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="145" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a2506585e7fd3cc1dba512a0b8b94cfd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.service.UserOrganizationRoleService.getOrganizationUserRoles</definition>
+        <argsstring>(Long organizationId)</argsstring>
+        <name>getOrganizationUserRoles</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.getOrganizationUserRoles</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1acd40191733c226f731a21636891ef8fc">getOrganizationUserRoles</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <briefdescription>
+<para>获取组织中的所有用户角色关联 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="152" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1afc3f7a5d4be22facc77141d42a665e5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.service.UserOrganizationRoleService.getRoleUserOrganizations</definition>
+        <argsstring>(Long roleId)</argsstring>
+        <name>getRoleUserOrganizations</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.getRoleUserOrganizations</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a286d33b1c9726fa6bb5bbe76eb746a00">getRoleUserOrganizations</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>roleId</declname>
+        </param>
+        <briefdescription>
+<para>获取拥有特定角色的所有用户组织关联 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="159" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a72ccf22fb8068406905c85fc87b79f76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.service.UserOrganizationRoleService.hasOrganizationAccess</definition>
+        <argsstring>(Long userId, Long organizationId)</argsstring>
+        <name>hasOrganizationAccess</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.hasOrganizationAccess</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1ac1e00fcabf580eabcb8f6044d39d5f08">hasOrganizationAccess</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <briefdescription>
+<para>检查用户是否有权限访问指定组织 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否有权限访问 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="167" column="13"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1ae9dffb499b9b812164cc6d74ecca1435" compoundref="AuthServiceImpl_8java" startline="501" endline="525">com.gmp.auth.service.impl.AuthServiceImpl.getSubsystemAccessLevel</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1ab7900e9ed85981250147701576c49caa" compoundref="AuthServiceImpl_8java" startline="652" endline="671">com.gmp.auth.service.impl.AuthServiceImpl.getUserAccessibleSubsystemCodes</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1a94108ca1fc26baecee6327089bc18e4b" compoundref="AuthServiceImpl_8java" startline="717" endline="720">com.gmp.auth.service.impl.AuthServiceImpl.hasOrganizationAccess</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1aae922e9ee392ec8efda1a3ddde2880b8" compoundref="AuthServiceImpl_8java" startline="102" endline="205">com.gmp.auth.service.impl.AuthServiceImpl.login</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1aa4a4fa21c6cd3a8aa2eac482e192ca3d" compoundref="AuthServiceImpl_8java" startline="232" endline="291">com.gmp.auth.service.impl.AuthServiceImpl.refreshToken</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a4a4eb16d9e051f8eb309061e86f02d18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; String &gt;</type>
+        <definition>List&lt; String &gt; com.gmp.auth.service.UserOrganizationRoleService.getUserAccessibleSubsystems</definition>
+        <argsstring>(Long userId, Long organizationId)</argsstring>
+        <name>getUserAccessibleSubsystems</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.getUserAccessibleSubsystems</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1a1a0778008ae7937d668fd506944db692">getUserAccessibleSubsystems</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <briefdescription>
+<para>获取用户可访问的子系统列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>子系统代码列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="175" column="10"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1ab7900e9ed85981250147701576c49caa" compoundref="AuthServiceImpl_8java" startline="652" endline="671">com.gmp.auth.service.impl.AuthServiceImpl.getUserAccessibleSubsystemCodes</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1af9bf3efb796e005aaa01bab6c73ddbb3" compoundref="AuthServiceImpl_8java" startline="579" endline="591">com.gmp.auth.service.impl.AuthServiceImpl.getUserAccessibleSubsystems</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a82f9c6a662c569655346296002e81ed4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Map&lt; String, Integer &gt;</type>
+        <definition>Map&lt; String, Integer &gt; com.gmp.auth.service.UserOrganizationRoleService.getUserSubsystemAccessLevels</definition>
+        <argsstring>(Long userId, Long organizationId)</argsstring>
+        <name>getUserSubsystemAccessLevels</name>
+        <qualifiedname>com.gmp.auth.service.UserOrganizationRoleService.getUserSubsystemAccessLevels</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl_1ad7e1286e5de833723bad5db9566a44a2">getUserSubsystemAccessLevels</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <briefdescription>
+<para>获取用户子系统访问级别 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>子系统访问级别映射 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="183" column="9"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1ae9dffb499b9b812164cc6d74ecca1435" compoundref="AuthServiceImpl_8java" startline="501" endline="525">com.gmp.auth.service.impl.AuthServiceImpl.getSubsystemAccessLevel</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1aa9454cb648b34bf082bceb7062c0f262" compoundref="AuthServiceImpl_8java" startline="595" endline="607">com.gmp.auth.service.impl.AuthServiceImpl.getUserSubsystemAccessLevels</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>用户组织角色关联服务接口 管理用户、组织、角色三者之间的关联关系 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>com.gmp.auth.service.UserOrganizationRoleService</label>
+        <link refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService"/>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.service.impl.UserOrganizationRoleServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserOrganizationRoleServiceImpl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" line="16" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/service/UserOrganizationRoleService.java" bodystart="16" bodyend="184"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a31669436a78a9d74f3364f7ddbdf2520" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>approveAssignment</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a46fd1a634bd3a33b01d008750a810b97" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>assignRolesToUserInOrganizations</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1acc347f44e3eb10e36511dbd3f6dbf2ac" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>assignRoleToUserInOrganization</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1ad777016da4e10cb708946f7f6b640115" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>getExpiringSoonAssignments</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a2506585e7fd3cc1dba512a0b8b94cfd0" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>getOrganizationUserRoles</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1afc3f7a5d4be22facc77141d42a665e5f" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>getRoleUserOrganizations</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a4a4eb16d9e051f8eb309061e86f02d18" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>getUserAccessibleSubsystems</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1ad287cae352ce02ebc76f6852e7c503cf" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>getUserOrganizationRoles</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1aa6d438de738c1c73789e771fbead224f" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>getUserOrganizationRolesInOrganization</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1ab165c25e20c18b57027f495350d32bd6" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>getUserOrganizations</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a6b97f776e1060257862d6f4121bd168b" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>getUserPermissionCodesAcrossOrganizations</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1adcf32d42f5d9d8d1ebb26c7bc24a365b" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>getUserPermissionCodesInOrganization</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1aef7049851f8b69213b925a3e0b9e2c89" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>getUserRoleCodesInOrganization</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a82f9c6a662c569655346296002e81ed4" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>getUserSubsystemAccessLevels</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a72ccf22fb8068406905c85fc87b79f76" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>hasOrganizationAccess</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1abd24d9a4a730edf92f5ea17fe06d0208" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>hasPermissionInOrganization</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1ac214abe487a1581d37fd2a6aca619e87" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>hasRoleInOrganization</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1a540cb8fa8f457fc0963b12d1472c3367" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>refreshExpiredAssignments</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1ac9a732bf9c8b88d1bc913eb149e2ef25" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>removeRoleFromUserInOrganization</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserOrganizationRoleService_1aa0e4d604e0bd78a5e391211023457c2a" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserOrganizationRoleService</scope><name>updateStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

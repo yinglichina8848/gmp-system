@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="EquipmentStatusRecordRepository_8java" kind="file" language="Java">
+    <compoundname>EquipmentStatusRecordRepository.java</compoundname>
+    <includes local="no">com.gmp.mes.entity.EquipmentStatusRecord</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/main/java/com/gmp/mes/repository/EquipmentStatusRecordRepository.java</label>
+        <link refid="EquipmentStatusRecordRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.mes.entity.EquipmentStatusRecord</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository" prot="public">com::gmp::mes::repository::EquipmentStatusRecordRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1mes_1_1repository">com::gmp::mes::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.mes.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.mes.entity.EquipmentStatusRecord;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="18" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository" kindref="compound">EquipmentStatusRecordRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/>JpaRepository&lt;EquipmentStatusRecord,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;EquipmentStatusRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a27dbb2d0b11ac195ae7cde014244611f" kindref="member">findByEquipmentCodeOrderByTimestampDesc</ref>(String<sp/>equipmentCode);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;EquipmentStatusRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a096ae50254d4a7f447b4f35efdffad5e" kindref="member">findByEquipmentCodeAndTimestampBetweenOrderByTimestampDesc</ref>(</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>equipmentCode,<sp/>LocalDateTime<sp/>startDate,<sp/>LocalDateTime<sp/>endDate);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>e<sp/>FROM<sp/>EquipmentStatusRecord<sp/>e<sp/>WHERE<sp/>e.equipmentCode<sp/>=<sp/>:code<sp/>ORDER<sp/>BY<sp/>e.timestamp<sp/>DESC<sp/>LIMIT<sp/>1&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>EquipmentStatusRecord<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a23cb2a77539328bdaa6dcb41e04b4058" kindref="member">findLatestByEquipmentCode</ref>(@Param(</highlight><highlight class="stringliteral">&quot;code&quot;</highlight><highlight class="normal">)<sp/>String<sp/>equipmentCode);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1af61515cf16b5b6445b4d1822843a7f86" kindref="member">countByStatus</ref>(EquipmentStatusRecord.EquipmentStatus<sp/>status);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@org.springframework.data.jpa.repository.Modifying</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a8de7c7b37d8135d5d77c55df9b99153e" kindref="member">deleteByTimestampBefore</ref>(LocalDateTime<sp/>date);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/main/java/com/gmp/mes/repository/EquipmentStatusRecordRepository.java"/>
+  </compounddef>
+</doxygen>

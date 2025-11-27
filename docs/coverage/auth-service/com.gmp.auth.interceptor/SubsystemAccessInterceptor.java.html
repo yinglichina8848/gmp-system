@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SubsystemAccessInterceptor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.interceptor</a> &gt; <span class="el_source">SubsystemAccessInterceptor.java</span></div><h1>SubsystemAccessInterceptor.java</h1><pre class="source lang-java linenums">package com.gmp.auth.interceptor;
+
+import com.gmp.auth.config.JwtConfig;
+import com.gmp.auth.dto.ApiResponse;
+import com.gmp.auth.service.AuthService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerInterceptor;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * 子系统访问权限控制拦截器
+ * 用于拦截API请求，验证用户对子系统的访问权限
+ *
+ * @author GMP系统开发团队
+ */
+@Component
+<span class="nc" id="L28">public class SubsystemAccessInterceptor implements HandlerInterceptor {</span>
+<span class="nc" id="L29">    private static final Logger log = LoggerFactory.getLogger(SubsystemAccessInterceptor.class);</span>
+
+    @Autowired
+    private JwtConfig jwtConfig;
+    
+    @Autowired
+    private AuthService authService;
+    
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    // 不需要验证的路径列表
+<span class="nc" id="L41">    private static final Set&lt;String&gt; EXCLUDED_PATHS = new HashSet&lt;&gt;(Arrays.asList(</span>
+            &quot;/api/auth/login&quot;,
+            &quot;/api/auth/logout&quot;,
+            &quot;/api/subsystems/check/&quot;,
+            &quot;/api/subsystems/accessible/&quot;,
+            &quot;/api/subsystems/access-levels/&quot;
+    ));
+
+    // 子系统代码映射表，用于从请求路径中提取子系统代码
+<span class="nc" id="L50">    private static final Set&lt;String&gt; SUBSYSTEM_PATHS = new HashSet&lt;&gt;(Arrays.asList(</span>
+            &quot;/api/subsystems/&quot;,
+            &quot;/api/users/&quot;,
+            &quot;/api/roles/&quot;,
+            &quot;/api/permissions/&quot;
+    ));
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+<span class="nc" id="L59">        String requestUri = request.getRequestURI();</span>
+<span class="nc" id="L60">        String method = request.getMethod();</span>
+        
+<span class="nc" id="L62">        log.debug(&quot;拦截请求: {} {}&quot;, method, requestUri);</span>
+        
+        // 检查是否需要排除拦截
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (shouldExclude(requestUri)) {</span>
+<span class="nc" id="L66">            log.debug(&quot;路径已排除拦截: {}&quot;, requestUri);</span>
+<span class="nc" id="L67">            return true;</span>
+        }
+        
+        // 从请求头获取令牌
+<span class="nc" id="L71">        String token = extractTokenFromHeader(request);</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        if (token == null) {</span>
+<span class="nc" id="L73">            log.warn(&quot;请求缺少令牌: {}&quot;, requestUri);</span>
+<span class="nc" id="L74">            sendErrorResponse(response, &quot;MISSING_TOKEN&quot;, &quot;缺少访问令牌&quot;);</span>
+<span class="nc" id="L75">            return false;</span>
+        }
+        
+        // 验证令牌
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (!jwtConfig.validateToken(token)) {</span>
+<span class="nc" id="L80">            log.warn(&quot;无效的令牌: {}&quot;, requestUri);</span>
+<span class="nc" id="L81">            sendErrorResponse(response, &quot;INVALID_TOKEN&quot;, &quot;无效的访问令牌&quot;);</span>
+<span class="nc" id="L82">            return false;</span>
+        }
+        
+        // 从令牌中提取用户名
+<span class="nc" id="L86">        String username = jwtConfig.extractUsername(token);</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        if (username == null) {</span>
+<span class="nc" id="L88">            log.warn(&quot;令牌中缺少用户名: {}&quot;, requestUri);</span>
+<span class="nc" id="L89">            sendErrorResponse(response, &quot;INVALID_TOKEN&quot;, &quot;令牌格式错误&quot;);</span>
+<span class="nc" id="L90">            return false;</span>
+        }
+        
+        // 确定请求对应的子系统代码
+<span class="nc" id="L94">        String subsystemCode = determineSubsystemCode(requestUri);</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (subsystemCode != null) {</span>
+            // 检查用户对子系统的访问权限
+<span class="nc bnc" id="L97" title="All 2 branches missed.">            if (!authService.hasSubsystemAccess(username, subsystemCode)) {</span>
+<span class="nc" id="L98">                log.warn(&quot;用户[{}]无权访问子系统[{}]: {}&quot;, username, subsystemCode, requestUri);</span>
+<span class="nc" id="L99">                sendErrorResponse(response, &quot;ACCESS_DENIED&quot;, &quot;无权访问该子系统&quot;);</span>
+<span class="nc" id="L100">                return false;</span>
+            }
+            
+            // 对于需要写入权限的操作，检查是否有写入权限
+<span class="nc bnc" id="L104" title="All 4 branches missed.">            if (isWriteOperation(method) &amp;&amp; !authService.hasSubsystemWriteAccess(username, subsystemCode)) {</span>
+<span class="nc" id="L105">                log.warn(&quot;用户[{}]对子系统[{}]无写入权限: {}&quot;, username, subsystemCode, requestUri);</span>
+<span class="nc" id="L106">                sendErrorResponse(response, &quot;WRITE_ACCESS_DENIED&quot;, &quot;对子系统无写入权限&quot;);</span>
+<span class="nc" id="L107">                return false;</span>
+            }
+            
+<span class="nc" id="L110">            log.debug(&quot;用户[{}]对子系统[{}]的访问权限验证通过&quot;, username, subsystemCode);</span>
+        }
+        
+<span class="nc" id="L113">        return true;</span>
+    }
+
+    /**
+     * 检查路径是否应该被排除在拦截之外
+     */
+    private boolean shouldExclude(String requestUri) {
+        // 排除认证相关的公开API
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        for (String excludedPath : EXCLUDED_PATHS) {</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">            if (requestUri.startsWith(excludedPath)) {</span>
+<span class="nc" id="L123">                return true;</span>
+            }
+<span class="nc" id="L125">        }</span>
+        
+        // 排除OPTIONS请求（CORS预检）
+<span class="nc bnc" id="L128" title="All 4 branches missed.">        return requestUri.contains(&quot;/swagger-ui/&quot;) || requestUri.contains(&quot;/v3/api-docs&quot;);</span>
+    }
+
+    /**
+     * 从请求头中提取令牌
+     */
+    private String extractTokenFromHeader(HttpServletRequest request) {
+<span class="nc" id="L135">        String bearerToken = request.getHeader(&quot;Authorization&quot;);</span>
+<span class="nc bnc" id="L136" title="All 4 branches missed.">        if (bearerToken != null &amp;&amp; bearerToken.startsWith(&quot;Bearer &quot;)) {</span>
+<span class="nc" id="L137">            return bearerToken.substring(7);</span>
+        }
+<span class="nc" id="L139">        return null;</span>
+    }
+
+    /**
+     * 根据请求路径确定对应的子系统代码
+     */
+    private String determineSubsystemCode(String requestUri) {
+        // 这里实现一个简单的映射逻辑
+        // 实际应用中可能需要更复杂的映射规则或配置
+<span class="nc bnc" id="L148" title="All 2 branches missed.">        if (requestUri.startsWith(&quot;/api/subsystems/&quot;)) {</span>
+<span class="nc" id="L149">            return &quot;AUTH&quot;;</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">        } else if (requestUri.startsWith(&quot;/api/users/&quot;)) {</span>
+<span class="nc" id="L151">            return &quot;USER_MANAGEMENT&quot;;</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">        } else if (requestUri.startsWith(&quot;/api/roles/&quot;)) {</span>
+<span class="nc" id="L153">            return &quot;ROLE_MANAGEMENT&quot;;</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        } else if (requestUri.startsWith(&quot;/api/permissions/&quot;)) {</span>
+<span class="nc" id="L155">            return &quot;PERMISSION_MANAGEMENT&quot;;</span>
+        }
+        
+        // 尝试从请求参数中获取子系统代码
+        // 例如: ?subsystemCode=ERP
+<span class="nc" id="L160">        return null;</span>
+    }
+
+    /**
+     * 判断是否为写入操作
+     */
+    private boolean isWriteOperation(String method) {
+<span class="nc bnc" id="L167" title="All 6 branches missed.">        return method.equals(&quot;POST&quot;) || method.equals(&quot;PUT&quot;) || method.equals(&quot;DELETE&quot;);</span>
+    }
+
+    /**
+     * 发送错误响应
+     */
+    private void sendErrorResponse(HttpServletResponse response, String errorCode, String errorMessage) throws IOException {
+<span class="nc" id="L174">        response.setContentType(&quot;application/json&quot;);</span>
+<span class="nc" id="L175">        response.setStatus(HttpServletResponse.SC_FORBIDDEN);</span>
+        
+<span class="nc" id="L177">        ApiResponse&lt;?&gt; apiResponse = ApiResponse.error(errorCode, errorMessage);</span>
+<span class="nc" id="L178">        response.getWriter().write(objectMapper.writeValueAsString(apiResponse));</span>
+<span class="nc" id="L179">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

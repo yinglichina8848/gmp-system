@@ -1,0 +1,22 @@
+var classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService =
+[
+    [ "createBatchOperation", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#a67133f7bce7050d0b40b6ea483b2c609", null ],
+    [ "getBatchOperationById", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#a63d7b00c5a65771da13c56cb7d995884", null ],
+    [ "getBatchOperationByNumber", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#ad50be367507ee1debae5521bb492e7ba", null ],
+    [ "getBatchOperationsByBatchId", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#a1073e0955e634a9c9d664417e3c50023", null ],
+    [ "getBatchOperationsByType", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#ab330a44ccfb4a661be5ce4005f2d1a5b", null ],
+    [ "updateBatchOperation", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#acbc4990e099f9b2c302378313e15655f", null ],
+    [ "startBatchOperation", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#a3d5b7fd23ca0356cd14ecb8ef5b611ed", null ],
+    [ "startBatchOperation", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#ade8ebc269e7676a2e7c9354a56705424", null ],
+    [ "completeBatchOperation", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#adf681c11237dfdb57e7b4adc74cc256e", null ],
+    [ "cancelBatchOperation", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#a286618a5d7b6a6b972e1b213ec3ed890", null ],
+    [ "failBatchOperation", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#a12f9d71687252b246c0388a6920de0f5", null ],
+    [ "deleteBatchOperation", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#abb2e2539f8a4096b2bab73991370b89a", null ],
+    [ "getBatchOperationByOperationNumber", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#aad3919aa937bac99ae8b3642facb0211", null ],
+    [ "markBatchOperationFailed", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#a5325ef2daffc168855cf96aed46c4c44", null ],
+    [ "findBatchOperationsByStatus", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#a122d85d55b7e6b149ccff649b962a49f", null ],
+    [ "getAllBatchOperations", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#a0c04be3369604bb83b848d4d9fcb20b4", null ],
+    [ "generateOperationNumber", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#ac7b3719c47ecdc990b1f55a5b7acd2e4", null ],
+    [ "updateOperationParameters", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#a6c7b5cccc5ef2ecd7e34561d0349a2db", null ],
+    [ "addOperationRemark", "classcom_1_1gmp_1_1mes_1_1service_1_1BatchOperationService.html#a3d44587e73a318ebf9082585559b5a0b", null ]
+];

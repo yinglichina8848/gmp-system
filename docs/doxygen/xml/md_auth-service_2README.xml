@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_auth-service_2README" kind="page">
+    <compoundname>md_auth-service_2README</compoundname>
+    <title>GMP认证系统测试与初始化文档</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">1. 系统概述</heading>
+</para>
+<para>本模块提供GMP系统认证功能的初始化和测试脚本，支持组织结构定义、角色权限创建、用户初始化以及完整的认证测试流程。系统采用Spring Boot框架开发，集成在应用启动流程中，可通过配置灵活控制初始化和测试行为。</para>
+<para><heading level="1">2. 主要组件</heading>
+</para>
+<para><heading level="2">2.1 初始化组件</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>OrganizationStructureInitializer</bold>: 组织结构初始化器<itemizedlist>
+<listitem><para>负责创建公司、部门、团队等组织单元</para>
+</listitem><listitem><para>支持树状组织结构和层级关系</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><bold>RolePermissionInitializer</bold>: 角色和权限初始化器<itemizedlist>
+<listitem><para>创建系统预设角色（系统管理员、GMP管理员等13个角色）</para>
+</listitem><listitem><para>定义功能权限（9个功能模块）</para>
+</listitem><listitem><para>建立角色-权限关联关系</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><bold>UserInitializer</bold>: 用户初始化器<itemizedlist>
+<listitem><para>创建测试用户（15个不同类型用户）</para>
+</listitem><listitem><para>建立用户-角色关联</para>
+</listitem><listitem><para>建立用户-组织角色关联</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><bold>AuthSystemApplicationInitializer</bold>: 应用启动初始化器<itemizedlist>
+<listitem><para>在Spring Boot应用启动时协调执行各初始化器</para>
+</listitem><listitem><para>根据配置控制初始化行为</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">2.2 测试组件</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>AuthSystemTestScript</bold>: 认证系统测试脚本<itemizedlist>
+<listitem><para>提供组织结构验证测试</para>
+</listitem><listitem><para>实现角色权限测试</para>
+</listitem><listitem><para>支持用户登录测试</para>
+</listitem><listitem><para>执行权限差异验证</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><bold>AuthSystemCommandLineRunner</bold>: 命令行运行器<itemizedlist>
+<listitem><para>提供独立命令行测试入口</para>
+</listitem><listitem><para>支持参数化控制初始化和测试</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><bold>AuthTestErrorHandler</bold>: 错误处理器<itemizedlist>
+<listitem><para>统一的异常处理机制</para>
+</listitem><listitem><para>支持错误重试和报告生成</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><bold>AuthSystemTestExecutor</bold>: 测试执行器<itemizedlist>
+<listitem><para>整合测试和错误处理</para>
+</listitem><listitem><para>提供统一的测试执行环境</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">2.3 配置组件</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>AuthSystemConfig</bold>: 认证系统配置<itemizedlist>
+<listitem><para>集中管理初始化和测试配置</para>
+</listitem><listitem><para>支持灵活的配置选项</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">3. 配置说明</heading>
+</para>
+<para><heading level="2">3.1 核心配置属性</heading>
+</para>
+<para>在 <computeroutput>application.properties</computeroutput> 或 <computeroutput>application.yml</computeroutput> 中添加以下配置：</para>
+<para><programlisting filename=".yaml"><codeline><highlight class="normal">#<sp/>认证系统初始化配置</highlight></codeline>
+<codeline><highlight class="normal">gmp:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>auth:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>initialization:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>enabled:<sp/>false<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>是否启用自动初始化</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>fail-fast:<sp/>true<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>初始化失败时是否中断应用启动</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>run-tests:<sp/>false<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>初始化后是否运行测试</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>skip-existing:<sp/>true<sp/><sp/><sp/><sp/><sp/>#<sp/>是否跳过已存在的数据</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>timeout:<sp/>5m<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>初始化超时时间</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>batch-size:<sp/>100<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>批处理大小</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>test:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>enabled:<sp/>false<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>是否启用测试模式</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>user-prefix:<sp/>&quot;test_&quot;<sp/><sp/><sp/><sp/>#<sp/>测试用户名前缀</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data-expiry-hours:<sp/>24<sp/><sp/><sp/>#<sp/>测试数据过期时间（小时）</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>auto-cleanup:<sp/>true<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>是否自动清理测试数据</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">3.2 启用初始化的方法</heading>
+</para>
+<para><heading level="3">方法1: 通过配置文件启用</heading>
+</para>
+<para>在 <computeroutput>application.properties</computeroutput> 中设置： <programlisting filename=".properties"><codeline><highlight class="normal">gmp.auth.initialization.enabled=true</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">方法2: 通过环境变量启用</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">export<sp/>GMP_AUTH_INITIALIZATION_ENABLED=true</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">方法3: 通过命令行参数启用</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">java<sp/>-jar<sp/>auth-service.jar<sp/>--gmp.auth.initialization.enabled=true</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">4. 使用方法</heading>
+</para>
+<para><heading level="2">4.1 作为应用启动的一部分运行</heading>
+</para>
+<para><orderedlist>
+<listitem><para>配置启用初始化: <computeroutput>gmp.auth.initialization.enabled=true</computeroutput></para>
+</listitem><listitem><para>启动应用，初始化过程将在应用启动时自动执行</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="2">4.2 使用命令行运行器运行</heading>
+</para>
+<para><orderedlist>
+<listitem><para>构建应用: <computeroutput>mvn clean package</computeroutput></para>
+</listitem><listitem><para>使用命令行运行器执行:</para>
+</listitem></orderedlist>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>运行并执行初始化</highlight></codeline>
+<codeline><highlight class="normal">java<sp/>-jar<sp/>auth-service.jar<sp/>--command-line-runner=auth<sp/>--reinitialize</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>跳过初始化，只运行测试</highlight></codeline>
+<codeline><highlight class="normal">java<sp/>-jar<sp/>auth-service.jar<sp/>--command-line-runner=auth<sp/>--skip-initialization<sp/>--run-tests</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>运行特定测试</highlight></codeline>
+<codeline><highlight class="normal">java<sp/>-jar<sp/>auth-service.jar<sp/>--command-line-runner=auth<sp/>--skip-initialization<sp/>--test=organization,role</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">4.3 测试用户信息</heading>
+</para>
+<para>系统初始化后创建以下测试用户：</para>
+<para><table rows="16" cols="4"><row>
+<entry thead="yes"><para>用户名   </para>
+</entry><entry thead="yes"><para>密码   </para>
+</entry><entry thead="yes"><para>角色   </para>
+</entry><entry thead="yes"><para>所属组织    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>admin   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>系统管理员   </para>
+</entry><entry thead="no"><para>公司总部    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>gmp_admin   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>GMP管理员   </para>
+</entry><entry thead="no"><para>质量管理部    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>prod_manager   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>生产经理   </para>
+</entry><entry thead="no"><para>生产部    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>quality_manager   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>质量经理   </para>
+</entry><entry thead="no"><para>质量管理部    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>warehouse_manager   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>仓库经理   </para>
+</entry><entry thead="no"><para>仓储部    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>procurement_manager   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>采购经理   </para>
+</entry><entry thead="no"><para>采购部    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>hr_manager   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>人力资源经理   </para>
+</entry><entry thead="no"><para>人力资源部    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>it_manager   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>IT管理员   </para>
+</entry><entry thead="no"><para>IT部门    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>prod_supervisor   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>生产主管   </para>
+</entry><entry thead="no"><para>生产一部    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>quality_inspector   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>质量检验员   </para>
+</entry><entry thead="no"><para>质量检验组    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>warehouse_worker   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>仓库管理员   </para>
+</entry><entry thead="no"><para>原材料库    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>procurement_specialist   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>采购专员   </para>
+</entry><entry thead="no"><para>采购部    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>hr_staff   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>人力资源专员   </para>
+</entry><entry thead="no"><para>人力资源部    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>it_support   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>IT支持   </para>
+</entry><entry thead="no"><para>IT部门    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>general_user   </para>
+</entry><entry thead="no"><para>123456   </para>
+</entry><entry thead="no"><para>普通用户   </para>
+</entry><entry thead="no"><para>综合管理部   </para>
+</entry></row>
+</table>
+</para>
+<para><heading level="1">5. 组织结构说明</heading>
+</para>
+<para>初始化的组织结构包括：</para>
+<para><itemizedlist>
+<listitem><para>公司总部（公司级）<itemizedlist>
+<listitem><para>生产部（部门级）<itemizedlist>
+<listitem><para>生产一部（团队级）</para>
+</listitem><listitem><para>生产二部（团队级）</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>质量管理部（部门级）<itemizedlist>
+<listitem><para>质量检验组（团队级）</para>
+</listitem><listitem><para>验证组（团队级）</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>仓储部（部门级）<itemizedlist>
+<listitem><para>原材料库（团队级）</para>
+</listitem><listitem><para>成品库（团队级）</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>采购部（部门级）</para>
+</listitem><listitem><para>人力资源部（部门级）</para>
+</listitem><listitem><para>IT部门（部门级）</para>
+</listitem><listitem><para>综合管理部（部门级）</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">6. 角色和权限说明</heading>
+</para>
+<para><heading level="2">6.1 预设角色</heading>
+</para>
+<para><orderedlist>
+<listitem><para><bold>系统管理员</bold> - 具有系统所有权限</para>
+</listitem><listitem><para><bold>GMP管理员</bold> - 具有GMP相关所有权限</para>
+</listitem><listitem><para><bold>生产经理</bold> - 生产管理权限</para>
+</listitem><listitem><para><bold>质量经理</bold> - 质量管理权限</para>
+</listitem><listitem><para><bold>仓库经理</bold> - 仓储管理权限</para>
+</listitem><listitem><para><bold>采购经理</bold> - 采购管理权限</para>
+</listitem><listitem><para><bold>人力资源经理</bold> - 人力资源管理权限</para>
+</listitem><listitem><para><bold>IT管理员</bold> - IT系统管理权限</para>
+</listitem><listitem><para><bold>生产主管</bold> - 生产执行权限</para>
+</listitem><listitem><para><bold>质量检验员</bold> - 质量检验权限</para>
+</listitem><listitem><para><bold>仓库管理员</bold> - 仓库操作权限</para>
+</listitem><listitem><para><bold>采购专员</bold> - 采购执行权限</para>
+</listitem><listitem><para><bold>普通用户</bold> - 基础访问权限</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="2">6.2 权限模块</heading>
+</para>
+<para><orderedlist>
+<listitem><para><bold>用户管理</bold> - 用户增删改查、密码重置等</para>
+</listitem><listitem><para><bold>角色管理</bold> - 角色创建、权限分配等</para>
+</listitem><listitem><para><bold>组织管理</bold> - 组织结构维护等</para>
+</listitem><listitem><para><bold>GMP文档管理</bold> - GMP文档的访问和操作</para>
+</listitem><listitem><para><bold>生产管理</bold> - 生产计划、执行、记录等</para>
+</listitem><listitem><para><bold>质量管理</bold> - 检验、审核、偏差管理等</para>
+</listitem><listitem><para><bold>仓库管理</bold> - 库存管理、出入库操作等</para>
+</listitem><listitem><para><bold>采购管理</bold> - 供应商管理、采购订单等</para>
+</listitem><listitem><para><bold>系统配置</bold> - 系统参数配置等</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">7. 错误处理和日志</heading>
+</para>
+<para><heading level="2">7.1 错误类型</heading>
+</para>
+<para>系统处理以下几类错误：</para>
+<para><itemizedlist>
+<listitem><para><bold>初始化错误</bold> - 组织结构、角色、用户初始化过程中的错误</para>
+</listitem><listitem><para><bold>数据库错误</bold> - 数据库操作相关错误</para>
+</listitem><listitem><para><bold>认证错误</bold> - 用户认证和权限检查错误</para>
+</listitem><listitem><para><bold>配置错误</bold> - 配置参数不正确导致的错误</para>
+</listitem><listitem><para><bold>业务错误</bold> - 业务逻辑验证失败</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">7.2 日志配置</heading>
+</para>
+<para>初始化和测试过程会生成详细日志，配置在 <computeroutput>logback-spring.xml</computeroutput> 中：</para>
+<para><programlisting filename=".xml"><codeline><highlight class="normal">&lt;</highlight><highlight class="keywordtype">logger</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">name</highlight><highlight class="normal">=</highlight><highlight class="stringliteral">&quot;com.gmp.auth.init&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">level</highlight><highlight class="normal">=</highlight><highlight class="stringliteral">&quot;INFO&quot;</highlight><highlight class="normal">/&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;</highlight><highlight class="keywordtype">logger</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">name</highlight><highlight class="normal">=</highlight><highlight class="stringliteral">&quot;com.gmp.auth.test&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">level</highlight><highlight class="normal">=</highlight><highlight class="stringliteral">&quot;INFO&quot;</highlight><highlight class="normal">/&gt;</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">8. 性能优化建议</heading>
+</para>
+<para><orderedlist>
+<listitem><para><bold>批量操作</bold> - 使用批处理模式提高初始化效率</para>
+</listitem><listitem><para><bold>跳过现有数据</bold> - 在生产环境中启用 <computeroutput>skip-existing</computeroutput> 避免重复初始化</para>
+</listitem><listitem><para><bold>禁用测试</bold> - 在生产环境中禁用测试模式</para>
+</listitem><listitem><para><bold>合理设置超时</bold> - 根据数据量调整初始化超时时间</para>
+</listitem><listitem><para><bold>监控初始化过程</bold> - 通过日志监控初始化进度和性能</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">9. 最佳实践</heading>
+</para>
+<para><heading level="2">9.1 开发环境</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>启用自动初始化和测试</para>
+</listitem><listitem><para>使用预设的测试用户进行功能测试</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">9.2 测试环境</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>定期重新初始化测试数据</para>
+</listitem><listitem><para>完整运行测试套件验证系统完整性</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">9.3 生产环境</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>首次部署时启用初始化</para>
+</listitem><listitem><para>后续更新时禁用初始化</para>
+</listitem><listitem><para>避免在生产环境运行测试</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">10. 常见问题</heading>
+</para>
+<para><heading level="2">10.1 初始化失败</heading>
+</para>
+<para>**症状**：应用启动时初始化失败</para>
+<para>**解决方案**：<itemizedlist>
+<listitem><para>检查数据库连接是否正常</para>
+</listitem><listitem><para>查看日志中的详细错误信息</para>
+</listitem><listitem><para>如非关键错误，可设置 <computeroutput>fail-fast=false</computeroutput> 允许应用继续启动</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">10.2 测试用户无法登录</heading>
+</para>
+<para>**症状**：使用预设密码无法登录</para>
+<para>**解决方案**：<itemizedlist>
+<listitem><para>确认初始化是否成功执行</para>
+</listitem><listitem><para>检查密码加密方式是否正确</para>
+</listitem><listitem><para>尝试重置密码</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">10.3 权限不正确</heading>
+</para>
+<para>**症状**：用户拥有的权限与预期不符</para>
+<para>**解决方案**：<itemizedlist>
+<listitem><para>重新运行初始化，清除现有数据</para>
+</listitem><listitem><para>检查角色-权限映射配置</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">11. 更新日志</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>1.0.0</bold> - 初始版本，支持组织结构、角色权限和用户的初始化和测试</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+<para><emphasis>本文档由GMP系统认证模块自动生成，最后更新时间：${current.date}</emphasis> </para>
+    </detaileddescription>
+    <location file="auth-service/README.md"/>
+  </compounddef>
+</doxygen>

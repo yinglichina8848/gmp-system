@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="zh">
+  <compounddef id="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::equipment::repository::MaintenanceRecordRepository</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">JpaRepository&lt; MaintenanceRecord, Long &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">JpaSpecificationExecutor&lt; MaintenanceRecord &gt;</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1adc4d7e6a3e5c98f8528ff91a8b892699" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenanceRecord &gt;</type>
+        <definition>List&lt; MaintenanceRecord &gt; com.gmp.equipment.repository.MaintenanceRecordRepository.findByEquipmentId</definition>
+        <argsstring>(Long equipmentId)</argsstring>
+        <name>findByEquipmentId</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenanceRecordRepository.findByEquipmentId</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>equipmentId</declname>
+        </param>
+        <briefdescription>
+<para>根据设备ID查询维护记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java" line="30" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1a3845e50626a1f79201a722db1e397d02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenanceRecord &gt;</type>
+        <definition>List&lt; MaintenanceRecord &gt; com.gmp.equipment.repository.MaintenanceRecordRepository.findByEquipmentIdAndMaintenanceStartTimeBetween</definition>
+        <argsstring>(Long equipmentId, Date startDate, Date endDate)</argsstring>
+        <name>findByEquipmentIdAndMaintenanceStartTimeBetween</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenanceRecordRepository.findByEquipmentIdAndMaintenanceStartTimeBetween</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>equipmentId</declname>
+        </param>
+        <param>
+          <type>Date</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>Date</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+<para>根据设备ID和维护时间范围查询维护记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java" line="76" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1af5b9e0e5074e2690e1cf8fd1633cb342" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenanceRecord &gt;</type>
+        <definition>List&lt; MaintenanceRecord &gt; com.gmp.equipment.repository.MaintenanceRecordRepository.findByEquipmentIdAndMaintenanceType</definition>
+        <argsstring>(Long equipmentId, String maintenanceType)</argsstring>
+        <name>findByEquipmentIdAndMaintenanceType</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenanceRecordRepository.findByEquipmentIdAndMaintenanceType</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>equipmentId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>maintenanceType</declname>
+        </param>
+        <briefdescription>
+<para>根据设备ID和维护类型查询维护记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maintenanceType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>维护类型 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java" line="67" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1afb79deef0c393740e2df472733f7ffe8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenanceRecord &gt;</type>
+        <definition>List&lt; MaintenanceRecord &gt; com.gmp.equipment.repository.MaintenanceRecordRepository.findByMaintenancePerson</definition>
+        <argsstring>(String maintenancePerson)</argsstring>
+        <name>findByMaintenancePerson</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenanceRecordRepository.findByMaintenancePerson</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>maintenancePerson</declname>
+        </param>
+        <briefdescription>
+<para>根据维护人员查询维护记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maintenancePerson</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>维护人员 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java" line="51" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1a0d9d18b3c7fddcd7458415f679d4e4e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenanceRecord &gt;</type>
+        <definition>List&lt; MaintenanceRecord &gt; com.gmp.equipment.repository.MaintenanceRecordRepository.findByMaintenancePlanId</definition>
+        <argsstring>(Long maintenancePlanId)</argsstring>
+        <name>findByMaintenancePlanId</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenanceRecordRepository.findByMaintenancePlanId</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>maintenancePlanId</declname>
+        </param>
+        <briefdescription>
+<para>根据维护计划ID查询维护记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maintenancePlanId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>维护计划ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java" line="23" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1ac82aca235ac2bc306899bf96cd7adcb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenanceRecord &gt;</type>
+        <definition>List&lt; MaintenanceRecord &gt; com.gmp.equipment.repository.MaintenanceRecordRepository.findByMaintenanceStartTimeBetween</definition>
+        <argsstring>(Date startDate, Date endDate)</argsstring>
+        <name>findByMaintenanceStartTimeBetween</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenanceRecordRepository.findByMaintenanceStartTimeBetween</qualifiedname>
+        <param>
+          <type>Date</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>Date</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+<para>根据维护开始时间范围查询维护记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java" line="59" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1aa53f1f1595b69f88b8d0ac34cf549448" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; MaintenanceRecord &gt;</type>
+        <definition>List&lt; MaintenanceRecord &gt; com.gmp.equipment.repository.MaintenanceRecordRepository.findByMaintenanceType</definition>
+        <argsstring>(String maintenanceType)</argsstring>
+        <name>findByMaintenanceType</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenanceRecordRepository.findByMaintenanceType</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>maintenanceType</declname>
+        </param>
+        <briefdescription>
+<para>根据维护类型查询维护记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maintenanceType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>维护类型 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>维护记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java" line="44" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1acddc71d7c6fecd07532495525c5eacb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>MaintenanceRecord</type>
+        <definition>MaintenanceRecord com.gmp.equipment.repository.MaintenanceRecordRepository.findFirstByEquipmentIdOrderByMaintenanceEndTimeDesc</definition>
+        <argsstring>(Long equipmentId)</argsstring>
+        <name>findFirstByEquipmentIdOrderByMaintenanceEndTimeDesc</name>
+        <qualifiedname>com.gmp.equipment.repository.MaintenanceRecordRepository.findFirstByEquipmentIdOrderByMaintenanceEndTimeDesc</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>equipmentId</declname>
+        </param>
+        <briefdescription>
+<para>根据设备ID查询最新的维护记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>最新的维护记录 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java" line="37" column="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>设备维护记录仓库接口 提供维护记录相关的数据访问方法 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JpaRepository&lt; MaintenanceRecord, Long &gt;</label>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; MaintenanceRecord &gt;</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.equipment.repository.MaintenanceRecordRepository</label>
+        <link refid="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JpaRepository&lt; MaintenanceRecord, Long &gt;</label>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; MaintenanceRecord &gt;</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.equipment.repository.MaintenanceRecordRepository</label>
+        <link refid="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java" line="16" column="18" bodyfile="src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java" bodystart="16" bodyend="77"/>
+    <listofallmembers>
+      <member refid="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1adc4d7e6a3e5c98f8528ff91a8b892699" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenanceRecordRepository</scope><name>findByEquipmentId</name></member>
+      <member refid="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1a3845e50626a1f79201a722db1e397d02" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenanceRecordRepository</scope><name>findByEquipmentIdAndMaintenanceStartTimeBetween</name></member>
+      <member refid="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1af5b9e0e5074e2690e1cf8fd1633cb342" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenanceRecordRepository</scope><name>findByEquipmentIdAndMaintenanceType</name></member>
+      <member refid="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1afb79deef0c393740e2df472733f7ffe8" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenanceRecordRepository</scope><name>findByMaintenancePerson</name></member>
+      <member refid="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1a0d9d18b3c7fddcd7458415f679d4e4e8" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenanceRecordRepository</scope><name>findByMaintenancePlanId</name></member>
+      <member refid="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1ac82aca235ac2bc306899bf96cd7adcb5" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenanceRecordRepository</scope><name>findByMaintenanceStartTimeBetween</name></member>
+      <member refid="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1aa53f1f1595b69f88b8d0ac34cf549448" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenanceRecordRepository</scope><name>findByMaintenanceType</name></member>
+      <member refid="d8/d72/interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1acddc71d7c6fecd07532495525c5eacb3" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::MaintenanceRecordRepository</scope><name>findFirstByEquipmentIdOrderByMaintenanceEndTimeDesc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

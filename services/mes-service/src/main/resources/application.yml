@@ -1,0 +1,89 @@
+spring:
+  application:
+    name: mes-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gmp-system
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: false
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    timeout: 60000
+    password: ${REDIS_PASSWORD:}
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://auth-service:8080/oauth2/jwks
+          issuer-uri: http://auth-service:8080
+
+server:
+  port: 8082
+  servlet:
+    context-path: /mes
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.gmp.mes: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Redis缓存配置
+cache:
+  redis:
+    time-to-live: 300000  # 5分钟过期
+    cache-null-values: false
+
+# 设备监控配置
+equipment:
+  monitor:
+    check-interval: 30000  # 检查间隔，单位毫秒
+    alert-threshold:
+      temperature: 80.0
+      pressure: 10.0
+      humidity: 70.0
+      vibration: 5.0
+
+# 生产批次配置
+production:
+  batch:
+    max-batch-size: 1000
+    default-priority: MEDIUM
+    max-retries: 3
+
+# 操作日志配置
+operation:
+  log:
+    enabled: true
+    retention-days: 90
+
+# MCP 配置
+mcp:
+  enabled: true
+  server:
+    host: localhost
+    port: 8085
+  client:
+    timeout: 30000
+  cache:
+    enabled: true
+    ttl: 300000

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="RoleRepository_8java" kind="file" language="Java">
+    <compoundname>RoleRepository.java</compoundname>
+    <includes local="no">com.gmp.auth.entity.Role</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java</label>
+        <link refid="RoleRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.entity.Role</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository" prot="public">com::gmp::auth::repository::RoleRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1repository">com::gmp::auth::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.auth.entity.Role;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="18" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository" kindref="compound">RoleRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Role,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a9ea2a8c78570444587d8b1245818a7e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Role&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a9ea2a8c78570444587d8b1245818a7e9" kindref="member">findByRoleCode</ref>(String<sp/>roleCode);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a4dc33de8f9a10802cab7de489f809f6b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Role&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a4dc33de8f9a10802cab7de489f809f6b" kindref="member">findByIsActiveTrue</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1afe9950fbe898b38af6250f115aa1bb48" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Role&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1afe9950fbe898b38af6250f115aa1bb48" kindref="member">findByIsBuiltinTrue</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a81121b31275b6a66cd93abcbe9eec53a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Role&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a81121b31275b6a66cd93abcbe9eec53a" kindref="member">findByOrderByPriorityDesc</ref>();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>r<sp/>FROM<sp/>Role<sp/>r<sp/>WHERE<sp/>LOWER(r.roleName)<sp/>LIKE<sp/>LOWER(CONCAT(&apos;%&apos;,<sp/>:keyword,<sp/>&apos;%&apos;))<sp/>OR<sp/>&quot;</highlight><highlight class="normal"><sp/>+</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;LOWER(r.roleCode)<sp/>LIKE<sp/>LOWER(CONCAT(&apos;%&apos;,<sp/>:keyword,<sp/>&apos;%&apos;))&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="45" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a705cf62ec3d815d6ac67f589723f823b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Role&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a705cf62ec3d815d6ac67f589723f823b" kindref="member">searchRoles</ref>(@Param(&quot;keyword&quot;)<sp/>String<sp/>keyword);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1abc5b0ddb421ca3fb8b578fb3c50ec1ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1abc5b0ddb421ca3fb8b578fb3c50ec1ba" kindref="member">existsByRoleCode</ref>(String<sp/>roleCode);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>r<sp/>FROM<sp/>Role<sp/>r<sp/>JOIN<sp/>UserRole<sp/>ur<sp/>ON<sp/>r.</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>ur.roleId<sp/>WHERE<sp/>ur.userId<sp/>=<sp/>:userId<sp/>AND<sp/>ur.isActive<sp/>=<sp/>true&quot;)</highlight></codeline>
+<codeline lineno="56" refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a0788ef5638be6ec5afc0b26bcc4927ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Role&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a0788ef5638be6ec5afc0b26bcc4927ef" kindref="member">findByUserId</ref>(@Param(&quot;userId&quot;)<sp/>Long<sp/>userId);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::auth::repository::UserOrganizationRoleRepository</compoundname>
+    <basecompoundref refid="classJpaRepository" prot="public" virt="non-virtual">JpaRepository&lt; UserOrganizationRole, Long &gt;</basecompoundref>
+    <basecompoundref refid="classJpaSpecificationExecutor" prot="public" virt="non-virtual">JpaSpecificationExecutor&lt; UserOrganizationRole &gt;</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a0d40faad662adbb3fbf861535241e7f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.repository.UserOrganizationRoleRepository.findByUserIdAndStatusIn</definition>
+        <argsstring>(Long userId, Set&lt; UserOrganizationRole.AssignmentStatus &gt; activeStatuses)</argsstring>
+        <name>findByUserIdAndStatusIn</name>
+        <qualifiedname>com.gmp.auth.repository.UserOrganizationRoleRepository.findByUserIdAndStatusIn</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Set&lt; UserOrganizationRole.AssignmentStatus &gt;</type>
+          <declname>activeStatuses</declname>
+        </param>
+        <briefdescription>
+<para>根据用户ID查找所有有效的用户组织角色关联 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>有效的用户组织角色关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" line="26" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a829180c0619bea6d3c4b3515e2f538c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.repository.UserOrganizationRoleRepository.findByUserIdAndOrganizationIdAndStatusIn</definition>
+        <argsstring>(Long userId, Long organizationId, Set&lt; UserOrganizationRole.AssignmentStatus &gt; activeStatuses)</argsstring>
+        <name>findByUserIdAndOrganizationIdAndStatusIn</name>
+        <qualifiedname>com.gmp.auth.repository.UserOrganizationRoleRepository.findByUserIdAndOrganizationIdAndStatusIn</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <param>
+          <type>Set&lt; UserOrganizationRole.AssignmentStatus &gt;</type>
+          <declname>activeStatuses</declname>
+        </param>
+        <briefdescription>
+<para>根据用户ID和组织ID查找有效的用户组织角色关联 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>有效的用户组织角色关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" line="34" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a18368120039cd88e6d611a67b2ce77f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.repository.UserOrganizationRoleRepository.existsByUserIdAndOrganizationIdAndRoleIdAndStatusIn</definition>
+        <argsstring>(Long userId, Long organizationId, Long roleId, Set&lt; UserOrganizationRole.AssignmentStatus &gt; activeStatuses)</argsstring>
+        <name>existsByUserIdAndOrganizationIdAndRoleIdAndStatusIn</name>
+        <qualifiedname>com.gmp.auth.repository.UserOrganizationRoleRepository.existsByUserIdAndOrganizationIdAndRoleIdAndStatusIn</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>roleId</declname>
+        </param>
+        <param>
+          <type>Set&lt; UserOrganizationRole.AssignmentStatus &gt;</type>
+          <declname>activeStatuses</declname>
+        </param>
+        <briefdescription>
+<para>查找用户在特定组织中是否拥有特定角色 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否存在有效关联 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" line="43" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a2a0c4feac563e64c49b25c0a3249af9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.repository.UserOrganizationRoleRepository.findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusIn</definition>
+        <argsstring>(LocalDateTime warningTime, Set&lt; UserOrganizationRole.AssignmentStatus &gt; activeStatuses)</argsstring>
+        <name>findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusIn</name>
+        <qualifiedname>com.gmp.auth.repository.UserOrganizationRoleRepository.findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusIn</qualifiedname>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>warningTime</declname>
+        </param>
+        <param>
+          <type>Set&lt; UserOrganizationRole.AssignmentStatus &gt;</type>
+          <declname>activeStatuses</declname>
+        </param>
+        <briefdescription>
+<para>查询即将过期的用户组织角色关联 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>warningTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>警告时间 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>activeStatuses</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>活动状态集合 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>即将过期的关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" line="51" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1ab5d588f80881f11265f918965f9553ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.repository.UserOrganizationRoleRepository.findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusInAndExpiresNotifiedFalse</definition>
+        <argsstring>(LocalDateTime now, Set&lt; UserOrganizationRole.AssignmentStatus &gt; activeStatuses)</argsstring>
+        <name>findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusInAndExpiresNotifiedFalse</name>
+        <qualifiedname>com.gmp.auth.repository.UserOrganizationRoleRepository.findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusInAndExpiresNotifiedFalse</qualifiedname>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>now</declname>
+        </param>
+        <param>
+          <type>Set&lt; UserOrganizationRole.AssignmentStatus &gt;</type>
+          <declname>activeStatuses</declname>
+        </param>
+        <briefdescription>
+<para>查找所有已过期但状态仍为活动的用户组织角色关联 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>now</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>当前时间 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>activeStatuses</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>活动状态集合 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>已过期的关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" line="59" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1ae2e8c4bc1798117e4976270969defa24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long com.gmp.auth.repository.UserOrganizationRoleRepository.countByUserId</definition>
+        <argsstring>(Long userId)</argsstring>
+        <name>countByUserId</name>
+        <qualifiedname>com.gmp.auth.repository.UserOrganizationRoleRepository.countByUserId</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <briefdescription>
+<para>统计用户在各组织中的角色数量 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>角色数量 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" line="66" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a7336e4ea73b98015aac6a5eaba6c9dde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.repository.UserOrganizationRoleRepository.findByAssignedByAndStatus</definition>
+        <argsstring>(Long assignedBy, UserOrganizationRole.AssignmentStatus status)</argsstring>
+        <name>findByAssignedByAndStatus</name>
+        <qualifiedname>com.gmp.auth.repository.UserOrganizationRoleRepository.findByAssignedByAndStatus</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>assignedBy</declname>
+        </param>
+        <param>
+          <type>UserOrganizationRole.AssignmentStatus</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>根据分配人和状态查找用户组织角色关联 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>assignedBy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分配人ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" line="74" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1af38c23e8953a4624f6cce0f5760c8721" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.repository.UserOrganizationRoleRepository.findByUserIdAndStatus</definition>
+        <argsstring>(Long userId, UserOrganizationRole.AssignmentStatus status)</argsstring>
+        <name>findByUserIdAndStatus</name>
+        <qualifiedname>com.gmp.auth.repository.UserOrganizationRoleRepository.findByUserIdAndStatus</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>UserOrganizationRole.AssignmentStatus</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>根据用户ID和状态查找所有关联 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" line="82" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a90acb6c9ea987514ac0a87b9a1bf9649" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.repository.UserOrganizationRoleRepository.findByOrganizationIdAndStatusIn</definition>
+        <argsstring>(Long organizationId, Set&lt; UserOrganizationRole.AssignmentStatus &gt; activeStatuses)</argsstring>
+        <name>findByOrganizationIdAndStatusIn</name>
+        <qualifiedname>com.gmp.auth.repository.UserOrganizationRoleRepository.findByOrganizationIdAndStatusIn</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>organizationId</declname>
+        </param>
+        <param>
+          <type>Set&lt; UserOrganizationRole.AssignmentStatus &gt;</type>
+          <declname>activeStatuses</declname>
+        </param>
+        <briefdescription>
+<para>根据组织ID查找所有有效的用户组织角色关联 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>organizationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>组织ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>activeStatuses</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>活动状态集合 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>有效的用户组织角色关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" line="90" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1ac8b49a071262c246bf793d98cfe72009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; UserOrganizationRole &gt;</type>
+        <definition>List&lt; UserOrganizationRole &gt; com.gmp.auth.repository.UserOrganizationRoleRepository.findByRoleIdAndStatusIn</definition>
+        <argsstring>(Long roleId, Set&lt; UserOrganizationRole.AssignmentStatus &gt; activeStatuses)</argsstring>
+        <name>findByRoleIdAndStatusIn</name>
+        <qualifiedname>com.gmp.auth.repository.UserOrganizationRoleRepository.findByRoleIdAndStatusIn</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>roleId</declname>
+        </param>
+        <param>
+          <type>Set&lt; UserOrganizationRole.AssignmentStatus &gt;</type>
+          <declname>activeStatuses</declname>
+        </param>
+        <briefdescription>
+<para>根据角色ID查找所有有效的用户组织角色关联 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>activeStatuses</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>活动状态集合 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>有效的用户组织角色关联列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" line="98" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>用户组织角色关联关系仓库 用于管理用户、组织、角色三者之间的关联 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JpaRepository&lt; UserOrganizationRole, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; UserOrganizationRole &gt;</label>
+        <link refid="classJpaSpecificationExecutor"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.auth.repository.UserOrganizationRoleRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JpaRepository&lt; UserOrganizationRole, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; UserOrganizationRole &gt;</label>
+        <link refid="classJpaSpecificationExecutor"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.auth.repository.UserOrganizationRoleRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" line="19" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/repository/UserOrganizationRoleRepository.java" bodystart="19" bodyend="99"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1ae2e8c4bc1798117e4976270969defa24" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::UserOrganizationRoleRepository</scope><name>countByUserId</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a18368120039cd88e6d611a67b2ce77f8" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::UserOrganizationRoleRepository</scope><name>existsByUserIdAndOrganizationIdAndRoleIdAndStatusIn</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a7336e4ea73b98015aac6a5eaba6c9dde" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::UserOrganizationRoleRepository</scope><name>findByAssignedByAndStatus</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a2a0c4feac563e64c49b25c0a3249af9a" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::UserOrganizationRoleRepository</scope><name>findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusIn</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1ab5d588f80881f11265f918965f9553ee" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::UserOrganizationRoleRepository</scope><name>findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusInAndExpiresNotifiedFalse</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a90acb6c9ea987514ac0a87b9a1bf9649" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::UserOrganizationRoleRepository</scope><name>findByOrganizationIdAndStatusIn</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1ac8b49a071262c246bf793d98cfe72009" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::UserOrganizationRoleRepository</scope><name>findByRoleIdAndStatusIn</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a829180c0619bea6d3c4b3515e2f538c2" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::UserOrganizationRoleRepository</scope><name>findByUserIdAndOrganizationIdAndStatusIn</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1af38c23e8953a4624f6cce0f5760c8721" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::UserOrganizationRoleRepository</scope><name>findByUserIdAndStatus</name></member>
+      <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserOrganizationRoleRepository_1a0d40faad662adbb3fbf861535241e7f9" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::UserOrganizationRoleRepository</scope><name>findByUserIdAndStatusIn</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

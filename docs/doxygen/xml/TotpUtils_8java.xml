@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TotpUtils_8java" kind="file" language="Java">
+    <compoundname>TotpUtils.java</compoundname>
+    <includes local="no">org.springframework.stereotype.Component</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/util/TotpUtils.java</label>
+        <link refid="TotpUtils_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.springframework.stereotype.Component</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1auth_1_1util_1_1TotpUtils" prot="public">com::gmp::auth::util::TotpUtils</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1util">com::gmp::auth::util</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.util;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Component;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">@Component</highlight></codeline>
+<codeline lineno="9" refid="classcom_1_1gmp_1_1auth_1_1util_1_1TotpUtils" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1auth_1_1util_1_1TotpUtils" kindref="compound">TotpUtils</ref><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证TOTP码</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="classcom_1_1gmp_1_1auth_1_1util_1_1TotpUtils_1a7c317b2519ac9bb840cbf7a7fd2b1bf4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1util_1_1TotpUtils_1a7c317b2519ac9bb840cbf7a7fd2b1bf4" kindref="member">verifyTotp</ref>(String<sp/>secret,<sp/>String<sp/>totpCode)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简单实现，实际项目中应使用标准的TOTP验证算法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>totpCode<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>totpCode.length()<sp/>==<sp/>6;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>生成TOTP密钥</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classcom_1_1gmp_1_1auth_1_1util_1_1TotpUtils_1a328ac567a1aeaa2adc05bce4049be49e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1util_1_1TotpUtils_1a328ac567a1aeaa2adc05bce4049be49e" kindref="member">generateSecretKey</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简单实现，实际项目中应使用安全的随机密钥生成</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;mock-totp-secret-key&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>生成二维码URL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1gmp_1_1auth_1_1util_1_1TotpUtils_1aeba68794fe85ffd0dd61e19b509c5a17" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1util_1_1TotpUtils_1aeba68794fe85ffd0dd61e19b509c5a17" kindref="member">generateQrCodeUrl</ref>(String<sp/>secret,<sp/>String<sp/>username)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简单实现，生成用于扫描的二维码URL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;otpauth://totp/GMP:&quot;</highlight><highlight class="normal"><sp/>+<sp/>username<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;?secret=&quot;</highlight><highlight class="normal"><sp/>+<sp/>secret<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&amp;issuer=GMP&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/util/TotpUtils.java"/>
+  </compounddef>
+</doxygen>

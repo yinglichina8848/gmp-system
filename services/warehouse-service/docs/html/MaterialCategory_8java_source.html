@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GMP Warehouse Management Service: src/main/java/com/gmp/warehouse/entity/MaterialCategory.java 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GMP Warehouse Management Service<span id="projectnumber">&#160;0.1.0</span>
+   </div>
+   <div id="projectbrief">GMP系统仓库管理服务模块</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5eb159725f84c66aafd839904a4acdd0.html">main</a></li><li class="navelem"><a class="el" href="dir_fd3f6763802dee1ad875f6c80eac0bda.html">java</a></li><li class="navelem"><a class="el" href="dir_d8517d8b842053dc3dd7dde525dd9163.html">com</a></li><li class="navelem"><a class="el" href="dir_39f78651b4a5c9adbf8c270fa78f636e.html">gmp</a></li><li class="navelem"><a class="el" href="dir_bdf6939b5dbe1a37fa4e850111541d17.html">warehouse</a></li><li class="navelem"><a class="el" href="dir_d64f3d245ba07df199cbf5acbce349f1.html">entity</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">MaterialCategory.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="MaterialCategory_8java.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>com.gmp.warehouse.entity;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> jakarta.persistence.*;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> lombok.Data;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> lombok.EqualsAndHashCode;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> org.springframework.data.annotation.CreatedBy;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">import</span> org.springframework.data.annotation.CreatedDate;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> org.springframework.data.annotation.LastModifiedBy;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> org.springframework.data.annotation.LastModifiedDate;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">import</span> org.springframework.data.jpa.domain.support.AuditingEntityListener;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">import</span> java.io.Serializable;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">import</span> java.time.LocalDateTime;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>@Entity</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>@Table(name = <span class="stringliteral">&quot;gmp_material_category&quot;</span>)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>@Data</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>@EqualsAndHashCode(callSuper = <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>@EntityListeners(AuditingEntityListener.class)</div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory.html">   31</a></span>public class <a class="code hl_class" href="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory.html">MaterialCategory</a> implements Serializable {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">long</span> serialVersionUID = 1L;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    @Id</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    @GeneratedValue(strategy = GenerationType.IDENTITY)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    @Column(name = <span class="stringliteral">&quot;id&quot;</span>, nullable = <span class="keyword">false</span>, unique = <span class="keyword">true</span>)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">private</span> Long id;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    @Column(name = <span class="stringliteral">&quot;code&quot;</span>, nullable = <span class="keyword">false</span>, unique = <span class="keyword">true</span>, length = 50)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">private</span> String code;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    @Column(name = <span class="stringliteral">&quot;name&quot;</span>, nullable = <span class="keyword">false</span>, length = 100)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">private</span> String name;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    @ManyToOne(fetch = FetchType.LAZY)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    @JoinColumn(name = <span class="stringliteral">&quot;parent_id&quot;</span>)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">private</span> <a class="code hl_class" href="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory.html">MaterialCategory</a> parent;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    @OneToMany(mappedBy = <span class="stringliteral">&quot;parent&quot;</span>, cascade = CascadeType.ALL, fetch = FetchType.LAZY)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">private</span> List&lt;MaterialCategory&gt; children;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    @Column(name = <span class="stringliteral">&quot;level&quot;</span>, nullable = <span class="keyword">false</span>, columnDefinition = <span class="stringliteral">&quot;INTEGER DEFAULT 1&quot;</span>)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">private</span> Integer level;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    @Column(name = <span class="stringliteral">&quot;sort_order&quot;</span>, nullable = <span class="keyword">false</span>, columnDefinition = <span class="stringliteral">&quot;INTEGER DEFAULT 0&quot;</span>)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">private</span> Integer sortOrder;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    @Column(name = <span class="stringliteral">&quot;description&quot;</span>, length = 500)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">private</span> String description;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    @Column(name = <span class="stringliteral">&quot;status&quot;</span>, nullable = <span class="keyword">false</span>, columnDefinition = <span class="stringliteral">&quot;INTEGER DEFAULT 1&quot;</span>)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keyword">private</span> Integer status;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    @CreatedDate</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    @Column(name = <span class="stringliteral">&quot;created_at&quot;</span>, nullable = <span class="keyword">false</span>, updatable = <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">private</span> LocalDateTime createdAt;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    @CreatedBy</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    @Column(name = <span class="stringliteral">&quot;created_by&quot;</span>, nullable = <span class="keyword">false</span>, length = 50)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">private</span> String createdBy;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    @LastModifiedDate</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    @Column(name = <span class="stringliteral">&quot;updated_at&quot;</span>)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">private</span> LocalDateTime updatedAt;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    @LastModifiedBy</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    @Column(name = <span class="stringliteral">&quot;updated_by&quot;</span>, length = 50)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">private</span> String updatedBy;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>}</div>
+</div>
+<div class="ttc" id="aclasscom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_html"><div class="ttname"><a href="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory.html">com.gmp.warehouse.entity.MaterialCategory</a></div><div class="ttdef"><b>Definition</b> <a href="MaterialCategory_8java_source.html#l00031">MaterialCategory.java:31</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,100 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /edms
+
+spring:
+  application:
+    name: edms-service
+  
+  # 数据库配置
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gmp_edms
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 20000
+  
+  # JPA配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc.lob.non_contextual_creation: true
+  
+  # Redis配置
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+      timeout: 3000
+  
+  # RabbitMQ配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+  
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+# MinIO配置
+minio:
+  url: http://localhost:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket-name: edms-files
+  default-bucket: edms-files
+
+# 缓存配置
+cache:
+  ttl: 3600
+  max-size: 1000
+
+# JWT配置
+jwt:
+  secret: gmp_edms_jwt_secret_key
+  expiration: 86400000
+  issuer: gmp-edms-service
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.gmp.edms: DEBUG
+    org.springframework.security: INFO
+    org.hibernate.SQL: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/edms-service.log
+
+# Eureka服务注册配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+
+# 系统配置
+system:
+  file-storage-path: /data/edms/files
+  temp-file-path: /data/edms/temp
+  max-file-size: 104857600  # 100MB
+  supported-file-types: [.doc, .docx, .pdf, .txt, .xls, .xlsx, .ppt, .pptx, .jpg, .jpeg, .png, .gif]

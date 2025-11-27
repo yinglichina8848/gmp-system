@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WebConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.config</a> &gt; <span class="el_source">WebConfig.java</span></div><h1>WebConfig.java</h1><pre class="source lang-java linenums">package com.gmp.auth.config;
+
+import com.gmp.auth.interceptor.SubsystemAccessInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+/**
+ * Web配置类
+ * 用于配置拦截器、过滤器等Web相关组件
+ *
+ * @author GMP系统开发团队
+ */
+@Configuration
+<span class="nc" id="L16">public class WebConfig implements WebMvcConfigurer {</span>
+
+    @Autowired
+    private SubsystemAccessInterceptor subsystemAccessInterceptor;
+
+    /**
+     * 注册自定义拦截器
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // 注册子系统访问权限控制拦截器
+<span class="nc" id="L27">        registry.addInterceptor(subsystemAccessInterceptor)</span>
+                // 拦截所有API请求
+<span class="nc" id="L29">                .addPathPatterns(&quot;/api/**&quot;)</span>
+                // 排除不需要拦截的路径
+<span class="nc" id="L31">                .excludePathPatterns(&quot;/api/auth/login&quot;)</span>
+<span class="nc" id="L32">                .excludePathPatterns(&quot;/api/auth/logout&quot;)</span>
+<span class="nc" id="L33">                .excludePathPatterns(&quot;/swagger-ui/**&quot;)</span>
+<span class="nc" id="L34">                .excludePathPatterns(&quot;/v3/api-docs/**&quot;)</span>
+<span class="nc" id="L35">                .excludePathPatterns(&quot;/webjars/**&quot;)</span>
+<span class="nc" id="L36">                .excludePathPatterns(&quot;/favicon.ico&quot;);</span>
+<span class="nc" id="L37">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

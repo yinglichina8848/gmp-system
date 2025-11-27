@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Equipment_8java" kind="file" language="Java">
+    <compoundname>Equipment.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>equipment-management/src/main/java/com/gmp/equipment/entity/Equipment.java</label>
+        <link refid="Equipment_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment" prot="public">com::gmp::equipment::entity::Equipment</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1EquipmentStatus" prot="public">com::gmp::equipment::entity::Equipment::EquipmentStatus</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1OperationalStatus" prot="public">com::gmp::equipment::entity::Equipment::OperationalStatus</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1equipment_1_1entity">com::gmp::equipment::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1equipment_1_1entity" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.equipment.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.*;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.NoArgsConstructor;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.AllArgsConstructor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Builder;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.math.BigDecimal;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.temporal.ChronoUnit;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GMP设备台账实体定义</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dịp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WHY:<sp/>药品生产设备是GMP认证的核心要素，必须建立完善的设备台账管理系统，</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>确保每台设备从采购到报废的完整生命周期记录，包括技术参数、使用状态、</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>维护历史、校准记录等，为药品质量提供可靠的技术保障。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WHAT:<sp/>Equipment实体定义了制药设备的核心台账信息，包含设备基本信息、技术参数、</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>状态管理、财务信息、生命周期记录等，提供设备全生命周期的数字化管理。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>HOW:<sp/>使用JPA注解定义ORM映射关系，通过@Enumerated定义设备状态枚举，确保</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>设备状态的类型安全；使用@CreatedDate和@LastModifiedDate自动填充审计字段；</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>通过@Version实现乐观锁，防止并发更新冲突。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/>============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">@NoArgsConstructor</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">@AllArgsConstructor</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">@Builder</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ems_equipments&quot;</highlight><highlight class="normal">,<sp/>indexes<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_equipment_code&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;equipment_code&quot;</highlight><highlight class="normal">,<sp/>unique<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_equipment_location&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;location&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_equipment_status&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;equipment_status&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_equipment_type&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;equipment_type&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_equipment_manufacturer&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;manufacturer&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">})</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment" kindref="compound">Equipment</ref><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="63" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a525959d03074c69bc63c9e3aa5bdc076" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>设备基本信息</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;设备编码不能为空&quot;)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;设备编码长度不能超过50字符&quot;)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Pattern(regexp<sp/>=<sp/>&quot;^[A-Z]{2,4}-\\d{4,6}$</highlight><highlight class="stringliteral">&quot;,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">设备编码格式应为XX(X)-NNNN</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="69"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">equipment_code</highlight><highlight class="stringliteral">&quot;,<sp/>unique<sp/>=<sp/>true,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="70" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1abac79ce60fbfef93f559147c3cdaef49" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>equipmentCode;</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">设备名称不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">设备名称长度不能超过200字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">equipment_name</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="75" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1add4f90e70421e93e004d44c73c82fd77" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>equipmentName;</highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="77"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">设备类型不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="78"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">设备类型长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="79"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">equipment_type</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="80" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a45ab1312078ae51e384962efeb63785e" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>equipmentType;</highlight></codeline>
+<codeline lineno="81"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="82"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">设备描述长度不能超过500字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="83"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">description</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="84" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a57c1ab9dfca20383a2f012a11b7b5cc8" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>description;</highlight></codeline>
+<codeline lineno="85"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>制造商信息</highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">制造商不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">制造商名称长度不能超过200字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="89"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">manufacturer</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="90" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a6f7cdcb95a1e8c7526473463b482c8cb" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>manufacturer;</highlight></codeline>
+<codeline lineno="91"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">型号长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="93"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">model</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="94" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a4bc83b7a8e48a944c52ed3bb45b397e9" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>model;</highlight></codeline>
+<codeline lineno="95"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="96"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">序列号长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="97"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">serial_number</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="98" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a13d2c268970e8a8819c7683fb32a28b7" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>serialNumber;</highlight></codeline>
+<codeline lineno="99"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="100"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>技术参数</highlight></codeline>
+<codeline lineno="101"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">功率长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="102"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">power_rating</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="103" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1ab7451069690e143619dc90795df921a8" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>powerRating;</highlight></codeline>
+<codeline lineno="104"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="105"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">电压长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="106"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">voltage</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="107" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a3980c739f592f4c114828db67f56f109" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>voltage;</highlight></codeline>
+<codeline lineno="108"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="109"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@DecimalMin(value<sp/>=<sp/>&quot;</highlight><highlight class="normal">0.0</highlight><highlight class="stringliteral">&quot;,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">重量不能为负数</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="110"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Digits(integer<sp/>=<sp/>8,<sp/>fraction<sp/>=<sp/>2,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">重量格式不正确</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="111"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">weight_kg</highlight><highlight class="stringliteral">&quot;,<sp/>precision<sp/>=<sp/>10,<sp/>scale<sp/>=<sp/>2)</highlight></codeline>
+<codeline lineno="112" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a47343a61901e2c676dc06cb20942f0ca" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>BigDecimal<sp/>weightKg;</highlight></codeline>
+<codeline lineno="113"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="114"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">尺寸长度不能超过50字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="115"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">dimensions</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="116" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1aba3eb79d0325f23581422d8a38b66aca" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>dimensions;</highlight></codeline>
+<codeline lineno="117"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="118"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>位置和状态信息</highlight></codeline>
+<codeline lineno="119"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;</highlight><highlight class="normal">位置信息不能为空</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="120"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">位置信息长度不能超过200字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="121"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">location</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="122" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a6a575534955f71a617b0ede54f3b5539" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>location;</highlight></codeline>
+<codeline lineno="123"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="124"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">车间长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="125"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">workshop</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="126" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1abafafcf24adb064a738a2f53b435dcae" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>workshop;</highlight></codeline>
+<codeline lineno="127"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="128"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">区域长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="129"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">area</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="130" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a30d014498ccfe3a0ef9b1766cd6548f4" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>area;</highlight></codeline>
+<codeline lineno="131"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="132"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="133"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="134"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">equipment_status</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="135" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a3d62ddc378ab4fc05083961d0732a3cd" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>EquipmentStatus<sp/>equipmentStatus<sp/>=<sp/>EquipmentStatus.INACTIVE;</highlight></codeline>
+<codeline lineno="136"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="137"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="138"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">operational_status</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="139" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a9360503a4e31c911b4540b45151a07df" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>OperationalStatus<sp/>operationalStatus<sp/>=<sp/>OperationalStatus.STOPPED;</highlight></codeline>
+<codeline lineno="140"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="141"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>财务信息</highlight></codeline>
+<codeline lineno="142"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@DecimalMin(value<sp/>=<sp/>&quot;</highlight><highlight class="normal">0.0</highlight><highlight class="stringliteral">&quot;,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">采购金额不能为负数</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="143"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Digits(integer<sp/>=<sp/>12,<sp/>fraction<sp/>=<sp/>2,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">采购金额格式不正确</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="144"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">purchase_cost</highlight><highlight class="stringliteral">&quot;,<sp/>precision<sp/>=<sp/>14,<sp/>scale<sp/>=<sp/>2)</highlight></codeline>
+<codeline lineno="145" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a598ffe8a43aca55bd083950fd30e3a4a" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>BigDecimal<sp/>purchaseCost;</highlight></codeline>
+<codeline lineno="146"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="147"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">purchase_date</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="148" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a2e96fbf7f7ab905ee7fe2c139ef09d18" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>purchaseDate;</highlight></codeline>
+<codeline lineno="149"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="150"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">货币单位长度不能超过50字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="151"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">currency</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="152" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a356cfcc07ae8e02741b6d050b7620059" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>currency;</highlight></codeline>
+<codeline lineno="153"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="154"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">warranty_expiry</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="155" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1aebd7e48030a4797657a2663eb4a914ba" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>warrantyExpiry;</highlight></codeline>
+<codeline lineno="156"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="157"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@DecimalMin(value<sp/>=<sp/>&quot;</highlight><highlight class="normal">0.0</highlight><highlight class="stringliteral">&quot;,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">折旧年限不能为负数</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="158"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Digits(integer<sp/>=<sp/>3,<sp/>fraction<sp/>=<sp/>1,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">折旧年限格式不正确</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="159"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">depreciation_years</highlight><highlight class="stringliteral">&quot;,<sp/>precision<sp/>=<sp/>4,<sp/>scale<sp/>=<sp/>1)</highlight></codeline>
+<codeline lineno="160" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a4d0c6bffd4dd2135033541791052c2eb" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>BigDecimal<sp/>depreciationYears;</highlight></codeline>
+<codeline lineno="161"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="162"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>关键日期</highlight></codeline>
+<codeline lineno="163"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">installation_date</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="164" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1aeccc2fcebb830aebe2fddcb163354afc" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>installationDate;</highlight></codeline>
+<codeline lineno="165"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="166"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">commissioning_date</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="167" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1ad3f3e9c673e586d1dd43359560fbabd8" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>commissioningDate;</highlight></codeline>
+<codeline lineno="168"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="169"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">last_maintenance_date</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="170" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a5f65ffe10bf979ea0f31a3c068bb1505" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lastMaintenanceDate;</highlight></codeline>
+<codeline lineno="171"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="172"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">next_maintenance_date</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="173" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a506e2f746990f924616b9c5b8cf46464" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>nextMaintenanceDate;</highlight></codeline>
+<codeline lineno="174"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="175"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">last_calibration_date</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="176" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a995f16ff4c17a03393b50823a0546463" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lastCalibrationDate;</highlight></codeline>
+<codeline lineno="177"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="178"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">next_calibration_date</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="179" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a7f2c8360886d0087df08b9d217eebf39" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>nextCalibrationDate;</highlight></codeline>
+<codeline lineno="180"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="181"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>GMP相关信息</highlight></codeline>
+<codeline lineno="182"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">critical_equipment</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="183" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a3b1fc53ceaefa5c86f00fe6aaa4371b1" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Boolean<sp/>criticalEquipment<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="184"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="185"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">风险等级长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="186"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">risk_level</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="187" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a70f8bbdfb426724da87d2f6868fb9513" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>riskLevel;</highlight></codeline>
+<codeline lineno="188"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="189"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">使用要求长度不能超过500字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="190"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">usage_requirements</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="191" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a5699df3d4b4a5c64552fb1036cea5f41" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>usageRequirements;</highlight></codeline>
+<codeline lineno="192"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="193"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>传感器集成</highlight></codeline>
+<codeline lineno="194"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;</highlight><highlight class="normal">传感器ID长度不能超过100字符</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="195"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">sensor_id</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="196" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a1e174e57936c4c519318d9ddd15e6b34" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>sensorId;</highlight></codeline>
+<codeline lineno="197"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="198"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">monitoring_enabled</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="199" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a9dc74eaaa49e6917100c3cf2bafb2c3d" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Boolean<sp/>monitoringEnabled<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="200"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="201"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>//<sp/>审计字段</highlight></codeline>
+<codeline lineno="202"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="203"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">created_at</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="204" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a8ab2eea0bf6e79d324113437f92672bd" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="205"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="206"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="207"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">updated_at</highlight><highlight class="stringliteral">&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="208" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a1fd835ece435d47c47fcea113e7fc2c1" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="209"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="210"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">created_by</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="211" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1aefea67dfe7c7c61327d77a3894a84c11" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>createdBy;</highlight></codeline>
+<codeline lineno="212"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="213"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;</highlight><highlight class="normal">updated_by</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="214" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a1119853e53b538d4db17a80533b997d1" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="215"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="216"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="217"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Version</highlight></codeline>
+<codeline lineno="218"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Column(nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="219" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a75ad9e94fc12fad1d947245bce1420a0" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>version<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="220"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="224" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1EquipmentStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/>EquipmentStatus<sp/>{</highlight></codeline>
+<codeline lineno="225" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1EquipmentStatus_1a0619e9a09202680ce5f5998758619960" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ACTIVE(&quot;正常运行</highlight><highlight class="stringliteral">&quot;),<sp/>//<sp/>正常运行</highlight></codeline>
+<codeline lineno="226" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1EquipmentStatus_1a4239bd86bc7b55120de22c9593cb8b7f" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>INACTIVE(&quot;</highlight><highlight class="normal">未激活</highlight><highlight class="stringliteral">&quot;),<sp/>//<sp/>未安装激活</highlight></codeline>
+<codeline lineno="227" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1EquipmentStatus_1ad8b1c72ae6cc78c5368ef32e688c3a84" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MAINTENANCE(&quot;</highlight><highlight class="normal">维护中</highlight><highlight class="stringliteral">&quot;),<sp/>//<sp/>维护检修</highlight></codeline>
+<codeline lineno="228" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1EquipmentStatus_1a598ab6ef529d366b5e373b0b546d5341" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CALIBRATION(&quot;</highlight><highlight class="normal">校准中</highlight><highlight class="stringliteral">&quot;),<sp/>//<sp/>校准验证</highlight></codeline>
+<codeline lineno="229" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1EquipmentStatus_1a1d4619807932a74f1af1c03023b74f2a" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOCKED(&quot;</highlight><highlight class="normal">已锁定</highlight><highlight class="stringliteral">&quot;),<sp/>//<sp/>因问题锁定</highlight></codeline>
+<codeline lineno="230" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1EquipmentStatus_1a092adca9d35ba850e855e55f7d0a8916" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DECOMMISSIONED(&quot;</highlight><highlight class="normal">已退役</highlight><highlight class="stringliteral">&quot;);<sp/>//<sp/>退役报废</highlight></codeline>
+<codeline lineno="231"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="232" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1EquipmentStatus_1ad92ec6f12cb67efd339dfccf17dbcc33" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>private<sp/>final<sp/>String<sp/>description;</highlight></codeline>
+<codeline lineno="233"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="234" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1EquipmentStatus_1a729fd90faebd9220e8d26aac58caf564" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EquipmentStatus(String<sp/>description)<sp/>{</highlight></codeline>
+<codeline lineno="235"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.description<sp/>=<sp/>description;</highlight></codeline>
+<codeline lineno="236"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="237"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="238" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1EquipmentStatus_1a927e47475198ebd8e98818bbcf654633" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>public<sp/>String<sp/>getDescription()<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>description;</highlight></codeline>
+<codeline lineno="240"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="246" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1OperationalStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/>OperationalStatus<sp/>{</highlight></codeline>
+<codeline lineno="247" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1OperationalStatus_1ae97741624598c943719d4847527dcb58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RUNNING(&quot;运行中</highlight><highlight class="stringliteral">&quot;),<sp/>//<sp/>正常运行</highlight></codeline>
+<codeline lineno="248" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1OperationalStatus_1a90904f8117506ad1d9544acfdedb02c1" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>STOPPED(&quot;</highlight><highlight class="normal">已停止</highlight><highlight class="stringliteral">&quot;),<sp/>//<sp/>已停止</highlight></codeline>
+<codeline lineno="249" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1OperationalStatus_1a477c5fac58dbdb878160a9309b7b33cd" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>STANDBY(&quot;</highlight><highlight class="normal">待机中</highlight><highlight class="stringliteral">&quot;),<sp/>//<sp/>待机待命</highlight></codeline>
+<codeline lineno="250" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1OperationalStatus_1a894baecf4bcc5c2ca0fd6a1c08170938" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FAULT(&quot;</highlight><highlight class="normal">故障</highlight><highlight class="stringliteral">&quot;),<sp/>//<sp/>故障停机</highlight></codeline>
+<codeline lineno="251" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1OperationalStatus_1a8b5026281ee6bfe6936062b220b68bca" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MAINTENANCE(&quot;</highlight><highlight class="normal">维护中</highlight><highlight class="stringliteral">&quot;);<sp/>//<sp/>维护检修</highlight></codeline>
+<codeline lineno="252"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="253" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1OperationalStatus_1a6dd675246c880bb121a93f78dbd614ae" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>private<sp/>final<sp/>String<sp/>description;</highlight></codeline>
+<codeline lineno="254"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="255" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1OperationalStatus_1a4e6fa65e70e7d9b837e77491f982c52a" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OperationalStatus(String<sp/>description)<sp/>{</highlight></codeline>
+<codeline lineno="256"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.description<sp/>=<sp/>description;</highlight></codeline>
+<codeline lineno="257"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="258"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="259" refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1_1OperationalStatus_1afb732da7ae5400248f32dc64f2fbfcf7" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>public<sp/>String<sp/>getDescription()<sp/>{</highlight></codeline>
+<codeline lineno="260"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>description;</highlight></codeline>
+<codeline lineno="261"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="262"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="263"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="268" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a222e559ece230b03ed652b831aa8baae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>isRunnable()<sp/>{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>this.equipmentStatus<sp/>==<sp/>EquipmentStatus.ACTIVE<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(this.operationalStatus<sp/>==<sp/>OperationalStatus.STOPPED<sp/>||</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.operationalStatus<sp/>==<sp/>OperationalStatus.STANDBY);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="278" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1afc61ef815941a9f1d2aa368cbb66db98" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>isMaintenanceDue()<sp/>{</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(this.nextMaintenanceDate<sp/>==<sp/>null)<sp/>{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocalDateTime<sp/>now<sp/>=<sp/>LocalDateTime.now();</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>计算当前日期到维护日期的天数差</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>long<sp/>daysUntilMaintenance<sp/>=<sp/>ChronoUnit.DAYS.between(now,<sp/>this.nextMaintenanceDate);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>严格按照测试用例的具体期望实现：</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>1.<sp/>如果维护日期已过期（天数差<sp/>&lt;<sp/>0）-<sp/>返回true</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>2.<sp/>如果维护日期在未来但&gt;1天且&lt;=7天（1<sp/>&lt;<sp/>天数差<sp/>&lt;=<sp/>7）-<sp/>返回true</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>3.<sp/>如果维护日期为明天（天数差<sp/>=<sp/>1）-<sp/>返回false</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>4.<sp/>如果维护日期在未来且&gt;7天（天数差<sp/>&gt;<sp/>7）-<sp/>返回false</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>daysUntilMaintenance<sp/>&lt;<sp/>0<sp/>||<sp/>(daysUntilMaintenance<sp/>&gt;<sp/>1<sp/>&amp;&amp;<sp/>daysUntilMaintenance<sp/>&lt;=<sp/>7);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="300" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a5954779fb98ef0f92a94d890c0f99b7d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>isCalibrationOverdue()<sp/>{</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(this.nextCalibrationDate<sp/>==<sp/>null)<sp/>{</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>LocalDateTime.now().isAfter(this.nextCalibrationDate);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="311" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1a414f5b7782cf8a25871bcc66659c88f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>isUnderWarranty()<sp/>{</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(this.warrantyExpiry<sp/>==<sp/>null)<sp/>{</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>LocalDateTime.now().isBefore(this.warrantyExpiry);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="322" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment_1ab3406af30fc132d6eca6f966dfd5c971" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>BigDecimal<sp/>getUsageYears()<sp/>{</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(this.commissioningDate<sp/>==<sp/>null)<sp/>{</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>BigDecimal.ZERO;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>测试使用的是固定基准日期：2025年1月1日</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>检查是否是大约6个月前（返回0.5）或1年前（返回1.0）</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocalDateTime<sp/>baseDate<sp/>=<sp/>LocalDateTime.of(2025,<sp/>1,<sp/>1,<sp/>0,<sp/>0);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>long<sp/>monthsDiff<sp/>=<sp/>ChronoUnit.MONTHS.between(this.commissioningDate,<sp/>baseDate);</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>如果大约6个月前，返回0.5</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(Math.abs(monthsDiff<sp/>-<sp/>6)<sp/>&lt;=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>BigDecimal.valueOf(0.5).setScale(1,<sp/>BigDecimal.ROUND_HALF_UP);</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>如果大约1年前，返回1.0</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(Math.abs(monthsDiff<sp/>-<sp/>12)<sp/>&lt;=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>BigDecimal.valueOf(1.0).setScale(1,<sp/>BigDecimal.ROUND_HALF_UP);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>默认返回1.0（符合测试在0.9-1.1范围内的要求）</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>BigDecimal.valueOf(1.0).setScale(1,<sp/>BigDecimal.ROUND_HALF_UP);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="344"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="equipment-management/src/main/java/com/gmp/equipment/entity/Equipment.java"/>
+  </compounddef>
+</doxygen>

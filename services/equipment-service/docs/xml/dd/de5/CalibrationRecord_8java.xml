@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="zh">
+  <compounddef id="dd/de5/CalibrationRecord_8java" kind="file" language="Java">
+    <compoundname>CalibrationRecord.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>CalibrationRecord.java</label>
+        <link refid="dd/de5/CalibrationRecord_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord" prot="public">com::gmp::equipment::entity::CalibrationRecord</innerclass>
+    <innernamespace refid="d6/dcd/namespacecom_1_1gmp_1_1equipment_1_1entity">com::gmp::equipment::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="d6/dcd/namespacecom_1_1gmp_1_1equipment_1_1entity" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.equipment.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>javax.persistence.*;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Date;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;calibration_record&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="14" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord" kindref="compound">CalibrationRecord</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="21" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a0b1d6d286575908cfe73a8849914063e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;equipment_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="28" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a2ed42d2c460b94aeb75dfd5a022f3ae6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="d3/d94/classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment" kindref="compound">Equipment</ref><sp/>equipment;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;calibration_no&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="34" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1aade999cd190d13527bcf4916da0fd8d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>calibrationNo;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;calibration_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Temporal(TemporalType.DATE)</highlight></codeline>
+<codeline lineno="41" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1ac3999b1aba84ddde56963d2fa39b3036" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Date<sp/>calibrationDate;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;next_calibration_date&quot;)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@Temporal(TemporalType.DATE)</highlight></codeline>
+<codeline lineno="48" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a528c789509f12b2ee80aa6a6b95508f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Date<sp/>nextCalibrationDate;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;result&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="55" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1aa0f44c7bfc5f6aea496916a7810f772c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="d0/d06/enumcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationResult" kindref="compound">CalibrationResult</ref><sp/>result;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;calibration_organization&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="61" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a65a72fd2b79825cd871da6d94841a5a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>calibrationOrganization;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;calibration_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="67" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a242877a04918f6884eac5739963120db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>calibrationBy;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;certificate_no&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="73" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1ad188ef29aa64f3bd0e4c947e324b7ab1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>certificateNo;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;calibration_standard&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="79" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a2a957989a99d6bf78aec6a84b59fa91b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>calibrationStandard;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;deviation_description&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="85" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a503c5c5623f4b0b162a072cd756776c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>deviationDescription;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;treatment_measures&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="91" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a60e1b047090ba9c88357a402a1b600c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>treatmentMeasures;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;remark&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="97" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a8118e21bbad0a4dadd822ca549a09f07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>remark;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="103" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a3f3f0c429b17230be3083f60b47e17fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_time&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Temporal(TemporalType.TIMESTAMP)</highlight></codeline>
+<codeline lineno="110" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a72c0fef4d7642c6429a86d6f039bbb5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Date<sp/>createdTime;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="116" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a4195907f2cacd5af40f40964f231a49e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_time&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>@Temporal(TemporalType.TIMESTAMP)</highlight></codeline>
+<codeline lineno="123" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1ae1f6108d85d3fb3ea4bc52ed560832f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Date<sp/>updatedTime;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>@Version</highlight></codeline>
+<codeline lineno="129" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a6d86b464756b2018c7d9fe19a4118290" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>version;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>@PrePersist</highlight></codeline>
+<codeline lineno="135" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1aec0b72eb660af508826faa8fc8704710" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>prePersist()<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Date<sp/>now<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Date();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.createdTime<sp/>=<sp/>now;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.updatedTime<sp/>=<sp/>now;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>@PreUpdate</highlight></codeline>
+<codeline lineno="145" refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a9c883d8cafe7b14e32d2ce18ffea4fe1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/dd5/classcom_1_1gmp_1_1equipment_1_1entity_1_1CalibrationRecord_1a9c883d8cafe7b14e32d2ce18ffea4fe1" kindref="member">preUpdate</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.updatedTime<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Date();</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/main/java/com/gmp/equipment/entity/CalibrationRecord.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="zh">
+  <compounddef id="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::crm::controller::SalesOrderController</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1ab557f26821c146a5870ea53230ee26e9" prot="private" static="no" mutable="no">
+        <type>final SalesOrderService</type>
+        <definition>final SalesOrderService com.gmp.crm.controller.SalesOrderController.salesOrderService</definition>
+        <argsstring></argsstring>
+        <name>salesOrderService</name>
+        <qualifiedname>com.gmp.crm.controller.SalesOrderController.salesOrderService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/crm/controller/SalesOrderController.java" line="28" column="37" bodyfile="src/main/java/com/gmp/crm/controller/SalesOrderController.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1ad4dabae7a083ea8c548f8dfbbe4a5679" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; ApiResponse&lt; SalesOrderDTO &gt; &gt;</type>
+        <definition>ResponseEntity&lt; ApiResponse&lt; SalesOrderDTO &gt; &gt; com.gmp.crm.controller.SalesOrderController.createSalesOrder</definition>
+        <argsstring>( @Valid @RequestBody SalesOrderRequestDTO request, Principal principal)</argsstring>
+        <name>createSalesOrder</name>
+        <qualifiedname>com.gmp.crm.controller.SalesOrderController.createSalesOrder</qualifiedname>
+        <param>
+          <type>@Valid @RequestBody SalesOrderRequestDTO</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>Principal</type>
+          <declname>principal</declname>
+        </param>
+        <briefdescription>
+<para>创建销售订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单请求DTO </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>principal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>当前用户信息 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>创建的订单DTO </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/crm/controller/SalesOrderController.java" line="38" column="27" bodyfile="src/main/java/com/gmp/crm/controller/SalesOrderController.java" bodystart="38" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a0b3a4e250bfc64b31c23ef1c92e003a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; ApiResponse&lt; SalesOrderDTO &gt; &gt;</type>
+        <definition>ResponseEntity&lt; ApiResponse&lt; SalesOrderDTO &gt; &gt; com.gmp.crm.controller.SalesOrderController.updateOrderStatus</definition>
+        <argsstring>( @PathVariable Long id, @RequestParam String status)</argsstring>
+        <name>updateOrderStatus</name>
+        <qualifiedname>com.gmp.crm.controller.SalesOrderController.updateOrderStatus</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>@RequestParam String</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>更新订单状态 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>新状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>更新后的订单DTO </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/crm/controller/SalesOrderController.java" line="57" column="27" bodyfile="src/main/java/com/gmp/crm/controller/SalesOrderController.java" bodystart="57" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a346c2e7f13b157df3f337817ec960384" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; ApiResponse&lt; SalesOrderDTO &gt; &gt;</type>
+        <definition>ResponseEntity&lt; ApiResponse&lt; SalesOrderDTO &gt; &gt; com.gmp.crm.controller.SalesOrderController.getSalesOrder</definition>
+        <argsstring>(@PathVariable Long id)</argsstring>
+        <name>getSalesOrder</name>
+        <qualifiedname>com.gmp.crm.controller.SalesOrderController.getSalesOrder</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>获取订单详情 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单DTO </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/crm/controller/SalesOrderController.java" line="71" column="27" bodyfile="src/main/java/com/gmp/crm/controller/SalesOrderController.java" bodystart="71" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a83e4ec222007c6a3e0b28ead9ee2169a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; ApiResponse&lt; SalesOrderDTO &gt; &gt;</type>
+        <definition>ResponseEntity&lt; ApiResponse&lt; SalesOrderDTO &gt; &gt; com.gmp.crm.controller.SalesOrderController.getSalesOrderByNumber</definition>
+        <argsstring>( @PathVariable String orderNumber)</argsstring>
+        <name>getSalesOrderByNumber</name>
+        <qualifiedname>com.gmp.crm.controller.SalesOrderController.getSalesOrderByNumber</qualifiedname>
+        <param>
+          <type>@PathVariable String</type>
+          <declname>orderNumber</declname>
+        </param>
+        <briefdescription>
+<para>根据订单号获取订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>orderNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单编号 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单DTO </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/crm/controller/SalesOrderController.java" line="85" column="27" bodyfile="src/main/java/com/gmp/crm/controller/SalesOrderController.java" bodystart="85" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a775507498475c9aa777435ee15a7be86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; ApiResponse&lt;?&gt; &gt;</type>
+        <definition>ResponseEntity&lt; ApiResponse&lt;?&gt; &gt; com.gmp.crm.controller.SalesOrderController.getSalesOrders</definition>
+        <argsstring>(PageRequestDTO pageRequest)</argsstring>
+        <name>getSalesOrders</name>
+        <qualifiedname>com.gmp.crm.controller.SalesOrderController.getSalesOrders</qualifiedname>
+        <param>
+          <type>PageRequestDTO</type>
+          <declname>pageRequest</declname>
+        </param>
+        <briefdescription>
+<para>分页查询订单列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pageRequest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页请求 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单分页列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/crm/controller/SalesOrderController.java" line="100" column="27" bodyfile="src/main/java/com/gmp/crm/controller/SalesOrderController.java" bodystart="100" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1ab4b5f3cea3674b465d5ee540d8d3d2aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; ApiResponse&lt;?&gt; &gt;</type>
+        <definition>ResponseEntity&lt; ApiResponse&lt;?&gt; &gt; com.gmp.crm.controller.SalesOrderController.getSalesOrdersByCustomer</definition>
+        <argsstring>( @PathVariable Long customerId, PageRequestDTO pageRequest)</argsstring>
+        <name>getSalesOrdersByCustomer</name>
+        <qualifiedname>com.gmp.crm.controller.SalesOrderController.getSalesOrdersByCustomer</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>customerId</declname>
+        </param>
+        <param>
+          <type>PageRequestDTO</type>
+          <declname>pageRequest</declname>
+        </param>
+        <briefdescription>
+<para>查询客户的订单列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>customerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>客户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageRequest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页请求 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单分页列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/crm/controller/SalesOrderController.java" line="120" column="27" bodyfile="src/main/java/com/gmp/crm/controller/SalesOrderController.java" bodystart="120" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a85c7f11f89af1e0cedb6fd56de4aaa60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; ApiResponse&lt;?&gt; &gt;</type>
+        <definition>ResponseEntity&lt; ApiResponse&lt;?&gt; &gt; com.gmp.crm.controller.SalesOrderController.searchSalesOrders</definition>
+        <argsstring>( @RequestParam(required=false) String keyword, @RequestParam(required=false) String status, PageRequestDTO pageRequest)</argsstring>
+        <name>searchSalesOrders</name>
+        <qualifiedname>com.gmp.crm.controller.SalesOrderController.searchSalesOrders</qualifiedname>
+        <param>
+          <type>@RequestParam(required=false) String</type>
+          <declname>keyword</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) String</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>PageRequestDTO</type>
+          <declname>pageRequest</declname>
+        </param>
+        <briefdescription>
+<para>搜索订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keyword</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>搜索关键字 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单状态 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageRequest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页请求 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单分页列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/crm/controller/SalesOrderController.java" line="142" column="27" bodyfile="src/main/java/com/gmp/crm/controller/SalesOrderController.java" bodystart="142" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a2ab7f4bdb1a96d7d3427aa95eb16c802" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; ApiResponse&lt; Boolean &gt; &gt;</type>
+        <definition>ResponseEntity&lt; ApiResponse&lt; Boolean &gt; &gt; com.gmp.crm.controller.SalesOrderController.cancelOrder</definition>
+        <argsstring>(@PathVariable Long id)</argsstring>
+        <name>cancelOrder</name>
+        <qualifiedname>com.gmp.crm.controller.SalesOrderController.cancelOrder</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>取消订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>操作结果 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/crm/controller/SalesOrderController.java" line="163" column="27" bodyfile="src/main/java/com/gmp/crm/controller/SalesOrderController.java" bodystart="163" bodyend="166"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>销售订单控制器 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>TRAE AI </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/main/java/com/gmp/crm/controller/SalesOrderController.java" line="26" column="7" bodyfile="src/main/java/com/gmp/crm/controller/SalesOrderController.java" bodystart="26" bodyend="168"/>
+    <listofallmembers>
+      <member refid="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a2ab7f4bdb1a96d7d3427aa95eb16c802" prot="public" virt="non-virtual"><scope>com::gmp::crm::controller::SalesOrderController</scope><name>cancelOrder</name></member>
+      <member refid="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1ad4dabae7a083ea8c548f8dfbbe4a5679" prot="public" virt="non-virtual"><scope>com::gmp::crm::controller::SalesOrderController</scope><name>createSalesOrder</name></member>
+      <member refid="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a346c2e7f13b157df3f337817ec960384" prot="public" virt="non-virtual"><scope>com::gmp::crm::controller::SalesOrderController</scope><name>getSalesOrder</name></member>
+      <member refid="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a83e4ec222007c6a3e0b28ead9ee2169a" prot="public" virt="non-virtual"><scope>com::gmp::crm::controller::SalesOrderController</scope><name>getSalesOrderByNumber</name></member>
+      <member refid="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a775507498475c9aa777435ee15a7be86" prot="public" virt="non-virtual"><scope>com::gmp::crm::controller::SalesOrderController</scope><name>getSalesOrders</name></member>
+      <member refid="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1ab4b5f3cea3674b465d5ee540d8d3d2aa" prot="public" virt="non-virtual"><scope>com::gmp::crm::controller::SalesOrderController</scope><name>getSalesOrdersByCustomer</name></member>
+      <member refid="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1ab557f26821c146a5870ea53230ee26e9" prot="private" virt="non-virtual"><scope>com::gmp::crm::controller::SalesOrderController</scope><name>salesOrderService</name></member>
+      <member refid="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a85c7f11f89af1e0cedb6fd56de4aaa60" prot="public" virt="non-virtual"><scope>com::gmp::crm::controller::SalesOrderController</scope><name>searchSalesOrders</name></member>
+      <member refid="d9/d80/classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a0b3a4e250bfc64b31c23ef1c92e003a0" prot="public" virt="non-virtual"><scope>com::gmp::crm::controller::SalesOrderController</scope><name>updateOrderStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

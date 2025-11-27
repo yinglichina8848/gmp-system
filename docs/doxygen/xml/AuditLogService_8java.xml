@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="AuditLogService_8java" kind="file" language="Java">
+    <compoundname>AuditLogService.java</compoundname>
+    <includes local="no">com.gmp.auth.entity.OperationLog</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/service/AuditLogService.java</label>
+        <link refid="AuditLogService_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.auth.entity.OperationLog</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService" prot="public">com::gmp::auth::service::AuditLogService</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1service">com::gmp::auth::service</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1auth_1_1service" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.service;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.auth.entity.OperationLog;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService" kindref="compound">AuditLogService</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1aeb52e6c26346920df86195d3bf8cd648" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>OperationLog<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1aeb52e6c26346920df86195d3bf8cd648" kindref="member">logOperation</ref>(OperationLog<sp/>log);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1af1da3f63f1a4fe8ff55f5c836edd41ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>OperationLog<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1af1da3f63f1a4fe8ff55f5c836edd41ba" kindref="member">logLogin</ref>(Long<sp/>userId,<sp/>String<sp/>username,<sp/>String<sp/>ipAddress,<sp/>String<sp/>userAgent,<sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>success,<sp/>Map&lt;String,<sp/>Object&gt;<sp/>additionalInfo);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a3ca1ed7f4e7ad06e2f3d0cde5fc49da9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a3ca1ed7f4e7ad06e2f3d0cde5fc49da9" kindref="member">logLoginSuccess</ref>(Long<sp/>userId,<sp/>String<sp/>username,<sp/>String<sp/>ipAddress,<sp/>String<sp/>userAgent);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a8fb04d37903dfadf8c927a4aa1a33bb4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>OperationLog<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a8fb04d37903dfadf8c927a4aa1a33bb4" kindref="member">logLogout</ref>(Long<sp/>userId,<sp/>String<sp/>username,<sp/>String<sp/>ipAddress);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1adf5e77c2aa3b0e66212bead3f9252dc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>OperationLog<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1adf5e77c2aa3b0e66212bead3f9252dc6" kindref="member">logUserManagement</ref>(Long<sp/>operatorId,<sp/>String<sp/>operatorName,<sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>targetUserId,<sp/>String<sp/>targetUsername,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OperationLog.OperationType<sp/>operationType,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>success,<sp/>String<sp/>details);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1ad5da62e9d4540b8e5661110a1dd6e8f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>OperationLog<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1ad5da62e9d4540b8e5661110a1dd6e8f8" kindref="member">logRolePermissionChange</ref>(Long<sp/>operatorId,<sp/>String<sp/>operatorName,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>roleId,<sp/>String<sp/>roleCode,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>permissionChanges,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>success);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a0263f5425b68d64fcbb530468259a316" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>OperationLog<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a0263f5425b68d64fcbb530468259a316" kindref="member">logRoleAssignment</ref>(Long<sp/>operatorId,<sp/>String<sp/>operatorName,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>userId,<sp/>String<sp/>username,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>roleId,<sp/>String<sp/>roleCode,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isAssign,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>success);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1ae622dca7ceeef16a14d38f37645e2eb6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>OperationLog<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1ae622dca7ceeef16a14d38f37645e2eb6" kindref="member">logSecurityEvent</ref>(Long<sp/>userId,<sp/>String<sp/>username,<sp/></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>eventType,<sp/>String<sp/>severity,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>details,<sp/>String<sp/>ipAddress);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a4ac285b053a4d5aaac9d7f1e5be3d84e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a4ac285b053a4d5aaac9d7f1e5be3d84e" kindref="member">findLogsByPage</ref>(Pageable<sp/>pageable,<sp/>Map&lt;String,<sp/>Object&gt;<sp/>filters);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a6a6bfb8487b0ef13ead54a2f58b44c82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a6a6bfb8487b0ef13ead54a2f58b44c82" kindref="member">findLogsByUserId</ref>(Long<sp/>userId,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a85892a13d4a292e6f72a7b6a6a3f8f6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a85892a13d4a292e6f72a7b6a6a3f8f6a" kindref="member">findLogsByTimeRange</ref>(LocalDateTime<sp/>startTime,<sp/>LocalDateTime<sp/>endTime,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a02a412e362d4d0aac2896845804ee172" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;OperationLog&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a02a412e362d4d0aac2896845804ee172" kindref="member">findFailedOperations</ref>(LocalDateTime<sp/>since,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a4f49d6728bc9bd902c7244320c7410cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a4f49d6728bc9bd902c7244320c7410cc" kindref="member">getOperationStatistics</ref>(LocalDateTime<sp/>startTime,<sp/>LocalDateTime<sp/>endTime);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a5475163e4755ea0f4341ae9245efea79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a5475163e4755ea0f4341ae9245efea79" kindref="member">cleanupOldLogs</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>daysToKeep);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a692829146ce5f362b67adf483572f256" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]<sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a692829146ce5f362b67adf483572f256" kindref="member">exportLogs</ref>(Map&lt;String,<sp/>Object&gt;<sp/>filters,<sp/>String<sp/>format);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="180" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a43ad2a60806c3b45e93d3a5eeab4f893" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a43ad2a60806c3b45e93d3a5eeab4f893" kindref="member">logPasswordChange</ref>(Long<sp/>userId,<sp/>String<sp/>username,<sp/>String<sp/>ipAddress);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="188" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1aa9a9932ba1b8bd6b3d974068f500bb31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1aa9a9932ba1b8bd6b3d974068f500bb31" kindref="member">logPasswordReset</ref>(Long<sp/>userId,<sp/>String<sp/>username,<sp/>String<sp/>ipAddress);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="194" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a39de7f4f53b00c903bdba2de19e0c24a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a39de7f4f53b00c903bdba2de19e0c24a" kindref="member">logPasswordReset</ref>(String<sp/>username);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="200" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a2ea45c4b4758fe576d101c21fde083e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a2ea45c4b4758fe576d101c21fde083e6" kindref="member">logPasswordChange</ref>(String<sp/>username);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="208" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a6607c121ee5009e90416ac3f5bcdf118" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a6607c121ee5009e90416ac3f5bcdf118" kindref="member">logLoginSuccess</ref>(String<sp/>username,<sp/>String<sp/>ipAddress,<sp/>String<sp/>userAgent);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="217" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1aa259160284c838f2c6e4c6171cbd2ee1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1aa259160284c838f2c6e4c6171cbd2ee1" kindref="member">logLoginFailure</ref>(String<sp/>username,<sp/>String<sp/>ipAddress,<sp/>String<sp/>userAgent,<sp/>String<sp/>reason);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="223" refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a42fda158274156c35a7dd129c4d2b341" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuditLogService_1a42fda158274156c35a7dd129c4d2b341" kindref="member">logLogout</ref>(String<sp/>username);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="225"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/service/AuditLogService.java"/>
+  </compounddef>
+</doxygen>

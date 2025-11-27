@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['unitprice_0',['unitprice',['../d2/d7e/classcom_1_1gmp_1_1crm_1_1dto_1_1OrderItemDTO.html#aad35fff4f1059b684497504371aa232d',1,'com.gmp.crm.dto.OrderItemDTO.unitPrice'],['../d3/d22/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderRequestDTO_1_1OrderItemRequestDTO.html#a22fd5be13a8a23ba87dcaa01d8954a83',1,'com.gmp.crm.dto.SalesOrderRequestDTO.OrderItemRequestDTO.unitPrice'],['../da/dfa/classcom_1_1gmp_1_1crm_1_1entity_1_1OrderItem.html#ae89d5dd4ab707094d1b0e6027e894711',1,'com.gmp.crm.entity.OrderItem.unitPrice']]],
+  ['updatedat_1',['updatedat',['../de/ddc/classcom_1_1gmp_1_1crm_1_1dto_1_1CustomerDTO.html#a5f41043e77d38cc93a1e1e4be9ee8808',1,'com.gmp.crm.dto.CustomerDTO.updatedAt'],['../d6/d40/classcom_1_1gmp_1_1crm_1_1dto_1_1SalesOrderDTO.html#ab1792493f611889defcd2e824c3ad088',1,'com.gmp.crm.dto.SalesOrderDTO.updatedAt'],['../d9/d26/classcom_1_1gmp_1_1crm_1_1entity_1_1Customer.html#a6516471fdd951a796f0d27e7ece1def3',1,'com.gmp.crm.entity.Customer.updatedAt'],['../dc/d29/classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder.html#aa2ba2df0f742a264fd48ba095cc00af4',1,'com.gmp.crm.entity.SalesOrder.updatedAt']]]
+];

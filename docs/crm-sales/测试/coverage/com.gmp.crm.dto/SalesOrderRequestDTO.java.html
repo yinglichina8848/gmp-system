@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SalesOrderRequestDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crm-sales</a> &gt; <a href="index.source.html" class="el_package">com.gmp.crm.dto</a> &gt; <span class="el_source">SalesOrderRequestDTO.java</span></div><h1>SalesOrderRequestDTO.java</h1><pre class="source lang-java linenums">package com.gmp.crm.dto;
+
+import jakarta.validation.constraints.*;
+import lombok.Data;
+
+import java.util.List;
+
+/**
+ * 销售订单创建请求DTO
+ * 
+ * @author TRAE AI
+ */
+<span class="pc bnc" id="L13" title="All 30 branches missed.">@Data</span>
+public class SalesOrderRequestDTO {
+
+    /**
+     * 客户ID
+     */
+    @NotNull(message = &quot;客户ID不能为空&quot;)
+<span class="fc" id="L20">    private Long customerId;</span>
+
+    /**
+     * 备注
+     */
+    @Size(max = 500, message = &quot;备注长度不能超过500个字符&quot;)
+<span class="fc" id="L26">    private String remarks;</span>
+
+    /**
+     * 订单明细列表
+     */
+    @NotEmpty(message = &quot;订单明细不能为空&quot;)
+    @Size(min = 1, message = &quot;至少需要一个订单明细&quot;)
+<span class="fc" id="L33">    private List&lt;OrderItemRequestDTO&gt; items;</span>
+
+    /**
+     * 订单明细请求DTO
+     */
+<span class="pc bnc" id="L38" title="All 46 branches missed.">    @Data</span>
+    public static class OrderItemRequestDTO {
+        
+        /**
+         * 产品编号
+         */
+        @NotBlank(message = &quot;产品编号不能为空&quot;)
+        @Size(max = 50, message = &quot;产品编号长度不能超过50个字符&quot;)
+<span class="fc" id="L46">        private String productCode;</span>
+        
+        /**
+         * 产品名称
+         */
+        @NotBlank(message = &quot;产品名称不能为空&quot;)
+        @Size(max = 255, message = &quot;产品名称长度不能超过255个字符&quot;)
+<span class="fc" id="L53">        private String productName;</span>
+        
+        /**
+         * 单价
+         */
+        @NotNull(message = &quot;单价不能为空&quot;)
+        @Positive(message = &quot;单价必须大于0&quot;)
+<span class="fc" id="L60">        private String unitPrice;</span>
+        
+        /**
+         * 数量
+         */
+        @NotNull(message = &quot;数量不能为空&quot;)
+        @Positive(message = &quot;数量必须大于0&quot;)
+<span class="fc" id="L67">        private Integer quantity;</span>
+        
+        /**
+         * 备注
+         */
+        @Size(max = 200, message = &quot;备注长度不能超过200个字符&quot;)
+<span class="fc" id="L73">        private String remarks;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

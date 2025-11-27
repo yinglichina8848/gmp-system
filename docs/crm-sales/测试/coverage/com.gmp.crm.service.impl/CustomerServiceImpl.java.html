@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crm-sales</a> &gt; <a href="index.source.html" class="el_package">com.gmp.crm.service.impl</a> &gt; <span class="el_source">CustomerServiceImpl.java</span></div><h1>CustomerServiceImpl.java</h1><pre class="source lang-java linenums">package com.gmp.crm.service.impl;
+
+import com.gmp.crm.dto.CustomerDTO;
+import com.gmp.crm.dto.CustomerRequestDTO;
+import com.gmp.crm.dto.PageRequestDTO;
+import com.gmp.crm.entity.Customer;
+import com.gmp.crm.repository.CustomerRepository;
+import com.gmp.crm.service.CustomerService;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+/**
+ * 客户服务实现类
+ * 
+ * @author TRAE AI
+ */
+@Service
+<span class="nc" id="L28">@RequiredArgsConstructor(onConstructor = @__(@Autowired))</span>
+public class CustomerServiceImpl implements CustomerService {
+
+    private final CustomerRepository customerRepository;
+    private final ModelMapper modelMapper;
+
+    @Override
+    @Transactional
+    public CustomerDTO createCustomer(CustomerRequestDTO request) {
+        // 检查客户代码是否已存在
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        if (customerRepository.findByCode(request.getCode()).isPresent()) {</span>
+<span class="nc" id="L39">            throw new IllegalArgumentException(&quot;客户代码已存在: &quot; + request.getCode());</span>
+        }
+
+        // 转换请求DTO为实体
+<span class="nc" id="L43">        Customer customer = modelMapper.map(request, Customer.class);</span>
+<span class="nc" id="L44">        customer.setStatus(&quot;ACTIVE&quot;); // 默认激活状态</span>
+
+        // 保存客户
+<span class="nc" id="L47">        Customer savedCustomer = customerRepository.save(customer);</span>
+
+        // 转换为响应DTO
+<span class="nc" id="L50">        return modelMapper.map(savedCustomer, CustomerDTO.class);</span>
+    }
+
+    @Override
+    @Transactional
+    public CustomerDTO updateCustomer(Long id, CustomerRequestDTO request) {
+        // 查找客户
+<span class="nc" id="L57">        Customer customer = customerRepository.findById(id)</span>
+<span class="nc" id="L58">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;客户不存在: &quot; + id));</span>
+
+        // 检查客户代码是否已被其他客户使用
+<span class="nc bnc" id="L61" title="All 4 branches missed.">        if (request.getCode() != null &amp;&amp; !request.getCode().equals(customer.getCode()) &amp;&amp;</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">                customerRepository.existsByCodeAndIdNot(request.getCode(), id)) {</span>
+<span class="nc" id="L63">            throw new IllegalArgumentException(&quot;客户代码已存在: &quot; + request.getCode());</span>
+        }
+
+        // 更新客户信息
+<span class="nc" id="L67">        modelMapper.map(request, customer);</span>
+
+        // 保存更新
+<span class="nc" id="L70">        Customer updatedCustomer = customerRepository.save(customer);</span>
+
+        // 转换为响应DTO
+<span class="nc" id="L73">        return modelMapper.map(updatedCustomer, CustomerDTO.class);</span>
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional&lt;CustomerDTO&gt; getCustomerById(Long id) {
+<span class="nc" id="L79">        return customerRepository.findById(id)</span>
+<span class="nc" id="L80">                .map(customer -&gt; modelMapper.map(customer, CustomerDTO.class));</span>
+    }
+
+    @Override
+    @Transactional
+    public boolean deleteCustomer(Long id) {
+        // 查找客户
+<span class="nc" id="L87">        Customer customer = customerRepository.findById(id)</span>
+<span class="nc" id="L88">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;客户不存在: &quot; + id));</span>
+
+        // 软删除：将状态设置为INACTIVE
+<span class="nc" id="L91">        customer.setStatus(&quot;INACTIVE&quot;);</span>
+<span class="nc" id="L92">        customerRepository.save(customer);</span>
+
+<span class="nc" id="L94">        return true;</span>
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page&lt;CustomerDTO&gt; getCustomers(PageRequestDTO pageRequest) {
+        // 构建排序
+<span class="nc bnc" id="L101" title="All 2 branches missed.">        Sort.Direction direction = &quot;desc&quot;.equalsIgnoreCase(pageRequest.getSortOrder()) ? Sort.Direction.DESC</span>
+<span class="nc" id="L102">                : Sort.Direction.ASC;</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        String sortField = pageRequest.getSortField() != null ? pageRequest.getSortField() : &quot;createdAt&quot;;</span>
+<span class="nc" id="L104">        Sort sort = Sort.by(direction, sortField);</span>
+
+        // 构建分页请求
+<span class="nc" id="L107">        PageRequest pageable = PageRequest.of(pageRequest.getPage() - 1, pageRequest.getSize(), sort);</span>
+
+        // 查询有效客户
+<span class="nc" id="L110">        Page&lt;Customer&gt; customerPage = customerRepository.findByStatus(&quot;ACTIVE&quot;, pageable);</span>
+
+        // 转换为DTO
+<span class="nc" id="L113">        return customerPage.map(customer -&gt; modelMapper.map(customer, CustomerDTO.class));</span>
+    }
+
+    @Transactional(readOnly = true)
+    public List&lt;CustomerDTO&gt; searchCustomers(String name) {
+<span class="nc" id="L118">        List&lt;Customer&gt; customers = customerRepository.findByNameContaining(name);</span>
+<span class="nc" id="L119">        return customers.stream()</span>
+<span class="nc" id="L120">                .map(customer -&gt; modelMapper.map(customer, CustomerDTO.class))</span>
+<span class="nc" id="L121">                .collect(Collectors.toList());</span>
+    }
+    
+    @Override
+    public List&lt;CustomerDTO&gt; searchCustomersByName(String name) {
+<span class="nc" id="L126">        return searchCustomers(name);</span>
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public boolean existsByCode(String code, Long excludeId) {
+<span class="nc bnc" id="L132" title="All 2 branches missed.">        if (excludeId != null) {</span>
+<span class="nc" id="L133">            return customerRepository.existsByCodeAndIdNot(code, excludeId);</span>
+        }
+<span class="nc" id="L135">        return customerRepository.findByCode(code).isPresent();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,38 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /warehouse
+
+spring:
+  application:
+    name: warehouse-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gmp_test_db
+    username: gmp_user
+    password: gmp_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  redis:
+    host: localhost
+    port: 6379
+    database: 15
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.gmp.warehouse: DEBUG
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n'
+
+# 测试特定配置
+test:
+  mock:
+    enabled: true

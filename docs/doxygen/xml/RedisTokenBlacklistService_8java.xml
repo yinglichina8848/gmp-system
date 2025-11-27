@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="RedisTokenBlacklistService_8java" kind="file" language="Java">
+    <compoundname>RedisTokenBlacklistService.java</compoundname>
+    <includes local="no">org.springframework.data.redis.core.RedisTemplate</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java</label>
+        <link refid="RedisTokenBlacklistService_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.springframework.data.redis.core.RedisTemplate</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService" prot="public">com::gmp::auth::service::RedisTokenBlacklistService</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1service">com::gmp::auth::service</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.service;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.redis.core.RedisTemplate;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.redis.core.ValueOperations;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.TimeUnit;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService" kindref="compound">RedisTokenBlacklistService</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1TokenBlacklistService" kindref="compound">TokenBlacklistService</ref><sp/>{</highlight></codeline>
+<codeline lineno="12" refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a169d442efe7ceaeeefe32e45b4387874" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>RedisTemplate&lt;String,<sp/>String&gt;<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a169d442efe7ceaeeefe32e45b4387874" kindref="member">redisTemplate</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="14" refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1ab2a1265b55dee38d92e3c04cc012575e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1ab2a1265b55dee38d92e3c04cc012575e" kindref="member">RedisTokenBlacklistService</ref>(RedisTemplate&lt;String,<sp/>String&gt;<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a169d442efe7ceaeeefe32e45b4387874" kindref="member">redisTemplate</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.redisTemplate<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a169d442efe7ceaeeefe32e45b4387874" kindref="member">redisTemplate</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3807497f77de98f8858f760284cd3ba5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3807497f77de98f8858f760284cd3ba5" kindref="member">blacklistToken</ref>(String<sp/>token,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>expirationTime)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>currentTime<sp/>=<sp/>System.currentTimeMillis();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(token<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>expirationTime<sp/>&gt;<sp/>currentTime)<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>expireSeconds<sp/>=<sp/>(expirationTime<sp/>-<sp/>currentTime)<sp/>/<sp/>1000;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ValueOperations&lt;String,<sp/>String&gt;<sp/>valueOps<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a169d442efe7ceaeeefe32e45b4387874" kindref="member">redisTemplate</ref>.opsForValue();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>valueOps.set(</highlight><highlight class="stringliteral">&quot;blacklist:&quot;</highlight><highlight class="normal"><sp/>+<sp/>token,<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">,<sp/>expireSeconds,<sp/>TimeUnit.SECONDS);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="29" refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3437ff0e0fe65ddc056a363a92d93089" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a3437ff0e0fe65ddc056a363a92d93089" kindref="member">isTokenBlacklisted</ref>(String<sp/>token)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(token<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ValueOperations&lt;String,<sp/>String&gt;<sp/>valueOps<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1RedisTokenBlacklistService_1a169d442efe7ceaeeefe32e45b4387874" kindref="member">redisTemplate</ref>.opsForValue();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>value<sp/>=<sp/>valueOps.get(</highlight><highlight class="stringliteral">&quot;blacklist:&quot;</highlight><highlight class="normal"><sp/>+<sp/>token);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">.equals(value);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/test/java/com/gmp/auth/service/RedisTokenBlacklistService.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="zh">
+  <compounddef id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::warehouse::repository::StockOutOrderRepository</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">JpaRepository&lt; StockOutOrder, Long &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">JpaSpecificationExecutor&lt; StockOutOrder &gt;</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1ae7e1526a2bfc5d995b7a2ee02f6ee112" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional&lt; StockOutOrder &gt;</type>
+        <definition>Optional&lt; StockOutOrder &gt; com.gmp.warehouse.repository.StockOutOrderRepository.findByOrderNo</definition>
+        <argsstring>(String orderNo)</argsstring>
+        <name>findByOrderNo</name>
+        <qualifiedname>com.gmp.warehouse.repository.StockOutOrderRepository.findByOrderNo</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>orderNo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>根据出库单号查询出库单</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>orderNo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>出库单号 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>出库单对象 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java" line="33" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a70b3b48ce8b7a92159d887288d5593a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; StockOutOrder &gt;</type>
+        <definition>List&lt; StockOutOrder &gt; com.gmp.warehouse.repository.StockOutOrderRepository.findByWarehouseId</definition>
+        <argsstring>(Long warehouseId)</argsstring>
+        <name>findByWarehouseId</name>
+        <qualifiedname>com.gmp.warehouse.repository.StockOutOrderRepository.findByWarehouseId</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>warehouseId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>根据仓库ID查询出库单列表</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>warehouseId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>仓库ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>出库单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java" line="41" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a0d5b48dabd6a1e153d90c6e5ab8c346d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; StockOutOrder &gt;</type>
+        <definition>List&lt; StockOutOrder &gt; com.gmp.warehouse.repository.StockOutOrderRepository.findByStatus</definition>
+        <argsstring>(Integer status)</argsstring>
+        <name>findByStatus</name>
+        <qualifiedname>com.gmp.warehouse.repository.StockOutOrderRepository.findByStatus</qualifiedname>
+        <param>
+          <type>Integer</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>根据状态查询出库单列表</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>状态：0-草稿，1-待审核，2-已审核，3-已出库，4-已取消 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>出库单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java" line="49" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a9ce63abb50ae478450ae6e03cb266acb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; StockOutOrder &gt;</type>
+        <definition>List&lt; StockOutOrder &gt; com.gmp.warehouse.repository.StockOutOrderRepository.findByOrderType</definition>
+        <argsstring>(String orderType)</argsstring>
+        <name>findByOrderType</name>
+        <qualifiedname>com.gmp.warehouse.repository.StockOutOrderRepository.findByOrderType</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>orderType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>根据出库类型查询出库单列表</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>orderType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>出库类型 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>出库单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java" line="57" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a8b2993a93e41573059d167a19c7962ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; StockOutOrder &gt;</type>
+        <definition>List&lt; StockOutOrder &gt; com.gmp.warehouse.repository.StockOutOrderRepository.findByRelatedOrderNo</definition>
+        <argsstring>(String relatedOrderNo)</argsstring>
+        <name>findByRelatedOrderNo</name>
+        <qualifiedname>com.gmp.warehouse.repository.StockOutOrderRepository.findByRelatedOrderNo</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>relatedOrderNo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>根据关联单据号查询出库单</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>relatedOrderNo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>关联单据号 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>出库单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java" line="65" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a449be3d7e678caed65abaa6c70fdf138" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; StockOutOrder &gt;</type>
+        <definition>List&lt; StockOutOrder &gt; com.gmp.warehouse.repository.StockOutOrderRepository.findByStockOutDateBetween</definition>
+        <argsstring>(LocalDateTime startDate, LocalDateTime endDate)</argsstring>
+        <name>findByStockOutDateBetween</name>
+        <qualifiedname>com.gmp.warehouse.repository.StockOutOrderRepository.findByStockOutDateBetween</qualifiedname>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>根据出库日期范围查询出库单</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>出库单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java" line="74" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a3369c825b7ecab615a61c57b9db01021" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; StockOutOrder &gt;</type>
+        <definition>List&lt; StockOutOrder &gt; com.gmp.warehouse.repository.StockOutOrderRepository.findByStatusOrderByCreatedAtDesc</definition>
+        <argsstring>(Integer status)</argsstring>
+        <name>findByStatusOrderByCreatedAtDesc</name>
+        <qualifiedname>com.gmp.warehouse.repository.StockOutOrderRepository.findByStatusOrderByCreatedAtDesc</qualifiedname>
+        <param>
+          <type>Integer</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>查询待审核的出库单</para>
+<para><simplesect kind="return"><para>待审核的出库单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java" line="81" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1ae82151fd11485ef2306ff58c26a47b1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Double</type>
+        <definition>Double com.gmp.warehouse.repository.StockOutOrderRepository.getTotalAmountByDateRange</definition>
+        <argsstring>(@Param(&quot;startDate&quot;) LocalDateTime startDate, @Param(&quot;endDate&quot;) LocalDateTime endDate)</argsstring>
+        <name>getTotalAmountByDateRange</name>
+        <qualifiedname>com.gmp.warehouse.repository.StockOutOrderRepository.getTotalAmountByDateRange</qualifiedname>
+        <param>
+          <type>@Param(&quot;startDate&quot;) LocalDateTime</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>@Param(&quot;endDate&quot;) LocalDateTime</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>查询出库单总金额统计</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>总金额 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java" line="91" column="12"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>出库单数据访问层 </para>
+<para>提供出库单相关的数据库操作方法。 </para>
+<para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0.0 </para>
+</simplesect>
+<simplesect kind="since"><para>2024-01-01 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JpaRepository&lt; StockOutOrder, Long &gt;</label>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; StockOutOrder &gt;</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.warehouse.repository.StockOutOrderRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JpaRepository&lt; StockOutOrder, Long &gt;</label>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; StockOutOrder &gt;</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.warehouse.repository.StockOutOrderRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java" line="25" column="18" bodyfile="src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java" bodystart="25" bodyend="93"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1ae7e1526a2bfc5d995b7a2ee02f6ee112" prot="public" virt="non-virtual"><scope>com::gmp::warehouse::repository::StockOutOrderRepository</scope><name>findByOrderNo</name></member>
+      <member refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a9ce63abb50ae478450ae6e03cb266acb" prot="public" virt="non-virtual"><scope>com::gmp::warehouse::repository::StockOutOrderRepository</scope><name>findByOrderType</name></member>
+      <member refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a8b2993a93e41573059d167a19c7962ee" prot="public" virt="non-virtual"><scope>com::gmp::warehouse::repository::StockOutOrderRepository</scope><name>findByRelatedOrderNo</name></member>
+      <member refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a0d5b48dabd6a1e153d90c6e5ab8c346d" prot="public" virt="non-virtual"><scope>com::gmp::warehouse::repository::StockOutOrderRepository</scope><name>findByStatus</name></member>
+      <member refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a3369c825b7ecab615a61c57b9db01021" prot="public" virt="non-virtual"><scope>com::gmp::warehouse::repository::StockOutOrderRepository</scope><name>findByStatusOrderByCreatedAtDesc</name></member>
+      <member refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a449be3d7e678caed65abaa6c70fdf138" prot="public" virt="non-virtual"><scope>com::gmp::warehouse::repository::StockOutOrderRepository</scope><name>findByStockOutDateBetween</name></member>
+      <member refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a70b3b48ce8b7a92159d887288d5593a9" prot="public" virt="non-virtual"><scope>com::gmp::warehouse::repository::StockOutOrderRepository</scope><name>findByWarehouseId</name></member>
+      <member refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1ae82151fd11485ef2306ff58c26a47b1e" prot="public" virt="non-virtual"><scope>com::gmp::warehouse::repository::StockOutOrderRepository</scope><name>getTotalAmountByDateRange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,25 @@
+var classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO =
+[
+    [ "actualEndDate", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a8146345086ebde60ac70aca8f7ef0f90", null ],
+    [ "actualStartDate", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a68d8ae7c59d4bd84ba19b54338886895", null ],
+    [ "createdBy", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#af3573d6711dce920c769c36ffb18e33a", null ],
+    [ "createdTime", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#ae0a6854ad8c152e1d5506d643e7aa245", null ],
+    [ "cycleType", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a9cd6054ec3add58a18e011a07650a319", null ],
+    [ "cycleTypeDescription", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a7516db482548ba12f1956b90b0ac9828", null ],
+    [ "equipmentCode", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#aa4b24ab0e81bb75172bc983c25ed997e", null ],
+    [ "equipmentId", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#ada679230e097b9bdcd437dd6e9748e9a", null ],
+    [ "equipmentName", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a05ee600775bdd659ee3a7b0a0259c64d", null ],
+    [ "id", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a068cb4b8cd78c0bf910a654359f61ac7", null ],
+    [ "maintenanceCycleDays", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a6172e0d99a32b0ee48c939e6936f0915", null ],
+    [ "maintenancePerson", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a72fcd968b1f4111c4842fee6a24f2efd", null ],
+    [ "maintenanceType", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#ae2d85d92b1e9d6fd9a597a6c7fdd06c4", null ],
+    [ "maintenanceTypeDescription", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a8217533c35171dc51078f879fea3fcc1", null ],
+    [ "plannedEndDate", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a459b005b9c57bb01f016295172ae8b0d", null ],
+    [ "plannedStartDate", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#af4aa2c85cf3a0a4601f88d354f985780", null ],
+    [ "planNumber", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#ab7f57a4a309245047f3c10e89f6d641a", null ],
+    [ "remarks", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a1e14f095853837f73f0443693edbccfd", null ],
+    [ "status", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#aee7c514eebcfdc5ecf841ea75d3ba40c", null ],
+    [ "statusDescription", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a8531c238c9bfb28cf8c51cb7db5546c5", null ],
+    [ "updatedBy", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a11002c5a114aec3984c7f224d89b5cd0", null ],
+    [ "updatedTime", "db/d4d/classcom_1_1gmp_1_1equipment_1_1dto_1_1MaintenancePlanDTO.html#a45e50c0017fbe0e9e306914cb4c3aa7d", null ]
+];

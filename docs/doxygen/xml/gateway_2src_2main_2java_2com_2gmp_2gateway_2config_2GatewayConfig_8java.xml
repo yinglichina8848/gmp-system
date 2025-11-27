@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="gateway_2src_2main_2java_2com_2gmp_2gateway_2config_2GatewayConfig_8java" kind="file" language="Java">
+    <compoundname>GatewayConfig.java</compoundname>
+    <includes local="no">org.springframework.cloud.gateway.filter.ratelimit.KeyResolver</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java</label>
+        <link refid="gateway_2src_2main_2java_2com_2gmp_2gateway_2config_2GatewayConfig_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.springframework.cloud.gateway.filter.ratelimit.KeyResolver</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig" prot="public">com::gmp::gateway::config::GatewayConfig</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1gateway_1_1config">com::gmp::gateway::config</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2" refid="namespacecom_1_1gmp_1_1gateway_1_1config" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.gateway.config;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.cloud.gateway.filter.ratelimit.KeyResolver;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.context.annotation.Bean;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.context.annotation.Configuration;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>reactor.core.publisher.Mono;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">@Configuration</highlight></codeline>
+<codeline lineno="14" refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig" kindref="compound">GatewayConfig</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean</highlight></codeline>
+<codeline lineno="20" refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1a20efbd7dafe5c70b2486b8c84318dc4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>KeyResolver<sp/><ref refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1a20efbd7dafe5c70b2486b8c84318dc4a" kindref="member">userKeyResolver</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exchange<sp/>-&gt;<sp/>Mono.just(exchange.getRequest().getHeaders()</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.getFirst(</highlight><highlight class="stringliteral">&quot;X-User-Id&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.defaultIfEmpty(</highlight><highlight class="stringliteral">&quot;anonymous&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean</highlight></codeline>
+<codeline lineno="30" refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1af9f4c7ec599bd99ed8ace2f1cb2bcbc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>KeyResolver<sp/><ref refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1af9f4c7ec599bd99ed8ace2f1cb2bcbc6" kindref="member">ipKeyResolver</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exchange<sp/>-&gt;<sp/>Mono.just(exchange.getRequest().getRemoteAddress()</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.getAddress().getHostAddress());</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java"/>
+  </compounddef>
+</doxygen>

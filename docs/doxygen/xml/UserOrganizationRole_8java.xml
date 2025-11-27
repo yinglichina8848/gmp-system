@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="UserOrganizationRole_8java" kind="file" language="Java">
+    <compoundname>UserOrganizationRole.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/entity/UserOrganizationRole.java</label>
+        <link refid="UserOrganizationRole_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole" prot="public">com::gmp::auth::entity::UserOrganizationRole</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus" prot="public">com::gmp::auth::entity::UserOrganizationRole::AssignmentStatus</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1entity">com::gmp::auth::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GMP系统用户组织角色关联实体定义</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dịp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WHY:<sp/>传统的RBAC模型不支持用户在多个组织内拥有不同角色的复杂权限场景，</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>在GMP企业中，一个质量工程师可能同时在质量组织、生产组织、培训组织中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>担任不同角色，这种多组织多角色的权限需求需要专门的实体进行管理。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WHAT:<sp/>UserOrganizationRole实体实现用户、组织、角色三者间的关联管理，</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>支持临时权限、权限过期、分配审核等高级权限管理特性，确保权限</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>分配的追溯性和合规性，满足GMP审计要求。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>HOW:<sp/>使用唯一约束保证用户在同一组织内只能有一个角色，通过枚举约束赋值状态，</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>使用审计字段记录完整的权限变更历史，支持权限的动态激活和自动失效。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.*;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.NoArgsConstructor;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.AllArgsConstructor;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Builder;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">@NoArgsConstructor</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">@AllArgsConstructor</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">@Builder</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sys_user_org_roles&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uniqueConstraints<sp/>=<sp/>@UniqueConstraint(</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>columnNames<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;user_id&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;organization_id&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;role_id&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;uk_user_org_role&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>),</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>indexes<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_uor_user&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user_id&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_uor_org&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;organization_id&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_uor_role&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;role_id&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_uor_status&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;assignment_status&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_uor_effective&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;effective_from,effective_until&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole" kindref="compound">UserOrganizationRole</ref><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="63" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a3639b42840826360746bd95db39e43bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>核心关联关系</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotNull(message<sp/>=<sp/>&quot;用户ID不能为空&quot;)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;user_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="68" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a707eb90fa1d4b66949dcf07bb1bef48d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>userId;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotNull(message<sp/>=<sp/>&quot;组织ID不能为空&quot;)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;organization_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1af199bb526d9b82514e3c1255030415fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>organizationId;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotNull(message<sp/>=<sp/>&quot;角色ID不能为空&quot;)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;role_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="76" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a495d5a71c5d510cf022a3c98f9d39778" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>roleId;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>权限分配状态管理</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;assignment_status&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="82" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a28f3d91e4a03dfbc8fafcba3a20dfda0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus" kindref="compound">AssignmentStatus</ref><sp/>status<sp/>=<sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus" kindref="compound">AssignmentStatus</ref>.ACTIVE;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;assigned_by&quot;)</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a20791826b049a6c9ba358aa835d5c515" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>assignedBy;<sp/><sp/></highlight><highlight class="comment">//<sp/>分配人ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;assigned_at&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="89" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a80c78a66aca5006cb09edd4bea22dab6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>assignedAt<sp/>=<sp/>LocalDateTime.now();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>生效时间控制<sp/>-<sp/>支持临时权限</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;effective_from&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="94" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a475a16fab3852faf910c81129fab913f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>effectiveFrom<sp/>=<sp/>LocalDateTime.now();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;effective_until&quot;)</highlight></codeline>
+<codeline lineno="97" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a3668e2d95b7267c646badf9fc9423631" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>effectiveUntil;<sp/><sp/></highlight><highlight class="comment">//<sp/>到期时间，为null表示永久有效</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;expires_notified&quot;)</highlight></codeline>
+<codeline lineno="100" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a27b681771789f9705f1394a42969043a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Boolean<sp/>expiresNotified<sp/>=<sp/>false;<sp/><sp/></highlight><highlight class="comment">//<sp/>到期提醒标志</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>权限分配理由和备注</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;分配理由长度不能超过500字符&quot;)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;assignment_reason&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="105" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a494b7e94882ac60c0afef2343c12a61f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>assignmentReason;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>1000,<sp/>message<sp/>=<sp/>&quot;备注信息长度不能超过1000字符&quot;)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;notes&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="109" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1ae3a42f38e9931647d28edcc461d9583c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>notes;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>GMP合规相关扩展字段</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;gmp_required&quot;)</highlight></codeline>
+<codeline lineno="113" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a62d52141a4e7e40ffa0383ef6a414d19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Boolean<sp/>gmpRequired<sp/>=<sp/>false;<sp/><sp/></highlight><highlight class="comment">//<sp/>是否GMP必备权限</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;qualification_required&quot;)</highlight></codeline>
+<codeline lineno="116" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a80e4c1af7e35c79467cdfa11f14bdc14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>qualificationRequired;<sp/><sp/></highlight><highlight class="comment">//<sp/>需要的资质证明</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;training_required&quot;)</highlight></codeline>
+<codeline lineno="119" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a552d508d24aea5f709d678c0a3d593c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>trainingRequired;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>需要的培训记录</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;approval_required&quot;)</highlight></codeline>
+<codeline lineno="122" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a936c727a09d8b91635ca7127b8f4ac3b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Boolean<sp/>approvalRequired<sp/>=<sp/>false;<sp/><sp/></highlight><highlight class="comment">//<sp/>是否需要上级审批</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;approved_by&quot;)</highlight></codeline>
+<codeline lineno="125" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1ab61957e37a7c2b7662d54df71eaf4830" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>approvedBy;<sp/><sp/></highlight><highlight class="comment">//<sp/>审批人ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;approved_at&quot;)</highlight></codeline>
+<codeline lineno="128" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a5e9c42cf62f4c1d03f472d8f0ddabfa9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>approvedAt;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>审批时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;审批意见长度不能超过500字符&quot;)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;approval_note&quot;)</highlight></codeline>
+<codeline lineno="132" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1ae0123a798dac3905dd0d2bc28bb6ec0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>approvalNote;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>审计字段<sp/>-<sp/>GMP合规要求完整审计记录</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="137" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1af598b58cfe28d30a91b2e1947567786b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="141" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1abc260b484654d44e34304f415b50b2c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;)</highlight></codeline>
+<codeline lineno="144" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a5d8561173c814787333b019f0aeadb6f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>createdBy;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;)</highlight></codeline>
+<codeline lineno="147" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1ab4f7aec25a447c555d7d62674d7bdfef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>@Version</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="152" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a1f5b8b9322348163f0ac3a4bb49c8085" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>version<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus" kindref="compound">AssignmentStatus</ref><sp/>{</highlight></codeline>
+<codeline lineno="159" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1ad6f66703c33f1a26b2ff83b7a57cfd16" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1ad6f66703c33f1a26b2ff83b7a57cfd16" kindref="member">PENDING</ref>(</highlight><highlight class="stringliteral">&quot;待审批&quot;</highlight><highlight class="normal">),<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>权限分配申请已提交，等待审批</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1ac449fd54336b44afb7fd46d1381e4bc1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1ac449fd54336b44afb7fd46d1381e4bc1" kindref="member">APPROVED</ref>(</highlight><highlight class="stringliteral">&quot;已批准&quot;</highlight><highlight class="normal">),<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>权限分配已通过审批</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1a92e830ea6d021bc1efee3cc3aad3d059" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1a92e830ea6d021bc1efee3cc3aad3d059" kindref="member">ACTIVE</ref>(</highlight><highlight class="stringliteral">&quot;生效中&quot;</highlight><highlight class="normal">),<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>权限已生效，可以正常使用</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1aede4d1d14ba5ea297814e17e8f231094" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1aede4d1d14ba5ea297814e17e8f231094" kindref="member">SUSPENDED</ref>(</highlight><highlight class="stringliteral">&quot;已暂停&quot;</highlight><highlight class="normal">),<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>权限暂时被暂停（非永久）</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1ab579b4e8db1afe829fe981eb8464804f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1ab579b4e8db1afe829fe981eb8464804f" kindref="member">EXPIRED</ref>(</highlight><highlight class="stringliteral">&quot;已过期&quot;</highlight><highlight class="normal">),<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>权限超过有效期</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1afd4d07258a7ff37f1b154fd39ba629c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1afd4d07258a7ff37f1b154fd39ba629c6" kindref="member">REVOKED</ref>(</highlight><highlight class="stringliteral">&quot;已撤销&quot;</highlight><highlight class="normal">),<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>权限被主动撤销</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1a0de5d0ff4bd90cf99292658590b79d09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1a0de5d0ff4bd90cf99292658590b79d09" kindref="member">REJECTED</ref>(</highlight><highlight class="stringliteral">&quot;已拒绝&quot;</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>权限分配申请被拒绝</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1aa9c4fc6d02d7cf4d1289552b40fa9870" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1aa9c4fc6d02d7cf4d1289552b40fa9870" kindref="member">description</ref>;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1a903ee3412ada46fe231ae9eee958fddc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1a903ee3412ada46fe231ae9eee958fddc" kindref="member">AssignmentStatus</ref>(String<sp/>description)<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.description<sp/>=<sp/>description;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1ac935509c276f7cc008959fa8cd72ded0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1ac935509c276f7cc008959fa8cd72ded0" kindref="member">getDescription</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>description;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1a88ad1029efb2466306a94c105f3f8669" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1_1AssignmentStatus_1a88ad1029efb2466306a94c105f3f8669" kindref="member">isActiveStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/>ACTIVE<sp/>||<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/>APPROVED;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="189" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a6fcb5bb81439b401154c3658cb95be3d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a6fcb5bb81439b401154c3658cb95be3d" kindref="member">isEffective</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>1.<sp/>检查状态是否为活动状态</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!status.isActiveStatus())<sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>2.<sp/>检查生效时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocalDateTime<sp/>now<sp/>=<sp/>LocalDateTime.now();</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(now.isBefore(effectiveFrom))<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>还未到生效时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>3.<sp/>检查到期时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(effectiveUntil<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>now.isAfter(effectiveUntil))<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>已过期</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="213" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a667875183c19e2c349a8be777a0d5807" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a667875183c19e2c349a8be777a0d5807" kindref="member">isExpiringSoon</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>warningDays)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(effectiveUntil<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>永久有效，无需警告</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocalDateTime<sp/>warningTime<sp/>=<sp/>LocalDateTime.now().plusDays(warningDays);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>LocalDateTime.now().isBefore(effectiveUntil)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>effectiveUntil.isBefore(warningTime);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="227" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a65cbf27558c5e46e3ca8ea9f7ca38648" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1a65cbf27558c5e46e3ca8ea9f7ca38648" kindref="member">isExpired</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>effectiveUntil<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>LocalDateTime.now().isAfter(effectiveUntil);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="235" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1aaa2cff62fb44fa810f0a3a5d7987951c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1aaa2cff62fb44fa810f0a3a5d7987951c" kindref="member">requiresApproval</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>approvalRequired<sp/>&amp;&amp;<sp/>(assignedBy<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>||<sp/>assignedBy.equals(createdBy));</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="243" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1ae9b2f36cd44f64d5e2c971b9d758f6da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Integer<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserOrganizationRole_1ae9b2f36cd44f64d5e2c971b9d758f6da" kindref="member">getRemainingDays</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(effectiveUntil<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>永久有效</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocalDateTime<sp/>now<sp/>=<sp/>LocalDateTime.now();</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(now.isAfter(effectiveUntil))<sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>已过期</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>java.time.Duration.between(now,<sp/>effectiveUntil).toDays();</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/entity/UserOrganizationRole.java"/>
+  </compounddef>
+</doxygen>

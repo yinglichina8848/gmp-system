@@ -1,0 +1,27 @@
+var classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO =
+[
+    [ "acceptanceDate", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a5c7201396684584be56556b8c01c4ca1", null ],
+    [ "code", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a298d34029b73fbdae5451aae5fc99df9", null ],
+    [ "commissioningDate", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#acde665bda458f3c12684929c6ce7af27", null ],
+    [ "createdBy", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a0efe9f4a4454edff58cbf376aabb3a51", null ],
+    [ "createdTime", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a0c60cb0400c91d02b0629085d663e262", null ],
+    [ "description", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a232c3f5962c895b06d1943b68bbab1e1", null ],
+    [ "enabled", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#ab2b488140950afdf70b85381628c8ae3", null ],
+    [ "equipmentTypeCode", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#aaee628a928c6bb334b5ea2767374760d", null ],
+    [ "equipmentTypeId", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#ace9da35d662c5ce7ee7548b2665741ad", null ],
+    [ "equipmentTypeName", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a0782e5c8e5b7df0700181d8f4b5afc7b", null ],
+    [ "id", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#ac3350f7244f663a6e78f51636475d363", null ],
+    [ "location", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a03f3e905b7c09f4367d61cc1cbc4c4bc", null ],
+    [ "model", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a9ed265fca6c633a48cb0d47f6f08a815", null ],
+    [ "name", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a503d43d7708daea71a468d0212c6bc75", null ],
+    [ "nextCalibrationDate", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a798f6c6e261644358664a97a9c826b02", null ],
+    [ "nextMaintenanceDate", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a2067e08ee15fe5a593896663146f70a7", null ],
+    [ "purchaseDate", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a718a2e5bfd4fe8110a68ff888e5b0e26", null ],
+    [ "responsiblePerson", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#ab36e7ed84399dbe57f8a81d759ced162", null ],
+    [ "serialNumber", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a3655da84f586c3e4ef025de55ece686d", null ],
+    [ "status", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a02fac6965d351c44a275864b3a06cb03", null ],
+    [ "statusDescription", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a1fd547688387f498704c4329f5b0ddf8", null ],
+    [ "supplier", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a630e3b4c06753cd818f23019d87e57e1", null ],
+    [ "updatedBy", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#a0b27bdb56d3b158f68cae5e2abccbfc7", null ],
+    [ "updatedTime", "d6/d22/classcom_1_1gmp_1_1equipment_1_1dto_1_1EquipmentDTO.html#ae02d6bb111a56038b5cd253e9d5b5e67", null ]
+];

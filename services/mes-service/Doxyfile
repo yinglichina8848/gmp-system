@@ -1,0 +1,115 @@
+# Doxyfile 1.9.8
+
+# This file describes the settings to be used by the documentation system
+# doxygen (www.doxygen.org) for a project.
+
+#---------------------------------------------------------------------------
+# Project related configuration options
+#---------------------------------------------------------------------------
+
+DOXYFILE_ENCODING      = UTF-8
+PROJECT_NAME           = MES子系统
+PROJECT_NUMBER         = 0.1.1
+PROJECT_BRIEF          = MES制造执行系统文档
+PROJECT_LOGO           =
+
+# 输出目录设置为docs/mes/doxygen
+OUTPUT_DIRECTORY       = ../../docs/mes/doxygen
+CREATE_SUBDIRS         = NO
+
+#---------------------------------------------------------------------------
+# Build related configuration options
+#---------------------------------------------------------------------------
+
+# 递归处理子目录
+RECURSIVE              = YES
+
+# 源代码目录设置
+INPUT                  = src/main/java
+
+# 排除测试代码目录
+EXCLUDE                = src/test
+
+#---------------------------------------------------------------------------
+# Configure the input files
+#---------------------------------------------------------------------------
+
+# 文件模式
+FILE_PATTERNS          = *.java *.h *.hpp *.c *.cpp
+
+# 包含模式
+EXCLUDE_PATTERNS       = */test/* */target/*
+
+#---------------------------------------------------------------------------
+# Output format
+#---------------------------------------------------------------------------
+
+# 生成HTML输出
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+
+# 生成XML输出
+GENERATE_XML           = YES
+XML_OUTPUT             = xml
+
+# 不生成LaTeX输出
+GENERATE_LATEX         = NO
+
+#---------------------------------------------------------------------------
+# Configuration for code browsing
+#---------------------------------------------------------------------------
+
+# 生成浏览树
+GENERATE_TREEVIEW      = YES
+
+# 生成索引
+ALPHABETICAL_INDEX     = YES
+COLS_IN_ALPHA_INDEX    = 5
+
+#---------------------------------------------------------------------------
+# Configuration for generating diagrams
+#---------------------------------------------------------------------------
+
+# 启用DOT生成图表
+HAVE_DOT               = YES
+CLASS_DIAGRAMS         = YES
+COLLABORATION_GRAPH    = YES
+
+#---------------------------------------------------------------------------
+# Configuration for documentation extraction
+#---------------------------------------------------------------------------
+
+# 提取所有代码注释
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_PACKAGE        = YES
+EXTRACT_STATIC         = NO
+
+#---------------------------------------------------------------------------
+# Configuration for Javadoc style comments
+#---------------------------------------------------------------------------
+
+# Javadoc格式注释
+JAVADOC_AUTOBRIEF      = YES
+JAVADOC_BANNER         = NO
+
+#---------------------------------------------------------------------------
+# Configuration for grouping
+#---------------------------------------------------------------------------
+
+# 使用@group标签分组
+GROUP_NESTED_COMPOUNDS = YES
+GROUP_EXTRACT_ALL      = YES
+GROUP_EXTRACT_PRIVATE  = NO
+GROUP_EXTRACT_STATIC   = NO
+
+#---------------------------------------------------------------------------
+# Configuration for member sorting
+#---------------------------------------------------------------------------
+
+# 按定义顺序排序成员
+SORT_BRIEF_DOCS        = NO
+SORT_MEMBERS_CTORS_1ST = YES
+SORT_MEMBER_DOCS       = NO
+SORT_BY_SCOPE_NAME     = YES

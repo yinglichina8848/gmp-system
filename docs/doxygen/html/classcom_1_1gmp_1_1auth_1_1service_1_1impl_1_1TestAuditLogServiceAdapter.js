@@ -1,0 +1,27 @@
+var classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter =
+[
+    [ "cleanupOldLogs", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a84453d2032263e155995e868c5eb4dc4", null ],
+    [ "exportLogs", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a24a278ba930343744504915d8c6a81d5", null ],
+    [ "findFailedOperations", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#aafd5c1084a14d02dd967def646a02365", null ],
+    [ "findLogsByPage", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#aec978535f72ffdda846401fbca340dda", null ],
+    [ "findLogsByTimeRange", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a05b5d0effa5a821a310678001007f54e", null ],
+    [ "findLogsByUserId", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a50d08ca24f6097e13bfadef53fee051c", null ],
+    [ "getOperationStatistics", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a2fece67231217f56e0b53a9ae89d8bc3", null ],
+    [ "logLogin", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a3f3810176ea761fa0ff3c77113433506", null ],
+    [ "logLoginFailure", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a652b776c6fc758f58f3334e4629eb7bb", null ],
+    [ "logLoginSuccess", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a9e000aab26a028e3aeca7de03f295971", null ],
+    [ "logLoginSuccess", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a5be2f19005deafb9e82270c3431e8237", null ],
+    [ "logLogout", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#aba61ed2c6204cb94e8f984f60219e627", null ],
+    [ "logLogout", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#afdc45f1b76defc037cd1ca354c09a1e9", null ],
+    [ "logOperation", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#ae8155888453630e41accfbf18d910c34", null ],
+    [ "logPasswordChange", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#aa071a9bf2d4a7c963aa3db65c2216e16", null ],
+    [ "logPasswordChange", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a5ebb9663c8d8ff05695d85f6ae020d9c", null ],
+    [ "logPasswordReset", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a745fc5dc8590c43a48544ab2466b5f11", null ],
+    [ "logPasswordReset", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#ae61f33c1d3019367a402c741e3b84f21", null ],
+    [ "logRoleAssignment", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a553f9bd40d4737458fed5565848fb69e", null ],
+    [ "logRolePermissionChange", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#aa358734ea9845def84d541c7a64c73d6", null ],
+    [ "logSecurityEvent", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#aad5bef1a68992cd51484a530ff0a0d3a", null ],
+    [ "logSystemEvent", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a288a2b185b5264b61b5154aa1a6632bf", null ],
+    [ "logUserManagement", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#adf5e77c2aa3b0e66212bead3f9252dc6", null ],
+    [ "logUserManagement", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1TestAuditLogServiceAdapter.html#a06d398cb941b6c9d6e774add8449524a", null ]
+];

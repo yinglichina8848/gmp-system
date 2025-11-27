@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_auth-service_2COVERAGE-README" kind="page">
+    <compoundname>md_auth-service_2COVERAGE-README</compoundname>
+    <title>GMP认证服务 - 代码覆盖率测试指南</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">📊 概述</heading>
+</para>
+<para>本文档介绍如何使用JaCoCo代码覆盖率工具测试GMP认证服务的代码覆盖率，确保代码质量符合企业标准。</para>
+<para><heading level="1">🎯 覆盖率目标</heading>
+</para>
+<para><table rows="7" cols="3"><row>
+<entry thead="yes"><para>指标   </para>
+</entry><entry thead="yes"><para>目标值   </para>
+</entry><entry thead="yes"><para>说明    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>行覆盖率   </para>
+</entry><entry thead="no"><para>≥80%   </para>
+</entry><entry thead="no"><para>代码行的执行覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>分支覆盖率   </para>
+</entry><entry thead="no"><para>≥70%   </para>
+</entry><entry thead="no"><para>条件分支的覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>类覆盖率   </para>
+</entry><entry thead="no"><para>≥90%   </para>
+</entry><entry thead="no"><para>类的覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>方法覆盖率   </para>
+</entry><entry thead="no"><para>≥80%   </para>
+</entry><entry thead="no"><para>方法的覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>指令覆盖率   </para>
+</entry><entry thead="no"><para>≥75%   </para>
+</entry><entry thead="no"><para>字节码指令的覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>圈复杂度覆盖率   </para>
+</entry><entry thead="no"><para>≥70%   </para>
+</entry><entry thead="no"><para>复杂条件的覆盖率   </para>
+</entry></row>
+</table>
+</para>
+<para><heading level="1">🛠️ 环境配置</heading>
+</para>
+<para><heading level="2">技术栈</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>JaCoCo</bold>: 0.8.8 - 代码覆盖率工具</para>
+</listitem><listitem><para><bold>JUnit 5</bold>: 单元测试框架</para>
+</listitem><listitem><para><bold>AssertJ</bold>: 流畅断言库</para>
+</listitem><listitem><para><bold>H2 Database</bold>: 测试内存数据库</para>
+</listitem><listitem><para><bold>Redis</bold>: 测试缓存数据库（DB 15）</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">配置说明</heading>
+</para>
+<para><heading level="3">测试配置文件</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>src/test/resources/application-test.yml</computeroutput>: 测试环境配置</para>
+</listitem><listitem><para><computeroutput>src/test/resources/jacoco-rules.properties</computeroutput>: 覆盖率质量阈值</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="3">Maven插件配置</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>JaCoCo插件: 自动注入覆盖率代理</para>
+</listitem><listitem><para>Surefire插件: 执行单元测试</para>
+</listitem><listitem><para>Failsafe插件: 执行集成测试</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">🚀 运行测试</heading>
+</para>
+<para><heading level="2">方法1: 使用自动化脚本（推荐）</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>从项目根目录运行</highlight></codeline>
+<codeline><highlight class="normal">./scripts/run-coverage-tests.sh</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">方法2: 手动运行Maven命令</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>进入auth-service目录</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>services/auth-service</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>运行测试并生成报告</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>clean<sp/>test<sp/>jacoco:report</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>查看报告（浏览器打开）</highlight></codeline>
+<codeline><highlight class="normal">open<sp/>target/site/jacoco/index.html</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">方法3: 分步骤执行</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>1.<sp/>清理项目</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>clean</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>2.<sp/>编译代码</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>compile</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>3.<sp/>只运行测试</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>test</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>4.<sp/>生成覆盖率报告</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>jacoco:report</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>5.<sp/>生成聚合报告（如果配置了）</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>jacoco:merge<sp/>jacoco:report-aggregate</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">📋 测试报告</heading>
+</para>
+<para><heading level="2">报告位置</heading>
+</para>
+<para>运行测试后，生成以下报告文件：</para>
+<para><programlisting><codeline><highlight class="normal">auth-service/target/</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>jacoco.exec<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>原始覆盖率数据</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>site/jacoco/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>index.html<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>HTML报告</highlight></codeline>
+<codeline><highlight class="normal">└──<sp/>jacoco/aggregate-report/</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>└──<sp/>index.html<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>聚合报告（如果配置）</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">报告内容</heading>
+</para>
+<para>HTML报告包含以下信息：</para>
+<para><itemizedlist>
+<listitem><para><bold>覆盖率概览</bold>: 整体覆盖率统计</para>
+</listitem><listitem><para><bold>包级别覆盖率</bold>: 按包划分的覆盖率</para>
+</listitem><listitem><para><bold>类级别覆盖率</bold>: 每个类的详细覆盖率</para>
+</listitem><listitem><para><bold>源码高亮</bold>: 显示未覆盖的代码行</para>
+</listitem><listitem><para><bold>分支覆盖率</bold>: 条件分支的执行情况</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">查看实际覆盖率报告</heading>
+</para>
+<para>要查看最新的覆盖率测试报告，请点击以下链接：</para>
+<para><itemizedlist>
+<listitem><para><ulink url="../../coverage/index.html">GMP系统覆盖率报告汇总</ulink></para>
+</listitem><listitem><para><ulink url="../../coverage/auth-service/index.html">认证服务覆盖率报告</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">🔍 测试用例说明</heading>
+</para>
+<para><heading level="2">实体类测试 (<computeroutput>entity/*.java</computeroutput>)</heading>
+</para>
+<para><heading level="3">User实体测试</heading>
+</para>
+<para><programlisting filename=".java"><codeline><highlight class="comment">//<sp/>测试用户实体业务逻辑</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">UserTest.java<sp/>-<sp/>测试用户状态、密码过期、登录尝试等</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">主要测试点</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>用户状态枚举验证</para>
+</listitem><listitem><para>登录尝试计数逻辑</para>
+</listitem><listitem><para>账户锁定机制</para>
+</listitem><listitem><para>密码过期检测</para>
+</listitem><listitem><para>审计字段验证</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">配置类测试 (<computeroutput>config/*.java</computeroutput>)</heading>
+</para>
+<para><heading level="3">JWT配置测试</heading>
+</para>
+<para><programlisting filename=".java"><codeline><highlight class="comment">//<sp/>测试JWT令牌生成和验证</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">JwtConfigTest.java<sp/>-<sp/>测试令牌生命周期管理</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">主要测试点</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>JWT令牌生成和解析</para>
+</listitem><listitem><para>令牌过期检查</para>
+</listitem><listitem><para>令牌刷新逻辑</para>
+</listitem><listitem><para>用户信息提取</para>
+</listitem><listitem><para>异常处理验证</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">服务层测试 (<computeroutput>service/*.java</computeroutput>)</heading>
+</para>
+<para><heading level="3">认证服务测试</heading>
+</para>
+<para><programlisting filename=".java"><codeline><highlight class="comment">//<sp/>预留给后续实现</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">AuthServiceTest.java</highlight></codeline>
+<codeline><highlight class="normal">AuthServiceImplTest.java</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">计划测试点</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>用户登录认证</para>
+</listitem><listitem><para>令牌验证和刷新</para>
+</listitem><listitem><para>权限检查逻辑</para>
+</listitem><listitem><para>缓存机制验证</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">存储层测试 (<computeroutput>repository/*.java</computeroutput>)</heading>
+</para>
+<para><programlisting filename=".java"><codeline><highlight class="comment">//<sp/>预留给顺序后续实现</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">UserRepositoryTest.java</highlight></codeline>
+<codeline><highlight class="normal">OperationLogRepositoryTest.java</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">📊 质量检查</heading>
+</para>
+<para><heading level="2">覆盖率阈值检查</heading>
+</para>
+<para>如果测试未达到覆盖率阈值，构建会失败：</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>检查具体阈值</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>jacoco:check</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">自定义阈值规则</heading>
+</para>
+<para>修改 <computeroutput>jacoco-rules.properties</computeroutput> 文件调整阈值：</para>
+<para><programlisting filename=".properties"><codeline><highlight class="normal">#<sp/>示例：调整行覆盖率到85%</highlight></codeline>
+<codeline><highlight class="normal">jacoco.line.coverage.min=85</highlight></codeline>
+<codeline><highlight class="normal">jacoco.line.coverage.action=HALT</highlight></codeline>
+</programlisting></para>
+<para><bold>注意</bold>: <computeroutput>action=HALT</computeroutput> 会导致构建失败，<computeroutput>action=WARN</computeroutput> 只生成警告。</para>
+<para><heading level="1">🔧 故障排除</heading>
+</para>
+<para><heading level="2">常见问题</heading>
+</para>
+<para><heading level="3">1. JaCoCo报告为空</heading>
+</para>
+<para><bold>原因</bold>: 测试未使用JaCoCo代理 <bold>解决方案</bold>: 确保使用 <computeroutput>mvn test jacoco:report</computeroutput> 而不是仅 <computeroutput>mvn test</computeroutput></para>
+<para><heading level="3">2. Redis连接错误</heading>
+</para>
+<para><bold>原因</bold>: 测试环境Redis未运行 <bold>解决方案</bold>: 启动Redis服务或注释掉Redis相关测试</para>
+<para><heading level="3">3. H2数据库错误</heading>
+</para>
+<para><bold>原因</bold>: 多个测试同时访问内存数据库 <bold>解决方案</bold>: 每个测试使用独立的数据库URL</para>
+<para><heading level="3">4. 覆盖率低于阈值</heading>
+</para>
+<para><bold>原因</bold>: 测试不完整 <bold>解决方案</bold>: 添加更多测试用例覆盖边界情况</para>
+<para><heading level="2">日志调试</heading>
+</para>
+<para>增加测试日志级别查看详情：</para>
+<para><programlisting filename=".yaml"><codeline><highlight class="normal">logging:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>level:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>com.gmp.auth:<sp/>DEBUG</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>org.jacoco:<sp/>DEBUG</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">🚀 CI/CD集成</heading>
+</para>
+<para><heading level="2">GitHub Actions示例</heading>
+</para>
+<para><programlisting filename=".yaml"><codeline><highlight class="normal">name:<sp/>Code<sp/>Coverage</highlight></codeline>
+<codeline><highlight class="normal">on:<sp/>[push,<sp/>pull_request]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">jobs:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>test:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>runs-on:<sp/>ubuntu-latest</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>steps:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>uses:<sp/>actions/checkout@v3</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>uses:<sp/>actions/setup-java@v3</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>with:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>java-version:<sp/>&apos;17&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>distribution:<sp/>&apos;temurin&apos;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>name:<sp/>Run<sp/>Tests<sp/>with<sp/>Coverage</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>working-directory:<sp/>services/auth-service</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run:<sp/>mvn<sp/>clean<sp/>test<sp/>jacoco:report</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>name:<sp/>Upload<sp/>Coverage<sp/>Reports</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uses:<sp/>actions/upload-artifact@v3</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>with:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>name:<sp/>coverage-reports</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>path:<sp/>services/auth-service/target/site/jacoco/</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">Jenkins集成</heading>
+</para>
+<para><programlisting filename=".groovy"><codeline><highlight class="normal">stage(&apos;Code<sp/>Coverage&apos;)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>steps<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dir(&apos;services/auth-service&apos;)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sh<sp/>&apos;mvn<sp/>clean<sp/>test<sp/>jacoco:report&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>publishCoverage<sp/>adapters:<sp/>[jacocoAdapter(&apos;target/site/jacoco/jacoco.xml&apos;)]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">📈 最佳实践</heading>
+</para>
+<para><heading level="2">编写高质量测试</heading>
+</para>
+<para><heading level="3">1. 测试命名规范</heading>
+</para>
+<para><programlisting filename=".java"><codeline><highlight class="normal">@Test</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>should_当某种情况时_期望某种结果()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Given<sp/>-<sp/>前置条件</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When<sp/>-<sp/>执行操作</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then<sp/>-<sp/>验证结果</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">2. 使用@Testcontainers</heading>
+</para>
+<para>对于需要外部依赖的测试，考虑使用Testcontainers：</para>
+<para><programlisting filename=".java"><codeline><highlight class="normal">@SpringBootTest</highlight></codeline>
+<codeline><highlight class="normal">@Testcontainers</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">AuthServiceIntegrationTest<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>@Container</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>PostgreSQLContainer&lt;?&gt;<sp/>postgres<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PostgreSQLContainer&lt;&gt;(</highlight><highlight class="stringliteral">&quot;postgres:13&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>@Container</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>RedisContainer<sp/>redis<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>RedisContainer();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>测试代码...</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">3. Mock外部依赖</heading>
+</para>
+<para><programlisting filename=".java"><codeline><highlight class="normal">@ExtendWith(MockitoExtension.class)</highlight></codeline>
+<codeline><highlight class="normal">class<sp/>AuthServiceTest<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>UserRepository<sp/>userRepository;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>@InjectMocks</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>AuthServiceImpl<sp/>authService;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>测试代码...</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">📊 覆盖率报告解读</heading>
+</para>
+<para><heading level="2">覆盖率指标说明</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>行覆盖率 (Line Coverage)</bold>: 已执行的代码行比例</para>
+</listitem><listitem><para><bold>分支覆盖率 (Branch Coverage)</bold>: 已执行的分支（如if/else）比例</para>
+</listitem><listitem><para><bold>圈复杂度 (Cyclomatic Complexity)</bold>: 代码路径的复杂性</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">提高覆盖率的方法</heading>
+</para>
+<para><orderedlist>
+<listitem><para><bold>添加边界测试</bold>: 测试异常情况</para>
+</listitem><listitem><para><bold>参数化测试</bold>: <computeroutput>@ParameterizedTest</computeroutput></para>
+</listitem><listitem><para><bold>测试私有方法</bold>: 必要时使用反射</para>
+</listitem><listitem><para><bold>集成测试</bold>: 覆盖完整的业务流程</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">🎯 目标达成检查</heading>
+</para>
+<para>运行以下命令检查是否达到覆盖率目标：</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>查看详细覆盖率统计</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>jacoco:report</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>检查是否通过质量阈值</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>jacoco:check</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">📞 技术支持</heading>
+</para>
+<para>如需帮助，请参考：<itemizedlist>
+<listitem><para><ulink url="https://www.jacoco.org/jacoco/trunk/doc/">JaCoCo官方文档</ulink></para>
+</listitem><listitem><para><ulink url="https://junit.org/junit5/docs/current/user-guide/">JUnit 5用户指南</ulink></para>
+</listitem><listitem><para>项目README文档</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+<para><bold>文档版本</bold>: 1.0 <bold>更新日期</bold>: 2025-11-19 <bold>适用于</bold>: GMP认证服务 v0.2.4+ </para>
+    </detaileddescription>
+    <location file="auth-service/COVERAGE-README.md"/>
+  </compounddef>
+</doxygen>
