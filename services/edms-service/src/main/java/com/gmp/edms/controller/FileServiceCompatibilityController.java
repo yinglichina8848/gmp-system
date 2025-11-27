@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,16 +38,27 @@ public class FileServiceCompatibilityController {
      */
     @PostMapping("/files")
     @Operation(summary = "兼容原File服务 - 上传文件")
-    public ResponseEntity<CommonFileDTO> uploadFile(
+    public ResponseEntity<?> uploadFile(
             @RequestParam("file") MultipartFile file,
             @RequestParam("type") String type,
             @RequestParam(required = false) Map<String, Object> metadata) {
         try {
             // 使用type参数作为module值
             CommonFileDTO fileDTO = commonFileService.uploadFile(file, type, metadata);
-            return ResponseEntity.status(HttpStatus.CREATED).body(fileDTO);
+
+            // 返回Map以避免类型兼容性问题
+            Map<String, Object> response = new HashMap<>();
+            response.put("id", fileDTO.getId());
+            response.put("fileName", fileDTO.getFileName() != null ? fileDTO.getFileName() : file.getOriginalFilename());
+            response.put("fileType", fileDTO.getFileType() != null ? fileDTO.getFileType() : file.getContentType());
+            response.put("fileSize", fileDTO.getFileSize() != null ? fileDTO.getFileSize() : file.getSize());
+            response.put("uploadTime", System.currentTimeMillis());
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("error", "文件上传失败: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
 
@@ -59,12 +72,14 @@ public class FileServiceCompatibilityController {
             CommonFileDTO fileInfo = commonFileService.getFileInfo(fileId);
             InputStream inputStream = commonFileService.downloadFile(fileId);
             byte[] bytes = inputStream.readAllBytes();
-            
+
             HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.parseMediaType(fileInfo.getFileType()));
-            headers.setContentDispositionFormData("attachment", fileInfo.getFileName());
+            String fileName = fileInfo.getFileName() != null ? fileInfo.getFileName() : "file.bin";
+            String fileType = fileInfo.getFileType() != null ? fileInfo.getFileType() : "application/octet-stream";
+            headers.setContentType(MediaType.parseMediaType(fileType));
+            headers.setContentDispositionFormData("attachment", fileName);
             headers.setContentLength(bytes.length);
-            
+
             return ResponseEntity.ok().headers(headers).body(bytes);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
@@ -142,4 +157,6 @@ public class FileServiceCompatibilityController {
         String newUrl = "/api/v1/files" + params.getOrDefault("path", "");
         return new RedirectView(newUrl);
     }
+
+
 }

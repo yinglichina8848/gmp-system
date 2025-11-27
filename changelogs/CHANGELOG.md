@@ -179,30 +179,34 @@
 
 ### 移除
 
-## [1.0.0] - 2025-11-19
+## [1.0.0] - 2025-11-20
 
-### 新增
-- 系统基础架构搭建，基于微服务架构设计
-- 认证授权服务(auth-service)实现
-- 网关服务(gateway)实现
-- 首页服务(home-service)实现
-- 质量管理系统服务(qms-service)实现
-- 配置服务(config-service)框架搭建
-- 电子文档管理系统(edms-service)框架搭建
-- 文件服务(file-service)框架搭建
-- 实验室管理系统(lims-service)框架搭建
-- 生产执行系统(mes-service)框架搭建
+### 新增功能
+- 初始化项目结构
+- 配置中心(config-service)框架搭建
 - 消息服务(message-service)框架搭建
-- 数据库初始化脚本和配置
-- 开发环境脚本和工具
-- 代码覆盖率报告生成工具
-- Doxygen技术文档自动生成配置
+- 认证服务(auth-service)框架搭建
+- 质量管理服务(qms-service)框架搭建
+- 生产执行服务(mes-service)框架搭建
+- 实验室信息管理服务(lims-service)框架搭建
+- 电子文档管理服务(edms-service)框架搭建
+- 设备管理服务(equipment-management-service)框架搭建
+- 人力资源管理服务(hr-management-service)框架搭建
+- 培训管理服务(training-management-service)框架搭建
+- CRM销售服务(crm-sales-service)框架搭建
+- 网关服务(gateway-service)框架搭建
+- 用户界面(UI)基础框架搭建
 
-### 修复
+### 文档改进
+- 完善各服务模块的文档结构
+- 建立统一的文档规范和模板
+- 创建项目整体架构设计文档
+- 编写各服务的详细需求文档
 
-### 变更
-
-### 移除
+### 技术债务
+- 部分服务模块需要进一步完善功能实现
+- 需要建立完善的测试体系
+- 需要完善CI/CD流程配置
 
 ## [0.1.0] - 2025-11-19
 

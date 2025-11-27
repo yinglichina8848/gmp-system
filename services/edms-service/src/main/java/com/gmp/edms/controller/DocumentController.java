@@ -1,8 +1,8 @@
 package com.gmp.edms.controller;
 
 import com.gmp.edms.dto.ApiResponse;
+import com.gmp.edms.dto.DocumentCreateDTO;
 import com.gmp.edms.dto.DocumentDTO;
-import com.gmp.edms.dto.DocumentQueryDTO;
 import com.gmp.edms.dto.DocumentUpdateDTO;
 import com.gmp.edms.dto.PageRequestDTO;
 import com.gmp.edms.dto.PageResponseDTO;
@@ -10,14 +10,24 @@ import com.gmp.edms.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 文档管理Controller
@@ -25,6 +35,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/documents")
 public class DocumentController {
+    private static final Logger log = LoggerFactory.getLogger(DocumentController.class);
 
     @Autowired
     private DocumentService documentService;
@@ -33,19 +44,8 @@ public class DocumentController {
      * 创建文档
      */
     @PostMapping
-    public ApiResponse<DocumentDTO> createDocument(@RequestParam("file") MultipartFile file,
-            @RequestParam("title") String title,
-            @RequestParam("categoryId") Long categoryId,
-            @RequestParam("description") String description,
-            @RequestParam("author") String author,
-            @RequestParam("keywords") String keywords,
-            @RequestParam("tags") String tags,
-            @RequestParam("changeReason") String changeReason,
-            @RequestParam("versionType") String versionType) throws IOException {
-
-        DocumentDTO documentDTO = documentService.createDocument(file, title, categoryId, description,
-                author, keywords, tags, changeReason, versionType);
-
+    public ApiResponse<DocumentDTO> createDocument(@RequestBody DocumentCreateDTO documentCreateDTO) {
+        DocumentDTO documentDTO = documentService.createDocument(documentCreateDTO);
         return ApiResponse.success("文档创建成功", documentDTO);
     }
 
@@ -57,7 +57,8 @@ public class DocumentController {
             DocumentDTO documentDTO = documentService.createDocumentWithFile(documentCreateDTO, file);
             return ApiResponse.success("文档上传成功", documentDTO);
         } catch (Exception e) {
-            return ApiResponse.error("文档上传失败", e.getMessage());
+            log.error("文档上传失败", e);
+            return ApiResponse.error("文档上传失败");
         }
     }
 
@@ -69,7 +70,8 @@ public class DocumentController {
             DocumentDTO documentDTO = documentService.uploadDocumentFile(id, file);
             return ApiResponse.success("文件上传成功", documentDTO);
         } catch (Exception e) {
-            return ApiResponse.error("文件上传失败", e.getMessage());
+            log.error("文档上传失败", e);
+            return ApiResponse.error("文件上传失败");
         }
     }
 
@@ -81,16 +83,44 @@ public class DocumentController {
 
             ByteArrayResource resource = new ByteArrayResource(fileContent);
 
+            // 获取文件名，避免NPE
+            String filePath = "";
+            try {
+                // 使用辅助方法获取filePath字段值
+                Object value = getFieldValue(documentDTO, "filePath", null);
+                if (value != null) {
+                    filePath = value.toString();
+                }
+            } catch (Exception e) {
+                // 忽略异常，使用默认值
+            }
+            String fileName = getFileNameFromPath(filePath);
+
             return ResponseEntity.ok()
                     .header(HttpHeaders.CONTENT_DISPOSITION,
-                            "attachment; filename=" + documentDTO.getFilePath()
-                                    .substring(documentDTO.getFilePath().lastIndexOf('/') + 1))
+                            "attachment; filename=" + fileName)
                     .header(HttpHeaders.CONTENT_LENGTH, String.valueOf(fileContent.length))
                     .contentType(MediaType.APPLICATION_OCTET_STREAM)
                     .body(resource);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
+    }
+
+    /**
+     * 安全地从文件路径中提取文件名
+     */
+    private String getFileNameFromPath(String filePath) {
+        if (filePath == null || filePath.isEmpty()) {
+            return "downloaded_file";
+        }
+        int lastSeparatorIndex = Math.max(
+                filePath.lastIndexOf('/'),
+                filePath.lastIndexOf('\\'));
+        if (lastSeparatorIndex != -1) {
+            return filePath.substring(lastSeparatorIndex + 1);
+        }
+        return filePath;
     }
 
     /**
@@ -102,7 +132,7 @@ public class DocumentController {
 
         DocumentDTO documentDTO = documentService.updateDocument(id, documentUpdateDTO);
 
-        return ApiResponse.success("文档更新成功", documentDTO);
+        return ApiResponse.success("success", documentDTO);
     }
 
     /**
@@ -124,7 +154,7 @@ public class DocumentController {
 
         documentService.batchDeleteDocuments(ids);
 
-        return ApiResponse.success("文档批量删除成功");
+        return ApiResponse.success("批量删除文档成功");
     }
 
     /**
@@ -143,9 +173,7 @@ public class DocumentController {
      */
     @GetMapping("/code/{code}")
     public ApiResponse<DocumentDTO> getDocumentByCode(@PathVariable String code) {
-
-        DocumentDTO documentDTO = documentService.getDocumentByCode(code);
-
+        DocumentDTO documentDTO = documentService.getDocumentByDocCode(code);
         return ApiResponse.success("获取文档成功", documentDTO);
     }
 
@@ -157,9 +185,16 @@ public class DocumentController {
             @RequestParam(required = false) String keyword,
             @RequestParam(required = false) Long categoryId,
             @RequestParam(required = false) String status) {
+        // 构造filters参数
+        Map<String, Object> filters = new HashMap<>();
+        if (keyword != null)
+            filters.put("keyword", keyword);
+        if (categoryId != null)
+            filters.put("categoryId", categoryId);
+        if (status != null)
+            filters.put("status", status);
 
-        PageResponseDTO<DocumentDTO> pageResponse = documentService.queryDocuments(pageRequest, keyword, categoryId,
-                status);
+        PageResponseDTO<DocumentDTO> pageResponse = documentService.queryDocuments(pageRequest, filters);
 
         return ApiResponse.success("查询文档成功", pageResponse);
     }
@@ -179,24 +214,23 @@ public class DocumentController {
      * 更新文档状态
      */
     @PutMapping("/{id}/status")
-    public ApiResponse<DocumentDTO> updateDocumentStatus(@PathVariable Long id,
+    public ApiResponse<Void> updateDocumentStatus(@PathVariable Long id,
             @RequestParam String status) {
 
-        DocumentDTO documentDTO = documentService.updateDocumentStatus(id, status);
+        documentService.updateDocumentStatus(id, status);
 
-        return ApiResponse.success("文档状态更新成功", documentDTO);
+        return ApiResponse.success("文档状态更新成功");
     }
 
     /**
      * 搜索文档
      */
     @GetMapping("/search")
-    public ApiResponse<PageResponseDTO<DocumentDTO>> searchDocuments(PageRequestDTO pageRequest,
-            @RequestParam String keyword) {
+    public ApiResponse<List<DocumentDTO>> searchDocuments(@RequestParam String keyword) {
 
-        PageResponseDTO<DocumentDTO> pageResponse = documentService.searchDocuments(pageRequest, keyword);
+        List<DocumentDTO> documents = documentService.searchDocuments(keyword);
 
-        return ApiResponse.success("搜索文档成功", pageResponse);
+        return ApiResponse.success("搜索文档成功", documents);
     }
 
     /**
@@ -260,4 +294,39 @@ public class DocumentController {
      * return ApiResponse.success("获取统计信息成功", stats);
      * }
      */
+
+    /**
+     * 使用反射获取对象字段值
+     */
+    private Object getFieldValue(Object object, String fieldName, Object defaultValue) throws Exception {
+        Field field = findField(object.getClass(), fieldName);
+        if (field != null) {
+            boolean accessible = field.isAccessible();
+            field.setAccessible(true);
+            try {
+                return field.get(object);
+            } finally {
+                field.setAccessible(accessible);
+            }
+        }
+        return defaultValue;
+    }
+
+    /**
+     * 使用反射查找字段（包括父类）
+     */
+    private Field findField(Class<?> clazz, String fieldName) {
+        for (Field field : clazz.getDeclaredFields()) {
+            if (field.getName().equals(fieldName)) {
+                return field;
+            }
+        }
+        Class<?> superClass = clazz.getSuperclass();
+        if (superClass != null && superClass != Object.class) {
+            return findField(superClass, fieldName);
+        }
+        return null;
+    }
+
+    // 移除重复的getFileNameFromPath方法，保留第112行的实现
 }

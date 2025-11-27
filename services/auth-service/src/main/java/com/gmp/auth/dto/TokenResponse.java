@@ -8,6 +8,7 @@ package com.gmp.auth.dto;
 public class TokenResponse {
 
     private String accessToken;
+    private String refreshToken;
     private String tokenType = "Bearer";
     private Long expiresIn;
     
@@ -35,5 +36,13 @@ public class TokenResponse {
     
     public Long getExpiresIn() {
         return expiresIn;
+    }
+    
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+    
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 }

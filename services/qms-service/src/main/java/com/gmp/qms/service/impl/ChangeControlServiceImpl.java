@@ -36,8 +36,8 @@ import java.util.UUID;
 public class ChangeControlServiceImpl implements ChangeControlService {
 
     private final ChangeControlRepository changeControlRepository;
-    // 文件存储路径，实际应用中应配置在配置文件中
-    private static final String UPLOAD_DIR = "/opt/gmp-system/uploads/change-controls/";
+    // 文件存储路径，优先使用系统属性，否则使用临时目录（适合测试环境）
+    private static final String UPLOAD_DIR = System.getProperty("gmp.upload.dir", System.getProperty("java.io.tmpdir")) + "/change-controls/";
 
     @Override
     @Transactional

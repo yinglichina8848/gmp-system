@@ -25,6 +25,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import jakarta.transaction.Transactional;
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -122,6 +123,11 @@ public class AuthIntegrationTest {
                 .passwordHash(passwordEncoder.encode(password))
                 .userStatus(User.UserStatus.ACTIVE)
                 .loginAttempts(0)
+                .mobile("13800138000") // 添加有效的手机号
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .version(1)
+                .mfaEnabled(false)
                 .build();
                 
         log.info("👤 准备创建测试用户: {} (验证后: {}) 邮箱: {}", 

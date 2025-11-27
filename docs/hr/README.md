@@ -98,6 +98,31 @@
 ## 6. 系统接口
 
 ### 6.1 内部接口
+
+## 7. 测试与文档
+
+### 7.1 单元测试情况
+- **测试覆盖率目标**：行覆盖率 ≥ 80%
+- **当前状态**：已配置Jacoco覆盖率测试
+- **测试报告位置**：`/home/liying/gmp-system/docs/coverage/hr-service/`
+- **Doxygen文档**：已配置Doxygen自动生成API文档，输出目录为`/home/liying/gmp-system/docs/doxygen/html/`
+
+### 7.2 测试执行说明
+- 测试使用JUnit 5和Spring Boot Test框架
+- 重点测试了EmployeeService和TrainingRecordService等核心服务
+- 测试数据采用内存数据库，确保测试独立性和可重复性
+
+### 7.3 文档生成
+```bash
+# 生成覆盖率报告
+cd /home/liying/gmp-system/services/hr-service
+mvn jacoco:report
+
+# 生成Doxygen文档
+doxygen Doxyfile
+```
+
+### 6.1 内部接口
 - **与认证授权系统(AUTH-SYS)**：用户账号创建、权限分配、身份验证
 - **与培训管理系统(TRAINING-MANAGEMENT)**：培训需求传递、培训记录同步
 - **与质量管理系统(QMS)**：人员资质验证、培训合规性检查

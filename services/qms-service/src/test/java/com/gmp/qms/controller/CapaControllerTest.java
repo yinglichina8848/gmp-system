@@ -10,10 +10,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -31,6 +34,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @author GMP系统开发团队
  */
 @WebMvcTest(CapaController.class)
+@TestPropertySource(properties = {
+        "spring.cloud.config.enabled=false"
+})
 public class CapaControllerTest {
 
     @Autowired
@@ -41,6 +47,17 @@ public class CapaControllerTest {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    /**
+     * 提供ObjectMapper的配置类
+     */
+    @Configuration
+    static class ObjectMapperConfig {
+        @Bean
+        public ObjectMapper objectMapper() {
+            return new ObjectMapper();
+        }
+    }
 
     private Capa capa;
     private CapaDTO capaDTO;

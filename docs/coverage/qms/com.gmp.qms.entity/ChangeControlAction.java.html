@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChangeControlAction.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GMP QMS Service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.qms.entity</a> &gt; <span class="el_source">ChangeControlAction.java</span></div><h1>ChangeControlAction.java</h1><pre class="source lang-java linenums">package com.gmp.qms.entity;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
+
+/**
+ * 变更控制行动项实体类
+ * 
+ * @author GMP系统开发团队
+ */
+@Entity
+@Table(name = &quot;change_control_actions&quot;)
+@Data
+public class ChangeControlAction {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;change_control_id&quot;, nullable = false)
+    private ChangeControl changeControl;
+
+    @Column(name = &quot;description&quot;, nullable = false, columnDefinition = &quot;TEXT&quot;)
+    private String description;
+
+    @Column(name = &quot;responsible_person_id&quot;, nullable = false)
+    private Long responsiblePersonId;
+
+    @Column(name = &quot;due_date&quot;, nullable = false)
+    private LocalDateTime dueDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;status&quot;, nullable = false)
+    private ActionStatus status;
+
+    @Column(name = &quot;completion_date&quot;)
+    private LocalDateTime completionDate;
+
+    @Column(name = &quot;completion_notes&quot;, columnDefinition = &quot;TEXT&quot;)
+    private String completionNotes;
+
+    @CreationTimestamp
+    @Column(name = &quot;created_at&quot;, nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = &quot;updated_at&quot;, nullable = false)
+    private LocalDateTime updatedAt;
+
+    @Column(name = &quot;created_by&quot;, nullable = false)
+    private Long createdBy;
+
+    @Column(name = &quot;updated_by&quot;)
+    private Long updatedBy;
+
+    /**
+     * 行动项状态枚举
+     */
+<span class="nc" id="L64">    public enum ActionStatus {</span>
+<span class="nc" id="L65">        PENDING,       // 待处理</span>
+<span class="nc" id="L66">        IN_PROGRESS,   // 进行中</span>
+<span class="nc" id="L67">        COMPLETED,     // 已完成</span>
+<span class="nc" id="L68">        VERIFIED       // 已验证</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

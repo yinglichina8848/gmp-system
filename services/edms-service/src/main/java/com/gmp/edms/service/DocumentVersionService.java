@@ -76,4 +76,14 @@ public interface DocumentVersionService {
      * 回滚到指定版本
      */
     DocumentVersionDTO rollbackToVersion(Long versionId) throws Exception;
+    
+    /**
+     * 恢复文档到指定版本
+     */
+    void restoreDocumentVersion(Long documentId, Long versionId) throws Exception;
+    
+    /**
+     * 比较文档版本（详细比较）
+     */
+    String compareDocumentVersions(Long documentId, Long fromVersionId, Long toVersionId) throws Exception;
 }

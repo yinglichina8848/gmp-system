@@ -11,6 +11,112 @@ import java.util.Map;
 @Data
 public class CommonFileDTO {
     
+    // 手动添加getter/setter方法以确保编译通过
+    
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public String getFileName() {
+        return fileName;
+    }
+    
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+    
+    public String getFileType() {
+        return fileType;
+    }
+    
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+    
+    public Long getFileSize() {
+        return fileSize;
+    }
+    
+    public void setFileSize(Long fileSize) {
+        this.fileSize = fileSize;
+    }
+    
+    public String getFormattedFileSize() {
+        return formattedFileSize;
+    }
+    
+    public void setFormattedFileSize(String formattedFileSize) {
+        this.formattedFileSize = formattedFileSize;
+    }
+    
+    public String getFilePath() {
+        return filePath;
+    }
+    
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+    
+    public String getChecksum() {
+        return checksum;
+    }
+    
+    public void setChecksum(String checksum) {
+        this.checksum = checksum;
+    }
+    
+    public String getModule() {
+        return module;
+    }
+    
+    public void setModule(String module) {
+        this.module = module;
+    }
+    
+    public String getCreatedBy() {
+        return createdBy;
+    }
+    
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+    
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+    
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+    
+    public Map<String, Object> getMetadata() {
+        return metadata;
+    }
+    
+    public void setMetadata(Map<String, Object> metadata) {
+        this.metadata = metadata;
+    }
+    
+    public String getAccessUrl() {
+        return accessUrl;
+    }
+    
+    public void setAccessUrl(String accessUrl) {
+        this.accessUrl = accessUrl;
+    }
+    
     /**
      * 文件ID
      */

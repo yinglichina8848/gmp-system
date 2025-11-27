@@ -121,7 +121,7 @@ class DocumentVersionServiceImplTest {
         when(documentVersionRepository.findById(versionId1)).thenReturn(Optional.of(version1));
         when(documentVersionRepository.findById(versionId2)).thenReturn(Optional.of(version2));
         
-        String result = documentVersionService.compareVersions(versionId1, versionId2);
+        String result = documentVersionService.compareDocumentVersions(1L, versionId1, versionId2);
         
         assertEquals("两个版本完全相同", result);
     }
@@ -144,7 +144,7 @@ class DocumentVersionServiceImplTest {
         when(documentVersionRepository.findById(versionId1)).thenReturn(Optional.of(version1));
         when(documentVersionRepository.findById(versionId2)).thenReturn(Optional.of(version2));
         
-        String result = documentVersionService.compareVersions(versionId1, versionId2);
+        String result = documentVersionService.compareDocumentVersions(1L, versionId1, versionId2);
         
         assertTrue(result.contains("文件大小不同"));
     }
@@ -167,7 +167,7 @@ class DocumentVersionServiceImplTest {
         when(documentVersionRepository.findById(versionId1)).thenReturn(Optional.of(version1));
         when(documentVersionRepository.findById(versionId2)).thenReturn(Optional.of(version2));
         
-        String result = documentVersionService.compareVersions(versionId1, versionId2);
+        String result = documentVersionService.compareDocumentVersions(1L, versionId1, versionId2);
         
         assertTrue(result.contains("文件内容不同"));
     }

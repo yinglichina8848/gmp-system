@@ -27,11 +27,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,6 +47,8 @@ import java.util.stream.Collectors;
  */
 @Service
 public class MinioFileStorageServiceImpl implements FileStorageService {
+
+    private static final Logger log = LoggerFactory.getLogger(MinioFileStorageServiceImpl.class);
 
     @Autowired
     private MinioClient minioClient;
@@ -230,7 +235,7 @@ public class MinioFileStorageServiceImpl implements FileStorageService {
     }
 
     @Override
-    public List<String> listFiles(String bucketName, String prefix, boolean recursive) {
+    public List<String> listFiles(String bucketName, String prefix) {
         if (bucketName == null || bucketName.isEmpty()) {
             bucketName = defaultBucket;
         }
@@ -242,7 +247,7 @@ public class MinioFileStorageServiceImpl implements FileStorageService {
                     ListObjectsArgs.builder()
                             .bucket(bucketName)
                             .prefix(prefix)
-                            .recursive(recursive)
+                            .recursive(true)
                             .build());
 
             for (Result<Item> result : results) {
@@ -285,7 +290,6 @@ public class MinioFileStorageServiceImpl implements FileStorageService {
         }
     }
 
-    @Override
     public List<String> listBuckets() {
         List<String> bucketNames = new ArrayList<>();
 
@@ -302,23 +306,172 @@ public class MinioFileStorageServiceImpl implements FileStorageService {
         return bucketNames;
     }
 
-    /**
-     * 计算文件MD5校验和
-     */
-    private String calculateFileChecksum(InputStream inputStream) throws Exception {
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        byte[] buffer = new byte[8192];
-        int bytesRead;
-        while ((bytesRead = inputStream.read(buffer)) != -1) {
-            md.update(buffer, 0, bytesRead);
+    @Override
+    public boolean directoryExists(String bucketName, String directoryPath) {
+        if (bucketName == null || bucketName.isEmpty()) {
+            bucketName = defaultBucket;
         }
 
-        byte[] digest = md.digest();
-        StringBuilder sb = new StringBuilder();
-        for (byte b : digest) {
-            sb.append(String.format("%02x", b));
+        try {
+            // 确保目录路径以斜杠结尾
+            String normalizedPath = directoryPath;
+            if (!normalizedPath.endsWith("/")) {
+                normalizedPath = normalizedPath + "/";
+            }
+
+            // 列出对象并检查是否存在以指定前缀开头的对象
+            Iterable<Result<Item>> results = minioClient.listObjects(
+                    ListObjectsArgs.builder()
+                            .bucket(bucketName)
+                            .prefix(normalizedPath)
+                            .maxKeys(1) // 只需要检查是否存在至少一个对象
+                            .build());
+
+            // 如果有结果，则目录存在
+            return results.iterator().hasNext();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Override
+    public void createDirectory(String bucketName, String directoryPath) {
+        if (bucketName == null || bucketName.isEmpty()) {
+            bucketName = defaultBucket;
         }
 
-        return sb.toString();
+        // 在MinIO中创建目录实际上是创建一个空对象，以/结尾
+        String normalizedPath = directoryPath.endsWith("/") ? directoryPath : directoryPath + "/";
+
+        try {
+            minioClient.putObject(PutObjectArgs.builder()
+                    .bucket(bucketName)
+                    .object(normalizedPath)
+                    .stream(new ByteArrayInputStream(new byte[0]), 0, -1)
+                    .contentType("application/x-directory")
+                    .build());
+        } catch (io.minio.errors.ErrorResponseException | io.minio.errors.InsufficientDataException | 
+                 io.minio.errors.InternalException | io.minio.errors.InvalidResponseException | 
+                 io.minio.errors.ServerException | io.minio.errors.XmlParserException | 
+                 java.io.IOException | java.security.NoSuchAlgorithmException | 
+                 java.security.InvalidKeyException e) {
+            throw new RuntimeException("Failed to create directory: " + directoryPath, e);
+        }
+    }
+
+    @Override
+    public void deleteDirectory(String bucketName, String directoryPath) throws Exception {
+        if (bucketName == null || bucketName.isEmpty()) {
+            bucketName = defaultBucket;
+        }
+
+        // 列出目录下所有文件
+        List<String> files = listFiles(bucketName, directoryPath);
+
+        // 批量删除文件
+        if (!files.isEmpty()) {
+            batchDeleteFiles(bucketName, files);
+        }
+    }
+
+    @Override
+    public String getContentType(String bucketName, String filePath) {
+        // 简化实现，根据文件扩展名返回内容类型
+        String contentType = "application/octet-stream";
+        if (filePath != null) {
+            if (filePath.endsWith(".pdf")) {
+                contentType = "application/pdf";
+            } else if (filePath.endsWith(".doc") || filePath.endsWith(".docx")) {
+                contentType = "application/msword";
+            } else if (filePath.endsWith(".xls") || filePath.endsWith(".xlsx")) {
+                contentType = "application/vnd.ms-excel";
+            } else if (filePath.endsWith(".ppt") || filePath.endsWith(".pptx")) {
+                contentType = "application/vnd.ms-powerpoint";
+            } else if (filePath.endsWith(".jpg") || filePath.endsWith(".jpeg")) {
+                contentType = "image/jpeg";
+            } else if (filePath.endsWith(".png")) {
+                contentType = "image/png";
+            } else if (filePath.endsWith(".gif")) {
+                contentType = "image/gif";
+            } else if (filePath.endsWith(".txt")) {
+                contentType = "text/plain";
+            } else if (filePath.endsWith(".html") || filePath.endsWith(".htm")) {
+                contentType = "text/html";
+            } else if (filePath.endsWith(".zip")) {
+                contentType = "application/zip";
+            } else if (filePath.endsWith(".rar")) {
+                contentType = "application/x-rar-compressed";
+            }
+        }
+        return contentType;
+    }
+
+    @Override
+    public long getFileLastModified(String bucketName, String filePath) throws Exception {
+        if (bucketName == null || bucketName.isEmpty()) {
+            bucketName = defaultBucket;
+        }
+
+        io.minio.StatObjectResponse stat = minioClient.statObject(
+                StatObjectArgs.builder()
+                        .bucket(bucketName)
+                        .object(filePath)
+                        .build());
+        return stat.lastModified().toInstant().toEpochMilli();
+    }
+
+    @Override
+    public long getFileSize(String bucketName, String filePath) throws Exception {
+        if (bucketName == null || bucketName.trim().isEmpty()) {
+            bucketName = defaultBucket;
+        }
+
+        try {
+            io.minio.StatObjectResponse stat = minioClient.statObject(
+                    StatObjectArgs.builder()
+                            .bucket(bucketName)
+                            .object(filePath)
+                            .build());
+            return stat.size();
+        } catch (Exception e) {
+            log.error("Error getting file size for bucket: {} and path: {}", bucketName, filePath, e);
+            throw e;
+        }
+    }
+
+    @Override
+    public Map<String, Long> getBucketStorageInfo(String bucketName) throws Exception {
+        if (bucketName == null || bucketName.isEmpty()) {
+            bucketName = defaultBucket;
+        }
+
+        // 检查桶是否存在
+        if (!bucketExists(bucketName)) {
+            throw new Exception("Bucket does not exist: " + bucketName);
+        }
+
+        // 统计桶中的对象数量和总大小
+        long totalSize = 0;
+        int objectCount = 0;
+
+        Iterable<Result<Item>> results = minioClient.listObjects(
+                ListObjectsArgs.builder()
+                        .bucket(bucketName)
+                        .recursive(true)
+                        .build());
+
+        for (Result<Item> result : results) {
+            Item item = result.get();
+            if (!item.isDir()) {
+                totalSize += item.size();
+                objectCount++;
+            }
+        }
+
+        Map<String, Long> storageInfo = new HashMap<>();
+        storageInfo.put("objectCount", (long) objectCount);
+        storageInfo.put("totalSize", totalSize);
+
+        return storageInfo;
     }
 }

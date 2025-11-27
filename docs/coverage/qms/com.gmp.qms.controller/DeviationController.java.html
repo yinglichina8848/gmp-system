@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DeviationController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GMP QMS Service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.qms.controller</a> &gt; <span class="el_source">DeviationController.java</span></div><h1>DeviationController.java</h1><pre class="source lang-java linenums">package com.gmp.qms.controller;
+
+import com.gmp.qms.dto.DeviationDTO;
+import com.gmp.qms.dto.DeviationSearchCriteria;
+import com.gmp.qms.entity.Deviation;
+import com.gmp.qms.model.ApiResponse;
+import com.gmp.qms.service.DeviationService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+/**
+ * 偏差管理控制器
+ * 
+ * @author GMP系统开发团队
+ */
+@RestController
+@RequestMapping(&quot;/api/v1/deviations&quot;)
+@RequiredArgsConstructor
+public class DeviationController {
+
+    private final DeviationService deviationService;
+
+    /**
+     * 创建新的偏差记录
+     */
+    @PostMapping
+    public ApiResponse&lt;Deviation&gt; createDeviation(@RequestBody DeviationDTO deviationDTO) {
+<span class="nc" id="L32">        Deviation deviation = deviationService.createDeviation(deviationDTO);</span>
+<span class="nc" id="L33">        return ApiResponse.success(deviation);</span>
+    }
+
+    /**
+     * 更新偏差记录
+     */
+    @PutMapping(&quot;/{id}&quot;)
+    public ApiResponse&lt;Deviation&gt; updateDeviation(@PathVariable Long id, @RequestBody DeviationDTO deviationDTO) {
+<span class="nc" id="L41">        Deviation deviation = deviationService.updateDeviation(id, deviationDTO);</span>
+<span class="nc" id="L42">        return ApiResponse.success(deviation);</span>
+    }
+
+    /**
+     * 根据ID查询偏差详情
+     */
+    @GetMapping(&quot;/{id}&quot;)
+    public ApiResponse&lt;Deviation&gt; getDeviationById(@PathVariable Long id) {
+<span class="nc" id="L50">        Deviation deviation = deviationService.getDeviationById(id);</span>
+<span class="nc" id="L51">        return ApiResponse.success(deviation);</span>
+    }
+
+    /**
+     * 根据编号查询偏差详情
+     */
+    @GetMapping(&quot;/code/{code}&quot;)
+    public ApiResponse&lt;Deviation&gt; getDeviationByCode(@PathVariable String code) {
+<span class="nc" id="L59">        Deviation deviation = deviationService.getDeviationByCode(code);</span>
+<span class="nc" id="L60">        return ApiResponse.success(deviation);</span>
+    }
+
+    /**
+     * 分页查询偏差列表
+     */
+    @GetMapping
+    public ApiResponse&lt;Page&lt;Deviation&gt;&gt; getDeviations(
+            @RequestParam(defaultValue = &quot;0&quot;) int page,
+            @RequestParam(defaultValue = &quot;10&quot;) int size) {
+<span class="nc" id="L70">        Pageable pageable = PageRequest.of(page, size);</span>
+<span class="nc" id="L71">        Page&lt;Deviation&gt; deviations = deviationService.findAllDeviations(pageable);</span>
+<span class="nc" id="L72">        return ApiResponse.success(deviations);</span>
+    }
+
+    /**
+     * 根据条件搜索偏差
+     */
+    @PostMapping(&quot;/search&quot;)
+    public ApiResponse&lt;Page&lt;Deviation&gt;&gt; searchDeviations(
+            @RequestBody DeviationSearchCriteria criteria,
+            @RequestParam(defaultValue = &quot;0&quot;) int page,
+            @RequestParam(defaultValue = &quot;10&quot;) int size) {
+<span class="nc" id="L83">        Pageable pageable = PageRequest.of(page, size);</span>
+<span class="nc" id="L84">        Page&lt;Deviation&gt; deviations = deviationService.searchDeviations(criteria, pageable);</span>
+<span class="nc" id="L85">        return ApiResponse.success(deviations);</span>
+    }
+
+    /**
+     * 更新偏差状态
+     */
+    @PutMapping(&quot;/{id}/status&quot;)
+    public ApiResponse&lt;Deviation&gt; updateDeviationStatus(
+            @PathVariable Long id,
+            @RequestParam Deviation.DeviationStatus status,
+            @RequestParam(required = false) String comments) {
+<span class="nc" id="L96">        Deviation deviation = deviationService.updateDeviationStatus(id, status, comments);</span>
+<span class="nc" id="L97">        return ApiResponse.success(deviation);</span>
+    }
+
+    /**
+     * 上传偏差附件
+     */
+    @PostMapping(&quot;/{id}/attachments&quot;)
+    public ApiResponse&lt;Deviation&gt; addAttachment(
+            @PathVariable Long id,
+            @RequestParam(&quot;file&quot;) MultipartFile file,
+            @RequestParam(required = false) String description) {
+<span class="nc" id="L108">        Deviation deviation = deviationService.addAttachment(id, file, description);</span>
+<span class="nc" id="L109">        return ApiResponse.success(deviation);</span>
+    }
+
+    /**
+     * 删除偏差附件
+     */
+    @DeleteMapping(&quot;/{id}/attachments/{attachmentId}&quot;)
+    public ApiResponse&lt;Deviation&gt; removeAttachment(
+            @PathVariable Long id,
+            @PathVariable Long attachmentId) {
+<span class="nc" id="L119">        Deviation deviation = deviationService.removeAttachment(id, attachmentId);</span>
+<span class="nc" id="L120">        return ApiResponse.success(deviation);</span>
+    }
+
+    /**
+     * 生成新的偏差编号
+     */
+    @GetMapping(&quot;/generate-code&quot;)
+    public ApiResponse&lt;String&gt; generateDeviationCode() {
+<span class="nc" id="L128">        String code = deviationService.generateDeviationCode();</span>
+<span class="nc" id="L129">        return ApiResponse.success(code);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

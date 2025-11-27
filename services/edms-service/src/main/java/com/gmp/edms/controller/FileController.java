@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import com.gmp.edms.dto.ApiResponse;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,15 +35,15 @@ public class FileController {
      */
     @PostMapping("/upload")
     @Operation(summary = "上传单个文件")
-    public ResponseEntity<CommonFileDTO> uploadFile(
+    public ApiResponse<CommonFileDTO> uploadFile(
             @RequestParam("file") MultipartFile file,
             @RequestParam("module") String module,
             @RequestParam(required = false) Map<String, Object> metadata) {
         try {
             CommonFileDTO fileDTO = commonFileService.uploadFile(file, module, metadata);
-            return ResponseEntity.status(HttpStatus.CREATED).body(fileDTO);
+            return ApiResponse.success("文件上传成功", fileDTO);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ApiResponse.error("文件上传失败：" + e.getMessage());
         }
     }
 
@@ -51,15 +52,15 @@ public class FileController {
      */
     @PostMapping("/batch-upload")
     @Operation(summary = "批量上传文件")
-    public ResponseEntity<List<CommonFileDTO>> batchUploadFiles(
+    public ApiResponse<List<CommonFileDTO>> batchUploadFiles(
             @RequestParam("files") List<MultipartFile> files,
             @RequestParam("module") String module,
             @RequestParam(required = false) Map<String, Object> metadata) {
         try {
             List<CommonFileDTO> fileDTOs = commonFileService.batchUploadFiles(files, module, metadata);
-            return ResponseEntity.status(HttpStatus.CREATED).body(fileDTOs);
+            return ApiResponse.success("文件批量上传成功", fileDTOs);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ApiResponse.error("文件批量上传失败：" + e.getMessage());
         }
     }
 
@@ -90,12 +91,12 @@ public class FileController {
      */
     @GetMapping("/{fileId}")
     @Operation(summary = "获取文件信息")
-    public ResponseEntity<CommonFileDTO> getFileInfo(@PathVariable Long fileId) {
+    public ApiResponse<CommonFileDTO> getFileInfo(@PathVariable Long fileId) {
         try {
             CommonFileDTO fileDTO = commonFileService.getFileInfo(fileId);
-            return ResponseEntity.ok(fileDTO);
+            return ApiResponse.success("获取文件信息成功", fileDTO);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ApiResponse.error("获取文件信息失败：" + e.getMessage());
         }
     }
 
@@ -104,12 +105,12 @@ public class FileController {
      */
     @DeleteMapping("/{fileId}")
     @Operation(summary = "删除文件")
-    public ResponseEntity<Void> deleteFile(@PathVariable Long fileId) {
+    public ApiResponse<Void> deleteFile(@PathVariable Long fileId) {
         try {
             commonFileService.deleteFile(fileId);
-            return ResponseEntity.noContent().build();
+            return ApiResponse.success("文件删除成功");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ApiResponse.error("文件删除失败：" + e.getMessage());
         }
     }
 
@@ -118,12 +119,12 @@ public class FileController {
      */
     @DeleteMapping("/batch")
     @Operation(summary = "批量删除文件")
-    public ResponseEntity<Void> batchDeleteFiles(@RequestBody List<Long> fileIds) {
+    public ApiResponse<Void> batchDeleteFiles(@RequestBody List<Long> fileIds) {
         try {
             commonFileService.batchDeleteFiles(fileIds);
-            return ResponseEntity.noContent().build();
+            return ApiResponse.success("文件批量删除成功");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ApiResponse.error("文件批量删除失败：" + e.getMessage());
         }
     }
 
@@ -132,15 +133,15 @@ public class FileController {
      */
     @GetMapping("/{fileId}/presigned-url")
     @Operation(summary = "生成预签名URL")
-    public ResponseEntity<Map<String, String>> generatePresignedUrl(
+    public ApiResponse<Map<String, String>> generatePresignedUrl(
             @PathVariable Long fileId,
             @RequestParam(defaultValue = "3600") int expiration) {
         try {
             String url = commonFileService.generatePresignedUrl(fileId, expiration);
             Map<String, String> response = Map.of("url", url, "expiration", String.valueOf(expiration));
-            return ResponseEntity.ok(response);
+            return ApiResponse.success("生成预签名URL成功", response);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ApiResponse.error("生成预签名URL失败：" + e.getMessage());
         }
     }
 
@@ -149,16 +150,16 @@ public class FileController {
      */
     @GetMapping
     @Operation(summary = "查询文件列表")
-    public ResponseEntity<Map<String, Object>> queryFiles(
+    public ApiResponse<Map<String, Object>> queryFiles(
             @RequestParam(required = false) String module,
             @RequestParam(required = false) Map<String, Object> filters,
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "10") int size) {
         try {
             Map<String, Object> result = commonFileService.queryFiles(module, filters, page, size);
-            return ResponseEntity.ok(result);
+            return ApiResponse.success("查询文件列表成功", result);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ApiResponse.error("查询文件列表失败：" + e.getMessage());
         }
     }
 
@@ -167,14 +168,14 @@ public class FileController {
      */
     @PutMapping("/{fileId}/metadata")
     @Operation(summary = "更新文件元数据")
-    public ResponseEntity<Void> updateFileMetadata(
+    public ApiResponse<Void> updateFileMetadata(
             @PathVariable Long fileId,
             @RequestBody Map<String, Object> metadata) {
         try {
             commonFileService.updateFileMetadata(fileId, metadata);
-            return ResponseEntity.noContent().build();
+            return ApiResponse.success("更新文件元数据成功");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ApiResponse.error("更新文件元数据失败：" + e.getMessage());
         }
     }
 
@@ -183,13 +184,13 @@ public class FileController {
      */
     @GetMapping("/statistics")
     @Operation(summary = "获取文件统计信息")
-    public ResponseEntity<Map<String, Object>> getFileStatistics(
+    public ApiResponse<Map<String, Object>> getFileStatistics(
             @RequestParam(required = false) String module) {
         try {
             Map<String, Object> statistics = commonFileService.getFileStatistics(module);
-            return ResponseEntity.ok(statistics);
+            return ApiResponse.success("获取文件统计信息成功", statistics);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ApiResponse.error("获取文件统计信息失败：" + e.getMessage());
         }
     }
 }

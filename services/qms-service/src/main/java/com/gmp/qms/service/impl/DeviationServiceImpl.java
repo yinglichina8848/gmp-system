@@ -118,6 +118,7 @@ public class DeviationServiceImpl implements DeviationService {
 
             // 创建附件记录
             DeviationAttachment attachment = new DeviationAttachment();
+            // 使用setter方法设置属性值
             attachment.setDeviation(deviation);
             attachment.setFileName(originalFilename);
             attachment.setFilePath(filePath.toString());
@@ -126,6 +127,8 @@ public class DeviationServiceImpl implements DeviationService {
             attachment.setDescription(description);
             // 设置默认上传人为系统用户ID 1
             attachment.setUploadedBy(1L); // 使用Long类型的默认用户ID
+            // 添加上传时间
+            attachment.setUploadedAt(LocalDateTime.now());
 
             // 直接保存附件，而不是通过deviation的关系
             deviationAttachmentRepository.save(attachment);

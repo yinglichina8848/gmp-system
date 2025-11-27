@@ -39,8 +39,7 @@ com.gmp.edms
 │   ├── DocumentController.java            # 文档管理控制器
 │   ├── DocumentCategoryController.java    # 文档分类控制器
 │   ├── DocumentVersionController.java     # 文档版本控制器
-│   ├── FileController.java                # 通用文件管理控制器
-│   └── FileServiceCompatibilityController.java # File服务兼容层控制器
+│   └── FileController.java                # 通用文件管理控制器
 ├── dto/                # 数据传输对象
 │   ├── DocumentDTO.java                   # 文档DTO
 │   ├── DocumentCategoryDTO.java           # 文档分类DTO
@@ -88,19 +87,7 @@ com.gmp.edms
 | `/api/v1/files/{fileId}/metadata` | PUT | 更新文件元数据 | 文件管理 |
 | `/api/v1/files/statistics` | GET | 获取文件统计信息 | 文件管理 |
 
-### 4.2 File服务兼容API
-
-| 路径 | 方法 | 描述 | 对应原File服务API |
-|------|------|------|------------------|
-| `/api/v1/file-service/files` | POST | 上传文件 | `/api/v1/files` |
-| `/api/v1/file-service/files/{fileId}/download` | GET | 下载文件 | `/api/v1/files/{fileId}/download` |
-| `/api/v1/file-service/files/{fileId}` | GET | 获取文件信息 | `/api/v1/files/{fileId}` |
-| `/api/v1/file-service/files/{fileId}` | DELETE | 删除文件 | `/api/v1/files/{fileId}` |
-| `/api/v1/file-service/files/{fileId}/presigned-url` | GET | 生成预签名URL | `/api/v1/files/{fileId}/presigned-url` |
-| `/api/v1/file-service/files` | GET | 查询文件列表 | `/api/v1/files` |
-| `/api/v1/file-service/redirect/**` | GET | 自动重定向到新API | 不适用 |
-
-### 4.3 文档管理API
+### 4.2 文档管理API
 
 | 路径 | 方法 | 描述 | 模块 |
 |------|------|------|------|
@@ -110,9 +97,9 @@ com.gmp.edms
 | `/api/v1/documents/{id}` | DELETE | 删除文档 | 文档管理 |
 | `/api/v1/documents` | GET | 查询文档列表 | 文档管理 |
 
-### 4.4 文档版本API
+### 4.3 文档版本API
 
-| 路径 | 方法 | 描述 | 模块 |
+| 路径 | 方法 | 描述 | 模 |
 |------|------|------|------|
 | `/api/v1/documents/{documentId}/versions` | POST | 上传新版本 | 版本管理 |
 | `/api/v1/documents/{documentId}/versions` | GET | 获取版本列表 | 版本管理 |

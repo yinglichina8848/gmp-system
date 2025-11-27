@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Deviation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GMP QMS Service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.qms.entity</a> &gt; <span class="el_source">Deviation.java</span></div><h1>Deviation.java</h1><pre class="source lang-java linenums">package com.gmp.qms.entity;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+/**
+ * 偏差实体类
+ * 
+ * @author GMP系统开发团队
+ */
+@Entity
+@Table(name = &quot;deviations&quot;)
+@Data
+public class Deviation {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = &quot;deviation_code&quot;, nullable = false, unique = true)
+    private String deviationCode;
+
+    @Column(name = &quot;title&quot;, nullable = false)
+    private String title;
+
+    @Column(name = &quot;description&quot;, columnDefinition = &quot;TEXT&quot;)
+    private String description;
+
+    @Column(name = &quot;occurrence_date&quot;, nullable = false)
+    private LocalDateTime occurrenceDate;
+
+    @Column(name = &quot;discovery_date&quot;, nullable = false)
+    private LocalDateTime discoveryDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;severity_level&quot;, nullable = false)
+    private SeverityLevel severityLevel;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;status&quot;, nullable = false)
+    private DeviationStatus status;
+
+    @Column(name = &quot;impact_assessment&quot;, columnDefinition = &quot;TEXT&quot;)
+    private String impactAssessment;
+
+    @Column(name = &quot;root_cause_analysis&quot;, columnDefinition = &quot;TEXT&quot;)
+    private String rootCauseAnalysis;
+
+    @Column(name = &quot;corrective_action&quot;, columnDefinition = &quot;TEXT&quot;)
+    private String correctiveAction;
+
+    @Column(name = &quot;preventive_action&quot;, columnDefinition = &quot;TEXT&quot;)
+    private String preventiveAction;
+
+    @Column(name = &quot;responsible_person_id&quot;, nullable = false)
+    private Long responsiblePersonId;
+
+    @Column(name = &quot;reviewer_id&quot;)
+    private Long reviewerId;
+
+    @Column(name = &quot;approver_id&quot;)
+    private Long approverId;
+
+    @Column(name = &quot;closed_date&quot;)
+    private LocalDateTime closedDate;
+
+    @Column(name = &quot;closed_by&quot;)
+    private Long closedBy;
+
+    @OneToMany(mappedBy = &quot;deviation&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List&lt;DeviationAttachment&gt; attachments;
+
+    @OneToMany(mappedBy = &quot;deviation&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List&lt;DeviationAction&gt; actions;
+
+    @OneToMany(mappedBy = &quot;deviation&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List&lt;DeviationHistory&gt; history;
+
+    @CreationTimestamp
+    @Column(name = &quot;created_at&quot;, nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = &quot;updated_at&quot;, nullable = false)
+    private LocalDateTime updatedAt;
+
+    @Column(name = &quot;created_by&quot;, nullable = false)
+    private Long createdBy;
+
+    @Column(name = &quot;updated_by&quot;)
+    private Long updatedBy;
+
+    /**
+     * 偏差严重程度级别枚举
+     */
+<span class="fc" id="L101">    public enum SeverityLevel {</span>
+<span class="fc" id="L102">        CRITICAL,     // 关键</span>
+<span class="fc" id="L103">        HIGH,         // 高</span>
+<span class="fc" id="L104">        MEDIUM,       // 中</span>
+<span class="fc" id="L105">        LOW           // 低</span>
+    }
+
+    /**
+     * 偏差状态枚举
+     */
+<span class="fc" id="L111">    public enum DeviationStatus {</span>
+<span class="fc" id="L112">        IDENTIFIED,   // 已识别</span>
+<span class="fc" id="L113">        IN_INVESTIGATION, // 调查中</span>
+<span class="fc" id="L114">        IN_CORRECTION,    // 纠正中</span>
+<span class="fc" id="L115">        PENDING_REVIEW,   // 待审核</span>
+<span class="fc" id="L116">        PENDING_APPROVAL, // 待批准</span>
+<span class="fc" id="L117">        CLOSED,       // 已关闭</span>
+<span class="fc" id="L118">        REJECTED      // 已拒绝</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

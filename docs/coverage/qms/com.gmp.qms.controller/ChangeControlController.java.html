@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChangeControlController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GMP QMS Service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.qms.controller</a> &gt; <span class="el_source">ChangeControlController.java</span></div><h1>ChangeControlController.java</h1><pre class="source lang-java linenums">package com.gmp.qms.controller;
+
+import com.gmp.qms.dto.ChangeControlDTO;
+import com.gmp.qms.dto.ChangeControlSearchCriteria;
+import com.gmp.qms.entity.ChangeControl;
+import com.gmp.qms.model.ApiResponse;
+import com.gmp.qms.service.ChangeControlService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+/**
+ * 变更控制控制器
+ * 
+ * @author GMP系统开发团队
+ */
+@RestController
+@RequestMapping(&quot;/api/v1/change-controls&quot;)
+@RequiredArgsConstructor
+public class ChangeControlController {
+
+    private final ChangeControlService changeControlService;
+
+    /**
+     * 创建新的变更控制记录
+     */
+    @PostMapping
+    public ApiResponse&lt;ChangeControl&gt; createChangeControl(@RequestBody ChangeControlDTO changeControlDTO) {
+<span class="nc" id="L32">        ChangeControl changeControl = changeControlService.createChangeControl(changeControlDTO);</span>
+<span class="nc" id="L33">        return ApiResponse.success(changeControl);</span>
+    }
+
+    /**
+     * 更新变更控制记录
+     */
+    @PutMapping(&quot;/{id}&quot;)
+    public ApiResponse&lt;ChangeControl&gt; updateChangeControl(@PathVariable Long id, @RequestBody ChangeControlDTO changeControlDTO) {
+<span class="nc" id="L41">        ChangeControl changeControl = changeControlService.updateChangeControl(id, changeControlDTO);</span>
+<span class="nc" id="L42">        return ApiResponse.success(changeControl);</span>
+    }
+
+    /**
+     * 根据ID查询变更控制详情
+     */
+    @GetMapping(&quot;/{id}&quot;)
+    public ApiResponse&lt;ChangeControl&gt; getChangeControlById(@PathVariable Long id) {
+<span class="nc" id="L50">        ChangeControl changeControl = changeControlService.getChangeControlById(id);</span>
+<span class="nc" id="L51">        return ApiResponse.success(changeControl);</span>
+    }
+
+    /**
+     * 根据编号查询变更控制详情
+     */
+    @GetMapping(&quot;/code/{code}&quot;)
+    public ApiResponse&lt;ChangeControl&gt; getChangeControlByCode(@PathVariable String code) {
+<span class="nc" id="L59">        ChangeControl changeControl = changeControlService.getChangeControlByCode(code);</span>
+<span class="nc" id="L60">        return ApiResponse.success(changeControl);</span>
+    }
+
+    /**
+     * 分页查询变更控制列表
+     */
+    @GetMapping
+    public ApiResponse&lt;Page&lt;ChangeControl&gt;&gt; getChangeControls(
+            @RequestParam(defaultValue = &quot;0&quot;) int page,
+            @RequestParam(defaultValue = &quot;10&quot;) int size) {
+<span class="nc" id="L70">        Pageable pageable = PageRequest.of(page, size);</span>
+<span class="nc" id="L71">        Page&lt;ChangeControl&gt; changeControls = changeControlService.findAllChangeControls(pageable);</span>
+<span class="nc" id="L72">        return ApiResponse.success(changeControls);</span>
+    }
+
+    /**
+     * 根据条件搜索变更控制
+     */
+    @PostMapping(&quot;/search&quot;)
+    public ApiResponse&lt;Page&lt;ChangeControl&gt;&gt; searchChangeControls(
+            @RequestBody ChangeControlSearchCriteria criteria,
+            @RequestParam(defaultValue = &quot;0&quot;) int page,
+            @RequestParam(defaultValue = &quot;10&quot;) int size) {
+<span class="nc" id="L83">        Pageable pageable = PageRequest.of(page, size);</span>
+<span class="nc" id="L84">        Page&lt;ChangeControl&gt; changeControls = changeControlService.searchChangeControls(criteria, pageable);</span>
+<span class="nc" id="L85">        return ApiResponse.success(changeControls);</span>
+    }
+
+    /**
+     * 更新变更控制状态
+     */
+    @PutMapping(&quot;/{id}/status&quot;)
+    public ApiResponse&lt;ChangeControl&gt; updateChangeControlStatus(
+            @PathVariable Long id,
+            @RequestParam ChangeControl.ChangeStatus status,
+            @RequestParam(required = false) String comments) {
+<span class="nc" id="L96">        ChangeControl changeControl = changeControlService.updateChangeControlStatus(id, status, comments);</span>
+<span class="nc" id="L97">        return ApiResponse.success(changeControl);</span>
+    }
+
+    /**
+     * 上传变更控制附件
+     */
+    @PostMapping(&quot;/{id}/attachments&quot;)
+    public ApiResponse&lt;ChangeControl&gt; addAttachment(
+            @PathVariable Long id,
+            @RequestParam(&quot;file&quot;) MultipartFile file,
+            @RequestParam(required = false) String description) {
+<span class="nc" id="L108">        ChangeControl changeControl = changeControlService.addAttachment(id, file, description);</span>
+<span class="nc" id="L109">        return ApiResponse.success(changeControl);</span>
+    }
+
+    /**
+     * 删除变更控制附件
+     */
+    @DeleteMapping(&quot;/{id}/attachments/{attachmentId}&quot;)
+    public ApiResponse&lt;ChangeControl&gt; removeAttachment(
+            @PathVariable Long id,
+            @PathVariable Long attachmentId) {
+<span class="nc" id="L119">        ChangeControl changeControl = changeControlService.removeAttachment(id, attachmentId);</span>
+<span class="nc" id="L120">        return ApiResponse.success(changeControl);</span>
+    }
+
+    /**
+     * 生成新的变更控制编号
+     */
+    @GetMapping(&quot;/generate-code&quot;)
+    public ApiResponse&lt;String&gt; generateChangeControlCode() {
+<span class="nc" id="L128">        String code = changeControlService.generateChangeCode();</span>
+<span class="nc" id="L129">        return ApiResponse.success(code);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

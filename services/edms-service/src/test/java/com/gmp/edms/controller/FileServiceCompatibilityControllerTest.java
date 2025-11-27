@@ -46,8 +46,8 @@ class FileServiceCompatibilityControllerTest {
                 mockFileDTO.setFileName("test.txt");
                 mockFileDTO.setFileType("text/plain");
                 mockFileDTO.setModule("test-type");
-                mockFileDTO.setSize(1024L);
-                mockFileDTO.setPath("/test/test.txt");
+                // 注意：CommonFileDTO没有size字段的getter/setter方法，移除反射尝试
+                // 注意：CommonFileDTO没有setPath方法，移除该设置
 
                 // 创建测试文件
                 testFile = new MockMultipartFile(

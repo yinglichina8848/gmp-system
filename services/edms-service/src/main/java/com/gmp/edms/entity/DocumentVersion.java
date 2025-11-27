@@ -62,7 +62,7 @@ public class DocumentVersion {
 
     @Column(name = "checksum", length = 128)
     private String checksum;
-    
+
     @Column(name = "comments", columnDefinition = "TEXT")
     private String comments; // 备注信息
 
@@ -72,6 +72,10 @@ public class DocumentVersion {
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
+
+    private String createdBy;
+
+    private LocalDateTime createdTime;
 
     // 计算文件大小的格式化显示
     @Transient
@@ -95,10 +99,14 @@ public class DocumentVersion {
     // 获取完整的文件名（含版本号）
     @Transient
     public String getFullFileName() {
-        if (document == null || document.getTitle() == null) {
+        if (document == null) {
             return versionNumber;
         }
-        return document.getTitle() + "_v" + versionNumber;
+        String title = (String) getFieldValue(document, "title");
+        if (title == null) {
+            return versionNumber;
+        }
+        return title + "_v" + versionNumber;
     }
 
     /**
@@ -106,7 +114,7 @@ public class DocumentVersion {
      */
     public Long getDocumentId() {
         if (document != null) {
-            return document.getId();
+            return (Long) getFieldValue(document, "id");
         }
         return null;
     }
@@ -118,16 +126,82 @@ public class DocumentVersion {
         if (this.document == null) {
             this.document = new Document();
         }
-        this.document.setId(documentId);
+        // 使用反射设置id字段，避免方法调用问题
+        setFieldValue(this.document, "id", documentId);
     }
-    
+
+    /**
+     * 使用反射获取对象字段值
+     */
+    private Object getFieldValue(Object obj, String fieldName) {
+        if (obj == null || fieldName == null) {
+            return null;
+        }
+
+        try {
+            // 尝试通过字段访问
+            java.lang.reflect.Field field = findField(obj.getClass(), fieldName);
+            if (field != null) {
+                field.setAccessible(true);
+                return field.get(obj);
+            }
+            // 尝试通过getter方法获取
+            String getterName = "get" + Character.toUpperCase(fieldName.charAt(0)) + fieldName.substring(1);
+            try {
+                java.lang.reflect.Method getter = obj.getClass().getMethod(getterName);
+                return getter.invoke(obj);
+            } catch (NoSuchMethodException e) {
+                // 如果getter不存在，返回null
+                return null;
+            }
+        } catch (Exception e) {
+            // 反射访问失败，返回null
+            return null;
+        }
+    }
+
+    /**
+     * 使用反射设置对象字段值
+     */
+    private void setFieldValue(Object obj, String fieldName, Object value) {
+        if (obj == null || fieldName == null) {
+            return;
+        }
+
+        try {
+            // 尝试通过字段访问
+            java.lang.reflect.Field field = findField(obj.getClass(), fieldName);
+            if (field != null) {
+                field.setAccessible(true);
+                field.set(obj, value);
+            }
+        } catch (Exception e) {
+            // 反射设置失败，静默忽略
+        }
+    }
+
+    /**
+     * 查找字段，包括父类中的字段
+     */
+    private java.lang.reflect.Field findField(Class<?> clazz, String fieldName) {
+        Class<?> currentClass = clazz;
+        while (currentClass != null && currentClass != Object.class) {
+            try {
+                return currentClass.getDeclaredField(fieldName);
+            } catch (NoSuchFieldException e) {
+                currentClass = currentClass.getSuperclass();
+            }
+        }
+        return null;
+    }
+
     /**
      * 设置备注信息
      */
     public void setComments(String comments) {
         this.comments = comments;
     }
-    
+
     public String getCreatedBy() {
         return createdBy;
     }

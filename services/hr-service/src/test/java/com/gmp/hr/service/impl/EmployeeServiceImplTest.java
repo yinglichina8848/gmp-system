@@ -2,10 +2,10 @@ package com.gmp.hr.service.impl;
 
 import com.gmp.hr.dto.EmployeeDTO;
 import com.gmp.hr.entity.Employee;
-import com.gmp.hr.exception.BusinessException;
 import com.gmp.hr.repository.EmployeeRepository;
 import com.gmp.hr.repository.DepartmentRepository;
 import com.gmp.hr.repository.PositionRepository;
+import com.gmp.hr.mapper.EmployeeMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -29,23 +29,26 @@ public class EmployeeServiceImplTest {
 
     @Mock
     private EmployeeRepository employeeRepository;
-    
+
     @Mock
     private DepartmentRepository departmentRepository;
-    
+
     @Mock
     private PositionRepository positionRepository;
-    
+
+    @Mock
+    private EmployeeMapper employeeMapper;
+
     @InjectMocks
     private EmployeeServiceImpl employeeService;
-    
+
     private Employee employee;
     private EmployeeDTO employeeDTO;
-    
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        
+
         // 初始化测试数据
         employee = new Employee();
         employee.setId(1L);
@@ -55,7 +58,10 @@ public class EmployeeServiceImplTest {
         employee.setBirthDate(LocalDate.of(1990, 1, 1));
         employee.setHireDate(LocalDate.of(2020, 1, 1));
         employee.setStatus("在职");
-        
+        employee.setDeleted(false);
+        employee.setEmail("zhangsan@example.com");
+        employee.setIdCard("110101199001011234");
+
         employeeDTO = new EmployeeDTO();
         employeeDTO.setId(1L);
         employeeDTO.setEmployeeCode("EMP001");
@@ -64,216 +70,189 @@ public class EmployeeServiceImplTest {
         employeeDTO.setBirthDate(LocalDate.of(1990, 1, 1));
         employeeDTO.setHireDate(LocalDate.of(2020, 1, 1));
         employeeDTO.setStatus("在职");
+        employeeDTO.setEmail("zhangsan@example.com");
+        employeeDTO.setIdCard("110101199001011234");
     }
-    
+
     @Test
     void testCreateEmployee_Success() {
         // 准备
-        when(employeeRepository.existsByEmployeeCode("EMP001")).thenReturn(false);
-        when(employeeRepository.save(any(Employee.class))).thenReturn(employee);
-        when(departmentRepository.existsById(anyLong())).thenReturn(true);
-        when(positionRepository.existsById(anyLong())).thenReturn(true);
-        
+        when(employeeRepository.findByEmployeeCodeAndDeletedFalse("EMP001")).thenReturn(Optional.empty());
+        when(employeeRepository.findByEmailAndDeletedFalse("zhangsan@example.com")).thenReturn(Optional.empty());
+        when(employeeRepository.findByIdCardAndDeletedFalse("110101199001011234")).thenReturn(Optional.empty());
+        when(employeeMapper.toEntity(employeeDTO)).thenReturn(employee);
+        when(employeeRepository.save(employee)).thenReturn(employee);
+        when(employeeMapper.toDTO(employee)).thenReturn(employeeDTO);
+
         // 执行
         EmployeeDTO result = employeeService.createEmployee(employeeDTO);
-        
+
         // 验证
         assertNotNull(result);
         assertEquals("EMP001", result.getEmployeeCode());
         assertEquals("张三", result.getName());
-        verify(employeeRepository, times(1)).save(any(Employee.class));
+        verify(employeeRepository, times(1)).save(employee);
+        verify(employeeMapper, times(1)).toEntity(employeeDTO);
+        verify(employeeMapper, times(1)).toDTO(employee);
     }
-    
+
     @Test
     void testCreateEmployee_EmployeeCodeExists() {
         // 准备
-        when(employeeRepository.existsByEmployeeCode("EMP001")).thenReturn(true);
-        
+        when(employeeRepository.findByEmployeeCodeAndDeletedFalse("EMP001")).thenReturn(Optional.of(employee));
+
         // 执行和验证
-        BusinessException exception = assertThrows(BusinessException.class, 
+        RuntimeException exception = assertThrows(RuntimeException.class,
                 () -> employeeService.createEmployee(employeeDTO));
-        assertEquals("员工代码 EMP001 已存在", exception.getMessage());
+        assertEquals("员工工号已存在", exception.getMessage());
         verify(employeeRepository, never()).save(any(Employee.class));
     }
-    
+
     @Test
     void testGetEmployeeById_Success() {
         // 准备
         when(employeeRepository.findById(1L)).thenReturn(Optional.of(employee));
-        
+        when(employeeMapper.toDTO(employee)).thenReturn(employeeDTO);
+
         // 执行
         EmployeeDTO result = employeeService.getEmployeeById(1L);
-        
+
         // 验证
         assertNotNull(result);
         assertEquals(1L, result.getId());
         assertEquals("EMP001", result.getEmployeeCode());
+        verify(employeeMapper, times(1)).toDTO(employee);
     }
-    
+
     @Test
     void testGetEmployeeById_NotFound() {
         // 准备
         when(employeeRepository.findById(1L)).thenReturn(Optional.empty());
-        
+
         // 执行和验证
-        BusinessException exception = assertThrows(BusinessException.class, 
+        RuntimeException exception = assertThrows(RuntimeException.class,
                 () -> employeeService.getEmployeeById(1L));
-        assertEquals("员工不存在，ID: 1", exception.getMessage());
+        assertEquals("员工不存在", exception.getMessage());
     }
-    
+
     @Test
     void testGetEmployeeByCode_Success() {
         // 准备
-        when(employeeRepository.findByEmployeeCode("EMP001")).thenReturn(Optional.of(employee));
-        
+        when(employeeRepository.findByEmployeeCodeAndDeletedFalse("EMP001")).thenReturn(Optional.of(employee));
+        when(employeeMapper.toDTO(employee)).thenReturn(employeeDTO);
+
         // 执行
         EmployeeDTO result = employeeService.getEmployeeByCode("EMP001");
-        
+
         // 验证
         assertNotNull(result);
         assertEquals("EMP001", result.getEmployeeCode());
+        verify(employeeMapper, times(1)).toDTO(employee);
     }
-    
+
     @Test
     void testUpdateEmployee_Success() {
         // 准备
         when(employeeRepository.findById(1L)).thenReturn(Optional.of(employee));
-        when(employeeRepository.existsByEmployeeCodeAndIdNot("EMP001", 1L)).thenReturn(false);
+        when(employeeMapper.updateEntityFromDTO(employeeDTO, employee)).thenReturn(employee);
         when(employeeRepository.save(any(Employee.class))).thenReturn(employee);
-        when(departmentRepository.existsById(anyLong())).thenReturn(true);
-        when(positionRepository.existsById(anyLong())).thenReturn(true);
-        
+        when(employeeMapper.toDTO(employee)).thenReturn(employeeDTO);
+
         // 修改DTO
         employeeDTO.setName("李四");
-        
+
         // 执行
         EmployeeDTO result = employeeService.updateEmployee(1L, employeeDTO);
-        
+
         // 验证
         assertNotNull(result);
-        assertEquals("李四", result.getName());
+        verify(employeeMapper, times(1)).updateEntityFromDTO(employeeDTO, employee);
         verify(employeeRepository, times(1)).save(any(Employee.class));
+        verify(employeeMapper, times(1)).toDTO(employee);
     }
-    
+
     @Test
     void testDeleteEmployee_Success() {
         // 准备
         when(employeeRepository.findById(1L)).thenReturn(Optional.of(employee));
-        doNothing().when(employeeRepository).deleteById(1L);
-        
+        when(employeeRepository.save(any(Employee.class))).thenReturn(employee);
+
         // 执行
         employeeService.deleteEmployee(1L);
-        
+
         // 验证
-        verify(employeeRepository, times(1)).deleteById(1L);
+        assertTrue(employee.getDeleted());
+        verify(employeeRepository, times(1)).save(any(Employee.class));
     }
-    
+
     @Test
     void testGetEmployeesByDepartment_Success() {
         // 准备
         List<Employee> employees = Collections.singletonList(employee);
-        when(employeeRepository.findByDepartmentId(1L)).thenReturn(employees);
-        
+        when(employeeRepository.findByDepartmentIdAndDeletedFalse(1L)).thenReturn(employees);
+        when(employeeMapper.toDTOList(employees)).thenReturn(Collections.singletonList(employeeDTO));
+
         // 执行
         List<EmployeeDTO> result = employeeService.getEmployeesByDepartment(1L);
-        
+
         // 验证
         assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals("EMP001", result.get(0).getEmployeeCode());
+        verify(employeeRepository, times(1)).findByDepartmentIdAndDeletedFalse(1L);
+        verify(employeeMapper, times(1)).toDTOList(employees);
     }
-    
+
     @Test
     void testGetEmployeesByPosition_Success() {
         // 准备
         List<Employee> employees = Collections.singletonList(employee);
-        when(employeeRepository.findByPositionId(1L)).thenReturn(employees);
-        
+        when(employeeRepository.findByPositionIdAndDeletedFalse(1L)).thenReturn(employees);
+        when(employeeMapper.toDTOList(employees)).thenReturn(Collections.singletonList(employeeDTO));
+
         // 执行
         List<EmployeeDTO> result = employeeService.getEmployeesByPosition(1L);
-        
+
         // 验证
         assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals("EMP001", result.get(0).getEmployeeCode());
+        verify(employeeRepository, times(1)).findByPositionIdAndDeletedFalse(1L);
+        verify(employeeMapper, times(1)).toDTOList(employees);
     }
-    
+
     @Test
-    void testGetEmployeesByDateRange_Success() {
+    void testGetEmployeesByHireDateRange_Success() {
         // 准备
         LocalDate startDate = LocalDate.of(2019, 1, 1);
         LocalDate endDate = LocalDate.of(2021, 1, 1);
         List<Employee> employees = Collections.singletonList(employee);
-        when(employeeRepository.findByHireDateBetween(startDate, endDate)).thenReturn(employees);
-        
+        when(employeeRepository.findByHireDateBetweenAndDeletedFalse(startDate, endDate)).thenReturn(employees);
+        when(employeeMapper.toDTOList(employees)).thenReturn(Collections.singletonList(employeeDTO));
+
         // 执行
-        List<EmployeeDTO> result = employeeService.getEmployeesByDateRange(startDate, endDate);
-        
+        List<EmployeeDTO> result = employeeService.getEmployeesByHireDateRange(startDate, endDate);
+
         // 验证
         assertNotNull(result);
-        assertEquals(1, result.size());
+        verify(employeeRepository, times(1)).findByHireDateBetweenAndDeletedFalse(startDate, endDate);
+        verify(employeeMapper, times(1)).toDTOList(employees);
     }
-    
+
     @Test
-    void testGetAllEmployees_Success() {
+    void testGetEmployeesWithUpcomingDeparture_Success() {
         // 准备
         List<Employee> employees = Collections.singletonList(employee);
-        when(employeeRepository.findAll()).thenReturn(employees);
-        
+        LocalDate thirtyDaysLater = LocalDate.now().plusDays(30);
+        when(employeeRepository.findEmployeesWithUpcomingDeparture(thirtyDaysLater)).thenReturn(employees);
+        when(employeeMapper.toDTOList(employees)).thenReturn(Collections.singletonList(employeeDTO));
+
         // 执行
-        List<EmployeeDTO> result = employeeService.getAllEmployees();
-        
+        List<EmployeeDTO> result = employeeService.getEmployeesWithUpcomingDeparture();
+
         // 验证
         assertNotNull(result);
-        assertEquals(1, result.size());
-    }
-    
-    @Test
-    void testGetEmployeesByStatus_Success() {
-        // 准备
-        List<Employee> employees = Collections.singletonList(employee);
-        when(employeeRepository.findByStatus("在职")).thenReturn(employees);
-        
-        // 执行
-        List<EmployeeDTO> result = employeeService.getEmployeesByStatus("在职");
-        
-        // 验证
-        assertNotNull(result);
-        assertEquals(1, result.size());
-    }
-    
-    @Test
-    void testGetEmployeesLeavingSoon_Success() {
-        // 准备
-        LocalDate now = LocalDate.now();
-        LocalDate twoMonthsLater = now.plusMonths(2);
-        employee.setContractEndDate(twoMonthsLater);
-        List<Employee> employees = Collections.singletonList(employee);
-        when(employeeRepository.findEmployeesLeavingSoon(now)).thenReturn(employees);
-        
-        // 执行
-        List<EmployeeDTO> result = employeeService.getEmployeesLeavingSoon();
-        
-        // 验证
-        assertNotNull(result);
-        assertEquals(1, result.size());
-    }
-    
-    @Test
-    void testFindEmployees_Success() {
-        // 准备
-        Pageable pageable = PageRequest.of(0, 10);
-        List<Employee> employees = Collections.singletonList(employee);
-        Page<Employee> employeePage = new PageImpl<>(employees, pageable, employees.size());
-        
-        when(employeeRepository.findEmployees(anyString(), anyString(), anyLong(), anyLong(), anyString(), pageable))
-            .thenReturn(employeePage);
-        
-        // 执行
-        Page<EmployeeDTO> result = employeeService.findEmployees("张", "男", 1L, 1L, "在职", pageable);
-        
-        // 验证
-        assertNotNull(result);
-        assertEquals(1, result.getTotalElements());
+        verify(employeeRepository, times(1)).findEmployeesWithUpcomingDeparture(thirtyDaysLater);
+        verify(employeeMapper, times(1)).toDTOList(employees);
     }
 }

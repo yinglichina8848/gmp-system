@@ -49,6 +49,13 @@ public class LoginResponse {
         this.tokenType = tokenType;
     }
     
+    /**
+     * 为兼容测试代码添加的方法，委托给setAccessToken
+     */
+    public void setToken(String token) {
+        this.setAccessToken(token);
+    }
+    
     public void setExpiresIn(Long expiresIn) {
         this.expiresIn = expiresIn;
     }

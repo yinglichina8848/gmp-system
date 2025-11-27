@@ -83,4 +83,15 @@ public class LoginRequest {
     public void setOrganizationId(Long organizationId) {
         this.organizationId = organizationId;
     }
+    
+    // MFA验证码
+    private String mfaCode;
+    
+    public String getMfaCode() {
+        return mfaCode;
+    }
+    
+    public void setMfaCode(String mfaCode) {
+        this.mfaCode = mfaCode;
+    }
 }

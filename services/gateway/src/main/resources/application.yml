@@ -64,13 +64,6 @@ spring:
           filters:
             - StripPrefix=1
 
-        # File Service - 文件服务
-        - id: file-service
-          uri: lb://file-service
-          predicates:
-            - Path=/api/files/**
-          filters:
-            - StripPrefix=1
 
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST

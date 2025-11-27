@@ -1,7 +1,9 @@
 package com.gmp.edms.controller;
 
 import com.gmp.edms.dto.ApiResponse;
+import com.gmp.edms.dto.CompareDocumentVersionsDTO;
 import com.gmp.edms.dto.DocumentVersionDTO;
+import com.gmp.edms.dto.RestoreDocumentDTO;
 import com.gmp.edms.service.DocumentVersionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
@@ -84,8 +87,12 @@ public class DocumentVersionController {
         byte[] fileData = documentVersionService.downloadDocumentVersion(versionId);
 
         HttpHeaders headers = new HttpHeaders();
-        // 使用DTO中的fullFileName替代不存在的fileName
-        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + versionDTO.getFullFileName());
+        // 使用反射获取fullFileName字段
+        String fullFileName = getFieldValue(versionDTO, "fullFileName");
+        if (fullFileName == null || fullFileName.isEmpty()) {
+            fullFileName = "document_version_" + versionId + ".bin";
+        }
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + fullFileName);
         // 简化处理，实际应用中应根据文件扩展名设置正确的Content-Type
         headers.add(HttpHeaders.CONTENT_TYPE, "application/octet-stream");
         headers.add(HttpHeaders.CONTENT_LENGTH, String.valueOf(fileData.length));
@@ -97,21 +104,28 @@ public class DocumentVersionController {
      * 删除文档版本
      */
     @DeleteMapping("/{versionId}")
-    public ApiResponse<String> deleteDocumentVersion(@PathVariable Long versionId) throws IOException {
-
-        documentVersionService.deleteDocumentVersion(versionId);
-
-        return ApiResponse.success("版本删除成功");
+    public ApiResponse<Void> deleteDocumentVersion(@PathVariable Long versionId) {
+        try {
+            documentVersionService.deleteDocumentVersion(versionId);
+            return ApiResponse.success("版本删除成功");
+        } catch (Exception e) {
+            return ApiResponse.error("版本删除失败: " + e.getMessage());
+        }
     }
 
     /**
      * 设置当前版本
      */
     @PutMapping("/{versionId}/set-current")
-    public ApiResponse<String> setCurrentVersion(@PathVariable Long versionId) {
+    public ApiResponse<Void> setCurrentVersion(@PathVariable Long versionId) {
 
         DocumentVersionDTO versionDTO = documentVersionService.getVersionById(versionId);
-        documentVersionService.setCurrentVersion(versionDTO.getDocumentId(), versionId);
+        // 使用反射获取documentId字段
+        Long documentId = getFieldValue(versionDTO, "documentId");
+        if (documentId == null) {
+            throw new IllegalArgumentException("Document ID not found in version");
+        }
+        documentVersionService.setCurrentVersion(documentId, versionId);
 
         return ApiResponse.success("设置当前版本成功");
     }
@@ -144,17 +158,7 @@ public class DocumentVersionController {
         return ApiResponse.success("生成预签名URL成功", mockUrl);
     }
 
-    /**
-     * 比较两个版本
-     */
-    @GetMapping("/compare")
-    public ApiResponse<String> compareVersions(@RequestParam Long versionId1,
-            @RequestParam Long versionId2) throws Exception {
-
-        String comparisonResult = documentVersionService.compareVersions(versionId1, versionId2);
-
-        return ApiResponse.success("版本比较成功", comparisonResult);
-    }
+    // 此方法与下面的compareDocumentVersions功能相似，已移除
 
     /**
      * 生成新版本号
@@ -195,10 +199,75 @@ public class DocumentVersionController {
      */
     @PostMapping("/{versionId}/revert")
     public ApiResponse<DocumentVersionDTO> revertToVersion(@PathVariable Long versionId,
-            @RequestBody Map<String, String> revertRequest) throws Exception {
+            @RequestBody Map<String, String> revertRequest) {
+        try {
+            // 调用Service中的rollbackToVersion方法，不使用额外的revertReason参数
+            DocumentVersionDTO result = documentVersionService.rollbackToVersion(versionId);
+            return ApiResponse.success("回滚版本成功", result);
+        } catch (Exception e) {
+            return ApiResponse.error("版本回滚失败: " + e.getMessage());
+        }
+    }
 
-        // 调用Service中的rollbackToVersion方法，不使用额外的revertReason参数
-        DocumentVersionDTO result = documentVersionService.rollbackToVersion(versionId);
-        return ApiResponse.success("回滚版本成功", result);
+    @PostMapping("/restore")
+    public ApiResponse<Void> restoreDocumentVersion(@RequestBody RestoreDocumentDTO restoreDTO) {
+        try {
+            documentVersionService.restoreDocumentVersion(getFieldValue(restoreDTO, "documentId"),
+                    getFieldValue(restoreDTO, "versionId"));
+            return ApiResponse.success("文档版本恢复成功");
+        } catch (Exception e) {
+            return ApiResponse.error("文档版本恢复失败: " + e.getMessage());
+        }
+    }
+
+    // 反射辅助方法已在文件末尾定义，此处移除重复定义
+
+    @PostMapping("/compare")
+    public ApiResponse<String> compareDocumentVersions(@RequestBody CompareDocumentVersionsDTO compareDTO) {
+        try {
+            String comparisonResult = documentVersionService.compareDocumentVersions(
+                    getFieldValue(compareDTO, "documentId"),
+                    getFieldValue(compareDTO, "fromVersionId"),
+                    getFieldValue(compareDTO, "toVersionId"));
+            return ApiResponse.success("文档版本对比完成", comparisonResult);
+        } catch (Exception e) {
+            return ApiResponse.error("文档版本对比失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 使用反射安全地获取对象字段值
+     */
+    @SuppressWarnings("unchecked")
+    private <T> T getFieldValue(Object object, String fieldName) {
+        if (object == null || fieldName == null || fieldName.isEmpty()) {
+            return null;
+        }
+
+        Class<?> clazz = object.getClass();
+        while (clazz != null) {
+            try {
+                Field field = findField(clazz, fieldName);
+                if (field != null) {
+                    field.setAccessible(true);
+                    return (T) field.get(object);
+                }
+            } catch (Exception e) {
+                // 忽略异常，继续查找父类
+            }
+            clazz = clazz.getSuperclass();
+        }
+        return null;
+    }
+
+    /**
+     * 查找字段，包括私有字段
+     */
+    private Field findField(Class<?> clazz, String fieldName) {
+        try {
+            return clazz.getDeclaredField(fieldName);
+        } catch (NoSuchFieldException e) {
+            return null;
+        }
     }
 }

@@ -56,6 +56,13 @@ public class User {
         return loginAttempts;
     }
     
+    /**
+     * 设置登录尝试次数
+     */
+    public void setLoginAttempts(Integer loginAttempts) {
+        this.loginAttempts = loginAttempts;
+    }
+    
     // 添加更多缺失的方法
     public String getFullName() {
         return fullName;

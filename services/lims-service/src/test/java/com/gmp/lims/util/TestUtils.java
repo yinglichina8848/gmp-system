@@ -14,7 +14,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 测试工具类
@@ -32,19 +34,14 @@ public class TestUtils {
         sample.setSampleName("人参样品1");
         sample.setSampleType("中药材");
         sample.setBatchNumber("B20230001");
-        sample.setQuantity(500.0);
+        sample.setSampleQuantity(500);
         sample.setUnit("g");
         sample.setSampleSource("供应商A");
         sample.setReceiptDate(LocalDateTime.now().minusDays(10));
-        sample.setProductionDate(LocalDateTime.now().minusMonths(2));
-        sample.setExpirationDate(LocalDateTime.now().plusYears(2));
-        sample.setStorageLocation("冷藏库A区");
         sample.setStatus("已接收");
-        sample.setRemarks("道地药材，需要特殊保存");
-        sample.setChineseMedicineName("人参");
-        sample.setAuthenticProductionArea("吉林长白山");
-        sample.setHarvestSeason("秋季");
-        sample.setMedicinalPart("根及根茎");
+        sample.setRemark("道地药材，需要特殊保存");
+        // 保留基本属性，移除可能不存在的中药特有属性
+        sample.setSpecification("一等品");
         sample.setCreatedTime(LocalDateTime.now().minusDays(10));
         sample.setUpdatedTime(LocalDateTime.now().minusDays(10));
         return sample;
@@ -60,19 +57,11 @@ public class TestUtils {
         sampleDTO.setSampleName("人参样品1");
         sampleDTO.setSampleType("中药材");
         sampleDTO.setBatchNumber("B20230001");
-        sampleDTO.setQuantity(500.0);
         sampleDTO.setUnit("g");
         sampleDTO.setSampleSource("供应商A");
         sampleDTO.setReceiptDate(LocalDateTime.now().minusDays(10));
-        sampleDTO.setProductionDate(LocalDateTime.now().minusMonths(2));
-        sampleDTO.setExpirationDate(LocalDateTime.now().plusYears(2));
-        sampleDTO.setStorageLocation("冷藏库A区");
         sampleDTO.setStatus("已接收");
-        sampleDTO.setRemarks("道地药材，需要特殊保存");
-        sampleDTO.setChineseMedicineName("人参");
-        sampleDTO.setAuthenticProductionArea("吉林长白山");
-        sampleDTO.setHarvestSeason("秋季");
-        sampleDTO.setMedicinalPart("根及根茎");
+        // 保留DTO中的属性设置
         return sampleDTO;
     }
 
@@ -83,9 +72,6 @@ public class TestUtils {
         InspectionTask task = new InspectionTask();
         task.setId(1L);
         task.setTaskCode("IT20230001");
-        task.setSampleId(1L);
-        task.setSampleCode("S20230001");
-        task.setTaskName("人参药材质量检测");
         task.setInspectionType("全面检测");
         task.setInspectionPurpose("入库检验");
         task.setStatus("进行中");
@@ -97,7 +83,6 @@ public class TestUtils {
         task.setIncludeFingerprint(true);
         task.setIncludeTraditionalIdentify(true);
         task.setNeedAuthenticityAssessment(true);
-        task.setRemarks("重点关注道地性和有效成分含量");
         return task;
     }
 
@@ -111,7 +96,6 @@ public class TestUtils {
         taskDTO.setSampleId(1L);
         taskDTO.setSampleCode("S20230001");
         taskDTO.setSampleName("人参样品1");
-        taskDTO.setTaskName("人参药材质量检测");
         taskDTO.setInspectionType("全面检测");
         taskDTO.setInspectionPurpose("入库检验");
         taskDTO.setStatus("进行中");
@@ -123,7 +107,7 @@ public class TestUtils {
         taskDTO.setIncludeFingerprint(true);
         taskDTO.setIncludeTraditionalIdentify(true);
         taskDTO.setNeedAuthenticityAssessment(true);
-        taskDTO.setRemarks("重点关注道地性和有效成分含量");
+        taskDTO.setRemark("重点关注道地性和有效成分含量");
         return taskDTO;
     }
 
@@ -133,8 +117,7 @@ public class TestUtils {
     public static InspectionResult createInspectionResult() {
         InspectionResult result = new InspectionResult();
         result.setId(1L);
-        result.setTaskId(1L);
-        result.setTaskCode("IT20230001");
+        // 移除不存在的方法调用
         result.setItemName("人参皂苷Rg1含量");
         result.setTestMethod("高效液相色谱法");
         result.setTestValue("0.35");
@@ -191,18 +174,14 @@ public class TestUtils {
         record.setId("TIR001");
         record.setTaskId(1L);
         record.setSampleId(1L);
-        record.setIdentifyType("性状鉴别");
-        record.setIdentifyDescription("主根呈纺锤形或圆柱形，表面灰黄色，上部或全体有疏浅断续的粗横纹及明显的纵皱，下部有支根2-3条，并着生多数细长的须根。");
-        record.setMorphologicalIdentifyResult("符合人参性状特征");
-        record.setMicroscopicIdentifyResult("无显微鉴别数据");
-        record.setPhysicalChemicalIdentifyResult("无理化鉴别数据");
+        record.setCharacterIdentify("主根呈纺锤形或圆柱形，表面灰黄色，上部或全体有疏浅断续的粗横纹及明显的纵皱，下部有支根2-3条，并着生多数细长的须根。");
+        record.setMicroscopicIdentify("无显微鉴别数据");
         record.setIdentifyImages(Arrays.asList("image1.jpg", "image2.jpg"));
-        record.setConclusion("通过性状鉴别，符合正品特征");
-        record.setIdentifier("赵六");
-        record.setIdentifyDate(new Date());
+        record.setIdentifyPerson("赵六");
+        record.setIdentifyDate(LocalDateTime.now());
         record.setRemark("色泽较好，质地坚实");
-        record.setCreateDate(System.currentTimeMillis());
-        record.setUpdateDate(System.currentTimeMillis());
+        record.setCreatedTime(LocalDateTime.now());
+        record.setUpdatedTime(LocalDateTime.now());
         return record;
     }
 
@@ -216,9 +195,13 @@ public class TestUtils {
         analysis.setSampleId(1L);
         analysis.setFingerprintType("HPLC指纹图谱");
         analysis.setAnalysisMethod("《中国药典》人参项下方法");
-        analysis.setInstrumentInfo("Agilent 1260高效液相色谱仪");
-        analysis.setChromatographicConditions("色谱柱：C18柱，流动相：乙腈-水梯度洗脱");
-        analysis.setFingerprintData(Arrays.asList(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0));
+        // 移除不存在的方法调用
+        
+        // 修复指纹数据类型
+        Map<String, Object> fingerprintData = new HashMap<>();
+        fingerprintData.put("data1", 0.1);
+        fingerprintData.put("data2", 0.2);
+        analysis.setFingerprintData(fingerprintData);
 
         List<FingerprintAnalysis.CharacteristicPeak> peaks = new ArrayList<>();
         FingerprintAnalysis.CharacteristicPeak peak1 = new FingerprintAnalysis.CharacteristicPeak();
@@ -239,14 +222,15 @@ public class TestUtils {
 
         analysis.setCharacteristicPeaks(peaks);
         analysis.setReferenceFingerprintId("REF001");
-        analysis.setSimilarityScore(0.95);
-        analysis.setSimilarityMethod("夹角余弦法");
-        analysis.setConclusion("指纹图谱相似度符合要求");
-        analysis.setAnalyst("钱七");
-        analysis.setAnalyzeDate(new Date());
+        
+        // 修复类型兼容性问题
+        analysis.setSimilarityResult(0.95);
+        
+        analysis.setAnalysisPerson("钱七");
+        analysis.setAnalysisDate(LocalDateTime.now());
         analysis.setRemark("图谱基线平稳，分离度良好");
-        analysis.setCreateDate(System.currentTimeMillis());
-        analysis.setUpdateDate(System.currentTimeMillis());
+        analysis.setCreatedTime(LocalDateTime.now());
+        analysis.setUpdatedTime(LocalDateTime.now());
         return analysis;
     }
 
@@ -258,49 +242,9 @@ public class TestUtils {
         assessment.setId("AA001");
         assessment.setTaskId(1L);
         assessment.setSampleId(1L);
-        assessment.setOriginPlace("吉林长白山");
-        assessment.setPlantingEnvironment("温带大陆性气候，海拔500-1000米山地");
-        assessment.setHarvestTime("秋季");
-        assessment.setProcessingMethod("晒干");
-
-        List<AuthenticityAssessment.AssessmentIndicator> indicators = new ArrayList<>();
-        AuthenticityAssessment.AssessmentIndicator indicator1 = new AuthenticityAssessment.AssessmentIndicator();
-        indicator1.setIndicatorName("外观特征");
-        indicator1.setIndicatorValue(95.0);
-        indicator1.setIndicatorWeight(0.2);
-        indicator1.setDescription("符合道地药材外观特征");
-        indicators.add(indicator1);
-
-        AuthenticityAssessment.AssessmentIndicator indicator2 = new AuthenticityAssessment.AssessmentIndicator();
-        indicator2.setIndicatorName("有效成分含量");
-        indicator2.setIndicatorValue(90.0);
-        indicator2.setIndicatorWeight(0.4);
-        indicator2.setDescription("人参皂苷含量符合道地标准");
-        indicators.add(indicator2);
-
-        AuthenticityAssessment.AssessmentIndicator indicator3 = new AuthenticityAssessment.AssessmentIndicator();
-        indicator3.setIndicatorName("产地环境");
-        indicator3.setIndicatorValue(100.0);
-        indicator3.setIndicatorWeight(0.2);
-        indicator3.setDescription("来自道地产区吉林长白山");
-        indicators.add(indicator3);
-
-        AuthenticityAssessment.AssessmentIndicator indicator4 = new AuthenticityAssessment.AssessmentIndicator();
-        indicator4.setIndicatorName("加工方法");
-        indicator4.setIndicatorValue(90.0);
-        indicator4.setIndicatorWeight(0.2);
-        indicator4.setDescription("传统加工方法");
-        indicators.add(indicator4);
-
-        assessment.setAssessmentIndicators(indicators);
-        assessment.setOverallScore(93.0);
-        assessment.setAssessmentLevel("优");
-        assessment.setConclusion("符合道地药材标准，品质优良");
-        assessment.setAssessor("孙八");
-        assessment.setAssessDate(new Date());
         assessment.setRemark("推荐使用");
-        assessment.setCreateDate(System.currentTimeMillis());
-        assessment.setUpdateDate(System.currentTimeMillis());
+        assessment.setCreatedTime(LocalDateTime.now());
+        assessment.setUpdatedTime(LocalDateTime.now());
         return assessment;
     }
 
@@ -352,18 +296,12 @@ public class TestUtils {
         InspectionTask task2 = createInspectionTask();
         task2.setId(2L);
         task2.setTaskCode("IT20230002");
-        task2.setTaskName("当归药材质量检测");
-        task2.setSampleId(2L);
-        task2.setSampleCode("S20230002");
         task2.setStatus("进行中");
         tasks.add(task2);
 
         InspectionTask task3 = createInspectionTask();
         task3.setId(3L);
         task3.setTaskCode("IT20230003");
-        task3.setTaskName("黄芪药材质量检测");
-        task3.setSampleId(3L);
-        task3.setSampleCode("S20230003");
         task3.setStatus("已完成");
         task3.setActualCompleteDate(LocalDateTime.now());
         tasks.add(task3);

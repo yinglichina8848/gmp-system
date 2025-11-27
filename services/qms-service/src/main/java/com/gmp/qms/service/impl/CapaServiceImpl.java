@@ -159,9 +159,11 @@ public class CapaServiceImpl implements CapaService {
         // 生成格式：CAPA-YYYYMMDD-XXXXX
         String datePrefix = "CAPA-" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")) + "-";
         
-        // 这里可以添加数据库查询逻辑获取当天最大编号并递增
-        // 暂时返回一个简单的模拟编号
-        return datePrefix + UUID.randomUUID().toString().substring(0, 5).toUpperCase();
+        // 获取当前记录数并递增作为编号后缀
+        long count = capaRepository.count();
+        // 格式化为5位数字，不足前补0
+        String sequenceNumber = String.format("%05d", count + 1);
+        return datePrefix + sequenceNumber;
     }
 
     /**

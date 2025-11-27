@@ -8,7 +8,7 @@ import com.gmp.qms.service.DeviationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import com.gmp.qms.config.WebControllerTestConfig;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -31,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * 
  * @author GMP系统开发团队
  */
-@WebMvcTest(DeviationController.class)
+@WebControllerTestConfig(controllers = DeviationController.class)
 public class DeviationControllerTest {
 
     @Autowired

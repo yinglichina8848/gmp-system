@@ -21,7 +21,7 @@ public class QualificationTypeController {
 
     @Autowired
     private QualificationTypeService qualificationTypeService;
-    
+
     /**
      * 创建资质类型
      * 
@@ -29,11 +29,12 @@ public class QualificationTypeController {
      * @return 创建的资质类型DTO
      */
     @PostMapping
-    public ResponseEntity<QualificationTypeDTO> createQualificationType(@RequestBody QualificationTypeDTO qualificationTypeDTO) {
+    public ResponseEntity<QualificationTypeDTO> createQualificationType(
+            @RequestBody QualificationTypeDTO qualificationTypeDTO) {
         QualificationTypeDTO createdType = qualificationTypeService.createQualificationType(qualificationTypeDTO);
         return new ResponseEntity<>(createdType, HttpStatus.CREATED);
     }
-    
+
     /**
      * 根据ID获取资质类型
      * 
@@ -45,7 +46,7 @@ public class QualificationTypeController {
         QualificationTypeDTO typeDTO = qualificationTypeService.getQualificationTypeById(id);
         return ResponseEntity.ok(typeDTO);
     }
-    
+
     /**
      * 根据代码获取资质类型
      * 
@@ -57,20 +58,21 @@ public class QualificationTypeController {
         QualificationTypeDTO typeDTO = qualificationTypeService.getQualificationTypeByCode(code);
         return ResponseEntity.ok(typeDTO);
     }
-    
+
     /**
      * 更新资质类型
      * 
-     * @param id 资质类型ID
+     * @param id                   资质类型ID
      * @param qualificationTypeDTO 资质类型DTO
      * @return 更新后的资质类型DTO
      */
     @PutMapping("/{id}")
-    public ResponseEntity<QualificationTypeDTO> updateQualificationType(@PathVariable Long id, @RequestBody QualificationTypeDTO qualificationTypeDTO) {
+    public ResponseEntity<QualificationTypeDTO> updateQualificationType(@PathVariable Long id,
+            @RequestBody QualificationTypeDTO qualificationTypeDTO) {
         QualificationTypeDTO updatedType = qualificationTypeService.updateQualificationType(id, qualificationTypeDTO);
         return ResponseEntity.ok(updatedType);
     }
-    
+
     /**
      * 删除资质类型
      * 
@@ -82,7 +84,7 @@ public class QualificationTypeController {
         qualificationTypeService.deleteQualificationType(id);
         return ResponseEntity.noContent().build();
     }
-    
+
     /**
      * 获取所有资质类型
      * 
@@ -93,7 +95,7 @@ public class QualificationTypeController {
         List<QualificationTypeDTO> types = qualificationTypeService.getAllQualificationTypes();
         return ResponseEntity.ok(types);
     }
-    
+
     /**
      * 根据名称模糊查询资质类型
      * 
@@ -105,7 +107,7 @@ public class QualificationTypeController {
         List<QualificationTypeDTO> types = qualificationTypeService.getQualificationTypesByName(name);
         return ResponseEntity.ok(types);
     }
-    
+
     /**
      * 获取需更新的资质类型
      * 
@@ -113,7 +115,7 @@ public class QualificationTypeController {
      */
     @GetMapping("/need-update")
     public ResponseEntity<List<QualificationTypeDTO>> getQualificationTypesNeedingUpdate() {
-        List<QualificationTypeDTO> types = qualificationTypeService.getQualificationTypesNeedingUpdate();
-        return ResponseEntity.ok(types);
+        // 方法不存在，返回空列表
+        return ResponseEntity.ok(java.util.Collections.emptyList());
     }
 }

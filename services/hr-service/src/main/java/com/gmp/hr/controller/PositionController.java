@@ -21,7 +21,7 @@ public class PositionController {
 
     @Autowired
     private PositionService positionService;
-    
+
     /**
      * 创建职位
      * 
@@ -33,7 +33,7 @@ public class PositionController {
         PositionDTO createdPosition = positionService.createPosition(positionDTO);
         return new ResponseEntity<>(createdPosition, HttpStatus.CREATED);
     }
-    
+
     /**
      * 根据ID获取职位
      * 
@@ -45,7 +45,7 @@ public class PositionController {
         PositionDTO positionDTO = positionService.getPositionById(id);
         return ResponseEntity.ok(positionDTO);
     }
-    
+
     /**
      * 根据代码获取职位
      * 
@@ -57,11 +57,11 @@ public class PositionController {
         PositionDTO positionDTO = positionService.getPositionByCode(code);
         return ResponseEntity.ok(positionDTO);
     }
-    
+
     /**
      * 更新职位
      * 
-     * @param id 职位ID
+     * @param id          职位ID
      * @param positionDTO 职位DTO
      * @return 更新后的职位DTO
      */
@@ -70,7 +70,7 @@ public class PositionController {
         PositionDTO updatedPosition = positionService.updatePosition(id, positionDTO);
         return ResponseEntity.ok(updatedPosition);
     }
-    
+
     /**
      * 删除职位
      * 
@@ -82,7 +82,7 @@ public class PositionController {
         positionService.deletePosition(id);
         return ResponseEntity.noContent().build();
     }
-    
+
     /**
      * 获取所有职位
      * 
@@ -93,7 +93,7 @@ public class PositionController {
         List<PositionDTO> positions = positionService.getAllPositions();
         return ResponseEntity.ok(positions);
     }
-    
+
     /**
      * 根据部门获取职位列表
      * 
@@ -105,7 +105,7 @@ public class PositionController {
         List<PositionDTO> positions = positionService.getPositionsByDepartment(departmentId);
         return ResponseEntity.ok(positions);
     }
-    
+
     /**
      * 根据等级获取职位列表
      * 
@@ -114,10 +114,12 @@ public class PositionController {
      */
     @GetMapping("/level/{level}")
     public ResponseEntity<List<PositionDTO>> getPositionsByLevel(@PathVariable String level) {
-        List<PositionDTO> positions = positionService.getPositionsByLevel(level);
+        // 将String类型转换为Integer类型
+        Integer levelInt = Integer.parseInt(level);
+        List<PositionDTO> positions = positionService.getPositionsByLevel(levelInt);
         return ResponseEntity.ok(positions);
     }
-    
+
     /**
      * 根据状态获取职位列表
      * 

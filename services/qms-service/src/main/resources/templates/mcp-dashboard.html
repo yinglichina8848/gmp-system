@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP监控控制台 - QMS系统</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 引入Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <style>
+        /* 自定义样式 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .sidebar {
+            height: 100vh;
+            background-color: #2c3e50;
+            padding: 1rem;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            overflow-y: auto;
+            transition: all 0.3s;
+        }
+        
+        .sidebar.collapsed {
+            width: 60px;
+        }
+        
+        .sidebar.collapsed .nav-text {
+            display: none;
+        }
+        
+        .sidebar.collapsed .brand-text {
+            display: none;
+        }
+        
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s;
+        }
+        
+        .sidebar .nav-link:hover {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar .nav-link.active {
+            color: white;
+            background-color: #3498db;
+        }
+        
+        .content {
+            margin-left: 240px;
+            padding: 1rem;
+            transition: margin-left 0.3s;
+        }
+        
+        .content.collapsed {
+            margin-left: 60px;
+        }
+        
+        .top-bar {
+            background-color: white;
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 900;
+        }
+        
+        .card {
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .metric-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .metric-icon {
+            font-size: 1.5rem;
+        }
+        
+        .system-status {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .status-up {
+            background-color: #28a745;
+        }
+        
+        .status-down {
+            background-color: #dc3545;
+        }
+        
+        .status-warning {
+            background-color: #ffc107;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 250px;
+            width: 100%;
+        }
+        
+        .table-hover tbody tr:hover {
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+        
+        /* 加载动画 */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #3498db;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏导航 -->
+    <div class="sidebar" id="sidebar">
+        <div class="d-flex align-items-center mb-5">
+            <i class="fa fa-cogs text-primary metric-icon mr-2"></i>
+            <h3 class="brand-text mb-0">MCP监控</h3>
+        </div>
+        
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#dashboard">
+                    <i class="fa fa-tachometer mr-2"></i>
+                    <span class="nav-text">仪表盘</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#real-time">
+                    <i class="fa fa-bolt mr-2"></i>
+                    <span class="nav-text">实时监控</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#system-health">
+                    <i class="fa fa-heartbeat mr-2"></i>
+                    <span class="nav-text">系统健康</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#performance">
+                    <i class="fa fa-line-chart mr-2"></i>
+                    <span class="nav-text">性能分析</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#system-calls">
+                    <i class="fa fa-exchange mr-2"></i>
+                    <span class="nav-text">系统调用</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#error-logs">
+                    <i class="fa fa-exclamation-circle mr-2"></i>
+                    <span class="nav-text">错误日志</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#circuit-breakers">
+                    <i class="fa fa-shield mr-2"></i>
+                    <span class="nav-text">断路器状态</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#message-queues">
+                    <i class="fa fa-list-alt mr-2"></i>
+                    <span class="nav-text">消息队列</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#cache-status">
+                    <i class="fa fa-database mr-2"></i>
+                    <span class="nav-text">缓存状态</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#reports">
+                    <i class="fa fa-file-text-o mr-2"></i>
+                    <span class="nav-text">性能报告</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="content" id="content">
+        <!-- 顶部导航栏 -->
+        <div class="top-bar">
+            <div class="d-flex align-items-center">
+                <button id="toggle-sidebar" class="btn btn-outline-secondary mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <h2>MCP监控控制台</h2>
+            </div>
+            
+            <div class="d-flex align-items-center">
+                <div class="mr-3">
+                    <span id="last-update" class="text-muted">最后更新: -</span>
+                </div>
+                <button id="refresh-data" class="btn btn-outline-primary">
+                    <i class="fa fa-refresh mr-1"></i> 刷新
+                </button>
+            </div>
+        </div>
+
+        <!-- 仪表盘内容 -->
+        <div id="dashboard-content">
+            <!-- 指标卡片区域 -->
+            <div class="row mt-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card metric-card bg-primary text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">总调用次数</h5>
+                                    <p class="metric-value" id="total-calls">加载中...</p>
+                                </div>
+                                <i class="fa fa-phone-square metric-icon"></i>
+                            </div>
+                            <p class="card-text mt-2" id="calls-trend">今日较昨日 <span class="text-white">--</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card metric-card bg-success text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">成功率</h5>
+                                    <p class="metric-value" id="success-rate">加载中...</p>
+                                </div>
+                                <i class="fa fa-check-circle metric-icon"></i>
+                            </div>
+                            <p class="card-text mt-2" id="success-trend">今日较昨日 <span class="text-white">--</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card metric-card bg-warning text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">平均响应时间</h5>
+                                    <p class="metric-value" id="avg-response-time">加载中...</p>
+                                </div>
+                                <i class="fa fa-clock-o metric-icon"></i>
+                            </div>
+                            <p class="card-text mt-2" id="response-trend">今日较昨日 <span class="text-white">--</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card metric-card bg-danger text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">错误率</h5>
+                                    <p class="metric-value" id="error-rate">加载中...</p>
+                                </div>
+                                <i class="fa fa-exclamation-triangle metric-icon"></i>
+                            </div>
+                            <p class="card-text mt-2" id="error-trend">今日较昨日 <span class="text-white">--</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 系统状态区域 -->
+            <div class="row mt-5">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">系统状态</h4>
+                            <div class="text-sm text-muted">
+                                <span class="system-status status-up" title="所有系统正常运行"></span>
+                                所有系统正常运行
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>系统名称</th>
+                                            <th>连接状态</th>
+                                            <th>健康状态</th>
+                                            <th>最后检查时间</th>
+                                            <th>调用次数</th>
+                                            <th>错误数</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="system-status-table">
+                                        <!-- 系统状态数据将通过JavaScript动态加载 -->
+                                        <tr>
+                                            <td colspan="6" class="text-center">
+                                                <div class="loader mx-auto"></div>
+                                                <span class="ml-2">加载中...</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">响应时间分布</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="response-time-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h4 class="mb-0">断路器状态</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group" id="circuit-breaker-list">
+                                <!-- 断路器状态将通过JavaScript动态加载 -->
+                                <div class="text-center">
+                                    <div class="loader mx-auto"></div>
+                                    <span class="ml-2">加载中...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 性能趋势区域 -->
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">性能趋势</h4>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-outline-primary time-range" data-range="1h">1小时</button>
+                                <button class="btn btn-sm btn-outline-primary time-range" data-range="24h">24小时</button>
+                                <button class="btn btn-sm btn-outline-primary time-range" data-range="7d">7天</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="performance-trend-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最近错误区域 -->
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">最近错误</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>时间</th>
+                                            <th>系统</th>
+                                            <th>错误类型</th>
+                                            <th>错误信息</th>
+                                            <th>调用ID</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recent-errors-table">
+                                        <!-- 错误数据将通过JavaScript动态加载 -->
+                                        <tr>
+                                            <td colspan="6" class="text-center">
+                                                <div class="loader mx-auto"></div>
+                                                <span class="ml-2">加载中...</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // DOM 加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 侧边栏切换功能
+            const toggleSidebarBtn = document.getElementById('toggle-sidebar');
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+            
+            toggleSidebarBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('collapsed');
+                content.classList.toggle('collapsed');
+            });
+            
+            // 初始化图表
+            initCharts();
+            
+            // 加载数据
+            loadDashboardData();
+            
+            // 设置刷新按钮事件
+            document.getElementById('refresh-data').addEventListener('click', function() {
+                loadDashboardData();
+            });
+            
+            // 设置时间范围选择器
+            document.querySelectorAll('.time-range').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.time-range').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    loadPerformanceTrendData(this.dataset.range);
+                });
+            });
+            
+            // 导航链接高亮
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.nav-link').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // 这里可以根据需要切换不同内容区域
+                    const targetId = this.getAttribute('href').substring(1);
+                    showContent(targetId);
+                });
+            });
+        });
+        
+        // 初始化图表
+        function initCharts() {
+            // 响应时间分布图
+            const responseTimeCtx = document.getElementById('response-time-chart').getContext('2d');
+            window.responseTimeChart = new Chart(responseTimeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['< 100ms', '100-500ms', '500-1000ms', '1000-2000ms', '> 2000ms'],
+                    datasets: [{
+                        data: [0, 0, 0, 0, 0],
+                        backgroundColor: [
+                            '#28a745',
+                            '#20c997',
+                            '#ffc107',
+                            '#fd7e14',
+                            '#dc3545'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                padding: 15
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+            
+            // 性能趋势图
+            const performanceTrendCtx = document.getElementById('performance-trend-chart').getContext('2d');
+            window.performanceTrendChart = new Chart(performanceTrendCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: '平均响应时间 (ms)',
+                            data: [],
+                            borderColor: '#3498db',
+                            backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                            tension: 0.3,
+                            fill: true,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '调用次数',
+                            data: [],
+                            borderColor: '#28a745',
+                            backgroundColor: 'transparent',
+                            tension: 0.3,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            label: '错误率 (%)',
+                            data: [],
+                            borderColor: '#e74c3c',
+                            backgroundColor: 'transparent',
+                            tension: 0.3,
+                            yAxisID: 'y2'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: '响应时间 (ms)'
+                            },
+                            min: 0
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: '调用次数'
+                            },
+                            min: 0,
+                            grid: {
+                                drawOnChartArea: false,
+                            },
+                        },
+                        y2: {
+                            type: 'linear',
+                            display: false,
+                            min: 0,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+        
+        // 加载仪表盘数据
+        function loadDashboardData() {
+            // 显示加载状态
+            setLoadingState(true);
+            
+            // 模拟API调用延迟
+            setTimeout(() => {
+                // 获取总体指标
+                fetchMetrics();
+                // 获取系统状态
+                fetchSystemStatus();
+                // 获取断路器状态
+                fetchCircuitBreakers();
+                // 获取最近错误
+                fetchRecentErrors();
+                // 获取性能趋势数据
+                loadPerformanceTrendData('1h');
+                
+                // 更新最后刷新时间
+                updateLastRefreshTime();
+                
+                // 隐藏加载状态
+                setLoadingState(false);
+            }, 1000);
+        }
+        
+        // 设置加载状态
+        function setLoadingState(isLoading) {
+            const refreshBtn = document.getElementById('refresh-data');
+            if (isLoading) {
+                refreshBtn.innerHTML = '<i class="fa fa-refresh fa-spin mr-1"></i> 加载中...';
+                refreshBtn.disabled = true;
+            } else {
+                refreshBtn.innerHTML = '<i class="fa fa-refresh mr-1"></i> 刷新';
+                refreshBtn.disabled = false;
+            }
+        }
+        
+        // 更新最后刷新时间
+        function updateLastRefreshTime() {
+            const now = new Date();
+            document.getElementById('last-update').textContent = 
+                '最后更新: ' + now.toLocaleTimeString('zh-CN');
+        }
+        
+        // 获取总体指标
+        function fetchMetrics() {
+            // 实际应用中这里应该是一个真实的API调用
+            // 这里使用模拟数据
+            fetch('/api/mcp/dashboard/metrics')
+                .then(response => response.json())
+                .then(data => {
+                    // 更新指标显示
+                    document.getElementById('total-calls').textContent = formatNumber(data.totalCalls);
+                    document.getElementById('calls-trend').innerHTML = 
+                        `今日较昨日 <span class="text-white">${formatChange(data.callsTrend)}</span>`;
+                    
+                    document.getElementById('success-rate').textContent = `${data.successRate}%`;
+                    document.getElementById('success-trend').innerHTML = 
+                        `今日较昨日 <span class="text-white">${formatChange(data.successTrend)}</span>`;
+                    
+                    document.getElementById('avg-response-time').textContent = `${data.avgResponseTime}ms`;
+                    document.getElementById('response-trend').innerHTML = 
+                        `今日较昨日 <span class="text-white">${formatChange(data.responseTrend)}</span>`;
+                    
+                    document.getElementById('error-rate').textContent = `${data.errorRate}%`;
+                    document.getElementById('error-trend').innerHTML = 
+                        `今日较昨日 <span class="text-white">${formatChange(data.errorTrend)}</span>`;
+                    
+                    // 更新响应时间分布图表
+                    updateResponseTimeChart(data.responseTimeDistribution);
+                })
+                .catch(error => {
+                    console.error('获取指标数据失败:', error);
+                    // 使用模拟数据
+                    useMockMetricsData();
+                });
+        }
+        
+        // 使用模拟指标数据
+        function useMockMetricsData() {
+            // 模拟数据
+            const mockData = {
+                totalCalls: 12845,
+                callsTrend: 15.2,
+                successRate: 98.7,
+                successTrend: 0.5,
+                avgResponseTime: 283,
+                responseTrend: -12.3,
+                errorRate: 1.3,
+                errorTrend: -0.4,
+                responseTimeDistribution: [58, 32, 7, 2, 1]
+            };
+            
+            // 更新指标显示
+            document.getElementById('total-calls').textContent = formatNumber(mockData.totalCalls);
+            document.getElementById('calls-trend').innerHTML = 
+                `今日较昨日 <span class="text-white">${formatChange(mockData.callsTrend)}</span>`;
+            
+            document.getElementById('success-rate').textContent = `${mockData.successRate}%`;
+            document.getElementById('success-trend').innerHTML = 
+                `今日较昨日 <span class="text-white">${formatChange(mockData.successTrend)}</span>`;
+            
+            document.getElementById('avg-response-time').textContent = `${mockData.avgResponseTime}ms`;
+            document.getElementById('response-trend').innerHTML = 
+                `今日较昨日 <span class="text-white">${formatChange(mockData.responseTrend)}</span>`;
+            
+            document.getElementById('error-rate').textContent = `${mockData.errorRate}%`;
+            document.getElementById('error-trend').innerHTML = 
+                `今日较昨日 <span class="text-white">${formatChange(mockData.errorTrend)}</span>`;
+            
+            // 更新响应时间分布图表
+            updateResponseTimeChart(mockData.responseTimeDistribution);
+        }
+        
+        // 更新响应时间分布图表
+        function updateResponseTimeChart(distribution) {
+            window.responseTimeChart.data.datasets[0].data = distribution;
+            window.responseTimeChart.update();
+        }
+        
+        // 获取系统状态
+        function fetchSystemStatus() {
+            // 实际应用中这里应该是一个真实的API调用
+            // 这里使用模拟数据
+            fetch('/api/mcp/dashboard/system-health')
+                .then(response => response.json())
+                .then(data => {
+                    updateSystemStatusTable(data);
+                })
+                .catch(error => {
+                    console.error('获取系统状态失败:', error);
+                    // 使用模拟数据
+                    useMockSystemStatusData();
+                });
+        }
+        
+        // 使用模拟系统状态数据
+        function useMockSystemStatusData() {
+            // 模拟数据
+            const mockData = [
+                { name: 'EDMS', status: 'UP', health: 'HEALTHY', lastChecked: '2023-06-15 10:30:45', calls: 3560, errors: 12 },
+                { name: 'MES', status: 'UP', health: 'HEALTHY', lastChecked: '2023-06-15 10:30:42', calls: 2890, errors: 8 },
+                { name: 'LIMS', status: 'UP', health: 'HEALTHY', lastChecked: '2023-06-15 10:30:38', calls: 1980, errors: 5 },
+                { name: 'ERP', status: 'UP', health: 'HEALTHY', lastChecked: '2023-06-15 10:30:40', calls: 4215, errors: 18 },
+                { name: '培训系统', status: 'UP', health: 'HEALTHY', lastChecked: '2023-06-15 10:30:35', calls: 120, errors: 0 },
+                { name: '设备系统', status: 'UP', health: 'HEALTHY', lastChecked: '2023-06-15 10:30:32', calls: 65, errors: 1 }
+            ];
+            
+            updateSystemStatusTable(mockData);
+        }
+        
+        // 更新系统状态表格
+        function updateSystemStatusTable(systems) {
+            const tableBody = document.getElementById('system-status-table');
+            tableBody.innerHTML = '';
+            
+            systems.forEach(system => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${system.name}</td>
+                    <td>
+                        <span class="system-status status-${system.status.toLowerCase()}"></span>
+                        ${system.status === 'UP' ? '已连接' : '未连接'}
+                    </td>
+                    <td>${getHealthStatusBadge(system.health)}</td>
+                    <td>${system.lastChecked}</td>
+                    <td>${formatNumber(system.calls)}</td>
+                    <td>${system.errors} (${((system.errors / system.calls) * 100).toFixed(2)}%)</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // 获取健康状态徽章
+        function getHealthStatusBadge(health) {
+            switch(health) {
+                case 'HEALTHY':
+                    return '<span class="badge bg-success">健康</span>';
+                case 'DEGRADED':
+                    return '<span class="badge bg-warning">性能下降</span>';
+                case 'UNHEALTHY':
+                    return '<span class="badge bg-danger">异常</span>';
+                default:
+                    return '<span class="badge bg-secondary">未知</span>';
+            }
+        }
+        
+        // 获取断路器状态
+        function fetchCircuitBreakers() {
+            // 实际应用中这里应该是一个真实的API调用
+            // 这里使用模拟数据
+            fetch('/api/mcp/dashboard/circuit-breakers')
+                .then(response => response.json())
+                .then(data => {
+                    updateCircuitBreakerList(data);
+                })
+                .catch(error => {
+                    console.error('获取断路器状态失败:', error);
+                    // 使用模拟数据
+                    useMockCircuitBreakerData();
+                });
+        }
+        
+        // 使用模拟断路器数据
+        function useMockCircuitBreakerData() {
+            // 模拟数据
+            const mockData = [
+                { name: 'edmsClient', status: 'CLOSED', failureRate: 2.3, calls: 3560, failures: 12 },
+                { name: 'mesClient', status: 'CLOSED', failureRate: 1.5, calls: 2890, failures: 8 },
+                { name: 'limsClient', status: 'CLOSED', failureRate: 0.8, calls: 1980, failures: 5 },
+                { name: 'erpClient', status: 'CLOSED', failureRate: 2.1, calls: 4215, failures: 18 },
+                { name: 'trainingClient', status: 'CLOSED', failureRate: 0, calls: 120, failures: 0 },
+                { name: 'equipmentClient', status: 'CLOSED', failureRate: 1.2, calls: 65, failures: 1 }
+            ];
+            
+            updateCircuitBreakerList(mockData);
+        }
+        
+        // 更新断路器列表
+        function updateCircuitBreakerList(breakers) {
+            const listGroup = document.getElementById('circuit-breaker-list');
+            listGroup.innerHTML = '';
+            
+            breakers.forEach(breaker => {
+                const item = document.createElement('div');
+                item.className = 'list-group-item d-flex justify-content-between align-items-center';
+                
+                const statusClass = breaker.status === 'CLOSED' ? 'text-success' : 
+                                  (breaker.status === 'OPEN' ? 'text-danger' : 'text-warning');
+                const statusText = breaker.status === 'CLOSED' ? '关闭' : 
+                                  (breaker.status === 'OPEN' ? '开启' : '半开');
+                
+                item.innerHTML = `
+                    <div>
+                        <div><strong>${breaker.name}</strong></div>
+                        <div class="text-sm">调用: ${formatNumber(breaker.calls)} | 失败: ${breaker.failures}</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="${statusClass}"><strong>${statusText}</strong></div>
+                        <div class="text-sm">失败率: ${breaker.failureRate}%</div>
+                    </div>
+                `;
+                
+                listGroup.appendChild(item);
+            });
+        }
+        
+        // 获取最近错误
+        function fetchRecentErrors() {
+            // 实际应用中这里应该是一个真实的API调用
+            // 这里使用模拟数据
+            fetch('/api/mcp/dashboard/errors')
+                .then(response => response.json())
+                .then(data => {
+                    updateRecentErrorsTable(data);
+                })
+                .catch(error => {
+                    console.error('获取最近错误失败:', error);
+                    // 使用模拟数据
+                    useMockErrorsData();
+                });
+        }
+        
+        // 使用模拟错误数据
+        function useMockErrorsData() {
+            // 模拟数据
+            const mockData = [
+                {
+                    time: '2023-06-15 10:28:15',
+                    system: 'ERP',
+                    errorType: 'ConnectionTimeoutException',
+                    message: '连接ERP系统超时，超过5000ms',
+                    callId: 'req-20230615-1028-43256'
+                },
+                {
+                    time: '2023-06-15 10:25:32',
+                    system: 'EDMS',
+                    errorType: 'ResourceNotFoundException',
+                    message: '无法找到文档ID: DOC-2023-0615-001',
+                    callId: 'req-20230615-1025-87342'
+                },
+                {
+                    time: '2023-06-15 10:20:48',
+                    system: 'MES',
+                    errorType: 'BadRequestException',
+                    message: '请求参数无效: batchNumber不能为空',
+                    callId: 'req-20230615-1020-12957'
+                },
+                {
+                    time: '2023-06-15 10:18:22',
+                    system: 'LIMS',
+                    errorType: 'UnauthorizedException',
+                    message: '认证失败: 令牌已过期',
+                    callId: 'req-20230615-1018-65421'
+                },
+                {
+                    time: '2023-06-15 10:15:05',
+                    system: 'ERP',
+                    errorType: 'ServiceUnavailableException',
+                    message: 'ERP系统暂时不可用，请稍后再试',
+                    callId: 'req-20230615-1015-29783'
+                }
+            ];
+            
+            updateRecentErrorsTable(mockData);
+        }
+        
+        // 更新最近错误表格
+        function updateRecentErrorsTable(errors) {
+            const tableBody = document.getElementById('recent-errors-table');
+            tableBody.innerHTML = '';
+            
+            errors.forEach(error => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${error.time}</td>
+                    <td>${error.system}</td>
+                    <td>${error.errorType}</td>
+                    <td>${error.message}</td>
+                    <td>${error.callId}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-primary">详情</button>
+                        <button class="btn btn-sm btn-outline-secondary ml-1">重试</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // 加载性能趋势数据
+        function loadPerformanceTrendData(timeRange) {
+            // 实际应用中这里应该是一个真实的API调用
+            // 这里使用模拟数据
+            fetch(`/api/mcp/dashboard/performance-trend?range=${timeRange}`)
+                .then(response => response.json())
+                .then(data => {
+                    updatePerformanceTrendChart(data.labels, data.responseTimes, data.callCounts, data.errorRates);
+                })
+                .catch(error => {
+                    console.error('获取性能趋势数据失败:', error);
+                    // 使用模拟数据
+                    useMockPerformanceTrendData(timeRange);
+                });
+        }
+        
+        // 使用模拟性能趋势数据
+        function useMockPerformanceTrendData(timeRange) {
+            // 根据时间范围生成不同的模拟数据
+            let labels, responseTimes, callCounts, errorRates;
+            
+            switch(timeRange) {
+                case '1h':
+                    // 1小时数据 (每5分钟一个点)
+                    labels = Array.from({length: 12}, (_, i) => {
+                        const now = new Date();
+                        now.setMinutes(now.getMinutes() - 60 + i * 5);
+                        return now.toLocaleTimeString('zh-CN', {hour: '2-digit', minute:'2-digit'});
+                    });
+                    responseTimes = [280, 275, 290, 310, 350, 320, 300, 295, 285, 270, 260, 255];
+                    callCounts = [120, 135, 145, 150, 165, 155, 140, 130, 125, 135, 140, 125];
+                    errorRates = [1.2, 1.1, 1.3, 1.5, 1.8, 1.4, 1.2, 1.1, 1.0, 0.9, 0.8, 0.7];
+                    break;
+                    
+                case '24h':
+                    // 24小时数据 (每小时一个点)
+                    labels = Array.from({length: 24}, (_, i) => {
+                        const now = new Date();
+                        now.setHours(now.getHours() - 24 + i);
+                        return now.toLocaleTimeString('zh-CN', {hour: '2-digit'});
+                    });
+                    // 生成模拟数据，包含工作时间和非工作时间的差异
+                    responseTimes = [];
+                    callCounts = [];
+                    errorRates = [];
+                    for (let i = 0; i < 24; i++) {
+                        const hour = (new Date().getHours() - 24 + i + 24) % 24;
+                        // 工作时间 (9:00-18:00)
+                        if (hour >= 9 && hour <= 18) {
+                            responseTimes.push(250 + Math.random() * 150);
+                            callCounts.push(400 + Math.random() * 200);
+                            errorRates.push(0.5 + Math.random() * 1.5);
+                        } else {
+                            // 非工作时间
+                            responseTimes.push(200 + Math.random() * 100);
+                            callCounts.push(50 + Math.random() * 100);
+                            errorRates.push(0.3 + Math.random() * 0.7);
+                        }
+                    }
+                    break;
+                    
+                case '7d':
+                    // 7天数据 (每天一个点)
+                    labels = Array.from({length: 7}, (_, i) => {
+                        const now = new Date();
+                        now.setDate(now.getDate() - 7 + i);
+                        return now.toLocaleDateString('zh-CN', {month: '2-digit', day: '2-digit'});
+                    });
+                    responseTimes = [320, 305, 290, 280, 295, 310, 285];
+                    callCounts = [3500, 3450, 3600, 3800, 3700, 3500, 2800];
+                    errorRates = [1.5, 1.4, 1.3, 1.2, 1.4, 1.6, 1.3];
+                    break;
+                    
+                default:
+                    // 默认使用1小时数据
+                    labels = Array.from({length: 12}, (_, i) => {
+                        const now = new Date();
+                        now.setMinutes(now.getMinutes() - 60 + i * 5);
+                        return now.toLocaleTimeString('zh-CN', {hour: '2-digit', minute:'2-digit'});
+                    });
+                    responseTimes = [280, 275, 290, 310, 350, 320, 300, 295, 285, 270, 260, 255];
+                    callCounts = [120, 135, 145, 150, 165, 155, 140, 130, 125, 135, 140, 125];
+                    errorRates = [1.2, 1.1, 1.3, 1.5, 1.8, 1.4, 1.2, 1.1, 1.0, 0.9, 0.8, 0.7];
+            }
+            
+            updatePerformanceTrendChart(labels, responseTimes, callCounts, errorRates);
+        }
+        
+        // 更新性能趋势图表
+        function updatePerformanceTrendChart(labels, responseTimes, callCounts, errorRates) {
+            window.performanceTrendChart.data.labels = labels;
+            window.performanceTrendChart.data.datasets[0].data = responseTimes;
+            window.performanceTrendChart.data.datasets[1].data = callCounts;
+            window.performanceTrendChart.data.datasets[2].data = errorRates;
+            window.performanceTrendChart.update();
+        }
+        
+        // 显示指定内容区域
+        function showContent(contentId) {
+            // 这里可以根据需要实现不同内容区域的切换逻辑
+            // 目前仪表盘是默认显示的
+            console.log(`显示内容: ${contentId}`);
+        }
+        
+        // 格式化数字，添加千位分隔符
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        // 格式化变化百分比
+        function formatChange(change) {
+            if (change > 0) {
+                return `<i class="fa fa-arrow-up text-success"></i> ${change.toFixed(1)}%`;
+            } else if (change < 0) {
+                return `<i class="fa fa-arrow-down text-danger"></i> ${Math.abs(change).toFixed(1)}%`;
+            } else {
+                return "<i class="fa fa-minus text-gray"></i> 0.0%";
+            }
+        }
+    </script>
+</body>
+</html>

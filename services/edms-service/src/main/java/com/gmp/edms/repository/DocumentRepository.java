@@ -37,6 +37,11 @@ public interface DocumentRepository extends JpaRepository<Document, Long>, JpaSp
          * 根据标题模糊查询文档
          */
         List<Document> findByTitleContaining(String keyword);
+        
+        /**
+         * 按关键词搜索文档，支持分页
+         */
+        List<Document> searchByKeyword(String keyword, int offset, int limit);
 
         /**
          * 分页查询文档

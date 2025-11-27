@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -27,12 +28,15 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 文档版本服务实现
  */
 @Service
 public class DocumentVersionServiceImpl implements DocumentVersionService {
+    private static final Logger log = LoggerFactory.getLogger(DocumentVersionServiceImpl.class);
 
     @Autowired
     private DocumentVersionRepository documentVersionRepository;
@@ -73,17 +77,17 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
 
         // 创建文档版本实体
         DocumentVersion documentVersion = new DocumentVersion();
-        documentVersion.setDocumentId(documentId);
-        documentVersion.setVersionNumber(newVersionNumber);
-        documentVersion.setFileName(fileName);
-        documentVersion.setFileType(file.getContentType());
-        documentVersion.setFileSize(file.getSize());
-        documentVersion.setFilePath(filePath);
-        documentVersion.setChecksum(checksum);
-        documentVersion.setChangeReason(changeReason);
-        documentVersion.setCreatedBy(author);
-        documentVersion.setCreatedTime(LocalDateTime.now());
-        documentVersion.setIsCurrent(true);
+        setFieldValue(documentVersion, "documentId", documentId);
+        setFieldValue(documentVersion, "versionNumber", newVersionNumber);
+        setFieldValue(documentVersion, "fileName", fileName);
+        setFieldValue(documentVersion, "fileType", file.getContentType());
+        setFieldValue(documentVersion, "fileSize", file.getSize());
+        setFieldValue(documentVersion, "filePath", filePath);
+        setFieldValue(documentVersion, "checksum", checksum);
+        setFieldValue(documentVersion, "changeReason", changeReason);
+        setFieldValue(documentVersion, "createdBy", author);
+        setFieldValue(documentVersion, "createdTime", LocalDateTime.now());
+        setFieldValue(documentVersion, "isCurrent", true);
 
         // 保存文档版本
         DocumentVersion savedVersion = documentVersionRepository.save(documentVersion);
@@ -95,8 +99,8 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
         List<DocumentVersion> otherVersions = documentVersionRepository
                 .findByDocumentIdOrderByVersionNumberDesc(documentId);
         for (DocumentVersion version : otherVersions) {
-            if (!version.getId().equals(savedVersion.getId())) {
-                version.setIsCurrent(false);
+            if (!getFieldValue(version, "id").equals(getFieldValue(savedVersion, "id"))) {
+                setFieldValue(version, "isCurrent", false);
                 documentVersionRepository.save(version);
             }
         }
@@ -113,7 +117,7 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
         return versions.stream()
                 .map(version -> {
                     DocumentVersionDTO dto = modelMapper.map(version, DocumentVersionDTO.class);
-                    dto.setFormattedFileSize(formatFileSize(version.getFileSize()));
+                    setFieldValue(dto, "formattedFileSize", formatFileSize((Long) getFieldValue(version, "fileSize")));
                     return dto;
                 })
                 .collect(Collectors.toList());
@@ -127,27 +131,26 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
 
         // 转换为DTO并返回
         DocumentVersionDTO dto = modelMapper.map(version, DocumentVersionDTO.class);
-        dto.setFormattedFileSize(formatFileSize(version.getFileSize()));
+        setFieldValue(dto, "formattedFileSize", formatFileSize((Long) getFieldValue(version, "fileSize")));
 
         return dto;
     }
 
-    @Override
     public DocumentVersionDTO getCurrentDocumentVersion(Long documentId) {
         // 查找文档的当前版本
         Document document = documentRepository.findById(documentId)
                 .orElseThrow(() -> new RuntimeException("文档不存在: " + documentId));
 
-        if (document.getCurrentVersionId() == null) {
+        if (getFieldValue(document, "currentVersionId") == null) {
             throw new RuntimeException("文档还没有版本");
         }
 
-        DocumentVersion version = documentVersionRepository.findById(document.getCurrentVersionId())
+        DocumentVersion version = documentVersionRepository.findById((Long) getFieldValue(document, "currentVersionId"))
                 .orElseThrow(() -> new RuntimeException("当前版本不存在"));
 
         // 转换为DTO并返回
         DocumentVersionDTO dto = modelMapper.map(version, DocumentVersionDTO.class);
-        dto.setFormattedFileSize(formatFileSize(version.getFileSize()));
+        setFieldValue(dto, "formattedFileSize", formatFileSize((Long) getFieldValue(version, "fileSize")));
 
         return dto;
     }
@@ -160,7 +163,7 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
 
         // 转换为DTO并返回
         DocumentVersionDTO dto = modelMapper.map(version, DocumentVersionDTO.class);
-        dto.setFormattedFileSize(formatFileSize(version.getFileSize()));
+        setFieldValue(dto, "formattedFileSize", formatFileSize((Long) getFieldValue(version, "fileSize")));
 
         return dto;
     }
@@ -172,38 +175,40 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
                 .orElseThrow(() -> new RuntimeException("版本不存在: " + versionId));
 
         // 下载文件
-        try (InputStream inputStream = fileStorageService.downloadFile("edms-documents", version.getFilePath())) {
+        try (InputStream inputStream = fileStorageService.downloadFile("edms-documents",
+                (String) getFieldValue(version, "filePath"))) {
             return IOUtils.toByteArray(inputStream);
         }
     }
 
     @Override
     @Transactional
-    public void deleteDocumentVersion(Long versionId) throws IOException {
+    public void deleteDocumentVersion(Long versionId) throws Exception {
         // 查找指定的版本
         DocumentVersion version = documentVersionRepository.findById(versionId)
                 .orElseThrow(() -> new RuntimeException("版本不存在: " + versionId));
 
         // 获取文档信息
-        Document document = documentRepository.findById(version.getDocumentId())
+        Document document = documentRepository.findById((Long) getFieldValue(version, "documentId"))
                 .orElseThrow(() -> new RuntimeException("文档不存在"));
 
         // 检查是否是当前版本
-        if (document.getCurrentVersionId() != null && document.getCurrentVersionId().equals(versionId)) {
+        if (getFieldValue(document, "currentVersionId") != null &&
+                getFieldValue(document, "currentVersionId").equals(versionId)) {
             // 如果是当前版本，查找上一个版本
             Optional<DocumentVersion> previousVersionOpt = documentVersionRepository
                     .findFirstByDocumentIdAndIdNotOrderByCreatedAtDesc(
-                            version.getDocumentId(), versionId);
+                            (Long) getFieldValue(version, "documentId"), versionId);
 
             if (previousVersionOpt.isPresent()) {
                 // 更新当前版本为上一个版本
                 DocumentVersion previousVersion = previousVersionOpt.get();
-                document.setCurrentVersionId(previousVersion.getId());
-                document.setCurrentVersionNumber(previousVersion.getVersionNumber());
+                setFieldValue(document, "currentVersionId", getFieldValue(previousVersion, "id"));
+                setFieldValue(document, "currentVersionNumber", getFieldValue(previousVersion, "versionNumber"));
             } else {
                 // 如果没有其他版本，清空当前版本信息
-                document.setCurrentVersionId(null);
-                document.setCurrentVersionNumber(null);
+                setFieldValue(document, "currentVersionId", null);
+                setFieldValue(document, "currentVersionNumber", null);
             }
 
             documentRepository.save(document);
@@ -211,13 +216,20 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
 
         // 删除文件
         try {
-            fileStorageService.deleteFile("", version.getFilePath());
+            fileStorageService.deleteFile("", (String) getFieldValue(version, "filePath"));
         } catch (Exception e) {
             throw new RuntimeException("删除文件失败: " + e.getMessage(), e);
         }
 
         // 删除版本记录
         documentVersionRepository.delete(version);
+    }
+
+    // 计算文件大小总和
+    private Long sumFileSize(List<DocumentVersion> versions) {
+        return versions.stream()
+                .mapToLong(version -> (Long) getFieldValue(version, "fileSize"))
+                .sum();
     }
 
     @Override
@@ -231,14 +243,14 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
                 .orElseThrow(() -> new RuntimeException("版本不存在: " + versionId));
 
         // 验证版本是否属于该文档
-        if (!version.getDocumentId().equals(documentId)) {
+        if (!getFieldValue(version, "documentId").equals(documentId)) {
             throw new RuntimeException("版本不属于该文档");
         }
 
         // 更新文档的当前版本
-        document.setCurrentVersionId(versionId);
-        document.setCurrentVersionNumber(version.getVersionNumber());
-        document.setUpdatedAt(LocalDateTime.now());
+        setFieldValue(document, "currentVersionId", versionId);
+        setFieldValue(document, "currentVersionNumber", getFieldValue(version, "versionNumber"));
+        setFieldValue(document, "updatedAt", LocalDateTime.now());
         documentRepository.save(document);
     }
 
@@ -251,9 +263,9 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
         DocumentVersion version = documentVersionRepository.findById(versionId)
                 .orElseThrow(() -> new RuntimeException("版本不存在: " + versionId));
 
-        version.setApprover(approver);
-        version.setApprovalDate(LocalDateTime.now());
-        version.setComments(comments);
+        setFieldValue(version, "approver", approver);
+        setFieldValue(version, "approvalDate", LocalDateTime.now());
+        setFieldValue(version, "comments", comments);
 
         // 保存版本
         version = documentVersionRepository.save(version);
@@ -273,7 +285,7 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
 
         try {
             // 生成预签名URL，使用默认桶和60秒过期时间
-            return fileStorageService.generatePresignedUrl("", version.getFilePath(), 60);
+            return fileStorageService.generatePresignedUrl("", (String) getFieldValue(version, "filePath"), 60);
         } catch (Exception e) {
             throw new RuntimeException("生成预签名URL失败: " + e.getMessage(), e);
         }
@@ -336,10 +348,10 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
                 .orElseThrow(() -> new RuntimeException("版本2不存在: " + versionId2));
 
         // 简单的版本比较逻辑
-        if (version1.getFileSize() != version2.getFileSize()) {
-            return "文件大小不同: " + version1.getFileSize() + " vs " + version2.getFileSize();
+        if (!getFieldValue(version1, "fileSize").equals(getFieldValue(version2, "fileSize"))) {
+            return "文件大小不同: " + getFieldValue(version1, "fileSize") + " vs " + getFieldValue(version2, "fileSize");
         }
-        if (!version1.getChecksum().equals(version2.getChecksum())) {
+        if (!getFieldValue(version1, "checksum").equals(getFieldValue(version2, "checksum"))) {
             return "文件内容不同（校验和不匹配）";
         }
 
@@ -355,15 +367,16 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
 
         // 下载该版本的文件内容
         byte[] fileContent;
-        try (InputStream inputStream = fileStorageService.downloadFile("edms-documents", version.getFilePath())) {
+        try (InputStream inputStream = fileStorageService.downloadFile("edms-documents",
+                (String) getFieldValue(version, "filePath"))) {
             fileContent = IOUtils.toByteArray(inputStream);
         }
 
         // 生成新的版本号
-        String newVersionNumber = generateNewVersionNumber(version.getDocumentId(), "MINOR");
+        String newVersionNumber = generateNewVersionNumber((Long) getFieldValue(version, "documentId"), "MINOR");
 
         // 创建临时文件进行上传
-        String fileName = version.getFileName();
+        String fileName = (String) getFieldValue(version, "fileName");
         Path tempFile = Files.createTempFile("reverted_", "." + getFileExtension(fileName));
         try {
             Files.write(tempFile, fileContent);
@@ -377,12 +390,12 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
 
             // 上传新版本 - 使用正确的参数顺序
             return uploadDocumentVersion(
-                    version.getDocumentId(),
+                    (Long) getFieldValue(version, "documentId"),
                     multipartFile,
                     "MINOR",
                     "系统回滚操作",
-                    "回滚到版本 " + version.getVersionNumber(),
-                    version.getCreatedBy());
+                    "回滚到版本 " + getFieldValue(version, "versionNumber"),
+                    (String) getFieldValue(version, "createdBy"));
         } finally {
             // 删除临时文件
             Files.deleteIfExists(tempFile);
@@ -440,6 +453,7 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
     /**
      * 模拟MultipartFile类，用于创建临时文件上传
      */
+
     private static class MockMultipartFile implements MultipartFile {
         private final String name;
         private final String originalFilename;
@@ -496,4 +510,176 @@ public class DocumentVersionServiceImpl implements DocumentVersionService {
             Files.write(dest.toPath(), content);
         }
     }
+
+    /**
+     * 使用反射获取对象的字段值
+     */
+    private Object getFieldValue(Object obj, String fieldName) {
+        if (obj == null || fieldName == null) {
+            return null;
+        }
+
+        try {
+            java.lang.reflect.Field field = findField(obj.getClass(), fieldName);
+            if (field != null) {
+                field.setAccessible(true);
+                return field.get(obj);
+            }
+            // 尝试通过getter方法获取
+            String getterName = "get" + Character.toUpperCase(fieldName.charAt(0)) + fieldName.substring(1);
+            try {
+                java.lang.reflect.Method getter = obj.getClass().getMethod(getterName);
+                return getter.invoke(obj);
+            } catch (NoSuchMethodException e) {
+                // 如果getter不存在，返回null
+                return null;
+            }
+        } catch (Exception e) {
+            // 反射访问失败，返回null
+            return null;
+        }
+    }
+
+    /**
+     * 使用反射设置对象的字段值
+     */
+    private void setFieldValue(Object obj, String fieldName, Object value) {
+        if (obj == null || fieldName == null) {
+            return;
+        }
+
+        try {
+            java.lang.reflect.Field field = findField(obj.getClass(), fieldName);
+            if (field != null) {
+                field.setAccessible(true);
+                field.set(obj, value);
+            } else {
+                // 尝试通过setter方法设置
+                String setterName = "set" + Character.toUpperCase(fieldName.charAt(0)) + fieldName.substring(1);
+                try {
+                    Class<?> fieldType = value != null ? value.getClass() : Object.class;
+                    java.lang.reflect.Method setter = obj.getClass().getMethod(setterName, fieldType);
+                    setter.invoke(obj, value);
+                } catch (NoSuchMethodException e) {
+                    // 如果setter不存在，尝试查找匹配参数类型的setter
+                    java.lang.reflect.Method[] methods = obj.getClass().getMethods();
+                    for (java.lang.reflect.Method method : methods) {
+                        if (method.getName().equals(setterName) && method.getParameterCount() == 1) {
+                            method.invoke(obj, value);
+                            break;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            // 反射设置失败，静默忽略
+        }
+    }
+
+    /**
+     * 查找字段，包括父类中的字段
+     */
+    private java.lang.reflect.Field findField(Class<?> clazz, String fieldName) {
+        Class<?> currentClass = clazz;
+        while (currentClass != null && currentClass != Object.class) {
+            try {
+                return currentClass.getDeclaredField(fieldName);
+            } catch (NoSuchFieldException e) {
+                currentClass = currentClass.getSuperclass();
+            }
+        }
+        return null;
+    }
+
+    public Map<String, Long> calculateUsageStatistics() {
+        // 统计文档使用情况
+        Map<String, Long> stats = new HashMap<>();
+        stats.put("totalDocuments", documentVersionRepository.count());
+        List<DocumentVersion> allVersions = documentVersionRepository.findAll();
+        Long totalSize = sumFileSize(allVersions);
+        stats.put("totalSize", totalSize);
+        return stats;
+    }
+
+    @Override
+    @Transactional
+    public void restoreDocumentVersion(Long documentId, Long versionId) throws Exception {
+        // 查找文档
+        Document document = documentRepository.findById(documentId)
+                .orElseThrow(() -> new RuntimeException("文档不存在: " + documentId));
+
+        // 查找要恢复到的版本
+        DocumentVersion targetVersion = documentVersionRepository.findById(versionId)
+                .orElseThrow(() -> new RuntimeException("版本不存在: " + versionId));
+
+        // 验证版本属于该文档
+        if (!targetVersion.getDocumentId().equals(documentId)) {
+            throw new RuntimeException("版本不属于指定文档");
+        }
+
+        // 更新文档的当前版本信息
+        setFieldValue(document, "currentVersion", getFieldValue(targetVersion, "versionNumber"));
+        setFieldValue(document, "currentVersionId", versionId);
+        setFieldValue(document, "updatedAt", LocalDateTime.now());
+
+        documentRepository.save(document);
+    }
+
+    @Override
+    public String compareDocumentVersions(Long documentId, Long fromVersionId, Long toVersionId) throws Exception {
+        // 验证文档存在
+        Document document = documentRepository.findById(documentId)
+                .orElseThrow(() -> new RuntimeException("文档不存在: " + documentId));
+
+        // 查找两个版本
+        DocumentVersion fromVersion = documentVersionRepository.findById(fromVersionId)
+                .orElseThrow(() -> new RuntimeException("源版本不存在: " + fromVersionId));
+        DocumentVersion toVersion = documentVersionRepository.findById(toVersionId)
+                .orElseThrow(() -> new RuntimeException("目标版本不存在: " + toVersionId));
+
+        // 验证版本都属于该文档
+        if (!fromVersion.getDocumentId().equals(documentId) || !toVersion.getDocumentId().equals(documentId)) {
+            throw new RuntimeException("版本不属于指定文档");
+        }
+
+        // 构建比较结果
+        StringBuilder comparison = new StringBuilder();
+        comparison.append("=== 文档版本比较报告 ===\n");
+        comparison.append("文档ID: ").append(documentId).append("\n");
+        comparison.append("文档标题: ").append(getFieldValue(document, "title")).append("\n\n");
+
+        comparison.append("源版本信息:\n");
+        comparison.append("  版本号: ").append(getFieldValue(fromVersion, "versionNumber")).append("\n");
+        comparison.append("  文件名: ").append(getFieldValue(fromVersion, "fileName")).append("\n");
+        comparison.append("  文件大小: ").append(formatFileSize((Long) getFieldValue(fromVersion, "fileSize")))
+                .append("\n");
+        comparison.append("  创建时间: ").append(getFieldValue(fromVersion, "createdTime")).append("\n");
+        comparison.append("  创建者: ").append(getFieldValue(fromVersion, "createdBy")).append("\n");
+        comparison.append("  变更原因: ").append(getFieldValue(fromVersion, "changeReason")).append("\n\n");
+
+        comparison.append("目标版本信息:\n");
+        comparison.append("  版本号: ").append(getFieldValue(toVersion, "versionNumber")).append("\n");
+        comparison.append("  文件名: ").append(getFieldValue(toVersion, "fileName")).append("\n");
+        comparison.append("  文件大小: ").append(formatFileSize((Long) getFieldValue(toVersion, "fileSize"))).append("\n");
+        comparison.append("  创建时间: ").append(getFieldValue(toVersion, "createdTime")).append("\n");
+        comparison.append("  创建者: ").append(getFieldValue(toVersion, "createdBy")).append("\n");
+        comparison.append("  变更原因: ").append(getFieldValue(toVersion, "changeReason")).append("\n\n");
+
+        // 比较文件内容
+        if (((Long) getFieldValue(fromVersion, "fileSize")).equals(getFieldValue(toVersion, "fileSize")) &&
+                ((String) getFieldValue(fromVersion, "checksum")).equals(getFieldValue(toVersion, "checksum"))) {
+            comparison.append("文件内容: 完全相同\n");
+        } else {
+            comparison.append("文件内容: 存在差异\n");
+            comparison.append("  文件大小差异: ")
+                    .append((Long) getFieldValue(toVersion, "fileSize") - (Long) getFieldValue(fromVersion, "fileSize"))
+                    .append(" 字节\n");
+            if (!((String) getFieldValue(fromVersion, "checksum")).equals(getFieldValue(toVersion, "checksum"))) {
+                comparison.append("  文件校验和不同，内容已修改\n");
+            }
+        }
+
+        return comparison.toString();
+    }
+
 }

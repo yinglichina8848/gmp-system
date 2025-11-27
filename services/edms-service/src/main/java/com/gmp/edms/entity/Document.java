@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,6 +43,9 @@ public class Document {
 
     @Column(name = "current_version", length = 20)
     private String currentVersion = "1.0";
+
+    // 当前版本ID
+    private Long currentVersionId;
 
     @Column(name = "template_id")
     private Long templateId; // 关联的模板ID
@@ -91,32 +95,17 @@ public class Document {
     @OneToMany(mappedBy = "document", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DocumentVersion> versions = new ArrayList<>();
 
+    @OneToMany(mappedBy = "document", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ApprovalInstance> approvalInstances = new ArrayList<>();
+
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", insertable = false, updatable = false)
     private DocumentCategory documentCategory;
 
-    // 额外添加的方法以支持业务逻辑
-    public String getDocumentNumber() {
-        return documentNumber;
-    }
-
-    public void setDocumentNumber(String documentNumber) {
-        this.documentNumber = documentNumber;
-    }
-
-    public void setCurrentVersionNumber(String currentVersionNumber) {
-        this.currentVersionNumber = currentVersionNumber;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public void setCurrentVersionId(Long currentVersionId) {
-        this.currentVersionId = currentVersionId;
-    }
+    // Lombok的@Data注解已自动生成所有getter/setter方法
     
-    public Long getCurrentVersionId() {
-        return currentVersionId;
+    // 额外添加的方法以支持业务逻辑
+    public void setCurrentVersionNumber(String currentVersionNumber) {
+        this.currentVersion = currentVersionNumber;
     }
 }

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CapaController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GMP QMS Service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.qms.controller</a> &gt; <span class="el_source">CapaController.java</span></div><h1>CapaController.java</h1><pre class="source lang-java linenums">package com.gmp.qms.controller;
+
+import com.gmp.qms.dto.CapaDTO;
+import com.gmp.qms.dto.CapaSearchCriteria;
+import com.gmp.qms.entity.Capa;
+import com.gmp.qms.model.ApiResponse;
+import com.gmp.qms.service.CapaService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+/**
+ * CAPA管理控制器
+ * 
+ * @author GMP系统开发团队
+ */
+@RestController
+@RequestMapping(&quot;/api/v1/capas&quot;)
+@RequiredArgsConstructor
+public class CapaController {
+
+    private final CapaService capaService;
+
+    /**
+     * 创建新的CAPA记录
+     */
+    @PostMapping
+    public ApiResponse&lt;Capa&gt; createCapa(@RequestBody CapaDTO capaDTO) {
+<span class="nc" id="L32">        Capa capa = capaService.createCapa(capaDTO);</span>
+<span class="nc" id="L33">        return ApiResponse.success(capa);</span>
+    }
+
+    /**
+     * 更新CAPA记录
+     */
+    @PutMapping(&quot;/{id}&quot;)
+    public ApiResponse&lt;Capa&gt; updateCapa(@PathVariable Long id, @RequestBody CapaDTO capaDTO) {
+<span class="nc" id="L41">        Capa capa = capaService.updateCapa(id, capaDTO);</span>
+<span class="nc" id="L42">        return ApiResponse.success(capa);</span>
+    }
+
+    /**
+     * 根据ID查询CAPA详情
+     */
+    @GetMapping(&quot;/{id}&quot;)
+    public ApiResponse&lt;Capa&gt; getCapaById(@PathVariable Long id) {
+<span class="nc" id="L50">        Capa capa = capaService.getCapaById(id);</span>
+<span class="nc" id="L51">        return ApiResponse.success(capa);</span>
+    }
+
+    /**
+     * 根据编号查询CAPA详情
+     */
+    @GetMapping(&quot;/code/{code}&quot;)
+    public ApiResponse&lt;Capa&gt; getCapaByCode(@PathVariable String code) {
+<span class="nc" id="L59">        Capa capa = capaService.getCapaByCode(code);</span>
+<span class="nc" id="L60">        return ApiResponse.success(capa);</span>
+    }
+
+    /**
+     * 分页查询CAPA列表
+     */
+    @GetMapping
+    public ApiResponse&lt;Page&lt;Capa&gt;&gt; getCapas(
+            @RequestParam(defaultValue = &quot;0&quot;) int page,
+            @RequestParam(defaultValue = &quot;10&quot;) int size) {
+<span class="nc" id="L70">        Pageable pageable = PageRequest.of(page, size);</span>
+<span class="nc" id="L71">        Page&lt;Capa&gt; capas = capaService.findAllCapas(pageable);</span>
+<span class="nc" id="L72">        return ApiResponse.success(capas);</span>
+    }
+
+    /**
+     * 根据条件搜索CAPA
+     */
+    @PostMapping(&quot;/search&quot;)
+    public ApiResponse&lt;Page&lt;Capa&gt;&gt; searchCapas(
+            @RequestBody CapaSearchCriteria criteria,
+            @RequestParam(defaultValue = &quot;0&quot;) int page,
+            @RequestParam(defaultValue = &quot;10&quot;) int size) {
+<span class="nc" id="L83">        Pageable pageable = PageRequest.of(page, size);</span>
+<span class="nc" id="L84">        Page&lt;Capa&gt; capas = capaService.searchCapas(criteria, pageable);</span>
+<span class="nc" id="L85">        return ApiResponse.success(capas);</span>
+    }
+
+    /**
+     * 更新CAPA状态
+     */
+    @PutMapping(&quot;/{id}/status&quot;)
+    public ApiResponse&lt;Capa&gt; updateCapaStatus(
+            @PathVariable Long id,
+            @RequestParam Capa.CapaStatus status,
+            @RequestParam(required = false) String comments) {
+<span class="nc" id="L96">        Capa capa = capaService.updateCapaStatus(id, status, comments);</span>
+<span class="nc" id="L97">        return ApiResponse.success(capa);</span>
+    }
+
+    /**
+     * 上传CAPA附件
+     */
+    @PostMapping(&quot;/{id}/attachments&quot;)
+    public ApiResponse&lt;Capa&gt; addAttachment(
+            @PathVariable Long id,
+            @RequestParam(&quot;file&quot;) MultipartFile file,
+            @RequestParam(required = false) String description) {
+<span class="nc" id="L108">        Capa capa = capaService.addAttachment(id, file, description);</span>
+<span class="nc" id="L109">        return ApiResponse.success(capa);</span>
+    }
+
+    /**
+     * 删除CAPA附件
+     */
+    @DeleteMapping(&quot;/{id}/attachments/{attachmentId}&quot;)
+    public ApiResponse&lt;Capa&gt; removeAttachment(
+            @PathVariable Long id,
+            @PathVariable Long attachmentId) {
+<span class="nc" id="L119">        Capa capa = capaService.removeAttachment(id, attachmentId);</span>
+<span class="nc" id="L120">        return ApiResponse.success(capa);</span>
+    }
+
+    /**
+     * 生成新的CAPA编号
+     */
+    @GetMapping(&quot;/generate-code&quot;)
+    public ApiResponse&lt;String&gt; generateCapaCode() {
+<span class="nc" id="L128">        String code = capaService.generateCapaCode();</span>
+<span class="nc" id="L129">        return ApiResponse.success(code);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

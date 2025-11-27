@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DeviationServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GMP QMS Service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.qms.service.impl</a> &gt; <span class="el_source">DeviationServiceImpl.java</span></div><h1>DeviationServiceImpl.java</h1><pre class="source lang-java linenums">package com.gmp.qms.service.impl;
+
+import com.gmp.qms.dto.DeviationDTO;
+import com.gmp.qms.dto.DeviationSearchCriteria;
+import com.gmp.qms.entity.Deviation;
+import com.gmp.qms.entity.DeviationAttachment;
+import com.gmp.qms.exception.ResourceNotFoundException;
+import com.gmp.qms.repository.DeviationAttachmentRepository;
+import com.gmp.qms.repository.DeviationRepository;
+import com.gmp.qms.service.DeviationService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+/**
+ * 偏差管理服务实现类
+ * 
+ * @author GMP系统开发团队
+ */
+@Service
+@RequiredArgsConstructor
+public class DeviationServiceImpl implements DeviationService {
+
+    private final DeviationRepository deviationRepository;
+    private final DeviationAttachmentRepository deviationAttachmentRepository;
+    // 文件存储路径，实际应用中应配置在配置文件中
+    private static final String UPLOAD_DIR = &quot;/opt/gmp-system/uploads/deviations/&quot;;
+
+    @Override
+    @Transactional
+    public Deviation createDeviation(DeviationDTO deviationDTO) {
+<span class="fc" id="L48">        Deviation deviation = new Deviation();</span>
+<span class="fc" id="L49">        BeanUtils.copyProperties(deviationDTO, deviation);</span>
+
+        // 生成偏差编号
+<span class="fc" id="L52">        deviation.setDeviationCode(generateDeviationCode());</span>
+
+        // 设置初始状态
+<span class="fc" id="L55">        deviation.setStatus(Deviation.DeviationStatus.IDENTIFIED);</span>
+
+<span class="fc" id="L57">        return deviationRepository.save(deviation);</span>
+    }
+
+    @Override
+    @Transactional
+    public Deviation updateDeviation(Long id, DeviationDTO deviationDTO) {
+<span class="fc" id="L63">        Deviation deviation = getDeviationById(id);</span>
+<span class="fc" id="L64">        BeanUtils.copyProperties(deviationDTO, deviation, &quot;id&quot;, &quot;deviationCode&quot;, &quot;createdAt&quot;, &quot;createdBy&quot;, &quot;status&quot;);</span>
+<span class="fc" id="L65">        return deviationRepository.save(deviation);</span>
+    }
+
+    @Override
+    public Deviation getDeviationById(Long id) {
+<span class="fc" id="L70">        return deviationRepository.findById(id)</span>
+<span class="fc" id="L71">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Deviation not found with id: &quot; + id));</span>
+    }
+
+    @Override
+    public Deviation getDeviationByCode(String deviationCode) {
+<span class="fc" id="L76">        return deviationRepository.findByDeviationCode(deviationCode);</span>
+    }
+
+    @Override
+    public Page&lt;Deviation&gt; findAllDeviations(Pageable pageable) {
+<span class="fc" id="L81">        return deviationRepository.findAll(pageable);</span>
+    }
+
+    @Override
+    public Page&lt;Deviation&gt; searchDeviations(DeviationSearchCriteria criteria, Pageable pageable) {
+<span class="fc" id="L86">        Specification&lt;Deviation&gt; specification = buildDeviationSpecification(criteria);</span>
+<span class="fc" id="L87">        return deviationRepository.findAll(specification, pageable);</span>
+    }
+
+    @Override
+    @Transactional
+    public Deviation updateDeviationStatus(Long id, Deviation.DeviationStatus status, String comments) {
+<span class="fc" id="L93">        Deviation deviation = getDeviationById(id);</span>
+<span class="fc" id="L94">        deviation.setStatus(status);</span>
+        // 这里可以添加状态变更历史记录
+<span class="fc" id="L96">        return deviationRepository.save(deviation);</span>
+    }
+
+    @Override
+    @Transactional
+    public Deviation addAttachment(Long deviationId, MultipartFile file, String description) {
+<span class="fc" id="L102">        Deviation deviation = getDeviationById(deviationId);</span>
+
+        try {
+            // 确保上传目录存在
+<span class="fc" id="L106">            Path uploadPath = Paths.get(UPLOAD_DIR + deviationId + &quot;/&quot;);</span>
+<span class="nc" id="L107">            Files.createDirectories(uploadPath);</span>
+
+            // 生成唯一文件名
+<span class="nc" id="L110">            String originalFilename = file.getOriginalFilename();</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">            String extension = originalFilename != null ? originalFilename.substring(originalFilename.lastIndexOf('.'))</span>
+<span class="nc" id="L112">                    : &quot;&quot;;</span>
+<span class="nc" id="L113">            String fileName = UUID.randomUUID() + extension;</span>
+
+            // 保存文件
+<span class="nc" id="L116">            Path filePath = uploadPath.resolve(fileName);</span>
+<span class="nc" id="L117">            Files.copy(file.getInputStream(), filePath);</span>
+
+            // 创建附件记录
+<span class="nc" id="L120">            DeviationAttachment attachment = new DeviationAttachment();</span>
+<span class="nc" id="L121">            attachment.setDeviation(deviation);</span>
+<span class="nc" id="L122">            attachment.setFileName(originalFilename);</span>
+<span class="nc" id="L123">            attachment.setFilePath(filePath.toString());</span>
+<span class="nc" id="L124">            attachment.setFileSize(file.getSize());</span>
+<span class="nc" id="L125">            attachment.setFileType(file.getContentType());</span>
+<span class="nc" id="L126">            attachment.setDescription(description);</span>
+            // 设置默认上传人为系统用户ID 1
+<span class="nc" id="L128">            attachment.setUploadedBy(1L); // 使用Long类型的默认用户ID</span>
+
+            // 直接保存附件，而不是通过deviation的关系
+<span class="nc" id="L131">            deviationAttachmentRepository.save(attachment);</span>
+<span class="nc" id="L132">            return deviation;</span>
+<span class="fc" id="L133">        } catch (IOException e) {</span>
+<span class="fc" id="L134">            throw new RuntimeException(&quot;Failed to upload file: &quot; + e.getMessage(), e);</span>
+        }
+    }
+
+    @Override
+    @Transactional
+    public Deviation removeAttachment(Long deviationId, Long attachmentId) {
+<span class="fc" id="L141">        Deviation deviation = getDeviationById(deviationId);</span>
+
+        // 直接删除附件记录
+<span class="fc" id="L144">        DeviationAttachment attachment = deviationAttachmentRepository.findById(attachmentId)</span>
+<span class="fc" id="L145">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Attachment not found with id: &quot; + attachmentId));</span>
+
+        // 移除对附件与偏差关系的验证，直接删除附件
+        // 实际项目中应添加适当的权限和业务逻辑验证
+
+<span class="fc" id="L150">        deviationAttachmentRepository.delete(attachment);</span>
+<span class="fc" id="L151">        return deviation;</span>
+    }
+
+    @Override
+    public List&lt;Deviation&gt; findOverdueDeviations() {
+<span class="fc" id="L156">        LocalDateTime now = LocalDateTime.now();</span>
+        // 使用repository中定义的查询方法，查询已识别状态的逾期偏差
+<span class="fc" id="L158">        return deviationRepository.findOverdueDeviations(Deviation.DeviationStatus.IDENTIFIED, now);</span>
+    }
+
+    @Override
+    public String generateDeviationCode() {
+        // 生成格式：DEV-YYYYMMDD-XXXXX
+<span class="fc" id="L164">        String datePrefix = &quot;DEV-&quot; + LocalDate.now().format(DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;)) + &quot;-&quot;;</span>
+
+        // 由于repository中没有findMaxCodeByPrefix方法，这里使用简单的计数方式
+        // 实际生产环境中应该在repository中添加该方法或使用自定义查询
+<span class="fc" id="L168">        String codePattern = datePrefix + &quot;%&quot;;</span>
+
+        // 查询当天已有的偏差数量
+<span class="fc" id="L171">        long count = deviationRepository.count();</span>
+        // 简单的计数方式，实际项目中应该使用更精确的方法
+<span class="fc" id="L173">        return datePrefix + String.format(&quot;%05d&quot;, count + 1);</span>
+    }
+
+    /**
+     * 构建偏差查询条件
+     */
+    private Specification&lt;Deviation&gt; buildDeviationSpecification(DeviationSearchCriteria criteria) {
+<span class="fc" id="L180">        return (root, query, criteriaBuilder) -&gt; {</span>
+<span class="nc" id="L181">            Specification&lt;Deviation&gt; spec = Specification.where(null);</span>
+
+            // 这里可以根据criteria构建复杂的查询条件
+
+<span class="nc" id="L185">            return spec.toPredicate(root, query, criteriaBuilder);</span>
+        };
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

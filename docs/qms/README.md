@@ -54,14 +54,31 @@ QMS子系统与其他子系统的主要接口包括：
 - **与CRM-SALES集成**：客户投诉信息共享
 - **与EQUIPMENT-MANAGEMENT集成**：设备相关质量问题管理
 
-## 7. 文档状态
+## 7. 测试情况
+
+- **单元测试数量**：81个测试用例（最近运行结果）
+- **测试执行状态**：部分失败（29个错误，1个失败，2个跳过）
+- **测试覆盖率目标**：90%以上
+- **当前测试覆盖率**：已生成覆盖率报告（分析了43个类）
+- **代码规模**：40个Java文件，共3665行代码
+- **测试报告位置**：[覆盖率测试报告](/home/liying/gmp-system/docs/coverage/qms)
+- **测试类型**：单元测试，覆盖核心服务层功能
+- **测试框架**：JUnit 5, Mockito
+
+## 8. 文档状态
 
 - **版本**：v1.0
 - **状态**：开发中
-- **最后更新**：2023-07-15
+- **最后更新**：2025-11-28
 - **文档维护人**：QMS团队
 
-## 8. 其他资源
+## 9. 自动生成文档
+
+- **API文档**：[Doxygen生成的Java API文档](/home/liying/gmp-system/docs/qms/doxygen-html/index.html)
+- **代码覆盖率报告**：[JaCoCo覆盖率报告](/home/liying/gmp-system/docs/coverage/qms/jacoco/index.html)
+- **服务端实时覆盖率**：[qms-service JaCoCo报告](/home/liying/gmp-system/services/qms-service/target/site/jacoco/index.html)
+
+## 10. 其他资源
 
 - 系统部署指南
 - 用户操作手册
