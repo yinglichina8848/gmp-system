@@ -1,0 +1,986 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</compoundname>
+    <basecompoundref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService" prot="public" virt="non-virtual">com.gmp.edms.service.DocumentPermissionService</basecompoundref>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1ConfidentialityPolicy" prot="private">com::gmp::edms::service::impl::DocumentPermissionServiceImpl::ConfidentialityPolicy</innerclass>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1DepartmentPolicy" prot="private">com::gmp::edms::service::impl::DocumentPermissionServiceImpl::DepartmentPolicy</innerclass>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1DocumentOwnerPolicy" prot="private">com::gmp::edms::service::impl::DocumentPermissionServiceImpl::DocumentOwnerPolicy</innerclass>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext" prot="private">com::gmp::edms::service::impl::DocumentPermissionServiceImpl::PermissionContext</innerclass>
+    <innerclass refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionPolicy" prot="private">com::gmp::edms::service::impl::DocumentPermissionServiceImpl::PermissionPolicy</innerclass>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1StatusPolicy" prot="private">com::gmp::edms::service::impl::DocumentPermissionServiceImpl::StatusPolicy</innerclass>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1afa5c8dbe6fe6b1d287765bea458592e0" prot="private" static="yes" mutable="no">
+        <type>final Logger</type>
+        <definition>final Logger com.gmp.edms.service.impl.DocumentPermissionServiceImpl.log</definition>
+        <argsstring></argsstring>
+        <name>log</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.log</qualifiedname>
+        <initializer>= LoggerFactory.getLogger(DocumentPermissionServiceImpl.class)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="28" column="33" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="28" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a46844b43875199ee3328a9a3e498bf3a" compoundref="DocumentPermissionServiceImpl_8java" startline="197" endline="222">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getFieldValue</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a22ca9dea7b3537fdeca080851752a5fb" prot="private" static="no" mutable="no">
+        <type>DocumentRepository</type>
+        <definition>DocumentRepository com.gmp.edms.service.impl.DocumentPermissionServiceImpl.documentRepository</definition>
+        <argsstring></argsstring>
+        <name>documentRepository</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.documentRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="31" column="32" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="31" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a6b4947a64c432f64f2129607f43dee58" compoundref="DocumentPermissionServiceImpl_8java" startline="120" endline="138">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getAccessibleDocumentIds</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a4ac18ad537ee4e6475eaff52a834a159" compoundref="DocumentPermissionServiceImpl_8java" startline="295" endline="307">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getDocumentAuthor</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ad4b9efad7a1c47825924b0460d5148b3" compoundref="DocumentPermissionServiceImpl_8java" startline="73" endline="92">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserPermissions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a829c9ced031c437a6b872d5b537b5cfa" compoundref="DocumentPermissionServiceImpl_8java" startline="141" endline="161">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermissionWithTimeWindow</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a5bfe3224c41ab960e89ff1a0e37bd713" prot="private" static="no" mutable="no">
+        <type>final Set&lt; String &gt;</type>
+        <definition>final Set&lt;String&gt; com.gmp.edms.service.impl.DocumentPermissionServiceImpl.adminUsers</definition>
+        <argsstring></argsstring>
+        <name>adminUsers</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.adminUsers</qualifiedname>
+        <initializer>= Set.of(&quot;admin&quot;, &quot;system&quot;, &quot;gmp_admin&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="34" column="23" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="34" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a1d26a58d598c1f8f7dc7b37e02bd00ce" compoundref="DocumentPermissionServiceImpl_8java" startline="173" endline="183">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserRoles</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</definition>
+        <argsstring>(String userId, Long documentId, PermissionType permission)</argsstring>
+        <name>hasPermission</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1abcd13ae83836ebf43e1e2fd9abe367c7">hasPermission</reimplements>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <param>
+          <type><ref refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType" kindref="compound">PermissionType</ref></type>
+          <declname>permission</declname>
+        </param>
+        <briefdescription>
+<para>检查用户对文档的访问权限 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>documentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>permission</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限类型 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否有权限 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="37" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="37" bodyend="56"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a22ca9dea7b3537fdeca080851752a5fb" compoundref="DocumentPermissionServiceImpl_8java" startline="31">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.documentRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a0c1ade445d1ba388327b8bd2d68af201" compoundref="DocumentPermissionServiceImpl_8java" startline="267" endline="288">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.evaluatePermissions</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a371390666c246641a7a26f557481f4df" compoundref="DocumentPermissionServiceImpl_8java" startline="239" endline="265">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getContext</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a820ea93d15bb39248e1a10530608e82a" compoundref="DocumentPermissionServiceImpl_8java" startline="185" endline="192">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getDocumentPolicies</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a1d26a58d598c1f8f7dc7b37e02bd00ce" compoundref="DocumentPermissionServiceImpl_8java" startline="173" endline="183">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserRoles</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ad5cd24b3caa2374a8bbcc649d4532c20" compoundref="DocumentPermissionServiceImpl_8java" startline="95" endline="97">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canApprove</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a0e449a4e96b6d46b4ef9919360fa93bb" compoundref="DocumentPermissionServiceImpl_8java" startline="110" endline="112">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canDelete</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ae67b0c2a3383ccd3a4656305e0f1276d" compoundref="DocumentPermissionServiceImpl_8java" startline="115" endline="117">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canDownload</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a60dbf9239a4aa9f5d313b2c83ca22ced" compoundref="DocumentPermissionServiceImpl_8java" startline="105" endline="107">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canEdit</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1afca196bc1ac7e3f70f04288e8f12f8c0" compoundref="DocumentPermissionServiceImpl_8java" startline="100" endline="102">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canView</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a6b4947a64c432f64f2129607f43dee58" compoundref="DocumentPermissionServiceImpl_8java" startline="120" endline="138">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getAccessibleDocumentIds</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a9a5d805830db9269d1b57395abcf0caf" compoundref="DocumentPermissionServiceImpl_8java" startline="164" endline="169">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermissionWithLocation</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a829c9ced031c437a6b872d5b537b5cfa" compoundref="DocumentPermissionServiceImpl_8java" startline="141" endline="161">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermissionWithTimeWindow</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a8c7065181dfed328acceddd5959cf81f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasCreatePermission</definition>
+        <argsstring>(String userId, Long categoryId)</argsstring>
+        <name>hasCreatePermission</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasCreatePermission</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1ab11217bcfa393adcac2385930cabb3e5">hasCreatePermission</reimplements>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>categoryId</declname>
+        </param>
+        <briefdescription>
+<para>检查用户对文档的创建权限 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>categoryId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分类ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否有权限 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="59" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="59" bodyend="70"/>
+        <references refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType_1aa90403d5f3fb670c84dee438294b1df6" compoundref="DocumentPermissionService_8java" startline="121">com.gmp.edms.service.DocumentPermissionService.PermissionType.EDIT</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a1d26a58d598c1f8f7dc7b37e02bd00ce" compoundref="DocumentPermissionServiceImpl_8java" startline="173" endline="183">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserRoles</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ab9c267ffeeba1315ff726048b61eed98" compoundref="DocumentPermissionServiceImpl_8java" startline="309" endline="312">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasCategoryPermission</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a6ae738e5b2b23a3a7fdc60fb60be50ee" compoundref="DocumentPermissionServiceImpl_8java" startline="290" endline="293">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.isAdmin</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ad4b9efad7a1c47825924b0460d5148b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Set&lt; <ref refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType" kindref="compound">PermissionType</ref> &gt;</type>
+        <definition>Set&lt; PermissionType &gt; com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserPermissions</definition>
+        <argsstring>(String userId, Long documentId)</argsstring>
+        <name>getUserPermissions</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserPermissions</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1abdcc27f5c6afc901857d0f2611b04224">getUserPermissions</reimplements>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+<para>获取用户对文档的所有权限 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>documentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>权限集合 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="73" column="16" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="73" bodyend="92"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a22ca9dea7b3537fdeca080851752a5fb" compoundref="DocumentPermissionServiceImpl_8java" startline="31">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.documentRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a0c1ade445d1ba388327b8bd2d68af201" compoundref="DocumentPermissionServiceImpl_8java" startline="267" endline="288">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.evaluatePermissions</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a371390666c246641a7a26f557481f4df" compoundref="DocumentPermissionServiceImpl_8java" startline="239" endline="265">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getContext</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a820ea93d15bb39248e1a10530608e82a" compoundref="DocumentPermissionServiceImpl_8java" startline="185" endline="192">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getDocumentPolicies</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a1d26a58d598c1f8f7dc7b37e02bd00ce" compoundref="DocumentPermissionServiceImpl_8java" startline="173" endline="183">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserRoles</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ad5cd24b3caa2374a8bbcc649d4532c20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canApprove</definition>
+        <argsstring>(String userId, Long documentId)</argsstring>
+        <name>canApprove</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canApprove</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1ace028f19ad2b76e322243095f71613a0">canApprove</reimplements>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+<para>检查用户是否可以审批指定文档 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>documentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否可以审批 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="95" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="95" bodyend="97"/>
+        <references refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType_1aac149bf30c3ed1cb41d9a056ef810417" compoundref="DocumentPermissionService_8java" startline="124">com.gmp.edms.service.DocumentPermissionService.PermissionType.APPROVE</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1afca196bc1ac7e3f70f04288e8f12f8c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canView</definition>
+        <argsstring>(String userId, Long documentId)</argsstring>
+        <name>canView</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canView</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1a0c96f520bb4bceb10d346364d47bae8b">canView</reimplements>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+<para>检查用户是否可以查看文档内容 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>documentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否可以查看 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="100" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="100" bodyend="102"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</references>
+        <references refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType_1aec890097acc7208bfb2d4ff159c6da81" compoundref="DocumentPermissionService_8java" startline="120">com.gmp.edms.service.DocumentPermissionService.PermissionType.VIEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a60dbf9239a4aa9f5d313b2c83ca22ced" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canEdit</definition>
+        <argsstring>(String userId, Long documentId)</argsstring>
+        <name>canEdit</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canEdit</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1a720cf6bcd8aa8e0bbf453246f105be37">canEdit</reimplements>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+<para>检查用户是否可以编辑文档 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>documentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否可以编辑 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="105" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="105" bodyend="107"/>
+        <references refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType_1aa90403d5f3fb670c84dee438294b1df6" compoundref="DocumentPermissionService_8java" startline="121">com.gmp.edms.service.DocumentPermissionService.PermissionType.EDIT</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a0e449a4e96b6d46b4ef9919360fa93bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canDelete</definition>
+        <argsstring>(String userId, Long documentId)</argsstring>
+        <name>canDelete</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canDelete</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1ad8bcdf1b31ec3b34a0385bcf2add08bf">canDelete</reimplements>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+<para>检查用户是否可以删除文档 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>documentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否可以删除 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="110" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="110" bodyend="112"/>
+        <references refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType_1a915fc3c890df8f37cb310865d810d2f1" compoundref="DocumentPermissionService_8java" startline="122">com.gmp.edms.service.DocumentPermissionService.PermissionType.DELETE</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ae67b0c2a3383ccd3a4656305e0f1276d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canDownload</definition>
+        <argsstring>(String userId, Long documentId)</argsstring>
+        <name>canDownload</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.canDownload</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1acae419be57a6098328e3b82f60e8aa99">canDownload</reimplements>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+<para>检查用户是否可以下载文档 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>documentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否可以下载 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="115" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="115" bodyend="117"/>
+        <references refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType_1a2c0e50007976a74faccaf533d5e090b8" compoundref="DocumentPermissionService_8java" startline="123">com.gmp.edms.service.DocumentPermissionService.PermissionType.DOWNLOAD</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a6b4947a64c432f64f2129607f43dee58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Set&lt; Long &gt;</type>
+        <definition>Set&lt; Long &gt; com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getAccessibleDocumentIds</definition>
+        <argsstring>(String userId, PermissionType permission)</argsstring>
+        <name>getAccessibleDocumentIds</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getAccessibleDocumentIds</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1a792060af96869623f9e8f2c2523bc430">getAccessibleDocumentIds</reimplements>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type><ref refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType" kindref="compound">PermissionType</ref></type>
+          <declname>permission</declname>
+        </param>
+        <briefdescription>
+<para>获取用户可访问的文档ID列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>permission</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限类型 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>文档ID列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="120" column="16" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="120" bodyend="138"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a22ca9dea7b3537fdeca080851752a5fb" compoundref="DocumentPermissionServiceImpl_8java" startline="31">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.documentRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a829c9ced031c437a6b872d5b537b5cfa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermissionWithTimeWindow</definition>
+        <argsstring>(String userId, Long documentId, PermissionType permission, LocalDateTime currentTime)</argsstring>
+        <name>hasPermissionWithTimeWindow</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermissionWithTimeWindow</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <param>
+          <type><ref refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType" kindref="compound">PermissionType</ref></type>
+          <declname>permission</declname>
+        </param>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>currentTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="141" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="141" bodyend="161"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a22ca9dea7b3537fdeca080851752a5fb" compoundref="DocumentPermissionServiceImpl_8java" startline="31">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.documentRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a46844b43875199ee3328a9a3e498bf3a" compoundref="DocumentPermissionServiceImpl_8java" startline="197" endline="222">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a9a5d805830db9269d1b57395abcf0caf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermissionWithLocation</definition>
+        <argsstring>(String userId, Long documentId, PermissionType permission, String location)</argsstring>
+        <name>hasPermissionWithLocation</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermissionWithLocation</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1aaff820aead2f028cebfadef62f6397b4">hasPermissionWithLocation</reimplements>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <param>
+          <type><ref refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType" kindref="compound">PermissionType</ref></type>
+          <declname>permission</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>location</declname>
+        </param>
+        <briefdescription>
+<para>基于地理位置检查权限 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>documentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>permission</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限类型 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>location</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>地理位置 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否有权限 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="164" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="164" bodyend="169"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</references>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1ad20e1097705ce3621c4341358b32d41b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.DocumentPermissionService.hasPermissionWithTimeWindow</definition>
+        <argsstring>(String userId, Long documentId, PermissionType permission, java.time.LocalDateTime currentTime)</argsstring>
+        <name>hasPermissionWithTimeWindow</name>
+        <qualifiedname>com.gmp.edms.service.DocumentPermissionService.hasPermissionWithTimeWindow</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <param>
+          <type><ref refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType" kindref="compound">PermissionType</ref></type>
+          <declname>permission</declname>
+        </param>
+        <param>
+          <type>java.time.LocalDateTime</type>
+          <declname>currentTime</declname>
+        </param>
+        <briefdescription>
+<para>基于时间窗口检查权限 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>documentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>permission</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限类型 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>currentTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>当前时间 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否有权限 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/DocumentPermissionService.java" line="102" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a1d26a58d598c1f8f7dc7b37e02bd00ce" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Set&lt; String &gt;</type>
+        <definition>Set&lt; String &gt; com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserRoles</definition>
+        <argsstring>(String userId)</argsstring>
+        <name>getUserRoles</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserRoles</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="173" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="173" bodyend="183"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a5bfe3224c41ab960e89ff1a0e37bd713" compoundref="DocumentPermissionServiceImpl_8java" startline="34">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.adminUsers</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ad4b9efad7a1c47825924b0460d5148b3" compoundref="DocumentPermissionServiceImpl_8java" startline="73" endline="92">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserPermissions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a8c7065181dfed328acceddd5959cf81f" compoundref="DocumentPermissionServiceImpl_8java" startline="59" endline="70">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasCreatePermission</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a820ea93d15bb39248e1a10530608e82a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionPolicy" kindref="compound">PermissionPolicy</ref> &gt;</type>
+        <definition>List&lt; PermissionPolicy &gt; com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getDocumentPolicies</definition>
+        <argsstring>(Document document)</argsstring>
+        <name>getDocumentPolicies</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getDocumentPolicies</qualifiedname>
+        <param>
+          <type>Document</type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="185" column="18" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="185" bodyend="192"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a46844b43875199ee3328a9a3e498bf3a" compoundref="DocumentPermissionServiceImpl_8java" startline="197" endline="222">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getFieldValue</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ad4b9efad7a1c47825924b0460d5148b3" compoundref="DocumentPermissionServiceImpl_8java" startline="73" endline="92">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserPermissions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a46844b43875199ee3328a9a3e498bf3a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object</type>
+        <definition>Object com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getFieldValue</definition>
+        <argsstring>(Object obj, String fieldName)</argsstring>
+        <name>getFieldValue</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getFieldValue</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fieldName</declname>
+        </param>
+        <briefdescription>
+<para>使用反射获取对象字段值 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="197" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="197" bodyend="222"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1adc47699f485d672a8244a593f366cd3c" compoundref="DocumentPermissionServiceImpl_8java" startline="227" endline="237">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.findField</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1afa5c8dbe6fe6b1d287765bea458592e0" compoundref="DocumentPermissionServiceImpl_8java" startline="28">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.log</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a820ea93d15bb39248e1a10530608e82a" compoundref="DocumentPermissionServiceImpl_8java" startline="185" endline="192">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getDocumentPolicies</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a829c9ced031c437a6b872d5b537b5cfa" compoundref="DocumentPermissionServiceImpl_8java" startline="141" endline="161">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermissionWithTimeWindow</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1adc47699f485d672a8244a593f366cd3c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Field</type>
+        <definition>Field com.gmp.edms.service.impl.DocumentPermissionServiceImpl.findField</definition>
+        <argsstring>(Class&lt;?&gt; clazz, String fieldName)</argsstring>
+        <name>findField</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.findField</qualifiedname>
+        <param>
+          <type>Class&lt;?&gt;</type>
+          <declname>clazz</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fieldName</declname>
+        </param>
+        <briefdescription>
+<para>查找字段，包括父类中的字段 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="227" column="19" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="227" bodyend="237"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a46844b43875199ee3328a9a3e498bf3a" compoundref="DocumentPermissionServiceImpl_8java" startline="197" endline="222">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getFieldValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a371390666c246641a7a26f557481f4df" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext" kindref="compound">PermissionContext</ref></type>
+        <definition>PermissionContext com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getContext</definition>
+        <argsstring>(String userId, Document document)</argsstring>
+        <name>getContext</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getContext</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Document</type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="239" column="31" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="239" bodyend="265"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext_1a2bd43872513afa653e165e6f98c9fa75" compoundref="DocumentPermissionServiceImpl_8java" startline="419" endline="421">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.PermissionContext.setConfidentialityLevel</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext_1a708788b65ddf1a24bbdf11e03c35c60f" compoundref="DocumentPermissionServiceImpl_8java" startline="427" endline="429">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.PermissionContext.setCurrentTime</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext_1ae4af17d590cb15a523e26bd0e3845513" compoundref="DocumentPermissionServiceImpl_8java" startline="403" endline="405">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.PermissionContext.setDocumentId</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext_1a8852b13c701429e0dec85bb7b8587e36" compoundref="DocumentPermissionServiceImpl_8java" startline="411" endline="413">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.PermissionContext.setDocumentType</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext_1a2784d6a23d50e223c2b5843bb0ce0985" compoundref="DocumentPermissionServiceImpl_8java" startline="395" endline="397">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.PermissionContext.setUserId</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ad4b9efad7a1c47825924b0460d5148b3" compoundref="DocumentPermissionServiceImpl_8java" startline="73" endline="92">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserPermissions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a0c1ade445d1ba388327b8bd2d68af201" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.evaluatePermissions</definition>
+        <argsstring>(Set&lt; String &gt; roles, List&lt; PermissionPolicy &gt; policies, PermissionType required, PermissionContext context)</argsstring>
+        <name>evaluatePermissions</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.evaluatePermissions</qualifiedname>
+        <param>
+          <type>Set&lt; String &gt;</type>
+          <declname>roles</declname>
+        </param>
+        <param>
+          <type>List&lt; <ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionPolicy" kindref="compound">PermissionPolicy</ref> &gt;</type>
+          <declname>policies</declname>
+        </param>
+        <param>
+          <type><ref refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType" kindref="compound">PermissionType</ref></type>
+          <declname>required</declname>
+        </param>
+        <param>
+          <type><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext" kindref="compound">PermissionContext</ref></type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="267" column="21" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="267" bodyend="288"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a4ac18ad537ee4e6475eaff52a834a159" compoundref="DocumentPermissionServiceImpl_8java" startline="295" endline="307">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getDocumentAuthor</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext_1a54832eee4948d6b5d68afa90e9ae8169" compoundref="DocumentPermissionServiceImpl_8java" startline="399" endline="401">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.PermissionContext.getDocumentId</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext_1a433d9f75bfcdf5a0c8e34e10ef6176f7" compoundref="DocumentPermissionServiceImpl_8java" startline="391" endline="393">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.PermissionContext.getUserId</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a6ae738e5b2b23a3a7fdc60fb60be50ee" compoundref="DocumentPermissionServiceImpl_8java" startline="290" endline="293">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.isAdmin</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ad4b9efad7a1c47825924b0460d5148b3" compoundref="DocumentPermissionServiceImpl_8java" startline="73" endline="92">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getUserPermissions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" compoundref="DocumentPermissionServiceImpl_8java" startline="37" endline="56">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasPermission</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a4ac18ad537ee4e6475eaff52a834a159" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getDocumentAuthor</definition>
+        <argsstring>(Long documentId)</argsstring>
+        <name>getDocumentAuthor</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.getDocumentAuthor</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="295" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="295" bodyend="307"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a22ca9dea7b3537fdeca080851752a5fb" compoundref="DocumentPermissionServiceImpl_8java" startline="31">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.documentRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a0c1ade445d1ba388327b8bd2d68af201" compoundref="DocumentPermissionServiceImpl_8java" startline="267" endline="288">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.evaluatePermissions</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ab9c267ffeeba1315ff726048b61eed98" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasCategoryPermission</definition>
+        <argsstring>(String userId, Long categoryId, PermissionType permission)</argsstring>
+        <name>hasCategoryPermission</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasCategoryPermission</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>categoryId</declname>
+        </param>
+        <param>
+          <type><ref refid="enumcom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1_1PermissionType" kindref="compound">PermissionType</ref></type>
+          <declname>permission</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="309" column="21" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="309" bodyend="312"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a8c7065181dfed328acceddd5959cf81f" compoundref="DocumentPermissionServiceImpl_8java" startline="59" endline="70">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasCreatePermission</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a6ae738e5b2b23a3a7fdc60fb60be50ee" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean com.gmp.edms.service.impl.DocumentPermissionServiceImpl.isAdmin</definition>
+        <argsstring>(Set&lt; String &gt; roles)</argsstring>
+        <name>isAdmin</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentPermissionServiceImpl.isAdmin</qualifiedname>
+        <param>
+          <type>Set&lt; String &gt;</type>
+          <declname>roles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="290" column="28" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="290" bodyend="293"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1ConfidentialityPolicy_1aae225461392791341584419b4bf133f2" compoundref="DocumentPermissionServiceImpl_8java" startline="355" endline="361">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.ConfidentialityPolicy.evaluate</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a0c1ade445d1ba388327b8bd2d68af201" compoundref="DocumentPermissionServiceImpl_8java" startline="267" endline="288">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.evaluatePermissions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a8c7065181dfed328acceddd5959cf81f" compoundref="DocumentPermissionServiceImpl_8java" startline="59" endline="70">com.gmp.edms.service.impl.DocumentPermissionServiceImpl.hasCreatePermission</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>文档权限服务实现类 实现设计文档中的复杂权限控制架构 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>com.gmp.edms.service.impl.DocumentPermissionServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.service.DocumentPermissionService</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>DocumentRepository</label>
+      </node>
+      <node id="5">
+        <label>Set&lt; String &gt;</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.edms.service.impl.DocumentPermissionServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>log</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>documentRepository</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>adminUsers</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.service.DocumentPermissionService</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService"/>
+      </node>
+      <node id="3">
+        <label>static final Logger</label>
+      </node>
+    </collaborationgraph>
+    <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" line="26" column="7" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentPermissionServiceImpl.java" bodystart="26" bodyend="431"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a5bfe3224c41ab960e89ff1a0e37bd713" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>adminUsers</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ad5cd24b3caa2374a8bbcc649d4532c20" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>canApprove</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a0e449a4e96b6d46b4ef9919360fa93bb" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>canDelete</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ae67b0c2a3383ccd3a4656305e0f1276d" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>canDownload</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a60dbf9239a4aa9f5d313b2c83ca22ced" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>canEdit</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1afca196bc1ac7e3f70f04288e8f12f8c0" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>canView</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a22ca9dea7b3537fdeca080851752a5fb" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>documentRepository</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a0c1ade445d1ba388327b8bd2d68af201" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>evaluatePermissions</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1adc47699f485d672a8244a593f366cd3c" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>findField</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a6b4947a64c432f64f2129607f43dee58" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>getAccessibleDocumentIds</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a371390666c246641a7a26f557481f4df" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>getContext</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a4ac18ad537ee4e6475eaff52a834a159" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>getDocumentAuthor</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a820ea93d15bb39248e1a10530608e82a" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>getDocumentPolicies</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a46844b43875199ee3328a9a3e498bf3a" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>getFieldValue</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ad4b9efad7a1c47825924b0460d5148b3" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>getUserPermissions</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a1d26a58d598c1f8f7dc7b37e02bd00ce" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>getUserRoles</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ab9c267ffeeba1315ff726048b61eed98" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>hasCategoryPermission</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a8c7065181dfed328acceddd5959cf81f" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>hasCreatePermission</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1ac7c390c7bed721d7c801fa9488f33811" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>hasPermission</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a9a5d805830db9269d1b57395abcf0caf" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>hasPermissionWithLocation</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a829c9ced031c437a6b872d5b537b5cfa" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>hasPermissionWithTimeWindow</name></member>
+      <member refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentPermissionService_1ad20e1097705ce3621c4341358b32d41b" prot="public" virt="non-virtual" ambiguityscope="com::gmp::edms::service::DocumentPermissionService."><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>hasPermissionWithTimeWindow</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1a6ae738e5b2b23a3a7fdc60fb60be50ee" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>isAdmin</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1afa5c8dbe6fe6b1d287765bea458592e0" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentPermissionServiceImpl</scope><name>log</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

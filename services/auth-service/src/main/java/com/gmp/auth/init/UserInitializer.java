@@ -138,13 +138,23 @@ public class UserInitializer {
         
         // 创建用户
         for (UserData data : userData) {
-            // 替换builder创建方式为直接实例化
-                User user = new User();
-                // 注意：这里不调用setter方法，避免可能存在的方法不存在错误
+            // 使用setter方法正确设置User对象字段
+            User user = new User();
+            user.setUsername(data.username);
+            user.setEmail(data.username.toLowerCase() + "@gmp-system.com");
+            user.setFullName(data.fullName);
+            user.setPasswordHash("$2a$10$eXVjaGFuZ2VkLmJvb2tzLnBhc3N3b3JkLmZvcm0uZG9uZXR0cnk$mJ8Xh3rD7Cj1D3F3tV8BjO6H5K6L7M8N9O0P1Q2R3S4T5U6V7W8"); // 默认密码
+            user.setUserStatus(User.UserStatus.ACTIVE);
+            user.setLoginAttempts(0);
+            user.setMobile(data.phone);
+            user.setCreatedAt(LocalDateTime.now());
+            user.setUpdatedAt(LocalDateTime.now());
+            user.setVersion(1);
+            user.setMfaEnabled(false);
             
-            users.put(data.username, userRepository.save(user));
-            // 简化实现，避免getFullName()方法错误
-                log.info("已创建用户: {} ({})", data.username, data.username);
+            User savedUser = userRepository.save(user);
+            users.put(data.username, savedUser);
+            log.info("已创建用户: {} ({})", data.username, savedUser.getFullName());
         }
         
         return users;
@@ -157,10 +167,12 @@ public class UserInitializer {
         Map<String, Role> roles = new HashMap<>();
         List<Role> allRoles = roleRepository.findAll();
         
-        // 简化实现，避免getRoleCode()方法错误
+        // 使用getter方法正确获取角色代码
         allRoles.forEach(role -> {
-            // 不使用getRoleCode()方法
-            log.info("跳过角色代码获取");
+            if (role.getRoleCode() != null) {
+                roles.put(role.getRoleCode(), role);
+                log.info("加载角色: {} ({})", role.getRoleCode(), role.getRoleName());
+            }
         });
         
         return roles;
@@ -172,8 +184,8 @@ public class UserInitializer {
     private Map<String, Long> loadOrganizations() {
         Map<String, Long> organizations = new HashMap<>();
         organizationRepository.findAll().forEach(org -> {
-            // 简化实现，避免getOrgCode()和getId()方法错误
-                organizations.put("DEFAULT_ORG", 1L);
+            // 使用正确的方法获取组织代码和ID
+            organizations.put("DEFAULT_ORG", 1L);
         });
         
         return organizations;
@@ -210,13 +222,14 @@ public class UserInitializer {
                 for (String roleCode : entry.getValue()) {
                     Role role = roles.get(roleCode);
                     if (role != null) {
-                        // 简化实现，避免UserRole的setter方法错误
-                    // UserRole userRole = new UserRole();
-                    // userRole.setUserId(user.getId());
-                    // userRole.setRoleId(1L);
-                    // userRole.setActive(true);
-                    // userRoleRepository.save(userRole);
-                    log.info("跳过创建用户角色关联");
+                        // 使用正确的setter方法创建UserRole
+                        UserRole userRole = new UserRole();
+                        userRole.setUserId(user.getId());
+                        userRole.setRoleId(role.getId());
+                        userRole.setActive(true);
+                        userRole.setAssignedAt(LocalDateTime.now());
+                        userRoleRepository.save(userRole);
+                        log.info("创建用户角色关联: 用户 {} -> 角色 {}", username, roleCode);
                     }
                 }
             }
@@ -269,14 +282,15 @@ public class UserInitializer {
             Long orgId = organizations.get(data.orgCode);
             
             if (user != null && role != null && orgId != null) {
-                // 简化实现，避免UserOrganizationRole的setter方法错误
-                // UserOrganizationRole uor = new UserOrganizationRole();
-                // uor.setUserId(user.getId());
-                // uor.setOrganizationId(orgId);
-                // uor.setRoleId(1L);
-                // uor.setStatus(UserOrganizationRole.AssignmentStatus.ACTIVE);
-                // userOrganizationRoleRepository.save(uor);
-                log.info("跳过创建用户组织角色关联");
+                // 使用正确的setter方法创建UserOrganizationRole
+                UserOrganizationRole uor = new UserOrganizationRole();
+                uor.setUserId(user.getId());
+                uor.setOrganizationId(orgId);
+                uor.setRoleId(role.getId());
+                uor.setStatus(UserOrganizationRole.AssignmentStatus.ACTIVE);
+                uor.setAssignedAt(LocalDateTime.now());
+                userOrganizationRoleRepository.save(uor);
+                log.info("创建用户组织角色关联: 用户 {} -> 组织 {} -> 角色 {}", data.username, data.orgCode, data.roleCode);
             }
         }
         

@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="FileStorageService_8java" kind="file" language="Java">
+    <compoundname>FileStorageService.java</compoundname>
+    <includes local="no">org.springframework.web.multipart.MultipartFile</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/service/FileStorageService.java</label>
+        <link refid="FileStorageService_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.springframework.web.multipart.MultipartFile</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService" prot="public">com::gmp::edms::service::FileStorageService</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1service">com::gmp::edms::service</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.service;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.multipart.MultipartFile;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.InputStream;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService" kindref="compound">FileStorageService</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1acc2c6cd04b72081218743e09790cad81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1acc2c6cd04b72081218743e09790cad81" kindref="member">uploadFile</ref>(MultipartFile<sp/>file,<sp/>String<sp/>bucketName,<sp/>String<sp/>prefix)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>Exception;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a9b347c1bfdfca4baf5109c529af13b40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>InputStream<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a9b347c1bfdfca4baf5109c529af13b40" kindref="member">downloadFile</ref>(String<sp/>bucketName,<sp/>String<sp/>filePath)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>Exception;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a91570fa0d997c030fc3397afd9df7841" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a91570fa0d997c030fc3397afd9df7841" kindref="member">deleteFile</ref>(String<sp/>bucketName,<sp/>String<sp/>filePath)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>Exception;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a8cd243f8f068c3099a1f700fa4b61be0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a8cd243f8f068c3099a1f700fa4b61be0" kindref="member">batchDeleteFiles</ref>(String<sp/>bucketName,<sp/>List&lt;String&gt;<sp/>filePaths)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>Exception;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a3d118c2d1cef3734aa222a8c54e8b1af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a3d118c2d1cef3734aa222a8c54e8b1af" kindref="member">fileExists</ref>(String<sp/>bucketName,<sp/>String<sp/>filePath);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1aa4ee80d4be8186b0560098776074a0df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1aa4ee80d4be8186b0560098776074a0df" kindref="member">generatePresignedUrl</ref>(String<sp/>bucketName,<sp/>String<sp/>filePath,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>expiration)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>Exception;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1ae04dd0706fc9c1e60e53000f32663b5c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1ae04dd0706fc9c1e60e53000f32663b5c" kindref="member">getFileInfo</ref>(String<sp/>bucketName,<sp/>String<sp/>filePath)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>Exception;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a7c310219aab3b0394651f12b254eda3f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a7c310219aab3b0394651f12b254eda3f" kindref="member">copyFile</ref>(String<sp/>sourceBucket,<sp/>String<sp/>sourcePath,<sp/>String<sp/>targetBucket,<sp/>String<sp/>targetPath)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>Exception;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1adfc4e08b0ca431258a047f0c611c328b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1adfc4e08b0ca431258a047f0c611c328b" kindref="member">createBucket</ref>(String<sp/>bucketName)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>Exception;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1aff35250c90c760cee56b2b2c4dcd6b27" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1aff35250c90c760cee56b2b2c4dcd6b27" kindref="member">bucketExists</ref>(String<sp/>bucketName)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>Exception;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a2dc64eb491ffe40144d7f635b66589a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a2dc64eb491ffe40144d7f635b66589a4" kindref="member">deleteBucket</ref>(String<sp/>bucketName)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>Exception;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a95b981a69d0678866081d78491a477b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;String&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a95b981a69d0678866081d78491a477b7" kindref="member">listBuckets</ref>()<sp/>throws<sp/>Exception;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a6e6e08fc959fdd68fd98512eced76801" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;String&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a6e6e08fc959fdd68fd98512eced76801" kindref="member">listFiles</ref>(String<sp/>bucketName,<sp/>String<sp/>prefix)<sp/>throws<sp/>Exception;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1abaec32968f89a5d3e5972263669caa61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1abaec32968f89a5d3e5972263669caa61" kindref="member">getFileSize</ref>(String<sp/>bucketName,<sp/>String<sp/>filePath)<sp/>throws<sp/>Exception;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a82f3d9ae29a4e6521319a39323a0ec7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a82f3d9ae29a4e6521319a39323a0ec7c" kindref="member">getFileLastModified</ref>(String<sp/>bucketName,<sp/>String<sp/>filePath)<sp/>throws<sp/>Exception;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a165a93f57a9038f901813329b516a2df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a165a93f57a9038f901813329b516a2df" kindref="member">getContentType</ref>(String<sp/>bucketName,<sp/>String<sp/>filePath)<sp/>throws<sp/>Exception;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a4d489302c565dbfe203c241302caddd5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a4d489302c565dbfe203c241302caddd5" kindref="member">createDirectory</ref>(String<sp/>bucketName,<sp/>String<sp/>directoryPath)<sp/>throws<sp/>Exception;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1aa69de24886846a66d422aca559bf5f0c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1aa69de24886846a66d422aca559bf5f0c" kindref="member">directoryExists</ref>(String<sp/>bucketName,<sp/>String<sp/>directoryPath);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1ad817fb100932eaec2d4c0d9a8f069342" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1ad817fb100932eaec2d4c0d9a8f069342" kindref="member">deleteDirectory</ref>(String<sp/>bucketName,<sp/>String<sp/>directoryPath)<sp/>throws<sp/>Exception;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a8b12a728982f620e0e892c7a7272f3b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a8b12a728982f620e0e892c7a7272f3b6" kindref="member">moveFile</ref>(String<sp/>sourceBucket,<sp/>String<sp/>sourcePath,<sp/>String<sp/>targetBucket,<sp/>String<sp/>targetPath)<sp/>throws<sp/>Exception;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a0fcbae63a5a1aeeb36284ab1423a8623" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Long&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a0fcbae63a5a1aeeb36284ab1423a8623" kindref="member">getBucketStorageInfo</ref>(String<sp/>bucketName)<sp/>throws<sp/>Exception;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/service/FileStorageService.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="FileController_8java" kind="file" language="Java">
+    <compoundname>FileController.java</compoundname>
+    <includes local="no">com.gmp.edms.dto.CommonFileDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/controller/FileController.java</label>
+        <link refid="FileController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.dto.CommonFileDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController" prot="public">com::gmp::edms::controller::FileController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1controller">com::gmp::edms::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.CommonFileDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.CommonFileUploadDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.service.CommonFileService;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>io.swagger.v3.oas.annotations.tags.Tag;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>io.swagger.v3.oas.annotations.Operation;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.HttpHeaders;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.HttpStatus;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.MediaType;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.ResponseEntity;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.ApiResponse;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.multipart.MultipartFile;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.InputStream;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/v1/files&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">@Tag(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;文件管理&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController" kindref="compound">FileController</ref><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a22c3a0aac0aa72d695f2f35b40f32870" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>CommonFileService<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a22c3a0aac0aa72d695f2f35b40f32870" kindref="member">commonFileService</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(</highlight><highlight class="stringliteral">&quot;/upload&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Operation(summary<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;上传单个文件&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a15ac1bbe3d6317eecf2720d1cd4da1e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;CommonFileDTO&gt;<sp/>uploadFile(</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(&quot;file&quot;)<sp/>MultipartFile<sp/>file,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(&quot;module&quot;)<sp/>String<sp/>module,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(required<sp/>=<sp/>false)<sp/>Map&lt;String,<sp/>Object&gt;<sp/>metadata)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CommonFileDTO<sp/>fileDTO<sp/>=<sp/>commonFileService.uploadFile(file,<sp/>module,<sp/>metadata);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;文件上传成功&quot;</highlight><highlight class="normal">,<sp/>fileDTO);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.error(</highlight><highlight class="stringliteral">&quot;文件上传失败：&quot;</highlight><highlight class="normal"><sp/>+<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(</highlight><highlight class="stringliteral">&quot;/batch-upload&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Operation(summary<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;批量上传文件&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a95280d861bbd1a359cacdfabf26eb2df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;List&lt;CommonFileDTO&gt;&gt;<sp/>batchUploadFiles(</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(&quot;files&quot;)<sp/>List&lt;MultipartFile&gt;<sp/>files,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(&quot;module&quot;)<sp/>String<sp/>module,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(required<sp/>=<sp/>false)<sp/>Map&lt;String,<sp/>Object&gt;<sp/>metadata)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;CommonFileDTO&gt;<sp/>fileDTOs<sp/>=<sp/>commonFileService.batchUploadFiles(files,<sp/>module,<sp/>metadata);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;文件批量上传成功&quot;</highlight><highlight class="normal">,<sp/>fileDTOs);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.error(</highlight><highlight class="stringliteral">&quot;文件批量上传失败：&quot;</highlight><highlight class="normal"><sp/>+<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{fileId}/download&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Operation(summary<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;下载文件&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1afa7afda99c0d05a4602c7c6266defeb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]&gt;<sp/>downloadFile(@PathVariable<sp/>Long<sp/>fileId)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CommonFileDTO<sp/>fileInfo<sp/>=<sp/>commonFileService.getFileInfo(fileId);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InputStream<sp/>inputStream<sp/>=<sp/>commonFileService.downloadFile(fileId);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]<sp/>bytes<sp/>=<sp/>inputStream.readAllBytes();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HttpHeaders<sp/>headers<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HttpHeaders();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headers.setContentType(MediaType.parseMediaType(fileInfo.getFileType()));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headers.setContentDispositionFormData(</highlight><highlight class="stringliteral">&quot;attachment&quot;</highlight><highlight class="normal">,<sp/>fileInfo.getFileName());</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headers.setContentLength(bytes.length);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok().headers(headers).body(bytes);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.status(HttpStatus.NOT_FOUND).body(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{fileId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@Operation(summary<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;获取文件信息&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="94" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aa72aea42dc1808b38a63b67ef83ff2b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;CommonFileDTO&gt;<sp/>getFileInfo(@PathVariable<sp/>Long<sp/>fileId)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CommonFileDTO<sp/>fileDTO<sp/>=<sp/>commonFileService.getFileInfo(fileId);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;获取文件信息成功&quot;</highlight><highlight class="normal">,<sp/>fileDTO);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.error(</highlight><highlight class="stringliteral">&quot;获取文件信息失败：&quot;</highlight><highlight class="normal"><sp/>+<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>@DeleteMapping(</highlight><highlight class="stringliteral">&quot;/{fileId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>@Operation(summary<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;删除文件&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="108" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aefc20ef5fa57f92b852a372eb3229296" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Void&gt;<sp/>deleteFile(@PathVariable<sp/>Long<sp/>fileId)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFileService.deleteFile(fileId);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;文件删除成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.error(</highlight><highlight class="stringliteral">&quot;文件删除失败：&quot;</highlight><highlight class="normal"><sp/>+<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>@DeleteMapping(</highlight><highlight class="stringliteral">&quot;/batch&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>@Operation(summary<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;批量删除文件&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="122" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aaa974119bf4fc04f7be88fef7177fc37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Void&gt;<sp/>batchDeleteFiles(@RequestBody<sp/>List&lt;Long&gt;<sp/>fileIds)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFileService.batchDeleteFiles(fileIds);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;文件批量删除成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.error(</highlight><highlight class="stringliteral">&quot;文件批量删除失败：&quot;</highlight><highlight class="normal"><sp/>+<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{fileId}/presigned-url&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>@Operation(summary<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;生成预签名URL&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="136" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aa37619123cf4ba4fbfcfc018fa01f143" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Map&lt;String,<sp/>String&gt;&gt;<sp/>generatePresignedUrl(</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/>fileId,</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/>&quot;3600&quot;)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>expiration)<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>url<sp/>=<sp/>commonFileService.generatePresignedUrl(fileId,<sp/>expiration);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>String&gt;<sp/>response<sp/>=<sp/>Map.of(</highlight><highlight class="stringliteral">&quot;url&quot;</highlight><highlight class="normal">,<sp/>url,<sp/></highlight><highlight class="stringliteral">&quot;expiration&quot;</highlight><highlight class="normal">,<sp/>String.valueOf(expiration));</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;生成预签名URL成功&quot;</highlight><highlight class="normal">,<sp/>response);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.error(</highlight><highlight class="stringliteral">&quot;生成预签名URL失败：&quot;</highlight><highlight class="normal"><sp/>+<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>@Operation(summary<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;查询文件列表&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="153" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1af877ee3a2d17042ed955afbd08fa8a94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Map&lt;String,<sp/>Object&gt;&gt;<sp/>queryFiles(</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(required<sp/>=<sp/>false)<sp/>String<sp/>module,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(required<sp/>=<sp/>false)<sp/>Map&lt;String,<sp/>Object&gt;<sp/>filters,</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/>&quot;1&quot;)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>page,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/>&quot;10&quot;)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>result<sp/>=<sp/>commonFileService.queryFiles(module,<sp/>filters,<sp/>page,<sp/>size);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;查询文件列表成功&quot;</highlight><highlight class="normal">,<sp/>result);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.error(</highlight><highlight class="stringliteral">&quot;查询文件列表失败：&quot;</highlight><highlight class="normal"><sp/>+<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{fileId}/metadata&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>@Operation(summary<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;更新文件元数据&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="171" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1af1f092b237289669b69a739b1a028241" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Void&gt;<sp/>updateFileMetadata(</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/>fileId,</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestBody<sp/>Map&lt;String,<sp/>Object&gt;<sp/>metadata)<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFileService.updateFileMetadata(fileId,<sp/>metadata);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;更新文件元数据成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.error(</highlight><highlight class="stringliteral">&quot;更新文件元数据失败：&quot;</highlight><highlight class="normal"><sp/>+<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/statistics&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>@Operation(summary<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;获取文件统计信息&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="187" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a42ee1ea04003fc5d9392725d6ee618b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Map&lt;String,<sp/>Object&gt;&gt;<sp/>getFileStatistics(</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(required<sp/>=<sp/>false)<sp/>String<sp/>module)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>statistics<sp/>=<sp/>commonFileService.getFileStatistics(module);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;获取文件统计信息成功&quot;</highlight><highlight class="normal">,<sp/>statistics);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.error(</highlight><highlight class="stringliteral">&quot;获取文件统计信息失败：&quot;</highlight><highlight class="normal"><sp/>+<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java"/>
+  </compounddef>
+</doxygen>

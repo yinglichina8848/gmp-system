@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ARCHITECTURE_8md" kind="file" language="Markdown">
+    <compoundname>ARCHITECTURE.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>EDMS服务架构文档</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>1.<sp/>服务概述</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">EDMS<sp/>(Enterprise<sp/>Document<sp/>Management<sp/>System)<sp/>服务是GMP系统的核心组件，负责企业级文档和文件管理。本服务已完成与原File服务的合并，现在统一提供文件存储、文档管理和版本控制功能。</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.<sp/>服务架构</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.1<sp/>核心组件</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**控制器层**：处理HTTP请求，提供RESTful<sp/>API接口</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**服务层**：实现业务逻辑，协调各组件工作</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**数据访问层**：负责数据持久化操作</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**存储层**：使用Minio进行对象存储，存储实际文件内容</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**兼容层**：确保原File服务的API请求能够正常工作</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.2<sp/>架构图</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">+------------------+<sp/><sp/><sp/><sp/><sp/>+------------------+<sp/><sp/><sp/><sp/><sp/>+------------------+</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/>API<sp/>客户端<sp/><sp/><sp/><sp/><sp/><sp/>+----&gt;+<sp/><sp/>EDMS<sp/>控制器层<sp/><sp/><sp/>+----&gt;+<sp/><sp/>服务层<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">+------------------+<sp/><sp/><sp/><sp/><sp/>+------------------+<sp/><sp/><sp/><sp/><sp/>+------------------+</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v</highlight></codeline>
+<codeline><highlight class="normal">+------------------+<sp/><sp/><sp/><sp/><sp/>+------------------+<sp/><sp/><sp/><sp/><sp/>+------------------+</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/>Minio对象存储<sp/><sp/><sp/>+&lt;----+<sp/><sp/>存储适配器<sp/><sp/><sp/><sp/><sp/><sp/>+&lt;----+<sp/><sp/>数据访问层<sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">+------------------+<sp/><sp/><sp/><sp/><sp/>+------------------+<sp/><sp/><sp/><sp/><sp/>+------------------+</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>3.<sp/>模块结构</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">com.gmp.edms</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>controller/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>控制器层</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>DocumentController.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档管理控制器</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>DocumentCategoryController.java<sp/><sp/><sp/><sp/>#<sp/>文档分类控制器</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>DocumentVersionController.java<sp/><sp/><sp/><sp/><sp/>#<sp/>文档版本控制器</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>FileController.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>通用文件管理控制器</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>dto/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>数据传输对象</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>DocumentDTO.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档DTO</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>DocumentCategoryDTO.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档分类DTO</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>DocumentVersionDTO.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档版本DTO</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>CommonFileDTO.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>通用文件DTO</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>CommonFileUploadDTO.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文件上传DTO</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>entity/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>实体类</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>Document.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档实体</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>DocumentCategory.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档分类实体</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>DocumentVersion.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档版本实体</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>CommonFile.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>通用文件实体</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>repository/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>数据访问层</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>DocumentRepository.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档仓库</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>DocumentCategoryRepository.java<sp/><sp/><sp/><sp/>#<sp/>文档分类仓库</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>DocumentVersionRepository.java<sp/><sp/><sp/><sp/><sp/>#<sp/>文档版本仓库</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>CommonFileRepository.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>通用文件仓库</highlight></codeline>
+<codeline><highlight class="normal">└──<sp/>service/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>服务层</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>├──<sp/>DocumentService.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档服务接口</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>├──<sp/>DocumentCategoryService.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档分类服务接口</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>├──<sp/>DocumentVersionService.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档版本服务接口</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>├──<sp/>FileStorageService.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文件存储服务接口</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>├──<sp/>CommonFileService.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>通用文件服务接口</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>└──<sp/>impl/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>服务实现</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>DocumentServiceImpl.java<sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档服务实现</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>DocumentCategoryServiceImpl.java<sp/>#<sp/>文档分类服务实现</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>DocumentVersionServiceImpl.java<sp/>#<sp/>文档版本服务实现</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>MinioFileStorageServiceImpl.java<sp/>#<sp/>Minio文件存储服务实现</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>└──<sp/>CommonFileServiceImpl.java<sp/><sp/><sp/><sp/><sp/>#<sp/>通用文件服务实现</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>4.<sp/>API接口</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>4.1<sp/>通用文件管理API</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>路径<sp/>|<sp/>方法<sp/>|<sp/>描述<sp/>|<sp/>模块<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------|------|------|------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/files/upload`<sp/>|<sp/>POST<sp/>|<sp/>上传单个文件<sp/>|<sp/>文件管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/files/batch-upload`<sp/>|<sp/>POST<sp/>|<sp/>批量上传文件<sp/>|<sp/>文件管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/files/{fileId}/download`<sp/>|<sp/>GET<sp/>|<sp/>下载文件<sp/>|<sp/>文件管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/files/{fileId}`<sp/>|<sp/>GET<sp/>|<sp/>获取文件信息<sp/>|<sp/>文件管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/files/{fileId}`<sp/>|<sp/>DELETE<sp/>|<sp/>删除文件<sp/>|<sp/>文件管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/files/batch`<sp/>|<sp/>DELETE<sp/>|<sp/>批量删除文件<sp/>|<sp/>文件管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/files/{fileId}/presigned-url`<sp/>|<sp/>GET<sp/>|<sp/>生成预签名URL<sp/>|<sp/>文件管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/files`<sp/>|<sp/>GET<sp/>|<sp/>查询文件列表<sp/>|<sp/>文件管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/files/{fileId}/metadata`<sp/>|<sp/>PUT<sp/>|<sp/>更新文件元数据<sp/>|<sp/>文件管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/files/statistics`<sp/>|<sp/>GET<sp/>|<sp/>获取文件统计信息<sp/>|<sp/>文件管理<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>4.2<sp/>文档管理API</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>路径<sp/>|<sp/>方法<sp/>|<sp/>描述<sp/>|<sp/>模块<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------|------|------|------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/documents`<sp/>|<sp/>POST<sp/>|<sp/>创建文档<sp/>|<sp/>文档管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/documents/{id}`<sp/>|<sp/>GET<sp/>|<sp/>获取文档信息<sp/>|<sp/>文档管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/documents/{id}`<sp/>|<sp/>PUT<sp/>|<sp/>更新文档<sp/>|<sp/>文档管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/documents/{id}`<sp/>|<sp/>DELETE<sp/>|<sp/>删除文档<sp/>|<sp/>文档管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/documents`<sp/>|<sp/>GET<sp/>|<sp/>查询文档列表<sp/>|<sp/>文档管理<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>4.3<sp/>文档版本API</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>路径<sp/>|<sp/>方法<sp/>|<sp/>描述<sp/>|<sp/>模<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------|------|------|------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/documents/{documentId}/versions`<sp/>|<sp/>POST<sp/>|<sp/>上传新版本<sp/>|<sp/>版本管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/documents/{documentId}/versions`<sp/>|<sp/>GET<sp/>|<sp/>获取版本列表<sp/>|<sp/>版本管理<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`/api/v1/documents/{documentId}/versions/current`<sp/>|<sp/>GET<sp/>|<sp/>获取当前版本<sp/>|<sp/>版本管理<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>5.<sp/>文件存储结构</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>5.1<sp/>Minio存储结构</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**通用文件路径**：`{module}/{yyyyMMdd}/{uuid}/{fileName}`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**文档文件路径**：`documents/{documentId}/{version}/{fileName}`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**存储策略**：按模块和日期进行分桶和目录组织，提高查询效率</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>5.2<sp/>数据库存储</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**CommonFile表**：存储通用文件元数据</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Document表**：存储文档基本信息</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**DocumentVersion表**：存储文档版本信息</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**DocumentCategory表**：存储文档分类信息</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>6.<sp/>性能优化</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**文件预签名URL**：减少服务器中转，提高文件访问效率</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**批量操作API**：支持批量上传和删除，减少请求次数</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**模块分离**：按模块组织文件，提高查询性能</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**元数据索引**：为常用查询字段建立索引</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**缓存策略**：缓存文件元数据和统计信息</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>7.<sp/>安全措施</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**访问控制**：基于JWT的身份认证</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**文件权限**：支持按模块和用户设置访问权限</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**文件校验**：使用MD5校验确保文件完整性</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**HTTPS传输**：所有API请求使用HTTPS加密</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**预签名URL过期**：临时访问URL设置合理的过期时间</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>8.<sp/>服务迁移说明</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>8.1<sp/>File服务迁移</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**API兼容**：通过兼容层确保原File服务API继续可用</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**数据迁移**：原File服务的文件将自动迁移到新的存储结构</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**客户端适配**：建议客户端逐步迁移到新的API路径<sp/>`/api/v1/files`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>8.2<sp/>迁移时间表</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**兼容层支持期**：提供12个月的API兼容支持</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**完全迁移截止**：12个月后将停止支持原File服务API路径</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>9.<sp/>监控与运维</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**日志记录**：记录所有文件操作日志</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**性能监控**：监控文件上传/下载性能</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**存储监控**：监控存储容量使用情况</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**错误告警**：配置关键错误的告警机制</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>10.<sp/>未来规划</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**分布式存储**：支持多区域存储部署</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**CDN集成**：优化大文件访问速度</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**文件预览**：支持常用文件格式的在线预览</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**文件加密**：支持敏感文件的加密存储</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**AI分类**：使用AI技术自动对文件进行分类和标签管理</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/ARCHITECTURE.md"/>
+  </compounddef>
+</doxygen>

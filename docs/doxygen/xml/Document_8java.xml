@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Document_8java" kind="file" language="Java">
+    <compoundname>Document.java</compoundname>
+    <includes local="no">com.fasterxml.jackson.annotation.JsonFormat</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/entity/Document.java</label>
+        <link refid="Document_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.fasterxml.jackson.annotation.JsonFormat</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document" prot="public">com::gmp::edms::entity::Document</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1entity">com::gmp::edms::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.fasterxml.jackson.annotation.JsonFormat;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.CreationTimestamp;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.UpdateTimestamp;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;documents&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="20" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document" kindref="compound">Document</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a501ad11c5bb3609b07d71c2f6aad3f58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;document_number&quot;,<sp/>unique<sp/>=<sp/>true,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a647b5367b786eabd23eea8da3ce1af9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>documentNumber;<sp/></highlight><highlight class="comment">//<sp/>DOC-YYYY-MMDD-001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;title&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="30" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1ab0e3ee90037c04c33a4914b6f5d51ace" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>title;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;document_type&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a254f91edcf09be16a0ab411907ff6468" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>documentType;<sp/></highlight><highlight class="comment">//<sp/>SOP,<sp/>SPECIFICATION,<sp/>RECORD,<sp/>MANUAL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;category&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="36" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1aefeafe257259f2a4b7511b4d4f9dae75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>category;<sp/></highlight><highlight class="comment">//<sp/>分类路径，用/分隔</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;category_id&quot;)</highlight></codeline>
+<codeline lineno="39" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1ae06212e3f7e77b507db2301554ee3e42" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>categoryId;<sp/></highlight><highlight class="comment">//<sp/>分类ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="42" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a2cecb821d85c29046322b6ab93853b8b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>status<sp/>=<sp/>&quot;DRAFT&quot;;<sp/></highlight><highlight class="comment">//<sp/>DRAFT,<sp/>IN_REVIEW,<sp/>APPROVED,<sp/>EFFECTIVE,<sp/>WITHDRAWN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;current_version&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="45" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1ac8f789c1575ddc5f24691dc613ef85f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>currentVersion<sp/>=<sp/>&quot;1.0&quot;;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>当前版本ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a71251a61329eb79d509104af99842408" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>currentVersionId;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;template_id&quot;)</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1aa152c62025672b8f5360604c0f495f09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>templateId;<sp/></highlight><highlight class="comment">//<sp/>关联的模板ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;owner_department&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="54" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a0bf2545fd3a256bcdc61c7ec3eabee39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>ownerDepartment;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;author&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="57" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a81cb8fe44e56b94da5dcaa2d2ecb8bcb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>author;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;approver&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="60" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a6e53b8b7d036ecbbf04b72ff5567f369" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>approver;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;effective_date&quot;)</highlight></codeline>
+<codeline lineno="63" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a8fb0d395f2f01590104cca688bbdfb2b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>effectiveDate;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;expiry_date&quot;)</highlight></codeline>
+<codeline lineno="66" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a604a7fabd50bc5959c1c6730e5918964" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>expiryDate;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;retention_period&quot;)</highlight></codeline>
+<codeline lineno="69" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a06aac91712b11a1f145512b1943530f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>retentionPeriod;<sp/></highlight><highlight class="comment">//<sp/>保留期(月)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;confidentiality_level&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a2f6ff40b43e1c1dbf95b2e4f0ad2fa94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>confidentialityLevel<sp/>=<sp/>&quot;NORMAL&quot;;<sp/></highlight><highlight class="comment">//<sp/>NORMAL,<sp/>CONFIDENTIAL,<sp/>RESTRICTED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;file_path&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="75" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1ab3f01ff1cf423512cfb2f18c0334f38a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>filePath;<sp/></highlight><highlight class="comment">//<sp/>存储路径</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;file_size&quot;)</highlight></codeline>
+<codeline lineno="78" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1ac6b4e7b79a51c9574d63dab6d747d3ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>fileSize;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;content_type&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="81" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1afa3c954348536857ee5ed24c426bdd08" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>contentType;<sp/></highlight><highlight class="comment">//<sp/>MIME类型</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;checksum&quot;,<sp/>length<sp/>=<sp/>128)</highlight></codeline>
+<codeline lineno="84" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a61b8dde58f8d65b203fdc4a3a35927e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>checksum;<sp/></highlight><highlight class="comment">//<sp/>SHA256校验和</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreationTimestamp</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="88" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a28e4243eff503913135159ad60f6649f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@UpdateTimestamp</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;)</highlight></codeline>
+<codeline lineno="92" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1af187cafe9f2639a7ba0a771a53b30db0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>关联关系</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;document&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="96" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1ab497e41de09d1c9ac3ab9537090cd7cb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1edms_1_1entity_1_1DocumentVersion" kindref="compound">DocumentVersion</ref>&gt;<sp/>versions<sp/>=<sp/>new<sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;document&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="99" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a606ab2dd1103be7ac03081900af9adf5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1edms_1_1entity_1_1ApprovalInstance" kindref="compound">ApprovalInstance</ref>&gt;<sp/>approvalInstances<sp/>=<sp/>new<sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;category_id&quot;,<sp/>insertable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="103" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1ae64b6ada453c4ec957f0ede4f1ed3179" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1entity_1_1DocumentCategory" kindref="compound">DocumentCategory</ref><sp/>documentCategory;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Lombok的@Data注解已自动生成所有getter/setter方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>额外添加的方法以支持业务逻辑</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1Document_1a8b4d8c9d19302e1a471328403116ca40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCurrentVersionNumber(String<sp/>currentVersionNumber)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.currentVersion<sp/>=<sp/>currentVersionNumber;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/entity/Document.java"/>
+  </compounddef>
+</doxygen>

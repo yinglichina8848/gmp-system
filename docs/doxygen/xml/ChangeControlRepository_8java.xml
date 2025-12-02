@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ChangeControlRepository_8java" kind="file" language="Java">
+    <compoundname>ChangeControlRepository.java</compoundname>
+    <includes local="no">com.gmp.qms.entity.ChangeControl</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/repository/ChangeControlRepository.java</label>
+        <link refid="ChangeControlRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.entity.ChangeControl</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository" prot="public">com::gmp::qms::repository::ChangeControlRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1repository">com::gmp::qms::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.entity.ChangeControl;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="20" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository" kindref="compound">ChangeControlRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;ChangeControl,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;ChangeControl&gt;<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a9bd7e6d8a9e27495555eb3a35eef1781" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ChangeControl<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a9bd7e6d8a9e27495555eb3a35eef1781" kindref="member">findByChangeCode</ref>(String<sp/>changeCode);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a5353fea92a3381baa7e2cc77f2085ce6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;ChangeControl&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a5353fea92a3381baa7e2cc77f2085ce6" kindref="member">findByStatus</ref>(ChangeControl.ChangeStatus<sp/>status,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a0e4611a52d2491a5c3e1a8c21ca33806" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;ChangeControl&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a0e4611a52d2491a5c3e1a8c21ca33806" kindref="member">findByChangeType</ref>(String<sp/>changeType,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1ab78e399a4091fa4a3f8d7aaa2ab1cf5b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;ChangeControl&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1ab78e399a4091fa4a3f8d7aaa2ab1cf5b" kindref="member">findByRiskLevel</ref>(ChangeControl.RiskLevel<sp/>riskLevel,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a2e9f4c05a16cb761f682f88f51370f16" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;ChangeControl&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a2e9f4c05a16cb761f682f88f51370f16" kindref="member">findByChangeOwnerId</ref>(Long<sp/>changeOwnerId,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>cc<sp/>FROM<sp/>ChangeControl<sp/>cc<sp/>WHERE<sp/>cc.plannedImplementationDate<sp/>&lt;<sp/>:now<sp/>AND<sp/>cc.status<sp/>NOT<sp/>IN<sp/>:excludedStatuses<sp/>ORDER<sp/>BY<sp/>cc.plannedImplementationDate<sp/>ASC&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="74" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a6e30b25e815aaa8102e7e1269bae3fc2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ChangeControl&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a6e30b25e815aaa8102e7e1269bae3fc2" kindref="member">findOverdueChangeControls</ref>(LocalDateTime<sp/>now,<sp/>List&lt;ChangeControl.ChangeStatus&gt;<sp/>excludedStatuses);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1aca314da18acf6afa80fb6df52e6ff3f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;ChangeControl&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1aca314da18acf6afa80fb6df52e6ff3f4" kindref="member">findByCreatedBy</ref>(Long<sp/>createdBy,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>cc.status,<sp/>COUNT(cc)<sp/>FROM<sp/>ChangeControl<sp/>cc<sp/>GROUP<sp/>BY<sp/>cc.status&quot;)</highlight></codeline>
+<codeline lineno="91" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a84084bfbd4eafa13d02639afee6b677b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1ChangeControlRepository_1a84084bfbd4eafa13d02639afee6b677b" kindref="member">countByStatus</ref>();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/repository/ChangeControlRepository.java"/>
+  </compounddef>
+</doxygen>

@@ -74,4 +74,70 @@ public class UserRole {
             assignedAtAudit = now;
         }
     }
+    
+    // Setter方法
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+    
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+    
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+    
+    public void setAssignedAt(LocalDateTime assignedAt) {
+        this.assignedAt = assignedAt;
+    }
+    
+    public void setExpiredAt(LocalDateTime expiredAt) {
+        this.expiredAt = expiredAt;
+    }
+    
+    public void setAssignedBy(Long assignedBy) {
+        this.assignedBy = assignedBy;
+    }
+    
+    public void setAssignedAtAudit(LocalDateTime assignedAtAudit) {
+        this.assignedAtAudit = assignedAtAudit;
+    }
+    
+    // Getter方法
+    public Long getId() {
+        return id;
+    }
+    
+    public Long getUserId() {
+        return userId;
+    }
+    
+    public Long getRoleId() {
+        return roleId;
+    }
+    
+    public Boolean getActive() {
+        return isActive;
+    }
+    
+    public LocalDateTime getAssignedAt() {
+        return assignedAt;
+    }
+    
+    public LocalDateTime getExpiredAt() {
+        return expiredAt;
+    }
+    
+    public Long getAssignedBy() {
+        return assignedBy;
+    }
+    
+    public LocalDateTime getAssignedAtAudit() {
+        return assignedAtAudit;
+    }
 }

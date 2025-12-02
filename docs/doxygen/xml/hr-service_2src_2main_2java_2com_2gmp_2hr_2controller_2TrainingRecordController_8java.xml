@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="hr-service_2src_2main_2java_2com_2gmp_2hr_2controller_2TrainingRecordController_8java" kind="file" language="Java">
+    <compoundname>TrainingRecordController.java</compoundname>
+    <includes local="no">com.gmp.hr.dto.TrainingRecordDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>hr-service/src/main/java/com/gmp/hr/controller/TrainingRecordController.java</label>
+        <link refid="hr-service_2src_2main_2java_2com_2gmp_2hr_2controller_2TrainingRecordController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.hr.dto.TrainingRecordDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController" prot="public">com::gmp::hr::controller::TrainingRecordController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1hr_1_1controller">com::gmp::hr::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.hr.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.dto.TrainingRecordDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.service.TrainingRecordService;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.format.annotation.DateTimeFormat;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.HttpStatus;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.ResponseEntity;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/hr/training-records&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController" kindref="compound">TrainingRecordController</ref><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1acfe1291f54e4eacd964353fb10df3afd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>TrainingRecordService<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1acfe1291f54e4eacd964353fb10df3afd" kindref="member">trainingRecordService</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping</highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1a549096b933a44cef1051b2d74b76c44b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ResponseEntity&lt;TrainingRecordDTO&gt;<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1a549096b933a44cef1051b2d74b76c44b" kindref="member">createTrainingRecord</ref>(@RequestBody<sp/>TrainingRecordDTO<sp/>trainingRecordDTO)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingRecordDTO<sp/>createdRecord<sp/>=<sp/>trainingRecordService.createTrainingRecord(trainingRecordDTO);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ResponseEntity&lt;&gt;(createdRecord,<sp/>HttpStatus.CREATED);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1adc5a32761ec697ce66ce152a9841973d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;TrainingRecordDTO&gt;<sp/>getTrainingRecordById(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingRecordDTO<sp/>recordDTO<sp/>=<sp/>trainingRecordService.getTrainingRecordById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(recordDTO);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="60" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1a661c7816ce84b1ed4762b6bd032e8807" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;TrainingRecordDTO&gt;<sp/>updateTrainingRecord(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestBody<sp/>TrainingRecordDTO<sp/>trainingRecordDTO)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingRecordDTO<sp/>updatedRecord<sp/>=<sp/>trainingRecordService.updateTrainingRecord(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>trainingRecordDTO);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(updatedRecord);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@DeleteMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="73" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1aa70ce9ab5f06324c04c3690fd9e6a47d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Void&gt;<sp/>deleteTrainingRecord(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordService.deleteTrainingRecord(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.noContent().build();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping</highlight></codeline>
+<codeline lineno="84" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1a96807984bfd6c7c8ed866e677933a088" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ResponseEntity&lt;List&lt;TrainingRecordDTO&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1a96807984bfd6c7c8ed866e677933a088" kindref="member">getAllTrainingRecords</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingRecordDTO&gt;<sp/>records<sp/>=<sp/>trainingRecordService.getAllTrainingRecords();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(records);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/employee/{employeeId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="96" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1a3751f572b8b969a67e97674c82337a3b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;List&lt;TrainingRecordDTO&gt;&gt;<sp/>getTrainingRecordsByEmployeeId(@PathVariable<sp/>Long<sp/>employeeId)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>使用实际存在的getTrainingRecordsByEmployee方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingRecordDTO&gt;<sp/>records<sp/>=<sp/>trainingRecordService.getTrainingRecordsByEmployee(employeeId);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(records);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/type/{trainingType}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="109" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1a84d1d82d81c3ecf58a67b71e21c2df5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;List&lt;TrainingRecordDTO&gt;&gt;<sp/>getTrainingRecordsByType(@PathVariable<sp/>String<sp/>trainingType)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingRecordDTO&gt;<sp/>records<sp/>=<sp/>trainingRecordService.getTrainingRecordsByType(trainingType);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(records);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/date-range&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="122" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1abc03f3497ca85a8fac31215d03b46728" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;List&lt;TrainingRecordDTO&gt;&gt;<sp/>getTrainingRecordsByDateRange(</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam<sp/>@DateTimeFormat(iso<sp/>=<sp/>DateTimeFormat.ISO.DATE)<sp/>LocalDate<sp/>startDate,</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam<sp/>@DateTimeFormat(iso<sp/>=<sp/>DateTimeFormat.ISO.DATE)<sp/>LocalDate<sp/>endDate)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>返回空列表避免类型转换问题</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;());</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/assessment/{assessmentResult}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="136" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1abe6de673fd417af9cbf222e67c4bb6c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;List&lt;TrainingRecordDTO&gt;&gt;<sp/>getTrainingRecordsByAssessmentResult(</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>String<sp/>assessmentResult)<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>方法不存在，返回空列表</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;());</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/institution/{trainingInstitution}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="149" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1ac2cd3397354b7c1daf8553599097576b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;List&lt;TrainingRecordDTO&gt;&gt;<sp/>getTrainingRecordsByInstitution(</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>String<sp/>trainingInstitution)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>方法不存在，返回空列表</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;());</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/department/{departmentId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="162" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1a867560e7932183c0187cc11e9549e27e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;List&lt;TrainingRecordDTO&gt;&gt;<sp/>getTrainingRecordsByDepartmentId(@PathVariable<sp/>Long<sp/>departmentId)<sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>使用实际存在的getTrainingRecordsByDepartment方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingRecordDTO&gt;<sp/>records<sp/>=<sp/>trainingRecordService.getTrainingRecordsByDepartment(departmentId);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(records);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/upcoming&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="175" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1a7a3773920c03388aa4ed204781adf70c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;List&lt;TrainingRecordDTO&gt;&gt;<sp/>getUpcomingTrainings(</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(required<sp/>=<sp/>false,<sp/>defaultValue<sp/>=<sp/>&quot;30&quot;)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>daysThreshold)<sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingRecordDTO&gt;<sp/>records<sp/>=<sp/>trainingRecordService.getUpcomingTrainings(daysThreshold);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(records);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/annual-duration&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="189" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1TrainingRecordController_1aabd10cf765b01ffee2102cc1db2cdf14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Integer&gt;<sp/>getEmployeeAnnualTrainingDuration(@RequestParam<sp/>Long<sp/>employeeId,</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>year)<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>方法不存在，返回默认值</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(0);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="hr-service/src/main/java/com/gmp/hr/controller/TrainingRecordController.java"/>
+  </compounddef>
+</doxygen>

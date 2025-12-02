@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="AuthenticityAssessmentRepository_8java" kind="file" language="Java">
+    <compoundname>AuthenticityAssessmentRepository.java</compoundname>
+    <includes local="no">com.gmp.lims.entity.mongo.AuthenticityAssessment</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>lims-service/src/main/java/com/gmp/lims/repository/mongo/AuthenticityAssessmentRepository.java</label>
+        <link refid="AuthenticityAssessmentRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.lims.entity.mongo.AuthenticityAssessment</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository" prot="public">com::gmp::lims::repository::mongo::AuthenticityAssessmentRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1lims_1_1repository_1_1mongo">com::gmp::lims::repository::mongo</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1lims_1_1repository_1_1mongo" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.lims.repository.mongo;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.entity.mongo.AuthenticityAssessment;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.mongodb.repository.MongoRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.mongodb.repository.Query;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="16" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository" kindref="compound">AuthenticityAssessmentRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classMongoRepository" kindref="compound">MongoRepository</ref>&lt;AuthenticityAssessment,<sp/>String&gt;<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a32975681d76967efb3da543ff25c94d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;AuthenticityAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a32975681d76967efb3da543ff25c94d9" kindref="member">findByTaskId</ref>(Long<sp/>taskId);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a69527c7242cede74c8a9887d275ba3f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;AuthenticityAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a69527c7242cede74c8a9887d275ba3f3" kindref="member">findBySampleId</ref>(Long<sp/>sampleId);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a1157aabf8871060f24217ceb1ca54d54" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;AuthenticityAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a1157aabf8871060f24217ceb1ca54d54" kindref="member">findByAssessmentLevel</ref>(String<sp/>assessmentLevel);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1aa711bdee8d1794c705fdcf622e0644b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;AuthenticityAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1aa711bdee8d1794c705fdcf622e0644b9" kindref="member">findByOriginPlace</ref>(String<sp/>originPlace);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1acfe5dfb029195ba9160e059ad60f8dc7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;AuthenticityAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1acfe5dfb029195ba9160e059ad60f8dc7" kindref="member">findByAssessor</ref>(String<sp/>assessor);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;{<sp/>&apos;overallScore&apos;:<sp/>{<sp/>$gte:<sp/>?0<sp/>}<sp/>}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="65" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a5da60e7e79c58f7c515d931bf51baa3c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;AuthenticityAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a5da60e7e79c58f7c515d931bf51baa3c" kindref="member">findByOverallScoreGreaterThanEqual</ref>(Double<sp/>scoreThreshold);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;{<sp/></highlight><highlight class="stringliteral">&apos;overallScore&apos;</highlight><highlight class="normal">:<sp/>{<sp/>$lt:<sp/>?0<sp/>}<sp/>}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="74" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1aa5f6a38eebb9782ae80a8ab8661d563d" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>List&lt;AuthenticityAssessment&gt;<sp/>findByOverallScoreLessThan(Double<sp/>scoreThreshold);</highlight></codeline>
+<codeline lineno="75"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="83" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a45e83908bcee99208a120dfd4201956b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;AuthenticityAssessment&gt;<sp/>findByCreateDateBetween(Long<sp/>startDate,<sp/>Long<sp/>endDate);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1ac1869b849b6476731db138550837d6c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>long<sp/>deleteByTaskId(Long<sp/>taskId);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a9176ec0699b229899d3a2bfa285d8c70" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>long<sp/>deleteBySampleId(Long<sp/>sampleId);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a560051276d0969e933aa187dd68471d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;T&gt;<sp/>List&lt;T&gt;<sp/>countByAssessmentLevel(Class&lt;T&gt;<sp/>type);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;{<sp/>$or:<sp/>[<sp/>{<sp/></highlight><highlight class="stringliteral">&apos;originPlace&apos;</highlight><highlight class="normal">:<sp/>{<sp/>$regex:<sp/>?0,<sp/>$options:<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal"><sp/>}<sp/>},<sp/>{<sp/></highlight><highlight class="stringliteral">&apos;assessmentLevel&apos;</highlight><highlight class="normal">:<sp/>{<sp/>$regex:<sp/>?0,<sp/>$options:<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal"><sp/>}<sp/>},<sp/>{<sp/></highlight><highlight class="stringliteral">&apos;conclusion&apos;</highlight><highlight class="normal">:<sp/>{<sp/>$regex:<sp/>?0,<sp/>$options:<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal"><sp/>}<sp/>}<sp/>]<sp/>}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="115" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1mongo_1_1AuthenticityAssessmentRepository_1a09f58b85911529397f0897e003d96802" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>List&lt;AuthenticityAssessment&gt;<sp/>findByKeyword(String<sp/>keyword);</highlight></codeline>
+<codeline lineno="116"><highlight class="stringliteral">}</highlight></codeline>
+    </programlisting>
+    <location file="lims-service/src/main/java/com/gmp/lims/repository/mongo/AuthenticityAssessmentRepository.java"/>
+  </compounddef>
+</doxygen>

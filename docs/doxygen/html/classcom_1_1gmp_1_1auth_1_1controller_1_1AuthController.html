@@ -126,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a93143626b7ac95cc9c2d9cbd16260fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">用户登出  <br /></td></tr>
 <tr class="separator:a93143626b7ac95cc9c2d9cbd16260fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb0e99d3b60965eee60eca74b7a30548" id="r_abb0e99d3b60965eee60eca74b7a30548"><td class="memItemLeft" align="right" valign="top">ResponseEntity&lt; ApiResponse&lt; List&lt; User &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController.html#abb0e99d3b60965eee60eca74b7a30548">getUsers</a> ()</td></tr>
-<tr class="memdesc:abb0e99d3b60965eee60eca74b7a30548"><td class="mdescLeft">&#160;</td><td class="mdescRight">用户管理API  <br /></td></tr>
+<tr class="memdesc:abb0e99d3b60965eee60eca74b7a30548"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取用户列表  <br /></td></tr>
 <tr class="separator:abb0e99d3b60965eee60eca74b7a30548"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0e146d8a2751ccc77e4b3553fde8221" id="r_aa0e146d8a2751ccc77e4b3553fde8221"><td class="memItemLeft" align="right" valign="top">ResponseEntity&lt; ApiResponse&lt; List&lt; String &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController.html#aa0e146d8a2751ccc77e4b3553fde8221">getUserPermissions</a> (@PathVariable String username)</td></tr>
 <tr class="memdesc:aa0e146d8a2751ccc77e4b3553fde8221"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取用户权限  <br /></td></tr>
@@ -167,9 +167,15 @@ Static Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GMP认证系统API控制器 </p>
+<p>该类处理用户认证相关的API请求，包括登录、登出、权限检查、角色检查等功能。 提供RESTful风格的API接口，支持跨域请求。</p>
 <dl class="section author"><dt>Author</dt><dd>GMP系统开发团队 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section since"><dt>Since</dt><dd>2023-01-01</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService.html" title="认证服务接口">com.gmp.auth.service.AuthService</a> </dd>
+<dd>
+<a class="el" href="classcom_1_1gmp_1_1auth_1_1config_1_1JwtConfig.html" title="JWT令牌配置和工具类">com.gmp.auth.config.JwtConfig</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00029">29</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00037">37</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a522d53ebfafe7b98dc6b7771b2261e5e" name="a522d53ebfafe7b98dc6b7771b2261e5e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a522d53ebfafe7b98dc6b7771b2261e5e">&#9670;&#160;</a></span>checkPermission()</h2>
@@ -198,8 +204,18 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查用户权限 </p>
+<p>检查指定用户是否拥有指定权限</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>用户名 </td></tr>
+    <tr><td class="paramname">permission</td><td>权限代码 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ResponseEntity&lt;ApiResponse&lt;Map&lt;String, Object&gt;&gt;&gt; 权限检查响应</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService.html#aa568eff98b61485ca32edbf8c747405d" title="验证用户权限">com.gmp.auth.service.AuthService::hasPermission(String, String...)</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00127">127</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00180">180</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -230,8 +246,18 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查用户角色 </p>
+<p>检查指定用户是否拥有指定角色</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>用户名 </td></tr>
+    <tr><td class="paramname">role</td><td>角色代码 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ResponseEntity&lt;ApiResponse&lt;Map&lt;String, Object&gt;&gt;&gt; 角色检查响应</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService.html#ada8b79ae20b6eb69b5a0dd2fadf24a69" title="验证用户角色">com.gmp.auth.service.AuthService::hasRole(String, String...)</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00150">150</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00211">211</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -260,8 +286,16 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>从Authorization头中提取用户名 </p>
+<p>从Bearer令牌中提取用户名</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">authHeader</td><td>Authorization头 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>String 用户名，提取失败返回"anonymous" </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00204">204</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00279">279</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -290,8 +324,16 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取客户端IP地址 </p>
+<p>从HTTP请求中获取客户端真实IP地址，支持代理服务器</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>HTTP请求对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>String 客户端IP地址 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00187">187</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00257">257</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -312,8 +354,17 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户权限 </p>
+<p>获取指定用户的所有权限</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>用户名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ResponseEntity&lt;ApiResponse&lt;List&lt;String&gt;&gt;&gt; 用户权限列表响应</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService.html#a07e978f3b73c352df91170738341df9d" title="获取用户所有权限">com.gmp.auth.service.AuthService::getUserPermissions(String)</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00099">99</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00137">137</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -334,8 +385,17 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户角色 </p>
+<p>获取指定用户的所有角色</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>用户名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ResponseEntity&lt;ApiResponse&lt;List&lt;String&gt;&gt;&gt; 用户角色列表响应</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService.html#a4b4fb9114511f7c20928d57bd6485fdc" title="获取用户所有角色">com.gmp.auth.service.AuthService::getUserRoles(String)</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00113">113</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00158">158</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -354,9 +414,12 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>用户管理API </p>
+<p>获取用户列表 </p>
+<p>获取系统中的用户列表</p>
+<dl class="section return"><dt>Returns</dt><dd>ResponseEntity&lt;ApiResponse&lt;List&lt;User&gt;&gt;&gt; 用户列表响应</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1entity_1_1User.html" title="GMP系统用户实体类">com.gmp.auth.entity.User</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00084">84</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00115">115</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -376,8 +439,10 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>系统健康检查 </p>
+<p>检查认证服务的健康状态</p>
+<dl class="section return"><dt>Returns</dt><dd>ResponseEntity&lt;ApiResponse&lt;Map&lt;String, Object&gt;&gt;&gt; 健康检查响应 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00173">173</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00238">238</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -408,8 +473,22 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>用户登录 </p>
+<p>处理用户登录请求，验证用户凭证，生成JWT令牌</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>登录请求，包含用户名和密码 </td></tr>
+    <tr><td class="paramname">httpRequest</td><td>HTTP请求对象，用于获取客户端IP和User-Agent </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ResponseEntity&lt;ApiResponse&lt;LoginResponse&gt;&gt; 登录响应</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginRequest.html" title="用户登录请求DTO">com.gmp.auth.dto.LoginRequest</a> </dd>
+<dd>
+<a class="el" href="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html" title="登录响应DTO">com.gmp.auth.dto.LoginResponse</a> </dd>
+<dd>
+<a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService.html#a8bdb53a5ac6276565af51d441a65068b" title="用户登录">com.gmp.auth.service.AuthService::login</a>(<a class="el" href="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginRequest.html" title="用户登录请求DTO">com.gmp.auth.dto.LoginRequest</a>, String, String) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00042">42</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00060">60</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -430,8 +509,17 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>用户登出 </p>
+<p>处理用户登出请求，将JWT令牌加入黑名单</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">token</td><td>Authorization头中的JWT令牌 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ResponseEntity&lt;ApiResponse&lt;Void&gt;&gt; 登出响应</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService.html#aac1a5a81a2cce2db14483da07657dfd6" title="用户登出">com.gmp.auth.service.AuthService::logout(String, String)</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00066">66</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00091">91</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -456,7 +544,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00033">33</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00041">41</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -480,7 +568,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00036">36</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00044">44</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>
@@ -504,7 +592,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00030">30</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthController_8java_source.html#l00038">38</a> of file <a class="el" href="AuthController_8java_source.html">AuthController.java</a>.</p>
 
 </div>
 </div>

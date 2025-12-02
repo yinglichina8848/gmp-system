@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="StockInOrderItem_8java" kind="file" language="Java">
+    <compoundname>StockInOrderItem.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>warehouse-service/src/main/java/com/gmp/warehouse/entity/StockInOrderItem.java</label>
+        <link refid="StockInOrderItem_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem" prot="public">com::gmp::warehouse::entity::StockInOrderItem</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1warehouse_1_1entity">com::gmp::warehouse::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.warehouse.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.EqualsAndHashCode;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedBy;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedBy;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Serializable;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.math.BigDecimal;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;gmp_stock_in_order_item&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">@EqualsAndHashCode(callSuper<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem" kindref="compound">StockInOrderItem</ref><sp/>implements<sp/><ref refid="classSerializable" kindref="compound">Serializable</ref><sp/>{</highlight></codeline>
+<codeline lineno="32" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1adacdfcf2db96fdb259f38f2eb211827d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>serialVersionUID<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">,<sp/>nullable<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>unique<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="40" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1a8cfbc312d926e3ffdf29c2d960e9cb38" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;order_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1ad6fb5ecce584bdbea0e91e14b5280e01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrder" kindref="compound">StockInOrder</ref><sp/>stockInOrder;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;material_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="54" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1a28fe798001639bd756081da7eb100fef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1Material" kindref="compound">Material</ref><sp/>material;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;location_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="61" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1a9c5f566097f95d15906be96180045088" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1Location" kindref="compound">Location</ref><sp/>location;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;material_code&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="67" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1a04d136d41aa61ea5a36ae07d37f067ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>materialCode;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;material_name&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="73" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1ad6ebe50303bbe3508e7a05bd0f239e8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>materialName;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;specification&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="79" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1ad970d466633a9b52d092e48ef712ae6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>specification;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;unit&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1a76f8c31e88940ea3e29ae40f3de9923d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>unit;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;batch_no&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="91" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1afea843e445f3543f9e245d693e2b5e78" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>batchNo;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;quantity&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>precision<sp/>=<sp/>10,<sp/>scale<sp/>=<sp/>2)</highlight></codeline>
+<codeline lineno="97" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1adb1a9f800a5ed256dc990c6f09575fbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>BigDecimal<sp/>quantity;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;unit_price&quot;,<sp/>precision<sp/>=<sp/>10,<sp/>scale<sp/>=<sp/>2)</highlight></codeline>
+<codeline lineno="103" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1acd3eb298dfef1c568c53202a3bebf1f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>BigDecimal<sp/>unitPrice;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;amount&quot;,<sp/>precision<sp/>=<sp/>10,<sp/>scale<sp/>=<sp/>2)</highlight></codeline>
+<codeline lineno="109" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1ac1137aac24d6c2267c3b10a2a23838bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>BigDecimal<sp/>amount;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;expiry_date&quot;)</highlight></codeline>
+<codeline lineno="115" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1a44138715312ad270a756449d9690cd59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>expiryDate;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;remark&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="121" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1ae247dbb9ea69ccaf4106794a2f2c8496" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>remark;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;line_no&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>columnDefinition<sp/>=<sp/>&quot;INTEGER<sp/>DEFAULT<sp/>0&quot;)</highlight></codeline>
+<codeline lineno="127" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1a8e612f323e0333e065cec67c43c1eb5c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>lineNo;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="134" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1a8a46b57bbfd5b13e19e86fc9968ba97d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedBy</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="141" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1ac9a7ba186d6c9a643ef035b3cdab5208" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;)</highlight></codeline>
+<codeline lineno="148" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1ab39dfe89fc33b8fa04e0053498f27e4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedBy</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="155" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItem_1ae4535d9d36f81f2a22f5670f22c3041a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="warehouse-service/src/main/java/com/gmp/warehouse/entity/StockInOrderItem.java"/>
+  </compounddef>
+</doxygen>

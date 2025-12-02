@@ -198,15 +198,17 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>为用户分配多个角色 </p>
+<p>为指定用户分配多个角色</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
     <tr><td class="paramname">roleIds</td><td>角色ID列表 </td></tr>
-    <tr><td class="paramname">assignedBy</td><td>分配人 </td></tr>
+    <tr><td class="paramname">assignedBy</td><td>分配人ID </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>分配结果列表 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;UserRole&gt; 分配结果列表</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1entity_1_1UserRole.html" title="用户角色关联实体">com.gmp.auth.entity.UserRole</a> </dd></dl>
 
 <p>Implements <a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService.html#aaede180ffec69c398166c531fd051482">com.gmp.auth.service.UserRoleService</a>.</p>
 
@@ -214,7 +216,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="UserRoleServiceImpl_8java_source.html#l00035">com.gmp.auth.service.impl.UserRoleServiceImpl.assignRoleToUser()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00083">com.gmp.auth.service.impl.UserRoleServiceImplTest.assignRolesToUser_RoleAlreadyExists()</a>, and <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00062">com.gmp.auth.service.impl.UserRoleServiceImplTest.assignRolesToUser_Success()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00094">com.gmp.auth.service.impl.UserRoleServiceImplTest.assignRolesToUser_Exception()</a>, <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00078">com.gmp.auth.service.impl.UserRoleServiceImplTest.assignRolesToUser_RoleAlreadyExists()</a>, and <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00062">com.gmp.auth.service.impl.UserRoleServiceImplTest.assignRolesToUser_Success()</a>.</p>
 
 </div>
 </div>
@@ -251,21 +253,23 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>为用户分配角色 </p>
+<p>为指定用户分配指定角色</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
     <tr><td class="paramname">roleId</td><td>角色ID </td></tr>
-    <tr><td class="paramname">assignedBy</td><td>分配人 </td></tr>
+    <tr><td class="paramname">assignedBy</td><td>分配人ID </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>分配结果 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>UserRole 分配结果</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1entity_1_1UserRole.html" title="用户角色关联实体">com.gmp.auth.entity.UserRole</a> </dd></dl>
 
 <p>Implements <a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService.html#a8351f6218883c96171a6272a14b905f1">com.gmp.auth.service.UserRoleService</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="UserRoleServiceImpl_8java_source.html#l00035">35</a> of file <a class="el" href="UserRoleServiceImpl_8java_source.html">UserRoleServiceImpl.java</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UserRoleServiceImpl_8java_source.html#l00043">com.gmp.auth.service.impl.UserRoleServiceImpl.assignRolesToUser()</a>, <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00106">com.gmp.auth.service.impl.UserRoleServiceImplTest.assignRolesToUser_Exception()</a>, <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00083">com.gmp.auth.service.impl.UserRoleServiceImplTest.assignRolesToUser_RoleAlreadyExists()</a>, <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00062">com.gmp.auth.service.impl.UserRoleServiceImplTest.assignRolesToUser_Success()</a>, and <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00049">com.gmp.auth.service.impl.UserRoleServiceImplTest.assignRoleToUser_Success()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UserRoleServiceImpl_8java_source.html#l00043">com.gmp.auth.service.impl.UserRoleServiceImpl.assignRolesToUser()</a>, and <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00049">com.gmp.auth.service.impl.UserRoleServiceImplTest.assignRoleToUser_Success()</a>.</p>
 
 </div>
 </div>
@@ -286,19 +290,20 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户的角色代码集合 </p>
+<p>获取指定用户的角色代码集合</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>角色代码集合 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Set&lt;String&gt; 角色代码集合 </dd></dl>
 
 <p>Implements <a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService.html#af787c83cf757f3836e8f7e97e29223c9">com.gmp.auth.service.UserRoleService</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="UserRoleServiceImpl_8java_source.html#l00077">77</a> of file <a class="el" href="UserRoleServiceImpl_8java_source.html">UserRoleServiceImpl.java</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00229">com.gmp.auth.service.impl.UserRoleServiceImplTest.getUserRoleCodes_ReturnsEmptySet()</a>, <a class="el" href="UserRoleServiceImpl_8java_source.html#l00091">com.gmp.auth.service.impl.UserRoleServiceImpl.hasAnyRole()</a>, and <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00279">com.gmp.auth.service.impl.UserRoleServiceImplTest.hasAnyRole_NoMatchingRole()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00209">com.gmp.auth.service.impl.UserRoleServiceImplTest.getUserRoleCodes_ReturnsEmptySet()</a>, <a class="el" href="UserRoleServiceImpl_8java_source.html#l00091">com.gmp.auth.service.impl.UserRoleServiceImpl.hasAnyRole()</a>, and <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00259">com.gmp.auth.service.impl.UserRoleServiceImplTest.hasAnyRole_NoMatchingRole()</a>.</p>
 
 </div>
 </div>
@@ -319,13 +324,15 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户的所有角色 </p>
+<p>获取指定用户的所有角色列表</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>角色列表 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;Role&gt; 角色列表</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1entity_1_1Role.html" title="GMP系统角色实体">com.gmp.auth.entity.Role</a> </dd></dl>
 
 <p>Implements <a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService.html#ab8990069a7a5edeed7fa0840cdaad5fa">com.gmp.auth.service.UserRoleService</a>.</p>
 
@@ -333,7 +340,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="UserRoleServiceImpl_8java_source.html#l00032">com.gmp.auth.service.impl.UserRoleServiceImpl.roleRepository</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00171">com.gmp.auth.service.impl.UserRoleServiceImplTest.getUserRoles_Success()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00151">com.gmp.auth.service.impl.UserRoleServiceImplTest.getUserRoles_Success()</a>.</p>
 
 </div>
 </div>
@@ -364,6 +371,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查用户是否拥有指定角色之一 </p>
+<p>检查指定用户是否拥有指定角色列表中的任一角色</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
@@ -371,7 +379,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否拥有任一角色 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果用户拥有任一角色返回true，否则返回false </dd></dl>
 
 <p>Implements <a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService.html#ad2faa32322385b1d2e3bfdb9fbd43029">com.gmp.auth.service.UserRoleService</a>.</p>
 
@@ -379,7 +387,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="UserRoleServiceImpl_8java_source.html#l00077">com.gmp.auth.service.impl.UserRoleServiceImpl.getUserRoleCodes()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00254">com.gmp.auth.service.impl.UserRoleServiceImplTest.hasAnyRole_HasMatchingRole()</a>, and <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00279">com.gmp.auth.service.impl.UserRoleServiceImplTest.hasAnyRole_NoMatchingRole()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00234">com.gmp.auth.service.impl.UserRoleServiceImplTest.hasAnyRole_HasMatchingRole()</a>, and <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00259">com.gmp.auth.service.impl.UserRoleServiceImplTest.hasAnyRole_NoMatchingRole()</a>.</p>
 
 </div>
 </div>
@@ -410,6 +418,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查用户是否拥有指定角色 </p>
+<p>检查指定用户是否拥有指定角色</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
@@ -417,13 +426,13 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否拥有 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果用户拥有该角色返回true，否则返回false </dd></dl>
 
 <p>Implements <a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService.html#a877a8d3d4dfd76e59ec2641a202101ec">com.gmp.auth.service.UserRoleService</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="UserRoleServiceImpl_8java_source.html#l00084">84</a> of file <a class="el" href="UserRoleServiceImpl_8java_source.html">UserRoleServiceImpl.java</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00242">com.gmp.auth.service.impl.UserRoleServiceImplTest.hasRole_ReturnsFalse()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00222">com.gmp.auth.service.impl.UserRoleServiceImplTest.hasRole_ReturnsFalse()</a>.</p>
 
 </div>
 </div>
@@ -443,12 +452,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>刷新用户过期的角色 </p>
+<p>刷新用户过期的角色，更新角色状态 </p>
 
 <p>Implements <a class="el" href="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService.html#a4db77701054a892267437fc34ce4c9c9">com.gmp.auth.service.UserRoleService</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="UserRoleServiceImpl_8java_source.html#l00097">97</a> of file <a class="el" href="UserRoleServiceImpl_8java_source.html">UserRoleServiceImpl.java</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00300">com.gmp.auth.service.impl.UserRoleServiceImplTest.refreshExpiredUserRoles_NoOperation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00280">com.gmp.auth.service.impl.UserRoleServiceImplTest.refreshExpiredUserRoles_NoOperation()</a>.</p>
 
 </div>
 </div>
@@ -479,6 +489,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>移除用户的角色 </p>
+<p>移除指定用户的指定角色</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
@@ -493,7 +504,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="UserRoleServiceImpl_8java_source.html#l00029">com.gmp.auth.service.impl.UserRoleServiceImpl.userRoleRepository</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00130">com.gmp.auth.service.impl.UserRoleServiceImplTest.removeRoleFromUser_Success()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UserRoleServiceImplTest_8java_source.html#l00110">com.gmp.auth.service.impl.UserRoleServiceImplTest.removeRoleFromUser_Success()</a>.</p>
 
 </div>
 </div>

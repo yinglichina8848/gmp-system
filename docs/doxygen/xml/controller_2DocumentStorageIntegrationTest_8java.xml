@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="controller_2DocumentStorageIntegrationTest_8java" kind="file" language="Java">
+    <compoundname>DocumentStorageIntegrationTest.java</compoundname>
+    <includes local="no">com.fasterxml.jackson.databind.ObjectMapper</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/test/java/com/gmp/edms/controller/DocumentStorageIntegrationTest.java</label>
+        <link refid="controller_2DocumentStorageIntegrationTest_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.fasterxml.jackson.databind.ObjectMapper</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest" prot="package">com::gmp::edms::controller::DocumentStorageIntegrationTest</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1controller">com::gmp::edms::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.fasterxml.jackson.databind.ObjectMapper;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.DocumentDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.DocumentVersionDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.service.DocumentService;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.service.DocumentVersionService;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.boot.test.context.SpringBootTest;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.boot.test.mock.mockito.MockBean;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.MediaType;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.mock.web.MockMultipartFile;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.test.context.ActiveProfiles;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.MockMvc;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.request.MockMvcRequestBuilders;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.result.MockMvcResultMatchers;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.HashMap;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.*;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.Mockito.when;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">@SpringBootTest</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">@AutoConfigureMockMvc</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">@ActiveProfiles(</highlight><highlight class="stringliteral">&quot;test&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest" refkind="compound"><highlight class="normal">class<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest" kindref="compound">DocumentStorageIntegrationTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1af1e0f784573a0a290e8545a5eb6a8754" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>MockMvc<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1af1e0f784573a0a290e8545a5eb6a8754" kindref="member">mockMvc</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1a1741ba0dd316f4577a611c8e9be51122" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>ObjectMapper<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1a1741ba0dd316f4577a611c8e9be51122" kindref="member">objectMapper</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@MockBean</highlight></codeline>
+<codeline lineno="44" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1a57f4cad2a9a6a9e147de7d7aff74dea3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>DocumentService<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1a57f4cad2a9a6a9e147de7d7aff74dea3" kindref="member">documentService</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@MockBean</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1a4880ffaf9fb766270e450810f45e41bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>DocumentVersionService<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1a4880ffaf9fb766270e450810f45e41bd" kindref="member">documentVersionService</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1aaec227604e82bb66517598a181b3fc4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1aaec227604e82bb66517598a181b3fc4a" kindref="member">testCreateDocumentWithFileUpload</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockMultipartFile<sp/>documentFile<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MockMultipartFile(</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;test-document.pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;application/pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;PDF<sp/>content&quot;</highlight><highlight class="normal">.getBytes()</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentDTO<sp/>mockDocumentDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DocumentDTO();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockDocumentDTO.setId(1L);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockDocumentDTO.setTitle(</highlight><highlight class="stringliteral">&quot;Test<sp/>Document&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockDocumentDTO.setCategoryId(1L);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentVersionDTO<sp/>mockVersionDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DocumentVersionDTO();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockVersionDTO.setId(1L);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockVersionDTO.setDocumentId(1L);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockVersionDTO.setVersion(</highlight><highlight class="stringliteral">&quot;1.0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockVersionDTO.setFileName(</highlight><highlight class="stringliteral">&quot;test-document.pdf&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockVersionDTO.setFilePath(</highlight><highlight class="stringliteral">&quot;edms/documents/test-document.pdf&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>配置模拟行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(documentService.createDocument(any(DocumentDTO.class))).thenReturn(mockDocumentDTO);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(documentVersionService.createVersion(anyLong(),<sp/>any(MockMultipartFile.class),<sp/>anyString(),<sp/>anyMap())).thenReturn(mockVersionDTO);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行请求</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.multipart(</highlight><highlight class="stringliteral">&quot;/api/v1/documents/with-file&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.file(documentFile)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.param(</highlight><highlight class="stringliteral">&quot;title&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Test<sp/>Document&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.param(</highlight><highlight class="stringliteral">&quot;categoryId&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.param(</highlight><highlight class="stringliteral">&quot;version&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;1.0&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.param(</highlight><highlight class="stringliteral">&quot;description&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Test<sp/>description&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.MULTIPART_FORM_DATA))</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.status().isCreated())</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.jsonPath(</highlight><highlight class="stringliteral">&quot;$.document.id&quot;</highlight><highlight class="normal">).value(1L))</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.jsonPath(</highlight><highlight class="stringliteral">&quot;$.document.title&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;Test<sp/>Document&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.jsonPath(</highlight><highlight class="stringliteral">&quot;$.version.id&quot;</highlight><highlight class="normal">).value(1L))</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.jsonPath(</highlight><highlight class="stringliteral">&quot;$.version.fileName&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;test-document.pdf&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="97" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1ac8025dc0f5163cc7cd561256c85c79cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1ac8025dc0f5163cc7cd561256c85c79cd" kindref="member">testUpdateDocumentVersionWithFileUpload</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockMultipartFile<sp/>documentFile<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MockMultipartFile(</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;updated-document.pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;application/pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Updated<sp/>PDF<sp/>content&quot;</highlight><highlight class="normal">.getBytes()</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentVersionDTO<sp/>mockVersionDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DocumentVersionDTO();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockVersionDTO.setId(2L);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockVersionDTO.setDocumentId(1L);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockVersionDTO.setVersion(</highlight><highlight class="stringliteral">&quot;2.0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockVersionDTO.setFileName(</highlight><highlight class="stringliteral">&quot;updated-document.pdf&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockVersionDTO.setFilePath(</highlight><highlight class="stringliteral">&quot;edms/documents/updated-document.pdf&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>配置模拟行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(documentVersionService.createVersion(eq(1L),<sp/>any(MockMultipartFile.class),<sp/>eq(</highlight><highlight class="stringliteral">&quot;2.0&quot;</highlight><highlight class="normal">),<sp/>anyMap())).thenReturn(mockVersionDTO);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行请求</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.multipart(</highlight><highlight class="stringliteral">&quot;/api/v1/documents/1/versions&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.file(documentFile)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.param(</highlight><highlight class="stringliteral">&quot;version&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;2.0&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.param(</highlight><highlight class="stringliteral">&quot;description&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Updated<sp/>version&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.MULTIPART_FORM_DATA))</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.status().isCreated())</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.jsonPath(</highlight><highlight class="stringliteral">&quot;$.id&quot;</highlight><highlight class="normal">).value(2L))</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.jsonPath(</highlight><highlight class="stringliteral">&quot;$.documentId&quot;</highlight><highlight class="normal">).value(1L))</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.jsonPath(</highlight><highlight class="stringliteral">&quot;$.version&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;2.0&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.jsonPath(</highlight><highlight class="stringliteral">&quot;$.fileName&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;updated-document.pdf&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="133" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1a121ab79048d4a4939b95915da2ec6a70" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1a121ab79048d4a4939b95915da2ec6a70" kindref="member">testDownloadDocumentVersion</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>配置模拟行为<sp/>-<sp/>这里主要测试控制器逻辑，文件下载实际会由FileStorageService处理</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.get(</highlight><highlight class="stringliteral">&quot;/api/v1/documents/versions/1/download&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.status().isOk());</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="143" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1afc66d3e397108599c964385cbbf4d75c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentStorageIntegrationTest_1afc66d3e397108599c964385cbbf4d75c" kindref="member">testBatchDocumentUpload</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockMultipartFile<sp/>file1<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MockMultipartFile(</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;files[0]&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;doc1.pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;application/pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Content<sp/>1&quot;</highlight><highlight class="normal">.getBytes()</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockMultipartFile<sp/>file2<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MockMultipartFile(</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;files[1]&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;doc2.pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;application/pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Content<sp/>2&quot;</highlight><highlight class="normal">.getBytes()</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备文档元数据JSON</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>metadata1<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>metadata1.put(</highlight><highlight class="stringliteral">&quot;title&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Document<sp/>1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>metadata1.put(</highlight><highlight class="stringliteral">&quot;categoryId&quot;</highlight><highlight class="normal">,<sp/>1L);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>metadata1.put(</highlight><highlight class="stringliteral">&quot;version&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;1.0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>metadata2<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>metadata2.put(</highlight><highlight class="stringliteral">&quot;title&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Document<sp/>2&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>metadata2.put(</highlight><highlight class="stringliteral">&quot;categoryId&quot;</highlight><highlight class="normal">,<sp/>2L);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>metadata2.put(</highlight><highlight class="stringliteral">&quot;version&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;1.0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Map&lt;String,<sp/>Object&gt;&gt;<sp/>metadataList<sp/>=<sp/>Arrays.asList(metadata1,<sp/>metadata2);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>metadataJson<sp/>=<sp/>objectMapper.writeValueAsString(metadataList);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockMultipartFile<sp/>metadataFile<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MockMultipartFile(</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;metadata&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;metadata.json&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;application/json&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>metadataJson.getBytes()</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行请求<sp/>-<sp/>测试控制器能否正确接收批量上传请求</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.multipart(</highlight><highlight class="stringliteral">&quot;/api/v1/documents/batch-upload&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.file(file1)</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.file(file2)</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.file(metadataFile)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.MULTIPART_FORM_DATA))</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(MockMvcResultMatchers.status().isOk());</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/test/java/com/gmp/edms/controller/DocumentStorageIntegrationTest.java"/>
+  </compounddef>
+</doxygen>

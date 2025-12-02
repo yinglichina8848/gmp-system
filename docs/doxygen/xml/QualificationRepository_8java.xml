@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QualificationRepository_8java" kind="file" language="Java">
+    <compoundname>QualificationRepository.java</compoundname>
+    <includes local="no">com.gmp.hr.entity.Qualification</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>hr-service/src/main/java/com/gmp/hr/repository/QualificationRepository.java</label>
+        <link refid="QualificationRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.hr.entity.Qualification</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository" prot="public">com::gmp::hr::repository::QualificationRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1hr_1_1repository">com::gmp::hr::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.hr.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.entity.Qualification;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Modifying;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="23" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository" kindref="compound">QualificationRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Qualification,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;Qualification&gt;<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1a081a6118f9d1b561c609ee63a4a2d809" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Qualification&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1a081a6118f9d1b561c609ee63a4a2d809" kindref="member">findByCertificateNumberAndDeletedFalse</ref>(String<sp/>certificateNumber);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1a6f004677cb81b83cafc4a966e8d6ac16" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Qualification&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1a6f004677cb81b83cafc4a966e8d6ac16" kindref="member">findByEmployeeIdAndDeletedFalse</ref>(Long<sp/>employeeId);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1a2483be7767ac9b87c754e15ade9f3d47" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Qualification&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1a2483be7767ac9b87c754e15ade9f3d47" kindref="member">findByQualificationTypeIdAndDeletedFalse</ref>(Long<sp/>qualificationTypeId);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>q<sp/>FROM<sp/>Qualification<sp/>q<sp/>WHERE<sp/>q.expiryDate<sp/>IS<sp/>NOT<sp/>NULL<sp/>AND<sp/>q.expiryDate<sp/>BETWEEN<sp/>CURRENT_DATE<sp/>AND<sp/>:date<sp/>AND<sp/>q.deleted<sp/>=<sp/>false&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="56" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1a601bfa736cdeb8bb6093f7942e052b20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Qualification&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1a601bfa736cdeb8bb6093f7942e052b20" kindref="member">findExpiringQualifications</ref>(LocalDate<sp/>date);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1ad0764d9db863f726bea3f9fe363d9cea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Qualification&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1ad0764d9db863f726bea3f9fe363d9cea" kindref="member">findByEmployeeIdAndQualificationTypeIdAndDeletedFalse</ref>(Long<sp/>employeeId,<sp/>Long<sp/>qualificationTypeId);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Modifying</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;UPDATE<sp/>Qualification<sp/>q<sp/>SET<sp/>q.deleted<sp/>=<sp/>true<sp/>WHERE<sp/>q.</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>:</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">&quot;)</highlight></codeline>
+<codeline lineno="75" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1a71ac81cd8429b069e789608ec15ab9ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1QualificationRepository_1a71ac81cd8429b069e789608ec15ab9ab" kindref="member">softDeleteById</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="hr-service/src/main/java/com/gmp/hr/repository/QualificationRepository.java"/>
+  </compounddef>
+</doxygen>

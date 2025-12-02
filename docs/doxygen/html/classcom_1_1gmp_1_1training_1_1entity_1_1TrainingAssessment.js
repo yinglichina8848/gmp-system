@@ -1,0 +1,28 @@
+var classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment =
+[
+    [ "Status", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status.html", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status" ],
+    [ "Type", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type.html", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type" ],
+    [ "getId", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a552c9d143e8b380f32f42e1d35b0cae5", null ],
+    [ "getNotes", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#aae666162275dc39518a2f5568be13067", null ],
+    [ "getScore", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a5caa28cb6bb91886f6b668f56c6a5b1a", null ],
+    [ "setCompletionDate", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#abd8bc5ae6829e8a2644efcf923fdbb96", null ],
+    [ "setNotes", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#acc81d8cb97395ac7b3e7d8ba5aafd5f3", null ],
+    [ "setStatus", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#ac01719b43968367cb1c7e1a13e1ddfbd", null ],
+    [ "assessmentTime", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#af73ce45fe829c276fa7ff1d7ae35ec56", null ],
+    [ "completionDate", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a60d69d57d5182e69a26c5f2880430532", null ],
+    [ "createdBy", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#adbb3f9c677716ce928f75db8055d0d51", null ],
+    [ "createdTime", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#aff6f17ef611b52a538d0f41a5ca6776a", null ],
+    [ "id", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a11d3a4aa1eb23ce2a48a25ab338c396e", null ],
+    [ "lastModifiedBy", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a6df6f83d8c42ead06624c9f0bb27b61a", null ],
+    [ "lastModifiedTime", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a17f0c0c11e96e16f8ebdb3d86632ba8d", null ],
+    [ "notes", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a7ae8687ae904b715e23f8ac3e341132c", null ],
+    [ "passingScore", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#acf06dbaadda44f9b2d8d485b303e4e32", null ],
+    [ "resultDescription", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a0989d347b3d96c6fe8a37cfe0e5dc3cf", null ],
+    [ "score", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#aa35a7bf7420e9e6174b927cdc646f0a6", null ],
+    [ "serialVersionUID", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a01d6b14ddc9d1c886ee03948ecdf1566", null ],
+    [ "status", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a9c29c0b37464f6064277c1d5ed157f35", null ],
+    [ "trainingCourse", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#aa4042d005db2cee27982ed4863ca0b7a", null ],
+    [ "trainingSession", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#ae78bfba65bd85e89b67fd26b8c32057a", null ],
+    [ "type", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a4b4e7dafd0acebf80ef905e375aa08d8", null ],
+    [ "user", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment.html#a0724b196ec4cd22f8d9887bae732bb89", null ]
+];

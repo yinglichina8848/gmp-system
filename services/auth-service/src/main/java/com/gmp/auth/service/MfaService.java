@@ -1,5 +1,6 @@
 package com.gmp.auth.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -13,26 +14,32 @@ public class MfaService {
     private static final int RECOVERY_CODES_COUNT = 10;
     private static final int RECOVERY_CODE_LENGTH = 8;
     private final SecureRandom secureRandom = new SecureRandom();
+    private final TotpUtils totpUtils;
+
+    @Autowired
+    public MfaService(TotpUtils totpUtils) {
+        this.totpUtils = totpUtils;
+    }
 
     /**
      * 生成新的MFA密钥
      */
     public String generateSecretKey() {
-        return TotpUtils.generateSecretKey();
+        return totpUtils.generateSecretKey();
     }
 
     /**
      * 生成TOTP验证码
      */
     public String generateTotpCode(String secretKey) {
-        return TotpUtils.generateTotpCode(secretKey);
+        return totpUtils.generateTotpCode(secretKey);
     }
 
     /**
      * 验证TOTP验证码
      */
     public boolean verifyTotpCode(String secretKey, String code) {
-        return TotpUtils.verifyTotpCode(secretKey, code);
+        return totpUtils.verifyTotpCode(secretKey, code);
     }
 
     /**
@@ -61,14 +68,14 @@ public class MfaService {
      * 生成用于Google Authenticator等应用的二维码URL
      */
     public String generateQrCodeUrl(String username, String secretKey, String issuer) {
-        return TotpUtils.generateTotpUri(secretKey, username, issuer);
+        return totpUtils.generateTotpUri(secretKey, username, issuer);
     }
 
     /**
      * 获取TOTP验证码的剩余有效期（秒）
      */
     public int getRemainingSeconds() {
-        return TotpUtils.getRemainingSeconds();
+        return totpUtils.getRemainingSeconds();
     }
 
     /**

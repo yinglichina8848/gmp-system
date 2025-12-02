@@ -1,0 +1,485 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::edms::service::CommonFileService</compoundname>
+    <derivedcompoundref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl" prot="public" virt="non-virtual">com.gmp.edms.service.impl.CommonFileServiceImpl</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1aaaf513098fd0b6c855086515a8ca4dfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CommonFileDTO</type>
+        <definition>CommonFileDTO com.gmp.edms.service.CommonFileService.uploadFile</definition>
+        <argsstring>(MultipartFile file, String module, Map&lt; String, Object &gt; metadata)</argsstring>
+        <name>uploadFile</name>
+        <qualifiedname>com.gmp.edms.service.CommonFileService.uploadFile</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1aaea32c3dcb98d7eba64f25a1911afcb4">uploadFile</reimplementedby>
+        <param>
+          <type>MultipartFile</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>metadata</declname>
+        </param>
+        <exceptions> throws Exception</exceptions>
+        <briefdescription>
+<para>上传通用文件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>上传的文件 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件所属模块 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>metadata</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件元数据 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>文件信息DTO </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" line="24" column="19"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1ab75eaee527e89143dc60c4d98b67bbed" compoundref="CommonFileServiceIntegrationTest_8java" startline="113" endline="126">com.gmp.edms.service.CommonFileServiceIntegrationTest.testDeleteFile</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1a4d341fc9d1c507069a72cea499148b6f" compoundref="CommonFileServiceIntegrationTest_8java" startline="153" endline="164">com.gmp.edms.service.CommonFileServiceIntegrationTest.testGeneratePresignedUrl</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1ac1fdfc1462c6733fba67768ec6617456" compoundref="CommonFileServiceIntegrationTest_8java" startline="132" endline="147">com.gmp.edms.service.CommonFileServiceIntegrationTest.testGetFileInfo</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1a2985249753a9def2e96d0ceb889a9fa8" compoundref="CommonFileServiceIntegrationTest_8java" startline="214" endline="223">com.gmp.edms.service.CommonFileServiceIntegrationTest.testGetFileStatistics</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1a9edc19f3302cb7934a6b779e279c2abe" compoundref="CommonFileServiceIntegrationTest_8java" startline="170" endline="184">com.gmp.edms.service.CommonFileServiceIntegrationTest.testQueryFiles</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1a2d1a9633d4f89119950e1705d94c4330" compoundref="CommonFileServiceIntegrationTest_8java" startline="190" endline="208">com.gmp.edms.service.CommonFileServiceIntegrationTest.testUpdateFileMetadata</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1af6fe9fef950d1c9cbee25b8a286131c3" compoundref="CommonFileServiceIntegrationTest_8java" startline="59" endline="78">com.gmp.edms.service.CommonFileServiceIntegrationTest.testUploadFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a730fd00254fb816e6b31e8879dc2fc33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; CommonFileDTO &gt;</type>
+        <definition>List&lt; CommonFileDTO &gt; com.gmp.edms.service.CommonFileService.batchUploadFiles</definition>
+        <argsstring>(List&lt; MultipartFile &gt; files, String module, Map&lt; String, Object &gt; metadata)</argsstring>
+        <name>batchUploadFiles</name>
+        <qualifiedname>com.gmp.edms.service.CommonFileService.batchUploadFiles</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a3d8943acdc39a34e6c444c9ad662eaea">batchUploadFiles</reimplementedby>
+        <param>
+          <type>List&lt; MultipartFile &gt;</type>
+          <declname>files</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>metadata</declname>
+        </param>
+        <exceptions> throws Exception</exceptions>
+        <briefdescription>
+<para>批量上传文件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>files</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>上传的文件列表 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件所属模块 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>metadata</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件元数据 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>文件信息DTO列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" line="33" column="10"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1aab8d57e06943ce951e71f83a141a093e" compoundref="CommonFileServiceIntegrationTest_8java" startline="84" endline="107">com.gmp.edms.service.CommonFileServiceIntegrationTest.testBatchUploadFiles</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a71702df10087a7409d6f51c84dd00428" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>InputStream</type>
+        <definition>InputStream com.gmp.edms.service.CommonFileService.downloadFile</definition>
+        <argsstring>(Long fileId)</argsstring>
+        <name>downloadFile</name>
+        <qualifiedname>com.gmp.edms.service.CommonFileService.downloadFile</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a30417be81219d966424e625897bdb0d2">downloadFile</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>fileId</declname>
+        </param>
+        <exceptions> throws Exception</exceptions>
+        <briefdescription>
+<para>下载文件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>文件输入流 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" line="40" column="17"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1af6fe9fef950d1c9cbee25b8a286131c3" compoundref="CommonFileServiceIntegrationTest_8java" startline="59" endline="78">com.gmp.edms.service.CommonFileServiceIntegrationTest.testUploadFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a2e7d5041e62f9036d6399bb6d13dd7f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CommonFileDTO</type>
+        <definition>CommonFileDTO com.gmp.edms.service.CommonFileService.getFileInfo</definition>
+        <argsstring>(Long fileId)</argsstring>
+        <name>getFileInfo</name>
+        <qualifiedname>com.gmp.edms.service.CommonFileService.getFileInfo</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1acb7dacf62e573d69ef6bec3aab36efaa">getFileInfo</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>fileId</declname>
+        </param>
+        <exceptions> throws Exception</exceptions>
+        <briefdescription>
+<para>获取文件信息 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>文件信息DTO </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" line="47" column="19"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1ac1fdfc1462c6733fba67768ec6617456" compoundref="CommonFileServiceIntegrationTest_8java" startline="132" endline="147">com.gmp.edms.service.CommonFileServiceIntegrationTest.testGetFileInfo</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1a2d1a9633d4f89119950e1705d94c4330" compoundref="CommonFileServiceIntegrationTest_8java" startline="190" endline="208">com.gmp.edms.service.CommonFileServiceIntegrationTest.testUpdateFileMetadata</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1aaf1b7c0e7bdc5072aa1fa6c38e328c6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.CommonFileService.deleteFile</definition>
+        <argsstring>(Long fileId)</argsstring>
+        <name>deleteFile</name>
+        <qualifiedname>com.gmp.edms.service.CommonFileService.deleteFile</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1ae0577e985b94832b617bf159bb50d057">deleteFile</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>fileId</declname>
+        </param>
+        <exceptions> throws Exception</exceptions>
+        <briefdescription>
+<para>删除文件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" line="53" column="10"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1ab75eaee527e89143dc60c4d98b67bbed" compoundref="CommonFileServiceIntegrationTest_8java" startline="113" endline="126">com.gmp.edms.service.CommonFileServiceIntegrationTest.testDeleteFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a4fe4a852745943ac8a3e7ea273826114" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.CommonFileService.batchDeleteFiles</definition>
+        <argsstring>(List&lt; Long &gt; fileIds)</argsstring>
+        <name>batchDeleteFiles</name>
+        <qualifiedname>com.gmp.edms.service.CommonFileService.batchDeleteFiles</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a3f30ece573d41ef440fc9d232bfdb378">batchDeleteFiles</reimplementedby>
+        <param>
+          <type>List&lt; Long &gt;</type>
+          <declname>fileIds</declname>
+        </param>
+        <exceptions> throws Exception</exceptions>
+        <briefdescription>
+<para>批量删除文件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileIds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件ID列表 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" line="59" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a5999f32402a4a8874ec396c251740eff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.CommonFileService.generatePresignedUrl</definition>
+        <argsstring>(Long fileId, int expiration)</argsstring>
+        <name>generatePresignedUrl</name>
+        <qualifiedname>com.gmp.edms.service.CommonFileService.generatePresignedUrl</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a81d72da6d6598d6a0763499bb142ddd4">generatePresignedUrl</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>fileId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>expiration</declname>
+        </param>
+        <exceptions> throws Exception</exceptions>
+        <briefdescription>
+<para>生成文件访问的预签名URL </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>expiration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>过期时间（秒） </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>预签名URL </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" line="67" column="12"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1a4d341fc9d1c507069a72cea499148b6f" compoundref="CommonFileServiceIntegrationTest_8java" startline="153" endline="164">com.gmp.edms.service.CommonFileServiceIntegrationTest.testGeneratePresignedUrl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a252632b5faa1c0a5318d7d80327d248e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Map&lt; String, Object &gt;</type>
+        <definition>Map&lt; String, Object &gt; com.gmp.edms.service.CommonFileService.queryFiles</definition>
+        <argsstring>(String module, Map&lt; String, Object &gt; filters, int page, int size)</argsstring>
+        <name>queryFiles</name>
+        <qualifiedname>com.gmp.edms.service.CommonFileService.queryFiles</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a36ab2f1097257bf8edf17c98c1cc508b">queryFiles</reimplementedby>
+        <param>
+          <type>String</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>filters</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>查询模块下的文件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>模块名称 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>过滤条件 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>page</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>页码 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>每页大小 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>文件列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" line="77" column="9"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1a9edc19f3302cb7934a6b779e279c2abe" compoundref="CommonFileServiceIntegrationTest_8java" startline="170" endline="184">com.gmp.edms.service.CommonFileServiceIntegrationTest.testQueryFiles</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1ae18e9801f145981207187b13b617c102" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.CommonFileService.updateFileMetadata</definition>
+        <argsstring>(Long fileId, Map&lt; String, Object &gt; metadata)</argsstring>
+        <name>updateFileMetadata</name>
+        <qualifiedname>com.gmp.edms.service.CommonFileService.updateFileMetadata</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1adb5742d7efb439b594a49a69a84b103a">updateFileMetadata</reimplementedby>
+        <param>
+          <type>Long</type>
+          <declname>fileId</declname>
+        </param>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>metadata</declname>
+        </param>
+        <exceptions> throws Exception</exceptions>
+        <briefdescription>
+<para>更新文件元数据 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>metadata</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>新的元数据 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" line="84" column="10"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1a2d1a9633d4f89119950e1705d94c4330" compoundref="CommonFileServiceIntegrationTest_8java" startline="190" endline="208">com.gmp.edms.service.CommonFileServiceIntegrationTest.testUpdateFileMetadata</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1ab2e2749f059b773187e9863dff1a4024" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Map&lt; String, Object &gt;</type>
+        <definition>Map&lt; String, Object &gt; com.gmp.edms.service.CommonFileService.getFileStatistics</definition>
+        <argsstring>(String module)</argsstring>
+        <name>getFileStatistics</name>
+        <qualifiedname>com.gmp.edms.service.CommonFileService.getFileStatistics</qualifiedname>
+        <reimplementedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a1a3c6a5f809963c31f7188785c7f40a0">getFileStatistics</reimplementedby>
+        <param>
+          <type>String</type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+<para>获取文件统计信息 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>模块名称 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>统计信息 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" line="91" column="9"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1CommonFileServiceIntegrationTest_1a2985249753a9def2e96d0ceb889a9fa8" compoundref="CommonFileServiceIntegrationTest_8java" startline="214" endline="223">com.gmp.edms.service.CommonFileServiceIntegrationTest.testGetFileStatistics</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>通用文件管理服务接口 提供跨模块的文件管理功能 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>com.gmp.edms.service.CommonFileService</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService"/>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.service.impl.CommonFileServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" line="15" column="18" bodyfile="edms-service/src/main/java/com/gmp/edms/service/CommonFileService.java" bodystart="15" bodyend="92"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a4fe4a852745943ac8a3e7ea273826114" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::CommonFileService</scope><name>batchDeleteFiles</name></member>
+      <member refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a730fd00254fb816e6b31e8879dc2fc33" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::CommonFileService</scope><name>batchUploadFiles</name></member>
+      <member refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1aaf1b7c0e7bdc5072aa1fa6c38e328c6c" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::CommonFileService</scope><name>deleteFile</name></member>
+      <member refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a71702df10087a7409d6f51c84dd00428" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::CommonFileService</scope><name>downloadFile</name></member>
+      <member refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a5999f32402a4a8874ec396c251740eff" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::CommonFileService</scope><name>generatePresignedUrl</name></member>
+      <member refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a2e7d5041e62f9036d6399bb6d13dd7f2" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::CommonFileService</scope><name>getFileInfo</name></member>
+      <member refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1ab2e2749f059b773187e9863dff1a4024" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::CommonFileService</scope><name>getFileStatistics</name></member>
+      <member refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1a252632b5faa1c0a5318d7d80327d248e" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::CommonFileService</scope><name>queryFiles</name></member>
+      <member refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1ae18e9801f145981207187b13b617c102" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::CommonFileService</scope><name>updateFileMetadata</name></member>
+      <member refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService_1aaaf513098fd0b6c855086515a8ca4dfb" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::CommonFileService</scope><name>uploadFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

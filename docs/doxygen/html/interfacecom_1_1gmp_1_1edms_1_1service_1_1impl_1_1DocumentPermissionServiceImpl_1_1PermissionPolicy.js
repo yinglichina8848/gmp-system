@@ -1,0 +1,4 @@
+var interfacecom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionPolicy =
+[
+    [ "evaluate", "interfacecom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionPolicy.html#aa1c45efbc5538fbaec71e0e909e91303", null ]
+];

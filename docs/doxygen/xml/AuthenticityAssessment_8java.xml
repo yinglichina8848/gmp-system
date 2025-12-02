@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="AuthenticityAssessment_8java" kind="file" language="Java">
+    <compoundname>AuthenticityAssessment.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>lims-service/src/main/java/com/gmp/lims/entity/mongo/AuthenticityAssessment.java</label>
+        <link refid="AuthenticityAssessment_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment" prot="public">com::gmp::lims::entity::mongo::AuthenticityAssessment</innerclass>
+    <innerclass refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator" prot="public">com::gmp::lims::entity::mongo::AuthenticityAssessment::AssessmentIndicator</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1lims_1_1entity_1_1mongo">com::gmp::lims::entity::mongo</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1lims_1_1entity_1_1mongo" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.lims.entity.mongo;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.NoArgsConstructor;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.AllArgsConstructor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.Id;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.mongodb.core.mapping.Document;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.mongodb.core.mapping.Field;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@NoArgsConstructor</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@AllArgsConstructor</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@Document(collection<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;authenticity_assessment&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment" kindref="compound">AuthenticityAssessment</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1af2c98589a0848a73b79d0ee952888ffd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1af2c98589a0848a73b79d0ee952888ffd" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(</highlight><highlight class="stringliteral">&quot;sample_id&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a816ea1dd5b814764387a6250c18abee2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>sampleId;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;sample_code&quot;)</highlight></codeline>
+<codeline lineno="40" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a52136b7b34ed85e84bd5584703f37717" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>sampleCode;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;task_id&quot;)</highlight></codeline>
+<codeline lineno="46" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1aa92211bfa59e259c86920aace1abf771" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>taskId;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;task_code&quot;)</highlight></codeline>
+<codeline lineno="52" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1ad9de2c88ec6d51abd11d7494cb61d493" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>taskCode;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;medicine_name&quot;)</highlight></codeline>
+<codeline lineno="58" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a0b247e9b98f8ac155a18983d72df265f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>medicineName;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;production_area&quot;)</highlight></codeline>
+<codeline lineno="64" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a8d17bc6da6defd881a363be1507986b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>productionArea;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;authentic_area_standard&quot;)</highlight></codeline>
+<codeline lineno="70" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a7a4649527aba8833bd0c4d109d596a1d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>authenticAreaStandard;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;assessment_indicators&quot;)</highlight></codeline>
+<codeline lineno="76" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1ae261613f92a4069c4cf71fd168a46225" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator" kindref="compound">AssessmentIndicator</ref>&gt;<sp/>assessmentIndicators;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;comprehensive_score&quot;)</highlight></codeline>
+<codeline lineno="82" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a01756a06e31511c4fb8565f4bbdd482d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Double<sp/>comprehensiveScore;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;assessment_level&quot;)</highlight></codeline>
+<codeline lineno="88" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a59cbeca20abd3f874a0fbe38720a30eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>assessmentLevel;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;assessment_conclusion&quot;)</highlight></codeline>
+<codeline lineno="94" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a93b964bdcf15dd536c2fa69c8fab446e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>assessmentConclusion;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;special_component_analysis&quot;)</highlight></codeline>
+<codeline lineno="100" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a14f84b129920f20d380ef17c0b0e3343" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Map&lt;String,<sp/>Object&gt;<sp/>specialComponentAnalysis;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;assessment_person&quot;)</highlight></codeline>
+<codeline lineno="106" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a9ee8d33c1214b2ebd57bf4d900c85ad0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>assessmentPerson;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;assessment_date&quot;)</highlight></codeline>
+<codeline lineno="112" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a5874a020e77bed64468f6309f2b1aac6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>assessmentDate;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;review_person&quot;)</highlight></codeline>
+<codeline lineno="118" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1ac6262f95b53feebd34a09f6cf5e3c223" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>reviewPerson;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;review_date&quot;)</highlight></codeline>
+<codeline lineno="124" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a7ce136c42c22811a2d3e66cd1653f67c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>reviewDate;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;review_status&quot;)</highlight></codeline>
+<codeline lineno="130" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a00c26a3c55c698678e165ed1e032a498" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>reviewStatus;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;remark&quot;)</highlight></codeline>
+<codeline lineno="136" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a111185a58c65f701a467e751aaeeb0aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>remark;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;created_time&quot;)</highlight></codeline>
+<codeline lineno="142" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1afc83aadfa4dbb4c3ee152ea375dfb325" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdTime;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;updated_time&quot;)</highlight></codeline>
+<codeline lineno="148" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1a76c26de4e2c6b54caf054880420799e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedTime;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>@Data</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>@NoArgsConstructor</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>@AllArgsConstructor</highlight></codeline>
+<codeline lineno="156" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>static<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator" kindref="compound">AssessmentIndicator</ref><sp/>{</highlight></codeline>
+<codeline lineno="160" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1ad309f35996bd23d372eb850b4e0be2b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1ad309f35996bd23d372eb850b4e0be2b3" kindref="member">indicatorName</ref>;</highlight></codeline>
+<codeline lineno="164" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1a1b37f0ab25be3f7e222199b3ef41caaf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Double<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1a1b37f0ab25be3f7e222199b3ef41caaf" kindref="member">weight</ref>;</highlight></codeline>
+<codeline lineno="168" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1a25b4d3a0c54932711a9d50f7a4a7c6c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Double<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1a25b4d3a0c54932711a9d50f7a4a7c6c2" kindref="member">actualScore</ref>;</highlight></codeline>
+<codeline lineno="172" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1aa2f57e5b724e864994a0e02e3dd4745d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Double<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1aa2f57e5b724e864994a0e02e3dd4745d" kindref="member">fullScore</ref>;</highlight></codeline>
+<codeline lineno="176" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1aeece08f5c1234efd6500a59796aecfc3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1aeece08f5c1234efd6500a59796aecfc3" kindref="member">assessmentMethod</ref>;</highlight></codeline>
+<codeline lineno="180" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1a7c0dbe07ff03c55b072d0f8c73c4fa66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator_1a7c0dbe07ff03c55b072d0f8c73c4fa66" kindref="member">resultDescription</ref>;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lims-service/src/main/java/com/gmp/lims/entity/mongo/AuthenticityAssessment.java"/>
+  </compounddef>
+</doxygen>

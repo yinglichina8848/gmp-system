@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QualificationType_8java" kind="file" language="Java">
+    <compoundname>QualificationType.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>hr-service/src/main/java/com/gmp/hr/entity/QualificationType.java</label>
+        <link refid="QualificationType_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType" prot="public">com::gmp::hr::entity::QualificationType</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1hr_1_1entity">com::gmp::hr::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.hr.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.EqualsAndHashCode;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.ToString;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedBy;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedBy;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotBlank;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.HashSet;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;hr_qualification_type&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType" kindref="compound">QualificationType</ref><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1a199be042632e9e569e07af9ad753c6a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;code&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>unique<sp/>=<sp/>true,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;资质代码不能为空&quot;)</highlight></codeline>
+<codeline lineno="42" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1aa92812db67a5067d19ed7f933ed2c94e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>code;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;name&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;资质名称不能为空&quot;)</highlight></codeline>
+<codeline lineno="49" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1aab2df43faa8d02eb87158c9879c34d2b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>name;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;description&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1a1214885db63b86e0a9eb7684839b3cc9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>description;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;requires_renewal&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="61" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1a8a093a888f75219e77557c8616a1dc90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Boolean<sp/>requiresRenewal<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;validity_period_months&quot;)</highlight></codeline>
+<codeline lineno="67" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1a8aef8bac25628f33de4dbaf5b642c10e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>validityPeriodMonths;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;alert_period_months&quot;)</highlight></codeline>
+<codeline lineno="73" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1af0def72dbb01a5a8e1ed00d43a0900ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>alertPeriodMonths;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToMany(mappedBy<sp/>=<sp/>&quot;requiredQualifications&quot;)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>@EqualsAndHashCode.Exclude</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@ToString.Exclude</highlight></codeline>
+<codeline lineno="81" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1aebf4a5e539a8a7ff6cbf2ebf69e021c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Set&lt;<ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position" kindref="compound">Position</ref>&gt;<sp/>requiredPositions<sp/>=<sp/>new<sp/>HashSet&lt;&gt;();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;qualificationType&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@EqualsAndHashCode.Exclude</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>@ToString.Exclude</highlight></codeline>
+<codeline lineno="89" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1aee6bcece136ce9c9bcc6c2a48f4ad7bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Set&lt;<ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Qualification" kindref="compound">Qualification</ref>&gt;<sp/>qualifications<sp/>=<sp/>new<sp/>HashSet&lt;&gt;();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="96" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1a875d392dd410857c4104802768f954ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedBy</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>updatable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="103" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1abfa86d68f89747b2b25015e9dd56d059" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;)</highlight></codeline>
+<codeline lineno="110" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1a9e035f185faa169d1f36a21cf69795a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedBy</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="117" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1a06df9ced210c5902a5f55894fb179d09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;deleted&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="123" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType_1a21adb1bc96d86feb767680e0ae7bc265" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Boolean<sp/>deleted<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="hr-service/src/main/java/com/gmp/hr/entity/QualificationType.java"/>
+  </compounddef>
+</doxygen>

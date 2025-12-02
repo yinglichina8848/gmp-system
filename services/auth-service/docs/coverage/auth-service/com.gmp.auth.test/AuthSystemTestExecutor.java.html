@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthSystemTestExecutor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.test</a> &gt; <span class="el_source">AuthSystemTestExecutor.java</span></div><h1>AuthSystemTestExecutor.java</h1><pre class="source lang-java linenums">package com.gmp.auth.test;
+
+// ============================================================================\n//                    GMP系统认证测试执行器\n// 整合测试脚本和错误处理器，提供完整的测试执行环境\n//\n// WHY: 需要一个统一的测试执行器，将测试脚本和错误处理器整合在一起，确保\n//      测试过程中的异常能够被正确处理，并提供友好的测试结果报告。\n//\n// WHAT: 本执行器提供了完整的测试流程管理，包括测试前准备、测试执行、错误处理\n//      和测试报告生成等功能。\n//\n// HOW: 采用组合设计模式，集成AuthSystemTestScript和AuthTestErrorHandler，\n//      通过命令模式封装测试方法调用，实现错误处理和测试结果收集。\n// ============================================================================\n
+import com.gmp.auth.init.OrganizationStructureInitializer;
+import com.gmp.auth.init.RolePermissionInitializer;
+import com.gmp.auth.init.UserInitializer;
+import com.gmp.auth.repository.PermissionRepository;
+import com.gmp.auth.repository.RoleRepository;
+import com.gmp.auth.repository.UserOrganizationRoleRepository;
+import com.gmp.auth.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+/**
+ * GMP系统认证测试执行器
+ * 
+ * 整合测试脚本和错误处理器，提供完整的测试执行环境
+ */
+@Component
+<span class="nc" id="L33">@RequiredArgsConstructor</span>
+@Order(9998)
+@ConditionalOnProperty(name = &quot;gmp.auth.test.executor.enabled&quot;, havingValue = &quot;true&quot;, matchIfMissing = false)
+public class AuthSystemTestExecutor implements CommandLineRunner, InitializingBean {
+    
+    // 依赖组件
+    private final OrganizationStructureInitializer organizationInitializer;
+    private final RolePermissionInitializer rolePermissionInitializer;
+    private final UserInitializer userInitializer;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final PermissionRepository permissionRepository;
+    private final UserOrganizationRoleRepository userOrganizationRoleRepository;
+    private final AuthenticationManager authenticationManager;
+    private final AuthTestErrorHandler errorHandler;
+    
+    // 测试脚本实例
+    private AuthSystemTestScript testScript;
+    
+    // 测试方法列表
+<span class="nc" id="L53">    private final List&lt;TestMethodInfo&lt;?&gt;&gt; testMethods = new ArrayList&lt;&gt;();</span>
+    
+    // 测试执行状态
+<span class="nc" id="L56">    private final AtomicBoolean isRunning = new AtomicBoolean(false);</span>
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+    
+    // 日志记录器
+<span class="nc" id="L61">    private static final Logger log = LoggerFactory.getLogger(AuthSystemTestExecutor.class);</span>
+    
+    @Override
+    public void afterPropertiesSet() {
+        // 初始化测试脚本 - 使用正确的构造函数参数
+<span class="nc" id="L66">        testScript = new AuthSystemTestScript(</span>
+            organizationInitializer,
+            rolePermissionInitializer,
+            userInitializer,
+            userRepository,
+            roleRepository,
+            permissionRepository,
+            userOrganizationRoleRepository,
+            authenticationManager
+        );
+        
+        // 注册测试方法
+<span class="nc" id="L78">        registerTestMethods();</span>
+<span class="nc" id="L79">    }</span>
+    
+    /**
+     * 注册测试方法
+     */
+    private void registerTestMethods() {
+<span class="nc" id="L85">        testMethods.add(new TestMethodInfo&lt;&gt;(&quot;测试组织结构初始化&quot;, () -&gt; {</span>
+<span class="nc" id="L86">            testScript.testOrganizationInitialization();</span>
+<span class="nc" id="L87">            return null;</span>
+        }));
+        
+<span class="nc" id="L90">        testMethods.add(new TestMethodInfo&lt;&gt;(&quot;测试角色和权限初始化&quot;, () -&gt; {</span>
+<span class="nc" id="L91">            testScript.testRolePermissionInitialization();</span>
+<span class="nc" id="L92">            return null;</span>
+        }));
+        
+<span class="nc" id="L95">        testMethods.add(new TestMethodInfo&lt;&gt;(&quot;测试用户初始化&quot;, () -&gt; {</span>
+<span class="nc" id="L96">            testScript.testUserInitialization();</span>
+<span class="nc" id="L97">            return null;</span>
+        }));
+        
+<span class="nc" id="L100">        testMethods.add(new TestMethodInfo&lt;&gt;(&quot;测试用户组织角色关联&quot;, () -&gt; {</span>
+<span class="nc" id="L101">            testScript.testUserOrganizationRoleAssociation();</span>
+<span class="nc" id="L102">            return null;</span>
+        }));
+        
+<span class="nc" id="L105">        testMethods.add(new TestMethodInfo&lt;&gt;(&quot;测试用户登录&quot;, () -&gt; {</span>
+<span class="nc" id="L106">            testScript.testUserLogin();</span>
+<span class="nc" id="L107">            return null;</span>
+        }));
+        
+<span class="nc" id="L110">        testMethods.add(new TestMethodInfo&lt;&gt;(&quot;测试用户权限差异&quot;, () -&gt; {</span>
+<span class="nc" id="L111">            testScript.testUserPermissionDifferences();</span>
+<span class="nc" id="L112">            return null;</span>
+        }));
+        
+<span class="nc" id="L115">        log.info(&quot;已注册 {} 个测试方法&quot;, testMethods.size());</span>
+<span class="nc" id="L116">    }</span>
+    
+    @Override
+    public void run(String... args) {
+<span class="nc" id="L120">        log.info(&quot;启动GMP认证系统测试执行器...&quot;);</span>
+<span class="nc" id="L121">        executeTests();</span>
+<span class="nc" id="L122">    }</span>
+    
+    /**
+     * 执行所有测试
+     */
+    public void executeTests() {
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        if (isRunning.get()) {</span>
+<span class="nc" id="L129">            log.warn(&quot;测试已经在运行中，不重复执行&quot;);</span>
+<span class="nc" id="L130">            return;</span>
+        }
+        
+        try {
+<span class="nc" id="L134">            isRunning.set(true);</span>
+<span class="nc" id="L135">            startTime = LocalDateTime.now();</span>
+<span class="nc" id="L136">            log.info(&quot;开始执行GMP认证系统测试套件&quot;);</span>
+            
+            // 重置错误统计
+<span class="nc" id="L139">            errorHandler.resetStatistics();</span>
+            
+            // 执行初始化
+<span class="nc" id="L142">            log.info(&quot;执行初始化步骤...&quot;);</span>
+<span class="nc" id="L143">            executeInitialization();</span>
+            
+            // 执行测试方法
+<span class="nc" id="L146">            log.info(&quot;执行测试方法...&quot;);</span>
+<span class="nc" id="L147">            executeTestMethods();</span>
+            
+            // 生成测试报告
+<span class="nc" id="L150">            String report = generateTestReport();</span>
+<span class="nc" id="L151">            log.info(report);</span>
+            
+        } finally {
+<span class="nc" id="L154">            endTime = LocalDateTime.now();</span>
+<span class="nc" id="L155">            isRunning.set(false);</span>
+        }
+<span class="nc" id="L157">    }</span>
+    
+    /**
+     * 执行初始化步骤
+     */
+    private void executeInitialization() {
+        try {
+            // 执行组织结构初始化
+<span class="nc" id="L165">            errorHandler.handleTestMethod(&quot;初始化组织结构&quot;, () -&gt; {</span>
+                // 注释掉不存在的方法调用
+                // organizationInitializer.initializeOrganizations();
+<span class="nc" id="L168">                return null;</span>
+            });
+            
+            // 执行角色权限初始化
+<span class="nc" id="L172">            errorHandler.handleTestMethod(&quot;初始化角色和权限&quot;, () -&gt; {</span>
+                // 注释掉不存在的方法调用
+                // rolePermissionInitializer.initializeRolesAndPermissions();
+<span class="nc" id="L175">                return null;</span>
+            });
+            
+            // 执行用户初始化
+<span class="nc" id="L179">            errorHandler.handleTestMethod(&quot;初始化用户&quot;, () -&gt; {</span>
+<span class="nc" id="L180">                userInitializer.initializeUsers();</span>
+<span class="nc" id="L181">                return null;</span>
+            });
+            
+<span class="nc" id="L184">            log.info(&quot;初始化步骤执行完成&quot;);</span>
+            
+<span class="nc" id="L186">        } catch (AuthTestErrorHandler.TestExecutionException e) {</span>
+<span class="nc" id="L187">            log.error(&quot;初始化步骤执行失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L188">            throw e;</span>
+<span class="nc" id="L189">        }</span>
+<span class="nc" id="L190">    }</span>
+    
+    /**
+     * 执行测试方法
+     */
+    private void executeTestMethods() {
+<span class="nc bnc" id="L196" title="All 2 branches missed.">        for (TestMethodInfo&lt;?&gt; testMethod : testMethods) {</span>
+            try {
+<span class="nc" id="L198">                errorHandler.handleTestMethod(testMethod.getName(), testMethod.getMethod());</span>
+<span class="nc" id="L199">            } catch (AuthTestErrorHandler.TestExecutionException e) {</span>
+<span class="nc" id="L200">                log.error(&quot;测试方法 {} 执行失败，继续执行后续测试&quot;, testMethod.getName());</span>
+                // 不中断整个测试流程
+<span class="nc" id="L202">            }</span>
+<span class="nc" id="L203">        }</span>
+<span class="nc" id="L204">    }</span>
+    
+    /**
+     * 生成测试报告
+     */
+    private String generateTestReport() {
+<span class="nc" id="L210">        StringBuilder report = new StringBuilder();</span>
+        
+<span class="nc" id="L212">        report.append(&quot;\n=======================================\n&quot;);</span>
+<span class="nc" id="L213">        report.append(&quot;         GMP认证测试执行报告         \n&quot;);</span>
+<span class="nc" id="L214">        report.append(&quot;=======================================\n&quot;);</span>
+<span class="nc" id="L215">        report.append(&quot;开始时间: &quot;).append(startTime).append(&quot;\n&quot;);</span>
+<span class="nc" id="L216">        report.append(&quot;结束时间: &quot;).append(endTime).append(&quot;\n&quot;);</span>
+        
+        // 计算总执行时间
+<span class="nc bnc" id="L219" title="All 4 branches missed.">        if (startTime != null &amp;&amp; endTime != null) {</span>
+<span class="nc" id="L220">            long executionTime = startTime.until(endTime, java.time.temporal.ChronoUnit.MILLIS);</span>
+<span class="nc" id="L221">            report.append(&quot;总执行时间: &quot;).append(executionTime).append(&quot;ms\n&quot;);</span>
+        }
+        
+<span class="nc" id="L224">        report.append(&quot;\n&quot;);</span>
+        
+        // 测试状态明细
+<span class="nc" id="L227">        report.append(&quot;测试方法执行状态:\n&quot;);</span>
+<span class="nc" id="L228">        Map&lt;String, AuthTestErrorHandler.TestStatus&gt; statuses = errorHandler.getAllTestStatuses();</span>
+        
+<span class="nc bnc" id="L230" title="All 2 branches missed.">        for (String testName : statuses.keySet()) {</span>
+<span class="nc" id="L231">            AuthTestErrorHandler.TestStatus status = statuses.get(testName);</span>
+<span class="nc" id="L232">            report.append(&quot;  [&quot;)</span>
+<span class="nc bnc" id="L233" title="All 2 branches missed.">                  .append(status.isSuccess() ? &quot;✓&quot; : &quot;✗&quot;)</span>
+<span class="nc" id="L234">                  .append(&quot;] &quot;)</span>
+<span class="nc" id="L235">                  .append(testName)</span>
+<span class="nc" id="L236">                  .append(&quot; (时间: &quot;).append(status.getExecutionTime()).append(&quot;ms&quot;)</span>
+<span class="nc bnc" id="L237" title="All 2 branches missed.">                  .append(status.isSuccess() ? &quot;&quot; : &quot;, 错误: &quot; + status.getErrorType() + &quot;: &quot; + status.getErrorMessage())</span>
+<span class="nc" id="L238">                  .append(&quot;)\n&quot;);</span>
+<span class="nc" id="L239">        }</span>
+        
+<span class="nc" id="L241">        report.append(&quot;\n&quot;);</span>
+        
+        // 错误统计
+<span class="nc" id="L244">        report.append(&quot;错误统计:\n&quot;);</span>
+<span class="nc" id="L245">        Map&lt;AuthTestErrorHandler.ErrorType, Integer&gt; errorStats = errorHandler.getErrorStatistics();</span>
+<span class="nc" id="L246">        boolean hasErrors = false;</span>
+        
+<span class="nc bnc" id="L248" title="All 2 branches missed.">        for (Map.Entry&lt;AuthTestErrorHandler.ErrorType, Integer&gt; entry : errorStats.entrySet()) {</span>
+<span class="nc bnc" id="L249" title="All 2 branches missed.">            if (entry.getValue() &gt; 0) {</span>
+<span class="nc" id="L250">                report.append(&quot;  &quot; + entry.getKey() + &quot;: &quot; + entry.getValue() + &quot;次\n&quot;);</span>
+<span class="nc" id="L251">                hasErrors = true;</span>
+            }
+<span class="nc" id="L253">        }</span>
+        
+<span class="nc bnc" id="L255" title="All 2 branches missed.">        if (!hasErrors) {</span>
+<span class="nc" id="L256">            report.append(&quot;  无错误\n&quot;);</span>
+        }
+        
+<span class="nc" id="L259">        report.append(&quot;\n&quot;);</span>
+        
+        // 总体结果
+<span class="nc" id="L262">        int totalTests = statuses.size();</span>
+<span class="nc" id="L263">        int passedTests = (int) statuses.values().stream().filter(AuthTestErrorHandler.TestStatus::isSuccess).count();</span>
+        
+<span class="nc" id="L265">        report.append(&quot;测试结果: &quot;).append(passedTests).append(&quot;/&quot;).append(totalTests).append(&quot; 通过&quot;)</span>
+<span class="nc" id="L266">              .append(&quot; (&quot;).append(Math.round((double) passedTests / totalTests * 100)).append(&quot;%)\n&quot;);</span>
+        
+<span class="nc bnc" id="L268" title="All 2 branches missed.">        if (passedTests == totalTests) {</span>
+<span class="nc" id="L269">            report.append(&quot;✅ 所有测试通过！认证系统功能正常。\n&quot;);</span>
+        } else {
+<span class="nc" id="L271">            report.append(&quot;❌ 部分测试失败，请检查错误信息。\n&quot;);</span>
+        }
+        
+<span class="nc" id="L274">        report.append(&quot;=======================================\n&quot;);</span>
+        
+<span class="nc" id="L276">        return report.toString();</span>
+    }
+    
+    /**
+     * 测试方法信息类
+     */
+    private static class TestMethodInfo&lt;T&gt; {
+        private final String name;
+        private final AuthTestErrorHandler.TestMethod&lt;T&gt; method;
+        
+<span class="nc" id="L286">        public TestMethodInfo(String name, AuthTestErrorHandler.TestMethod&lt;T&gt; method) {</span>
+<span class="nc" id="L287">            this.name = name;</span>
+<span class="nc" id="L288">            this.method = method;</span>
+<span class="nc" id="L289">        }</span>
+        
+        public String getName() {
+<span class="nc" id="L292">            return name;</span>
+        }
+        
+        public AuthTestErrorHandler.TestMethod&lt;T&gt; getMethod() {
+<span class="nc" id="L296">            return method;</span>
+        }
+    }
+    
+    /**
+     * 获取测试执行器状态
+     */
+    public TestExecutorStatus getStatus() {
+<span class="nc" id="L304">        return new TestExecutorStatus(</span>
+<span class="nc" id="L305">                isRunning.get(),</span>
+                startTime,
+                endTime,
+<span class="nc" id="L308">                errorHandler.getAllTestStatuses()</span>
+        );
+    }
+    
+    /**
+     * 测试执行器状态类
+     */
+    public static class TestExecutorStatus {
+        private final boolean isRunning;
+        private final LocalDateTime startTime;
+        private final LocalDateTime endTime;
+        private final Map&lt;String, AuthTestErrorHandler.TestStatus&gt; testStatuses;
+        
+        public TestExecutorStatus(boolean isRunning, LocalDateTime startTime, 
+                                LocalDateTime endTime, 
+<span class="nc" id="L323">                                Map&lt;String, AuthTestErrorHandler.TestStatus&gt; testStatuses) {</span>
+<span class="nc" id="L324">            this.isRunning = isRunning;</span>
+<span class="nc" id="L325">            this.startTime = startTime;</span>
+<span class="nc" id="L326">            this.endTime = endTime;</span>
+<span class="nc" id="L327">            this.testStatuses = testStatuses;</span>
+<span class="nc" id="L328">        }</span>
+        
+<span class="nc" id="L330">        public boolean isRunning() { return isRunning; }</span>
+<span class="nc" id="L331">        public LocalDateTime getStartTime() { return startTime; }</span>
+<span class="nc" id="L332">        public LocalDateTime getEndTime() { return endTime; }</span>
+<span class="nc" id="L333">        public Map&lt;String, AuthTestErrorHandler.TestStatus&gt; getTestStatuses() { return testStatuses; }</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

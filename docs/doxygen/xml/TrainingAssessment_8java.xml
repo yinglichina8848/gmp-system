@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TrainingAssessment_8java" kind="file" language="Java">
+    <compoundname>TrainingAssessment.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/main/java/com/gmp/training/entity/TrainingAssessment.java</label>
+        <link refid="TrainingAssessment_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment" prot="public">com::gmp::training::entity::TrainingAssessment</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type" prot="public">com::gmp::training::entity::TrainingAssessment::Type</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status" prot="public">com::gmp::training::entity::TrainingAssessment::Status</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1entity">com::gmp::training::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedBy;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedBy;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotBlank;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotNull;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.Size;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Serializable;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.math.BigDecimal;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;t_training_assessment&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment" kindref="compound">TrainingAssessment</ref><sp/>implements<sp/><ref refid="classSerializable" kindref="compound">Serializable</ref><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a01d6b14ddc9d1c886ee03948ecdf1566" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>serialVersionUID<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;assessment_id&quot;</highlight><highlight class="normal">,<sp/>nullable<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a11d3a4aa1eb23ce2a48a25ab338c396e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;training_session_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="45" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1ae78bfba65bd85e89b67fd26b8c32057a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession" kindref="compound">TrainingSession</ref><sp/>trainingSession;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;training_course_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="52" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1aa4042d005db2cee27982ed4863ca0b7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingCourse" kindref="compound">TrainingCourse</ref><sp/>trainingCourse;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;user_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a0724b196ec4cd22f8d9887bae732bb89" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1User" kindref="compound">User</ref><sp/>user;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;assessment_type&quot;,<sp/>length<sp/>=<sp/>50,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="66" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a4b4e7dafd0acebf80ef905e375aa08d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type" kindref="compound">Type</ref><sp/>type;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;score&quot;,<sp/>precision<sp/>=<sp/>5,<sp/>scale<sp/>=<sp/>2)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1aa35a7bf7420e9e6174b927cdc646f0a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>BigDecimal<sp/>score;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>length<sp/>=<sp/>50,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="79" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a9c29c0b37464f6064277c1d5ed157f35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status" kindref="compound">Status</ref><sp/>status<sp/>=<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status" kindref="compound">Status</ref>.NOT_STARTED;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;assessment_time&quot;)</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1af73ce45fe829c276fa7ff1d7ae35ec56" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>assessmentTime;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>1000,<sp/>message<sp/>=<sp/>&quot;考核结果说明长度不能超过1000个字符&quot;)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;result_description&quot;,<sp/>length<sp/>=<sp/>1000)</highlight></codeline>
+<codeline lineno="92" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a0989d347b3d96c6fe8a37cfe0e5dc3cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>resultDescription;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;passing_score&quot;,<sp/>precision<sp/>=<sp/>5,<sp/>scale<sp/>=<sp/>2)</highlight></codeline>
+<codeline lineno="98" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1acf06dbaadda44f9b2d8d485b303e4e32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>BigDecimal<sp/>passingScore;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;completion_date&quot;)</highlight></codeline>
+<codeline lineno="104" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a60d69d57d5182e69a26c5f2880430532" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDate<sp/>completionDate;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>2000,<sp/>message<sp/>=<sp/>&quot;备注长度不能超过2000个字符&quot;)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;notes&quot;,<sp/>length<sp/>=<sp/>2000)</highlight></codeline>
+<codeline lineno="111" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a7ae8687ae904b715e23f8ac3e341132c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>notes;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a5caa28cb6bb91886f6b668f56c6a5b1a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>BigDecimal<sp/>getScore()<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>score;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1abd8bc5ae6829e8a2644efcf923fdbb96" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1abd8bc5ae6829e8a2644efcf923fdbb96" kindref="member">setCompletionDate</ref>(LocalDate<sp/>completionDate)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.completionDate<sp/>=<sp/>completionDate;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1aae666162275dc39518a2f5568be13067" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1aae666162275dc39518a2f5568be13067" kindref="member">getNotes</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>notes;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1acc81d8cb97395ac7b3e7d8ba5aafd5f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1acc81d8cb97395ac7b3e7d8ba5aafd5f3" kindref="member">setNotes</ref>(String<sp/>notes)<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.notes<sp/>=<sp/>notes;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="154" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a552c9d143e8b380f32f42e1d35b0cae5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a552c9d143e8b380f32f42e1d35b0cae5" kindref="member">getId</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="163" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1ac01719b43968367cb1c7e1a13e1ddfbd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1ac01719b43968367cb1c7e1a13e1ddfbd" kindref="member">setStatus</ref>(<ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status" kindref="compound">Status</ref><sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.status<sp/>=<sp/>status;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedBy</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;created_by&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="172" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1adbb3f9c677716ce928f75db8055d0d51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_time&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="179" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1aff6f17ef611b52a538d0f41a5ca6776a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdTime;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedBy</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;last_modified_by&quot;)</highlight></codeline>
+<codeline lineno="186" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a6df6f83d8c42ead06624c9f0bb27b61a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>lastModifiedBy;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;last_modified_time&quot;)</highlight></codeline>
+<codeline lineno="193" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1a17f0c0c11e96e16f8ebdb3d86632ba8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lastModifiedTime;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type" kindref="compound">Type</ref><sp/>{</highlight></codeline>
+<codeline lineno="199" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type_1aecc5e388fcc6227f7612a6e29f1b280c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type_1aecc5e388fcc6227f7612a6e29f1b280c" kindref="member">EXAM</ref>,<sp/></highlight><highlight class="comment">//<sp/>考试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type_1a7a1ecf8bb0db6de8c218b5cfa172e783" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type_1a7a1ecf8bb0db6de8c218b5cfa172e783" kindref="member">QUIZ</ref>,<sp/></highlight><highlight class="comment">//<sp/>测验</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type_1a41a62644f11ce135f5437fe3f5462568" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type_1a41a62644f11ce135f5437fe3f5462568" kindref="member">PROJECT</ref>,<sp/></highlight><highlight class="comment">//<sp/>项目</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DEMO<sp/></highlight><highlight class="comment">//<sp/>演示</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Type_1a1bab03ad1e1ecd79ecb761318fa73f4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status" kindref="compound">Status</ref><sp/>{</highlight></codeline>
+<codeline lineno="209" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status_1a8583a7f18f4c06981d2aedf44fd791ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status_1a8583a7f18f4c06981d2aedf44fd791ed" kindref="member">NOT_STARTED</ref>,<sp/></highlight><highlight class="comment">//<sp/>未开始</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status_1a85840c09342282011a01fa09a41e2fb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status_1a85840c09342282011a01fa09a41e2fb3" kindref="member">IN_PROGRESS</ref>,<sp/></highlight><highlight class="comment">//<sp/>进行中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status_1ab0882cdcf203e1db4e697f8637cfef69" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status_1ab0882cdcf203e1db4e697f8637cfef69" kindref="member">COMPLETED</ref>,<sp/></highlight><highlight class="comment">//<sp/>已完成</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status_1a010058f6f167fd35791f14d64e6b2786" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status_1a010058f6f167fd35791f14d64e6b2786" kindref="member">FAILED</ref>,<sp/></highlight><highlight class="comment">//<sp/>未通过</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PASSED<sp/></highlight><highlight class="comment">//<sp/>已通过</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingAssessment_1_1Status_1ad9f6405fe11a629697659efb59298fcf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/main/java/com/gmp/training/entity/TrainingAssessment.java"/>
+  </compounddef>
+</doxygen>

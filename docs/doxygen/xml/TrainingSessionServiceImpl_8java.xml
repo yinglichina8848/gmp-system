@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TrainingSessionServiceImpl_8java" kind="file" language="Java">
+    <compoundname>TrainingSessionServiceImpl.java</compoundname>
+    <includes local="no">com.gmp.training.entity.TrainingSession</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/main/java/com/gmp/training/service/impl/TrainingSessionServiceImpl.java</label>
+        <link refid="TrainingSessionServiceImpl_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.training.entity.TrainingSession</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl" prot="public">com::gmp::training::service::impl::TrainingSessionServiceImpl</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1service_1_1impl">com::gmp::training::service::impl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.service.impl;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.entity.TrainingSession;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.repository.TrainingSessionRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.service.TrainingSessionService;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Service;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.transaction.annotation.Transactional;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@Service</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@Transactional</highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl" kindref="compound">TrainingSessionServiceImpl</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingSessionService" kindref="compound">TrainingSessionService</ref><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>TrainingSessionRepository<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1abbbe1d888542cfc7a31540cd3162a621" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>TrainingSession<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1abbbe1d888542cfc7a31540cd3162a621" kindref="member">findById</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">).orElse(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="36" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1af445088aa13762285d1c1fe31dd364e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>TrainingSession<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1af445088aa13762285d1c1fe31dd364e3" kindref="member">save</ref>(TrainingSession<sp/>trainingSession)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.save(trainingSession);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a54889190f5b022679b220b43c4a11eb4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a54889190f5b022679b220b43c4a11eb4" kindref="member">delete</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.deleteById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a95313f80029194ea8670823304cf0de9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a95313f80029194ea8670823304cf0de9" kindref="member">findAll</ref>(Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findAll(pageable);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a21ef84fa0fc61a6edad77e70ea1c7a74" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a21ef84fa0fc61a6edad77e70ea1c7a74" kindref="member">findByCourseId</ref>(Long<sp/>courseId,<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findByCourseId(courseId,<sp/>pageable);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1aa324c6d4e7f518af61fe963da4ef5e79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1aa324c6d4e7f518af61fe963da4ef5e79" kindref="member">findByLecturerId</ref>(Long<sp/>lecturerId,<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findByLecturerId(lecturerId,<sp/>pageable);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a53b1fdfc51fb441c379bd534d263860a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>List&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a53b1fdfc51fb441c379bd534d263860a" kindref="member">findByStatus</ref>(TrainingSession.Status<sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findByStatus(status);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="71" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a30b06f07250ac9e95cbbf71c08824a81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a53b1fdfc51fb441c379bd534d263860a" kindref="member">findByStatus</ref>(TrainingSession.Status<sp/>status,<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findByStatus(status,<sp/>pageable);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="77" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a107a91ca08c34ec848db9b3f0eccfe66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>List&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a107a91ca08c34ec848db9b3f0eccfe66" kindref="member">findByStartTimeBetween</ref>(LocalDateTime<sp/>startDate,<sp/>LocalDateTime<sp/>endDate)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findByStartTimeBetween(startDate,<sp/>endDate);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="83" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1abf98c8d27cece51af9425ba922d697d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1abf98c8d27cece51af9425ba922d697d4" kindref="member">findByMethod</ref>(TrainingSession.Method<sp/>method,<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findByMethod(method,<sp/>pageable);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="89" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a4ee7518900fe6f9f7fd0deaf0ba636f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a4ee7518900fe6f9f7fd0deaf0ba636f0" kindref="member">findByVenue</ref>(String<sp/>venue,<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findByVenue(venue,<sp/>pageable);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="95" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a35c5d7d56ffbd91d8f6b39cfe1f3f72a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a35c5d7d56ffbd91d8f6b39cfe1f3f72a" kindref="member">findBySessionDateBetween</ref>(LocalDate<sp/>startDate,<sp/>LocalDate<sp/>endDate,<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findBySessionDateBetween(startDate,<sp/>endDate,<sp/>pageable);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="101" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a8faf74bacace7e14e66d810ee7be99aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a8faf74bacace7e14e66d810ee7be99aa" kindref="member">findFutureSessions</ref>(Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findFutureSessions(pageable);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="107" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a5aa66d453ce52e5cbc0f203b8b068ea2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a5aa66d453ce52e5cbc0f203b8b068ea2" kindref="member">findCompletedSessions</ref>(Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findCompletedSessions(pageable);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="113" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1ab5e9469b40a990a1c88b1732196c0706" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1ab5e9469b40a990a1c88b1732196c0706" kindref="member">findOngoingSessions</ref>(Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findOngoingSessions(pageable);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="118" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a1fff94ecd0b8e4f157f93b91557ffa7d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>TrainingSession<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a1fff94ecd0b8e4f157f93b91557ffa7d" kindref="member">updateStatus</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>TrainingSession.Status<sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Optional&lt;TrainingSession&gt;<sp/>optional<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(optional.isPresent())<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingSession<sp/>session<sp/>=<sp/>optional.get();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>session.setStatus(status);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.save(session);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classRuntimeException" kindref="compound">RuntimeException</ref>(</highlight><highlight class="stringliteral">&quot;培训场次不存在：&quot;</highlight><highlight class="normal"><sp/>+<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="129" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1aa1c1538e218d33df397b61e5a5cfcf8f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1aa1c1538e218d33df397b61e5a5cfcf8f" kindref="member">batchUpdateStatus</ref>(List&lt;Long&gt;<sp/>ids,<sp/>TrainingSession.Status<sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简化实现，实际可能需要使用JPQL或SQL批量更新</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>:<sp/>ids)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1a1fff94ecd0b8e4f157f93b91557ffa7d" kindref="member">updateStatus</ref>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>status);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count++;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>记录错误但继续处理其他记录</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e.printStackTrace();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>count;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="146" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1ad7115358f68e4f953dd8dee56c270f26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TrainingSession&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1ad7115358f68e4f953dd8dee56c270f26" kindref="member">search</ref>(String<sp/>keyword,<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简化实现，实际可能需要更复杂的搜索逻辑</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>这里假设通过状态、地点或方法进行简单搜索</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>实际应该使用Specification或自定义查询</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1afc96a75d555b9feed711c8f2c648b62f" kindref="member">repository</ref>.findAll(pageable);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="155" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1abee1d1b9e185a5293c5d81d48c00b876" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1abee1d1b9e185a5293c5d81d48c00b876" kindref="member">getActualAttendance</ref>(Long<sp/>sessionId)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简化实现，实际应该查询参训人员记录</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="162" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1abdc18098a8863bdac75c609eceefa548" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingSessionServiceImpl_1abdc18098a8863bdac75c609eceefa548" kindref="member">getAttendanceRate</ref>(Long<sp/>sessionId)<sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>简化实现，实际应该基于实际出勤人数和计划参训人数计算</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingSessionServiceImpl.java"/>
+  </compounddef>
+</doxygen>

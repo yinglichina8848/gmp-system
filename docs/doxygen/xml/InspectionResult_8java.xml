@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="InspectionResult_8java" kind="file" language="Java">
+    <compoundname>InspectionResult.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>lims-service/src/main/java/com/gmp/lims/entity/InspectionResult.java</label>
+        <link refid="InspectionResult_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult" prot="public">com::gmp::lims::entity::InspectionResult</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1lims_1_1entity">com::gmp::lims::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1lims_1_1entity" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.lims.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.EqualsAndHashCode;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.NoArgsConstructor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.AllArgsConstructor;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.ToString;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotBlank;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.Size;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@NoArgsConstructor</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@AllArgsConstructor</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@EqualsAndHashCode(of<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@ToString(exclude<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;inspectionTask&quot;</highlight><highlight class="normal"><sp/>})</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;lims_inspection_result&quot;</highlight><highlight class="normal">,<sp/>indexes<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_result_task_id&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;task_id&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_result_item_name&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;item_name&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_result_test_date&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;test_date&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">})</highlight></codeline>
+<codeline lineno="29" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult" kindref="compound">InspectionResult</ref><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="36" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1a39d35817b657f9a84171300c0a12a878" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;task_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="43" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1a786a275a05c0fd5838549756d7e05ec9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask" kindref="compound">InspectionTask</ref><sp/>inspectionTask;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;检测项目名称不能为空&quot;)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;检测项目名称长度不能超过100个字符&quot;)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;item_name&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1a0e0b2f9ca70c97c072e1663914de3afb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>itemName;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;检测方法长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;test_method&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="58" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1a7c7b1d8baee3b48fb3970f70a801c546" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>testMethod;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;检测结果值长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;test_value&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1ac3ae80272bc997263e2a0c25b9b91d60" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>testValue;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>20,<sp/>message<sp/>=<sp/>&quot;计量单位长度不能超过20个字符&quot;)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;measurement_unit&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1af6a49e04167f37de8b0cb110fceb8765" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>measurementUnit;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;标准值长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;standard_value&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="79" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1a48e741f028c4fae651c838a6712ec09d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>standardValue;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;标准范围长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;standard_range&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="86" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1abe92800b743a7605006d3f9bc7aaf018" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>standardRange;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>20,<sp/>message<sp/>=<sp/>&quot;判定结果长度不能超过20个字符&quot;)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;judgment_result&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="93" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1a4a4963ac5cb0f0966f90585c2c666a8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>judgmentResult;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;test_date&quot;)</highlight></codeline>
+<codeline lineno="99" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1a400132214bcc75a88f15f9b0f7aa5c98" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>testDate;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;检测人员长度不能超过50个字符&quot;)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;test_person&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="106" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1acbe0d13aeb3c042acfd5ed218c92fcfa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>testPerson;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;审核人员长度不能超过50个字符&quot;)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;review_person&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="113" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1aaeef055fff70d3cafbfe2403cb5c3f57" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>reviewPerson;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;review_date&quot;)</highlight></codeline>
+<codeline lineno="119" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1a2674fc4441f6f3ae3e52f34ed2b00ae9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>reviewDate;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;review_status&quot;)</highlight></codeline>
+<codeline lineno="125" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1a88065182586c14da6e672eec1662c597" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>reviewStatus;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;备注长度不能超过500个字符&quot;)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="132" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1abae4775b6318ccef3a5b2ebb5a09d969" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>remark;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_time&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="138" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1ab35aee7ffe1f1b25c57c38455571542d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdTime;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_time&quot;)</highlight></codeline>
+<codeline lineno="144" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1a15bd471b70515c80e3568c6caa1c09be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedTime;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>1000,<sp/>message<sp/>=<sp/>&quot;检测结果描述长度不能超过1000个字符&quot;)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;result_description&quot;,<sp/>length<sp/>=<sp/>1000)</highlight></codeline>
+<codeline lineno="151" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1a363774beb5fef0cf529c1050b06adead" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>resultDescription;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;is_key_indicator&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>columnDefinition<sp/>=<sp/>&quot;BOOLEAN<sp/>DEFAULT<sp/>FALSE&quot;)</highlight></codeline>
+<codeline lineno="157" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionResult_1aa956c215c3d30855090b8236d885c66d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Boolean<sp/>isKeyIndicator<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lims-service/src/main/java/com/gmp/lims/entity/InspectionResult.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="MaterialRepository_8java" kind="file" language="Java">
+    <compoundname>MaterialRepository.java</compoundname>
+    <includes local="no">com.gmp.warehouse.entity.Material</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>warehouse-service/src/main/java/com/gmp/warehouse/repository/MaterialRepository.java</label>
+        <link refid="MaterialRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.warehouse.entity.Material</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository" prot="public">com::gmp::warehouse::repository::MaterialRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1warehouse_1_1repository">com::gmp::warehouse::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.warehouse.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.warehouse.entity.Material;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="23" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository" kindref="compound">MaterialRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Material,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;Material&gt;<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a5caf7b619b6451215961fa96f179940e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Material&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a5caf7b619b6451215961fa96f179940e" kindref="member">findByCode</ref>(String<sp/>code);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a0f2c3df50ecd4e59dcd4434ddc068131" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Material&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a0f2c3df50ecd4e59dcd4434ddc068131" kindref="member">findByNameLike</ref>(String<sp/>name);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a6daa157fc53ae0f74001814008ab9354" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Material&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a6daa157fc53ae0f74001814008ab9354" kindref="member">findByCategoryId</ref>(Long<sp/>categoryId);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a527c52f5b9501d03a6c99c400fa2ea9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Material&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a527c52f5b9501d03a6c99c400fa2ea9d" kindref="member">findBySupplierId</ref>(Long<sp/>supplierId);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a6b3ffe151e809c0da8e84cbbf807174f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Material&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a6b3ffe151e809c0da8e84cbbf807174f" kindref="member">findByStatus</ref>(Integer<sp/>status);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a550c0fe5e4ce060483daab6fe456906a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a550c0fe5e4ce060483daab6fe456906a" kindref="member">existsByCodeAndIdNot</ref>(String<sp/>code,<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>m<sp/>FROM<sp/>Material<sp/>m<sp/>WHERE<sp/>m.safetyStock<sp/>IS<sp/>NOT<sp/>NULL<sp/>AND<sp/>m.warningStock<sp/>IS<sp/>NOT<sp/>NULL&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="80" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a38a7cae3483856d423c7e134432ecba1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Material&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1MaterialRepository_1a38a7cae3483856d423c7e134432ecba1" kindref="member">findMaterialsForWarning</ref>();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="warehouse-service/src/main/java/com/gmp/warehouse/repository/MaterialRepository.java"/>
+  </compounddef>
+</doxygen>

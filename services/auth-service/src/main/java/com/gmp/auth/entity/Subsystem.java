@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -12,7 +13,16 @@ import java.util.Objects;
  * 
  * @author GMP
  */
+@Entity
+@Table(name = "sys_subsystems")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Subsystem {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
 
@@ -69,6 +79,10 @@ public class Subsystem {
     
     public String getSubsystemCode() {
         return subsystemCode;
+    }
+
+    public String getSubsystemName() {
+        return subsystemName;
     }
 
     /**

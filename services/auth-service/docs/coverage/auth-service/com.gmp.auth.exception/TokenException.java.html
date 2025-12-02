@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TokenException.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.exception</a> &gt; <span class="el_source">TokenException.java</span></div><h1>TokenException.java</h1><pre class="source lang-java linenums">package com.gmp.auth.exception;
+
+/**
+ * 令牌相关异常
+ * 用于表示JWT令牌的各种错误情况
+ */
+public class TokenException extends RuntimeException {
+    
+    private static final long serialVersionUID = 1L;
+    
+    /**
+     * 构造函数
+     * @param message 错误消息
+     */
+    public TokenException(String message) {
+<span class="fc" id="L16">        super(message);</span>
+<span class="fc" id="L17">    }</span>
+    
+    /**
+     * 构造函数
+     * @param message 错误消息
+     * @param cause 异常原因
+     */
+    public TokenException(String message, Throwable cause) {
+<span class="nc" id="L25">        super(message, cause);</span>
+<span class="nc" id="L26">    }</span>
+    
+    /**
+     * 令牌已过期异常
+     */
+    public static class ExpiredTokenException extends TokenException {
+        
+        private static final long serialVersionUID = 1L;
+        
+        public ExpiredTokenException() {
+<span class="fc" id="L36">            super(&quot;令牌已过期&quot;);</span>
+<span class="fc" id="L37">        }</span>
+        
+        public ExpiredTokenException(String message) {
+<span class="nc" id="L40">            super(message);</span>
+<span class="nc" id="L41">        }</span>
+    }
+    
+    /**
+     * 无效令牌异常
+     */
+    public static class InvalidTokenException extends TokenException {
+        
+        private static final long serialVersionUID = 1L;
+        
+        public InvalidTokenException() {
+<span class="fc" id="L52">            super(&quot;无效的令牌&quot;);</span>
+<span class="fc" id="L53">        }</span>
+        
+        public InvalidTokenException(String message) {
+<span class="nc" id="L56">            super(message);</span>
+<span class="nc" id="L57">        }</span>
+    }
+    
+    /**
+     * 撤销的令牌异常
+     */
+    public static class RevokedTokenException extends TokenException {
+        
+        private static final long serialVersionUID = 1L;
+        
+        public RevokedTokenException() {
+<span class="nc" id="L68">            super(&quot;令牌已被撤销&quot;);</span>
+<span class="nc" id="L69">        }</span>
+    }
+    
+    /**
+     * 不支持的令牌异常
+     */
+    public static class UnsupportedTokenException extends TokenException {
+        
+        private static final long serialVersionUID = 1L;
+        
+        public UnsupportedTokenException() {
+<span class="nc" id="L80">            super(&quot;不支持的令牌类型&quot;);</span>
+<span class="nc" id="L81">        }</span>
+    }
+    
+    /**
+     * 令牌签名异常
+     */
+    public static class SignatureException extends TokenException {
+        
+        private static final long serialVersionUID = 1L;
+        
+        public SignatureException() {
+<span class="nc" id="L92">            super(&quot;令牌签名验证失败&quot;);</span>
+<span class="nc" id="L93">        }</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::mes::repository::EquipmentStatusRecordRepository</compoundname>
+    <basecompoundref refid="classJpaRepository" prot="public" virt="non-virtual">JpaRepository&lt; EquipmentStatusRecord, Long &gt;</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a27dbb2d0b11ac195ae7cde014244611f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; EquipmentStatusRecord &gt;</type>
+        <definition>List&lt; EquipmentStatusRecord &gt; com.gmp.mes.repository.EquipmentStatusRecordRepository.findByEquipmentCodeOrderByTimestampDesc</definition>
+        <argsstring>(String equipmentCode)</argsstring>
+        <name>findByEquipmentCodeOrderByTimestampDesc</name>
+        <qualifiedname>com.gmp.mes.repository.EquipmentStatusRecordRepository.findByEquipmentCodeOrderByTimestampDesc</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>equipmentCode</declname>
+        </param>
+        <briefdescription>
+<para>根据设备编码查询状态记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备编码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>状态记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/EquipmentStatusRecordRepository.java" line="26" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a096ae50254d4a7f447b4f35efdffad5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; EquipmentStatusRecord &gt;</type>
+        <definition>List&lt; EquipmentStatusRecord &gt; com.gmp.mes.repository.EquipmentStatusRecordRepository.findByEquipmentCodeAndTimestampBetweenOrderByTimestampDesc</definition>
+        <argsstring>(String equipmentCode, LocalDateTime startDate, LocalDateTime endDate)</argsstring>
+        <name>findByEquipmentCodeAndTimestampBetweenOrderByTimestampDesc</name>
+        <qualifiedname>com.gmp.mes.repository.EquipmentStatusRecordRepository.findByEquipmentCodeAndTimestampBetweenOrderByTimestampDesc</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>equipmentCode</declname>
+        </param>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+<para>根据设备编码和时间范围查询状态记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备编码 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>状态记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/EquipmentStatusRecordRepository.java" line="36" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a23cb2a77539328bdaa6dcb41e04b4058" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>EquipmentStatusRecord</type>
+        <definition>EquipmentStatusRecord com.gmp.mes.repository.EquipmentStatusRecordRepository.findLatestByEquipmentCode</definition>
+        <argsstring>(@Param(&quot;code&quot;) String equipmentCode)</argsstring>
+        <name>findLatestByEquipmentCode</name>
+        <qualifiedname>com.gmp.mes.repository.EquipmentStatusRecordRepository.findLatestByEquipmentCode</qualifiedname>
+        <param>
+          <type>@Param(&quot;code&quot;) String</type>
+          <declname>equipmentCode</declname>
+        </param>
+        <briefdescription>
+<para>查询指定设备的最新状态记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备编码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>最新的状态记录 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/EquipmentStatusRecordRepository.java" line="46" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1af61515cf16b5b6445b4d1822843a7f86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long com.gmp.mes.repository.EquipmentStatusRecordRepository.countByStatus</definition>
+        <argsstring>(EquipmentStatusRecord.EquipmentStatus status)</argsstring>
+        <name>countByStatus</name>
+        <qualifiedname>com.gmp.mes.repository.EquipmentStatusRecordRepository.countByStatus</qualifiedname>
+        <param>
+          <type>EquipmentStatusRecord.EquipmentStatus</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>统计指定状态的记录数量 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>记录数量 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/EquipmentStatusRecordRepository.java" line="54" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a8de7c7b37d8135d5d77c55df9b99153e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.gmp.mes.repository.EquipmentStatusRecordRepository.deleteByTimestampBefore</definition>
+        <argsstring>(LocalDateTime date)</argsstring>
+        <name>deleteByTimestampBefore</name>
+        <qualifiedname>com.gmp.mes.repository.EquipmentStatusRecordRepository.deleteByTimestampBefore</qualifiedname>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>date</declname>
+        </param>
+        <briefdescription>
+<para>清理指定时间之前的历史记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>date</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>截止日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>清理的记录数 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/EquipmentStatusRecordRepository.java" line="63" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>设备状态记录数据访问接口 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>gmp-system </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JpaRepository&lt; EquipmentStatusRecord, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.mes.repository.EquipmentStatusRecordRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JpaRepository&lt; EquipmentStatusRecord, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.mes.repository.EquipmentStatusRecordRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="mes-service/src/main/java/com/gmp/mes/repository/EquipmentStatusRecordRepository.java" line="18" column="18" bodyfile="mes-service/src/main/java/com/gmp/mes/repository/EquipmentStatusRecordRepository.java" bodystart="18" bodyend="64"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1af61515cf16b5b6445b4d1822843a7f86" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::EquipmentStatusRecordRepository</scope><name>countByStatus</name></member>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a8de7c7b37d8135d5d77c55df9b99153e" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::EquipmentStatusRecordRepository</scope><name>deleteByTimestampBefore</name></member>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a096ae50254d4a7f447b4f35efdffad5e" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::EquipmentStatusRecordRepository</scope><name>findByEquipmentCodeAndTimestampBetweenOrderByTimestampDesc</name></member>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a27dbb2d0b11ac195ae7cde014244611f" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::EquipmentStatusRecordRepository</scope><name>findByEquipmentCodeOrderByTimestampDesc</name></member>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentStatusRecordRepository_1a23cb2a77539328bdaa6dcb41e04b4058" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::EquipmentStatusRecordRepository</scope><name>findLatestByEquipmentCode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

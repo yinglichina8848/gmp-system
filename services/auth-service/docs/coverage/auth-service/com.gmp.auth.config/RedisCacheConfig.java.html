@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RedisCacheConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.config</a> &gt; <span class="el_source">RedisCacheConfig.java</span></div><h1>RedisCacheConfig.java</h1><pre class="source lang-java linenums">package com.gmp.auth.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
+import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializationContext;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
+
+import java.time.Duration;
+
+/**
+ * Redis缓存配置
+ * 用于配置令牌撤销和权限缓存
+ */
+@Configuration
+@EnableCaching
+<span class="fc" id="L24">public class RedisCacheConfig {</span>
+    
+    @Autowired
+    private JwtProperties jwtProperties;
+    
+    /**
+     * 配置Redis缓存管理器
+     */
+    @Bean
+    public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
+<span class="fc" id="L34">        RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig()</span>
+<span class="fc" id="L35">                .entryTtl(Duration.ofHours(1)) // 默认缓存时间1小时</span>
+<span class="fc" id="L36">                .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))</span>
+<span class="fc" id="L37">                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));</span>
+        
+        // 为不同的缓存设置不同的过期时间
+<span class="fc" id="L40">        return RedisCacheManager.builder(redisConnectionFactory)</span>
+<span class="fc" id="L41">                .cacheDefaults(defaultCacheConfig)</span>
+<span class="fc" id="L42">                .withCacheConfiguration(&quot;revokedTokens&quot;, </span>
+<span class="fc" id="L43">                        RedisCacheConfiguration.defaultCacheConfig()</span>
+<span class="fc" id="L44">                                .entryTtl(Duration.ofSeconds(jwtProperties.getRefreshExpiration())))</span>
+<span class="fc" id="L45">                .withCacheConfiguration(&quot;userPermissions&quot;, </span>
+<span class="fc" id="L46">                        RedisCacheConfiguration.defaultCacheConfig()</span>
+<span class="fc" id="L47">                                .entryTtl(Duration.ofMinutes(30)))</span>
+<span class="fc" id="L48">                .withCacheConfiguration(&quot;userRoles&quot;, </span>
+<span class="fc" id="L49">                        RedisCacheConfiguration.defaultCacheConfig()</span>
+<span class="fc" id="L50">                                .entryTtl(Duration.ofMinutes(30)))</span>
+<span class="fc" id="L51">                .build();</span>
+    }
+    
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

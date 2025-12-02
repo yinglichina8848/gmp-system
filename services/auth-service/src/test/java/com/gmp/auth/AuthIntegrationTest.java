@@ -111,24 +111,29 @@ public class AuthIntegrationTest {
      */
     private void createTestUser(String username, String password, String roleName) {
         // 确保用户名符合验证规则（只包含字母、数字和下划线）
-        String validUsername = username.replaceAll("[^a-zA-Z0-9_]", "_");
+        String validUsername = username.replaceAll("[^a-zA-Z0-9_]", "");
+        // 确保用户名不以数字开头且长度在3-50之间
+        if (validUsername.length() < 3) {
+            validUsername = "test" + validUsername;
+        } else if (validUsername.length() > 50) {
+            validUsername = validUsername.substring(0, 50);
+        }
         // 构造有效的邮箱格式 - 确保使用有效的域名
         String validEmail = validUsername.toLowerCase() + "@test-gmp.com";
         
-        // 使用Builder模式创建User对象，确保所有必要字段都被正确设置
-        User user = User.builder()
-                .username(validUsername)
-                .email(validEmail)
-                .fullName(username + " User")
-                .passwordHash(passwordEncoder.encode(password))
-                .userStatus(User.UserStatus.ACTIVE)
-                .loginAttempts(0)
-                .mobile("13800138000") // 添加有效的手机号
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
-                .version(1)
-                .mfaEnabled(false)
-                .build();
+        // 直接创建User对象并设置字段，确保所有必要字段都被正确设置
+        User user = new User();
+        user.setUsername(validUsername);
+        user.setEmail(validEmail);
+        user.setFullName(username + " User");
+        user.setPasswordHash(passwordEncoder.encode(password));
+        user.setUserStatus(User.UserStatus.ACTIVE);
+        user.setLoginAttempts(0);
+        user.setMobile("13800138000"); // 添加有效的手机号
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
+        user.setVersion(1);
+        user.setMfaEnabled(false);
                 
         log.info("👤 准备创建测试用户: {} (验证后: {}) 邮箱: {}", 
                  username, validUsername, validEmail);
@@ -184,7 +189,7 @@ public class AuthIntegrationTest {
         LoginResponse loginResponse = apiResponse.getData();
         assertThat(loginResponse.getAccessToken()).isNotNull();
         assertThat(loginResponse.getRefreshToken()).isNotNull();
-        assertThat(loginResponse.getUsername()).isEqualTo(ADMIN_USERNAME);
+        assertThat(loginResponse.getUsername()).isEqualTo(validAdminUsername);
 
         log.info("✅ 用户登录测试通过");
     }

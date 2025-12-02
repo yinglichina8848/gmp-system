@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="DeviationControllerTest_8java" kind="file" language="Java">
+    <compoundname>DeviationControllerTest.java</compoundname>
+    <includes local="no">com.fasterxml.jackson.databind.ObjectMapper</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/test/java/com/gmp/qms/controller/DeviationControllerTest.java</label>
+        <link refid="DeviationControllerTest_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.fasterxml.jackson.databind.ObjectMapper</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest" prot="public">com::gmp::qms::controller::DeviationControllerTest</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1controller">com::gmp::qms::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.fasterxml.jackson.databind.ObjectMapper;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.DeviationDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.DeviationSearchCriteria;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.entity.Deviation;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.service.DeviationService;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.BeforeEach;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.config.WebControllerTestConfig;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.boot.test.mock.mockito.MockBean;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.PageImpl;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.PageRequest;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.MediaType;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.mock.web.MockMultipartFile;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.MockMvc;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.request.MockMvcRequestBuilders;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.any;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.Mockito.*;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">@WebControllerTestConfig(controllers<sp/>=<sp/>DeviationController.class)</highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest" kindref="compound">DeviationControllerTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1aa1f1337bca362570993c99361d5b6bd6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>MockMvc<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1aa1f1337bca362570993c99361d5b6bd6" kindref="member">mockMvc</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@MockBean</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a7ddc7a8bdc472df7f6e3d7fc9941cd1b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>DeviationService<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a7ddc7a8bdc472df7f6e3d7fc9941cd1b" kindref="member">deviationService</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="44" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a31b4131c3503beb51153f9cf89b901f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>ObjectMapper<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a31b4131c3503beb51153f9cf89b901f8" kindref="member">objectMapper</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1ad15cf237967ffaf1beb550abdef4ab02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Deviation<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1ad15cf237967ffaf1beb550abdef4ab02" kindref="member">deviation</ref>;</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a424d8d20802a21309d915567c8ec639e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>DeviationDTO<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a424d8d20802a21309d915567c8ec639e" kindref="member">deviationDTO</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@BeforeEach</highlight></codeline>
+<codeline lineno="50" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a787130585d27f0c184972dced0b12674" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a787130585d27f0c184972dced0b12674" kindref="member">setUp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>初始化测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Deviation();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setId(1L);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setDeviationCode(</highlight><highlight class="stringliteral">&quot;DEV-2024-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setTitle(</highlight><highlight class="stringliteral">&quot;测试偏差&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setDescription(</highlight><highlight class="stringliteral">&quot;测试偏差描述&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setStatus(Deviation.DeviationStatus.IDENTIFIED);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DeviationDTO();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setTitle(</highlight><highlight class="stringliteral">&quot;测试偏差&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setDescription(</highlight><highlight class="stringliteral">&quot;测试偏差描述&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setLocation(</highlight><highlight class="stringliteral">&quot;生产车间A&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setOccurrenceDate(LocalDate.now());</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setSeverityLevel(Deviation.SeverityLevel.MEDIUM.name());</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setResponsiblePersonId(1L);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="69" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a8aad291e3858482ebfc2521113c5c436" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a8aad291e3858482ebfc2521113c5c436" kindref="member">testCreateDeviation</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationService.createDeviation(any(DeviationDTO.class))).thenReturn(deviation);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.post(</highlight><highlight class="stringliteral">&quot;/api/v1/deviations&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.APPLICATION_JSON)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.content(objectMapper.writeValueAsString(deviationDTO)))</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.code&quot;</highlight><highlight class="normal">).value(200))</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.deviationCode&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;DEV-2024-0001&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationService).createDeviation(any(DeviationDTO.class));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="83" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a82cb81f2ed49c87dffc5d375759ad25c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a82cb81f2ed49c87dffc5d375759ad25c" kindref="member">testGetDeviationById</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationService.getDeviationById(1L)).thenReturn(deviation);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.get(</highlight><highlight class="stringliteral">&quot;/api/v1/deviations/1&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.code&quot;</highlight><highlight class="normal">).value(200))</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.id&quot;</highlight><highlight class="normal">).value(1))</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.deviationCode&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;DEV-2024-0001&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationService).getDeviationById(1L);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="96" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a11131fe1129b65373688544851db4c7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a11131fe1129b65373688544851db4c7c" kindref="member">testGetDeviationByCode</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationService.getDeviationByCode(</highlight><highlight class="stringliteral">&quot;DEV-2024-0001&quot;</highlight><highlight class="normal">)).thenReturn(deviation);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.get(</highlight><highlight class="stringliteral">&quot;/api/v1/deviations/code/DEV-2024-0001&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.code&quot;</highlight><highlight class="normal">).value(200))</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.id&quot;</highlight><highlight class="normal">).value(1));</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationService).getDeviationByCode(</highlight><highlight class="stringliteral">&quot;DEV-2024-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="108" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1ab92f8c5f1bd4cf1b8b6f15d83dccdc86" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1ab92f8c5f1bd4cf1b8b6f15d83dccdc86" kindref="member">testUpdateDeviation</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationService.updateDeviation(eq(1L),<sp/>any(DeviationDTO.class))).thenReturn(deviation);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.put(</highlight><highlight class="stringliteral">&quot;/api/v1/deviations/1&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.APPLICATION_JSON)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.content(objectMapper.writeValueAsString(deviationDTO)))</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.code&quot;</highlight><highlight class="normal">).value(200))</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.id&quot;</highlight><highlight class="normal">).value(1));</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationService).updateDeviation(eq(1L),<sp/>any(DeviationDTO.class));</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="122" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a08806ab17f31ac32c879adba9d7f12ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a08806ab17f31ac32c879adba9d7f12ec" kindref="member">testFindAllDeviations</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Deviation&gt;<sp/>deviations<sp/>=<sp/>Arrays.asList(deviation);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Deviation&gt;<sp/>page<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(deviations,<sp/>PageRequest.of(0,<sp/>10),<sp/>deviations.size());</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationService.findAllDeviations(any())).thenReturn(page);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.get(</highlight><highlight class="stringliteral">&quot;/api/v1/deviations?page=0&amp;size=10&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.code&quot;</highlight><highlight class="normal">).value(200))</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.totalElements&quot;</highlight><highlight class="normal">).value(1));</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationService).findAllDeviations(any());</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="137" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a40a2f2bf927a75afa5dd8f8fc40c6904" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a40a2f2bf927a75afa5dd8f8fc40c6904" kindref="member">testSearchDeviations</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DeviationSearchCriteria<sp/>criteria<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DeviationSearchCriteria();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>criteria.setKeyword(</highlight><highlight class="stringliteral">&quot;测试&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Deviation&gt;<sp/>deviations<sp/>=<sp/>Arrays.asList(deviation);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Deviation&gt;<sp/>page<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(deviations,<sp/>PageRequest.of(0,<sp/>10),<sp/>deviations.size());</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationService.searchDeviations(any(DeviationSearchCriteria.class),<sp/>any())).thenReturn(page);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.post(</highlight><highlight class="stringliteral">&quot;/api/v1/deviations/search?page=0&amp;size=10&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.APPLICATION_JSON)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.content(objectMapper.writeValueAsString(criteria)))</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.code&quot;</highlight><highlight class="normal">).value(200))</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.totalElements&quot;</highlight><highlight class="normal">).value(1));</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationService).searchDeviations(any(DeviationSearchCriteria.class),<sp/>any());</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="157" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1ac564fd3e272e012d01fdfb93cdf28e7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1ac564fd3e272e012d01fdfb93cdf28e7e" kindref="member">testUpdateDeviationStatus</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationService.updateDeviationStatus(eq(1L),<sp/>eq(Deviation.DeviationStatus.CLOSED),<sp/>anyString()))</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.thenReturn(deviation);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.put(</highlight><highlight class="stringliteral">&quot;/api/v1/deviations/1/status?status=CLOSED&amp;comments=测试关闭&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.code&quot;</highlight><highlight class="normal">).value(200));</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationService).updateDeviationStatus(eq(1L),<sp/>eq(Deviation.DeviationStatus.CLOSED),<sp/>anyString());</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="169" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a7252d00d51c21d04772c8f68247af1fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1DeviationControllerTest_1a7252d00d51c21d04772c8f68247af1fd" kindref="member">testGenerateDeviationCode</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>code<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;DEV-2024-0001&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationService.generateDeviationCode()).thenReturn(code);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(MockMvcRequestBuilders.get(</highlight><highlight class="stringliteral">&quot;/api/v1/deviations/generate-code&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.code&quot;</highlight><highlight class="normal">).value(200))</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.deviationCode&quot;</highlight><highlight class="normal">).value(code));</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationService).generateDeviationCode();</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/test/java/com/gmp/qms/controller/DeviationControllerTest.java"/>
+  </compounddef>
+</doxygen>

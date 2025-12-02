@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthSystemProperties.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.config</a> &gt; <span class="el_source">AuthSystemProperties.java</span></div><h1>AuthSystemProperties.java</h1><pre class="source lang-java linenums">package com.gmp.auth.config;
+
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.validation.annotation.Validated;
+
+import java.time.Duration;
+
+/**
+ * GMP认证系统配置属性
+ * &lt;p&gt;
+ * 用于管理认证系统的各种配置参数，包括初始化配置、JWT配置和测试配置
+ */
+<span class="pc bpc" id="L14" title="27 of 30 branches missed.">@Data</span>
+@Validated
+@ConfigurationProperties(prefix = &quot;gmp.auth&quot;)
+public class AuthSystemProperties {
+
+    /**
+     * 系统初始化配置
+     */
+<span class="fc" id="L22">    private Initialization initialization = new Initialization();</span>
+
+    /**
+     * JWT配置
+     */
+<span class="fc" id="L27">    private Jwt jwt = new Jwt();</span>
+
+    /**
+     * 测试配置
+     */
+<span class="fc" id="L32">    private Test test = new Test();</span>
+
+    /**
+     * 初始化配置
+     */
+<span class="pc bpc" id="L37" title="12 of 14 branches missed.">    @Data</span>
+    public static class Initialization {
+        /**
+         * 是否跳过已存在的数据初始化
+         */
+<span class="fc" id="L42">        private boolean skipExisting = true;</span>
+
+        /**
+         * 是否启用自动初始化
+         */
+<span class="fc" id="L47">        private boolean enabled = true;</span>
+    }
+
+    /**
+     * JWT配置
+     */
+<span class="pc bpc" id="L53" title="41 of 46 branches missed.">    @Data</span>
+    public static class Jwt {
+        /**
+         * JWT密钥
+         */
+<span class="fc" id="L58">        private String secret = &quot;default-secret-key-for-development-only&quot;; // 开发环境默认密钥</span>
+
+        /**
+         * 访问令牌有效期
+         */
+<span class="fc" id="L63">        private Duration expiration = Duration.ofHours(2);</span>
+
+        /**
+         * 刷新令牌有效期
+         */
+<span class="fc" id="L68">        private Duration refreshExpiration = Duration.ofDays(7);</span>
+
+        /**
+         * 令牌前缀
+         */
+<span class="fc" id="L73">        private String tokenPrefix = &quot;Bearer &quot;;</span>
+
+        /**
+         * 令牌头名称
+         */
+<span class="fc" id="L78">        private String header = &quot;Authorization&quot;;</span>
+    }
+
+    /**
+     * 测试配置
+     */
+    @Data
+    public static class Test {
+        /**
+         * 是否启用测试模式
+         */
+        private boolean enabled = true;
+
+        /**
+         * 测试用户名前缀
+         */
+        private String userPrefix = &quot;test_&quot;;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

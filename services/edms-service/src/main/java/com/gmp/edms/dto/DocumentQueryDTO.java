@@ -19,4 +19,14 @@ public class DocumentQueryDTO implements Serializable {
     private Long departmentId;
     
     private String approvalStatus;
+    
+    private String documentName;
+    
+    private String documentCode;
+    
+    private String documentType;
+    
+    private String confidentialityLevel;
+    
+    private String author;
 }

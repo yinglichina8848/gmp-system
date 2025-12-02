@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JwtConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.config</a> &gt; <span class="el_source">JwtConfig.java</span></div><h1>JwtConfig.java</h1><pre class="source lang-java linenums">package com.gmp.auth.config;
+
+import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.Keys;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import javax.crypto.SecretKey;
+import java.util.*;
+
+/**
+ * @brief JWT令牌配置和工具类
+ * 
+ * @details 该类负责JWT令牌的生成、验证、解析等功能，包括访问令牌和刷新令牌的管理。
+ * 提供了令牌生成、验证、提取用户信息、刷新令牌等核心功能。
+ * 
+ * @author GMP系统开发团队
+ * @version 1.0
+ * @since 2023-01-01
+ * 
+ * @see io.jsonwebtoken.Jwts
+ * @see io.jsonwebtoken.Claims
+ * @see io.jsonwebtoken.SecretKey
+ */
+@Component
+<span class="fc" id="L28">public class JwtConfig {</span>
+    
+<span class="fc" id="L30">    private static final Logger log = LoggerFactory.getLogger(JwtConfig.class);</span>
+
+    /**
+     * @brief JWT签名密钥
+     * 
+     * @details 用于签名和验证JWT令牌的密钥，从配置文件中读取
+     */
+    @Value(&quot;${jwt.secret:gmp-auth-jwt-secret-key-2024-very-secure-long-key}&quot;)
+    private String secret;
+
+    /**
+     * @brief 访问令牌过期时间（毫秒）
+     * 
+     * @details 默认为24小时（86400000毫秒）
+     */
+    @Value(&quot;${jwt.expiration:86400000}&quot;)
+    private long expiration;
+
+    /**
+     * @brief 刷新令牌过期时间（毫秒）
+     * 
+     * @details 默认为7天（604800000毫秒）
+     */
+    @Value(&quot;${jwt.refresh-expiration:604800000}&quot;)
+    private long refreshExpiration;
+
+    /**
+     * @brief JWT令牌发行者
+     * 
+     * @details 默认为&quot;gmp-system&quot;
+     */
+    @Value(&quot;${jwt.issuer:gmp-system}&quot;)
+    private String issuer;
+
+    /**
+     * @brief 签名密钥对象
+     * 
+     * @details 用于签名和验证JWT令牌的SecretKey对象，懒加载初始化
+     */
+    private SecretKey key;
+
+    /**
+     * @brief 生成JWT访问令牌
+     * 
+     * @details 根据用户名、角色和权限生成JWT访问令牌
+     * 
+     * @param username 用户名
+     * @param roles 用户角色集合
+     * @param permissions 用户权限列表
+     * @return String JWT访问令牌
+     */
+    public String generateToken(String username, Collection&lt;String&gt; roles, List&lt;String&gt; permissions) {
+<span class="fc" id="L82">        Date now = new Date();</span>
+<span class="fc" id="L83">        Date expiryDate = new Date(now.getTime() + expiration);</span>
+
+<span class="fc" id="L85">        Map&lt;String, Object&gt; claims = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L86">        claims.put(&quot;sub&quot;, username);</span>
+<span class="fc" id="L87">        claims.put(&quot;iat&quot;, now.getTime() / 1000);</span>
+<span class="fc" id="L88">        claims.put(&quot;exp&quot;, expiryDate.getTime() / 1000);</span>
+<span class="fc" id="L89">        claims.put(&quot;iss&quot;, issuer);</span>
+<span class="fc" id="L90">        claims.put(&quot;roles&quot;, roles);</span>
+<span class="fc" id="L91">        claims.put(&quot;permissions&quot;, permissions);</span>
+
+<span class="fc" id="L93">        return Jwts.builder()</span>
+<span class="fc" id="L94">                .setClaims(claims)</span>
+<span class="fc" id="L95">                .setIssuedAt(now)</span>
+<span class="fc" id="L96">                .setExpiration(expiryDate)</span>
+<span class="fc" id="L97">                .signWith(getSecretKey(), SignatureAlgorithm.HS256)</span>
+<span class="fc" id="L98">                .compact();</span>
+    }
+
+    /**
+     * @brief 生成JWT刷新令牌
+     * 
+     * @details 根据用户名生成JWT刷新令牌，用于获取新的访问令牌
+     * 
+     * @param username 用户名
+     * @return String JWT刷新令牌
+     */
+    public String generateRefreshToken(String username) {
+<span class="fc" id="L110">        Date now = new Date();</span>
+<span class="fc" id="L111">        Date expiryDate = new Date(now.getTime() + refreshExpiration);</span>
+
+<span class="fc" id="L113">        Map&lt;String, Object&gt; claims = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L114">        claims.put(&quot;sub&quot;, username);</span>
+<span class="fc" id="L115">        claims.put(&quot;iat&quot;, now.getTime() / 1000);</span>
+<span class="fc" id="L116">        claims.put(&quot;exp&quot;, expiryDate.getTime() / 1000);</span>
+<span class="fc" id="L117">        claims.put(&quot;iss&quot;, issuer);</span>
+<span class="fc" id="L118">        claims.put(&quot;type&quot;, &quot;refresh&quot;);</span>
+
+<span class="fc" id="L120">        return Jwts.builder()</span>
+<span class="fc" id="L121">                .setClaims(claims)</span>
+<span class="fc" id="L122">                .setIssuedAt(now)</span>
+<span class="fc" id="L123">                .setExpiration(expiryDate)</span>
+<span class="fc" id="L124">                .signWith(getSecretKey(), SignatureAlgorithm.HS256)</span>
+<span class="fc" id="L125">                .compact();</span>
+    }
+
+    /**
+     * @brief 从令牌中提取用户名
+     * 
+     * @details 从JWT令牌中提取用户名（subject）
+     * 
+     * @param token JWT令牌
+     * @return String 用户名
+     */
+    public String extractUsername(String token) {
+<span class="fc" id="L137">        return extractClaim(token, Claims::getSubject);</span>
+    }
+
+    /**
+     * @brief 从令牌中提取用户角色
+     * 
+     * @details 从JWT令牌中提取用户角色列表
+     * 
+     * @param token JWT令牌
+     * @return Collection&lt;String&gt; 用户角色集合
+     */
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public Collection&lt;String&gt; extractRoles(String token) {
+<span class="fc" id="L150">        return extractClaim(token, claims -&gt; {</span>
+<span class="fc" id="L151">            Object rolesObj = claims.get(&quot;roles&quot;);</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">            if (rolesObj instanceof Collection) {</span>
+<span class="fc" id="L153">                return (Collection&lt;String&gt;) rolesObj;</span>
+            }
+<span class="fc" id="L155">            return Collections.emptyList();</span>
+        });
+    }
+
+    /**
+     * @brief 从令牌中提取用户权限
+     * 
+     * @details 从JWT令牌中提取用户权限列表
+     * 
+     * @param token JWT令牌
+     * @return List&lt;String&gt; 用户权限列表
+     */
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public List&lt;String&gt; extractPermissions(String token) {
+<span class="fc" id="L169">        return extractClaim(token, claims -&gt; {</span>
+<span class="fc" id="L170">            Object permissionsObj = claims.get(&quot;permissions&quot;);</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">            if (permissionsObj instanceof List) {</span>
+<span class="fc" id="L172">                return (List&lt;String&gt;) permissionsObj;</span>
+            }
+<span class="fc" id="L174">            return Collections.emptyList();</span>
+        });
+    }
+
+    /**
+     * @brief 验证令牌是否有效
+     * 
+     * @details 验证JWT令牌的有效性，包括签名、过期时间等
+     * 
+     * @param token JWT令牌
+     * @return boolean 如果令牌有效返回true，否则返回false
+     */
+    public boolean validateToken(String token) {
+        try {
+<span class="fc" id="L188">            Jwts.parserBuilder()</span>
+<span class="fc" id="L189">                    .setSigningKey(getSecretKey())</span>
+<span class="fc" id="L190">                    .build()</span>
+<span class="fc" id="L191">                    .parseClaimsJws(token);</span>
+<span class="fc" id="L192">            return true;</span>
+<span class="nc" id="L193">        } catch (ExpiredJwtException e) {</span>
+<span class="nc" id="L194">            log.warn(&quot;JWT令牌已过期: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L195">        } catch (UnsupportedJwtException e) {</span>
+<span class="nc" id="L196">            log.error(&quot;不支持的JWT令牌: {}&quot;, e.getMessage());</span>
+<span class="fc" id="L197">        } catch (MalformedJwtException e) {</span>
+<span class="fc" id="L198">            log.error(&quot;JWT令牌格式错误: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L199">        } catch (SignatureException e) {</span>
+<span class="nc" id="L200">            log.error(&quot;JWT令牌签名验证失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L201">        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L202">            log.error(&quot;JWT令牌参数异常: {}&quot;, e.getMessage());</span>
+<span class="pc" id="L203">        }</span>
+<span class="fc" id="L204">        return false;</span>
+    }
+
+    /**
+     * @brief 检查令牌是否即将过期
+     * 
+     * @details 检查JWT令牌是否在指定的阈值时间内即将过期
+     * 
+     * @param token JWT令牌
+     * @param thresholdSeconds 过期阈值（秒）
+     * @return boolean 如果令牌即将过期返回true，否则返回false
+     */
+    public boolean isTokenNearExpiry(String token, long thresholdSeconds) {
+        try {
+<span class="fc" id="L218">            Claims claims = extractAllClaims(token);</span>
+<span class="fc" id="L219">            Date expiration = claims.getExpiration();</span>
+<span class="pc bpc" id="L220" title="1 of 2 branches missed.">            return expiration.getTime() - System.currentTimeMillis() &lt;= thresholdSeconds * 1000;</span>
+<span class="nc" id="L221">        } catch (Exception e) {</span>
+<span class="nc" id="L222">            log.error(&quot;检查令牌过期状态失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L223">            return true;</span>
+        }
+    }
+
+    /**
+     * @brief 获取令牌剩余有效时间
+     * 
+     * @details 获取JWT令牌剩余的有效时间（秒）
+     * 
+     * @param token JWT令牌
+     * @return long 剩余有效时间（秒），如果令牌已过期返回0
+     */
+    public long getRemainingValidity(String token) {
+        try {
+<span class="fc" id="L237">            Claims claims = extractAllClaims(token);</span>
+<span class="fc" id="L238">            Date expiration = claims.getExpiration();</span>
+<span class="fc" id="L239">            return Math.max(0, (expiration.getTime() - System.currentTimeMillis()) / 1000);</span>
+<span class="nc" id="L240">        } catch (Exception e) {</span>
+<span class="nc" id="L241">            log.error(&quot;获取令牌剩余有效时间失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L242">            return 0;</span>
+        }
+    }
+
+    /**
+     * @brief 使用刷新令牌生成新的访问令牌
+     * 
+     * @details 验证刷新令牌的有效性，然后生成新的访问令牌
+     * 
+     * @param refreshToken 刷新令牌
+     * @param roles 用户角色集合
+     * @param permissions 用户权限列表
+     * @return String 新的访问令牌
+     * @throws JwtException 如果刷新令牌无效或类型错误
+     */
+    public String refreshAccessToken(String refreshToken, Collection&lt;String&gt; roles, List&lt;String&gt; permissions) {
+<span class="fc bfc" id="L258" title="All 2 branches covered.">        if (!validateToken(refreshToken)) {</span>
+<span class="fc" id="L259">            throw new JwtException(&quot;无效的刷新令牌&quot;);</span>
+        }
+
+<span class="fc" id="L262">        Claims claims = extractAllClaims(refreshToken);</span>
+<span class="fc" id="L263">        String username = claims.getSubject();</span>
+<span class="fc" id="L264">        String tokenType = claims.get(&quot;type&quot;, String.class);</span>
+
+<span class="fc bfc" id="L266" title="All 2 branches covered.">        if (!&quot;refresh&quot;.equals(tokenType)) {</span>
+<span class="fc" id="L267">            throw new JwtException(&quot;令牌类型不是刷新令牌&quot;);</span>
+        }
+
+<span class="fc" id="L270">        return generateToken(username, roles, permissions);</span>
+    }
+
+    /**
+     * @brief 提取所有声明
+     * 
+     * @details 从JWT令牌中提取所有声明
+     * 
+     * @param token JWT令牌
+     * @return Claims 令牌中的所有声明
+     */
+    private Claims extractAllClaims(String token) {
+<span class="fc" id="L282">        return Jwts.parserBuilder()</span>
+<span class="fc" id="L283">                .setSigningKey(getSecretKey())</span>
+<span class="fc" id="L284">                .build()</span>
+<span class="fc" id="L285">                .parseClaimsJws(token)</span>
+<span class="fc" id="L286">                .getBody();</span>
+    }
+
+    /**
+     * @brief 提取特定声明
+     * 
+     * @details 从JWT令牌中提取特定的声明
+     * 
+     * @param token JWT令牌
+     * @param claimsResolver 声明解析器
+     * @param &lt;T&gt; 声明类型
+     * @return T 提取的声明值
+     */
+    private &lt;T&gt; T extractClaim(String token, ClaimsResolver&lt;T&gt; claimsResolver) {
+<span class="fc" id="L300">        final Claims claims = extractAllClaims(token);</span>
+<span class="fc" id="L301">        return claimsResolver.resolve(claims);</span>
+    }
+
+    /**
+     * @brief 获取签名密钥
+     * 
+     * @details 获取用于签名和验证JWT令牌的SecretKey对象，懒加载初始化
+     * 
+     * @return SecretKey 签名密钥
+     */
+    private SecretKey getSecretKey() {
+<span class="fc bfc" id="L312" title="All 2 branches covered.">        if (key == null) {</span>
+<span class="fc" id="L313">            key = Keys.hmacShaKeyFor(secret.getBytes());</span>
+        }
+<span class="fc" id="L315">        return key;</span>
+    }
+
+    /**
+     * @brief 获取访问令牌过期时间
+     * 
+     * @details 获取访问令牌的过期时间（毫秒）
+     * 
+     * @return long 访问令牌过期时间（毫秒）
+     */
+    public long getExpiration() {
+<span class="fc" id="L326">        return expiration;</span>
+    }
+
+    /**
+     * @brief 获取刷新令牌过期时间
+     * 
+     * @details 获取刷新令牌的过期时间（毫秒）
+     * 
+     * @return long 刷新令牌过期时间（毫秒）
+     */
+    public long getRefreshExpiration() {
+<span class="fc" id="L337">        return refreshExpiration;</span>
+    }
+
+    /**
+     * @brief 声明解析器接口
+     * 
+     * @details 用于从JWT声明中提取特定值的函数式接口
+     * 
+     * @param &lt;T&gt; 提取的值类型
+     */
+    @FunctionalInterface
+    private interface ClaimsResolver&lt;T&gt; {
+        /**
+         * @brief 解析声明
+         * 
+         * @param claims JWT声明
+         * @return T 提取的值
+         */
+        T resolve(Claims claims);
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

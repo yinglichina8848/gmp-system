@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="StockOutOrderRepository_8java" kind="file" language="Java">
+    <compoundname>StockOutOrderRepository.java</compoundname>
+    <includes local="no">com.gmp.warehouse.entity.StockOutOrder</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>warehouse-service/src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java</label>
+        <link refid="StockOutOrderRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.warehouse.entity.StockOutOrder</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository" prot="public">com::gmp::warehouse::repository::StockOutOrderRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1warehouse_1_1repository">com::gmp::warehouse::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.warehouse.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.warehouse.entity.StockOutOrder;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="25" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository" kindref="compound">StockOutOrderRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;StockOutOrder,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;StockOutOrder&gt;<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1ae7e1526a2bfc5d995b7a2ee02f6ee112" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;StockOutOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1ae7e1526a2bfc5d995b7a2ee02f6ee112" kindref="member">findByOrderNo</ref>(String<sp/>orderNo);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a70b3b48ce8b7a92159d887288d5593a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;StockOutOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a70b3b48ce8b7a92159d887288d5593a9" kindref="member">findByWarehouseId</ref>(Long<sp/>warehouseId);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a0d5b48dabd6a1e153d90c6e5ab8c346d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;StockOutOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a0d5b48dabd6a1e153d90c6e5ab8c346d" kindref="member">findByStatus</ref>(Integer<sp/>status);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a9ce63abb50ae478450ae6e03cb266acb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;StockOutOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a9ce63abb50ae478450ae6e03cb266acb" kindref="member">findByOrderType</ref>(String<sp/>orderType);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a8b2993a93e41573059d167a19c7962ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;StockOutOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a8b2993a93e41573059d167a19c7962ee" kindref="member">findByRelatedOrderNo</ref>(String<sp/>relatedOrderNo);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a449be3d7e678caed65abaa6c70fdf138" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;StockOutOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a449be3d7e678caed65abaa6c70fdf138" kindref="member">findByStockOutDateBetween</ref>(LocalDateTime<sp/>startDate,<sp/>LocalDateTime<sp/>endDate);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a3369c825b7ecab615a61c57b9db01021" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;StockOutOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1a3369c825b7ecab615a61c57b9db01021" kindref="member">findByStatusOrderByCreatedAtDesc</ref>(Integer<sp/>status);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>COALESCE(SUM(s.totalAmount),<sp/>0)<sp/>FROM<sp/>StockOutOrder<sp/>s<sp/>WHERE<sp/>s.stockOutDate<sp/>BETWEEN<sp/>:startDate<sp/>AND<sp/>:endDate<sp/>AND<sp/>s.status<sp/>=<sp/>3&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="91" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1ae82151fd11485ef2306ff58c26a47b1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Double<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1StockOutOrderRepository_1ae82151fd11485ef2306ff58c26a47b1e" kindref="member">getTotalAmountByDateRange</ref>(@Param(&quot;startDate&quot;)<sp/>LocalDateTime<sp/>startDate,<sp/>@Param(&quot;endDate&quot;)<sp/>LocalDateTime<sp/>endDate);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="warehouse-service/src/main/java/com/gmp/warehouse/repository/StockOutOrderRepository.java"/>
+  </compounddef>
+</doxygen>

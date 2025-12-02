@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TcmProcessingProcedure_8java" kind="file" language="Java">
+    <compoundname>TcmProcessingProcedure.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>mes-service/src/main/java/com/gmp/mes/entity/TcmProcessingProcedure.java</label>
+        <link refid="TcmProcessingProcedure_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure" prot="public">com::gmp::mes::entity::TcmProcessingProcedure</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod" prot="public">com::gmp::mes::entity::TcmProcessingProcedure::ProcessingMethod</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus" prot="public">com::gmp::mes::entity::TcmProcessingProcedure::ProcedureStatus</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1mes_1_1entity">com::gmp::mes::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.mes.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.math.BigDecimal;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;tcm_processing_procedures&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="22" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure" kindref="compound">TcmProcessingProcedure</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="29" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1aca5d9506e351c0a1d97a0d90348e6d8e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(unique<sp/>=<sp/>true,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1aa3db7926b14d104111de45f416f73f37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>procedureNumber;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;batch_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1ac02b8316e18148c1f2052ac751eaea2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>batchId;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;herb_name&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1a51b65bad17febc6da29ff148dd9c3b8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>herbName;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;processing_method&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="54" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1a2806d8d1f89ab5759938e716596fe3b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod" kindref="compound">ProcessingMethod</ref><sp/>processingMethod;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;auxiliary_materials&quot;)</highlight></codeline>
+<codeline lineno="60" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1aa0898c8946305dc5b0ee44ebf3d070ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>auxiliaryMaterials;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;auxiliary_amount&quot;)</highlight></codeline>
+<codeline lineno="66" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1accf4e511f319ad0b2fd784626f2cdc45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>BigDecimal<sp/>auxiliaryAmount;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;auxiliary_unit&quot;)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1ad9c18cf071310ff8b474fbb22abeabef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>auxiliaryUnit;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;processing_temperature&quot;)</highlight></codeline>
+<codeline lineno="78" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1aa8e427d6a33ae24a3f7ad129a67e3bb7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>processingTemperature;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;processing_time&quot;)</highlight></codeline>
+<codeline lineno="84" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1abd3bc28fb7f17785f3999d3121367c8f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>processingTime;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;fire_control&quot;)</highlight></codeline>
+<codeline lineno="90" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1ae85779c603cd31fc643486d3c7c78ae6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>fireControl;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;stirring_speed&quot;)</highlight></codeline>
+<codeline lineno="96" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1a6cdfcbeb705c91d680ee0fb6b2008cfc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>stirringSpeed;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;equipment_id&quot;)</highlight></codeline>
+<codeline lineno="102" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1a7e9ad0a0212e30f45ca9d04c87459840" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>equipmentId;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;operator_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="108" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1aa62c569284e5e1107340d4341c4b5f00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>operatorId;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="115" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1a87af9c3726b2e80b9a5cfd2e3cb56060" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus" kindref="compound">ProcedureStatus</ref><sp/>status;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;quality_evaluation&quot;)</highlight></codeline>
+<codeline lineno="121" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1acd77931a5021b3dd0299d4df68d06c20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>qualityEvaluation;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;remark&quot;)</highlight></codeline>
+<codeline lineno="127" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1aaef2accb50f53973e0d396e2f61ed98f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>remark;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="134" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1ab7f770f87a6e24e50578737bd9cd6711" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="141" refid="classcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1afb869038eb5b1c6c0fc1a5f680c8df19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod" kindref="compound">ProcessingMethod</ref><sp/>{</highlight></codeline>
+<codeline lineno="150" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1af7afc5d38d01837903e5adc62b3c75e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1af7afc5d38d01837903e5adc62b3c75e0" kindref="member">DRY_FRYING</ref>,</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1a56a342c9afec82162b61ca58c89a3792" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1a56a342c9afec82162b61ca58c89a3792" kindref="member">FRYING_WITH_AUXILIARIES</ref>,</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1ad639537f0456d13dab187bc8a1731f7b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1ad639537f0456d13dab187bc8a1731f7b" kindref="member">ROASTING</ref>,</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1ace817b05e608098f7d508aae80ce60c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1ace817b05e608098f7d508aae80ce60c7" kindref="member">CALCINATION</ref>,</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1a1c353740c4689d4bb69ef2b1755101c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1a1c353740c4689d4bb69ef2b1755101c0" kindref="member">STEAMING</ref>,</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1a96cea8564392ce1fe403939c51ad886a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1a96cea8564392ce1fe403939c51ad886a" kindref="member">BOILING</ref>,</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1ad8290a0c35f859dfbc4634ab3cabb92c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1ad8290a0c35f859dfbc4634ab3cabb92c" kindref="member">STewing</ref>,</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OTHER</highlight></codeline>
+<codeline lineno="186" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcessingMethod_1a2183483b03597f49444e43518e0be85b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus" kindref="compound">ProcedureStatus</ref><sp/>{</highlight></codeline>
+<codeline lineno="195" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus_1a803fb0e37225af39ceed8d0420085c03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus_1a803fb0e37225af39ceed8d0420085c03" kindref="member">PENDING</ref>,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus_1a34a0d3f5af213398314289853c62ac1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus_1a34a0d3f5af213398314289853c62ac1c" kindref="member">IN_PROGRESS</ref>,</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus_1ab44e8ef4f86fcce090bcba6d701fbfa0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus_1ab44e8ef4f86fcce090bcba6d701fbfa0" kindref="member">COMPLETED</ref>,</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus_1a380a6f6a124fb804c5535d9533409411" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus_1a380a6f6a124fb804c5535d9533409411" kindref="member">CANCELLED</ref>,</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EXCEPTION</highlight></codeline>
+<codeline lineno="216" refid="enumcom_1_1gmp_1_1mes_1_1entity_1_1TcmProcessingProcedure_1_1ProcedureStatus_1a06770d277b43fec7f9441877c418a0e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="mes-service/src/main/java/com/gmp/mes/entity/TcmProcessingProcedure.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TcmInspectionController_8java" kind="file" language="Java">
+    <compoundname>TcmInspectionController.java</compoundname>
+    <includes local="no">com.gmp.lims.dto.TcmInspectionDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>lims-service/src/main/java/com/gmp/lims/controller/TcmInspectionController.java</label>
+        <link refid="TcmInspectionController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.lims.dto.TcmInspectionDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController" prot="public">com::gmp::lims::controller::TcmInspectionController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1lims_1_1controller">com::gmp::lims::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1lims_1_1controller" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.lims.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.dto.TcmInspectionDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.entity.TcmInspection;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.dto.ApiResponse;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.service.TcmInspectionService;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.RequiredArgsConstructor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.PageRequest;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/v1/tcm-inspections&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@RequiredArgsConstructor</highlight></codeline>
+<codeline lineno="20" refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController" kindref="compound">TcmInspectionController</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1ad90cc825e18a0fa4d7c50e73cf85dc21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>TcmInspectionService<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1ad90cc825e18a0fa4d7c50e73cf85dc21" kindref="member">tcmInspectionService</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1acf0197f11943464d2c699ae518304be4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ApiResponse&lt;TcmInspection&gt;<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1acf0197f11943464d2c699ae518304be4" kindref="member">createTcmInspection</ref>(@RequestBody<sp/>TcmInspectionDTO<sp/>tcmInspectionDTO)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmInspection<sp/>tcmInspection<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1ad90cc825e18a0fa4d7c50e73cf85dc21" kindref="member">tcmInspectionService</ref>.createTcmInspection(tcmInspectionDTO);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmInspection);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="37" refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1af2503468c17c41dc629453c8b639a6d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;TcmInspection&gt;<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1af2503468c17c41dc629453c8b639a6d6" kindref="member">updateTcmInspection</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>@RequestBody<sp/>TcmInspectionDTO<sp/>tcmInspectionDTO)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmInspection<sp/>tcmInspection<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1ad90cc825e18a0fa4d7c50e73cf85dc21" kindref="member">tcmInspectionService</ref>.updateTcmInspection(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>tcmInspectionDTO);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmInspection);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="46" refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1aac1ef4675e9335db65dd050ed3f8e4ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;TcmInspection&gt;<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1aac1ef4675e9335db65dd050ed3f8e4ee" kindref="member">getTcmInspectionById</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmInspection<sp/>tcmInspection<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1ad90cc825e18a0fa4d7c50e73cf85dc21" kindref="member">tcmInspectionService</ref>.getTcmInspectionById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmInspection);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/code/{inspectionCode}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1ae341f5cdb20550746420f03ca3fa2571" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;TcmInspection&gt;<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1ae341f5cdb20550746420f03ca3fa2571" kindref="member">getTcmInspectionByCode</ref>(@PathVariable<sp/>String<sp/>inspectionCode)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmInspection<sp/>tcmInspection<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1ad90cc825e18a0fa4d7c50e73cf85dc21" kindref="member">tcmInspectionService</ref>.getTcmInspectionByCode(inspectionCode);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmInspection);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping</highlight></codeline>
+<codeline lineno="64" refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1afe86f622116a4b60289d5039e3b0bcb9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ApiResponse&lt;Page&lt;TcmInspection&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1afe86f622116a4b60289d5039e3b0bcb9" kindref="member">getTcmInspections</ref>(</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>page,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;10&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(page,<sp/>size);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TcmInspection&gt;<sp/>tcmInspections<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1ad90cc825e18a0fa4d7c50e73cf85dc21" kindref="member">tcmInspectionService</ref>.getTcmInspections(pageable);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmInspections);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@DeleteMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="76" refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1a13c2ea04694612b967fda51d571c33ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Void&gt;<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1a13c2ea04694612b967fda51d571c33ca" kindref="member">deleteTcmInspection</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1controller_1_1TcmInspectionController_1ad90cc825e18a0fa4d7c50e73cf85dc21" kindref="member">tcmInspectionService</ref>.deleteTcmInspection(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lims-service/src/main/java/com/gmp/lims/controller/TcmInspectionController.java"/>
+  </compounddef>
+</doxygen>

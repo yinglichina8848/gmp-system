@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="EdmsClient_8java" kind="file" language="Java">
+    <compoundname>EdmsClient.java</compoundname>
+    <includes local="no">com.gmp.qms.dto.EdmsDocumentDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/client/EdmsClient.java</label>
+        <link refid="EdmsClient_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.dto.EdmsDocumentDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1EdmsClient" prot="public">com::gmp::qms::client::EdmsClient</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1client">com::gmp::qms::client</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1qms_1_1client" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.client;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.EdmsDocumentDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.NotificationDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.cloud.openfeign.FeignClient;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@FeignClient(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;edms-service&quot;</highlight><highlight class="normal">,<sp/>url<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;${feign.client.edms.url}&quot;</highlight><highlight class="normal">,<sp/>fallback<sp/>=<sp/>EdmsClientFallback.class)</highlight></codeline>
+<codeline lineno="17" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1EdmsClient" refkind="compound"><highlight class="normal">public<sp/>interface<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1EdmsClient" kindref="compound">EdmsClient</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/api/documents/{documentId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="26" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1EdmsClient_1a2002f2cf64ffd6ab49ba0a37f6c5f066" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>EdmsDocumentDTO<sp/>getDocument(@PathVariable(&quot;documentId&quot;)<sp/>String<sp/>documentId);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(&quot;/api/documents&quot;)</highlight></codeline>
+<codeline lineno="35" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1EdmsClient_1aa7248a3d235055861c848e50a990cced" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>EdmsDocumentDTO<sp/>createDocument(@RequestBody<sp/>EdmsDocumentDTO<sp/>documentDTO);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(&quot;/api/documents/{documentId}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="44" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1EdmsClient_1a2dc08213396b5e3747f8cdaa840f6de3" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>void<sp/>updateDocument(@PathVariable(&quot;</highlight><highlight class="normal">documentId</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>documentId,<sp/>@RequestBody<sp/>EdmsDocumentDTO<sp/>documentDTO);</highlight></codeline>
+<codeline lineno="45"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(&quot;/api/documents/search</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="53" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1EdmsClient_1a457f6a4fa7f3d5c3564010875191ea02" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>List&lt;EdmsDocumentDTO&gt;<sp/>searchDocuments(@RequestBody<sp/>Map&lt;String,<sp/>Object&gt;<sp/>criteria);</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(&quot;/api/notifications</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="61" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1EdmsClient_1a45a4a0af020410955fb9fe297f0cb575" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>void<sp/>sendNotification(@RequestBody<sp/>NotificationDTO<sp/>notificationDTO);</highlight></codeline>
+<codeline lineno="62"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(&quot;/api/documents/{documentId}/status</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="70" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1EdmsClient_1a2fb388004517f8c4d4e291a311d972f6" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>String<sp/>getDocumentStatus(@PathVariable(&quot;</highlight><highlight class="normal">documentId</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>documentId);</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(&quot;/api/documents/{documentId}/versions</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="79" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1EdmsClient_1a737bfe787fb9cbd1e40d277a87f79023" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>List&lt;EdmsDocumentDTO&gt;<sp/>getDocumentVersions(@PathVariable(&quot;</highlight><highlight class="normal">documentId</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>documentId);</highlight></codeline>
+<codeline lineno="80"><highlight class="stringliteral">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/client/EdmsClient.java"/>
+  </compounddef>
+</doxygen>

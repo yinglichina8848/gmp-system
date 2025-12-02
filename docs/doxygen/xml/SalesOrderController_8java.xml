@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="SalesOrderController_8java" kind="file" language="Java">
+    <compoundname>SalesOrderController.java</compoundname>
+    <includes local="no">com.gmp.crm.dto.ApiResponse</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>crm-sales/src/main/java/com/gmp/crm/controller/SalesOrderController.java</label>
+        <link refid="SalesOrderController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.crm.dto.ApiResponse</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController" prot="public">com::gmp::crm::controller::SalesOrderController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1crm_1_1controller">com::gmp::crm::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.crm.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.crm.dto.ApiResponse;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.crm.dto.PageRequestDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.crm.dto.SalesOrderDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.crm.dto.SalesOrderRequestDTO;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.crm.service.SalesOrderService;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.RequiredArgsConstructor;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.HttpStatus;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.ResponseEntity;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.Valid;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.security.Principal;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/sales-orders&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">@RequiredArgsConstructor(onConstructor<sp/>=<sp/>@__(@Autowired))</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController" kindref="compound">SalesOrderController</ref><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1ab557f26821c146a5870ea53230ee26e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>SalesOrderService<sp/><ref refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1ab557f26821c146a5870ea53230ee26e9" kindref="member">salesOrderService</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1ad4dabae7a083ea8c548f8dfbbe4a5679" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ResponseEntity&lt;ApiResponse&lt;SalesOrderDTO&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1ad4dabae7a083ea8c548f8dfbbe4a5679" kindref="member">createSalesOrder</ref>(</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Valid<sp/>@RequestBody<sp/>SalesOrderRequestDTO<sp/>request,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Principal<sp/>principal)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>获取当前用户名，用于记录创建人</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>createdBy<sp/>=<sp/>principal<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>principal.getName()<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;SYSTEM&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SalesOrderDTO<sp/>salesOrderDTO<sp/>=<sp/>salesOrderService.createSalesOrder(request,<sp/>createdBy);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.status(HttpStatus.CREATED)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.body(ApiResponse.success(salesOrderDTO));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{id}/status&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="57" refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a0b3a4e250bfc64b31c23ef1c92e003a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;ApiResponse&lt;SalesOrderDTO&gt;&gt;<sp/>updateOrderStatus(</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam<sp/>String<sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SalesOrderDTO<sp/>salesOrderDTO<sp/>=<sp/>salesOrderService.updateOrderStatus(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>status);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(ApiResponse.success(salesOrderDTO));</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="71" refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a346c2e7f13b157df3f337817ec960384" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;ApiResponse&lt;SalesOrderDTO&gt;&gt;<sp/>getSalesOrder(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>salesOrderService.getSalesOrderById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.map(orderDTO<sp/>-&gt;<sp/>ResponseEntity.ok(ApiResponse.success(orderDTO)))</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.body(ApiResponse.error(404,<sp/></highlight><highlight class="stringliteral">&quot;订单不存在&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/by-number/{orderNumber}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a83e4ec222007c6a3e0b28ead9ee2169a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;ApiResponse&lt;SalesOrderDTO&gt;&gt;<sp/>getSalesOrderByNumber(</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>String<sp/>orderNumber)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>salesOrderService.getSalesOrderByOrderNumber(orderNumber)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.map(orderDTO<sp/>-&gt;<sp/>ResponseEntity.ok(ApiResponse.success(orderDTO)))</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.body(ApiResponse.error(404,<sp/></highlight><highlight class="stringliteral">&quot;订单不存在&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping</highlight></codeline>
+<codeline lineno="100" refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a775507498475c9aa777435ee15a7be86" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ResponseEntity&lt;ApiResponse&lt;?&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a775507498475c9aa777435ee15a7be86" kindref="member">getSalesOrders</ref>(</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PageRequestDTO<sp/>pageRequest)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>orderPage<sp/>=<sp/>salesOrderService.getSalesOrders(pageRequest);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ApiResponse.PageResponse&lt;List&lt;SalesOrderDTO&gt;&gt;<sp/>pageResponse<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ApiResponse.PageResponse&lt;&gt;();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setPage(pageRequest.getPage());</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setSize(pageRequest.getSize());</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setTotal(orderPage.getTotalElements());</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setTotalPages(orderPage.getTotalPages());</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setList(orderPage.getContent());</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(ApiResponse.success(pageResponse));</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/customer/{customerId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="120" refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1ab4b5f3cea3674b465d5ee540d8d3d2aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;ApiResponse&lt;?&gt;&gt;<sp/>getSalesOrdersByCustomer(</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/>customerId,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PageRequestDTO<sp/>pageRequest)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>orderPage<sp/>=<sp/>salesOrderService.getSalesOrdersByCustomer(customerId,<sp/>pageRequest);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ApiResponse.PageResponse&lt;List&lt;SalesOrderDTO&gt;&gt;<sp/>pageResponse<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ApiResponse.PageResponse&lt;&gt;();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setPage(pageRequest.getPage());</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setSize(pageRequest.getSize());</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setTotal(orderPage.getTotalElements());</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setTotalPages(orderPage.getTotalPages());</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setList(orderPage.getContent());</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(ApiResponse.success(pageResponse));</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/search&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="142" refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a85c7f11f89af1e0cedb6fd56de4aaa60" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;ApiResponse&lt;?&gt;&gt;<sp/>searchSalesOrders(</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(required<sp/>=<sp/>false)<sp/>String<sp/>keyword,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(required<sp/>=<sp/>false)<sp/>String<sp/>status,</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PageRequestDTO<sp/>pageRequest)<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>orderPage<sp/>=<sp/>salesOrderService.searchSalesOrders(keyword,<sp/>status,<sp/>pageRequest);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ApiResponse.PageResponse&lt;List&lt;SalesOrderDTO&gt;&gt;<sp/>pageResponse<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ApiResponse.PageResponse&lt;&gt;();</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setPage(pageRequest.getPage());</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setSize(pageRequest.getSize());</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setTotal(orderPage.getTotalElements());</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setTotalPages(orderPage.getTotalPages());</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResponse.setList(orderPage.getContent());</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(ApiResponse.success(pageResponse));</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{id}/cancel&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="163" refid="classcom_1_1gmp_1_1crm_1_1controller_1_1SalesOrderController_1a2ab7f4bdb1a96d7d3427aa95eb16c802" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;ApiResponse&lt;Boolean&gt;&gt;<sp/>cancelOrder(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>cancelled<sp/>=<sp/>salesOrderService.cancelOrder(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(ApiResponse.success(cancelled));</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="crm-sales/src/main/java/com/gmp/crm/controller/SalesOrderController.java"/>
+  </compounddef>
+</doxygen>

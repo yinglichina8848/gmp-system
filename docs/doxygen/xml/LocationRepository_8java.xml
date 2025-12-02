@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="LocationRepository_8java" kind="file" language="Java">
+    <compoundname>LocationRepository.java</compoundname>
+    <includes local="no">com.gmp.warehouse.entity.Location</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>warehouse-service/src/main/java/com/gmp/warehouse/repository/LocationRepository.java</label>
+        <link refid="LocationRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.warehouse.entity.Location</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository" prot="public">com::gmp::warehouse::repository::LocationRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1warehouse_1_1repository">com::gmp::warehouse::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.warehouse.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.warehouse.entity.Location;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="22" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository" kindref="compound">LocationRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Location,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;Location&gt;<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1a8ae3cea840f71b1b1c98d7e9919f72f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Location&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1a8ae3cea840f71b1b1c98d7e9919f72f8" kindref="member">findByCode</ref>(String<sp/>code);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1af985e9b3522009e84b8e74a0649ea5ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Location&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1af985e9b3522009e84b8e74a0649ea5ed" kindref="member">findByName</ref>(String<sp/>name);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1ac927a3a5bca2ebca837337624897c65b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Location&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1ac927a3a5bca2ebca837337624897c65b" kindref="member">findByWarehouseId</ref>(Long<sp/>warehouseId);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1a161141a52f0f0dee3a397670a859bdb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Location&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1a161141a52f0f0dee3a397670a859bdb8" kindref="member">findByWarehouseIdAndStatus</ref>(Long<sp/>warehouseId,<sp/>Integer<sp/>status);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1a6cbf5f69e5e21756b0118ba7dc5f9aa0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Location&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1a6cbf5f69e5e21756b0118ba7dc5f9aa0" kindref="member">findByStatus</ref>(Integer<sp/>status);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1a04322212a2d11dd808857184fc40aaf7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1a04322212a2d11dd808857184fc40aaf7" kindref="member">existsByCodeAndWarehouseIdAndIdNot</ref>(String<sp/>code,<sp/>Long<sp/>warehouseId,<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1a459588629642ea45bdc0f4b196a9a9e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1LocationRepository_1a459588629642ea45bdc0f4b196a9a9e5" kindref="member">existsByNameAndWarehouseIdAndIdNot</ref>(String<sp/>name,<sp/>Long<sp/>warehouseId,<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="warehouse-service/src/main/java/com/gmp/warehouse/repository/LocationRepository.java"/>
+  </compounddef>
+</doxygen>

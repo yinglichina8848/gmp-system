@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="CapaRepository_8java" kind="file" language="Java">
+    <compoundname>CapaRepository.java</compoundname>
+    <includes local="no">com.gmp.qms.entity.Capa</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/repository/CapaRepository.java</label>
+        <link refid="CapaRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.entity.Capa</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository" prot="public">com::gmp::qms::repository::CapaRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1repository">com::gmp::qms::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1qms_1_1repository" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.entity.Capa;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="20" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository" kindref="compound">CapaRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Capa,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;Capa&gt;<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1aea98ade86e2bebeb05e3d0e8be131532" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Capa<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1aea98ade86e2bebeb05e3d0e8be131532" kindref="member">findByCapaCode</ref>(String<sp/>capaCode);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1a0ec0c3bdfd5ea98def9c1aaa97f57541" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Capa&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1a0ec0c3bdfd5ea98def9c1aaa97f57541" kindref="member">findByStatus</ref>(Capa.CapaStatus<sp/>status,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1ae75eacc3c343faaec1c08f0845b9ab9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Capa&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1ae75eacc3c343faaec1c08f0845b9ab9b" kindref="member">findByResponsiblePersonId</ref>(Long<sp/>responsiblePersonId,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1a856e9a6cc7e8cab771813283969cd779" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Capa&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1a856e9a6cc7e8cab771813283969cd779" kindref="member">findByPriorityLevel</ref>(Capa.PriorityLevel<sp/>priorityLevel,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1a29b4dbb5069e92be0269a3c50c3eab53" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Capa&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1a29b4dbb5069e92be0269a3c50c3eab53" kindref="member">findBySourceTypeAndSourceId</ref>(String<sp/>sourceType,<sp/>Long<sp/>sourceId,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>c<sp/>FROM<sp/>Capa<sp/>c<sp/>WHERE<sp/>c.targetCompletionDate<sp/>&lt;<sp/>:now<sp/>AND<sp/>c.status<sp/>NOT<sp/>IN<sp/>:excludedStatuses<sp/>ORDER<sp/>BY<sp/>c.targetCompletionDate<sp/>ASC&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="75" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1a96eada7afbe2f74f0df36cdadd2ea749" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Capa&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1a96eada7afbe2f74f0df36cdadd2ea749" kindref="member">findOverdueCapa</ref>(LocalDateTime<sp/>now,<sp/>List&lt;Capa.CapaStatus&gt;<sp/>excludedStatuses);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1a602f71766936280292ef54c3945bf7f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Capa&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1a602f71766936280292ef54c3945bf7f2" kindref="member">findByCreatedBy</ref>(Long<sp/>createdBy,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>c.status,<sp/>COUNT(c)<sp/>FROM<sp/>Capa<sp/>c<sp/>GROUP<sp/>BY<sp/>c.status&quot;)</highlight></codeline>
+<codeline lineno="92" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1ad71505c85523293e086f6464f3888d92" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1CapaRepository_1ad71505c85523293e086f6464f3888d92" kindref="member">countByStatus</ref>();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/repository/CapaRepository.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1072 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::training::service::impl::TrainingPlanServiceImpl</compoundname>
+    <basecompoundref refid="classBaseServiceImpl" prot="public" virt="non-virtual">BaseServiceImpl&lt; TrainingPlan, Long, TrainingPlanRepository &gt;</basecompoundref>
+    <basecompoundref refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService" prot="public" virt="non-virtual">com.gmp.training.service.TrainingPlanService</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a3247d40fa99c4f51c1645f76216a426b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.gmp.training.service.impl.TrainingPlanServiceImpl.TrainingPlanServiceImpl</definition>
+        <argsstring>(TrainingPlanRepository repository)</argsstring>
+        <name>TrainingPlanServiceImpl</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.TrainingPlanServiceImpl</qualifiedname>
+        <param>
+          <type>TrainingPlanRepository</type>
+          <declname>repository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="26" column="12" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="26" bodyend="28"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aa00117e12b932422fc59393c84415f4c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Optional&lt; TrainingPlan &gt;</type>
+        <definition>Optional&lt; TrainingPlan &gt; com.gmp.training.service.impl.TrainingPlanServiceImpl.findByName</definition>
+        <argsstring>(String name)</argsstring>
+        <name>findByName</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.findByName</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a7b4fcef1192f85f8e667ccc063b2dd12">findByName</reimplements>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>根据计划名称查找培训计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>计划名称 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训计划信息 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="31" column="21" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="31" bodyend="33"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+        <referencedby refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImplTest_1a3af524349d2b991d8818efa040073701" compoundref="TrainingPlanServiceImplTest_8java" startline="100" endline="112">com.gmp.training.service.impl.TrainingPlanServiceImplTest.testFindByName</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1acec69b8f129fc42d6dd144ea84a2f1e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; TrainingPlan &gt;</type>
+        <definition>List&lt; TrainingPlan &gt; com.gmp.training.service.impl.TrainingPlanServiceImpl.findByYear</definition>
+        <argsstring>(Integer year)</argsstring>
+        <name>findByYear</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.findByYear</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a48049197ca1f1947b878905301d200d2">findByYear</reimplements>
+        <param>
+          <type>Integer</type>
+          <declname>year</declname>
+        </param>
+        <briefdescription>
+<para>查找特定年度的培训计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>year</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>年度 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="36" column="17" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="36" bodyend="38"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+        <referencedby refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImplTest_1a24d0ba5350ef895b7843a15b58cb0b8e" compoundref="TrainingPlanServiceImplTest_8java" startline="115" endline="127">com.gmp.training.service.impl.TrainingPlanServiceImplTest.testFindByYear</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ac5c211694e5e8a4459cb2a23c7d77391" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; TrainingPlan &gt;</type>
+        <definition>List&lt; TrainingPlan &gt; com.gmp.training.service.impl.TrainingPlanServiceImpl.findByYearAndQuarter</definition>
+        <argsstring>(Integer year, Integer quarter)</argsstring>
+        <name>findByYearAndQuarter</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.findByYearAndQuarter</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a1cb5f9aee8ce808ade64dfe9eeb6f88c">findByYearAndQuarter</reimplements>
+        <param>
+          <type>Integer</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type>Integer</type>
+          <declname>quarter</declname>
+        </param>
+        <briefdescription>
+<para>查找特定年度和季度的培训计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>year</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>年度 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>quarter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>季度 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="41" column="17" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="41" bodyend="43"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+        <referencedby refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImplTest_1afa1f2951298f739f76a7c0d1c193410a" compoundref="TrainingPlanServiceImplTest_8java" startline="130" endline="142">com.gmp.training.service.impl.TrainingPlanServiceImplTest.testFindByYearAndQuarter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aeb7a0c933aaef1779a09bffcfc59384f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; TrainingPlan &gt;</type>
+        <definition>List&lt; TrainingPlan &gt; com.gmp.training.service.impl.TrainingPlanServiceImpl.findByOwner</definition>
+        <argsstring>(User owner)</argsstring>
+        <name>findByOwner</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.findByOwner</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a041a0bca42cfa314a8c8fdfabead6cbd">findByOwner</reimplements>
+        <param>
+          <type>User</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+<para>查找特定负责人的培训计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>负责人 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="46" column="17" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="46" bodyend="48"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a45a354c8f6585ed9d09fb19e21cc3ae3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; TrainingPlan &gt;</type>
+        <definition>List&lt; TrainingPlan &gt; com.gmp.training.service.impl.TrainingPlanServiceImpl.findByStatus</definition>
+        <argsstring>(TrainingPlan.Status status)</argsstring>
+        <name>findByStatus</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.findByStatus</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a39df4670b398feb9df2f088a5d83b3bd">findByStatus</reimplements>
+        <param>
+          <type>TrainingPlan.Status</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>查找特定状态的培训计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="51" column="17" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="51" bodyend="53"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a2c07e42be21f4b59914572792421b3b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; TrainingPlan &gt;</type>
+        <definition>List&lt; TrainingPlan &gt; com.gmp.training.service.impl.TrainingPlanServiceImpl.findByTrainingNeed</definition>
+        <argsstring>(TrainingNeed trainingNeed)</argsstring>
+        <name>findByTrainingNeed</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.findByTrainingNeed</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a719e92db8120177bf125b905996dd2d1">findByTrainingNeed</reimplements>
+        <param>
+          <type>TrainingNeed</type>
+          <declname>trainingNeed</declname>
+        </param>
+        <briefdescription>
+<para>查找特定培训需求关联的培训计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>trainingNeed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>培训需求 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="56" column="17" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="56" bodyend="58"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a257513dd2e40b692387d080acdc561b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; TrainingPlan &gt;</type>
+        <definition>List&lt; TrainingPlan &gt; com.gmp.training.service.impl.TrainingPlanServiceImpl.findByPlanStartDateBetween</definition>
+        <argsstring>(LocalDate startDate, LocalDate endDate)</argsstring>
+        <name>findByPlanStartDateBetween</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.findByPlanStartDateBetween</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a6de29590978a9ab4e2b6f5b40b9003cf">findByPlanStartDateBetween</reimplements>
+        <param>
+          <type>LocalDate</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>LocalDate</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+<para>查找时间范围内的培训计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="61" column="17" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="61" bodyend="63"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aaf6d85ab2106de5772d8a443056d6700" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; TrainingPlan &gt;</type>
+        <definition>List&lt; TrainingPlan &gt; com.gmp.training.service.impl.TrainingPlanServiceImpl.findByDepartmentId</definition>
+        <argsstring>(Long departmentId)</argsstring>
+        <name>findByDepartmentId</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.findByDepartmentId</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a9ebc0ad99d00482bd3f477044116a31e">findByDepartmentId</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>departmentId</declname>
+        </param>
+        <briefdescription>
+<para>查找部门相关的培训计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>departmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>部门ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="66" column="17" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="66" bodyend="68"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ae6e98c9d9da2f4ae68755dc48764c159" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TrainingPlan</type>
+        <definition>TrainingPlan com.gmp.training.service.impl.TrainingPlanServiceImpl.updateStatus</definition>
+        <argsstring>(Long id, TrainingPlan.Status status)</argsstring>
+        <name>updateStatus</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.updateStatus</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a5ace6baccca65d4a05cb4e712c8128b8">updateStatus</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>TrainingPlan.Status</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>更新培训计划状态 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>计划ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>更新后的培训计划 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="72" column="25" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="72" bodyend="80"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+        <referencedby refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImplTest_1a772bd86d692a4c0442ca2d6b646738ef" compoundref="TrainingPlanServiceImplTest_8java" startline="145" endline="155">com.gmp.training.service.impl.TrainingPlanServiceImplTest.testUpdateStatus</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a5a6dd2534aab622fd0420b4af175a97c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.gmp.training.service.impl.TrainingPlanServiceImpl.batchUpdateStatus</definition>
+        <argsstring>(List&lt; Long &gt; ids, TrainingPlan.Status status)</argsstring>
+        <name>batchUpdateStatus</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.batchUpdateStatus</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a953342a7b2a2270e9b0cd0e18dac4710">batchUpdateStatus</reimplements>
+        <param>
+          <type>List&lt; Long &gt;</type>
+          <declname>ids</declname>
+        </param>
+        <param>
+          <type>TrainingPlan.Status</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>批量更新培训计划状态 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>计划ID列表 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>影响的行数 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="84" column="16" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="84" bodyend="95"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+        <referencedby refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImplTest_1a4e962a52d33e56d9e4498dce58d78457" compoundref="TrainingPlanServiceImplTest_8java" startline="158" endline="166">com.gmp.training.service.impl.TrainingPlanServiceImplTest.testBatchUpdateStatus</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1adbd45cba437846afc7384554ff58febd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; TrainingPlan &gt;</type>
+        <definition>List&lt; TrainingPlan &gt; com.gmp.training.service.impl.TrainingPlanServiceImpl.findActivePlans</definition>
+        <argsstring>()</argsstring>
+        <name>findActivePlans</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.findActivePlans</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a7847b4aac38144a8f32e5f166b344eeb">findActivePlans</reimplements>
+        <briefdescription>
+<para>获取当前活跃的培训计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>活跃的培训计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="98" column="17" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="98" bodyend="102"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ac9dbeb36a5d1a8147feffca97f368ed4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; TrainingPlan &gt;</type>
+        <definition>List&lt; TrainingPlan &gt; com.gmp.training.service.impl.TrainingPlanServiceImpl.findCompletedPlans</definition>
+        <argsstring>()</argsstring>
+        <name>findCompletedPlans</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.findCompletedPlans</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1ae37b4ac9b2de33568759298a6b3745e1">findCompletedPlans</reimplements>
+        <briefdescription>
+<para>获取已完成的培训计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>已完成的培训计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="105" column="17" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="105" bodyend="107"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a2794aa0f3ba308fe402b72e8a80a5bff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; TrainingPlan &gt;</type>
+        <definition>List&lt; TrainingPlan &gt; com.gmp.training.service.impl.TrainingPlanServiceImpl.search</definition>
+        <argsstring>(String keyword)</argsstring>
+        <name>search</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.search</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a82c9cb6dd2f23cc1582911e7ea0306a8">search</reimplements>
+        <param>
+          <type>String</type>
+          <declname>keyword</declname>
+        </param>
+        <briefdescription>
+<para>搜索培训计划 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keyword</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>关键词 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训计划列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="110" column="17" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="110" bodyend="112"/>
+        <references refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" compoundref="BaseServiceImpl_8java" startline="28">repository</references>
+        <referencedby refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImplTest_1a6b24598e0b9d5151c51551f5a7edd7d4" compoundref="TrainingPlanServiceImplTest_8java" startline="197" endline="209">com.gmp.training.service.impl.TrainingPlanServiceImplTest.testSearch</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ae8f3e603d58a88a37abeeaa459032fe1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Double</type>
+        <definition>Double com.gmp.training.service.impl.TrainingPlanServiceImpl.calculateCompletionRate</definition>
+        <argsstring>(Long id)</argsstring>
+        <name>calculateCompletionRate</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.calculateCompletionRate</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1a9f3f9461bcd2added2f4695bd8f0377c">calculateCompletionRate</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>计算培训计划的实际完成率 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>计划ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>完成率（0-100） </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="115" column="19" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="115" bodyend="122"/>
+        <referencedby refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImplTest_1ade1252a8c9340aa77a8757cebf4a7078" compoundref="TrainingPlanServiceImplTest_8java" startline="169" endline="182">com.gmp.training.service.impl.TrainingPlanServiceImplTest.testCalculateCompletionRate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1af1fcb7c6c51358a16ef4ea9c451f94e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Double</type>
+        <definition>Double com.gmp.training.service.impl.TrainingPlanServiceImpl.calculateActualCost</definition>
+        <argsstring>(Long id)</argsstring>
+        <name>calculateActualCost</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.calculateActualCost</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService_1ac43d5aea37590436bba01b0e91db71e8">calculateActualCost</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>计算培训计划的实际花费 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>计划ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>实际花费 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="125" column="19" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="125" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a75033a9a390441dd2763acdc78881bc2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TrainingPlan</type>
+        <definition>TrainingPlan com.gmp.training.service.impl.TrainingPlanServiceImpl.save</definition>
+        <argsstring>(TrainingPlan plan)</argsstring>
+        <name>save</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.save</qualifiedname>
+        <param>
+          <type>TrainingPlan</type>
+          <declname>plan</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="135" column="25" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="135" bodyend="141"/>
+        <referencedby refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImplTest_1abebec613d774b25097b62c295acee2bc" compoundref="TrainingPlanServiceImplTest_8java" startline="53" endline="62">com.gmp.training.service.impl.TrainingPlanServiceImplTest.testSave</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1ae1d47cdfec46504eccb6cdeed3f50a33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T</type>
+        <definition>T com.gmp.training.service.BaseService&lt; T, ID &gt;.save</definition>
+        <argsstring>(T entity)</argsstring>
+        <name>save</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::save</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+<para>保存实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体对象 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>保存后的实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="25" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a7294c81eec591843a40e109bd14df609" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; T &gt;</type>
+        <definition>List&lt; T &gt; com.gmp.training.service.BaseService&lt; T, ID &gt;.saveAll</definition>
+        <argsstring>(List&lt; T &gt; entities)</argsstring>
+        <name>saveAll</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::saveAll</qualifiedname>
+        <param>
+          <type>List&lt; T &gt;</type>
+          <declname>entities</declname>
+        </param>
+        <briefdescription>
+<para>批量保存实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entities</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体对象列表 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>保存后的实体列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="33" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1aa6076d6fa654c93512f165dd010070a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional&lt; T &gt;</type>
+        <definition>Optional&lt; T &gt; com.gmp.training.service.BaseService&lt; T, ID &gt;.findById</definition>
+        <argsstring>(ID id)</argsstring>
+        <name>findById</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::findById</qualifiedname>
+        <param>
+          <type>ID</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>根据ID查找实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>实体对象，如果不存在则返回空 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="41" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a35c90b59297ab01c1fbcacc9dcf9e869" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T</type>
+        <definition>T com.gmp.training.service.BaseService&lt; T, ID &gt;.getById</definition>
+        <argsstring>(ID id)</argsstring>
+        <name>getById</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::getById</qualifiedname>
+        <param>
+          <type>ID</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>根据ID查找实体，如果不存在则抛出异常 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>实体对象 </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classcom_1_1gmp_1_1training_1_1exception_1_1EntityNotFoundException" kindref="compound">com.gmp.training.exception.EntityNotFoundException</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>如果实体不存在 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="50" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1ad477d0e90d66f2946ac5e49d8959dc4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; T &gt;</type>
+        <definition>List&lt; T &gt; com.gmp.training.service.BaseService&lt; T, ID &gt;.findAll</definition>
+        <argsstring>()</argsstring>
+        <name>findAll</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::findAll</qualifiedname>
+        <briefdescription>
+<para>查询所有实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>实体列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="57" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1ad8c99d3a0184134203a779f4e0bdc45e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Page&lt; T &gt;</type>
+        <definition>Page&lt; T &gt; com.gmp.training.service.BaseService&lt; T, ID &gt;.findAll</definition>
+        <argsstring>(Pageable pageable)</argsstring>
+        <name>findAll</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::findAll</qualifiedname>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>分页查询 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页结果 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="73" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a655e42dc5a2b50a081ccdb09cd69a7a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; T &gt;</type>
+        <definition>List&lt; T &gt; com.gmp.training.service.BaseService&lt; T, ID &gt;.findAll</definition>
+        <argsstring>(Sort sort)</argsstring>
+        <name>findAll</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::findAll</qualifiedname>
+        <param>
+          <type>Sort</type>
+          <declname>sort</declname>
+        </param>
+        <briefdescription>
+<para>排序查询 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sort</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>排序参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>排序后的实体列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="81" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1ada9c517a92b522890cfa6d6c17a59179" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; T &gt;</type>
+        <definition>List&lt; T &gt; com.gmp.training.service.BaseService&lt; T, ID &gt;.findAllById</definition>
+        <argsstring>(List&lt; ID &gt; ids)</argsstring>
+        <name>findAllById</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::findAllById</qualifiedname>
+        <param>
+          <type>List&lt; ID &gt;</type>
+          <declname>ids</declname>
+        </param>
+        <briefdescription>
+<para>根据ID列表查询实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID列表 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>实体列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="65" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a37c592f98d1d5bbfadcad434f165007e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.training.service.BaseService&lt; T, ID &gt;.existsById</definition>
+        <argsstring>(ID id)</argsstring>
+        <name>existsById</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::existsById</qualifiedname>
+        <param>
+          <type>ID</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>判断实体是否存在 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否存在 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="89" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a6a77b31ee77c328ba5ef30e3b05bc58e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long com.gmp.training.service.BaseService&lt; T, ID &gt;.count</definition>
+        <argsstring>()</argsstring>
+        <name>count</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::count</qualifiedname>
+        <briefdescription>
+<para>统计实体数量 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>实体数量 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="96" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1ac21766a32e54165ca3f4d454071c917a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.training.service.BaseService&lt; T, ID &gt;.deleteById</definition>
+        <argsstring>(ID id)</argsstring>
+        <name>deleteById</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::deleteById</qualifiedname>
+        <param>
+          <type>ID</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>根据ID删除实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="103" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a46b04f1d03dee54abfb31601875a7308" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.training.service.BaseService&lt; T, ID &gt;.delete</definition>
+        <argsstring>(T entity)</argsstring>
+        <name>delete</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::delete</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+<para>删除实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体对象 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="110" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a885b3aa4d1f90218736e2e9977308ddd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.training.service.BaseService&lt; T, ID &gt;.deleteAll</definition>
+        <argsstring>(List&lt; T &gt; entities)</argsstring>
+        <name>deleteAll</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::deleteAll</qualifiedname>
+        <param>
+          <type>List&lt; T &gt;</type>
+          <declname>entities</declname>
+        </param>
+        <briefdescription>
+<para>批量删除实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entities</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体列表 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="117" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a6872f4fcc27db5e797992e5429c9f4f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.training.service.BaseService&lt; T, ID &gt;.deleteAll</definition>
+        <argsstring>()</argsstring>
+        <name>deleteAll</name>
+        <qualifiedname>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;::deleteAll</qualifiedname>
+        <briefdescription>
+<para>删除所有实体 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/BaseService.java" line="122" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ad3153a3f7f1a0d185d3a6b96a60a6b59" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.training.service.impl.TrainingPlanServiceImpl.getEntityName</definition>
+        <argsstring>()</argsstring>
+        <name>getEntityName</name>
+        <qualifiedname>com.gmp.training.service.impl.TrainingPlanServiceImpl.getEntityName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="144" column="22" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="144" bodyend="146"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>培训计划服务实现类 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;</label>
+        <link refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService"/>
+      </node>
+      <node id="2">
+        <label>BaseServiceImpl&lt; TrainingPlan, Long, TrainingPlanRepository &gt;</label>
+        <link refid="classBaseServiceImpl"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.training.service.impl.TrainingPlanServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>com.gmp.training.service.TrainingPlanService</label>
+        <link refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>com.gmp.training.service.BaseService&lt; TrainingPlan, Long &gt;</label>
+        <link refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService"/>
+      </node>
+      <node id="2">
+        <label>BaseServiceImpl&lt; TrainingPlan, Long, TrainingPlanRepository &gt;</label>
+        <link refid="classBaseServiceImpl"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.training.service.impl.TrainingPlanServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>com.gmp.training.service.TrainingPlanService</label>
+        <link refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" line="23" column="7" bodyfile="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java" bodystart="23" bodyend="147"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a5a6dd2534aab622fd0420b4af175a97c" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>batchUpdateStatus</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1af1fcb7c6c51358a16ef4ea9c451f94e9" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>calculateActualCost</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ae8f3e603d58a88a37abeeaa459032fe1" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>calculateCompletionRate</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a6a77b31ee77c328ba5ef30e3b05bc58e" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>count</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a46b04f1d03dee54abfb31601875a7308" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>delete</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a885b3aa4d1f90218736e2e9977308ddd" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>deleteAll</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a6872f4fcc27db5e797992e5429c9f4f8" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>deleteAll</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1ac21766a32e54165ca3f4d454071c917a" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>deleteById</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a37c592f98d1d5bbfadcad434f165007e" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>existsById</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1adbd45cba437846afc7384554ff58febd" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findActivePlans</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1ad477d0e90d66f2946ac5e49d8959dc4c" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findAll</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1ad8c99d3a0184134203a779f4e0bdc45e" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findAll</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a655e42dc5a2b50a081ccdb09cd69a7a7" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findAll</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1ada9c517a92b522890cfa6d6c17a59179" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findAllById</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aaf6d85ab2106de5772d8a443056d6700" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findByDepartmentId</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1aa6076d6fa654c93512f165dd010070a3" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findById</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aa00117e12b932422fc59393c84415f4c" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findByName</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aeb7a0c933aaef1779a09bffcfc59384f" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findByOwner</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a257513dd2e40b692387d080acdc561b8" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findByPlanStartDateBetween</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a45a354c8f6585ed9d09fb19e21cc3ae3" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findByStatus</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a2c07e42be21f4b59914572792421b3b5" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findByTrainingNeed</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1acec69b8f129fc42d6dd144ea84a2f1e3" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findByYear</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ac5c211694e5e8a4459cb2a23c7d77391" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findByYearAndQuarter</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ac9dbeb36a5d1a8147feffca97f368ed4" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>findCompletedPlans</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a35c90b59297ab01c1fbcacc9dcf9e869" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>getById</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ad3153a3f7f1a0d185d3a6b96a60a6b59" prot="protected" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>getEntityName</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a75033a9a390441dd2763acdc78881bc2" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>save</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1ae1d47cdfec46504eccb6cdeed3f50a33" prot="public" virt="non-virtual" ambiguityscope="com::gmp::training::service::TrainingPlanService."><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>save</name></member>
+      <member refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a7294c81eec591843a40e109bd14df609" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>saveAll</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a2794aa0f3ba308fe402b72e8a80a5bff" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>search</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a3247d40fa99c4f51c1645f76216a426b" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>TrainingPlanServiceImpl</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ae6e98c9d9da2f4ae68755dc48764c159" prot="public" virt="non-virtual"><scope>com::gmp::training::service::impl::TrainingPlanServiceImpl</scope><name>updateStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

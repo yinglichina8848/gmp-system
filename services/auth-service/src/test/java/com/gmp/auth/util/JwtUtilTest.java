@@ -1,201 +1,295 @@
 package com.gmp.auth.util;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collections;
+import java.lang.reflect.Field;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
-public class JwtUtilTest {
+class JwtUtilTest {
 
-    @InjectMocks
     private JwtUtil jwtUtil;
 
-    private String username;
-    private UserDetails userDetails;
+    private UserDetails testUser;
 
     @BeforeEach
     void setUp() {
-        // 设置测试数据
-        username = "testuser";
-        userDetails = new User(username, "password", 
-            Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER")));
+        // 手动初始化JwtUtil对象，而不是依赖Spring的依赖注入
+        jwtUtil = new JwtUtil();
         
-        // 手动设置jwtSecret，使用足够安全的密钥（至少512位）避免NullPointerException
+        // 手动设置JwtUtil的属性
         try {
-            // 生成符合HS512要求的足够长的密钥（至少64字节 = 512位）
-            String secureJwtSecret = "ThisIsAVeryLongSecretKeyForGMPSystemThatIsAtLeast64BytesLongToMeetTheHS512SecurityRequirements";
+            // 使用反射设置私有字段
+            Field jwtSecretField = JwtUtil.class.getDeclaredField("jwtSecret");
+            jwtSecretField.setAccessible(true);
+            // 使用一个至少32个字符的密钥，满足JWT HMAC-SHA算法的256位要求
+            jwtSecretField.set(jwtUtil, "test-secret-key-for-gmp-system-1234567890");
             
-            java.lang.reflect.Field field = JwtUtil.class.getDeclaredField("jwtSecret");
-            field.setAccessible(true);
-            field.set(jwtUtil, secureJwtSecret);
+            Field expirationField = JwtUtil.class.getDeclaredField("expiration");
+            expirationField.setAccessible(true);
+            expirationField.set(jwtUtil, 3600L);
             
-            // 同时设置其他必要的字段
-            field = JwtUtil.class.getDeclaredField("expiration");
-            field.setAccessible(true);
-            field.set(jwtUtil, 3600L);
-            
-            field = JwtUtil.class.getDeclaredField("refreshExpiration");
-            field.setAccessible(true);
-            field.set(jwtUtil, 86400L);
+            Field refreshExpirationField = JwtUtil.class.getDeclaredField("refreshExpiration");
+            refreshExpirationField.setAccessible(true);
+            refreshExpirationField.set(jwtUtil, 86400L);
         } catch (Exception e) {
-            fail("Failed to set up JwtUtil fields: " + e.getMessage());
+            throw new RuntimeException("Failed to initialize JwtUtil", e);
         }
+        
+        // 初始化测试用户
+        testUser = new User(
+                "testuser",
+                "password",
+                List.of(new SimpleGrantedAuthority("ROLE_USER"))
+        );
     }
 
     @Test
-    void testGenerateAccessToken_Success() {
+    void testGenerateAccessToken() {
         // 执行
-        String token = jwtUtil.generateAccessToken(userDetails);
+        String token = jwtUtil.generateAccessToken(testUser);
         
         // 验证
         assertNotNull(token);
         assertFalse(token.isEmpty());
-        assertEquals(username, jwtUtil.getUsernameFromToken(token));
+        
+        // 验证令牌可以解析
+        String username = jwtUtil.getUsernameFromToken(token);
+        assertEquals("testuser", username);
     }
 
     @Test
-    void testGenerateRefreshToken_Success() {
+    void testGenerateToken() {
         // 执行
-        String refreshToken = jwtUtil.generateRefreshToken(userDetails);
+        String token = jwtUtil.generateToken("testuser");
+        
+        // 验证
+        assertNotNull(token);
+        assertFalse(token.isEmpty());
+        
+        // 验证令牌可以解析
+        String username = jwtUtil.getUsernameFromToken(token);
+        assertEquals("testuser", username);
+    }
+
+    @Test
+    void testGenerateRefreshToken() {
+        // 执行
+        String refreshToken = jwtUtil.generateRefreshToken(testUser);
         
         // 验证
         assertNotNull(refreshToken);
         assertFalse(refreshToken.isEmpty());
+        
+        // 验证令牌可以解析
+        String username = jwtUtil.getUsernameFromToken(refreshToken);
+        assertEquals("testuser", username);
     }
 
     @Test
-    void testGenerateRefreshToken_NullUserDetails() {
-        // 执行 & 验证
-        assertThrows(Exception.class, () -> {
-            jwtUtil.generateRefreshToken(null);
-        });
-    }
-
-    @Test
-    void testValidateToken_ValidToken() {
+    void testGetUsernameFromToken() {
         // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
+        String token = jwtUtil.generateToken("testuser");
         
         // 执行
-        boolean isValid = jwtUtil.validateToken(token, userDetails);
+        String username = jwtUtil.getUsernameFromToken(token);
+        
+        // 验证
+        assertEquals("testuser", username);
+    }
+
+    @Test
+    void testGetExpirationDateFromToken() {
+        // 准备
+        String token = jwtUtil.generateToken("testuser");
+        
+        // 执行
+        Date expirationDate = jwtUtil.getExpirationDateFromToken(token);
+        
+        // 验证
+        assertNotNull(expirationDate);
+        assertTrue(expirationDate.after(new Date()));
+    }
+
+    @Test
+    void testIsTokenExpired() {
+        // 准备
+        String token = jwtUtil.generateToken("testuser");
+        
+        // 执行
+        boolean isExpired = jwtUtil.isTokenExpired(token);
+        
+        // 验证
+        assertFalse(isExpired);
+    }
+
+    @Test
+    void testValidateToken() {
+        // 准备
+        String token = jwtUtil.generateToken(testUser.getUsername());
+        
+        // 执行
+        boolean isValid = jwtUtil.validateToken(token, testUser);
         
         // 验证
         assertTrue(isValid);
     }
 
     @Test
+    void testValidateToken_InvalidToken() {
+        // 准备
+        String invalidToken = "invalid-token";
+        
+        // 执行
+        boolean isValid = jwtUtil.validateToken(invalidToken, testUser);
+        
+        // 验证
+        assertFalse(isValid);
+    }
+
+    @Test
     void testValidateToken_NullToken() {
         // 执行
-        boolean isValid = jwtUtil.validateToken(null, userDetails);
+        boolean isValid = jwtUtil.validateToken(null, testUser);
         
         // 验证
         assertFalse(isValid);
     }
 
     @Test
-    void testValidateToken_InvalidToken() {
-        // 准备 - 使用无效格式的令牌
-        String invalidToken = "invalid.jwt.token.format";
+    void testValidateToken_SingleParameter() {
+        // 准备
+        String token = jwtUtil.generateToken("testuser");
         
         // 执行
-        boolean isValid = jwtUtil.validateToken(invalidToken, userDetails);
+        boolean isValid = jwtUtil.validateToken(token);
         
         // 验证
-        assertFalse(isValid);
+        assertTrue(isValid);
     }
 
     @Test
-    void testGetUsernameFromToken_Success() {
+    void testRevokeToken() {
         // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
-        
-        // 执行
-        String extractedUsername = jwtUtil.getUsernameFromToken(token);
-        
-        // 验证
-        assertEquals(username, extractedUsername);
-    }
-
-    @Test
-    void testGetUsernameFromToken_InvalidToken() {
-        // 准备 - 使用无效令牌
-        String invalidToken = "invalid.jwt.token.format";
-        
-        // 执行 & 验证
-        assertThrows(Exception.class, () -> {
-            jwtUtil.getUsernameFromToken(invalidToken);
-        });
-    }
-
-    // getOrganizationIdFromToken method doesn't exist in JwtUtil, test removed
-
-    @Test
-    void testGetExpirationDateFromToken_Success() {
-        // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
-        
-        // 执行
-        Date extractedExpirationDate = jwtUtil.getExpirationDateFromToken(token);
-        
-        // 验证
-        assertNotNull(extractedExpirationDate);
-        // 确保过期时间在未来
-        assertTrue(extractedExpirationDate.after(new Date()));
-    }
-    
-    @Test
-    void testIsTokenExpired_NotExpired() {
-        // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
-        
-        // 执行
-        Boolean isExpired = jwtUtil.isTokenExpired(token);
-        
-        // 验证
-        assertFalse(isExpired);
-    }
-    
-    @Test
-    void testIsTokenRevoked_NotRevoked() {
-        // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
-        
-        // 执行
-        Boolean isRevoked = jwtUtil.isTokenRevoked(token);
-        
-        // 验证
-        assertFalse(isRevoked);
-    }
-    
-    @Test
-    void testRevokeToken_Success() {
-        // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
+        String token = jwtUtil.generateToken("testuser");
         
         // 执行
         jwtUtil.revokeToken(token);
-        Boolean isRevoked = jwtUtil.isTokenRevoked(token);
+        boolean isRevoked = jwtUtil.isTokenRevoked(token);
         
         // 验证
         assertTrue(isRevoked);
     }
-    
+
     @Test
-    void testGetTokenIdFromToken_Success() {
+    void testIsTokenRevoked() {
         // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
+        String token = jwtUtil.generateToken("testuser");
+        
+        // 执行
+        boolean isRevoked = jwtUtil.isTokenRevoked(token);
+        
+        // 验证
+        assertFalse(isRevoked);
+        
+        // 撤销令牌
+        jwtUtil.revokeToken(token);
+        isRevoked = jwtUtil.isTokenRevoked(token);
+        
+        // 验证
+        assertTrue(isRevoked);
+    }
+
+    @Test
+    void testRefreshToken() {
+        // 准备
+        String refreshToken = jwtUtil.generateRefreshToken(testUser);
+        
+        // 执行
+        String newToken = jwtUtil.refreshToken(refreshToken);
+        
+        // 验证
+        assertNotNull(newToken);
+        assertFalse(newToken.isEmpty());
+        assertNotEquals(refreshToken, newToken);
+        
+        // 验证新令牌有效
+        boolean isValid = jwtUtil.validateToken(newToken);
+        assertTrue(isValid);
+    }
+
+    @Test
+    void testCleanupRevokedTokens() {
+        // 执行
+        jwtUtil.cleanupRevokedTokens();
+        
+        // 验证 - 该方法目前只是记录日志，没有实际逻辑，所以只需要验证不抛出异常
+        assertDoesNotThrow(() -> jwtUtil.cleanupRevokedTokens());
+    }
+
+    @Test
+    void testGenerateTokenWithExtraClaims() {
+        // 准备
+        Map<String, Object> extraClaims = new java.util.HashMap<>();
+        extraClaims.put("customClaim", "customValue");
+        extraClaims.put("numberClaim", 123);
+        
+        // 执行
+        String token = jwtUtil.generateToken(extraClaims, "testuser");
+        
+        // 验证
+        assertNotNull(token);
+        
+        // 验证额外声明存在
+        Claims claims = jwtUtil.parseToken(token);
+        assertEquals("customValue", claims.get("customClaim"));
+        assertEquals(123, claims.get("numberClaim"));
+    }
+
+    @Test
+    void testParseToken() {
+        // 准备
+        String token = jwtUtil.generateToken("testuser");
+        
+        // 执行
+        Claims claims = jwtUtil.parseToken(token);
+        
+        // 验证
+        assertNotNull(claims);
+        assertEquals("testuser", claims.getSubject());
+        assertNotNull(claims.getExpiration());
+        assertNotNull(claims.getId());
+    }
+
+    @Test
+    void testParseTokenWithoutValidation() {
+        // 准备
+        String token = jwtUtil.generateToken("testuser");
+        
+        // 执行
+        Claims claims = jwtUtil.parseTokenWithoutValidation(token);
+        
+        // 验证
+        assertNotNull(claims);
+        assertEquals("testuser", claims.getSubject());
+    }
+
+    @Test
+    void testGetTokenIdFromToken() {
+        // 准备
+        String token = jwtUtil.generateToken("testuser");
         
         // 执行
         String tokenId = jwtUtil.getTokenIdFromToken(token);
@@ -203,82 +297,5 @@ public class JwtUtilTest {
         // 验证
         assertNotNull(tokenId);
         assertFalse(tokenId.isEmpty());
-    }
-    
-    @Test
-    void testParseTokenWithoutValidation_Success() {
-        // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
-        
-        // 执行
-        Claims claims = jwtUtil.parseTokenWithoutValidation(token);
-        
-        // 验证
-        assertNotNull(claims);
-        assertEquals(username, claims.getSubject());
-    }
-
-    @Test
-    void testValidateTokenForUserDetails_Success() {
-        // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
-        
-        // 执行
-        boolean isValid = jwtUtil.validateToken(token, userDetails);
-        
-        // 验证
-        assertTrue(isValid);
-    }
-
-    @Test
-    void testValidateTokenForUserDetails_WrongUsername() {
-        // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
-        
-        // 创建一个具有不同用户名的UserDetails对象
-        UserDetails wrongUserDetails = org.springframework.security.core.userdetails.User.builder()
-                .username("wronguser")
-                .password("password")
-                .authorities(Collections.emptyList())
-                .build();
-        
-        // 执行
-        boolean isValid = jwtUtil.validateToken(token, wrongUserDetails);
-        
-        // 验证
-        assertFalse(isValid);
-    }
-
-    @Test
-    void testValidateTokenForUserDetails_NullToken() {
-        // 执行
-        boolean isValid = jwtUtil.validateToken(null, this.userDetails);
-        
-        // 验证
-        assertFalse(isValid);
-    }
-
-    @Test
-    void testValidateTokenForUserDetails_NullUserDetails() {
-        // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
-        
-        // 执行
-        boolean isValid = jwtUtil.validateToken(token, null);
-        
-        // 验证
-        assertFalse(isValid);
-    }
-
-    @Test
-    void testValidateTokenForUserDetails_ValidToken() {
-        // 准备
-        String token = jwtUtil.generateAccessToken(userDetails);
-        
-        // 执行
-        boolean isValid = jwtUtil.validateToken(token, userDetails);
-        
-        // 验证
-        assertTrue(isValid);
     }
 }

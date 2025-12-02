@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TrainingNeed_8java" kind="file" language="Java">
+    <compoundname>TrainingNeed.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/main/java/com/gmp/training/entity/TrainingNeed.java</label>
+        <link refid="TrainingNeed_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed" prot="public">com::gmp::training::entity::TrainingNeed</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource" prot="public">com::gmp::training::entity::TrainingNeed::NeedSource</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status" prot="public">com::gmp::training::entity::TrainingNeed::Status</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus" prot="public">com::gmp::training::entity::TrainingNeed::NeedStatus</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Priority" prot="public">com::gmp::training::entity::TrainingNeed::Priority</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel" prot="public">com::gmp::training::entity::TrainingNeed::PriorityLevel</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1entity">com::gmp::training::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedBy;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedBy;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotBlank;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotNull;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.Size;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Serializable;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;t_training_need&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed" kindref="compound">TrainingNeed</ref><sp/>implements<sp/><ref refid="classSerializable" kindref="compound">Serializable</ref><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a237f0fe6772df1a7e00452ed7710555e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>serialVersionUID<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;need_id&quot;</highlight><highlight class="normal">,<sp/>nullable<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="36" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a37e083e10bafea4d1f4fa1ddc3caea2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;需求名称不能为空&quot;)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;需求名称长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;need_name&quot;,<sp/>length<sp/>=<sp/>200,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="44" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a5973cda16e03eaebdb0e8084d4dd9dab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>needName;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>1000,<sp/>message<sp/>=<sp/>&quot;需求描述长度不能超过1000个字符&quot;)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;description&quot;,<sp/>length<sp/>=<sp/>1000)</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a40e29ae0143bfe2bf0fb73b476ae076b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>description;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;source&quot;,<sp/>length<sp/>=<sp/>50,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="58" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a31697a39a2fb2c3817ca6837102562de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource" kindref="compound">NeedSource</ref><sp/>source;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;department_id&quot;)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a6a1dc3f82327bea7a9420708b16ec3f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1Department" kindref="compound">Department</ref><sp/>department;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;position_id&quot;)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a61479987b2d0d399421804a434361e5f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1Position" kindref="compound">Position</ref><sp/>position;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;priority&quot;,<sp/>length<sp/>=<sp/>20,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="79" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a349b336ed3008855e60852fc06951615" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel" kindref="compound">PriorityLevel</ref><sp/>priority<sp/>=<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel" kindref="compound">PriorityLevel</ref>.MEDIUM;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;estimated_participants&quot;)</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a4af20f4ad6c9164b6bbc8b845c628fa5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>estimatedParticipants;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;expected_completion_time&quot;)</highlight></codeline>
+<codeline lineno="91" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a43dd5b882c50362368cf04a3e7be3ee0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>expectedCompletionTime;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;requester_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="98" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a779e5ff669b359df317e789db4bc2bf5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1User" kindref="compound">User</ref><sp/>requester;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;reviewer_id&quot;)</highlight></codeline>
+<codeline lineno="105" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a13c8770b320b53f49839038786194c90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1User" kindref="compound">User</ref><sp/>reviewer;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>length<sp/>=<sp/>20,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="112" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1aa24c9f48c22ad0a97ce6ff5a80aba53d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus" kindref="compound">NeedStatus</ref><sp/>status<sp/>=<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus" kindref="compound">NeedStatus</ref>.PENDING_REVIEW;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;审核意见长度不能超过500个字符&quot;)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;review_comment&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="119" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a8804aa9a5dba22739ada8152d3398508" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>reviewComment;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;is_gmp_related&quot;)</highlight></codeline>
+<codeline lineno="125" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a9ba7e5b0d9c736acdc517037c17cb482" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>gmpRelated<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedBy</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;)</highlight></codeline>
+<codeline lineno="132" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1ab35391138c954de8f11ee7300fbaf16d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_time&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="139" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a5b9a23cd8936aa1fb074fe7a5ec8cd2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdTime;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedBy</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;last_modified_by&quot;)</highlight></codeline>
+<codeline lineno="146" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1aceedd430d0c1b8b977484c332db0143b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>lastModifiedBy;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;last_modified_time&quot;)</highlight></codeline>
+<codeline lineno="153" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1a6ad720f57843dbef6906084a35efae7b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lastModifiedTime;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource" kindref="compound">NeedSource</ref><sp/>{</highlight></codeline>
+<codeline lineno="159" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource_1a794c46e2673b0b44c50e79a387fc06cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource_1a794c46e2673b0b44c50e79a387fc06cc" kindref="member">DEPARTMENT</ref>,<sp/></highlight><highlight class="comment">//<sp/>部门</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource_1aa4bff79f5a6c68cd8f0b6805b4b16508" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource_1aa4bff79f5a6c68cd8f0b6805b4b16508" kindref="member">INDIVIDUAL</ref>,<sp/></highlight><highlight class="comment">//<sp/>个人</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource_1a0ef7984fd874b0842d078ea423219142" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource_1a0ef7984fd874b0842d078ea423219142" kindref="member">POSITION</ref>,<sp/></highlight><highlight class="comment">//<sp/>岗位</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>COMPLIANCE<sp/></highlight><highlight class="comment">//<sp/>合规要求</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource_1a4cbd3ac892011ed0a75ba9db028358a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status" kindref="compound">Status</ref><sp/>{</highlight></codeline>
+<codeline lineno="169" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status_1ad1087d7b78d12d88900cb4ca659366e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status_1ad1087d7b78d12d88900cb4ca659366e3" kindref="member">PENDING</ref>,<sp/></highlight><highlight class="comment">//<sp/>待处理<sp/>(对应PENDING_REVIEW)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status_1ac8d3d3605634c17d1111d945c99fecdf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status_1ac8d3d3605634c17d1111d945c99fecdf" kindref="member">APPROVED</ref>,<sp/></highlight><highlight class="comment">//<sp/>已批准</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status_1a3018d978094125c5bc01c705112eb9c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status_1a3018d978094125c5bc01c705112eb9c9" kindref="member">REJECTED</ref>,<sp/></highlight><highlight class="comment">//<sp/>已拒绝</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IMPLEMENTED<sp/></highlight><highlight class="comment">//<sp/>已实施</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status_1a41cd422c7c0cfd42b8676e938a5aa846" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>兼容现有代码的别名</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus" kindref="compound">NeedStatus</ref><sp/>{</highlight></codeline>
+<codeline lineno="177" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus_1a4edd41a1e1ee2e0d435e539c9f7082c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus_1a4edd41a1e1ee2e0d435e539c9f7082c2" kindref="member">PENDING_REVIEW</ref>,<sp/></highlight><highlight class="comment">//<sp/>待审核</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus_1aa0266ad54726854157587ca6a9e06b31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus_1aa0266ad54726854157587ca6a9e06b31" kindref="member">APPROVED</ref>,<sp/></highlight><highlight class="comment">//<sp/>已审核</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus_1afcf5f0e461276a615bff36b7e0c5c741" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus_1afcf5f0e461276a615bff36b7e0c5c741" kindref="member">REJECTED</ref>,<sp/></highlight><highlight class="comment">//<sp/>已拒绝</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IN_PLAN<sp/></highlight><highlight class="comment">//<sp/>已纳入计划</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus_1a76cdcfe6feded8a6408e6b122aa35cc3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Priority" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Priority" kindref="compound">Priority</ref><sp/>{</highlight></codeline>
+<codeline lineno="187" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Priority_1a06f172025b86befc2faccf96785a0aed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Priority_1a06f172025b86befc2faccf96785a0aed" kindref="member">LOW</ref>,<sp/></highlight><highlight class="comment">//<sp/>低</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Priority_1a42db93b018417abec48a7c2553464d1a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Priority_1a42db93b018417abec48a7c2553464d1a" kindref="member">MEDIUM</ref>,<sp/></highlight><highlight class="comment">//<sp/>中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HIGH<sp/></highlight><highlight class="comment">//<sp/>高</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Priority_1ad6521e8b15f36fb5973dc9a06d17b92a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>兼容现有代码的别名</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel" kindref="compound">PriorityLevel</ref><sp/>{</highlight></codeline>
+<codeline lineno="194" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel_1a6a8f3c93adb574df0bd9b0620b28d149" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel_1a6a8f3c93adb574df0bd9b0620b28d149" kindref="member">HIGH</ref>,<sp/></highlight><highlight class="comment">//<sp/>高</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel_1a518993837d80ec2fff4b998a963bc279" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel_1a518993837d80ec2fff4b998a963bc279" kindref="member">MEDIUM</ref>,<sp/></highlight><highlight class="comment">//<sp/>中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOW<sp/></highlight><highlight class="comment">//<sp/>低</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel_1a070639b206aad657f921ae523b89b27e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/main/java/com/gmp/training/entity/TrainingNeed.java"/>
+  </compounddef>
+</doxygen>

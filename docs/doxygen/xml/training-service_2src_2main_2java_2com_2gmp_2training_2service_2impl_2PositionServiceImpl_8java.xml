@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="training-service_2src_2main_2java_2com_2gmp_2training_2service_2impl_2PositionServiceImpl_8java" kind="file" language="Java">
+    <compoundname>PositionServiceImpl.java</compoundname>
+    <includes local="no">com.gmp.training.entity.Position</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/main/java/com/gmp/training/service/impl/PositionServiceImpl.java</label>
+        <link refid="training-service_2src_2main_2java_2com_2gmp_2training_2service_2impl_2PositionServiceImpl_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.training.entity.Position</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl" prot="public">com::gmp::training::service::impl::PositionServiceImpl</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1service_1_1impl">com::gmp::training::service::impl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.service.impl;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.entity.Position;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.exception.EntityNotFoundException;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.repository.DepartmentRepository;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.repository.PositionRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.service.PositionService;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Service;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.transaction.annotation.Transactional;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@Service</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl" kindref="compound">PositionServiceImpl</ref><sp/>extends<sp/><ref refid="classBaseServiceImpl" kindref="compound">BaseServiceImpl</ref>&lt;Position,<sp/>Long,<sp/>PositionRepository&gt;<sp/>implements<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1service_1_1PositionService" kindref="compound">PositionService</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1aec55e67d4258f5f60878265a02aa1661" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>DepartmentRepository<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1aec55e67d4258f5f60878265a02aa1661" kindref="member">departmentRepository</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a9910bb4691e1a95d0b10c1661f3e602a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a9910bb4691e1a95d0b10c1661f3e602a" kindref="member">PositionServiceImpl</ref>(PositionRepository<sp/>repository,<sp/>DepartmentRepository<sp/>departmentRepository)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(<ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.departmentRepository<sp/>=<sp/>departmentRepository;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a10be7889efa579e3f034222fc948d079" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Optional&lt;Position&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a10be7889efa579e3f034222fc948d079" kindref="member">findByCode</ref>(String<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByCode(code);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a56ea0ca284b14e9d6f5413954ecd3e99" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Optional&lt;Position&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a56ea0ca284b14e9d6f5413954ecd3e99" kindref="member">findByName</ref>(String<sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByName(name);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="43" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a602485e167846c2499a1916e2d763ecd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a602485e167846c2499a1916e2d763ecd" kindref="member">existsByCode</ref>(String<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.existsByCode(code);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="48" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a0b9eae5c687591acf2ed7473d625229f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a0b9eae5c687591acf2ed7473d625229f" kindref="member">existsByName</ref>(String<sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.existsByName(name);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a4b3e8de0faadc4de6252820e16f568ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;Position&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a4b3e8de0faadc4de6252820e16f568ce" kindref="member">findByDepartmentId</ref>(Long<sp/>departmentId)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByDepartmentId(departmentId);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="58" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1ad4d66c000c2e7b28d5e05a9afc8f0dda" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;Position&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1ad4d66c000c2e7b28d5e05a9afc8f0dda" kindref="member">findByGmpQualification</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>gmpQualification)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByGmpQualification(gmpQualification);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="63" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1ad65848f5c8884851b6db31a64917d0e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;Position&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1ad65848f5c8884851b6db31a64917d0e2" kindref="member">findActivePositions</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByActiveTrue();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="69" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a928457eea898b0a2365ac42276f0afd6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Position<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a928457eea898b0a2365ac42276f0afd6" kindref="member">updateStatus</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>active)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Position<sp/>position<sp/>=<sp/>getById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>position.setActive(active);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.save(position);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="77" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1aa06e1aac15aac3e2ebb29d7a2775dfa2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Position<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1aa06e1aac15aac3e2ebb29d7a2775dfa2" kindref="member">updateDepartment</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>Long<sp/>departmentId)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Position<sp/>position<sp/>=<sp/>getById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(departmentId<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>departmentRepository.findById(departmentId)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.orElseThrow(()<sp/>-&gt;<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EntityNotFoundException(</highlight><highlight class="stringliteral">&quot;Department<sp/>not<sp/>found<sp/>with<sp/>id:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>departmentId));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>position.setDepartment(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>先清除关联</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.save(position);<sp/></highlight><highlight class="comment">//<sp/>保存状态</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>重新设置关联</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>position.setDepartment(departmentRepository.getReferenceById(departmentId));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>position.setDepartment(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.save(position);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="97" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a7667648d2713707f5b5397d7d8104a14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a7667648d2713707f5b5397d7d8104a14" kindref="member">batchDisable</ref>(List&lt;Long&gt;<sp/>ids)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证所有ID都存在</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Position&gt;<sp/>positions<sp/>=<sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findAllById(ids);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(positions.size()<sp/>!=<sp/>ids.size())<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EntityNotFoundException(</highlight><highlight class="stringliteral">&quot;Some<sp/>positions<sp/>not<sp/>found&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>批量禁用</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>positions.forEach(position<sp/>-&gt;<sp/>position.setActive(</highlight><highlight class="keyword">false</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.saveAll(positions);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>positions.size();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="112" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1ae86a02dd7592f9ba7693efba553cea69" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1ae86a02dd7592f9ba7693efba553cea69" kindref="member">batchEnable</ref>(List&lt;Long&gt;<sp/>ids)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证所有ID都存在</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Position&gt;<sp/>positions<sp/>=<sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findAllById(ids);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(positions.size()<sp/>!=<sp/>ids.size())<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EntityNotFoundException(</highlight><highlight class="stringliteral">&quot;Some<sp/>positions<sp/>not<sp/>found&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>批量启用</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>positions.forEach(position<sp/>-&gt;<sp/>position.setActive(</highlight><highlight class="keyword">true</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.saveAll(positions);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>positions.size();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="126" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a9c91c65095287066eeb7ba9a8f7667dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;Position&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a9c91c65095287066eeb7ba9a8f7667dc" kindref="member">findPositionsByRequiredTraining</ref>(Long<sp/>trainingTypeId)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>这里需要根据实际的数据模型实现，暂时返回空列表</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>实际实现可能需要通过关联表查询需要特定培训的岗位</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>List.of();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="134" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1af74c00760c576ec4d3656c099fd94aa9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Position<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1af74c00760c576ec4d3656c099fd94aa9" kindref="member">save</ref>(Position<sp/>position)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>检查岗位编码、名称是否已存在</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(position.getId()<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>新增岗位时检查</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(existsByCode(position.getCode()))<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalArgumentException(</highlight><highlight class="stringliteral">&quot;Position<sp/>code<sp/>already<sp/>exists:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>position.getCode());</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(existsByName(position.getName()))<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalArgumentException(</highlight><highlight class="stringliteral">&quot;Position<sp/>name<sp/>already<sp/>exists:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>position.getName());</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>更新岗位时，如果编码或名称有变化则检查</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Position<sp/>existingPosition<sp/>=<sp/>getById(position.getId());</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!existingPosition.getCode().equals(position.getCode())<sp/>&amp;&amp;<sp/>existsByCode(position.getCode()))<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalArgumentException(</highlight><highlight class="stringliteral">&quot;Position<sp/>code<sp/>already<sp/>exists:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>position.getCode());</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!existingPosition.getName().equals(position.getName())<sp/>&amp;&amp;<sp/>existsByName(position.getName()))<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalArgumentException(</highlight><highlight class="stringliteral">&quot;Position<sp/>name<sp/>already<sp/>exists:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>position.getName());</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.save(position);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="159" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a1b454791cd369ab4e5a3616c386984a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1PositionServiceImpl_1a1b454791cd369ab4e5a3616c386984a6" kindref="member">getEntityName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Position&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/main/java/com/gmp/training/service/impl/PositionServiceImpl.java"/>
+  </compounddef>
+</doxygen>

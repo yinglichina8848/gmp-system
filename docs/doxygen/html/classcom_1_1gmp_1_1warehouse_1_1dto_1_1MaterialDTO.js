@@ -1,0 +1,25 @@
+var classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO =
+[
+    [ "batchManaged", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a2dc691b31e0d0dfdd20d6dda536aa960", null ],
+    [ "categoryId", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#abf6771dc82a3f494b0b11e55951f3b74", null ],
+    [ "categoryName", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a3edfe2d842b8b53d30bf89a9002077b0", null ],
+    [ "code", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a1ca6c47e4bc6522c1b8671fbdb882cdf", null ],
+    [ "createdAt", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a5fc101d3aea31919d88a9952682e9f48", null ],
+    [ "createdBy", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a785704723003b8abeb6854225b4d0ce8", null ],
+    [ "description", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a930f4f3a349408e3b93f7534d24989e6", null ],
+    [ "expiryManaged", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a61454e187ad2a844363bb6fbd3a775b0", null ],
+    [ "id", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#adbc69f72818d4db95d0c37abd5249394", null ],
+    [ "name", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#af3290fd4f8f854fa9ad9cae0593f9844", null ],
+    [ "remark", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a8b697b7a1cdf8232d95dadb402b842d8", null ],
+    [ "safetyStock", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a7541a04b737bff46b0d1417e3e081d0f", null ],
+    [ "serialVersionUID", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a56e658ad5bca7502c4b60aa6dd03b128", null ],
+    [ "specification", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a568734f3edcfa9d2e996f3c7641bb6ab", null ],
+    [ "status", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a0ac553f60c6dcda7c9768dd1b3aade1f", null ],
+    [ "storageCondition", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a753197343e9ee75be01ac4fb3adcfc9a", null ],
+    [ "supplierId", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#aaa1a933f65b835ac4822aa62fae3993d", null ],
+    [ "supplierName", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#aab8066079e343332808f189602136740", null ],
+    [ "unit", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a477e448db00b2b9b1c7336ce72d6096b", null ],
+    [ "updatedAt", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#aafaa786c1f11760b84d81f16e3455222", null ],
+    [ "updatedBy", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a5d53057d63b2fdcce597c4060bbbb05b", null ],
+    [ "warningStock", "classcom_1_1gmp_1_1warehouse_1_1dto_1_1MaterialDTO.html#a66c7d87b7c4805e4a22cd4a359dc4c3c", null ]
+];

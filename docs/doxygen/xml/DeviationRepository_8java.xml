@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="DeviationRepository_8java" kind="file" language="Java">
+    <compoundname>DeviationRepository.java</compoundname>
+    <includes local="no">com.gmp.qms.entity.Deviation</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/repository/DeviationRepository.java</label>
+        <link refid="DeviationRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.entity.Deviation</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository" prot="public">com::gmp::qms::repository::DeviationRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1repository">com::gmp::qms::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.entity.Deviation;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="20" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository" kindref="compound">DeviationRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Deviation,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;Deviation&gt;<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1ae3fe1603becd963ead944ad8f3bf94be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Deviation<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1ae3fe1603becd963ead944ad8f3bf94be" kindref="member">findByDeviationCode</ref>(String<sp/>deviationCode);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1a3e8279bd9775e6fc0724d9f7453364f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Deviation&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1a3e8279bd9775e6fc0724d9f7453364f9" kindref="member">findByStatus</ref>(Deviation.DeviationStatus<sp/>status,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1acd1ecc1499c74f00e82c07959ba1462e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Deviation&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1acd1ecc1499c74f00e82c07959ba1462e" kindref="member">findByResponsiblePersonId</ref>(Long<sp/>responsiblePersonId,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1a123678f54370673ab125a95c16f317a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Deviation&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1a123678f54370673ab125a95c16f317a1" kindref="member">findBySeverityLevel</ref>(Deviation.SeverityLevel<sp/>severityLevel,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1abd63f476e3d4c95a18dae2dcf0ff967e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Deviation&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1abd63f476e3d4c95a18dae2dcf0ff967e" kindref="member">findByDiscoveryDateBetween</ref>(LocalDateTime<sp/>startDate,<sp/>LocalDateTime<sp/>endDate,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>d<sp/>FROM<sp/>Deviation<sp/>d<sp/>WHERE<sp/>d.status<sp/>=<sp/>:status<sp/>AND<sp/>d.occurrenceDate<sp/>&lt;<sp/>:now<sp/>ORDER<sp/>BY<sp/>d.occurrenceDate<sp/>ASC&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="75" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1a343d8f0b53f355d4c615283d380f8404" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Deviation&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1a343d8f0b53f355d4c615283d380f8404" kindref="member">findOverdueDeviations</ref>(Deviation.DeviationStatus<sp/>status,<sp/>LocalDateTime<sp/>now);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1a6c22f32a90d03e25feedd5aefa1bd03a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Deviation&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1a6c22f32a90d03e25feedd5aefa1bd03a" kindref="member">findByCreatedBy</ref>(Long<sp/>createdBy,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>d.status,<sp/>COUNT(d)<sp/>FROM<sp/>Deviation<sp/>d<sp/>GROUP<sp/>BY<sp/>d.status&quot;)</highlight></codeline>
+<codeline lineno="92" refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1a5a0ea90b26d3086278f6ed2452e7f585" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1repository_1_1DeviationRepository_1a5a0ea90b26d3086278f6ed2452e7f585" kindref="member">countByStatus</ref>();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/repository/DeviationRepository.java"/>
+  </compounddef>
+</doxygen>

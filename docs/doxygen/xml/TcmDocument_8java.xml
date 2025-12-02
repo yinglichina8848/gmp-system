@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TcmDocument_8java" kind="file" language="Java">
+    <compoundname>TcmDocument.java</compoundname>
+    <includes local="no">com.fasterxml.jackson.annotation.JsonFormat</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/entity/TcmDocument.java</label>
+        <link refid="TcmDocument_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.fasterxml.jackson.annotation.JsonFormat</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument" prot="public">com::gmp::edms::entity::TcmDocument</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1entity">com::gmp::edms::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.fasterxml.jackson.annotation.JsonFormat;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.CreationTimestamp;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.UpdateTimestamp;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;tcm_documents&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="18" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument" kindref="compound">TcmDocument</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="25" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1aebc462ee9d723e25dbbf921be654b3b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;document_number&quot;,<sp/>unique<sp/>=<sp/>true,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a8c6c6f3918a49c86ad48a52990d05cb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>documentNumber;<sp/></highlight><highlight class="comment">//<sp/>TCM-DOC-YYYY-MMDD-001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;title&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="37" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a982160f4a45b1bdb42573a2ab08224d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>title;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;document_type&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="43" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a0a63d7150837ca48d2750b4115ae159a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>documentType;<sp/></highlight><highlight class="comment">//<sp/>TCM_SOP,<sp/>TCM_SPECIFICATION,<sp/>TCM_RECORD,<sp/>TCM_MANUAL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;category&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="49" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a2567dcc10e8c923a2f4ddba4807a1483" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>category;<sp/></highlight><highlight class="comment">//<sp/>分类路径，用/分隔</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;category_id&quot;)</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1ac7d217b8432a66e88881dea26d58c9fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>categoryId;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="61" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1ae079b791e1e414f8cac68e8cce0d5e0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>status<sp/>=<sp/>&quot;DRAFT&quot;;<sp/></highlight><highlight class="comment">//<sp/>DRAFT,<sp/>IN_REVIEW,<sp/>APPROVED,<sp/>EFFECTIVE,<sp/>WITHDRAWN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;current_version&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="67" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a61959e905a227021ebf7678b21509d04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>currentVersion<sp/>=<sp/>&quot;1.0&quot;;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;current_version_id&quot;)</highlight></codeline>
+<codeline lineno="73" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a5a66ff700b6b9a7de3814681ffb31bee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>currentVersionId;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;template_id&quot;)</highlight></codeline>
+<codeline lineno="79" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1ab53502bc666bf2cebd756f2b52893e95" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>templateId;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;owner_department&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a29f261b63cfe3d10437b6cf63d99db4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>ownerDepartment;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;author&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="91" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a3f65acbbed68ad27df4895f875168816" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>author;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;approver&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="97" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a1b821fb469054131be5d1624291cce12" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>approver;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;effective_date&quot;)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>@JsonFormat(pattern<sp/>=<sp/>&quot;yyyy-MM-dd<sp/>HH:mm:ss&quot;)</highlight></codeline>
+<codeline lineno="104" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a2f06061e1eea8a56189015b8422d7bbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>effectiveDate;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;expiry_date&quot;)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>@JsonFormat(pattern<sp/>=<sp/>&quot;yyyy-MM-dd<sp/>HH:mm:ss&quot;)</highlight></codeline>
+<codeline lineno="111" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1aa315f65a723168b347e6198ab91a103a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>expiryDate;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;retention_period&quot;)</highlight></codeline>
+<codeline lineno="117" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a6ca240b7c2920ea3b004c31ae755289f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>retentionPeriod;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;confidentiality_level&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="123" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1ad7daf7f666d9e7ebd44c54b799748330" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>confidentialityLevel<sp/>=<sp/>&quot;NORMAL&quot;;<sp/></highlight><highlight class="comment">//<sp/>NORMAL,<sp/>CONFIDENTIAL,<sp/>RESTRICTED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;file_path&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="129" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a4de761a69dfb2c1ade6d1f678f8dcb1a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>filePath;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;file_size&quot;)</highlight></codeline>
+<codeline lineno="135" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1af621b144659151d88b4137c12f9ca865" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>fileSize;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;content_type&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="141" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a0c17aa2f53a72f9c66ac768dd9aad645" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>contentType;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;checksum&quot;,<sp/>length<sp/>=<sp/>128)</highlight></codeline>
+<codeline lineno="147" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1aea8ba9a49a89be41703ca5ebe7b4f64c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>checksum;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;herb_name&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="153" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a5eeedb2640f0e4a8a4239b848ef890ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>herbName;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;processing_method&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="159" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a2c7a327a8acc0aa413d41bf0033ac1fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>processingMethod;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;extraction_method&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="165" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1aefa4e3f13411484fba699294454c56aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>extractionMethod;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;quality_standard&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="171" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1ae2574655a01c530ba40a8314b346f5bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>qualityStandard;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreationTimestamp</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="178" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1a9b50a434ddc3ab1556877418fc177335" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>@UpdateTimestamp</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="185" refid="classcom_1_1gmp_1_1edms_1_1entity_1_1TcmDocument_1ac93214248342f2e249ce6efc32195c52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/entity/TcmDocument.java"/>
+  </compounddef>
+</doxygen>

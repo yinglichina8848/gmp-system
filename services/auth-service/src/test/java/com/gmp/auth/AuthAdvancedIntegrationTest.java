@@ -24,6 +24,7 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import jakarta.transaction.Transactional;
 import java.util.*;
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -45,8 +46,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Transactional
 @DisplayName("GMP认证系统高级集成测试") 
 public class AuthAdvancedIntegrationTest {
-    // 显式声明Logger以确保编译通过
-    private static final Logger log = LoggerFactory.getLogger(AuthAdvancedIntegrationTest.class);
 
     @Autowired
     private MockMvc mockMvc;
@@ -336,18 +335,28 @@ public class AuthAdvancedIntegrationTest {
      * 创建测试管理员用户
      */
     private void createTestAdminUser() {
-        // 使用正确转义的正则表达式，移除所有非字母数字和下划线的字符
-        String validUsername = ADMIN_USERNAME.replaceAll("[^a-zA-Z0-9_]", "_");
+        // 确保用户名符合验证规则（只包含字母、数字和下划线）
+        String validUsername = ADMIN_USERNAME.replaceAll("[^a-zA-Z0-9_]", "");
+        // 确保用户名不以数字开头且长度在3-50之间
+        if (validUsername.length() < 3) {
+            validUsername = "test" + validUsername;
+        } else if (validUsername.length() > 50) {
+            validUsername = validUsername.substring(0, 50);
+        }
         String validEmail = validUsername.toLowerCase() + "@example.com";
         
-        User adminUser = User.builder()
-            .username(validUsername)
-            .email(validEmail)
-            .fullName("测试管理员")
-            .passwordHash(passwordEncoder.encode(ADMIN_PASSWORD))
-            .userStatus(User.UserStatus.ACTIVE)
-            .loginAttempts(0)
-            .build();
+        User adminUser = new User();
+        adminUser.setUsername(validUsername);
+        adminUser.setEmail(validEmail);
+        adminUser.setFullName("测试管理员");
+        adminUser.setPasswordHash(passwordEncoder.encode(ADMIN_PASSWORD));
+        adminUser.setUserStatus(User.UserStatus.ACTIVE);
+        adminUser.setLoginAttempts(0);
+        adminUser.setMobile("13800138000");
+        adminUser.setCreatedAt(LocalDateTime.now());
+        adminUser.setUpdatedAt(LocalDateTime.now());
+        adminUser.setVersion(1);
+        adminUser.setMfaEnabled(false);
         
         userRepository.save(adminUser);
         validAdminUsername = validUsername;

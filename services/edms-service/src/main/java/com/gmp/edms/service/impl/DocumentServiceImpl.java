@@ -8,7 +8,11 @@ import com.gmp.edms.dto.PageResponseDTO;
 import com.gmp.edms.entity.Document;
 import com.gmp.edms.entity.DocumentCategory;
 import com.gmp.edms.repository.DocumentRepository;
+import com.gmp.edms.event.DocumentEvent;
+import com.gmp.edms.event.DocumentEventType;
+import com.gmp.edms.event.EventPublisher;
 import com.gmp.edms.service.DocumentCategoryService;
+import com.gmp.edms.service.DocumentSearchService;
 import com.gmp.edms.service.DocumentService;
 import com.gmp.edms.service.FileStorageService;
 import org.apache.commons.io.IOUtils;
@@ -18,6 +22,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -52,8 +58,15 @@ public class DocumentServiceImpl implements DocumentService {
     @Autowired
     private FileStorageService fileStorageService;
 
+    @Autowired
+    private DocumentSearchService documentSearchService;
+
+    @Autowired
+    private EventPublisher eventPublisher;
+
     @Override
     @Transactional
+    @CacheEvict(value = "documents", allEntries = true)
     public DocumentDTO createDocument(DocumentCreateDTO documentCreateDTO) {
         // 生成文档编号
         String docCode = generateDocCode();
@@ -68,8 +81,25 @@ public class DocumentServiceImpl implements DocumentService {
         // 保存文档
         document = documentRepository.save(document);
 
-        // 转换为DTO并返回
-        return modelMapper.map(document, DocumentDTO.class);
+        // 转换为DTO
+        DocumentDTO documentDTO = modelMapper.map(document, DocumentDTO.class);
+
+        // 索引到Elasticsearch
+        documentSearchService.indexDocument(documentDTO);
+
+        // 发布文档创建事件
+        DocumentEvent event = new DocumentEvent();
+        event.setEventType(DocumentEventType.DOCUMENT_CREATED);
+        event.setDocumentId(documentDTO.getId());
+        event.setDocumentName(documentDTO.getDocumentName());
+        event.setOperator("system"); // 实际应从上下文获取当前用户
+        event.setEventTime(LocalDateTime.now());
+        event.setDescription("文档创建成功");
+        event.setData(documentDTO);
+        eventPublisher.publishDocumentEvent(event);
+
+        // 返回DTO
+        return documentDTO;
     }
 
     @Override
@@ -164,6 +194,7 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Override
     @Transactional
+    @CacheEvict(value = "documents", key = "#id")
     public DocumentDTO updateDocument(Long id, DocumentUpdateDTO documentUpdateDTO) {
         // 查找文档
         Document document = documentRepository.findById(id)
@@ -196,12 +227,30 @@ public class DocumentServiceImpl implements DocumentService {
         // 保存更新
         document = documentRepository.save(document);
 
-        // 转换为DTO并返回
-        return modelMapper.map(document, DocumentDTO.class);
+        // 转换为DTO
+        DocumentDTO documentDTO = modelMapper.map(document, DocumentDTO.class);
+
+        // 更新Elasticsearch索引
+        documentSearchService.updateDocumentIndex(documentDTO);
+
+        // 发布文档更新事件
+        DocumentEvent event = new DocumentEvent();
+        event.setEventType(DocumentEventType.DOCUMENT_UPDATED);
+        event.setDocumentId(documentDTO.getId());
+        event.setDocumentName(documentDTO.getDocumentName());
+        event.setOperator("system"); // 实际应从上下文获取当前用户
+        event.setEventTime(LocalDateTime.now());
+        event.setDescription("文档更新成功");
+        event.setData(documentDTO);
+        eventPublisher.publishDocumentEvent(event);
+
+        // 返回DTO
+        return documentDTO;
     }
 
     @Override
     @Transactional
+    @CacheEvict(value = "documents", key = "#id")
     public void deleteDocument(Long id) {
         // 检查文档是否存在
         Document document = documentRepository.findById(id)
@@ -209,16 +258,37 @@ public class DocumentServiceImpl implements DocumentService {
 
         // 删除文档（可以考虑软删除）
         documentRepository.deleteById(id);
+
+        // 删除Elasticsearch索引
+        documentSearchService.deleteDocumentIndex(id);
+
+        // 发布文档删除事件
+        DocumentEvent event = new DocumentEvent();
+        event.setEventType(DocumentEventType.DOCUMENT_DELETED);
+        event.setDocumentId(id);
+        event.setDocumentName((String) getFieldValue(document, "documentName"));
+        event.setOperator("system"); // 实际应从上下文获取当前用户
+        event.setEventTime(LocalDateTime.now());
+        event.setDescription("文档删除成功");
+        event.setData(null);
+        eventPublisher.publishDocumentEvent(event);
     }
 
     @Override
     @Transactional
+    @CacheEvict(value = "documents", allEntries = true)
     public void batchDeleteDocuments(List<Long> ids) {
         // 批量删除文档
         documentRepository.deleteAllById(ids);
+
+        // 批量删除Elasticsearch索引
+        for (Long id : ids) {
+            documentSearchService.deleteDocumentIndex(id);
+        }
     }
 
     @Override
+    @Cacheable(value = "documents", key = "#id")
     public DocumentDTO getDocumentById(Long id) {
         // 查找文档
         Document document = documentRepository.findById(id)
@@ -229,6 +299,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
+    @Cacheable(value = "documents", key = "#docCode")
     public DocumentDTO getDocumentByDocCode(String docCode) {
         // 根据文档编号查找文档
         Document document = documentRepository.findByDocCode(docCode)

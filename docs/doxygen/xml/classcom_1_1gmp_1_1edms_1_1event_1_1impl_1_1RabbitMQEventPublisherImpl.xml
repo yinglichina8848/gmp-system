@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::edms::event::impl::RabbitMQEventPublisherImpl</compoundname>
+    <basecompoundref refid="interfacecom_1_1gmp_1_1edms_1_1event_1_1EventPublisher" prot="public" virt="non-virtual">com.gmp.edms.event.EventPublisher</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a86e96f08df510c75384f505065694f7e" prot="private" static="no" mutable="no">
+        <type>final RabbitTemplate</type>
+        <definition>final RabbitTemplate com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.rabbitTemplate</definition>
+        <argsstring></argsstring>
+        <name>rabbitTemplate</name>
+        <qualifiedname>com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.rabbitTemplate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" line="16" column="34" bodyfile="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" bodystart="16" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a735cffc986d66b387cafd7d3a2ce54b7" compoundref="RabbitMQEventPublisherImpl_8java" startline="29" endline="35">com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.publishDocumentEvent</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a8529ab2cd983b05dd222e216f9fd6b14" compoundref="RabbitMQEventPublisherImpl_8java" startline="38" endline="41">com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.publishEvent</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a983c004b8d576de62d5a330c033a0da8" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.DOCUMENT_EVENT_EXCHANGE</definition>
+        <argsstring></argsstring>
+        <name>DOCUMENT_EVENT_EXCHANGE</name>
+        <qualifiedname>com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.DOCUMENT_EVENT_EXCHANGE</qualifiedname>
+        <initializer>= &quot;edms.document.events&quot;</initializer>
+        <briefdescription>
+<para>文档事件交换机名称 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" line="21" column="33" bodyfile="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" bodystart="21" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a735cffc986d66b387cafd7d3a2ce54b7" compoundref="RabbitMQEventPublisherImpl_8java" startline="29" endline="35">com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.publishDocumentEvent</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a63b0308df1a6ad940ac4d573c33e0ec4" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.DOCUMENT_EVENT_ROUTING_KEY_PREFIX</definition>
+        <argsstring></argsstring>
+        <name>DOCUMENT_EVENT_ROUTING_KEY_PREFIX</name>
+        <qualifiedname>com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.DOCUMENT_EVENT_ROUTING_KEY_PREFIX</qualifiedname>
+        <initializer>= &quot;document.&quot;</initializer>
+        <briefdescription>
+<para>文档事件路由键前缀 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" line="26" column="33" bodyfile="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" bodystart="26" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a735cffc986d66b387cafd7d3a2ce54b7" compoundref="RabbitMQEventPublisherImpl_8java" startline="29" endline="35">com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.publishDocumentEvent</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a735cffc986d66b387cafd7d3a2ce54b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.publishDocumentEvent</definition>
+        <argsstring>(DocumentEvent event)</argsstring>
+        <name>publishDocumentEvent</name>
+        <qualifiedname>com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.publishDocumentEvent</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1event_1_1EventPublisher_1a328e1945d512d6f8a712c84b7385f3e3">publishDocumentEvent</reimplements>
+        <param>
+          <type><ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1DocumentEvent" kindref="compound">DocumentEvent</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>发布文档事件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档事件 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" line="29" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" bodystart="29" bodyend="35"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a983c004b8d576de62d5a330c033a0da8" compoundref="RabbitMQEventPublisherImpl_8java" startline="21">com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.DOCUMENT_EVENT_EXCHANGE</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a63b0308df1a6ad940ac4d573c33e0ec4" compoundref="RabbitMQEventPublisherImpl_8java" startline="26">com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.DOCUMENT_EVENT_ROUTING_KEY_PREFIX</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a86e96f08df510c75384f505065694f7e" compoundref="RabbitMQEventPublisherImpl_8java" startline="16">com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.rabbitTemplate</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a8529ab2cd983b05dd222e216f9fd6b14" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.publishEvent</definition>
+        <argsstring>(String exchange, String routingKey, Object event)</argsstring>
+        <name>publishEvent</name>
+        <qualifiedname>com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.publishEvent</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1event_1_1EventPublisher_1af8140ef9f87e339b191a242de75416f8">publishEvent</reimplements>
+        <param>
+          <type>String</type>
+          <declname>exchange</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>routingKey</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>发布通用事件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>exchange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>交换机名称 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>routingKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>路由键 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>事件对象 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" line="38" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" bodystart="38" bodyend="41"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a86e96f08df510c75384f505065694f7e" compoundref="RabbitMQEventPublisherImpl_8java" startline="16">com.gmp.edms.event.impl.RabbitMQEventPublisherImpl.rabbitTemplate</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>RabbitMQ事件发布器实现 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>com.gmp.edms.event.impl.RabbitMQEventPublisherImpl</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.event.EventPublisher</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1event_1_1EventPublisher"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>String</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.edms.event.impl.RabbitMQEventPublisherImpl</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>rabbitTemplate</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>DOCUMENT_EVENT_EXCHANGE</edgelabel>
+          <edgelabel>DOCUMENT_EVENT_ROUTING_KEY_PREFIX</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.event.EventPublisher</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1event_1_1EventPublisher"/>
+      </node>
+      <node id="3">
+        <label>final RabbitTemplate</label>
+      </node>
+    </collaborationgraph>
+    <location file="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" line="14" column="7" bodyfile="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java" bodystart="14" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a983c004b8d576de62d5a330c033a0da8" prot="private" virt="non-virtual"><scope>com::gmp::edms::event::impl::RabbitMQEventPublisherImpl</scope><name>DOCUMENT_EVENT_EXCHANGE</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a63b0308df1a6ad940ac4d573c33e0ec4" prot="private" virt="non-virtual"><scope>com::gmp::edms::event::impl::RabbitMQEventPublisherImpl</scope><name>DOCUMENT_EVENT_ROUTING_KEY_PREFIX</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a735cffc986d66b387cafd7d3a2ce54b7" prot="public" virt="non-virtual"><scope>com::gmp::edms::event::impl::RabbitMQEventPublisherImpl</scope><name>publishDocumentEvent</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a8529ab2cd983b05dd222e216f9fd6b14" prot="public" virt="non-virtual"><scope>com::gmp::edms::event::impl::RabbitMQEventPublisherImpl</scope><name>publishEvent</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a86e96f08df510c75384f505065694f7e" prot="private" virt="non-virtual"><scope>com::gmp::edms::event::impl::RabbitMQEventPublisherImpl</scope><name>rabbitTemplate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

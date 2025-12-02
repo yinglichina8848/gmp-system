@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::equipment::repository::CalibrationRecordRepository</compoundname>
+    <basecompoundref refid="classJpaRepository" prot="public" virt="non-virtual">JpaRepository&lt; CalibrationRecord, Long &gt;</basecompoundref>
+    <basecompoundref refid="classJpaSpecificationExecutor" prot="public" virt="non-virtual">JpaSpecificationExecutor&lt; CalibrationRecord &gt;</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1a4f9fedd7270c4e4a886afc359e9ac6f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional&lt; CalibrationRecord &gt;</type>
+        <definition>Optional&lt; CalibrationRecord &gt; com.gmp.equipment.repository.CalibrationRecordRepository.findByCalibrationNumber</definition>
+        <argsstring>(String calibrationNumber)</argsstring>
+        <name>findByCalibrationNumber</name>
+        <qualifiedname>com.gmp.equipment.repository.CalibrationRecordRepository.findByCalibrationNumber</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>calibrationNumber</declname>
+        </param>
+        <briefdescription>
+<para>根据校准单号查询校准记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>calibrationNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>校准单号 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>校准记录对象 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="equipment-service/src/main/java/com/gmp/equipment/repository/CalibrationRecordRepository.java" line="24" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1aec96c42324a747c47f378f40013fde4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; CalibrationRecord &gt;</type>
+        <definition>List&lt; CalibrationRecord &gt; com.gmp.equipment.repository.CalibrationRecordRepository.findByEquipmentId</definition>
+        <argsstring>(Long equipmentId)</argsstring>
+        <name>findByEquipmentId</name>
+        <qualifiedname>com.gmp.equipment.repository.CalibrationRecordRepository.findByEquipmentId</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>equipmentId</declname>
+        </param>
+        <briefdescription>
+<para>根据设备ID查询校准记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>校准记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="equipment-service/src/main/java/com/gmp/equipment/repository/CalibrationRecordRepository.java" line="31" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1a3fb2fbbdac4bd647fa1304ac048a1ac3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional&lt; CalibrationRecord &gt;</type>
+        <definition>Optional&lt; CalibrationRecord &gt; com.gmp.equipment.repository.CalibrationRecordRepository.findFirstByEquipmentIdOrderByCalibrationDateDesc</definition>
+        <argsstring>(Long equipmentId)</argsstring>
+        <name>findFirstByEquipmentIdOrderByCalibrationDateDesc</name>
+        <qualifiedname>com.gmp.equipment.repository.CalibrationRecordRepository.findFirstByEquipmentIdOrderByCalibrationDateDesc</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>equipmentId</declname>
+        </param>
+        <briefdescription>
+<para>根据设备ID查询最新的校准记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>最新的校准记录 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="equipment-service/src/main/java/com/gmp/equipment/repository/CalibrationRecordRepository.java" line="38" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1a13357e184dd479d8456010c787396ee0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; CalibrationRecord &gt;</type>
+        <definition>List&lt; CalibrationRecord &gt; com.gmp.equipment.repository.CalibrationRecordRepository.findByCalibrationDateBetween</definition>
+        <argsstring>(Date startDate, Date endDate)</argsstring>
+        <name>findByCalibrationDateBetween</name>
+        <qualifiedname>com.gmp.equipment.repository.CalibrationRecordRepository.findByCalibrationDateBetween</qualifiedname>
+        <param>
+          <type>Date</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>Date</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+<para>根据校准日期范围查询校准记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>校准记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="equipment-service/src/main/java/com/gmp/equipment/repository/CalibrationRecordRepository.java" line="46" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1acf50020507e78c7fe87f94d13b45f5f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; CalibrationRecord &gt;</type>
+        <definition>List&lt; CalibrationRecord &gt; com.gmp.equipment.repository.CalibrationRecordRepository.findByCalibrationResult</definition>
+        <argsstring>(String calibrationResult)</argsstring>
+        <name>findByCalibrationResult</name>
+        <qualifiedname>com.gmp.equipment.repository.CalibrationRecordRepository.findByCalibrationResult</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>calibrationResult</declname>
+        </param>
+        <briefdescription>
+<para>根据校准结果查询校准记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>calibrationResult</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>校准结果 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>校准记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="equipment-service/src/main/java/com/gmp/equipment/repository/CalibrationRecordRepository.java" line="53" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1a38b142fed916b3f83c949118b4ce8f11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; CalibrationRecord &gt;</type>
+        <definition>List&lt; CalibrationRecord &gt; com.gmp.equipment.repository.CalibrationRecordRepository.findByCalibrationAgency</definition>
+        <argsstring>(String calibrationAgency)</argsstring>
+        <name>findByCalibrationAgency</name>
+        <qualifiedname>com.gmp.equipment.repository.CalibrationRecordRepository.findByCalibrationAgency</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>calibrationAgency</declname>
+        </param>
+        <briefdescription>
+<para>根据校准机构查询校准记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>calibrationAgency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>校准机构 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>校准记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="equipment-service/src/main/java/com/gmp/equipment/repository/CalibrationRecordRepository.java" line="60" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1aee90d3a2afe106791b9d58c9bc52e094" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; CalibrationRecord &gt;</type>
+        <definition>List&lt; CalibrationRecord &gt; com.gmp.equipment.repository.CalibrationRecordRepository.findByEquipmentIdAndCalibrationDateBetween</definition>
+        <argsstring>(Long equipmentId, Date startDate, Date endDate)</argsstring>
+        <name>findByEquipmentIdAndCalibrationDateBetween</name>
+        <qualifiedname>com.gmp.equipment.repository.CalibrationRecordRepository.findByEquipmentIdAndCalibrationDateBetween</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>equipmentId</declname>
+        </param>
+        <param>
+          <type>Date</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>Date</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+<para>根据设备ID和校准日期范围查询校准记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>equipmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>设备ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>校准记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="equipment-service/src/main/java/com/gmp/equipment/repository/CalibrationRecordRepository.java" line="69" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1aba9351c9ea3b44372a16dcc315cabe63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.equipment.repository.CalibrationRecordRepository.existsByCalibrationNumberAndIdNot</definition>
+        <argsstring>(String calibrationNumber, Long id)</argsstring>
+        <name>existsByCalibrationNumberAndIdNot</name>
+        <qualifiedname>com.gmp.equipment.repository.CalibrationRecordRepository.existsByCalibrationNumberAndIdNot</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>calibrationNumber</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>判断校准单号是否存在（排除指定ID） </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>calibrationNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>校准单号 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>排除的校准记录ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否存在 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="equipment-service/src/main/java/com/gmp/equipment/repository/CalibrationRecordRepository.java" line="77" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>设备校准记录仓库接口 提供校准记录相关的数据访问方法 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JpaRepository&lt; CalibrationRecord, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; CalibrationRecord &gt;</label>
+        <link refid="classJpaSpecificationExecutor"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.equipment.repository.CalibrationRecordRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JpaRepository&lt; CalibrationRecord, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; CalibrationRecord &gt;</label>
+        <link refid="classJpaSpecificationExecutor"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.equipment.repository.CalibrationRecordRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="equipment-service/src/main/java/com/gmp/equipment/repository/CalibrationRecordRepository.java" line="17" column="18" bodyfile="equipment-service/src/main/java/com/gmp/equipment/repository/CalibrationRecordRepository.java" bodystart="17" bodyend="78"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1aba9351c9ea3b44372a16dcc315cabe63" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::CalibrationRecordRepository</scope><name>existsByCalibrationNumberAndIdNot</name></member>
+      <member refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1a38b142fed916b3f83c949118b4ce8f11" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::CalibrationRecordRepository</scope><name>findByCalibrationAgency</name></member>
+      <member refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1a13357e184dd479d8456010c787396ee0" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::CalibrationRecordRepository</scope><name>findByCalibrationDateBetween</name></member>
+      <member refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1a4f9fedd7270c4e4a886afc359e9ac6f2" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::CalibrationRecordRepository</scope><name>findByCalibrationNumber</name></member>
+      <member refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1acf50020507e78c7fe87f94d13b45f5f9" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::CalibrationRecordRepository</scope><name>findByCalibrationResult</name></member>
+      <member refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1aec96c42324a747c47f378f40013fde4e" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::CalibrationRecordRepository</scope><name>findByEquipmentId</name></member>
+      <member refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1aee90d3a2afe106791b9d58c9bc52e094" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::CalibrationRecordRepository</scope><name>findByEquipmentIdAndCalibrationDateBetween</name></member>
+      <member refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1CalibrationRecordRepository_1a3fb2fbbdac4bd647fa1304ac048a1ac3" prot="public" virt="non-virtual"><scope>com::gmp::equipment::repository::CalibrationRecordRepository</scope><name>findFirstByEquipmentIdOrderByCalibrationDateDesc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

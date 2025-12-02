@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="FingerprintAnalysis_8java" kind="file" language="Java">
+    <compoundname>FingerprintAnalysis.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>lims-service/src/main/java/com/gmp/lims/entity/mongo/FingerprintAnalysis.java</label>
+        <link refid="FingerprintAnalysis_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis" prot="public">com::gmp::lims::entity::mongo::FingerprintAnalysis</innerclass>
+    <innerclass refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak" prot="public">com::gmp::lims::entity::mongo::FingerprintAnalysis::CharacteristicPeak</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1lims_1_1entity_1_1mongo">com::gmp::lims::entity::mongo</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.lims.entity.mongo;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.NoArgsConstructor;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.AllArgsConstructor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.Id;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.mongodb.core.mapping.Document;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.mongodb.core.mapping.Field;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@NoArgsConstructor</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@AllArgsConstructor</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@Document(collection<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;fingerprint_analysis&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis" kindref="compound">FingerprintAnalysis</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1aac1b240a6bed4a8d579320454ba6fd03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1aac1b240a6bed4a8d579320454ba6fd03" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(</highlight><highlight class="stringliteral">&quot;sample_id&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1a4113fdc9393ddb7b49d4397cd46f8cda" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>sampleId;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;sample_code&quot;)</highlight></codeline>
+<codeline lineno="40" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1a4822dc1fbce74295f42a8217b013fa80" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>sampleCode;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;task_id&quot;)</highlight></codeline>
+<codeline lineno="46" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1af80c9ddd2be2d82761f48c3b8d25d9e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>taskId;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;task_code&quot;)</highlight></codeline>
+<codeline lineno="52" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1afc224fa034f0f89f34fc82baadf815e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>taskCode;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;fingerprint_type&quot;)</highlight></codeline>
+<codeline lineno="58" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1ae799d5ef23148e193589c85f650f4007" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>fingerprintType;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;analysis_method&quot;)</highlight></codeline>
+<codeline lineno="64" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1a4323036054216ae72df29071e7d68f0a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>analysisMethod;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;fingerprint_data&quot;)</highlight></codeline>
+<codeline lineno="70" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1a589b8a52b7c3222a9a9f2525c191ac43" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Map&lt;String,<sp/>Object&gt;<sp/>fingerprintData;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;characteristic_peaks&quot;)</highlight></codeline>
+<codeline lineno="76" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1a608e91250082bef89c3d09bbec33f5f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak" kindref="compound">CharacteristicPeak</ref>&gt;<sp/>characteristicPeaks;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;similarity_result&quot;)</highlight></codeline>
+<codeline lineno="82" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1ae4191ec251964e0807ba068c3a7caeba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Double<sp/>similarityResult;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;reference_fingerprint_id&quot;)</highlight></codeline>
+<codeline lineno="88" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1a85c518b0247e3710c671d798fca74091" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>referenceFingerprintId;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;fingerprint_file_path&quot;)</highlight></codeline>
+<codeline lineno="94" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1a4f428b402bee1a294cc20f6ecae86cd1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>fingerprintFilePath;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;analysis_conclusion&quot;)</highlight></codeline>
+<codeline lineno="100" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1a1056568099b74132d96001ba2de5ec4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>analysisConclusion;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;analysis_person&quot;)</highlight></codeline>
+<codeline lineno="106" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1ac15a29cbf57c8ddd4f53d699db7c9e0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>analysisPerson;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;analysis_date&quot;)</highlight></codeline>
+<codeline lineno="112" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1aeab2eb3c1b82d0aff0f6ed7238826f31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>analysisDate;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;review_person&quot;)</highlight></codeline>
+<codeline lineno="118" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1a1b8895be0bc9d90d1e9bec937e126819" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>reviewPerson;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;review_date&quot;)</highlight></codeline>
+<codeline lineno="124" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1a9fda0bdc78a6fd0c3d918854c6e4e765" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>reviewDate;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;review_status&quot;)</highlight></codeline>
+<codeline lineno="130" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1a5450b5a453e7262a41562228f8956de8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>reviewStatus;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;remark&quot;)</highlight></codeline>
+<codeline lineno="136" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1af61481f03fa5ded1db271284a3607c76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>remark;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;created_time&quot;)</highlight></codeline>
+<codeline lineno="142" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1ad596dcb496020c5ded68f39e64028845" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdTime;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;updated_time&quot;)</highlight></codeline>
+<codeline lineno="148" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1ae8f39d24c71b20efa2688f1c8f3faf1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedTime;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>@Data</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>@NoArgsConstructor</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>@AllArgsConstructor</highlight></codeline>
+<codeline lineno="156" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>static<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak" kindref="compound">CharacteristicPeak</ref><sp/>{</highlight></codeline>
+<codeline lineno="160" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1af5f55829831c4d8947b0198fa2e5bff9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Integer<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1af5f55829831c4d8947b0198fa2e5bff9" kindref="member">peakNumber</ref>;</highlight></codeline>
+<codeline lineno="164" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1a67898bc36fbc2c45cf3e65ad521850ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Double<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1a67898bc36fbc2c45cf3e65ad521850ba" kindref="member">retentionTime</ref>;</highlight></codeline>
+<codeline lineno="168" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1a7f4d712b22585527b95e0ca22631737e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Double<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1a7f4d712b22585527b95e0ca22631737e" kindref="member">peakArea</ref>;</highlight></codeline>
+<codeline lineno="172" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1af511335ce9b9846baea9d4db61a0ac7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Double<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1af511335ce9b9846baea9d4db61a0ac7c" kindref="member">peakHeight</ref>;</highlight></codeline>
+<codeline lineno="176" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1a7f33c17de4867b253b46b819f8f1ee47" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Double<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1a7f33c17de4867b253b46b819f8f1ee47" kindref="member">relativeRetentionTime</ref>;</highlight></codeline>
+<codeline lineno="180" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1a179702681f38239aba0dc14af6406ae1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Double<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1a179702681f38239aba0dc14af6406ae1" kindref="member">relativePeakArea</ref>;</highlight></codeline>
+<codeline lineno="184" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1a74466080a536a426ea3d49646a25df0a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak_1a74466080a536a426ea3d49646a25df0a" kindref="member">peakName</ref>;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lims-service/src/main/java/com/gmp/lims/entity/mongo/FingerprintAnalysis.java"/>
+  </compounddef>
+</doxygen>

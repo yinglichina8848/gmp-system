@@ -19,9 +19,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * GMP认证系统API控制器
- *
+ * @brief GMP认证系统API控制器
+ * 
+ * @details 该类处理用户认证相关的API请求，包括登录、登出、权限检查、角色检查等功能。
+ * 提供RESTful风格的API接口，支持跨域请求。
+ * 
  * @author GMP系统开发团队
+ * @version 1.0
+ * @since 2023-01-01
+ * 
+ * @see com.gmp.auth.service.AuthService
+ * @see com.gmp.auth.config.JwtConfig
  */
 @RestController
 @RequestMapping("/api/auth")
@@ -36,7 +44,17 @@ public class AuthController {
     private JwtConfig jwtConfig;
 
     /**
-     * 用户登录
+     * @brief 用户登录
+     * 
+     * @details 处理用户登录请求，验证用户凭证，生成JWT令牌
+     * 
+     * @param request 登录请求，包含用户名和密码
+     * @param httpRequest HTTP请求对象，用于获取客户端IP和User-Agent
+     * @return ResponseEntity<ApiResponse<LoginResponse>> 登录响应
+     * 
+     * @see com.gmp.auth.dto.LoginRequest
+     * @see com.gmp.auth.dto.LoginResponse
+     * @see com.gmp.auth.service.AuthService#login(com.gmp.auth.dto.LoginRequest, String, String)
      */
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<LoginResponse>> login(
@@ -60,7 +78,14 @@ public class AuthController {
     }
 
     /**
-     * 用户登出
+     * @brief 用户登出
+     * 
+     * @details 处理用户登出请求，将JWT令牌加入黑名单
+     * 
+     * @param token Authorization头中的JWT令牌
+     * @return ResponseEntity<ApiResponse<Void>> 登出响应
+     * 
+     * @see com.gmp.auth.service.AuthService#logout(String, String)
      */
     @PostMapping("/logout")
     public ResponseEntity<ApiResponse<Void>> logout(@RequestHeader("Authorization") String token) {
@@ -78,7 +103,13 @@ public class AuthController {
     }
 
     /**
-     * 用户管理API
+     * @brief 获取用户列表
+     * 
+     * @details 获取系统中的用户列表
+     * 
+     * @return ResponseEntity<ApiResponse<List<User>>> 用户列表响应
+     * 
+     * @see com.gmp.auth.entity.User
      */
     @GetMapping("/users")
     public ResponseEntity<ApiResponse<List<User>>> getUsers() {
@@ -93,7 +124,14 @@ public class AuthController {
     }
 
     /**
-     * 获取用户权限
+     * @brief 获取用户权限
+     * 
+     * @details 获取指定用户的所有权限
+     * 
+     * @param username 用户名
+     * @return ResponseEntity<ApiResponse<List<String>>> 用户权限列表响应
+     * 
+     * @see com.gmp.auth.service.AuthService#getUserPermissions(String)
      */
     @GetMapping("/permissions/{username}")
     public ResponseEntity<ApiResponse<List<String>>> getUserPermissions(@PathVariable String username) {
@@ -107,7 +145,14 @@ public class AuthController {
     }
 
     /**
-     * 获取用户角色
+     * @brief 获取用户角色
+     * 
+     * @details 获取指定用户的所有角色
+     * 
+     * @param username 用户名
+     * @return ResponseEntity<ApiResponse<List<String>>> 用户角色列表响应
+     * 
+     * @see com.gmp.auth.service.AuthService#getUserRoles(String)
      */
     @GetMapping("/roles/{username}")
     public ResponseEntity<ApiResponse<List<String>>> getUserRoles(@PathVariable String username) {
@@ -121,7 +166,15 @@ public class AuthController {
     }
 
     /**
-     * 检查用户权限
+     * @brief 检查用户权限
+     * 
+     * @details 检查指定用户是否拥有指定权限
+     * 
+     * @param username 用户名
+     * @param permission 权限代码
+     * @return ResponseEntity<ApiResponse<Map<String, Object>>> 权限检查响应
+     * 
+     * @see com.gmp.auth.service.AuthService#hasPermission(String, String...)
      */
     @GetMapping("/check/{username}/permission")
     public ResponseEntity<ApiResponse<Map<String, Object>>> checkPermission(
@@ -144,7 +197,15 @@ public class AuthController {
     }
 
     /**
-     * 检查用户角色
+     * @brief 检查用户角色
+     * 
+     * @details 检查指定用户是否拥有指定角色
+     * 
+     * @param username 用户名
+     * @param role 角色代码
+     * @return ResponseEntity<ApiResponse<Map<String, Object>>> 角色检查响应
+     * 
+     * @see com.gmp.auth.service.AuthService#hasRole(String, String...)
      */
     @GetMapping("/check/{username}/role")
     public ResponseEntity<ApiResponse<Map<String, Object>>> checkRole(
@@ -167,7 +228,11 @@ public class AuthController {
     }
 
     /**
-     * 系统健康检查
+     * @brief 系统健康检查
+     * 
+     * @details 检查认证服务的健康状态
+     * 
+     * @return ResponseEntity<ApiResponse<Map<String, Object>>> 健康检查响应
      */
     @GetMapping("/health")
     public ResponseEntity<ApiResponse<Map<String, Object>>> health() {
@@ -182,7 +247,12 @@ public class AuthController {
     }
 
     /**
-     * 获取客户端IP地址
+     * @brief 获取客户端IP地址
+     * 
+     * @details 从HTTP请求中获取客户端真实IP地址，支持代理服务器
+     * 
+     * @param request HTTP请求对象
+     * @return String 客户端IP地址
      */
     private String getClientIp(HttpServletRequest request) {
         String xForwardedFor = request.getHeader("X-Forwarded-For");
@@ -199,7 +269,12 @@ public class AuthController {
     }
 
     /**
-     * 从Authorization头中提取用户名
+     * @brief 从Authorization头中提取用户名
+     * 
+     * @details 从Bearer令牌中提取用户名
+     * 
+     * @param authHeader Authorization头
+     * @return String 用户名，提取失败返回"anonymous"
      */
     private String extractUsernameFromToken(String authHeader) {
         try {

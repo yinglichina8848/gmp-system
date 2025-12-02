@@ -131,6 +131,17 @@ public class UserOrganizationRole {
     @Column(name = "approval_note")
     private String approvalNote;
 
+    // 角色移除相关字段
+    @Column(name = "removed_by")
+    private Long removedBy;  // 移除人ID
+
+    @Column(name = "removed_at")
+    private LocalDateTime removedAt;      // 移除时间
+
+    @Size(max = 500, message = "移除原因长度不能超过500字符")
+    @Column(name = "removal_reason")
+    private String removalReason;
+
     // 审计字段 - GMP合规要求完整审计记录
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
@@ -251,5 +262,223 @@ public class UserOrganizationRole {
         }
 
         return (int) java.time.Duration.between(now, effectiveUntil).toDays();
+    }
+    
+    // Setter方法
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+    
+    public void setOrganizationId(Long organizationId) {
+        this.organizationId = organizationId;
+    }
+    
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+    
+    public void setStatus(AssignmentStatus status) {
+        this.status = status;
+    }
+    
+    public void setAssignedBy(Long assignedBy) {
+        this.assignedBy = assignedBy;
+    }
+    
+    public void setAssignedAt(LocalDateTime assignedAt) {
+        this.assignedAt = assignedAt;
+    }
+    
+    public void setEffectiveFrom(LocalDateTime effectiveFrom) {
+        this.effectiveFrom = effectiveFrom;
+    }
+    
+    public void setEffectiveUntil(LocalDateTime effectiveUntil) {
+        this.effectiveUntil = effectiveUntil;
+    }
+    
+    public void setExpiresNotified(Boolean expiresNotified) {
+        this.expiresNotified = expiresNotified;
+    }
+    
+    public void setAssignmentReason(String assignmentReason) {
+        this.assignmentReason = assignmentReason;
+    }
+    
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+    
+    public void setGmpRequired(Boolean gmpRequired) {
+        this.gmpRequired = gmpRequired;
+    }
+    
+    public void setQualificationRequired(String qualificationRequired) {
+        this.qualificationRequired = qualificationRequired;
+    }
+    
+    public void setTrainingRequired(String trainingRequired) {
+        this.trainingRequired = trainingRequired;
+    }
+    
+    public void setApprovalRequired(Boolean approvalRequired) {
+        this.approvalRequired = approvalRequired;
+    }
+    
+    public void setApprovedBy(Long approvedBy) {
+        this.approvedBy = approvedBy;
+    }
+    
+    public void setApprovedAt(LocalDateTime approvedAt) {
+        this.approvedAt = approvedAt;
+    }
+    
+    public void setApprovalNote(String approvalNote) {
+        this.approvalNote = approvalNote;
+    }
+    
+    public void setRemovedBy(Long removedBy) {
+        this.removedBy = removedBy;
+    }
+    
+    public void setRemovedAt(LocalDateTime removedAt) {
+        this.removedAt = removedAt;
+    }
+    
+    public void setRemovalReason(String removalReason) {
+        this.removalReason = removalReason;
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+    
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
+    }
+    
+    public void setUpdatedBy(Long updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+    
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+    
+    // Getter方法
+    public Long getId() {
+        return id;
+    }
+    
+    public Long getUserId() {
+        return userId;
+    }
+    
+    public Long getOrganizationId() {
+        return organizationId;
+    }
+    
+    public Long getRoleId() {
+        return roleId;
+    }
+    
+    public AssignmentStatus getStatus() {
+        return status;
+    }
+    
+    public Long getAssignedBy() {
+        return assignedBy;
+    }
+    
+    public LocalDateTime getAssignedAt() {
+        return assignedAt;
+    }
+    
+    public LocalDateTime getEffectiveFrom() {
+        return effectiveFrom;
+    }
+    
+    public LocalDateTime getEffectiveUntil() {
+        return effectiveUntil;
+    }
+    
+    public Boolean getExpiresNotified() {
+        return expiresNotified;
+    }
+    
+    public String getAssignmentReason() {
+        return assignmentReason;
+    }
+    
+    public String getNotes() {
+        return notes;
+    }
+    
+    public Boolean getGmpRequired() {
+        return gmpRequired;
+    }
+    
+    public String getQualificationRequired() {
+        return qualificationRequired;
+    }
+    
+    public String getTrainingRequired() {
+        return trainingRequired;
+    }
+    
+    public Boolean getApprovalRequired() {
+        return approvalRequired;
+    }
+    
+    public Long getApprovedBy() {
+        return approvedBy;
+    }
+    
+    public LocalDateTime getApprovedAt() {
+        return approvedAt;
+    }
+    
+    public String getApprovalNote() {
+        return approvalNote;
+    }
+    
+    public Long getRemovedBy() {
+        return removedBy;
+    }
+    
+    public LocalDateTime getRemovedAt() {
+        return removedAt;
+    }
+    
+    public String getRemovalReason() {
+        return removalReason;
+    }
+    
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+    
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+    
+    public Long getUpdatedBy() {
+        return updatedBy;
+    }
+    
+    public Integer getVersion() {
+        return version;
     }
 }

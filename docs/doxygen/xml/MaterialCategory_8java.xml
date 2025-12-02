@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="MaterialCategory_8java" kind="file" language="Java">
+    <compoundname>MaterialCategory.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>warehouse-service/src/main/java/com/gmp/warehouse/entity/MaterialCategory.java</label>
+        <link refid="MaterialCategory_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory" prot="public">com::gmp::warehouse::entity::MaterialCategory</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1warehouse_1_1entity">com::gmp::warehouse::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.warehouse.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.EqualsAndHashCode;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedBy;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedBy;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Serializable;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;gmp_material_category&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">@EqualsAndHashCode(callSuper<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory" kindref="compound">MaterialCategory</ref><sp/>implements<sp/><ref refid="classSerializable" kindref="compound">Serializable</ref><sp/>{</highlight></codeline>
+<codeline lineno="32" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1a4367a5da87cdfcce0b8e5062ea628772" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>serialVersionUID<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">,<sp/>nullable<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>unique<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="40" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1a125212c5044ef35dd1c3bb76b20ba9b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;code&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>unique<sp/>=<sp/>true,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="46" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1ae814e57606f8dfdfee85693fb70cbdd5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>code;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;name&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="52" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1a18c767d7c3aef90e1122e6f9a7c50cdc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>name;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;parent_id&quot;)</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1a2a1376f63886533f39bd264864055181" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory" kindref="compound">MaterialCategory</ref><sp/>parent;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;parent&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1a3afa3bd773c60d4fcf1bc379fe5b99b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory" kindref="compound">MaterialCategory</ref>&gt;<sp/>children;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;level&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>columnDefinition<sp/>=<sp/>&quot;INTEGER<sp/>DEFAULT<sp/>1&quot;)</highlight></codeline>
+<codeline lineno="71" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1afade001bd2bccbfc08241887ddc89f24" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>level;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;sort_order&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>columnDefinition<sp/>=<sp/>&quot;INTEGER<sp/>DEFAULT<sp/>0&quot;)</highlight></codeline>
+<codeline lineno="77" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1a7334153787198acfc9cf2d6eb8f1a0a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>sortOrder;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;description&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="83" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1a854194e8256ea5c0b9f751f92bae5dbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>description;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>columnDefinition<sp/>=<sp/>&quot;INTEGER<sp/>DEFAULT<sp/>1&quot;)</highlight></codeline>
+<codeline lineno="89" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1af151692029abbe79796847cf1b5aeaf9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>status;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="96" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1a4a206d44ddf0beb4d160bc8e10d624fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedBy</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="103" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1abaec17fbbb56687fc6e344202bcdb948" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;)</highlight></codeline>
+<codeline lineno="110" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1af2b45976b5134f0fa2c642a0aa4211a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedBy</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="117" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1MaterialCategory_1a105b15d34e89b8e0ec0386258fc99f73" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="warehouse-service/src/main/java/com/gmp/warehouse/entity/MaterialCategory.java"/>
+  </compounddef>
+</doxygen>

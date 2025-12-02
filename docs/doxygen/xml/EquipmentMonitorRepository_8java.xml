@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="EquipmentMonitorRepository_8java" kind="file" language="Java">
+    <compoundname>EquipmentMonitorRepository.java</compoundname>
+    <includes local="no">com.gmp.mes.entity.EquipmentMonitor</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>mes-service/src/main/java/com/gmp/mes/repository/EquipmentMonitorRepository.java</label>
+        <link refid="EquipmentMonitorRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.mes.entity.EquipmentMonitor</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository" prot="public">com::gmp::mes::repository::EquipmentMonitorRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1mes_1_1repository">com::gmp::mes::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.mes.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.mes.entity.EquipmentMonitor;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Modifying;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="20" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository" kindref="compound">EquipmentMonitorRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;EquipmentMonitor,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a1b922088f3b5e7499bb710850f644d06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;EquipmentMonitor&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a1b922088f3b5e7499bb710850f644d06" kindref="member">findByEquipmentCode</ref>(String<sp/>equipmentCode);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a4fc361c2cb199054eaa8cf5101af76e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;EquipmentMonitor&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a4fc361c2cb199054eaa8cf5101af76e0" kindref="member">findByEquipmentType</ref>(String<sp/>equipmentType);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a15e490e374402768c2e57883593d7f46" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;EquipmentMonitor&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a15e490e374402768c2e57883593d7f46" kindref="member">findByStatus</ref>(EquipmentMonitor.EquipmentStatus<sp/>status);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a41e4475f1e4b488039b489cb17bd6164" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;EquipmentMonitor&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a41e4475f1e4b488039b489cb17bd6164" kindref="member">findByLocation</ref>(String<sp/>location);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a96c263480742983bf9959f7e117b37f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;EquipmentMonitor&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a96c263480742983bf9959f7e117b37f0" kindref="member">findByNextMaintenanceBefore</ref>(LocalDateTime<sp/>date);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>e<sp/>FROM<sp/>EquipmentMonitor<sp/>e<sp/>WHERE<sp/>e.temperature<sp/>&gt;<sp/>e.temperatureThreshold&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="68" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a5585a46766e305cf90959eef3c0a7bf3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;EquipmentMonitor&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a5585a46766e305cf90959eef3c0a7bf3" kindref="member">findByTemperatureExceedsThreshold</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Modifying</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;UPDATE<sp/>EquipmentMonitor<sp/>e<sp/>SET<sp/>e.status<sp/>=<sp/>:status<sp/>WHERE<sp/>e.equipmentCode<sp/>IN<sp/>:codes&quot;)</highlight></codeline>
+<codeline lineno="79" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a49d1a7288fe8711ff3165a7070cfe732" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a49d1a7288fe8711ff3165a7070cfe732" kindref="member">updateStatus</ref>(@Param(&quot;status&quot;)<sp/>EquipmentMonitor.EquipmentStatus<sp/>status,<sp/>@Param(&quot;codes&quot;)<sp/>List&lt;String&gt;<sp/>equipmentCodes);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a27bcfabb214fea076e683ef98c0ea65a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1EquipmentMonitorRepository_1a27bcfabb214fea076e683ef98c0ea65a" kindref="member">countByStatus</ref>(EquipmentMonitor.EquipmentStatus<sp/>status);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="mes-service/src/main/java/com/gmp/mes/repository/EquipmentMonitorRepository.java"/>
+  </compounddef>
+</doxygen>

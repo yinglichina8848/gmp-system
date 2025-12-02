@@ -28,12 +28,13 @@
 <para>用户登录 </para>
         </briefdescription>
         <detaileddescription>
+<para>处理用户登录请求，验证用户凭证，生成JWT令牌</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>request</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>登录请求 </para>
+<para>登录请求，包含用户名和密码 </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -41,7 +42,7 @@
 <parametername>ipAddress</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>客户端IP地址 </para>
+<para>客户端IP地址，用于审计日志 </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -49,17 +50,21 @@
 <parametername>userAgent</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>用户代理 </para>
+<para>用户代理，用于审计日志 </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>登录响应，包含JWT令牌 </para>
+<simplesect kind="return"><para>LoginResponse 登录响应，包含JWT令牌和用户信息</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginRequest" kindref="compound">com.gmp.auth.dto.LoginRequest</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse" kindref="compound">com.gmp.auth.dto.LoginResponse</ref> </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="27" column="19"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="39" column="19"/>
         <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest_1ab07cb5b8d0eee0aa886ebc0828c3a875" compoundref="AuthServiceTest_8java" startline="36" endline="54">com.gmp.auth.service.AuthServiceTest.testLoginMethodSignature</referencedby>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aac1a5a81a2cce2db14483da07657dfd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -81,6 +86,7 @@
 <para>用户登出 </para>
         </briefdescription>
         <detaileddescription>
+<para>处理用户登出请求，将JWT令牌加入黑名单</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -102,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="35" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="49" column="10"/>
         <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest_1a763ee2dff95d11c5930fc2c67ee20385" compoundref="AuthServiceTest_8java" startline="91" endline="107">com.gmp.auth.service.AuthServiceTest.testLogoutMethodSignature</referencedby>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1adb27f7683da7c5f6a2a6b9bb5021778d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -120,6 +126,7 @@
 <para>刷新访问令牌 </para>
         </briefdescription>
         <detaileddescription>
+<para>使用刷新令牌生成新的访问令牌</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>refreshToken</parametername>
@@ -129,13 +136,15 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>新的令牌响应 </para>
+<simplesect kind="return"><para><ref refid="classcom_1_1gmp_1_1auth_1_1dto_1_1TokenResponse" kindref="compound">com.gmp.auth.dto.TokenResponse</ref> 新的令牌响应</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1dto_1_1TokenResponse" kindref="compound">com.gmp.auth.dto.TokenResponse</ref> </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="43" column="32"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="61" column="32"/>
         <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest_1a5f471d39e4ec974e8a9b3bf0f78da61d" compoundref="AuthServiceTest_8java" startline="57" endline="71">com.gmp.auth.service.AuthServiceTest.testRefreshTokenMethodSignature</referencedby>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1ae6163a7c818a2e18ff58821b1b6ce713" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -153,6 +162,7 @@
 <para>验证JWT令牌 </para>
         </briefdescription>
         <detaileddescription>
+<para>验证JWT令牌的有效性，包括签名、过期时间等</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>token</parametername>
@@ -162,13 +172,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>是否有效 </para>
+<simplesect kind="return"><para>boolean 如果令牌有效返回true，否则返回false </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="51" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="71" column="13"/>
         <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest_1a3081d68537d09ea0c4a7a2904dfcba6a" compoundref="AuthServiceTest_8java" startline="74" endline="88">com.gmp.auth.service.AuthServiceTest.testValidateTokenMethodSignature</referencedby>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aa568eff98b61485ca32edbf8c747405d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -190,6 +200,7 @@
 <para>验证用户权限 </para>
         </briefdescription>
         <detaileddescription>
+<para>验证用户是否拥有指定的权限</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -207,13 +218,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>是否有权限 </para>
+<simplesect kind="return"><para>boolean 如果用户拥有所有指定权限返回true，否则返回false </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="60" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="82" column="13"/>
         <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest_1af212554f88d72ee88f90021e015f940c" compoundref="AuthServiceTest_8java" startline="110" endline="124">com.gmp.auth.service.AuthServiceTest.testHasPermissionMethodSignature</referencedby>
         <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest_1aa22701b3124b223f908a661419db6ca7" compoundref="AuthServiceTest_8java" startline="178" endline="192">com.gmp.auth.service.AuthServiceTest.testMultiplePermissionCheck</referencedby>
       </memberdef>
@@ -236,6 +247,7 @@
 <para>验证用户角色 </para>
         </briefdescription>
         <detaileddescription>
+<para>验证用户是否拥有指定的角色</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -253,13 +265,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>是否有角色 </para>
+<simplesect kind="return"><para>boolean 如果用户拥有所有指定角色返回true，否则返回false </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="69" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="93" column="13"/>
         <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest_1a9fde4b7faf35d25b9320e7914badc2cf" compoundref="AuthServiceTest_8java" startline="127" endline="141">com.gmp.auth.service.AuthServiceTest.testHasRoleMethodSignature</referencedby>
         <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest_1a3eccd0dfa6ecbffe17bb78833a578ce1" compoundref="AuthServiceTest_8java" startline="195" endline="209">com.gmp.auth.service.AuthServiceTest.testMultipleRoleCheck</referencedby>
       </memberdef>
@@ -278,6 +290,7 @@
 <para>获取用户所有权限 </para>
         </briefdescription>
         <detaileddescription>
+<para>获取用户拥有的所有权限列表</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -287,13 +300,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>权限列表 </para>
+<simplesect kind="return"><para>java.util.List&lt;String&gt; 用户权限列表 </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="77" column="18"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="103" column="18"/>
         <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest_1ab39ce6e694e732489b10dcfdaa7479db" compoundref="AuthServiceTest_8java" startline="144" endline="158">com.gmp.auth.service.AuthServiceTest.testGetUserPermissionsMethodSignature</referencedby>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a4b4fb9114511f7c20928d57bd6485fdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -311,6 +324,7 @@
 <para>获取用户所有角色 </para>
         </briefdescription>
         <detaileddescription>
+<para>获取用户拥有的所有角色列表</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -320,13 +334,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>角色列表 </para>
+<simplesect kind="return"><para>java.util.Set&lt;String&gt; 用户角色列表 </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="85" column="17"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="113" column="17"/>
         <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1AuthServiceTest_1a657a4fc68724da4aa77be6a7d1b8e6c5" compoundref="AuthServiceTest_8java" startline="161" endline="175">com.gmp.auth.service.AuthServiceTest.testGetUserRolesMethodSignature</referencedby>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a42ae2d07a51c8b7117a7442ce00770d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -347,6 +361,7 @@
 <para>修改密码 </para>
         </briefdescription>
         <detaileddescription>
+<para>处理用户密码修改请求</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -360,17 +375,19 @@
 <parametername>request</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>密码修改请求 </para>
+<para>密码修改请求，包含旧密码和新密码 </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>是否成功 </para>
+<simplesect kind="return"><para>boolean 如果密码修改成功返回true，否则返回false</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1dto_1_1PasswordChangeRequest" kindref="compound">com.gmp.auth.dto.PasswordChangeRequest</ref> </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="94" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="126" column="13"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a179fe049b7d6baa9085587cc315d7e33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>boolean</type>
@@ -391,6 +408,7 @@
 <para>重置密码 </para>
         </briefdescription>
         <detaileddescription>
+<para>重置用户密码</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -408,13 +426,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>是否成功 </para>
+<simplesect kind="return"><para>boolean 如果密码重置成功返回true，否则返回false </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="103" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="137" column="13"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a1d3f1882e2d140bdafae4e107240cc68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>String</type>
@@ -427,13 +445,14 @@
 <para>获取密码复杂度要求 </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>密码复杂度要求描述 </para>
+<para>获取系统的密码复杂度要求描述</para>
+<para><simplesect kind="return"><para>String 密码复杂度要求描述 </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="110" column="12"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="146" column="12"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a197122b3fc4463996e6f65c5c60eecd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>LoginResponse</type>
@@ -450,22 +469,27 @@
 <para>验证MFA </para>
         </briefdescription>
         <detaileddescription>
+<para>验证多因素认证码</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>request</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>MFA验证请求 </para>
+<para>MFA验证请求，包含用户名和MFA码 </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>登录响应 </para>
+<simplesect kind="return"><para>LoginResponse 登录响应，包含JWT令牌</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1dto_1_1MfaVerifyRequest" kindref="compound">com.gmp.auth.dto.MfaVerifyRequest</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse" kindref="compound">com.gmp.auth.dto.LoginResponse</ref> </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="118" column="19"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="159" column="19"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a253571b90f3b758091c3b49e1d6407ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>java.util.List&lt; String &gt;</type>
@@ -482,6 +506,7 @@
 <para>重新生成恢复码 </para>
         </briefdescription>
         <detaileddescription>
+<para>为用户重新生成MFA恢复码</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -491,13 +516,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>新的恢复码列表 </para>
+<simplesect kind="return"><para>java.util.List&lt;String&gt; 新的恢复码列表 </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="126" column="18"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="169" column="18"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a524baf1ea86566ccf8575435034b01ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>boolean</type>
@@ -518,6 +543,7 @@
 <para>验证用户是否有子系统访问权限 </para>
         </briefdescription>
         <detaileddescription>
+<para>验证用户是否可以访问指定的子系统</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -535,13 +561,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>是否有访问权限 </para>
+<simplesect kind="return"><para>boolean 如果用户有访问权限返回true，否则返回false </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="134" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="180" column="13"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a0b64d8b3d8fa5b210c07b008728b6831" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Integer</type>
@@ -562,6 +588,7 @@
 <para>获取用户对子系统的访问级别 </para>
         </briefdescription>
         <detaileddescription>
+<para>获取用户对指定子系统的访问级别</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -579,13 +606,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>访问级别，无权限返回0 </para>
+<simplesect kind="return"><para>Integer 访问级别，无权限返回0 </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="142" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="191" column="13"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1ae87f872a134b1233cb450715b8779345" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; String &gt;</type>
@@ -602,6 +629,7 @@
 <para>获取用户可访问的子系统列表 </para>
         </briefdescription>
         <detaileddescription>
+<para>获取用户可以访问的所有子系统列表</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -611,13 +639,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>可访问的子系统列表 </para>
+<simplesect kind="return"><para>List&lt;String&gt; 可访问的子系统列表 </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="149" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="201" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a809fb666f82689568ed6f97f46d3d52f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Map&lt; String, Integer &gt;</type>
@@ -634,6 +662,7 @@
 <para>获取用户对子系统的访问级别映射 </para>
         </briefdescription>
         <detaileddescription>
+<para>获取用户对所有子系统的访问级别映射</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -643,13 +672,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>子系统代码与访问级别的映射 </para>
+<simplesect kind="return"><para>Map&lt;String, Integer&gt; 子系统代码与访问级别的映射 </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="156" column="9"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="211" column="9"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aa37afd474eae0f081d0bc9ba2d4a0842" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>boolean</type>
@@ -670,6 +699,7 @@
 <para>检查用户是否有子系统的写入权限 </para>
         </briefdescription>
         <detaileddescription>
+<para>检查用户是否对指定子系统有写入权限</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -687,13 +717,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>是否有写入权限 </para>
+<simplesect kind="return"><para>boolean 如果用户有写入权限返回true，否则返回false </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="166" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="222" column="13"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a1a12bba034be758552608f388db669a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Set&lt; String &gt;</type>
@@ -710,6 +740,7 @@
 <para>获取用户可访问的子系统代码集合 </para>
         </briefdescription>
         <detaileddescription>
+<para>获取用户可以访问的所有子系统代码集合</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -719,13 +750,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>子系统代码集合 </para>
+<simplesect kind="return"><para>Set&lt;String&gt; 子系统代码集合 </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="173" column="9"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="232" column="9"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a99ffc61fae67142d97d2a633f3db1dca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>boolean</type>
@@ -746,6 +777,7 @@
 <para>检查用户是否有子系统的管理权限 </para>
         </briefdescription>
         <detaileddescription>
+<para>检查用户是否对指定子系统有管理权限</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>username</parametername>
@@ -763,20 +795,27 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>是否有管理权限 </para>
+<simplesect kind="return"><para>boolean 如果用户有管理权限返回true，否则返回false </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="181" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="243" column="13"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
 <para>认证服务接口 </para>
     </briefdescription>
     <detaileddescription>
+<para>该接口定义了GMP系统的认证和授权服务，包括用户登录、登出、令牌管理、权限验证等功能。 继承自Spring Security的UserDetailsService，用于用户信息加载。</para>
 <para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+<simplesect kind="since"><para>2023-01-01</para>
+</simplesect>
+<simplesect kind="see"><para>org.springframework.security.core.userdetails.UserDetailsService </para>
 </simplesect>
 </para>
     </detaileddescription>
@@ -810,7 +849,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="17" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" bodystart="17" bodyend="182"/>
+    <location file="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" line="24" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/service/AuthService.java" bodystart="24" bodyend="244"/>
     <listofallmembers>
       <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a42ae2d07a51c8b7117a7442ce00770d4" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::AuthService</scope><name>changePassword</name></member>
       <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a1d3f1882e2d140bdafae4e107240cc68" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::AuthService</scope><name>getPasswordComplexityRequirements</name></member>

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="equipment-service_2src_2main_2java_2com_2gmp_2equipment_2exception_2GlobalExceptionHandler_8java" kind="file" language="Java">
+    <compoundname>GlobalExceptionHandler.java</compoundname>
+    <includes local="no">com.gmp.equipment.util.ResponseResult</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>equipment-service/src/main/java/com/gmp/equipment/exception/GlobalExceptionHandler.java</label>
+        <link refid="equipment-service_2src_2main_2java_2com_2gmp_2equipment_2exception_2GlobalExceptionHandler_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.equipment.util.ResponseResult</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler" prot="public">com::gmp::equipment::exception::GlobalExceptionHandler</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1equipment_1_1exception">com::gmp::equipment::exception</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.equipment.exception;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.equipment.util.ResponseResult;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.slf4j.Logger;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.slf4j.LoggerFactory;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.HttpStatus;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.ResponseEntity;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.MethodArgumentNotValidException;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.ControllerAdvice;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.ExceptionHandler;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.ResponseBody;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.ResponseStatus;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>javax.validation.ConstraintViolationException;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@ControllerAdvice</highlight></codeline>
+<codeline lineno="21" refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler" kindref="compound">GlobalExceptionHandler</ref><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1a60a143d4661057b7d217114774997327" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1a60a143d4661057b7d217114774997327" kindref="member">logger</ref><sp/>=<sp/>LoggerFactory.getLogger(<ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler" kindref="compound">GlobalExceptionHandler</ref>.class);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>@ExceptionHandler(<ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1EquipmentServiceException" kindref="compound">EquipmentServiceException</ref>.class)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="32" refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1af4a6c0b8d1d609f1f795518c29dbd7cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ResponseResult&lt;Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1af4a6c0b8d1d609f1f795518c29dbd7cd" kindref="member">handleEquipmentServiceException</ref>(<ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1EquipmentServiceException" kindref="compound">EquipmentServiceException</ref><sp/>ex)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1a60a143d4661057b7d217114774997327" kindref="member">logger</ref>.error(</highlight><highlight class="stringliteral">&quot;设备服务业务异常:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>ex.getMessage(),<sp/>ex);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>如果有错误代码，则使用错误代码，否则使用默认的500</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>code<sp/>=<sp/>ex.<ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1EquipmentServiceException_1acb9563157887821fb59f10405b8bfb25" kindref="member">getErrorCode</ref>()<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>Integer.parseInt(ex.<ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1EquipmentServiceException_1acb9563157887821fb59f10405b8bfb25" kindref="member">getErrorCode</ref>())<sp/>:<sp/>500;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseResult.error(code,<sp/>ex.getMessage());</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@ExceptionHandler(MethodArgumentNotValidException.class)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseStatus(HttpStatus.BAD_REQUEST)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1aa5ee752fca070d93111b13bb97c4086d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ResponseResult&lt;Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1aa5ee752fca070d93111b13bb97c4086d" kindref="member">handleMethodArgumentNotValidException</ref>(MethodArgumentNotValidException<sp/>ex)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1a60a143d4661057b7d217114774997327" kindref="member">logger</ref>.error(</highlight><highlight class="stringliteral">&quot;参数验证异常:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>ex.getMessage(),<sp/>ex);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>获取第一个错误消息</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>errorMessage<sp/>=<sp/>ex.getBindingResult().getAllErrors().get(0).getDefaultMessage();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseResult.error(400,<sp/>errorMessage);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@ExceptionHandler(ConstraintViolationException.class)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseStatus(HttpStatus.BAD_REQUEST)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="62" refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1aa44fd1c3a4aad7fbff0c5b2d247da499" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ResponseResult&lt;Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1aa44fd1c3a4aad7fbff0c5b2d247da499" kindref="member">handleConstraintViolationException</ref>(ConstraintViolationException<sp/>ex)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1a60a143d4661057b7d217114774997327" kindref="member">logger</ref>.error(</highlight><highlight class="stringliteral">&quot;参数验证异常:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>ex.getMessage(),<sp/>ex);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>获取第一个错误消息</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>errorMessage<sp/>=<sp/>ex.getConstraintViolations().iterator().next().getMessage();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseResult.error(400,<sp/>errorMessage);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@ExceptionHandler(NullPointerException.class)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="76" refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1a3ae571396277a02b5ae5625705acc4db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ResponseResult&lt;Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1a3ae571396277a02b5ae5625705acc4db" kindref="member">handleNullPointerException</ref>(NullPointerException<sp/>ex)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1a60a143d4661057b7d217114774997327" kindref="member">logger</ref>.error(</highlight><highlight class="stringliteral">&quot;空指针异常:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>ex.getMessage(),<sp/>ex);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseResult.error(500,<sp/></highlight><highlight class="stringliteral">&quot;系统内部错误：空指针异常&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>@ExceptionHandler(Exception.class)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="88" refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1ad4fb6cdb0fd531db96f87647e8b427c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ResponseResult&lt;Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1ad4fb6cdb0fd531db96f87647e8b427c7" kindref="member">handleException</ref>(Exception<sp/>ex)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1exception_1_1GlobalExceptionHandler_1a60a143d4661057b7d217114774997327" kindref="member">logger</ref>.error(</highlight><highlight class="stringliteral">&quot;未处理的系统异常:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>ex.getMessage(),<sp/>ex);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseResult.error(500,<sp/></highlight><highlight class="stringliteral">&quot;系统内部错误，请稍后重试&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="equipment-service/src/main/java/com/gmp/equipment/exception/GlobalExceptionHandler.java"/>
+  </compounddef>
+</doxygen>

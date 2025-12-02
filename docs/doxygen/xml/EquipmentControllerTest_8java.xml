@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="EquipmentControllerTest_8java" kind="file" language="Java">
+    <compoundname>EquipmentControllerTest.java</compoundname>
+    <includes local="no">com.gmp.equipment.dto.EquipmentDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>equipment-service/src/test/java/com/gmp/equipment/controller/EquipmentControllerTest.java</label>
+        <link refid="EquipmentControllerTest_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.equipment.dto.EquipmentDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest" prot="package">com::gmp::equipment::controller::EquipmentControllerTest</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1equipment_1_1controller">com::gmp::equipment::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.equipment.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.equipment.dto.EquipmentDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.equipment.dto.PageResultDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.equipment.exception.EquipmentServiceException;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.equipment.service.EquipmentService;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.BeforeEach;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.InjectMocks;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.Mock;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.MockitoAnnotations;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.ResponseEntity;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.*;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.Mockito.*;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest" kindref="compound">EquipmentControllerTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>EquipmentService<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>@InjectMocks</highlight></codeline>
+<codeline lineno="29" refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a92ad660af2a5321012f5a25ec59332ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentController" kindref="compound">EquipmentController</ref><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a92ad660af2a5321012f5a25ec59332ab" kindref="member">equipmentController</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>@BeforeEach</highlight></codeline>
+<codeline lineno="32" refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a8b96806c91cc77788262cd776c3eecb5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a8b96806c91cc77788262cd776c3eecb5" kindref="member">setUp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockitoAnnotations.openMocks(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="37" refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1abc7171507999db8dfc0ddd45f11fb1f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1abc7171507999db8dfc0ddd45f11fb1f8" kindref="member">getById_success</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EquipmentDTO<sp/>equipmentDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EquipmentDTO();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>equipmentDTO.setId(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>equipmentDTO.setName(</highlight><highlight class="stringliteral">&quot;测试设备&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟服务层行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>.getById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)).thenReturn(equipmentDTO);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>调用控制器方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResponseEntity&lt;?&gt;<sp/>response<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a92ad660af2a5321012f5a25ec59332ab" kindref="member">equipmentController</ref>.<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentController_1aad68e065d14be1a0f84a1677ac5103d0" kindref="member">getById</ref>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证结果</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(200,<sp/>response.getStatusCodeValue());</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(response.getBody());</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>,<sp/>times(1)).getById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="57" refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1abdeb0c684ff4953feb727e3913ee05a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1abdeb0c684ff4953feb727e3913ee05a1" kindref="member">getById_notFound</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟服务层行为，抛出异常</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>.getById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)).thenThrow(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EquipmentServiceException(</highlight><highlight class="stringliteral">&quot;404&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;设备不存在&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>调用控制器方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResponseEntity&lt;?&gt;<sp/>response<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a92ad660af2a5321012f5a25ec59332ab" kindref="member">equipmentController</ref>.<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentController_1aad68e065d14be1a0f84a1677ac5103d0" kindref="member">getById</ref>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证结果</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(200,<sp/>response.getStatusCodeValue());<sp/></highlight><highlight class="comment">//<sp/>统一响应格式返回200，内部包含错误码</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(response.getBody());</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>,<sp/>times(1)).getById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="74" refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a2806730fd7a34330cc70c1ccef9fefb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a2806730fd7a34330cc70c1ccef9fefb3" kindref="member">listPage_success</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>equipmentTypeId<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Integer<sp/>pageNum<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Integer<sp/>pageSize<sp/>=<sp/>10;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PageResultDTO&lt;EquipmentDTO&gt;<sp/>pageResult<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageResultDTO&lt;&gt;();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResult.setTotal(2);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;EquipmentDTO&gt;<sp/>equipmentList<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EquipmentDTO<sp/>equipment1<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EquipmentDTO();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>equipment1.setId(1L);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>equipment1.setName(</highlight><highlight class="stringliteral">&quot;设备1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EquipmentDTO<sp/>equipment2<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EquipmentDTO();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>equipment2.setId(2L);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>equipment2.setName(</highlight><highlight class="stringliteral">&quot;设备2&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>equipmentList.add(equipment1);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>equipmentList.add(equipment2);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pageResult.setRecords(equipmentList);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟服务层行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>.listPage(equipmentTypeId,<sp/>pageNum,<sp/>pageSize)).thenReturn(pageResult);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>调用控制器方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResponseEntity&lt;?&gt;<sp/>response<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a92ad660af2a5321012f5a25ec59332ab" kindref="member">equipmentController</ref>.<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentController_1a71b5f54502a5a2c1804461b277e3a2de" kindref="member">listPage</ref>(equipmentTypeId,<sp/>pageNum,<sp/>pageSize);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证结果</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(200,<sp/>response.getStatusCodeValue());</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(response.getBody());</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>,<sp/>times(1)).listPage(equipmentTypeId,<sp/>pageNum,<sp/>pageSize);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="106" refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a62b59b9d53a477ae045d9a9d251aab7d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a62b59b9d53a477ae045d9a9d251aab7d" kindref="member">create_success</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EquipmentDTO<sp/>equipmentDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EquipmentDTO();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>equipmentDTO.setName(</highlight><highlight class="stringliteral">&quot;新设备&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>equipmentDTO.setCode(</highlight><highlight class="stringliteral">&quot;E001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EquipmentDTO<sp/>createdEquipment<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EquipmentDTO();</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>createdEquipment.setId(1L);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>createdEquipment.setName(</highlight><highlight class="stringliteral">&quot;新设备&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>createdEquipment.setCode(</highlight><highlight class="stringliteral">&quot;E001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟服务层行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>.create(equipmentDTO)).thenReturn(createdEquipment);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>调用控制器方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResponseEntity&lt;?&gt;<sp/>response<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a92ad660af2a5321012f5a25ec59332ab" kindref="member">equipmentController</ref>.<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentController_1a72da7bc3bca1c1073e3e7bb871623590" kindref="member">create</ref>(equipmentDTO);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证结果</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(200,<sp/>response.getStatusCodeValue());</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(response.getBody());</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>,<sp/>times(1)).create(equipmentDTO);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="130" refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1ab20c328096b43380a32491469262e8a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1ab20c328096b43380a32491469262e8a4" kindref="member">update_success</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EquipmentDTO<sp/>equipmentDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EquipmentDTO();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>equipmentDTO.setName(</highlight><highlight class="stringliteral">&quot;更新设备&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EquipmentDTO<sp/>updatedEquipment<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EquipmentDTO();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updatedEquipment.setId(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updatedEquipment.setName(</highlight><highlight class="stringliteral">&quot;更新设备&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟服务层行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>.update(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>equipmentDTO)).thenReturn(updatedEquipment);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>调用控制器方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResponseEntity&lt;?&gt;<sp/>response<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a92ad660af2a5321012f5a25ec59332ab" kindref="member">equipmentController</ref>.<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentController_1a806eee9ec9299ffc2b0269f57e2bdb34" kindref="member">update</ref>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>equipmentDTO);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证结果</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(200,<sp/>response.getStatusCodeValue());</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(response.getBody());</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>,<sp/>times(1)).update(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>equipmentDTO);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="153" refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1ae16ef5df44a680f5a9468aed51044510" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1ae16ef5df44a680f5a9468aed51044510" kindref="member">delete_success</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟服务层行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>doNothing().when(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>).delete(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>调用控制器方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResponseEntity&lt;?&gt;<sp/>response<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a92ad660af2a5321012f5a25ec59332ab" kindref="member">equipmentController</ref>.<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentController_1a87c90bfe01a354134623b98a41d057e6" kindref="member">delete</ref>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证结果</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(200,<sp/>response.getStatusCodeValue());</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(response.getBody());</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>,<sp/>times(1)).delete(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="170" refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a9c80210a826e2ad9d100d009dc77d775" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a9c80210a826e2ad9d100d009dc77d775" kindref="member">deleteBatch_success</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Long&gt;<sp/>ids<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ids.add(1L);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ids.add(2L);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟服务层行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>doNothing().when(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>).deleteBatch(ids);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>调用控制器方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResponseEntity&lt;?&gt;<sp/>response<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a92ad660af2a5321012f5a25ec59332ab" kindref="member">equipmentController</ref>.<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentController_1ae0125200dd27873bee9293238a38bbfe" kindref="member">deleteBatch</ref>(ids);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证结果</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(200,<sp/>response.getStatusCodeValue());</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(response.getBody());</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1equipment_1_1controller_1_1EquipmentControllerTest_1a938c3eeed82985faaab0dda951bbff64" kindref="member">equipmentService</ref>,<sp/>times(1)).deleteBatch(ids);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="equipment-service/src/test/java/com/gmp/equipment/controller/EquipmentControllerTest.java"/>
+  </compounddef>
+</doxygen>

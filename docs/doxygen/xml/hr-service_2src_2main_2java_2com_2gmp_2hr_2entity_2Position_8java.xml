@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="hr-service_2src_2main_2java_2com_2gmp_2hr_2entity_2Position_8java" kind="file" language="Java">
+    <compoundname>Position.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>hr-service/src/main/java/com/gmp/hr/entity/Position.java</label>
+        <link refid="hr-service_2src_2main_2java_2com_2gmp_2hr_2entity_2Position_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position" prot="public">com::gmp::hr::entity::Position</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1hr_1_1entity">com::gmp::hr::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.hr.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.EqualsAndHashCode;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.ToString;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedBy;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedBy;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotBlank;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.HashSet;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;hr_position&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position" kindref="compound">Position</ref><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1add0820b2427b2f9f1c80710f040ba132" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;position_code&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>unique<sp/>=<sp/>true,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;职位代码不能为空&quot;)</highlight></codeline>
+<codeline lineno="42" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1aacab8070244ef09e55e860839b817349" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>positionCode;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;position_name&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;职位名称不能为空&quot;)</highlight></codeline>
+<codeline lineno="49" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1a1b9f132fff38cd11c925530340d4ea68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>positionName;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;description&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1a60bec42d78cc1630110436b6ed4c404a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>description;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;level&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="61" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1a9b63c3f8cd2ee6132fe173368f113d40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>level;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;department_id&quot;)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@EqualsAndHashCode.Exclude</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>@ToString.Exclude</highlight></codeline>
+<codeline lineno="70" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1a7e813cb87a3273cb3a09f57b0fd4a89e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Department" kindref="compound">Department</ref><sp/>department;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;position&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@EqualsAndHashCode.Exclude</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@ToString.Exclude</highlight></codeline>
+<codeline lineno="78" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1a86c98f2ac42126c5b46628d246046859" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Set&lt;<ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee" kindref="compound">Employee</ref>&gt;<sp/>employees<sp/>=<sp/>new<sp/>HashSet&lt;&gt;();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToMany</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinTable(</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>name<sp/>=<sp/>&quot;hr_position_qualification_requirement&quot;,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>joinColumns<sp/>=<sp/>@JoinColumn(name<sp/>=<sp/>&quot;position_id&quot;),</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inverseJoinColumns<sp/>=<sp/>@JoinColumn(name<sp/>=<sp/>&quot;qualification_type_id&quot;)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>@EqualsAndHashCode.Exclude</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@ToString.Exclude</highlight></codeline>
+<codeline lineno="91" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1a2c172aafd9f354e0194894509bb7a635" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Set&lt;<ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1QualificationType" kindref="compound">QualificationType</ref>&gt;<sp/>requiredQualifications<sp/>=<sp/>new<sp/>HashSet&lt;&gt;();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="98" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1abc370b2b6860069a5a12fed2a8667985" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedBy</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>updatable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="105" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1a3a10040a200ee314e430ed31206f3365" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;)</highlight></codeline>
+<codeline lineno="112" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1aec00e14eb0a608c08c68c3cf1202cfc1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedBy</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="119" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1a25a8d53bffde05a9cf8b998261c6d6fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;deleted&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="125" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position_1aee388fb764d69f45be70a80a22e5c847" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Boolean<sp/>deleted<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="hr-service/src/main/java/com/gmp/hr/entity/Position.java"/>
+  </compounddef>
+</doxygen>

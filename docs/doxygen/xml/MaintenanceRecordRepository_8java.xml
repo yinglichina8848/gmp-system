@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="MaintenanceRecordRepository_8java" kind="file" language="Java">
+    <compoundname>MaintenanceRecordRepository.java</compoundname>
+    <includes local="no">com.gmp.equipment.entity.MaintenanceRecord</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>equipment-service/src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java</label>
+        <link refid="MaintenanceRecordRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.equipment.entity.MaintenanceRecord</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository" prot="public">com::gmp::equipment::repository::MaintenanceRecordRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1equipment_1_1repository">com::gmp::equipment::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.equipment.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.equipment.entity.MaintenanceRecord;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Date;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="16" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository" kindref="compound">MaintenanceRecordRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;MaintenanceRecord,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;MaintenanceRecord&gt;<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1a0d9d18b3c7fddcd7458415f679d4e4e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;MaintenanceRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1a0d9d18b3c7fddcd7458415f679d4e4e8" kindref="member">findByMaintenancePlanId</ref>(Long<sp/>maintenancePlanId);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1adc4d7e6a3e5c98f8528ff91a8b892699" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;MaintenanceRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1adc4d7e6a3e5c98f8528ff91a8b892699" kindref="member">findByEquipmentId</ref>(Long<sp/>equipmentId);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1acddc71d7c6fecd07532495525c5eacb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>MaintenanceRecord<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1acddc71d7c6fecd07532495525c5eacb3" kindref="member">findFirstByEquipmentIdOrderByMaintenanceEndTimeDesc</ref>(Long<sp/>equipmentId);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1aa53f1f1595b69f88b8d0ac34cf549448" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;MaintenanceRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1aa53f1f1595b69f88b8d0ac34cf549448" kindref="member">findByMaintenanceType</ref>(String<sp/>maintenanceType);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1afb79deef0c393740e2df472733f7ffe8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;MaintenanceRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1afb79deef0c393740e2df472733f7ffe8" kindref="member">findByMaintenancePerson</ref>(String<sp/>maintenancePerson);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1ac82aca235ac2bc306899bf96cd7adcb5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;MaintenanceRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1ac82aca235ac2bc306899bf96cd7adcb5" kindref="member">findByMaintenanceStartTimeBetween</ref>(Date<sp/>startDate,<sp/>Date<sp/>endDate);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1af5b9e0e5074e2690e1cf8fd1633cb342" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;MaintenanceRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1af5b9e0e5074e2690e1cf8fd1633cb342" kindref="member">findByEquipmentIdAndMaintenanceType</ref>(Long<sp/>equipmentId,<sp/>String<sp/>maintenanceType);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1a3845e50626a1f79201a722db1e397d02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;MaintenanceRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1MaintenanceRecordRepository_1a3845e50626a1f79201a722db1e397d02" kindref="member">findByEquipmentIdAndMaintenanceStartTimeBetween</ref>(Long<sp/>equipmentId,<sp/>Date<sp/>startDate,<sp/>Date<sp/>endDate);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="equipment-service/src/main/java/com/gmp/equipment/repository/MaintenanceRecordRepository.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="DeviationHistory_8java" kind="file" language="Java">
+    <compoundname>DeviationHistory.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/entity/DeviationHistory.java</label>
+        <link refid="DeviationHistory_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory" prot="public">com::gmp::qms::entity::DeviationHistory</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1entity">com::gmp::qms::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.CreationTimestamp;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;deviation_histories&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="17" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory" kindref="compound">DeviationHistory</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="21" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1ae1cf985202e270bbb082776f45dfafea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;deviation_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="25" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1a6ae4c7a9d903a979f5db9d8f6c22dc28" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Deviation" kindref="compound">Deviation</ref><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1a6ae4c7a9d903a979f5db9d8f6c22dc28" kindref="member">deviation</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1aca2906aa7b351d7eea25a4ad13db7346" kindref="member">action</ref>&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1aca2906aa7b351d7eea25a4ad13db7346" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1aca2906aa7b351d7eea25a4ad13db7346" kindref="member">action</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status_before&quot;)</highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1af9a15b9ced02e03f1ba751196cf3fd37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1af9a15b9ced02e03f1ba751196cf3fd37" kindref="member">statusBefore</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status_after&quot;)</highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1a4497194d0bffb2955355b2f7a01172bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1a4497194d0bffb2955355b2f7a01172bc" kindref="member">statusAfter</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1a5bb7f246a1f6fe066b1bc3e151fd9665" kindref="member">comment</ref>&quot;)</highlight></codeline>
+<codeline lineno="37" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1a5bb7f246a1f6fe066b1bc3e151fd9665" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1a5bb7f246a1f6fe066b1bc3e151fd9665" kindref="member">comment</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;performed_by&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="40" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1ababdc595484519b449036345ef7e8b68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1ababdc595484519b449036345ef7e8b68" kindref="member">performedBy</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreationTimestamp</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;performed_at&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="44" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1af05ff8255347f254e7ee18eb330c6e58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1DeviationHistory_1af05ff8255347f254e7ee18eb330c6e58" kindref="member">performedAt</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/entity/DeviationHistory.java"/>
+  </compounddef>
+</doxygen>

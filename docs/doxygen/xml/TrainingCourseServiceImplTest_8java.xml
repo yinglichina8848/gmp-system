@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TrainingCourseServiceImplTest_8java" kind="file" language="Java">
+    <compoundname>TrainingCourseServiceImplTest.java</compoundname>
+    <includes local="no">com.gmp.training.entity.TrainingCourse</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/test/java/com/gmp/training/service/impl/TrainingCourseServiceImplTest.java</label>
+        <link refid="TrainingCourseServiceImplTest_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.training.entity.TrainingCourse</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest" prot="public">com::gmp::training::service::impl::TrainingCourseServiceImplTest</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1service_1_1impl">com::gmp::training::service::impl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.service.impl;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.entity.TrainingCourse;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.repository.TrainingCourseRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.BeforeEach;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.extension.ExtendWith;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.InjectMocks;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.Mock;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.junit.jupiter.MockitoExtension;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.*;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.*;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.any;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.Mockito.*;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">@ExtendWith(MockitoExtension.class)</highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest" kindref="compound">TrainingCourseServiceImplTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline lineno="30" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1aa166a2fdc78912ae6a3250057917ab60" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>TrainingCourseRepository<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1aa166a2fdc78912ae6a3250057917ab60" kindref="member">trainingCourseRepository</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>@InjectMocks</highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a2b7b340e5e274696d7d77ef1dcbaeedc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImpl" kindref="compound">TrainingCourseServiceImpl</ref><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a2b7b340e5e274696d7d77ef1dcbaeedc" kindref="member">trainingCourseService</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a5ff692df0c8928077fc10021be8b9907" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>TrainingCourse<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a5ff692df0c8928077fc10021be8b9907" kindref="member">trainingCourse</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@BeforeEach</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a14cede70465c69c4f089a80579b94423" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a14cede70465c69c4f089a80579b94423" kindref="member">setUp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TrainingCourse();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setId(1L);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setCode(</highlight><highlight class="stringliteral">&quot;GMP-2024-001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setName(</highlight><highlight class="stringliteral">&quot;GMP质量管理规范培训&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setPlanId(1L);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setCourseType(TrainingCourse.CourseType.INTERNAL);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setDurationHours(4);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setRequiredHours(4);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setStatus(TrainingCourse.Status.DRAFT);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setStartDate(LocalDate.now());</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setEndDate(LocalDate.now().plusDays(7));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setDescription(</highlight><highlight class="stringliteral">&quot;GMP质量管理规范的基础培训&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourse.setCreatedDate(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a4c7791faf612ba9b00b2ba1d9b14ec3e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a4c7791faf612ba9b00b2ba1d9b14ec3e" kindref="member">testSave</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.save(any(TrainingCourse.class))).thenReturn(trainingCourse);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingCourse<sp/>savedCourse<sp/>=<sp/>trainingCourseService.<ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImpl_1a68189e8fd1f560b12f6ebfea53da10b0" kindref="member">save</ref>(trainingCourse);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(savedCourse);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;GMP质量管理规范培训&quot;</highlight><highlight class="normal">,<sp/>savedCourse.getName());</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(TrainingCourse.Status.DRAFT,<sp/>savedCourse.getStatus());</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).save(trainingCourse);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="67" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1adc12a1e7e0b479ab61b5d34875c572df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1adc12a1e7e0b479ab61b5d34875c572df" kindref="member">testFindById</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.findById(1L)).thenReturn(Optional.of(trainingCourse));</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingCourse<sp/>foundCourse<sp/>=<sp/>trainingCourseService.<ref refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1aa6076d6fa654c93512f165dd010070a3" kindref="member">findById</ref>(1L);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(foundCourse);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1L,<sp/>foundCourse.getId());</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).findById(1L);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="78" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a75a52cd8af686b4e1fc9dcc70b776071" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a75a52cd8af686b4e1fc9dcc70b776071" kindref="member">testFindAll</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingCourse&gt;<sp/>courses<sp/>=<sp/>Arrays.asList(trainingCourse,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TrainingCourse());</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>coursePage<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(courses,<sp/>pageable,<sp/>courses.size());</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.findAll(pageable)).thenReturn(coursePage);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>result<sp/>=<sp/>trainingCourseService.<ref refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1ad477d0e90d66f2946ac5e49d8959dc4c" kindref="member">findAll</ref>(pageable);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(2,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).findAll(pageable);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="93" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a45233d65ae0b6f6970113e41ba3ee436" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a45233d65ae0b6f6970113e41ba3ee436" kindref="member">testDelete</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>doNothing().when(trainingCourseRepository).deleteById(1L);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingCourseService.<ref refid="interfacecom_1_1gmp_1_1training_1_1service_1_1BaseService_1a46b04f1d03dee54abfb31601875a7308" kindref="member">delete</ref>(1L);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).deleteById(1L);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="102" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1addbccd014c9c5a689e364b208cf6252e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1addbccd014c9c5a689e364b208cf6252e" kindref="member">testFindByCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingCourse&gt;<sp/>courses<sp/>=<sp/>Arrays.asList(trainingCourse);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>coursePage<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(courses,<sp/>pageable,<sp/>courses.size());</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.findByCodeContainingIgnoreCase(</highlight><highlight class="stringliteral">&quot;GMP&quot;</highlight><highlight class="normal">,<sp/>pageable)).thenReturn(coursePage);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>result<sp/>=<sp/>trainingCourseService.<ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImpl_1adda7a6e624ea05df849241a3603516d3" kindref="member">findByCode</ref>(</highlight><highlight class="stringliteral">&quot;GMP&quot;</highlight><highlight class="normal">,<sp/>pageable);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).findByCodeContainingIgnoreCase(</highlight><highlight class="stringliteral">&quot;GMP&quot;</highlight><highlight class="normal">,<sp/>pageable);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="117" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a7d6816d4a30559a692aee53a1267e9b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a7d6816d4a30559a692aee53a1267e9b9" kindref="member">testFindByName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingCourse&gt;<sp/>courses<sp/>=<sp/>Arrays.asList(trainingCourse);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>coursePage<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(courses,<sp/>pageable,<sp/>courses.size());</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.findByNameContainingIgnoreCase(</highlight><highlight class="stringliteral">&quot;GMP&quot;</highlight><highlight class="normal">,<sp/>pageable)).thenReturn(coursePage);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>result<sp/>=<sp/>trainingCourseService.<ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImpl_1a21a5f53984707ffaf4ecec914134c89a" kindref="member">findByName</ref>(</highlight><highlight class="stringliteral">&quot;GMP&quot;</highlight><highlight class="normal">,<sp/>pageable);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).findByNameContainingIgnoreCase(</highlight><highlight class="stringliteral">&quot;GMP&quot;</highlight><highlight class="normal">,<sp/>pageable);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="132" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a19e877b1853535afb205a41241e4b534" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a19e877b1853535afb205a41241e4b534" kindref="member">testFindByPlanId</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingCourse&gt;<sp/>courses<sp/>=<sp/>Arrays.asList(trainingCourse);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>coursePage<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(courses,<sp/>pageable,<sp/>courses.size());</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.findByPlanId(1L,<sp/>pageable)).thenReturn(coursePage);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>result<sp/>=<sp/>trainingCourseService.findByPlanId(1L,<sp/>pageable);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).findByPlanId(1L,<sp/>pageable);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="147" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a8be841a466bfb8d07e96fdc1dfc3ed0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a8be841a466bfb8d07e96fdc1dfc3ed0b" kindref="member">testUpdateStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.findById(1L)).thenReturn(Optional.of(trainingCourse));</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.save(any(TrainingCourse.class))).thenReturn(trainingCourse);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingCourse<sp/>updatedCourse<sp/>=<sp/>trainingCourseService.<ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImpl_1a6419397eb9cd27cb292aea7ebd9b499e" kindref="member">updateStatus</ref>(1L,<sp/>TrainingCourse.Status.APPROVED);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(updatedCourse);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(TrainingCourse.Status.APPROVED,<sp/>updatedCourse.getStatus());</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).findById(1L);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).save(trainingCourse);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="160" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a6180d0dc12eec6466efb6cf7a1b0e342" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a6180d0dc12eec6466efb6cf7a1b0e342" kindref="member">testBatchUpdateStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Long&gt;<sp/>ids<sp/>=<sp/>Arrays.asList(1L,<sp/>2L);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.updateStatusInBatch(ids,<sp/>TrainingCourse.Status.APPROVED)).thenReturn(2);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>trainingCourseService.<ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImpl_1aa15782c22a1765c55f2357821514e19c" kindref="member">batchUpdateStatus</ref>(ids,<sp/>TrainingCourse.Status.APPROVED);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(2,<sp/>result);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).updateStatusInBatch(ids,<sp/>TrainingCourse.Status.APPROVED);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="171" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a8a7fcc3a0019e9593836f9de83e4eaa2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a8a7fcc3a0019e9593836f9de83e4eaa2" kindref="member">testFindByCourseType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingCourse&gt;<sp/>courses<sp/>=<sp/>Arrays.asList(trainingCourse);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>coursePage<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(courses,<sp/>pageable,<sp/>courses.size());</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.findByCourseType(TrainingCourse.CourseType.INTERNAL,<sp/>pageable))</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.thenReturn(coursePage);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>result<sp/>=<sp/>trainingCourseService.findByCourseType(</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingCourse.CourseType.INTERNAL,<sp/>pageable);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).findByCourseType(TrainingCourse.CourseType.INTERNAL,<sp/>pageable);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="188" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a3b5455e6fadca86fa9a19fe2e2ef822a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a3b5455e6fadca86fa9a19fe2e2ef822a" kindref="member">testFindByStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingCourse&gt;<sp/>courses<sp/>=<sp/>Arrays.asList(trainingCourse);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>coursePage<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(courses,<sp/>pageable,<sp/>courses.size());</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.findByStatus(TrainingCourse.Status.DRAFT,<sp/>pageable)).thenReturn(coursePage);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>result<sp/>=<sp/>trainingCourseService.<ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImpl_1a9e74b862cf14a3bad6327cd892c18580" kindref="member">findByStatus</ref>(TrainingCourse.Status.DRAFT,<sp/>pageable);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).findByStatus(TrainingCourse.Status.DRAFT,<sp/>pageable);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="203" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1ae99713af62ac3f8f601b9feee543622a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1ae99713af62ac3f8f601b9feee543622a" kindref="member">testFindByDateRange</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingCourse&gt;<sp/>courses<sp/>=<sp/>Arrays.asList(trainingCourse);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>coursePage<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(courses,<sp/>pageable,<sp/>courses.size());</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocalDate<sp/>start<sp/>=<sp/>LocalDate.now().minusDays(1);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocalDate<sp/>end<sp/>=<sp/>LocalDate.now().plusDays(8);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.findByStartDateBetween(start,<sp/>end,<sp/>pageable)).thenReturn(coursePage);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>result<sp/>=<sp/>trainingCourseService.findByDateRange(start,<sp/>end,<sp/>pageable);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).findByStartDateBetween(start,<sp/>end,<sp/>pageable);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="220" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a56e946f72a641fbae71267305fbb131e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a56e946f72a641fbae71267305fbb131e" kindref="member">testSearch</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingCourse&gt;<sp/>courses<sp/>=<sp/>Arrays.asList(trainingCourse);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>coursePage<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(courses,<sp/>pageable,<sp/>courses.size());</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.findByCodeContainingIgnoreCaseOrNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;GMP&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;质量管理&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;培训&quot;</highlight><highlight class="normal">,<sp/>pageable)).thenReturn(coursePage);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TrainingCourse&gt;<sp/>result<sp/>=<sp/>trainingCourseService.<ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImpl_1a55bcf52809bdd3f329adec779517eedb" kindref="member">search</ref>(</highlight><highlight class="stringliteral">&quot;GMP<sp/>质量管理<sp/>培训&quot;</highlight><highlight class="normal">,<sp/>pageable);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="235" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1ad5ed5db5f2001898657c36ff699d7b9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1ad5ed5db5f2001898657c36ff699d7b9b" kindref="member">testValidateUniqueCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.existsByCodeAndIdNot(</highlight><highlight class="stringliteral">&quot;GMP-2024-001&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)).thenReturn(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.existsByCodeAndIdNot(</highlight><highlight class="stringliteral">&quot;GMP-2024-001&quot;</highlight><highlight class="normal">,<sp/>2L)).thenReturn(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(trainingCourseService.validateUniqueCode(</highlight><highlight class="stringliteral">&quot;GMP-2024-001&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(trainingCourseService.validateUniqueCode(</highlight><highlight class="stringliteral">&quot;GMP-2024-001&quot;</highlight><highlight class="normal">,<sp/>2L));</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.existsByCodeAndIdNot(</highlight><highlight class="stringliteral">&quot;GMP-2024-001&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)).thenReturn(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertFalse(trainingCourseService.validateUniqueCode(</highlight><highlight class="stringliteral">&quot;GMP-2024-001&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="247" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a8cfbb2c46794b4d6c4ba550fa0342c1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingCourseServiceImplTest_1a8cfbb2c46794b4d6c4ba550fa0342c1e" kindref="member">testCountByPlanId</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(trainingCourseRepository.countByPlanId(1L)).thenReturn(5L);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>count<sp/>=<sp/>trainingCourseService.countByPlanId(1L);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(5,<sp/>count);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(trainingCourseRepository,<sp/>times(1)).countByPlanId(1L);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/test/java/com/gmp/training/service/impl/TrainingCourseServiceImplTest.java"/>
+  </compounddef>
+</doxygen>

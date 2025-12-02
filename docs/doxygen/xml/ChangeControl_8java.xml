@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ChangeControl_8java" kind="file" language="Java">
+    <compoundname>ChangeControl.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/entity/ChangeControl.java</label>
+        <link refid="ChangeControl_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl" prot="public">com::gmp::qms::entity::ChangeControl</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1RiskLevel" prot="public">com::gmp::qms::entity::ChangeControl::RiskLevel</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus" prot="public">com::gmp::qms::entity::ChangeControl::ChangeStatus</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1entity">com::gmp::qms::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.CreationTimestamp;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.UpdateTimestamp;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;change_controls&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl" kindref="compound">ChangeControl</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1aa3119b6012886ce89b411ba14d247add" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;change_code&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>unique<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a855df40e50166df88e77bda499e28766" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a855df40e50166df88e77bda499e28766" kindref="member">changeCode</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1aa7a4e1e1c1f2b44def1983998564d82b" kindref="member">title</ref>&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="29" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1aa7a4e1e1c1f2b44def1983998564d82b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1aa7a4e1e1c1f2b44def1983998564d82b" kindref="member">title</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a8b7dd85f8486f837f60bf0b56cc576cb" kindref="member">description</ref>&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="32" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a8b7dd85f8486f837f60bf0b56cc576cb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a8b7dd85f8486f837f60bf0b56cc576cb" kindref="member">description</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;change_type&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a8626d4f99fb1109b5a460cd43c39c0a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a8626d4f99fb1109b5a460cd43c39c0a6" kindref="member">changeType</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;affected_areas&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a272aa06b81ede1461a266785606849cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a272aa06b81ede1461a266785606849cc" kindref="member">affectedAreas</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;risk_level&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="42" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a339b3e491f864997ba4c0d17b6e0dc9c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1RiskLevel" kindref="compound">RiskLevel</ref><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a339b3e491f864997ba4c0d17b6e0dc9c" kindref="member">riskLevel</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1ae0d520df3bb28536a85e2723bb08fd9a" kindref="member">status</ref>&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="46" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1ae0d520df3bb28536a85e2723bb08fd9a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus" kindref="compound">ChangeStatus</ref><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1ae0d520df3bb28536a85e2723bb08fd9a" kindref="member">status</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;proposed_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="49" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a49b3796ce40d31d159f27c6137c05edb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a49b3796ce40d31d159f27c6137c05edb" kindref="member">proposedDate</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;planned_implementation_date&quot;)</highlight></codeline>
+<codeline lineno="52" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a7c32ebbc592ca955d77b7cebf45ddc25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a7c32ebbc592ca955d77b7cebf45ddc25" kindref="member">plannedImplementationDate</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;actual_implementation_date&quot;)</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1adf046a33b2f9b3bfcf29f0469abfb025" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1adf046a33b2f9b3bfcf29f0469abfb025" kindref="member">actualImplementationDate</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;risk_assessment&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="58" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a79d41e16cc4073906c32a629a6df9de6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a79d41e16cc4073906c32a629a6df9de6" kindref="member">riskAssessment</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;implementation_plan&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="61" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a4e4b9d9d0906b65c74e4d20079a24683" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a4e4b9d9d0906b65c74e4d20079a24683" kindref="member">implementationPlan</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;verification_results&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="64" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a765a592456dedbc0bc724cef5b1bb942" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a765a592456dedbc0bc724cef5b1bb942" kindref="member">verificationResults</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;change_owner_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="67" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a420c099e03dd903a16811194a574e17c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a420c099e03dd903a16811194a574e17c" kindref="member">changeOwnerId</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;reviewer_id&quot;)</highlight></codeline>
+<codeline lineno="70" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a9e233d2d945a335967626715173bc167" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a9e233d2d945a335967626715173bc167" kindref="member">reviewerId</ref>;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;approver_id&quot;)</highlight></codeline>
+<codeline lineno="73" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a91bed673048c7c208285b8c612c1a341" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a91bed673048c7c208285b8c612c1a341" kindref="member">approverId</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;closed_date&quot;)</highlight></codeline>
+<codeline lineno="76" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a401a1e433879f3a25771b53f02dc9187" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a401a1e433879f3a25771b53f02dc9187" kindref="member">closedDate</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;closed_by&quot;)</highlight></codeline>
+<codeline lineno="79" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a93f7d2e36e3d58bbf8b871808eee5197" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a93f7d2e36e3d58bbf8b871808eee5197" kindref="member">closedBy</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;changeControl&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="82" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a879061f2c2c9b25ff77c0bcf29d9962d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControlAttachment" kindref="compound">ChangeControlAttachment</ref>&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a879061f2c2c9b25ff77c0bcf29d9962d" kindref="member">attachments</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;changeControl&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a35df6128be982c71fc4a9a45ba5fce21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControlAction" kindref="compound">ChangeControlAction</ref>&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a35df6128be982c71fc4a9a45ba5fce21" kindref="member">actions</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;changeControl&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="88" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1ab742575135f7772bbd24593b985f81ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControlHistory" kindref="compound">ChangeControlHistory</ref>&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1ab742575135f7772bbd24593b985f81ff" kindref="member">history</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreationTimestamp</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="92" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a72b73461d5845dd39051a3baf27d7c7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a72b73461d5845dd39051a3baf27d7c7a" kindref="member">createdAt</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@UpdateTimestamp</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="96" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a4d88bbf9288e755a9df845815760b8ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1a4d88bbf9288e755a9df845815760b8ba" kindref="member">updatedAt</ref>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="99" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1ad61b29b53ded82e0e02de2e833cc337b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1ad61b29b53ded82e0e02de2e833cc337b" kindref="member">createdBy</ref>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;)</highlight></codeline>
+<codeline lineno="102" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1aa5316426e277c32918357331f6a7da96" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1aa5316426e277c32918357331f6a7da96" kindref="member">updatedBy</ref>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1RiskLevel" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1RiskLevel" kindref="compound">RiskLevel</ref><sp/>{</highlight></codeline>
+<codeline lineno="108" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1RiskLevel_1ac56dfe036facd669ec42e9a626883bc7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1RiskLevel_1ac56dfe036facd669ec42e9a626883bc7" kindref="member">CRITICAL</ref>,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>关键</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1RiskLevel_1a12b09079fc37ae4c142c43d15732fe58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1RiskLevel_1a12b09079fc37ae4c142c43d15732fe58" kindref="member">HIGH</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>高</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1RiskLevel_1a270e33b92f09404255da83b46c0ed4c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1RiskLevel_1a270e33b92f09404255da83b46c0ed4c4" kindref="member">MEDIUM</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOW<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>低</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1RiskLevel_1ad8a18ef01964355fa4262bc0e0e6f12d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus" kindref="compound">ChangeStatus</ref><sp/>{</highlight></codeline>
+<codeline lineno="118" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1ac42466d3ea993649eec92a1553a931be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1ac42466d3ea993649eec92a1553a931be" kindref="member">PROPOSED</ref>,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>已提议</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1a5ffe755d6a09dbd7db4a6e5fc52bc5d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1a5ffe755d6a09dbd7db4a6e5fc52bc5d5" kindref="member">IN_REVIEW</ref>,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>审核中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1ad60c45cf1e484bc319f6d88d71d3e528" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1ad60c45cf1e484bc319f6d88d71d3e528" kindref="member">IN_APPROVAL</ref>,<sp/><sp/></highlight><highlight class="comment">//<sp/>批准中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1af903ce083ee43c76515aad039f842c9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1af903ce083ee43c76515aad039f842c9d" kindref="member">SCHEDULED</ref>,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>已计划</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1a98fcd980af1f326cfe82238448e8fcf3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1a98fcd980af1f326cfe82238448e8fcf3" kindref="member">IN_IMPLEMENTATION</ref>,<sp/></highlight><highlight class="comment">//<sp/>实施中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1afa40a7ff2ea43ac83dca620d58694bfd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1afa40a7ff2ea43ac83dca620d58694bfd" kindref="member">IN_VERIFICATION</ref>,<sp/></highlight><highlight class="comment">//<sp/>验证中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1a7662845909f65cfe82511e629f873841" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1a7662845909f65cfe82511e629f873841" kindref="member">COMPLETED</ref>,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>已完成</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1a67e201b35c1cc1c5a1859844f068e8c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1a67e201b35c1cc1c5a1859844f068e8c4" kindref="member">REJECTED</ref>,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>已拒绝</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CANCELLED<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>已取消</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1ChangeControl_1_1ChangeStatus_1acd52d244087914173e4a67837e16d20f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/entity/ChangeControl.java"/>
+  </compounddef>
+</doxygen>

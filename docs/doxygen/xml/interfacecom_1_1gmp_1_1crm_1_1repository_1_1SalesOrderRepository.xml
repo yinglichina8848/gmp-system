@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::crm::repository::SalesOrderRepository</compoundname>
+    <basecompoundref refid="classJpaRepository" prot="public" virt="non-virtual">JpaRepository&lt; SalesOrder, Long &gt;</basecompoundref>
+    <basecompoundref refid="classJpaSpecificationExecutor" prot="public" virt="non-virtual">JpaSpecificationExecutor&lt; SalesOrder &gt;</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1ab87f2e40a36825bf1dd3304cb1c7fce9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional&lt; SalesOrder &gt;</type>
+        <definition>Optional&lt; SalesOrder &gt; com.gmp.crm.repository.SalesOrderRepository.findByOrderNumber</definition>
+        <argsstring>(String orderNumber)</argsstring>
+        <name>findByOrderNumber</name>
+        <qualifiedname>com.gmp.crm.repository.SalesOrderRepository.findByOrderNumber</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>orderNumber</declname>
+        </param>
+        <briefdescription>
+<para>根据订单编号查找订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>orderNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单编号 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>销售订单 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="crm-sales/src/main/java/com/gmp/crm/repository/SalesOrderRepository.java" line="27" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1adbd715c84ed9f056488b7a4e033b9fb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Page&lt; SalesOrder &gt;</type>
+        <definition>Page&lt; SalesOrder &gt; com.gmp.crm.repository.SalesOrderRepository.findByCustomerId</definition>
+        <argsstring>(Long customerId, Pageable pageable)</argsstring>
+        <name>findByCustomerId</name>
+        <qualifiedname>com.gmp.crm.repository.SalesOrderRepository.findByCustomerId</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>customerId</declname>
+        </param>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>查找客户的所有订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>customerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>客户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单分页列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="crm-sales/src/main/java/com/gmp/crm/repository/SalesOrderRepository.java" line="36" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a45a826329f2c78287f2a7d533ea7190d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Page&lt; SalesOrder &gt;</type>
+        <definition>Page&lt; SalesOrder &gt; com.gmp.crm.repository.SalesOrderRepository.findByCustomerIdAndStatus</definition>
+        <argsstring>(Long customerId, String status, Pageable pageable)</argsstring>
+        <name>findByCustomerIdAndStatus</name>
+        <qualifiedname>com.gmp.crm.repository.SalesOrderRepository.findByCustomerIdAndStatus</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>customerId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>查找客户的特定状态订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>customerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>客户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单状态 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单分页列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="crm-sales/src/main/java/com/gmp/crm/repository/SalesOrderRepository.java" line="46" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a9b5938f315c8f60836c2bfdbf6068d3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Page&lt; SalesOrder &gt;</type>
+        <definition>Page&lt; SalesOrder &gt; com.gmp.crm.repository.SalesOrderRepository.findByStatus</definition>
+        <argsstring>(String status, Pageable pageable)</argsstring>
+        <name>findByStatus</name>
+        <qualifiedname>com.gmp.crm.repository.SalesOrderRepository.findByStatus</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>根据状态查找订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单状态 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单分页列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="crm-sales/src/main/java/com/gmp/crm/repository/SalesOrderRepository.java" line="55" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a4b4a38ca3849857697c5fd915103265b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long com.gmp.crm.repository.SalesOrderRepository.countByCustomerId</definition>
+        <argsstring>(Long customerId)</argsstring>
+        <name>countByCustomerId</name>
+        <qualifiedname>com.gmp.crm.repository.SalesOrderRepository.countByCustomerId</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>customerId</declname>
+        </param>
+        <briefdescription>
+<para>统计客户的订单数量 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>customerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>客户ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单数量 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="crm-sales/src/main/java/com/gmp/crm/repository/SalesOrderRepository.java" line="63" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a8c49c34d5ef2855263aff9365040e4f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; SalesOrder &gt;</type>
+        <definition>List&lt; SalesOrder &gt; com.gmp.crm.repository.SalesOrderRepository.findTopByOrderByCreatedAtDesc</definition>
+        <argsstring>(Pageable limit)</argsstring>
+        <name>findTopByOrderByCreatedAtDesc</name>
+        <qualifiedname>com.gmp.crm.repository.SalesOrderRepository.findTopByOrderByCreatedAtDesc</qualifiedname>
+        <param>
+          <type>Pageable</type>
+          <declname>limit</declname>
+        </param>
+        <briefdescription>
+<para>查询最近的订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>limit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>数量限制 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="crm-sales/src/main/java/com/gmp/crm/repository/SalesOrderRepository.java" line="71" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>销售订单数据访问接口 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>TRAE AI </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JpaRepository&lt; SalesOrder, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; SalesOrder &gt;</label>
+        <link refid="classJpaSpecificationExecutor"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.crm.repository.SalesOrderRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JpaRepository&lt; SalesOrder, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; SalesOrder &gt;</label>
+        <link refid="classJpaSpecificationExecutor"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.crm.repository.SalesOrderRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="crm-sales/src/main/java/com/gmp/crm/repository/SalesOrderRepository.java" line="19" column="18" bodyfile="crm-sales/src/main/java/com/gmp/crm/repository/SalesOrderRepository.java" bodystart="19" bodyend="73"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a4b4a38ca3849857697c5fd915103265b" prot="public" virt="non-virtual"><scope>com::gmp::crm::repository::SalesOrderRepository</scope><name>countByCustomerId</name></member>
+      <member refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1adbd715c84ed9f056488b7a4e033b9fb1" prot="public" virt="non-virtual"><scope>com::gmp::crm::repository::SalesOrderRepository</scope><name>findByCustomerId</name></member>
+      <member refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a45a826329f2c78287f2a7d533ea7190d" prot="public" virt="non-virtual"><scope>com::gmp::crm::repository::SalesOrderRepository</scope><name>findByCustomerIdAndStatus</name></member>
+      <member refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1ab87f2e40a36825bf1dd3304cb1c7fce9" prot="public" virt="non-virtual"><scope>com::gmp::crm::repository::SalesOrderRepository</scope><name>findByOrderNumber</name></member>
+      <member refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a9b5938f315c8f60836c2bfdbf6068d3b" prot="public" virt="non-virtual"><scope>com::gmp::crm::repository::SalesOrderRepository</scope><name>findByStatus</name></member>
+      <member refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a8c49c34d5ef2855263aff9365040e4f6" prot="public" virt="non-virtual"><scope>com::gmp::crm::repository::SalesOrderRepository</scope><name>findTopByOrderByCreatedAtDesc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

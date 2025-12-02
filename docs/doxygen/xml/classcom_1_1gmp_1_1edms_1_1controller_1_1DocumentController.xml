@@ -1,0 +1,514 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::edms::controller::DocumentController</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1add23e963593d38a41cdd8715ebf36e5e" prot="private" static="yes" mutable="no">
+        <type>final Logger</type>
+        <definition>final Logger com.gmp.edms.controller.DocumentController.log</definition>
+        <argsstring></argsstring>
+        <name>log</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.log</qualifiedname>
+        <initializer>= LoggerFactory.getLogger(DocumentController.class)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="38" column="33" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1aeb125c7d3de320ca3b6efe69fdaa6deb" prot="private" static="no" mutable="no">
+        <type>DocumentService</type>
+        <definition>DocumentService com.gmp.edms.controller.DocumentController.documentService</definition>
+        <argsstring></argsstring>
+        <name>documentService</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.documentService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="41" column="29" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1ae1e0e8594219cb470b3ad58cd03c3572" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; DocumentDTO &gt;</type>
+        <definition>ApiResponse&lt; DocumentDTO &gt; com.gmp.edms.controller.DocumentController.createDocument</definition>
+        <argsstring>(@RequestBody DocumentCreateDTO documentCreateDTO)</argsstring>
+        <name>createDocument</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.createDocument</qualifiedname>
+        <param>
+          <type>@RequestBody DocumentCreateDTO</type>
+          <declname>documentCreateDTO</declname>
+        </param>
+        <briefdescription>
+<para>创建文档 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="47" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="47" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a1919d7436ee2e849fd4a6d925f30ee72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; DocumentDTO &gt;</type>
+        <definition>ApiResponse&lt; DocumentDTO &gt; com.gmp.edms.controller.DocumentController.createDocumentWithFile</definition>
+        <argsstring>( @RequestPart(&quot;document&quot;) DocumentCreateDTO documentCreateDTO, @RequestPart(&quot;file&quot;) MultipartFile file)</argsstring>
+        <name>createDocumentWithFile</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.createDocumentWithFile</qualifiedname>
+        <param>
+          <type>@RequestPart(&quot;document&quot;) DocumentCreateDTO</type>
+          <declname>documentCreateDTO</declname>
+        </param>
+        <param>
+          <type>@RequestPart(&quot;file&quot;) MultipartFile</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="53" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="53" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a6d380a3e2feeac1d62a82825e38cbdd0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; DocumentDTO &gt;</type>
+        <definition>ApiResponse&lt; DocumentDTO &gt; com.gmp.edms.controller.DocumentController.uploadDocumentFile</definition>
+        <argsstring>( @PathVariable Long id, @RequestPart(&quot;file&quot;) MultipartFile file)</argsstring>
+        <name>uploadDocumentFile</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.uploadDocumentFile</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>@RequestPart(&quot;file&quot;) MultipartFile</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="66" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="66" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1aedc1f033a6e9f949d7de972ce5c8cc72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; ByteArrayResource &gt;</type>
+        <definition>ResponseEntity&lt; ByteArrayResource &gt; com.gmp.edms.controller.DocumentController.downloadDocumentFile</definition>
+        <argsstring>(@PathVariable Long id)</argsstring>
+        <name>downloadDocumentFile</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.downloadDocumentFile</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="79" column="27" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="79" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a66569f257fccfa99e036831109f419d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; DocumentDTO &gt;</type>
+        <definition>ApiResponse&lt; DocumentDTO &gt; com.gmp.edms.controller.DocumentController.updateDocument</definition>
+        <argsstring>(@PathVariable Long id, @RequestBody DocumentUpdateDTO documentUpdateDTO)</argsstring>
+        <name>updateDocument</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.updateDocument</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>@RequestBody DocumentUpdateDTO</type>
+          <declname>documentUpdateDTO</declname>
+        </param>
+        <briefdescription>
+<para>更新文档信息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="130" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="130" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a80525d178a7bfc4e86fd14c3cd42118c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; Void &gt;</type>
+        <definition>ApiResponse&lt; Void &gt; com.gmp.edms.controller.DocumentController.deleteDocument</definition>
+        <argsstring>(@PathVariable Long id)</argsstring>
+        <name>deleteDocument</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.deleteDocument</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>删除文档 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="142" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="142" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a5cde0afc8fed5f514fc6595c83a6658f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; Void &gt;</type>
+        <definition>ApiResponse&lt; Void &gt; com.gmp.edms.controller.DocumentController.batchDeleteDocuments</definition>
+        <argsstring>(@RequestBody List&lt; Long &gt; ids)</argsstring>
+        <name>batchDeleteDocuments</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.batchDeleteDocuments</qualifiedname>
+        <param>
+          <type>@RequestBody List&lt; Long &gt;</type>
+          <declname>ids</declname>
+        </param>
+        <briefdescription>
+<para>批量删除文档 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="153" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="153" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a94bd1973eea4bf381c22d5aa6446e74d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; DocumentDTO &gt;</type>
+        <definition>ApiResponse&lt; DocumentDTO &gt; com.gmp.edms.controller.DocumentController.getDocumentById</definition>
+        <argsstring>(@PathVariable Long id)</argsstring>
+        <name>getDocumentById</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.getDocumentById</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>获取文档详情 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="164" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="164" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1af548c58c03084cd2106b6bc74bfc31d5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; DocumentDTO &gt;</type>
+        <definition>ApiResponse&lt; DocumentDTO &gt; com.gmp.edms.controller.DocumentController.getDocumentByCode</definition>
+        <argsstring>(@PathVariable String code)</argsstring>
+        <name>getDocumentByCode</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.getDocumentByCode</qualifiedname>
+        <param>
+          <type>@PathVariable String</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>根据文档编号获取文档 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="175" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="175" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a2bf3a65802ac4fbd31ce6bb5c1690bd7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; PageResponseDTO&lt; DocumentDTO &gt; &gt;</type>
+        <definition>ApiResponse&lt; PageResponseDTO&lt; DocumentDTO &gt; &gt; com.gmp.edms.controller.DocumentController.queryDocuments</definition>
+        <argsstring>(PageRequestDTO pageRequest, @RequestParam(required=false) String keyword, @RequestParam(required=false) Long categoryId, @RequestParam(required=false) String status)</argsstring>
+        <name>queryDocuments</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.queryDocuments</qualifiedname>
+        <param>
+          <type>PageRequestDTO</type>
+          <declname>pageRequest</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) String</type>
+          <declname>keyword</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) Long</type>
+          <declname>categoryId</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) String</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>分页查询文档 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="184" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="184" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a4f9fbe06502f2dab7747dda193993b3b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; List&lt; DocumentDTO &gt; &gt;</type>
+        <definition>ApiResponse&lt; List&lt; DocumentDTO &gt; &gt; com.gmp.edms.controller.DocumentController.getDocumentsByCategory</definition>
+        <argsstring>(@PathVariable Long categoryId)</argsstring>
+        <name>getDocumentsByCategory</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.getDocumentsByCategory</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>categoryId</declname>
+        </param>
+        <briefdescription>
+<para>获取分类下的文档列表 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="206" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="206" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a38fd75a0ae71b7846fc843b4dc4725ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; Void &gt;</type>
+        <definition>ApiResponse&lt; Void &gt; com.gmp.edms.controller.DocumentController.updateDocumentStatus</definition>
+        <argsstring>(@PathVariable Long id, @RequestParam String status)</argsstring>
+        <name>updateDocumentStatus</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.updateDocumentStatus</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>@RequestParam String</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>更新文档状态 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="217" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="217" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a2f25d9e3df2db7f9522bda6ca7c90ac7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; List&lt; DocumentDTO &gt; &gt;</type>
+        <definition>ApiResponse&lt; List&lt; DocumentDTO &gt; &gt; com.gmp.edms.controller.DocumentController.searchDocuments</definition>
+        <argsstring>(@RequestParam String keyword)</argsstring>
+        <name>searchDocuments</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.searchDocuments</qualifiedname>
+        <param>
+          <type>@RequestParam String</type>
+          <declname>keyword</declname>
+        </param>
+        <briefdescription>
+<para>搜索文档 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="229" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="229" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1ae9893f070ab14ba7637a75178132b45b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; PageResponseDTO&lt; DocumentDTO &gt; &gt;</type>
+        <definition>ApiResponse&lt; PageResponseDTO&lt; DocumentDTO &gt; &gt; com.gmp.edms.controller.DocumentController.advancedSearch</definition>
+        <argsstring>(PageRequestDTO pageRequest, @RequestParam(required=false) String keyword, @RequestParam(required=false) Long categoryId, @RequestParam(required=false) String status, @RequestParam(required=false) Long departmentId, @RequestParam(required=false) String approvalStatus)</argsstring>
+        <name>advancedSearch</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.advancedSearch</qualifiedname>
+        <param>
+          <type>PageRequestDTO</type>
+          <declname>pageRequest</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) String</type>
+          <declname>keyword</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) Long</type>
+          <declname>categoryId</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) String</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) Long</type>
+          <declname>departmentId</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) String</type>
+          <declname>approvalStatus</declname>
+        </param>
+        <briefdescription>
+<para>高级搜索文档 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="240" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="240" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1ae9d231c9576eda2b344423422210272f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; List&lt; DocumentDTO &gt; &gt;</type>
+        <definition>ApiResponse&lt; List&lt; DocumentDTO &gt; &gt; com.gmp.edms.controller.DocumentController.getUserDocuments</definition>
+        <argsstring>(@PathVariable Long userId)</argsstring>
+        <name>getUserDocuments</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.getUserDocuments</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>userId</declname>
+        </param>
+        <briefdescription>
+<para>获取用户权限的文档列表 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="259" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="259" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a531457d40258c41fd0f8f07cd2e7170f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; DocumentDTO &gt;</type>
+        <definition>ApiResponse&lt; DocumentDTO &gt; com.gmp.edms.controller.DocumentController.approveDocument</definition>
+        <argsstring>(@PathVariable Long id, @RequestBody Map&lt; String, String &gt; approveRequest)</argsstring>
+        <name>approveDocument</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.approveDocument</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>@RequestBody Map&lt; String, String &gt;</type>
+          <declname>approveRequest</declname>
+        </param>
+        <briefdescription>
+<para>审批文档 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="271" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="271" bodyend="280"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1add17a0763f38aa96af8f668eb7a2a3f8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.controller.DocumentController.getFileNameFromPath</definition>
+        <argsstring>(String filePath)</argsstring>
+        <name>getFileNameFromPath</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.getFileNameFromPath</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+<para>安全地从文件路径中提取文件名 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="113" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="113" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a0c7222c04bea104bd1dcfbf824a094cd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object</type>
+        <definition>Object com.gmp.edms.controller.DocumentController.getFieldValue</definition>
+        <argsstring>(Object object, String fieldName, Object defaultValue)</argsstring>
+        <name>getFieldValue</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.getFieldValue</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fieldName</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>defaultValue</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>获取文档统计信息 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>使用反射获取对象字段值 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="301" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="301" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1ab5c345bbb76eb4bd952bac483b3149e8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Field</type>
+        <definition>Field com.gmp.edms.controller.DocumentController.findField</definition>
+        <argsstring>(Class&lt;?&gt; clazz, String fieldName)</argsstring>
+        <name>findField</name>
+        <qualifiedname>com.gmp.edms.controller.DocumentController.findField</qualifiedname>
+        <param>
+          <type>Class&lt;?&gt;</type>
+          <declname>clazz</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fieldName</declname>
+        </param>
+        <briefdescription>
+<para>使用反射查找字段（包括父类） </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="318" column="19" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="318" bodyend="329"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>文档管理Controller </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>DocumentService</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.edms.controller.DocumentController</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>log</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>documentService</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>static final Logger</label>
+      </node>
+    </collaborationgraph>
+    <location file="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" line="37" column="7" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/DocumentController.java" bodystart="37" bodyend="332"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1ae9893f070ab14ba7637a75178132b45b" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>advancedSearch</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a531457d40258c41fd0f8f07cd2e7170f" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>approveDocument</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a5cde0afc8fed5f514fc6595c83a6658f" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>batchDeleteDocuments</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1ae1e0e8594219cb470b3ad58cd03c3572" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>createDocument</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a1919d7436ee2e849fd4a6d925f30ee72" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>createDocumentWithFile</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a80525d178a7bfc4e86fd14c3cd42118c" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>deleteDocument</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1aeb125c7d3de320ca3b6efe69fdaa6deb" prot="private" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>documentService</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1aedc1f033a6e9f949d7de972ce5c8cc72" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>downloadDocumentFile</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1ab5c345bbb76eb4bd952bac483b3149e8" prot="private" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>findField</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1af548c58c03084cd2106b6bc74bfc31d5" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>getDocumentByCode</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a94bd1973eea4bf381c22d5aa6446e74d" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>getDocumentById</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a4f9fbe06502f2dab7747dda193993b3b" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>getDocumentsByCategory</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a0c7222c04bea104bd1dcfbf824a094cd" prot="private" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>getFieldValue</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1add17a0763f38aa96af8f668eb7a2a3f8" prot="private" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>getFileNameFromPath</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1ae9d231c9576eda2b344423422210272f" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>getUserDocuments</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1add23e963593d38a41cdd8715ebf36e5e" prot="private" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>log</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a2bf3a65802ac4fbd31ce6bb5c1690bd7" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>queryDocuments</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a2f25d9e3df2db7f9522bda6ca7c90ac7" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>searchDocuments</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a66569f257fccfa99e036831109f419d9" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>updateDocument</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a38fd75a0ae71b7846fc843b4dc4725ef" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>updateDocumentStatus</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1DocumentController_1a6d380a3e2feeac1d62a82825e38cbdd0" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::DocumentController</scope><name>uploadDocumentFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

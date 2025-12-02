@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_warehouse-service_2README" kind="page">
+    <compoundname>md_warehouse-service_2README</compoundname>
+    <title>GMP仓库管理子系统</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">概述</heading>
+</para>
+<para>GMP仓库管理子系统是GMP系统的核心组件之一，负责物料主数据管理、入库管理、出库管理、库存管理、盘点管理、供应商管理、报表统计和基础配置等功能。系统严格遵循GMP标准，确保物料流转和库存管理的合规性、准确性和可追溯性。</para>
+<para><heading level="1">功能模块</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>**物料主数据管理**：物料信息的增删改查、分类管理、单位管理</para>
+</listitem><listitem><para>**入库管理**：采购入库、生产入库、退货入库、入库单管理</para>
+</listitem><listitem><para>**出库管理**：生产领料、销售出库、其他出库、出库单管理</para>
+</listitem><listitem><para>**库存管理**：库存查询、库位管理、库存预警、批次管理</para>
+</listitem><listitem><para>**盘点管理**：盘点计划、盘点执行、盘点差异处理、盘点报告</para>
+</listitem><listitem><para>**供应商管理**：供应商信息维护、资质管理、评级管理</para>
+</listitem><listitem><para>**报表统计**：库存报表、出入库报表、周转率分析、过期预警</para>
+</listitem><listitem><para>**基础配置**：库位设置、仓库设置、系统参数配置</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">技术栈</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>**后端框架**：Spring Boot 3.x</para>
+</listitem><listitem><para>**持久层**：Spring Data JPA</para>
+</listitem><listitem><para>**数据库**：PostgreSQL</para>
+</listitem><listitem><para>**缓存**：Redis</para>
+</listitem><listitem><para>**测试框架**：JUnit 5, AssertJ</para>
+</listitem><listitem><para>**构建工具**：Maven</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">快速开始</heading>
+</para>
+<para><heading level="2">环境要求</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>JDK 17+</para>
+</listitem><listitem><para>Maven 3.6+</para>
+</listitem><listitem><para>PostgreSQL 14+</para>
+</listitem><listitem><para>Redis 6+</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">构建和运行</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>构建项目</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>clean<sp/>package</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>运行应用</highlight></codeline>
+<codeline><highlight class="normal">java<sp/>-jar<sp/>target/warehouse-service-0.1.0.jar</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">开发环境启动</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>使用Spring<sp/>Boot插件运行</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>spring-boot:run</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">测试</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>运行单元测试</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>test</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>运行覆盖率测试</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>test<sp/>jacoco:report</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">API文档</heading>
+</para>
+<para>服务启动后，API文档可通过以下地址访问：<itemizedlist>
+<listitem><para>Swagger UI: <ulink url="http://localhost:8082/warehouse/swagger-ui.html">http://localhost:8082/warehouse/swagger-ui.html</ulink></para>
+</listitem><listitem><para>API文档: <ulink url="http://localhost:8082/warehouse/v3/api-docs">http://localhost:8082/warehouse/v3/api-docs</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">配置说明</heading>
+</para>
+<para>主要配置文件：<itemizedlist>
+<listitem><para><computeroutput>src/main/resources/application.yml</computeroutput> - 生产环境配置</para>
+</listitem><listitem><para><computeroutput>src/test/resources/application-test.yml</computeroutput> - 测试环境配置</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">测试结果</heading>
+</para>
+<para><heading level="2">测试概况</heading>
+</para>
+<para>仓库管理子系统已完成全面的测试用例编写，测试通过率表现良好。</para>
+<para><heading level="2">覆盖率指标</heading>
+</para>
+<para><table rows="5" cols="3"><row>
+<entry thead="yes"><para>指标   </para>
+</entry><entry thead="yes"><para>当前值   </para>
+</entry><entry thead="yes"><para>目标值    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>行覆盖率   </para>
+</entry><entry thead="no"><para>≥80%   </para>
+</entry><entry thead="no"><para>≥80%    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>分支覆盖率   </para>
+</entry><entry thead="no"><para>≥70%   </para>
+</entry><entry thead="no"><para>≥70%    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>类覆盖率   </para>
+</entry><entry thead="no"><para>≥90%   </para>
+</entry><entry thead="no"><para>≥90%    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>方法覆盖率   </para>
+</entry><entry thead="no"><para>≥80%   </para>
+</entry><entry thead="no"><para>≥80%   </para>
+</entry></row>
+</table>
+</para>
+<para><heading level="2">测试报告</heading>
+</para>
+<para>完整的测试报告和覆盖率详情请参考：<itemizedlist>
+<listitem><para>仓库管理子系统测试报告</para>
+</listitem><listitem><para><ulink url="../../docs/coverage/warehouse/index.html">覆盖率报告</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">故障排除</heading>
+</para>
+<para><heading level="2">常见问题</heading>
+</para>
+<para><orderedlist>
+<listitem><para>**数据库连接失败**：检查PostgreSQL服务是否启动，连接参数是否正确</para>
+</listitem><listitem><para>**Redis连接失败**：检查Redis服务是否启动，端口是否正确</para>
+</listitem><listitem><para>**端口冲突**：修改<computeroutput>application.yml</computeroutput>中的server.port配置</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">贡献指南</heading>
+</para>
+<para><orderedlist>
+<listitem><para>Fork本仓库</para>
+</listitem><listitem><para>创建特性分支 (<computeroutput>git checkout -b feature/amazing-feature</computeroutput>)</para>
+</listitem><listitem><para>提交更改 (<lsquo/>git commit -m &apos;Add some amazing feature<rsquo/><computeroutput>)</computeroutput></para>
+</listitem><listitem><para><computeroutput>推送到分支 (</computeroutput>git push origin feature/amazing-feature`)</para>
+</listitem><listitem><para>打开Pull Request</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">相关文档</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>仓库管理子系统文档总览</para>
+</listitem><listitem><para>仓库管理子系统详细设计文档</para>
+</listitem><listitem><para>仓库管理子系统测试计划</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">许可证</heading>
+</para>
+<para>本项目采用MIT许可证 - 详见LICENSE文件 </para>
+    </detaileddescription>
+    <location file="warehouse-service/README.md"/>
+  </compounddef>
+</doxygen>

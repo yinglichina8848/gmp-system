@@ -1,0 +1,4 @@
+var AuthenticityAssessmentTest_8java =
+[
+    [ "com.gmp.lims.entity.mongo.AuthenticityAssessmentTest", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessmentTest.html", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessmentTest" ]
+];

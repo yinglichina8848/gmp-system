@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Certificate_8java" kind="file" language="Java">
+    <compoundname>Certificate.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/main/java/com/gmp/training/entity/Certificate.java</label>
+        <link refid="Certificate_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate" prot="public">com::gmp::training::entity::Certificate</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1_1CertificateStatus" prot="public">com::gmp::training::entity::Certificate::CertificateStatus</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1entity">com::gmp::training::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedBy;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedBy;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotBlank;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotNull;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.Size;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Serializable;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;t_certificate&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate" kindref="compound">Certificate</ref><sp/>implements<sp/><ref refid="classSerializable" kindref="compound">Serializable</ref><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a7bcaa27aa88d2ce6d364d8f505118678" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>serialVersionUID<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;certificate_id&quot;</highlight><highlight class="normal">,<sp/>nullable<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="36" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a71591cfd6c46cffc2eafad2b059f476f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToOne</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;record_id&quot;,<sp/>unique<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="43" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a3d939c982f084fcca35f1a9970ece8e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingRecord" kindref="compound">TrainingRecord</ref><sp/>trainingRecord;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;证书编号不能为空&quot;)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;证书编号长度不能超过100个字符&quot;)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;certificate_number&quot;,<sp/>length<sp/>=<sp/>100,<sp/>nullable<sp/>=<sp/>false,<sp/>unique<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1aef4542e00f56d05994d4a9ecee7afd56" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>certificateNumber;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;证书名称不能为空&quot;)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;证书名称长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;certificate_name&quot;,<sp/>length<sp/>=<sp/>200,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a80fe240551daea8122b42b878a5ea359" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>certificateName;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;issue_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a85c724a6938da48dda173e6cc48b9f67" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>issueDate;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;expiry_date&quot;)</highlight></codeline>
+<codeline lineno="71" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a0b015e9aacc541cd4387770a5a5e2e0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>expiryDate;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;颁发机构长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;issuing_authority&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="78" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1adad5aeda58c344fa15583eb1ade2e805" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>issuingAuthority;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>length<sp/>=<sp/>20,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a099c84730f45aae5f714a6f523620b57" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1_1CertificateStatus" kindref="compound">CertificateStatus</ref><sp/>status<sp/>=<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1_1CertificateStatus" kindref="compound">CertificateStatus</ref>.VALID;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;证书描述长度不能超过500个字符&quot;)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;description&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="92" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1ac3ca961de59704c84b33a98409eeeadb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>description;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;证书文件路径长度不能超过500个字符&quot;)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;file_path&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="99" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a0d9254409ab239f5a90bb8f620b0cd39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>filePath;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;requires_refresher&quot;)</highlight></codeline>
+<codeline lineno="105" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1ad3ea8c087cb42747e9fdff8d470c6e35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>requiresRefresher<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;reminder_days&quot;)</highlight></codeline>
+<codeline lineno="111" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a7daf77273c73eee5352f3e6d52fd1629" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>reminderDays;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedBy</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;)</highlight></codeline>
+<codeline lineno="118" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a3097ae2e508a3346a653658b6faf6e5c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_time&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="125" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a832dcb829f2a64b5b493a2bad14c0d5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdTime;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedBy</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;last_modified_by&quot;)</highlight></codeline>
+<codeline lineno="132" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1ab99acda596081ee145eb2e8adccf0d02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>lastModifiedBy;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;last_modified_time&quot;)</highlight></codeline>
+<codeline lineno="139" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1af4f592cea57481aa4e8f036b5046cac6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lastModifiedTime;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1_1CertificateStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1_1CertificateStatus" kindref="compound">CertificateStatus</ref><sp/>{</highlight></codeline>
+<codeline lineno="145" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1_1CertificateStatus_1a32af2f16de55cda308c1a488b328ca93" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1_1CertificateStatus_1a32af2f16de55cda308c1a488b328ca93" kindref="member">VALID</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>有效</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1_1CertificateStatus_1a8f09be80ca8cbc73ba8340873b230eff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1_1CertificateStatus_1a8f09be80ca8cbc73ba8340873b230eff" kindref="member">EXPIRED</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>已过期</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>REVOKED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>已吊销</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1_1CertificateStatus_1ae02a8183a78216f62a662a62d96bae36" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a7971271fd21329d76ceaaa4d5c2017e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a7971271fd21329d76ceaaa4d5c2017e4" kindref="member">isExpiringSoon</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this.expiryDate<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>||<sp/>this.reminderDays<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocalDateTime<sp/>now<sp/>=<sp/>LocalDateTime.now();</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocalDateTime<sp/>reminderDate<sp/>=<sp/>this.expiryDate.minusDays(this.reminderDays);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>now.isAfter(reminderDate)<sp/>&amp;&amp;<sp/>now.isBefore(this.expiryDate);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a95c64fc1dc22af7474983f6234bdcf2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1Certificate_1a95c64fc1dc22af7474983f6234bdcf2a" kindref="member">isExpired</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this.expiryDate<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>this.expiryDate.isBefore(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/main/java/com/gmp/training/entity/Certificate.java"/>
+  </compounddef>
+</doxygen>

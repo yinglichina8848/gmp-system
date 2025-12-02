@@ -1,0 +1,10 @@
+var DocumentPermissionServiceImpl_8java =
+[
+    [ "com.gmp.edms.service.impl.DocumentPermissionServiceImpl", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl.html", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl" ],
+    [ "com.gmp.edms.service.impl.DocumentPermissionServiceImpl.PermissionPolicy", "interfacecom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionPolicy.html", "interfacecom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionPolicy" ],
+    [ "com.gmp.edms.service.impl.DocumentPermissionServiceImpl.DocumentOwnerPolicy", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1DocumentOwnerPolicy.html", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1DocumentOwnerPolicy" ],
+    [ "com.gmp.edms.service.impl.DocumentPermissionServiceImpl.DepartmentPolicy", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1DepartmentPolicy.html", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1DepartmentPolicy" ],
+    [ "com.gmp.edms.service.impl.DocumentPermissionServiceImpl.ConfidentialityPolicy", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1ConfidentialityPolicy.html", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1ConfidentialityPolicy" ],
+    [ "com.gmp.edms.service.impl.DocumentPermissionServiceImpl.StatusPolicy", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1StatusPolicy.html", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1StatusPolicy" ],
+    [ "com.gmp.edms.service.impl.DocumentPermissionServiceImpl.PermissionContext", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext.html", "classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentPermissionServiceImpl_1_1PermissionContext" ]
+];

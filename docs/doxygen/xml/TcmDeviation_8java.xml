@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TcmDeviation_8java" kind="file" language="Java">
+    <compoundname>TcmDeviation.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/entity/TcmDeviation.java</label>
+        <link refid="TcmDeviation_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation" prot="public">com::gmp::qms::entity::TcmDeviation</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType" prot="public">com::gmp::qms::entity::TcmDeviation::TcmDeviationType</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1SeverityLevel" prot="public">com::gmp::qms::entity::TcmDeviation::SeverityLevel</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus" prot="public">com::gmp::qms::entity::TcmDeviation::DeviationStatus</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1entity">com::gmp::qms::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.CreationTimestamp;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.UpdateTimestamp;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;tcm_deviations&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation" kindref="compound">TcmDeviation</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1abe2010c339a1240c7ea930c3bee7866e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;deviation_code&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>unique<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="29" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a845706f67da2c338428fe463f734e183" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a845706f67da2c338428fe463f734e183" kindref="member">deviationCode</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ace981ed3cde3ef3f1d68237406205641" kindref="member">title</ref>&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ace981ed3cde3ef3f1d68237406205641" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ace981ed3cde3ef3f1d68237406205641" kindref="member">title</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a018b7afb3d04a530b43700d1409ce63a" kindref="member">description</ref>&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a018b7afb3d04a530b43700d1409ce63a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a018b7afb3d04a530b43700d1409ce63a" kindref="member">description</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;occurrence_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ab650a6f19854c67da81c2dba6a337a1d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ab650a6f19854c67da81c2dba6a337a1d" kindref="member">occurrenceDate</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;discovery_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ad3eb6665d1ec3d1cacbb97d9a9e8f59d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ad3eb6665d1ec3d1cacbb97d9a9e8f59d" kindref="member">discoveryDate</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;tcm_deviation_type&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="60" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a36cdac8faf9e42de23008bf854a5e3d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType" kindref="compound">TcmDeviationType</ref><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a36cdac8faf9e42de23008bf854a5e3d2" kindref="member">tcmDeviationType</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;authenticity_info&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="66" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a74207b6925764a9e74cc241db22acbd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a74207b6925764a9e74cc241db22acbd9" kindref="member">authenticityInfo</ref>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;processing_info&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a299bb91e2daed9d2a3a29699a7ed545b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a299bb91e2daed9d2a3a29699a7ed545b" kindref="member">processingInfo</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;inspection_info&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="78" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a6a6558e8bd370e03fe1c7f5cdf6b6b4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a6a6558e8bd370e03fe1c7f5cdf6b6b4a" kindref="member">inspectionInfo</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;storage_info&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="84" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ae7d05b93d65360199f97c662a095c67d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ae7d05b93d65360199f97c662a095c67d" kindref="member">storageInfo</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;severity_level&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="91" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a4d1af76c1b82b4945be620c051b8681e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1SeverityLevel" kindref="compound">SeverityLevel</ref><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a4d1af76c1b82b4945be620c051b8681e" kindref="member">severityLevel</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a1c993701b6d34646061a1edc8eebade5" kindref="member">status</ref>&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="98" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a1c993701b6d34646061a1edc8eebade5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus" kindref="compound">DeviationStatus</ref><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a1c993701b6d34646061a1edc8eebade5" kindref="member">status</ref>;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreationTimestamp</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="105" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a2d10800a0243fcf47dc52d0a027034d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a2d10800a0243fcf47dc52d0a027034d5" kindref="member">createdAt</ref>;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>@UpdateTimestamp</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="112" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1affad7b506886ff5731b8fd3f3dd56592" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1affad7b506886ff5731b8fd3f3dd56592" kindref="member">updatedAt</ref>;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;impact_assessment&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="118" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ac80dcc52dbaa413200fc975d32be756b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ac80dcc52dbaa413200fc975d32be756b" kindref="member">impactAssessment</ref>;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;root_cause_analysis&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="124" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a263cfbfa4ed34fb852e257e1a4ff6b09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a263cfbfa4ed34fb852e257e1a4ff6b09" kindref="member">rootCauseAnalysis</ref>;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;corrective_action&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="130" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1abecbe52a5b76e892f7bd318e8acd4a9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1abecbe52a5b76e892f7bd318e8acd4a9b" kindref="member">correctiveAction</ref>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;preventive_action&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="136" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a65343bc5a1de6877ec2d543848ef0ca9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a65343bc5a1de6877ec2d543848ef0ca9" kindref="member">preventiveAction</ref>;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;responsible_person_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="142" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a6f12332cb04a4973555d4461f09583ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a6f12332cb04a4973555d4461f09583ed" kindref="member">responsiblePersonId</ref>;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;reviewer_id&quot;)</highlight></codeline>
+<codeline lineno="148" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a6a1902e8536cdf01c3dd95e9b6b04379" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a6a1902e8536cdf01c3dd95e9b6b04379" kindref="member">reviewerId</ref>;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;approver_id&quot;)</highlight></codeline>
+<codeline lineno="154" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a2ed2443f779ec0b90aa6669e1d7916a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a2ed2443f779ec0b90aa6669e1d7916a4" kindref="member">approverId</ref>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;closed_date&quot;)</highlight></codeline>
+<codeline lineno="160" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1af9193cfce1f62309a831a5c9b4873e66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1af9193cfce1f62309a831a5c9b4873e66" kindref="member">closedDate</ref>;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;closed_by&quot;)</highlight></codeline>
+<codeline lineno="166" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ac10752bdaac6ca8c20995a93ed27afde" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ac10752bdaac6ca8c20995a93ed27afde" kindref="member">closedBy</ref>;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreationTimestamp</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a2d10800a0243fcf47dc52d0a027034d5" kindref="member">createdAt</ref>;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>@UpdateTimestamp</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1affad7b506886ff5731b8fd3f3dd56592" kindref="member">updatedAt</ref>;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="186" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ada1a5b487c9ab321ce9dc77fda7cd084" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1ada1a5b487c9ab321ce9dc77fda7cd084" kindref="member">createdBy</ref>;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;)</highlight></codeline>
+<codeline lineno="192" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a458d9ca5dbb68f4c9fc5399aa98b1f2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1a458d9ca5dbb68f4c9fc5399aa98b1f2e" kindref="member">updatedBy</ref>;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType" kindref="compound">TcmDeviationType</ref><sp/>{</highlight></codeline>
+<codeline lineno="201" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType_1ac217b9d1a3d8e577c6193eac546a9a02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType_1ac217b9d1a3d8e577c6193eac546a9a02" kindref="member">AUTHENTICITY_NON_COMPLIANCE</ref>,</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType_1a8a0f14ab9d834556934b56290b3d1bf1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType_1a8a0f14ab9d834556934b56290b3d1bf1" kindref="member">PROCESSING_DEVIATION</ref>,</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType_1ad6e56781a72e906bfc750012a6f6261a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType_1ad6e56781a72e906bfc750012a6f6261a" kindref="member">INSPECTION_DEVIATION</ref>,</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType_1aaafdfda69faf2a7db3a26b2636ecd7f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType_1aaafdfda69faf2a7db3a26b2636ecd7f7" kindref="member">STORAGE_DEVIATION</ref>,</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OTHER_TCM_RELATED</highlight></codeline>
+<codeline lineno="222" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1TcmDeviationType_1a5bbddf18aba5be720c3db1837dadc3a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1SeverityLevel" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1SeverityLevel" kindref="compound">SeverityLevel</ref><sp/>{</highlight></codeline>
+<codeline lineno="231" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1SeverityLevel_1a33cee9cf62cb9dc25e6e352dbbbc6803" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1SeverityLevel_1a33cee9cf62cb9dc25e6e352dbbbc6803" kindref="member">MINOR</ref>,</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1SeverityLevel_1ae893770600b20607f7c35d1ed8689658" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1SeverityLevel_1ae893770600b20607f7c35d1ed8689658" kindref="member">MODERATE</ref>,</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1SeverityLevel_1a627882b299434cda0323cf03131a3980" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1SeverityLevel_1a627882b299434cda0323cf03131a3980" kindref="member">MAJOR</ref>,</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CRITICAL</highlight></codeline>
+<codeline lineno="247" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1SeverityLevel_1a27885f6ad7cab52be4f8f71231c47b92" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus" kindref="compound">DeviationStatus</ref><sp/>{</highlight></codeline>
+<codeline lineno="256" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus_1ac46ba9fcd2900b2fd6762914fa38b662" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus_1ac46ba9fcd2900b2fd6762914fa38b662" kindref="member">DRAFT</ref>,</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus_1af15db34f47642112ce1770bd844b03be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus_1af15db34f47642112ce1770bd844b03be" kindref="member">PENDING_REVIEW</ref>,</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus_1ab50f2b3df78edb584690d78b29a4bcdd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus_1ab50f2b3df78edb584690d78b29a4bcdd" kindref="member">PENDING_APPROVAL</ref>,</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus_1ab35dde1a6ea5bbce5b341901c6d9b3b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus_1ab35dde1a6ea5bbce5b341901c6d9b3b1" kindref="member">APPROVED</ref>,</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus_1ab11a7b8e7b4566141e92e5291c31d66f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus_1ab11a7b8e7b4566141e92e5291c31d66f" kindref="member">CLOSED</ref>,</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CANCELLED</highlight></codeline>
+<codeline lineno="282" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1TcmDeviation_1_1DeviationStatus_1ae0aa8975dcba2a8f8bb5eab2df93334e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/entity/TcmDeviation.java"/>
+  </compounddef>
+</doxygen>

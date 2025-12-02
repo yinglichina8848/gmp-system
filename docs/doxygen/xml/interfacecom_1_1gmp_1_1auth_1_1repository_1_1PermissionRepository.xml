@@ -18,10 +18,22 @@
 <para>根据权限代码查找权限 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>permissionCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限代码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional&lt;Permission&gt; 权限实体，如果不存在则返回Optional.empty() </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="23" column="14"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="34" column="14"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a94f99ffef727b8501dbda527a7f74607" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; Permission &gt;</type>
@@ -33,10 +45,13 @@
 <para>查找所有活跃权限 </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>List&lt;Permission&gt; 活跃权限列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="28" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="41" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a0edc815688642b8537e45da414e98e71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; Permission &gt;</type>
@@ -52,10 +67,22 @@
 <para>根据资源类型查找权限 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>resourceType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>资源类型 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List&lt;Permission&gt; 指定资源类型的活跃权限列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="33" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="49" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a6b0d037dc55ae4de6d1d93794dfae59b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; Permission &gt;</type>
@@ -68,13 +95,25 @@
           <declname>keyword</declname>
         </param>
         <briefdescription>
-<para>根据权限名称模糊搜索 </para>
+<para>根据权限名称或代码模糊搜索 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keyword</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>搜索关键词 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List&lt;Permission&gt; 匹配的权限列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="40" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="59" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a353de95750e65a50f830d1f6461a7ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>boolean</type>
@@ -90,10 +129,22 @@
 <para>检查权限代码是否存在 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>permissionCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限代码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boolean 如果权限代码存在返回true，否则返回false </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="45" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="67" column="13"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a661982fe0588e34418ef68dd98736665" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; Permission &gt;</type>
@@ -109,10 +160,22 @@
 <para>根据角色ID查找关联的权限 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List&lt;Permission&gt; 角色关联的活跃权限列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="51" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="76" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1abd3aaef28807a0fd5ef91a9a638690d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; Permission &gt;</type>
@@ -128,17 +191,38 @@
 <para>根据用户ID查找关联的权限 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List&lt;Permission&gt; 用户关联的活跃权限列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="57" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="85" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
 <para>权限数据访问层 </para>
     </briefdescription>
     <detaileddescription>
+<para>该接口定义了权限实体的数据库操作方法，包括CRUD操作和复杂查询。 继承自Spring Data JPA的JpaRepository，自动生成基本的CRUD方法。</para>
 <para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+<simplesect kind="since"><para>2023-01-01</para>
+</simplesect>
+<simplesect kind="see"><para>org.springframework.data.jpa.repository.JpaRepository </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission" kindref="compound">com.gmp.auth.entity.Permission</ref> </para>
 </simplesect>
 </para>
     </detaileddescription>
@@ -166,7 +250,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="18" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" bodystart="18" bodyend="58"/>
+    <location file="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" line="26" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/repository/PermissionRepository.java" bodystart="26" bodyend="86"/>
     <listofallmembers>
       <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a353de95750e65a50f830d1f6461a7ddf" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::PermissionRepository</scope><name>existsByPermissionCode</name></member>
       <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository_1a94f99ffef727b8501dbda527a7f74607" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::PermissionRepository</scope><name>findByIsActiveTrue</name></member>

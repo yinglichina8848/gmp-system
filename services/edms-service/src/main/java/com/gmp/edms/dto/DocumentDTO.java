@@ -33,4 +33,13 @@ public class DocumentDTO {
     private LocalDateTime updatedAt;
     private DocumentCategoryDTO categoryDTO;
     private List<DocumentVersionDTO> versions;
+    
+    /**
+     * 获取文档名称（返回title字段的值）
+     * 
+     * @return 文档名称
+     */
+    public String getDocumentName() {
+        return this.title;
+    }
 }

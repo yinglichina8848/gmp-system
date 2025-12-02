@@ -18,10 +18,22 @@
 <para>根据角色代码查找角色 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>roleCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色代码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional&lt;Role&gt; 角色实体，如果不存在则返回Optional.empty() </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="23" column="14"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="34" column="14"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a4dc33de8f9a10802cab7de489f809f6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; Role &gt;</type>
@@ -33,10 +45,13 @@
 <para>查找所有活跃角色 </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>List&lt;Role&gt; 活跃角色列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="28" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="41" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1afe9950fbe898b38af6250f115aa1bb48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; Role &gt;</type>
@@ -48,10 +63,13 @@
 <para>查找所有内置角色 </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>List&lt;Role&gt; 内置角色列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="33" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="48" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a81121b31275b6a66cd93abcbe9eec53a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; Role &gt;</type>
@@ -63,10 +81,13 @@
 <para>根据优先级排序查找角色 </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>List&lt;Role&gt; 按优先级降序排列的角色列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="38" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="55" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a705cf62ec3d815d6ac67f589723f823b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; Role &gt;</type>
@@ -79,13 +100,25 @@
           <declname>keyword</declname>
         </param>
         <briefdescription>
-<para>根据角色名称模糊搜索 </para>
+<para>根据角色名称或代码模糊搜索 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keyword</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>搜索关键词 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List&lt;Role&gt; 匹配的角色列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="45" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="65" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1abc5b0ddb421ca3fb8b578fb3c50ec1ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>boolean</type>
@@ -101,10 +134,22 @@
 <para>检查角色代码是否存在 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>roleCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色代码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boolean 如果角色代码存在返回true，否则返回false </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="50" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="73" column="13"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a0788ef5638be6ec5afc0b26bcc4927ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; Role &gt;</type>
@@ -120,17 +165,38 @@
 <para>根据用户ID查找关联的角色 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List&lt;Role&gt; 用户关联的活跃角色列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="56" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="82" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
 <para>角色数据访问层 </para>
     </briefdescription>
     <detaileddescription>
+<para>该接口定义了角色实体的数据库操作方法，包括CRUD操作和复杂查询。 继承自Spring Data JPA的JpaRepository，自动生成基本的CRUD方法。</para>
 <para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+<simplesect kind="since"><para>2023-01-01</para>
+</simplesect>
+<simplesect kind="see"><para>org.springframework.data.jpa.repository.JpaRepository </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Role" kindref="compound">com.gmp.auth.entity.Role</ref> </para>
 </simplesect>
 </para>
     </detaileddescription>
@@ -158,7 +224,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="18" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" bodystart="18" bodyend="57"/>
+    <location file="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" line="26" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/repository/RoleRepository.java" bodystart="26" bodyend="83"/>
     <listofallmembers>
       <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1abc5b0ddb421ca3fb8b578fb3c50ec1ba" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::RoleRepository</scope><name>existsByRoleCode</name></member>
       <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RoleRepository_1a4dc33de8f9a10802cab7de489f809f6b" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::RoleRepository</scope><name>findByIsActiveTrue</name></member>

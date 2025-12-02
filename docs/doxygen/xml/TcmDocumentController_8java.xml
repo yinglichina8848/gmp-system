@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TcmDocumentController_8java" kind="file" language="Java">
+    <compoundname>TcmDocumentController.java</compoundname>
+    <includes local="no">com.gmp.edms.dto.ApiResponse</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/controller/TcmDocumentController.java</label>
+        <link refid="TcmDocumentController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.dto.ApiResponse</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController" prot="public">com::gmp::edms::controller::TcmDocumentController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1controller">com::gmp::edms::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.ApiResponse;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.TcmDocumentDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.entity.TcmDocument;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.service.TcmDocumentService;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.RequiredArgsConstructor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.PageRequest;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/v1/tcm-documents&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@RequiredArgsConstructor</highlight></codeline>
+<codeline lineno="22" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController" kindref="compound">TcmDocumentController</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a2e7d97f22cab1b26fcff259773481bec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>TcmDocumentService<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a2e7d97f22cab1b26fcff259773481bec" kindref="member">tcmDocumentService</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping</highlight></codeline>
+<codeline lineno="30" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a44dc70ba9ca9b81423f69671c85636ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ApiResponse&lt;TcmDocument&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a44dc70ba9ca9b81423f69671c85636ef" kindref="member">createTcmDocument</ref>(@RequestBody<sp/>TcmDocumentDTO<sp/>tcmDocumentDTO)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDocument<sp/>tcmDocument<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a2e7d97f22cab1b26fcff259773481bec" kindref="member">tcmDocumentService</ref>.createTcmDocument(tcmDocumentDTO);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmDocument);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="39" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a1a85365f13683a9b4b960158ded49a6c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;TcmDocument&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a1a85365f13683a9b4b960158ded49a6c" kindref="member">updateTcmDocument</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>@RequestBody<sp/>TcmDocumentDTO<sp/>tcmDocumentDTO)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDocument<sp/>tcmDocument<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a2e7d97f22cab1b26fcff259773481bec" kindref="member">tcmDocumentService</ref>.updateTcmDocument(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>tcmDocumentDTO);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmDocument);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="48" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1af02e7e3d0743421a5a9f234cfd29c251" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;TcmDocument&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1af02e7e3d0743421a5a9f234cfd29c251" kindref="member">getTcmDocumentById</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDocument<sp/>tcmDocument<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a2e7d97f22cab1b26fcff259773481bec" kindref="member">tcmDocumentService</ref>.getTcmDocumentById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmDocument);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/number/{documentNumber}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="57" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a2a2927bff49574e226a81a4d958904aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;TcmDocument&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a2a2927bff49574e226a81a4d958904aa" kindref="member">getTcmDocumentByNumber</ref>(@PathVariable<sp/>String<sp/>documentNumber)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDocument<sp/>tcmDocument<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a2e7d97f22cab1b26fcff259773481bec" kindref="member">tcmDocumentService</ref>.getTcmDocumentByNumber(documentNumber);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmDocument);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/herb/{herbName}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="66" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a04c23a1768552436612430f3a54a936e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;List&lt;TcmDocument&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a04c23a1768552436612430f3a54a936e" kindref="member">getTcmDocumentsByHerbName</ref>(@PathVariable<sp/>String<sp/>herbName)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TcmDocument&gt;<sp/>tcmDocuments<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a2e7d97f22cab1b26fcff259773481bec" kindref="member">tcmDocumentService</ref>.getTcmDocumentsByHerbName(herbName);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmDocuments);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping</highlight></codeline>
+<codeline lineno="75" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1aa34f9992a99aa1165dfd75e994096904" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ApiResponse&lt;Page&lt;TcmDocument&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1aa34f9992a99aa1165dfd75e994096904" kindref="member">getTcmDocuments</ref>(</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>page,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;10&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(page,<sp/>size);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TcmDocument&gt;<sp/>tcmDocuments<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a2e7d97f22cab1b26fcff259773481bec" kindref="member">tcmDocumentService</ref>.getTcmDocuments(pageable);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmDocuments);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>@DeleteMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="87" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a4baf9947ce9f3ab3cdd3287a1c075251" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;String&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a4baf9947ce9f3ab3cdd3287a1c075251" kindref="member">deleteTcmDocument</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentController_1a2e7d97f22cab1b26fcff259773481bec" kindref="member">tcmDocumentService</ref>.deleteTcmDocument(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;删除成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/controller/TcmDocumentController.java"/>
+  </compounddef>
+</doxygen>

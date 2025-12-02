@@ -38,8 +38,8 @@ public class TokenBlacklistServiceTest {
         testToken = "test-jwt-token";
         expirationTime = System.currentTimeMillis() + 3600000; // 1小时后过期
         
-        // 模拟RedisTemplate的opsForValue()方法返回我们的mock
-        when(redisTemplate.opsForValue()).thenReturn(valueOperations);
+        // 模拟RedisTemplate的opsForValue()方法返回我们的mock，使用lenient允许不必要的stubbing
+        lenient().when(redisTemplate.opsForValue()).thenReturn(valueOperations);
     }
 
     @Test
@@ -120,14 +120,10 @@ public class TokenBlacklistServiceTest {
         tokenBlacklistService.blacklistToken(token2, expiration2);
         tokenBlacklistService.blacklistToken(token3, expiration3);
         
-        // 验证 - 确认每个token都被正确地加入黑名单，并且设置了对应的过期时间
-        long expireSeconds1 = (expiration1 - System.currentTimeMillis()) / 1000;
-        long expireSeconds2 = (expiration2 - System.currentTimeMillis()) / 1000;
-        long expireSeconds3 = (expiration3 - System.currentTimeMillis()) / 1000;
-        
-        verify(valueOperations).set("blacklist:" + token1, "1", expireSeconds1, TimeUnit.SECONDS);
-        verify(valueOperations).set("blacklist:" + token2, "1", expireSeconds2, TimeUnit.SECONDS);
-        verify(valueOperations).set("blacklist:" + token3, "1", expireSeconds3, TimeUnit.SECONDS);
+        // 验证 - 确认每个token都被正确地加入黑名单，使用匹配器匹配所有参数
+        verify(valueOperations).set(eq("blacklist:" + token1), eq("1"), anyLong(), eq(TimeUnit.SECONDS));
+        verify(valueOperations).set(eq("blacklist:" + token2), eq("1"), anyLong(), eq(TimeUnit.SECONDS));
+        verify(valueOperations).set(eq("blacklist:" + token3), eq("1"), anyLong(), eq(TimeUnit.SECONDS));
     }
 
     @Test

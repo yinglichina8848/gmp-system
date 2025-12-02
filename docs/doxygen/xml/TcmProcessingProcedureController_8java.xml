@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TcmProcessingProcedureController_8java" kind="file" language="Java">
+    <compoundname>TcmProcessingProcedureController.java</compoundname>
+    <includes local="no">com.gmp.mes.dto.TcmProcessingProcedureDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>mes-service/src/main/java/com/gmp/mes/controller/TcmProcessingProcedureController.java</label>
+        <link refid="TcmProcessingProcedureController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.mes.dto.TcmProcessingProcedureDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController" prot="public">com::gmp::mes::controller::TcmProcessingProcedureController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1mes_1_1controller">com::gmp::mes::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.mes.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.mes.dto.TcmProcessingProcedureDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.mes.entity.TcmProcessingProcedure;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.mes.model.ApiResponse;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.mes.service.TcmProcessingProcedureService;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.RequiredArgsConstructor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.PageRequest;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/v1/tcm-processing-procedures&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@RequiredArgsConstructor</highlight></codeline>
+<codeline lineno="22" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController" kindref="compound">TcmProcessingProcedureController</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1acdd3b93f1a3c8a0b0e19620795c6e92a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>TcmProcessingProcedureService<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1acdd3b93f1a3c8a0b0e19620795c6e92a" kindref="member">tcmProcessingProcedureService</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping</highlight></codeline>
+<codeline lineno="30" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1a0b7c73a9cff6ffb7cca05ebe6436c717" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ApiResponse&lt;TcmProcessingProcedure&gt;<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1a0b7c73a9cff6ffb7cca05ebe6436c717" kindref="member">createTcmProcessingProcedure</ref>(@RequestBody<sp/>TcmProcessingProcedureDTO<sp/>tcmProcessingProcedureDTO)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmProcessingProcedure<sp/>tcmProcessingProcedure<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1acdd3b93f1a3c8a0b0e19620795c6e92a" kindref="member">tcmProcessingProcedureService</ref>.createTcmProcessingProcedure(tcmProcessingProcedureDTO);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmProcessingProcedure);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="39" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1a7f5097d14b2eaeb2ec436f0a031d898e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;TcmProcessingProcedure&gt;<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1a7f5097d14b2eaeb2ec436f0a031d898e" kindref="member">updateTcmProcessingProcedure</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>@RequestBody<sp/>TcmProcessingProcedureDTO<sp/>tcmProcessingProcedureDTO)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmProcessingProcedure<sp/>tcmProcessingProcedure<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1acdd3b93f1a3c8a0b0e19620795c6e92a" kindref="member">tcmProcessingProcedureService</ref>.updateTcmProcessingProcedure(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>tcmProcessingProcedureDTO);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmProcessingProcedure);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="48" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1aa1c34cb1d58e948d699a0566be6043c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;TcmProcessingProcedure&gt;<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1aa1c34cb1d58e948d699a0566be6043c8" kindref="member">getTcmProcessingProcedureById</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmProcessingProcedure<sp/>tcmProcessingProcedure<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1acdd3b93f1a3c8a0b0e19620795c6e92a" kindref="member">tcmProcessingProcedureService</ref>.getTcmProcessingProcedureById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmProcessingProcedure);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/number/{procedureNumber}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="57" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1a909b5182dd87e4b89f54a75557ddd46e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;TcmProcessingProcedure&gt;<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1a909b5182dd87e4b89f54a75557ddd46e" kindref="member">getTcmProcessingProcedureByNumber</ref>(@PathVariable<sp/>String<sp/>procedureNumber)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmProcessingProcedure<sp/>tcmProcessingProcedure<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1acdd3b93f1a3c8a0b0e19620795c6e92a" kindref="member">tcmProcessingProcedureService</ref>.getTcmProcessingProcedureByNumber(procedureNumber);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmProcessingProcedure);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping</highlight></codeline>
+<codeline lineno="66" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1a394285c80addfcade802cc41e6ef731a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ApiResponse&lt;Page&lt;TcmProcessingProcedure&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1a394285c80addfcade802cc41e6ef731a" kindref="member">getTcmProcessingProcedures</ref>(</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>page,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;10&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(page,<sp/>size);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;TcmProcessingProcedure&gt;<sp/>tcmProcessingProcedures<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1acdd3b93f1a3c8a0b0e19620795c6e92a" kindref="member">tcmProcessingProcedureService</ref>.getTcmProcessingProcedures(pageable);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(tcmProcessingProcedures);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@DeleteMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="78" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1a8a42b6372f0f7b153a7aeebd4efe9f0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Void&gt;<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1a8a42b6372f0f7b153a7aeebd4efe9f0b" kindref="member">deleteTcmProcessingProcedure</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1TcmProcessingProcedureController_1acdd3b93f1a3c8a0b0e19620795c6e92a" kindref="member">tcmProcessingProcedureService</ref>.deleteTcmProcessingProcedure(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="mes-service/src/main/java/com/gmp/mes/controller/TcmProcessingProcedureController.java"/>
+  </compounddef>
+</doxygen>

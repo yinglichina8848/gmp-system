@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="CapaServiceImplTest_8java" kind="file" language="Java">
+    <compoundname>CapaServiceImplTest.java</compoundname>
+    <includes local="no">com.gmp.qms.dto.CapaDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/test/java/com/gmp/qms/service/impl/CapaServiceImplTest.java</label>
+        <link refid="CapaServiceImplTest_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.dto.CapaDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest" prot="public">com::gmp::qms::service::impl::CapaServiceImplTest</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1service_1_1impl">com::gmp::qms::service::impl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.service.impl;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.CapaDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.CapaSearchCriteria;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.entity.Capa;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.entity.CapaAttachment;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.exception.ResourceNotFoundException;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.repository.CapaRepository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.BeforeEach;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.extension.ExtendWith;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.InjectMocks;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.Mock;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.junit.jupiter.MockitoExtension;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.PageImpl;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.PageRequest;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.Specification;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.mock.web.MockMultipartFile;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.UUID;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.*;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.any;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.Mockito.*;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">@ExtendWith(MockitoExtension.class)</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest" kindref="compound">CapaServiceImplTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline lineno="44" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1aab7d2aada7fe3130b289146fb08d0122" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>CapaRepository<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1aab7d2aada7fe3130b289146fb08d0122" kindref="member">capaRepository</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@InjectMocks</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1ab0df48f0fd668ea5b34dad4faaa3bd33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl" kindref="compound">CapaServiceImpl</ref><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1ab0df48f0fd668ea5b34dad4faaa3bd33" kindref="member">capaService</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1ab29391db4a9d34cb45914c8557d5209e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Capa<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1ab29391db4a9d34cb45914c8557d5209e" kindref="member">capa</ref>;</highlight></codeline>
+<codeline lineno="50" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a94be8fc4b936807cfaea97d12839dee4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>CapaDTO<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a94be8fc4b936807cfaea97d12839dee4" kindref="member">capaDTO</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@BeforeEach</highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1aa63aace6f1aaf878c7fe016d996a0cdb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1aa63aace6f1aaf878c7fe016d996a0cdb" kindref="member">setUp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>初始化测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capa<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Capa();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capa.setId(1L);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capa.setCapaCode(</highlight><highlight class="stringliteral">&quot;CAPA-2024-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capa.setTitle(</highlight><highlight class="stringliteral">&quot;测试CAPA&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capa.setDescription(</highlight><highlight class="stringliteral">&quot;测试CAPA描述&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capa.setPriorityLevel(Capa.PriorityLevel.MEDIUM);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capa.setStatus(Capa.CapaStatus.IDENTIFIED);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capa.setAttachments(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;());</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CapaDTO();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaDTO.setTitle(</highlight><highlight class="stringliteral">&quot;测试CAPA&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaDTO.setDescription(</highlight><highlight class="stringliteral">&quot;测试CAPA描述&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaDTO.setPriorityLevel(Capa.PriorityLevel.HIGH.name());</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaDTO.setResponsiblePersonId(1L);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaDTO.setTargetCompletionDate(LocalDate.now().plusDays(30));</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaDTO.setProblemDescription(</highlight><highlight class="stringliteral">&quot;问题描述&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaDTO.setRootCauseAnalysis(</highlight><highlight class="stringliteral">&quot;根本原因分析&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaDTO.setCorrectiveAction(</highlight><highlight class="stringliteral">&quot;纠正措施&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaDTO.setPreventiveAction(</highlight><highlight class="stringliteral">&quot;预防措施&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="77" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a25350221948dc972e17c436457293908" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a25350221948dc972e17c436457293908" kindref="member">testGetCapaById</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findById(1L)).thenReturn(Optional.of(capa));</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Capa<sp/>result<sp/>=<sp/>capaService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl_1a9e33b8e91a3ee62d530f71e1b510f57a" kindref="member">getCapaById</ref>(1L);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;CAPA-2024-0001&quot;</highlight><highlight class="normal">,<sp/>result.getCapaCode());</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(capaRepository).findById(1L);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="88" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a2dd5422393d15085f60db2f6555cf5e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a2dd5422393d15085f60db2f6555cf5e1" kindref="member">testGetCapaByIdNotFound</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findById(1L)).thenReturn(Optional.empty());</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResourceNotFoundException<sp/>exception<sp/>=<sp/>assertThrows(ResourceNotFoundException.class,<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaService.getCapaById(1L);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;CAPA<sp/>not<sp/>found<sp/>with<sp/>id:<sp/>1&quot;</highlight><highlight class="normal">,<sp/>exception.getMessage());</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="99" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1ac20f33d201cd0f55584535895295d7cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1ac20f33d201cd0f55584535895295d7cf" kindref="member">testGetCapaByCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findByCapaCode(</highlight><highlight class="stringliteral">&quot;CAPA-2024-0001&quot;</highlight><highlight class="normal">)).thenReturn(capa);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Capa<sp/>result<sp/>=<sp/>capaService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl_1a451efe75ea55af33fc48e9f7401a1f78" kindref="member">getCapaByCode</ref>(</highlight><highlight class="stringliteral">&quot;CAPA-2024-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1L,<sp/>result.getId());</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(capaRepository).findByCapaCode(</highlight><highlight class="stringliteral">&quot;CAPA-2024-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="110" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1ac1a40dfb8d769f7af243abd50119c130" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1ac1a40dfb8d769f7af243abd50119c130" kindref="member">testCreateCapa</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>设置模拟数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.count()).thenReturn(9L);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.save(any(Capa.class))).thenReturn(capa);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行测试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Capa<sp/>result<sp/>=<sp/>capaService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl_1aa91e59728db8442a9e82f03b5c48567d" kindref="member">createCapa</ref>(capaDTO);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证结果</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;测试CAPA&quot;</highlight><highlight class="normal">,<sp/>result.getTitle());</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(capaRepository).count();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(capaRepository).save(any(Capa.class));</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="126" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a0fcebc8e15974dbec549ec4370c98731" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a0fcebc8e15974dbec549ec4370c98731" kindref="member">testUpdateCapa</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findById(1L)).thenReturn(Optional.of(capa));</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.save(any(Capa.class))).thenReturn(capa);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaDTO.setTitle(</highlight><highlight class="stringliteral">&quot;更新后的标题&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Capa<sp/>result<sp/>=<sp/>capaService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl_1a5c27b891f6c59b61c2414a20af50f6f2" kindref="member">updateCapa</ref>(1L,<sp/>capaDTO);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;更新后的标题&quot;</highlight><highlight class="normal">,<sp/>result.getTitle());</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="138" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1af44e81c7eb5ceced34412079d5edaa8f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1af44e81c7eb5ceced34412079d5edaa8f" kindref="member">testFindAllCapas</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Capa&gt;<sp/>capas<sp/>=<sp/>Arrays.asList(capa);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Capa&gt;<sp/>page<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(capas,<sp/>pageable,<sp/>capas.size());</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findAll(pageable)).thenReturn(page);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Capa&gt;<sp/>result<sp/>=<sp/>capaService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl_1a74dbd4380cbcc349393911032a3c5491" kindref="member">findAllCapas</ref>(pageable);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="152" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1aa29ab56bc1e0573c03434e3c67097b06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1aa29ab56bc1e0573c03434e3c67097b06" kindref="member">testSearchCapas</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CapaSearchCriteria<sp/>criteria<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CapaSearchCriteria();</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>criteria.setKeyword(</highlight><highlight class="stringliteral">&quot;测试&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Capa&gt;<sp/>capas<sp/>=<sp/>Arrays.asList(capa);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Capa&gt;<sp/>page<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(capas,<sp/>pageable,<sp/>capas.size());</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findAll(any(Specification.class),<sp/>eq(pageable))).thenReturn(page);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Capa&gt;<sp/>result<sp/>=<sp/>capaService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl_1a01424ba0f32ff0dc9ea222514f8eefaf" kindref="member">searchCapas</ref>(criteria,<sp/>pageable);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="169" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1af6db6324ff9b71aec900b8c0e1913e8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1af6db6324ff9b71aec900b8c0e1913e8a" kindref="member">testUpdateCapaStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findById(1L)).thenReturn(Optional.of(capa));</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.save(any(Capa.class))).thenReturn(capa);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Capa<sp/>result<sp/>=<sp/>capaService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl_1a82dce8cad985217f959fec158bbca418" kindref="member">updateCapaStatus</ref>(1L,<sp/>Capa.CapaStatus.CLOSED,<sp/></highlight><highlight class="stringliteral">&quot;测试关闭备注&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(Capa.CapaStatus.CLOSED,<sp/>result.getStatus());</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="180" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a81b054f40d078d45aa9acc96005ee74c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a81b054f40d078d45aa9acc96005ee74c" kindref="member">testGenerateCapaCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>注意：generateCapaCode方法现在使用UUID而不是查询数据库</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>code<sp/>=<sp/>capaService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl_1af210b856ca681bf5ff021d25ba5e9418" kindref="member">generateCapaCode</ref>();</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(code);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(code.startsWith(</highlight><highlight class="stringliteral">&quot;CAPA-&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证格式:<sp/>CAPA-YYYYMMDD-XXXXX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(code.matches(</highlight><highlight class="stringliteral">&quot;CAPA-\\d{8}-[A-Z0-9]{5}&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="192" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1af3abe08a2eeab71c54a9ef04345ffcae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1af3abe08a2eeab71c54a9ef04345ffcae" kindref="member">testAddAttachment</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>创建模拟文件</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockMultipartFile<sp/>file<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MockMultipartFile(</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;test.txt&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Test<sp/>content&quot;</highlight><highlight class="normal">.getBytes());</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>当调用findById时返回空</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findById(1L)).thenReturn(Optional.empty());</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>测试文件上传失败场景</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThrows(ResourceNotFoundException.class,<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaService.addAttachment(1L,<sp/>file,<sp/></highlight><highlight class="stringliteral">&quot;测试附件&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},<sp/></highlight><highlight class="stringliteral">&quot;Expected<sp/>ResourceNotFoundException<sp/>but<sp/>no<sp/>exception<sp/>was<sp/>thrown&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="210" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a1a2a881f96a7c3b581c13e879b4238de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a1a2a881f96a7c3b581c13e879b4238de" kindref="member">testRemoveAttachment</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CapaAttachment<sp/>attachment<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CapaAttachment();</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>attachment.setId(1L);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capa.getAttachments().add(attachment);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findById(1L)).thenReturn(Optional.of(capa));</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.save(any(Capa.class))).thenReturn(capa);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Capa<sp/>result<sp/>=<sp/>capaService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl_1a67cac9947f27e14878ee7eb5ccd6bd3a" kindref="member">removeAttachment</ref>(1L,<sp/>1L);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(result.getAttachments().isEmpty());</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(capaRepository).save(any(Capa.class));</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="226" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a1f5fdce0a80b6d4213e8fb1931fddbd0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a1f5fdce0a80b6d4213e8fb1931fddbd0" kindref="member">testRemoveAttachmentNotFound</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findById(1L)).thenReturn(Optional.of(capa));</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResourceNotFoundException<sp/>exception<sp/>=<sp/>assertThrows(ResourceNotFoundException.class,<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaService.removeAttachment(1L,<sp/>999L);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;Attachment<sp/>not<sp/>found<sp/>with<sp/>id:<sp/>999&quot;</highlight><highlight class="normal">,<sp/>exception.getMessage());</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(capaRepository,<sp/>never()).save(any(Capa.class));</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="238" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a0da7e3150448243c05948e7552984d58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a0da7e3150448243c05948e7552984d58" kindref="member">testFindOverdueCapas</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Capa&gt;<sp/>overdueCapas<sp/>=<sp/>Arrays.asList(capa);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Capa.CapaStatus&gt;<sp/>excludedStatuses<sp/>=<sp/>List.of(</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Capa.CapaStatus.CLOSED,</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Capa.CapaStatus.REJECTED);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findOverdueCapa(any(LocalDateTime.class),<sp/>eq(excludedStatuses)))</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.thenReturn(overdueCapas);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Capa&gt;<sp/>result<sp/>=<sp/>capaService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl_1ae87daa2c8202f75f270c829ad8807a0a" kindref="member">findOverdueCapas</ref>();</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.size());</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(capaRepository).findOverdueCapa(any(LocalDateTime.class),<sp/>eq(excludedStatuses));</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="255" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a695787b21a49e92b9701949528e4e138" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImplTest_1a695787b21a49e92b9701949528e4e138" kindref="member">testAddAttachmentSuccess</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>为了避免实际文件操作，我们需要模拟文件系统相关的行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>这里我们需要模拟Files类的静态方法，这在标准JUnit/Mockito中比较复杂</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>但我们可以通过测试抛出异常的方式来部分测试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(capaRepository.findById(1L)).thenReturn(Optional.of(capa));</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>创建模拟文件</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockMultipartFile<sp/>file<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MockMultipartFile(</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;test.txt&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Test<sp/>content&quot;</highlight><highlight class="normal">.getBytes());</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>由于addAttachment方法中包含文件系统操作，实际测试会抛出IOException</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>我们测试异常捕获和处理</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThrows(<ref refid="classRuntimeException" kindref="compound">RuntimeException</ref>.class,<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaService.addAttachment(1L,<sp/>file,<sp/></highlight><highlight class="stringliteral">&quot;测试附件&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},<sp/></highlight><highlight class="stringliteral">&quot;Expected<sp/>RuntimeException<sp/>due<sp/>to<sp/>file<sp/>system<sp/>operation&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证异常消息是否符合预期</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>capaService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1CapaServiceImpl_1af0e03026991eb8c7841f235a488feb5c" kindref="member">addAttachment</ref>(1L,<sp/>file,<sp/></highlight><highlight class="stringliteral">&quot;测试附件&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fail(</highlight><highlight class="stringliteral">&quot;Expected<sp/>RuntimeException<sp/>but<sp/>no<sp/>exception<sp/>was<sp/>thrown&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<ref refid="classRuntimeException" kindref="compound">RuntimeException</ref><sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(e.getMessage().contains(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>upload<sp/>file&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/test/java/com/gmp/qms/service/impl/CapaServiceImplTest.java"/>
+  </compounddef>
+</doxygen>

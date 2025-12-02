@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="MinioConfiguration_8java" kind="file" language="Java">
+    <compoundname>MinioConfiguration.java</compoundname>
+    <includes local="no">io.minio.MinioClient</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/config/MinioConfiguration.java</label>
+        <link refid="MinioConfiguration_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>io.minio.MinioClient</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration" prot="public">com::gmp::edms::config::MinioConfiguration</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1config">com::gmp::edms::config</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.config;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>io.minio.MinioClient;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Value;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.context.annotation.Bean;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.context.annotation.Configuration;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">@Configuration</highlight></codeline>
+<codeline lineno="12" refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration" kindref="compound">MinioConfiguration</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>@Value(</highlight><highlight class="stringliteral">&quot;${minio.url}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="15" refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration_1a70e842ade623576d361ab6a6b94be732" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration_1a70e842ade623576d361ab6a6b94be732" kindref="member">endpoint</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>@Value(&quot;${minio.access-key}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="18" refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration_1a59651d1004671cf7a1cfa1134f21fb43" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>accessKey;</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Value(&quot;</highlight><highlight class="normal">${minio.secret-key}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="21" refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration_1ad677896bbb0518625c084165ef41aba1" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>secretKey;</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Value(&quot;</highlight><highlight class="normal">${minio.bucket-name}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration_1a458fda185d995bc6f62ed7e518b790a6" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>bucketName;</highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Value(&quot;</highlight><highlight class="normal">${minio.default-bucket}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration_1a6bf9224d3c09f8c517c696fa043a62c2" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>defaultBucket;</highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean</highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration_1a834a2727f7c0e7a808292e607c2c7694" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>MinioClient<sp/>minioClient()<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>MinioClient.builder()</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.endpoint(endpoint)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.credentials(accessKey,<sp/>secretKey)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.build();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration_1ab05a34400d04e8c268fef38e0e759472" kindref="member">defaultBucketName</ref></highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="44" refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration_1ab05a34400d04e8c268fef38e0e759472" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>String<sp/>defaultBucketName()<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>defaultBucket;</highlight></codeline>
+<codeline lineno="46"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration_1a470e2ef2dc95cd7a604233a5dafce3ce" kindref="member">edmsBucketName</ref></highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="52" refid="classcom_1_1gmp_1_1edms_1_1config_1_1MinioConfiguration_1a470e2ef2dc95cd7a604233a5dafce3ce" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>String<sp/>edmsBucketName()<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>bucketName;</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/config/MinioConfiguration.java"/>
+  </compounddef>
+</doxygen>

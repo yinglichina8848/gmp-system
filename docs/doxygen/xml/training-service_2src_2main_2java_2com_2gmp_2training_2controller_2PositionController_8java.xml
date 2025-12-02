@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="training-service_2src_2main_2java_2com_2gmp_2training_2controller_2PositionController_8java" kind="file" language="Java">
+    <compoundname>PositionController.java</compoundname>
+    <includes local="no">com.gmp.training.entity.Position</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/main/java/com/gmp/training/controller/PositionController.java</label>
+        <link refid="training-service_2src_2main_2java_2com_2gmp_2training_2controller_2PositionController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.training.entity.Position</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController" prot="public">com::gmp::training::controller::PositionController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1controller">com::gmp::training::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.entity.Position;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.service.PositionService;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.web.PageableDefault;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.ResponseEntity;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.Valid;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/positions&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController" kindref="compound">PositionController</ref><sp/>extends<sp/><ref refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController" kindref="compound">BaseController</ref>&lt;Position,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="25" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a9ce37669262844f18851418bf4555f37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>PositionService<sp/><ref refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a9ce37669262844f18851418bf4555f37" kindref="member">positionService</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/code/{code}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a005e79ea07137810d726ad08fa116087" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Position&gt;<sp/>findByCode(@PathVariable<sp/>String<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.findByCode(code));</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/name/{name}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="45" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a990911f19bd3dd0bb331fe116b63d313" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Position&gt;<sp/>findByName(@PathVariable<sp/>String<sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.findByName(name));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/exists/code/{code}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="56" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1adedb47f93bcdf7ecf6d0d2f8d1bd7d3c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Boolean&gt;<sp/>existsByCode(@PathVariable<sp/>String<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.existsByCode(code));</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/exists/name/{name}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="67" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a364f01c625eecc8385113c6cc69edef9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Boolean&gt;<sp/>existsByName(@PathVariable<sp/>String<sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.existsByName(name));</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/department/{departmentId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="78" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a11acb55b2fb92f7d2a3341b3c36e774e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;List&lt;Position&gt;&gt;<sp/>findByDepartmentId(@PathVariable<sp/>Long<sp/>departmentId)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.findByDepartmentId(departmentId));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/department/{departmentId}/page&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="90" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1ab3c2c7d53161ef8bd70ec85b7908f3d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;Position&gt;&gt;<sp/>findByDepartmentIdWithPage(@PathVariable<sp/>Long<sp/>departmentId,<sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.findByDepartmentId(departmentId,<sp/>pageable));</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/gmp&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="102" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a0a2dcae2c3dc6d05379ebf78ec318a34" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;Position&gt;&gt;<sp/>findByGmpRequired(@RequestParam<sp/>Boolean<sp/>gmpRequired,<sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.findByGmpRequired(gmpRequired,<sp/>pageable));</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{id}/status&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="114" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a38924e0e5f70c5f36b59baae970cc1c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Position&gt;<sp/>updateStatus(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>@RequestParam<sp/>Boolean<sp/>active)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.updateStatus(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>active));</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{id}/department&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="126" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a4932a3591813640e51d0e14dcfeeedd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Position&gt;<sp/>updateDepartment(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>@RequestParam<sp/>Long<sp/>departmentId)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.updateDepartment(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>departmentId));</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/batch/disable&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="137" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a50be5b3c1dced3c00b48b56c5c8de1b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Integer&gt;<sp/>batchDisable(@RequestBody<sp/>List&lt;Long&gt;<sp/>ids)<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.batchDisable(ids));</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/batch/enable&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="148" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a130ba39678e48b49875f1a252f7544bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Integer&gt;<sp/>batchEnable(@RequestBody<sp/>List&lt;Long&gt;<sp/>ids)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.batchEnable(ids));</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/training-type/{trainingTypeId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="159" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1a5d81abf5a50076932e4ea1885926aa82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;List&lt;Position&gt;&gt;<sp/>findByTrainingTypeId(@PathVariable<sp/>Long<sp/>trainingTypeId)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.findByTrainingTypeId(trainingTypeId));</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/search&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="171" refid="classcom_1_1gmp_1_1training_1_1controller_1_1PositionController_1adeb7ae40ca0781386bc6528898671aa3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;Position&gt;&gt;<sp/>search(@RequestParam<sp/>String<sp/>keyword,<sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(positionService.search(keyword,<sp/>pageable));</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/main/java/com/gmp/training/controller/PositionController.java"/>
+  </compounddef>
+</doxygen>

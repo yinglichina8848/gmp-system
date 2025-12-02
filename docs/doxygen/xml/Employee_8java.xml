@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Employee_8java" kind="file" language="Java">
+    <compoundname>Employee.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>hr-service/src/main/java/com/gmp/hr/entity/Employee.java</label>
+        <link refid="Employee_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee" prot="public">com::gmp::hr::entity::Employee</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1hr_1_1entity">com::gmp::hr::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.hr.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.EqualsAndHashCode;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.ToString;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedBy;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedBy;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.Email;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotBlank;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotNull;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.Past;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.HashSet;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;hr_employee&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="32" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee" kindref="compound">Employee</ref><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="39" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a76453cd7f4d13f5713968b8036e02aca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;employee_code&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>unique<sp/>=<sp/>true,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;员工工号不能为空&quot;)</highlight></codeline>
+<codeline lineno="46" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a179b545afd95b7ebdf5535115e027649" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>employeeCode;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;name&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;员工姓名不能为空&quot;)</highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a031505b6ee66aa9527eac2557e72b1f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>name;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;id_card&quot;,<sp/>length<sp/>=<sp/>18,<sp/>unique<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a21aa1c801baa4a78139cef9361b93b06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>idCard;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;gender&quot;,<sp/>length<sp/>=<sp/>10)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a2f6ed278523fe685b4e7ed5760a5293b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>gender;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;birth_date&quot;)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Past(message<sp/>=<sp/>&quot;出生日期必须是过去的日期&quot;)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a5745dc9f4e5d50ae168c1ad6751b2b83" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDate<sp/>birthDate;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;hire_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotNull(message<sp/>=<sp/>&quot;入职日期不能为空&quot;)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>@Past(message<sp/>=<sp/>&quot;入职日期必须是过去的日期&quot;)</highlight></codeline>
+<codeline lineno="80" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a7f9cf31821e05a98520007b28c0dd10f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDate<sp/>hireDate;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;departure_date&quot;)</highlight></codeline>
+<codeline lineno="86" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a18ec77ec5ed86ff62561cc4f0f2a0092" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDate<sp/>departureDate;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;phone_number&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="92" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1aff1c73eae10eb881abcdd868baf874fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>phoneNumber;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;email&quot;,<sp/>length<sp/>=<sp/>100,<sp/>unique<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@Email(message<sp/>=<sp/>&quot;邮箱格式不正确&quot;)</highlight></codeline>
+<codeline lineno="99" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1aff51a2e39a1121f29996d944fb84f381" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>email;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;员工状态不能为空&quot;)</highlight></codeline>
+<codeline lineno="106" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a900fa47ce9b0096f8d15e4ee6174e550" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>status;<sp/></highlight><highlight class="comment">//<sp/>ACTIVE,<sp/>ON_LEAVE,<sp/>RESIGNED,<sp/>TERMINATED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;department_id&quot;)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>@EqualsAndHashCode.Exclude</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>@ToString.Exclude</highlight></codeline>
+<codeline lineno="115" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a024a5a47acf563e77d374e6245e24725" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Department" kindref="compound">Department</ref><sp/>department;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;position_id&quot;)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>@EqualsAndHashCode.Exclude</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>@ToString.Exclude</highlight></codeline>
+<codeline lineno="124" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1ade338ad6816a56dd4ecc1529d61ba489" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Position" kindref="compound">Position</ref><sp/>position;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;employee&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>@EqualsAndHashCode.Exclude</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>@ToString.Exclude</highlight></codeline>
+<codeline lineno="132" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a6f9c16c3838270a4e0b33f29cc5940cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Set&lt;<ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Qualification" kindref="compound">Qualification</ref>&gt;<sp/>qualifications<sp/>=<sp/>new<sp/>HashSet&lt;&gt;();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;employee&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>@EqualsAndHashCode.Exclude</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>@ToString.Exclude</highlight></codeline>
+<codeline lineno="140" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a9ca18f53a3b8dd2eb5a74d6a0ad36a07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Set&lt;<ref refid="classcom_1_1gmp_1_1hr_1_1entity_1_1TrainingRecord" kindref="compound">TrainingRecord</ref>&gt;<sp/>trainingRecords<sp/>=<sp/>new<sp/>HashSet&lt;&gt;();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="147" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a8f7aa7c322da975db12e5933d6ea282a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedBy</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>updatable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="154" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1aa3d327d75ac620ab9d52785cf6c6155c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;)</highlight></codeline>
+<codeline lineno="161" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1ae6d87c469934bbe89013b5c0769c9450" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedBy</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="168" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1a9301c49895b43ae07126212bb56708ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;deleted&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="174" refid="classcom_1_1gmp_1_1hr_1_1entity_1_1Employee_1ae3d1f2a0f2c73195d4c4536a7389aec3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Boolean<sp/>deleted<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="hr-service/src/main/java/com/gmp/hr/entity/Employee.java"/>
+  </compounddef>
+</doxygen>

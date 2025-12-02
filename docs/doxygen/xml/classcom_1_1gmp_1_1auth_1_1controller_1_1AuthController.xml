@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="30" column="33" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="30" bodyend="-1"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="38" column="33" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="38" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-attrib">
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="33" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="33" bodyend="-1"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="41" column="25" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController_1a440b93ec6952ca34087a848ff1bde771" prot="private" static="no" mutable="no">
         <type>JwtConfig</type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="36" column="23" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="36" bodyend="-1"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="44" column="23" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="44" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -68,10 +68,37 @@
 <para>用户登录 </para>
         </briefdescription>
         <detaileddescription>
+<para>处理用户登录请求，验证用户凭证，生成JWT令牌</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>登录请求，包含用户名和密码 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>httpRequest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>HTTP请求对象，用于获取客户端IP和User-Agent </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ResponseEntity&lt;ApiResponse&lt;LoginResponse&gt;&gt; 登录响应</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginRequest" kindref="compound">com.gmp.auth.dto.LoginRequest</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse" kindref="compound">com.gmp.auth.dto.LoginResponse</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a8bdb53a5ac6276565af51d441a65068b" kindref="member">com.gmp.auth.service.AuthService::login</ref>(<ref refid="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginRequest" kindref="compound">com.gmp.auth.dto.LoginRequest</ref>, String, String) </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="42" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="42" bodyend="60"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="60" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="60" bodyend="78"/>
       </memberdef>
       <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController_1a93143626b7ac95cc9c2d9cbd16260fa9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>ResponseEntity&lt; ApiResponse&lt; Void &gt; &gt;</type>
@@ -87,10 +114,25 @@
 <para>用户登出 </para>
         </briefdescription>
         <detaileddescription>
+<para>处理用户登出请求，将JWT令牌加入黑名单</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Authorization头中的JWT令牌 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ResponseEntity&lt;ApiResponse&lt;Void&gt;&gt; 登出响应</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aac1a5a81a2cce2db14483da07657dfd6" kindref="member">com.gmp.auth.service.AuthService::logout(String, String)</ref> </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="66" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="66" bodyend="78"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="91" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="91" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController_1abb0e99d3b60965eee60eca74b7a30548" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>ResponseEntity&lt; ApiResponse&lt; List&lt; User &gt; &gt; &gt;</type>
@@ -99,13 +141,19 @@
         <name>getUsers</name>
         <qualifiedname>com.gmp.auth.controller.AuthController.getUsers</qualifiedname>
         <briefdescription>
-<para>用户管理API </para>
+<para>获取用户列表 </para>
         </briefdescription>
         <detaileddescription>
+<para>获取系统中的用户列表</para>
+<para><simplesect kind="return"><para>ResponseEntity&lt;ApiResponse&lt;List&lt;User&gt;&gt;&gt; 用户列表响应</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1User" kindref="compound">com.gmp.auth.entity.User</ref> </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="84" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="84" bodyend="93"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="115" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="115" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController_1aa0e146d8a2751ccc77e4b3553fde8221" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>ResponseEntity&lt; ApiResponse&lt; List&lt; String &gt; &gt; &gt;</type>
@@ -121,10 +169,25 @@
 <para>获取用户权限 </para>
         </briefdescription>
         <detaileddescription>
+<para>获取指定用户的所有权限</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ResponseEntity&lt;ApiResponse&lt;List&lt;String&gt;&gt;&gt; 用户权限列表响应</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a07e978f3b73c352df91170738341df9d" kindref="member">com.gmp.auth.service.AuthService::getUserPermissions(String)</ref> </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="99" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="99" bodyend="107"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="137" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="137" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController_1a9a4dd8904bf34a76e29bbf66784deb03" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>ResponseEntity&lt; ApiResponse&lt; List&lt; String &gt; &gt; &gt;</type>
@@ -140,10 +203,25 @@
 <para>获取用户角色 </para>
         </briefdescription>
         <detaileddescription>
+<para>获取指定用户的所有角色</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ResponseEntity&lt;ApiResponse&lt;List&lt;String&gt;&gt;&gt; 用户角色列表响应</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1a4b4fb9114511f7c20928d57bd6485fdc" kindref="member">com.gmp.auth.service.AuthService::getUserRoles(String)</ref> </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="113" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="113" bodyend="121"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="158" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="158" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController_1a522d53ebfafe7b98dc6b7771b2261e5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>ResponseEntity&lt; ApiResponse&lt; Map&lt; String, Object &gt; &gt; &gt;</type>
@@ -163,10 +241,33 @@
 <para>检查用户权限 </para>
         </briefdescription>
         <detaileddescription>
+<para>检查指定用户是否拥有指定权限</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>permission</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限代码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ResponseEntity&lt;ApiResponse&lt;Map&lt;String, Object&gt;&gt;&gt; 权限检查响应</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1aa568eff98b61485ca32edbf8c747405d" kindref="member">com.gmp.auth.service.AuthService::hasPermission(String, String...)</ref> </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="127" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="127" bodyend="144"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="180" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="180" bodyend="197"/>
       </memberdef>
       <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController_1a620e607385bf4c0e39b6380b49c397a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>ResponseEntity&lt; ApiResponse&lt; Map&lt; String, Object &gt; &gt; &gt;</type>
@@ -186,10 +287,33 @@
 <para>检查用户角色 </para>
         </briefdescription>
         <detaileddescription>
+<para>检查指定用户是否拥有指定角色</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>role</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色代码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ResponseEntity&lt;ApiResponse&lt;Map&lt;String, Object&gt;&gt;&gt; 角色检查响应</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService_1ada8b79ae20b6eb69b5a0dd2fadf24a69" kindref="member">com.gmp.auth.service.AuthService::hasRole(String, String...)</ref> </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="150" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="150" bodyend="167"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="211" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="211" bodyend="228"/>
       </memberdef>
       <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController_1ae7f6a486687f8b1f2beb2275c34561fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>ResponseEntity&lt; ApiResponse&lt; Map&lt; String, Object &gt; &gt; &gt;</type>
@@ -201,10 +325,14 @@
 <para>系统健康检查 </para>
         </briefdescription>
         <detaileddescription>
+<para>检查认证服务的健康状态</para>
+<para><simplesect kind="return"><para>ResponseEntity&lt;ApiResponse&lt;Map&lt;String, Object&gt;&gt;&gt; 健康检查响应 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="173" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="173" bodyend="182"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="238" column="27" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="238" bodyend="247"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-func">
@@ -222,10 +350,23 @@
 <para>获取客户端IP地址 </para>
         </briefdescription>
         <detaileddescription>
+<para>从HTTP请求中获取客户端真实IP地址，支持代理服务器</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>HTTP请求对象 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>String 客户端IP地址 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="187" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="187" bodyend="199"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="257" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="257" bodyend="269"/>
       </memberdef>
       <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController_1a54f266da69ad24907e3da8ff02681fbd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>String</type>
@@ -241,17 +382,39 @@
 <para>从Authorization头中提取用户名 </para>
         </briefdescription>
         <detaileddescription>
+<para>从Bearer令牌中提取用户名</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>authHeader</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Authorization头 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>String 用户名，提取失败返回&quot;anonymous&quot; </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="204" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="204" bodyend="216"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="279" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="279" bodyend="291"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
 <para>GMP认证系统API控制器 </para>
     </briefdescription>
     <detaileddescription>
+<para>该类处理用户认证相关的API请求，包括登录、登出、权限检查、角色检查等功能。 提供RESTful风格的API接口，支持跨域请求。</para>
 <para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+<simplesect kind="since"><para>2023-01-01</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1AuthService" kindref="compound">com.gmp.auth.service.AuthService</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1config_1_1JwtConfig" kindref="compound">com.gmp.auth.config.JwtConfig</ref> </para>
 </simplesect>
 </para>
     </detaileddescription>
@@ -279,7 +442,7 @@
         <label>static final Logger</label>
       </node>
     </collaborationgraph>
-    <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="29" column="7" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="29" bodyend="217"/>
+    <location file="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" line="37" column="7" bodyfile="auth-service/src/main/java/com/gmp/auth/controller/AuthController.java" bodystart="37" bodyend="292"/>
     <listofallmembers>
       <member refid="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController_1a6b65ad33eced1bb6bcf0b204223cfafa" prot="private" virt="non-virtual"><scope>com::gmp::auth::controller::AuthController</scope><name>authService</name></member>
       <member refid="classcom_1_1gmp_1_1auth_1_1controller_1_1AuthController_1a522d53ebfafe7b98dc6b7771b2261e5e" prot="public" virt="non-virtual"><scope>com::gmp::auth::controller::AuthController</scope><name>checkPermission</name></member>

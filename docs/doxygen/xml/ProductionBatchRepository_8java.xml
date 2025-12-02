@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ProductionBatchRepository_8java" kind="file" language="Java">
+    <compoundname>ProductionBatchRepository.java</compoundname>
+    <includes local="no">com.gmp.mes.entity.ProductionBatch</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>mes-service/src/main/java/com/gmp/mes/repository/ProductionBatchRepository.java</label>
+        <link refid="ProductionBatchRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.mes.entity.ProductionBatch</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository" prot="public">com::gmp::mes::repository::ProductionBatchRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1mes_1_1repository">com::gmp::mes::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.mes.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.mes.entity.ProductionBatch;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.mes.entity.ProductionOrder;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="20" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository" kindref="compound">ProductionBatchRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;ProductionBatch,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a05f89e20f708ba5256f87f2fe186b360" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;ProductionBatch&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a05f89e20f708ba5256f87f2fe186b360" kindref="member">findByBatchNumber</ref>(String<sp/>batchNumber);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a8fdd3a848ceea6a4da941ced8953dd30" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ProductionBatch&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a8fdd3a848ceea6a4da941ced8953dd30" kindref="member">findByOrder</ref>(ProductionOrder<sp/>order);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a4eb41b7b54e1bb2ab0d0cc6d87eee1b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ProductionBatch&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a4eb41b7b54e1bb2ab0d0cc6d87eee1b5" kindref="member">findByOrderId</ref>(Long<sp/>orderId);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a541f99bd17f8b79f1b7c43250f92f2d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ProductionBatch&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a541f99bd17f8b79f1b7c43250f92f2d8" kindref="member">findByStatus</ref>(ProductionBatch.BatchStatus<sp/>status);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a312aa9075d9b0b305249d351ebdc64b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ProductionBatch&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a312aa9075d9b0b305249d351ebdc64b4" kindref="member">findByEquipmentId</ref>(String<sp/>equipmentId);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a88533b7d4b1d4c4fa28f8f53abe76148" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ProductionBatch&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a88533b7d4b1d4c4fa28f8f53abe76148" kindref="member">findByStartTimeBetween</ref>(LocalDateTime<sp/>startDate,<sp/>LocalDateTime<sp/>endDate);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>b<sp/>FROM<sp/>ProductionBatch<sp/>b<sp/>WHERE<sp/>b.status<sp/>=<sp/>:status<sp/>ORDER<sp/>BY<sp/>b.startTime<sp/>ASC&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="77" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a349e46bc13b1681eda949479e7462bf2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ProductionBatch&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a349e46bc13b1681eda949479e7462bf2" kindref="member">findActiveBatches</ref>(@Param(&quot;status&quot;)<sp/>ProductionBatch.BatchStatus<sp/>status);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a7f5a9e543f5909b46f273eb9c6790101" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionBatchRepository_1a7f5a9e543f5909b46f273eb9c6790101" kindref="member">countByStatus</ref>(ProductionBatch.BatchStatus<sp/>status);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="mes-service/src/main/java/com/gmp/mes/repository/ProductionBatchRepository.java"/>
+  </compounddef>
+</doxygen>

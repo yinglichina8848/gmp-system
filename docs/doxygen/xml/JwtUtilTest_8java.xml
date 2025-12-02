@@ -90,9 +90,9 @@
 <codeline lineno="67"><highlight class="normal"></highlight></codeline>
 <codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
 <codeline lineno="69" refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a1f8b21d2c6561589a36f34eab660528c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a1f8b21d2c6561589a36f34eab660528c" kindref="member">testGenerateRefreshToken_Success</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>refreshToken<sp/>=<sp/>jwtUtil.<ref refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a2534af230a406b560ceb19d177bb3b2c" kindref="member">generateRefreshToken</ref>(userDetails);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行<sp/>-<sp/>明确调用接受UserDetails参数的方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>refreshToken<sp/>=<sp/>jwtUtil.<ref refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtil_1a2534af230a406b560ceb19d177bb3b2c" kindref="member">generateRefreshToken</ref>((org.springframework.security.core.userdetails.UserDetails)<sp/>userDetails);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
 <codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(refreshToken);</highlight></codeline>
 <codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertFalse(refreshToken.isEmpty());</highlight></codeline>
@@ -100,9 +100,9 @@
 <codeline lineno="77"><highlight class="normal"></highlight></codeline>
 <codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
 <codeline lineno="79" refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a555a5b90c9b73e317c74bf27c403b054" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1util_1_1JwtUtilTest_1a555a5b90c9b73e317c74bf27c403b054" kindref="member">testGenerateRefreshToken_NullUserDetails</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行<sp/>&amp;<sp/>验证</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行<sp/>&amp;<sp/>验证<sp/>-<sp/>明确调用接受UserDetails参数的方法</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThrows(Exception.class,<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>jwtUtil.generateRefreshToken(null);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>jwtUtil.generateRefreshToken((org.springframework.security.core.userdetails.UserDetails)<sp/>null);</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"></highlight></codeline>

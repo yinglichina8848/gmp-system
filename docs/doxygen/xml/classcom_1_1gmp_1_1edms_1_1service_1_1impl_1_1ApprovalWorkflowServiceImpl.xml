@@ -1,0 +1,1120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</compoundname>
+    <basecompoundref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService" prot="public" virt="non-virtual">com.gmp.edms.service.ApprovalWorkflowService</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a197eb16ab5cc61f8b8bc0158189ca1f9" prot="private" static="yes" mutable="no">
+        <type>final Logger</type>
+        <definition>final Logger com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.log</definition>
+        <argsstring></argsstring>
+        <name>log</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.log</qualifiedname>
+        <initializer>= LoggerFactory.getLogger(ApprovalWorkflowServiceImpl.class)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="34" column="33" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="34" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" compoundref="ApprovalWorkflowServiceImpl_8java" startline="85" endline="123">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="379" endline="387">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ab99be2759969934ad3b3686355e11276" compoundref="ApprovalWorkflowServiceImpl_8java" startline="211" endline="230">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.transferApproval</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a05430ff0be3eaa0920eed48e6b7d6707" compoundref="ApprovalWorkflowServiceImpl_8java" startline="244" endline="261">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.urgeApproval</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a91a271122b7cac89a3bb66a81f2bc681" compoundref="ApprovalWorkflowServiceImpl_8java" startline="188" endline="208">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.withdrawApproval</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a1be97d61c119c65840625705c5b8eec8" prot="private" static="no" mutable="no">
+        <type>ApprovalWorkflowRepository</type>
+        <definition>ApprovalWorkflowRepository com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.workflowRepository</definition>
+        <argsstring></argsstring>
+        <name>workflowRepository</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.workflowRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="37" column="40" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a8dc13dc3095ec92649f3038b5ad3f27e" compoundref="ApprovalWorkflowServiceImpl_8java" startline="162" endline="169">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.createWorkflow</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a5a5d0300a48bf337917875ad776a2dcb" compoundref="ApprovalWorkflowServiceImpl_8java" startline="172" endline="177">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getAllWorkflows</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1aed4789647cff6bbcfc25ebc9ddaf418e" compoundref="ApprovalWorkflowServiceImpl_8java" startline="180" endline="185">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getWorkflowsByDocumentType</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4872d145c20fe406623be3ae3f185e24" compoundref="ApprovalWorkflowServiceImpl_8java" startline="52" endline="82">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.startApprovalProcess</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" prot="private" static="no" mutable="no">
+        <type>ApprovalInstanceRepository</type>
+        <definition>ApprovalInstanceRepository com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</definition>
+        <argsstring></argsstring>
+        <name>instanceRepository</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="40" column="40" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="40" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a200724edb51adbaec33e71e695046396" compoundref="ApprovalWorkflowServiceImpl_8java" startline="305" endline="320">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.calculateNextStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" compoundref="ApprovalWorkflowServiceImpl_8java" startline="85" endline="123">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4d054cb157561a7f64a872fe17848e8a" compoundref="ApprovalWorkflowServiceImpl_8java" startline="337" endline="349">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.finalizeApprovalProcess</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1afa15e56abae4351d789ef22bf1c5dedc" compoundref="ApprovalWorkflowServiceImpl_8java" startline="126" endline="130">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getApprovalInstance</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a5f2d0a2fc4ebf99695254e5b54cc1796" compoundref="ApprovalWorkflowServiceImpl_8java" startline="232" endline="242">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getCurrentStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af8d67ca63818529d34cc5b8645af72aa" compoundref="ApprovalWorkflowServiceImpl_8java" startline="145" endline="159">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getDocumentApprovalHistory</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a23a0ad40d2dae2586baa530e3e247518" compoundref="ApprovalWorkflowServiceImpl_8java" startline="133" endline="142">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getPendingTasks</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4872d145c20fe406623be3ae3f185e24" compoundref="ApprovalWorkflowServiceImpl_8java" startline="52" endline="82">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.startApprovalProcess</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ab99be2759969934ad3b3686355e11276" compoundref="ApprovalWorkflowServiceImpl_8java" startline="211" endline="230">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.transferApproval</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a05430ff0be3eaa0920eed48e6b7d6707" compoundref="ApprovalWorkflowServiceImpl_8java" startline="244" endline="261">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.urgeApproval</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a91a271122b7cac89a3bb66a81f2bc681" compoundref="ApprovalWorkflowServiceImpl_8java" startline="188" endline="208">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.withdrawApproval</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af455373cb669ab1cb21dcb5f2261c110" prot="private" static="no" mutable="no">
+        <type>DocumentRepository</type>
+        <definition>DocumentRepository com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.documentRepository</definition>
+        <argsstring></argsstring>
+        <name>documentRepository</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.documentRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="43" column="32" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="43" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4d054cb157561a7f64a872fe17848e8a" compoundref="ApprovalWorkflowServiceImpl_8java" startline="337" endline="349">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.finalizeApprovalProcess</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af128dfce51f8dbecd2e4dc79bc6ad47b" prot="private" static="no" mutable="no">
+        <type>ModelMapper</type>
+        <definition>ModelMapper com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.modelMapper</definition>
+        <argsstring></argsstring>
+        <name>modelMapper</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.modelMapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="46" column="25" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="46" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a8dc13dc3095ec92649f3038b5ad3f27e" compoundref="ApprovalWorkflowServiceImpl_8java" startline="162" endline="169">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.createWorkflow</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a5a5d0300a48bf337917875ad776a2dcb" compoundref="ApprovalWorkflowServiceImpl_8java" startline="172" endline="177">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getAllWorkflows</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1afa15e56abae4351d789ef22bf1c5dedc" compoundref="ApprovalWorkflowServiceImpl_8java" startline="126" endline="130">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getApprovalInstance</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af8d67ca63818529d34cc5b8645af72aa" compoundref="ApprovalWorkflowServiceImpl_8java" startline="145" endline="159">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getDocumentApprovalHistory</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a23a0ad40d2dae2586baa530e3e247518" compoundref="ApprovalWorkflowServiceImpl_8java" startline="133" endline="142">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getPendingTasks</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1aed4789647cff6bbcfc25ebc9ddaf418e" compoundref="ApprovalWorkflowServiceImpl_8java" startline="180" endline="185">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getWorkflowsByDocumentType</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4872d145c20fe406623be3ae3f185e24" compoundref="ApprovalWorkflowServiceImpl_8java" startline="52" endline="82">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.startApprovalProcess</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abac458e27dc7a845795a53b6ca40d82e" prot="private" static="no" mutable="no">
+        <type>ObjectMapper</type>
+        <definition>ObjectMapper com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.objectMapper</definition>
+        <argsstring></argsstring>
+        <name>objectMapper</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.objectMapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="49" column="26" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" compoundref="ApprovalWorkflowServiceImpl_8java" startline="85" endline="123">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4872d145c20fe406623be3ae3f185e24" compoundref="ApprovalWorkflowServiceImpl_8java" startline="52" endline="82">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.startApprovalProcess</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a05430ff0be3eaa0920eed48e6b7d6707" compoundref="ApprovalWorkflowServiceImpl_8java" startline="244" endline="261">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.urgeApproval</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4872d145c20fe406623be3ae3f185e24" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApprovalInstanceDTO</type>
+        <definition>ApprovalInstanceDTO com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.startApprovalProcess</definition>
+        <argsstring>(Document document, String workflowCode, String initiator)</argsstring>
+        <name>startApprovalProcess</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.startApprovalProcess</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1a2669fab20854d462f1b44c64447daba5">startApprovalProcess</reimplements>
+        <param>
+          <type>Document</type>
+          <declname>document</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>workflowCode</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>initiator</declname>
+        </param>
+        <briefdescription>
+<para>启动审批流程 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>document</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>workflowCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>工作流编码 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>initiator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>发起人 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>审批实例 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="52" column="32" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="52" bodyend="82"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af80daa8deb3bd72a3cfa6cd549aed087" compoundref="ApprovalWorkflowServiceImpl_8java" startline="263" endline="269">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFirstStepName</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" compoundref="ApprovalWorkflowServiceImpl_8java" startline="40">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af128dfce51f8dbecd2e4dc79bc6ad47b" compoundref="ApprovalWorkflowServiceImpl_8java" startline="46">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.modelMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abac458e27dc7a845795a53b6ca40d82e" compoundref="ApprovalWorkflowServiceImpl_8java" startline="49">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.objectMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="379" endline="387">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a1be97d61c119c65840625705c5b8eec8" compoundref="ApprovalWorkflowServiceImpl_8java" startline="37">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.workflowRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</definition>
+        <argsstring>(Long instanceId, String userId, String decision, String comments)</argsstring>
+        <name>executeApprovalStep</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1ad31a29795631cf1852fddf0d2e6b6a86">executeApprovalStep</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>instanceId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>decision</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>comments</declname>
+        </param>
+        <briefdescription>
+<para>执行审批决策 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instanceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>审批实例ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decision</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>审批决策 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>comments</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>审批意见 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>执行结果 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="85" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="85" bodyend="123"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ab94f39859a65d55f47978cea84472a85" compoundref="ApprovalWorkflowServiceImpl_8java" startline="332" endline="335">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.assignNextStep</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af6679acc994a6027507d6086137d8c78" compoundref="ApprovalWorkflowServiceImpl_8java" startline="285" endline="303">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.calculateNextStep</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4d054cb157561a7f64a872fe17848e8a" compoundref="ApprovalWorkflowServiceImpl_8java" startline="337" endline="349">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.finalizeApprovalProcess</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" compoundref="ApprovalWorkflowServiceImpl_8java" startline="40">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a197eb16ab5cc61f8b8bc0158189ca1f9" compoundref="ApprovalWorkflowServiceImpl_8java" startline="34">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.log</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1aed3367267b5be2022c30cb3d5a6c5c27" compoundref="ApprovalWorkflowServiceImpl_8java" startline="351" endline="353">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.notifyApprovers</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abac458e27dc7a845795a53b6ca40d82e" compoundref="ApprovalWorkflowServiceImpl_8java" startline="49">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.objectMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a07fc63df61acae75eccf92668360b1d6" compoundref="ApprovalWorkflowServiceImpl_8java" startline="277" endline="283">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.recordApprovalDecision</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="379" endline="387">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af3b7deb5f503b3299d339e3ad3f75922" compoundref="ApprovalWorkflowServiceImpl_8java" startline="271" endline="275">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.validateApproverPermission</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1afa15e56abae4351d789ef22bf1c5dedc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApprovalInstanceDTO</type>
+        <definition>ApprovalInstanceDTO com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getApprovalInstance</definition>
+        <argsstring>(Long instanceId)</argsstring>
+        <name>getApprovalInstance</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getApprovalInstance</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1a3bd7234274c6c1fe8635e2e2d048db2c">getApprovalInstance</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>instanceId</declname>
+        </param>
+        <briefdescription>
+<para>获取审批实例详情 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instanceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实例ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>审批实例 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="126" column="32" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="126" bodyend="130"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" compoundref="ApprovalWorkflowServiceImpl_8java" startline="40">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af128dfce51f8dbecd2e4dc79bc6ad47b" compoundref="ApprovalWorkflowServiceImpl_8java" startline="46">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.modelMapper</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a23a0ad40d2dae2586baa530e3e247518" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; ApprovalInstanceDTO &gt;</type>
+        <definition>List&lt; ApprovalInstanceDTO &gt; com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getPendingTasks</definition>
+        <argsstring>(String userId)</argsstring>
+        <name>getPendingTasks</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getPendingTasks</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1ab4e2ff0774bf36596884be232397e3a8">getPendingTasks</reimplements>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <briefdescription>
+<para>获取用户的待办审批任务 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>待办任务列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="133" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="133" bodyend="142"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" compoundref="ApprovalWorkflowServiceImpl_8java" startline="40">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af128dfce51f8dbecd2e4dc79bc6ad47b" compoundref="ApprovalWorkflowServiceImpl_8java" startline="46">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.modelMapper</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af8d67ca63818529d34cc5b8645af72aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; ApprovalInstanceDTO &gt;</type>
+        <definition>List&lt; ApprovalInstanceDTO &gt; com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getDocumentApprovalHistory</definition>
+        <argsstring>(Long documentId)</argsstring>
+        <name>getDocumentApprovalHistory</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getDocumentApprovalHistory</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1a163464969e2734b60415e4bc90f9d880">getDocumentApprovalHistory</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+<para>获取文档的审批历史 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>documentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>审批历史 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="145" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="145" bodyend="159"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" compoundref="ApprovalWorkflowServiceImpl_8java" startline="40">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af128dfce51f8dbecd2e4dc79bc6ad47b" compoundref="ApprovalWorkflowServiceImpl_8java" startline="46">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.modelMapper</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a8dc13dc3095ec92649f3038b5ad3f27e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApprovalWorkflowDTO</type>
+        <definition>ApprovalWorkflowDTO com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.createWorkflow</definition>
+        <argsstring>(ApprovalWorkflowDTO workflowDTO)</argsstring>
+        <name>createWorkflow</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.createWorkflow</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1a35d9ecfeec4caa70f333af684ee87b94">createWorkflow</reimplements>
+        <param>
+          <type>ApprovalWorkflowDTO</type>
+          <declname>workflowDTO</declname>
+        </param>
+        <briefdescription>
+<para>创建审批工作流模板 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>workflowDTO</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>工作流DTO </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>创建的工作流 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="162" column="32" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="162" bodyend="169"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af128dfce51f8dbecd2e4dc79bc6ad47b" compoundref="ApprovalWorkflowServiceImpl_8java" startline="46">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.modelMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="379" endline="387">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a1be97d61c119c65840625705c5b8eec8" compoundref="ApprovalWorkflowServiceImpl_8java" startline="37">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.workflowRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a5a5d0300a48bf337917875ad776a2dcb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; ApprovalWorkflowDTO &gt;</type>
+        <definition>List&lt; ApprovalWorkflowDTO &gt; com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getAllWorkflows</definition>
+        <argsstring>()</argsstring>
+        <name>getAllWorkflows</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getAllWorkflows</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1af9a8461beb88319e13b90a52873cc73f">getAllWorkflows</reimplements>
+        <briefdescription>
+<para>获取所有可用的工作流模板 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>工作流列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="172" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="172" bodyend="177"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af128dfce51f8dbecd2e4dc79bc6ad47b" compoundref="ApprovalWorkflowServiceImpl_8java" startline="46">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.modelMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a1be97d61c119c65840625705c5b8eec8" compoundref="ApprovalWorkflowServiceImpl_8java" startline="37">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.workflowRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1aed4789647cff6bbcfc25ebc9ddaf418e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; ApprovalWorkflowDTO &gt;</type>
+        <definition>List&lt; ApprovalWorkflowDTO &gt; com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getWorkflowsByDocumentType</definition>
+        <argsstring>(String documentType)</argsstring>
+        <name>getWorkflowsByDocumentType</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getWorkflowsByDocumentType</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1a29f447998cf7f3775ea8d7490f652817">getWorkflowsByDocumentType</reimplements>
+        <param>
+          <type>String</type>
+          <declname>documentType</declname>
+        </param>
+        <briefdescription>
+<para>根据文档类型获取适用的工作流 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>documentType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文档类型 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>工作流列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="180" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="180" bodyend="185"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af128dfce51f8dbecd2e4dc79bc6ad47b" compoundref="ApprovalWorkflowServiceImpl_8java" startline="46">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.modelMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a1be97d61c119c65840625705c5b8eec8" compoundref="ApprovalWorkflowServiceImpl_8java" startline="37">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.workflowRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a91a271122b7cac89a3bb66a81f2bc681" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.withdrawApproval</definition>
+        <argsstring>(Long instanceId, String userId, String reason)</argsstring>
+        <name>withdrawApproval</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.withdrawApproval</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1a5bc0d81de0d11a1b4214e659c8bc79d8">withdrawApproval</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>instanceId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>reason</declname>
+        </param>
+        <briefdescription>
+<para>撤回审批流程 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instanceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实例ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reason</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>撤回原因 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>撤回结果 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="188" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="188" bodyend="208"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" compoundref="ApprovalWorkflowServiceImpl_8java" startline="40">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a197eb16ab5cc61f8b8bc0158189ca1f9" compoundref="ApprovalWorkflowServiceImpl_8java" startline="34">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.log</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="379" endline="387">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ab99be2759969934ad3b3686355e11276" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.transferApproval</definition>
+        <argsstring>(Long instanceId, String fromUserId, String toUserId, String reason)</argsstring>
+        <name>transferApproval</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.transferApproval</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1a3147f53803d392feca875b2415499687">transferApproval</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>instanceId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fromUserId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>toUserId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>reason</declname>
+        </param>
+        <briefdescription>
+<para>转办审批任务 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instanceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实例ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fromUserId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>原审批人 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>toUserId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>新审批人 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reason</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>转办原因 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>转办结果 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="211" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="211" bodyend="230"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" compoundref="ApprovalWorkflowServiceImpl_8java" startline="40">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a197eb16ab5cc61f8b8bc0158189ca1f9" compoundref="ApprovalWorkflowServiceImpl_8java" startline="34">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.log</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="379" endline="387">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a5f2d0a2fc4ebf99695254e5b54cc1796" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApprovalStepDTO</type>
+        <definition>ApprovalStepDTO com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getCurrentStep</definition>
+        <argsstring>(Long instanceId)</argsstring>
+        <name>getCurrentStep</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getCurrentStep</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1aab99f50dc7a416d4b86840f1b0e8e669">getCurrentStep</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>instanceId</declname>
+        </param>
+        <briefdescription>
+<para>获取审批进度 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instanceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实例ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>当前步骤和进度信息 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="232" column="28" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="232" bodyend="242"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" compoundref="ApprovalWorkflowServiceImpl_8java" startline="40">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="379" endline="387">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a05430ff0be3eaa0920eed48e6b7d6707" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.urgeApproval</definition>
+        <argsstring>(Long instanceId, String userId)</argsstring>
+        <name>urgeApproval</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.urgeApproval</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService_1ad8612a2c9db19ae82ae05a960a6638e1">urgeApproval</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>instanceId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <briefdescription>
+<para>催办审批任务 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instanceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实例ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>催办人 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>催办结果 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="244" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="244" bodyend="261"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" compoundref="ApprovalWorkflowServiceImpl_8java" startline="40">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a197eb16ab5cc61f8b8bc0158189ca1f9" compoundref="ApprovalWorkflowServiceImpl_8java" startline="34">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.log</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1aed3367267b5be2022c30cb3d5a6c5c27" compoundref="ApprovalWorkflowServiceImpl_8java" startline="351" endline="353">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.notifyApprovers</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abac458e27dc7a845795a53b6ca40d82e" compoundref="ApprovalWorkflowServiceImpl_8java" startline="49">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.objectMapper</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a200724edb51adbaec33e71e695046396" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.calculateNextStep</definition>
+        <argsstring>(ApprovalInstance instance)</argsstring>
+        <name>calculateNextStep</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.calculateNextStep</qualifiedname>
+        <param>
+          <type>ApprovalInstance</type>
+          <declname>instance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="305" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="305" bodyend="320"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4d054cb157561a7f64a872fe17848e8a" compoundref="ApprovalWorkflowServiceImpl_8java" startline="337" endline="349">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.finalizeApprovalProcess</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a902d8950d8996835a05f83fb4be5df22" compoundref="ApprovalWorkflowServiceImpl_8java" startline="327" endline="330">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFinalApprover</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1aa4f3909914c8f62cd23c35c019f21bbc" compoundref="ApprovalWorkflowServiceImpl_8java" startline="322" endline="325">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getManager</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" compoundref="ApprovalWorkflowServiceImpl_8java" startline="40">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="379" endline="387">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af80daa8deb3bd72a3cfa6cd549aed087" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFirstStepName</definition>
+        <argsstring>(JsonNode workflowDef)</argsstring>
+        <name>getFirstStepName</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFirstStepName</qualifiedname>
+        <param>
+          <type>JsonNode</type>
+          <declname>workflowDef</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="263" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="263" bodyend="269"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4872d145c20fe406623be3ae3f185e24" compoundref="ApprovalWorkflowServiceImpl_8java" startline="52" endline="82">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.startApprovalProcess</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af3b7deb5f503b3299d339e3ad3f75922" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.validateApproverPermission</definition>
+        <argsstring>(ApprovalInstance instance, String userId)</argsstring>
+        <name>validateApproverPermission</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.validateApproverPermission</qualifiedname>
+        <param>
+          <type>ApprovalInstance</type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="271" column="21" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="271" bodyend="275"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" compoundref="ApprovalWorkflowServiceImpl_8java" startline="85" endline="123">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a07fc63df61acae75eccf92668360b1d6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.recordApprovalDecision</definition>
+        <argsstring>(ApprovalInstance instance, String userId, String decision, String comments)</argsstring>
+        <name>recordApprovalDecision</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.recordApprovalDecision</qualifiedname>
+        <param>
+          <type>ApprovalInstance</type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>decision</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>comments</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="277" column="18" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="277" bodyend="283"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="379" endline="387">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" compoundref="ApprovalWorkflowServiceImpl_8java" startline="85" endline="123">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af6679acc994a6027507d6086137d8c78" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.calculateNextStep</definition>
+        <argsstring>(JsonNode workflowDef, String currentStep, String decision)</argsstring>
+        <name>calculateNextStep</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.calculateNextStep</qualifiedname>
+        <param>
+          <type>JsonNode</type>
+          <declname>workflowDef</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>currentStep</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>decision</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="285" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="285" bodyend="303"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" compoundref="ApprovalWorkflowServiceImpl_8java" startline="85" endline="123">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1aa4f3909914c8f62cd23c35c019f21bbc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getManager</definition>
+        <argsstring>(String userId)</argsstring>
+        <name>getManager</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getManager</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>userId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="322" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="322" bodyend="325"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a200724edb51adbaec33e71e695046396" compoundref="ApprovalWorkflowServiceImpl_8java" startline="305" endline="320">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.calculateNextStep</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a902d8950d8996835a05f83fb4be5df22" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFinalApprover</definition>
+        <argsstring>()</argsstring>
+        <name>getFinalApprover</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFinalApprover</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="327" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="327" bodyend="330"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a200724edb51adbaec33e71e695046396" compoundref="ApprovalWorkflowServiceImpl_8java" startline="305" endline="320">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.calculateNextStep</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ab94f39859a65d55f47978cea84472a85" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.assignNextStep</definition>
+        <argsstring>(ApprovalInstance instance, JsonNode workflowDef, String nextStep)</argsstring>
+        <name>assignNextStep</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.assignNextStep</qualifiedname>
+        <param>
+          <type>ApprovalInstance</type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>JsonNode</type>
+          <declname>workflowDef</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>nextStep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="332" column="18" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="332" bodyend="335"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" compoundref="ApprovalWorkflowServiceImpl_8java" startline="85" endline="123">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4d054cb157561a7f64a872fe17848e8a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.finalizeApprovalProcess</definition>
+        <argsstring>(ApprovalInstance instance, String decision)</argsstring>
+        <name>finalizeApprovalProcess</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.finalizeApprovalProcess</qualifiedname>
+        <param>
+          <type>ApprovalInstance</type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>decision</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="337" column="18" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="337" bodyend="349"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af455373cb669ab1cb21dcb5f2261c110" compoundref="ApprovalWorkflowServiceImpl_8java" startline="43">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.documentRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" compoundref="ApprovalWorkflowServiceImpl_8java" startline="40">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.instanceRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="379" endline="387">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a200724edb51adbaec33e71e695046396" compoundref="ApprovalWorkflowServiceImpl_8java" startline="305" endline="320">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.calculateNextStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" compoundref="ApprovalWorkflowServiceImpl_8java" startline="85" endline="123">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1aed3367267b5be2022c30cb3d5a6c5c27" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.notifyApprovers</definition>
+        <argsstring>(ApprovalInstance instance, JsonNode workflowDef)</argsstring>
+        <name>notifyApprovers</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.notifyApprovers</qualifiedname>
+        <param>
+          <type>ApprovalInstance</type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>JsonNode</type>
+          <declname>workflowDef</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="351" column="18" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="351" bodyend="353"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" compoundref="ApprovalWorkflowServiceImpl_8java" startline="85" endline="123">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a05430ff0be3eaa0920eed48e6b7d6707" compoundref="ApprovalWorkflowServiceImpl_8java" startline="244" endline="261">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.urgeApproval</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ae3901046a25156249b68ded50de88daf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Field</type>
+        <definition>Field com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.findField</definition>
+        <argsstring>(Class&lt;?&gt; clazz, String fieldName)</argsstring>
+        <name>findField</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.findField</qualifiedname>
+        <param>
+          <type>Class&lt;?&gt;</type>
+          <declname>clazz</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fieldName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="356" column="19" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="356" bodyend="366"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ae3901046a25156249b68ded50de88daf" compoundref="ApprovalWorkflowServiceImpl_8java" startline="356" endline="366">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.findField</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ae3901046a25156249b68ded50de88daf" compoundref="ApprovalWorkflowServiceImpl_8java" startline="356" endline="366">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.findField</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="368" endline="377">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" compoundref="ApprovalWorkflowServiceImpl_8java" startline="379" endline="387">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object</type>
+        <definition>Object com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</definition>
+        <argsstring>(Object obj, String fieldName)</argsstring>
+        <name>getFieldValue</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getFieldValue</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fieldName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="368" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="368" bodyend="377"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ae3901046a25156249b68ded50de88daf" compoundref="ApprovalWorkflowServiceImpl_8java" startline="356" endline="366">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.findField</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a197eb16ab5cc61f8b8bc0158189ca1f9" compoundref="ApprovalWorkflowServiceImpl_8java" startline="34">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.log</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a200724edb51adbaec33e71e695046396" compoundref="ApprovalWorkflowServiceImpl_8java" startline="305" endline="320">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.calculateNextStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" compoundref="ApprovalWorkflowServiceImpl_8java" startline="85" endline="123">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4d054cb157561a7f64a872fe17848e8a" compoundref="ApprovalWorkflowServiceImpl_8java" startline="337" endline="349">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.finalizeApprovalProcess</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a5f2d0a2fc4ebf99695254e5b54cc1796" compoundref="ApprovalWorkflowServiceImpl_8java" startline="232" endline="242">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getCurrentStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af8d67ca63818529d34cc5b8645af72aa" compoundref="ApprovalWorkflowServiceImpl_8java" startline="145" endline="159">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getDocumentApprovalHistory</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a23a0ad40d2dae2586baa530e3e247518" compoundref="ApprovalWorkflowServiceImpl_8java" startline="133" endline="142">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getPendingTasks</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4872d145c20fe406623be3ae3f185e24" compoundref="ApprovalWorkflowServiceImpl_8java" startline="52" endline="82">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.startApprovalProcess</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ab99be2759969934ad3b3686355e11276" compoundref="ApprovalWorkflowServiceImpl_8java" startline="211" endline="230">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.transferApproval</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a05430ff0be3eaa0920eed48e6b7d6707" compoundref="ApprovalWorkflowServiceImpl_8java" startline="244" endline="261">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.urgeApproval</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af3b7deb5f503b3299d339e3ad3f75922" compoundref="ApprovalWorkflowServiceImpl_8java" startline="271" endline="275">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.validateApproverPermission</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a91a271122b7cac89a3bb66a81f2bc681" compoundref="ApprovalWorkflowServiceImpl_8java" startline="188" endline="208">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.withdrawApproval</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</definition>
+        <argsstring>(Object obj, String fieldName, Object value)</argsstring>
+        <name>setFieldValue</name>
+        <qualifiedname>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.setFieldValue</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fieldName</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="379" column="18" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="379" bodyend="387"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ae3901046a25156249b68ded50de88daf" compoundref="ApprovalWorkflowServiceImpl_8java" startline="356" endline="366">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.findField</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a197eb16ab5cc61f8b8bc0158189ca1f9" compoundref="ApprovalWorkflowServiceImpl_8java" startline="34">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.log</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a200724edb51adbaec33e71e695046396" compoundref="ApprovalWorkflowServiceImpl_8java" startline="305" endline="320">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.calculateNextStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a8dc13dc3095ec92649f3038b5ad3f27e" compoundref="ApprovalWorkflowServiceImpl_8java" startline="162" endline="169">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.createWorkflow</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" compoundref="ApprovalWorkflowServiceImpl_8java" startline="85" endline="123">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.executeApprovalStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4d054cb157561a7f64a872fe17848e8a" compoundref="ApprovalWorkflowServiceImpl_8java" startline="337" endline="349">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.finalizeApprovalProcess</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a5f2d0a2fc4ebf99695254e5b54cc1796" compoundref="ApprovalWorkflowServiceImpl_8java" startline="232" endline="242">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.getCurrentStep</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a07fc63df61acae75eccf92668360b1d6" compoundref="ApprovalWorkflowServiceImpl_8java" startline="277" endline="283">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.recordApprovalDecision</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4872d145c20fe406623be3ae3f185e24" compoundref="ApprovalWorkflowServiceImpl_8java" startline="52" endline="82">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.startApprovalProcess</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ab99be2759969934ad3b3686355e11276" compoundref="ApprovalWorkflowServiceImpl_8java" startline="211" endline="230">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.transferApproval</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a91a271122b7cac89a3bb66a81f2bc681" compoundref="ApprovalWorkflowServiceImpl_8java" startline="188" endline="208">com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl.withdrawApproval</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>审批工作流服务实现类 实现设计文档中的工作流引擎核心功能 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.service.ApprovalWorkflowService</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>ApprovalInstanceRepository</label>
+      </node>
+      <node id="4">
+        <label>ApprovalWorkflowRepository</label>
+      </node>
+      <node id="6">
+        <label>DocumentRepository</label>
+      </node>
+      <node id="7">
+        <label>ModelMapper</label>
+      </node>
+      <node id="8">
+        <label>ObjectMapper</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.edms.service.impl.ApprovalWorkflowServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>log</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>workflowRepository</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>instanceRepository</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>documentRepository</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>modelMapper</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>objectMapper</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.service.ApprovalWorkflowService</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1ApprovalWorkflowService"/>
+      </node>
+      <node id="3">
+        <label>static final Logger</label>
+      </node>
+    </collaborationgraph>
+    <location file="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" line="33" column="7" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/ApprovalWorkflowServiceImpl.java" bodystart="33" bodyend="388"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ab94f39859a65d55f47978cea84472a85" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>assignNextStep</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af6679acc994a6027507d6086137d8c78" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>calculateNextStep</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a200724edb51adbaec33e71e695046396" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>calculateNextStep</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a8dc13dc3095ec92649f3038b5ad3f27e" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>createWorkflow</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af455373cb669ab1cb21dcb5f2261c110" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>documentRepository</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad9425f2e672ed8a72971bbd6c61cc00f" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>executeApprovalStep</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4d054cb157561a7f64a872fe17848e8a" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>finalizeApprovalProcess</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ae3901046a25156249b68ded50de88daf" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>findField</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a5a5d0300a48bf337917875ad776a2dcb" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>getAllWorkflows</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1afa15e56abae4351d789ef22bf1c5dedc" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>getApprovalInstance</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a5f2d0a2fc4ebf99695254e5b54cc1796" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>getCurrentStep</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af8d67ca63818529d34cc5b8645af72aa" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>getDocumentApprovalHistory</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad83fdb64bb7ff64dd1d06ebaefe480a7" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>getFieldValue</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a902d8950d8996835a05f83fb4be5df22" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>getFinalApprover</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af80daa8deb3bd72a3cfa6cd549aed087" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>getFirstStepName</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1aa4f3909914c8f62cd23c35c019f21bbc" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>getManager</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a23a0ad40d2dae2586baa530e3e247518" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>getPendingTasks</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1aed4789647cff6bbcfc25ebc9ddaf418e" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>getWorkflowsByDocumentType</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abecd277af48746ef0acbeb0b0dd4d706" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>instanceRepository</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a197eb16ab5cc61f8b8bc0158189ca1f9" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>log</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af128dfce51f8dbecd2e4dc79bc6ad47b" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>modelMapper</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1aed3367267b5be2022c30cb3d5a6c5c27" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>notifyApprovers</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1abac458e27dc7a845795a53b6ca40d82e" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>objectMapper</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a07fc63df61acae75eccf92668360b1d6" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>recordApprovalDecision</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ad4dc2a40a4f9ffd99943fb0ab52b06e7" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>setFieldValue</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a4872d145c20fe406623be3ae3f185e24" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>startApprovalProcess</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1ab99be2759969934ad3b3686355e11276" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>transferApproval</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a05430ff0be3eaa0920eed48e6b7d6707" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>urgeApproval</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1af3b7deb5f503b3299d339e3ad3f75922" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>validateApproverPermission</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a91a271122b7cac89a3bb66a81f2bc681" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>withdrawApproval</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1ApprovalWorkflowServiceImpl_1a1be97d61c119c65840625705c5b8eec8" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::ApprovalWorkflowServiceImpl</scope><name>workflowRepository</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TrainingClient_8java" kind="file" language="Java">
+    <compoundname>TrainingClient.java</compoundname>
+    <includes local="no">com.gmp.qms.dto.NotificationDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/client/TrainingClient.java</label>
+        <link refid="TrainingClient_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.dto.NotificationDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1TrainingClient" prot="public">com::gmp::qms::client::TrainingClient</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1client">com::gmp::qms::client</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.client;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.NotificationDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.TrainingNeedDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.TrainingRecordDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.cloud.openfeign.FeignClient;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@FeignClient(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;training-service&quot;</highlight><highlight class="normal">,<sp/>url<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;${feign.client.training.url}&quot;</highlight><highlight class="normal">,<sp/>fallback<sp/>=<sp/>TrainingClientFallback.class)</highlight></codeline>
+<codeline lineno="17" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1TrainingClient" refkind="compound"><highlight class="normal">public<sp/>interface<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1TrainingClient" kindref="compound">TrainingClient</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/api/employees/{employeeId}/training-records&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="26" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1TrainingClient_1aee1acc821279f682ed8e6a108b66b2b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingRecordDTO&gt;<sp/>getEmployeeTrainingRecords(@PathVariable(&quot;employeeId&quot;)<sp/>String<sp/>employeeId);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(&quot;/api/training-needs&quot;)</highlight></codeline>
+<codeline lineno="35" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1TrainingClient_1a6cbc483e454571aa0c7b5d28c7b92c66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>TrainingNeedDTO<sp/>createTrainingNeed(@RequestBody<sp/>TrainingNeedDTO<sp/>trainingNeedDTO);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(&quot;/api/employees/{employeeId}/training-completed/{trainingCode}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="45" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1TrainingClient_1af18cf122d48d3423040901d8ebb19948" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>boolean<sp/>isTrainingCompleted(@PathVariable(&quot;</highlight><highlight class="normal">employeeId</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>employeeId,<sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable(&quot;</highlight><highlight class="normal">trainingCode</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>trainingCode);</highlight></codeline>
+<codeline lineno="47"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(&quot;/api/notifications</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="54" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1TrainingClient_1a9b4c3dea5da9a1e077ef6b5c382a566e" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>void<sp/>sendNotification(@RequestBody<sp/>NotificationDTO<sp/>notificationDTO);</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(&quot;/api/trainings/{trainingCode}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="63" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1TrainingClient_1a333953d05243cf1ecdef3c05c5b91a67" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>TrainingRecordDTO<sp/>getTrainingDetails(@PathVariable(&quot;</highlight><highlight class="normal">trainingCode</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>trainingCode);</highlight></codeline>
+<codeline lineno="64"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(&quot;/api/trainings/expiring-soon</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="72" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1TrainingClient_1a2d8bd7f5724f09fe9eb990a02070a010" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>List&lt;TrainingRecordDTO&gt;<sp/>getExpiringTrainings(@RequestParam(&quot;</highlight><highlight class="normal">days</highlight><highlight class="stringliteral">&quot;)<sp/>int<sp/>days);</highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/client/TrainingClient.java"/>
+  </compounddef>
+</doxygen>

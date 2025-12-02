@@ -6,69 +6,105 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 用户角色管理服务接口
- *
+ * @brief 用户角色管理服务接口
+ * 
+ * @details 该接口定义了用户角色管理的服务，包括角色分配、移除、查询等功能。
+ * 
  * @author GMP系统开发团队
+ * @version 1.0
+ * @since 2023-01-01
+ * 
+ * @see com.gmp.auth.entity.Role
+ * @see com.gmp.auth.entity.UserRole
  */
 public interface UserRoleService {
 
     /**
-     * 为用户分配角色
+     * @brief 为用户分配角色
+     * 
+     * @details 为指定用户分配指定角色
+     * 
      * @param userId 用户ID
      * @param roleId 角色ID
-     * @param assignedBy 分配人
-     * @return 分配结果
+     * @param assignedBy 分配人ID
+     * @return UserRole 分配结果
+     * 
+     * @see com.gmp.auth.entity.UserRole
      */
     UserRole assignRoleToUser(Long userId, Long roleId, Long assignedBy);
 
     /**
-     * 为用户分配多个角色
+     * @brief 为用户分配多个角色
+     * 
+     * @details 为指定用户分配多个角色
+     * 
      * @param userId 用户ID
      * @param roleIds 角色ID列表
-     * @param assignedBy 分配人
-     * @return 分配结果列表
+     * @param assignedBy 分配人ID
+     * @return List<UserRole> 分配结果列表
+     * 
+     * @see com.gmp.auth.entity.UserRole
      */
     List<UserRole> assignRolesToUser(Long userId, List<Long> roleIds, Long assignedBy);
 
     /**
-     * 移除用户的角色
+     * @brief 移除用户的角色
+     * 
+     * @details 移除指定用户的指定角色
+     * 
      * @param userId 用户ID
      * @param roleId 角色ID
      */
     void removeRoleFromUser(Long userId, Long roleId);
 
     /**
-     * 获取用户的所有角色
+     * @brief 获取用户的所有角色
+     * 
+     * @details 获取指定用户的所有角色列表
+     * 
      * @param userId 用户ID
-     * @return 角色列表
+     * @return List<Role> 角色列表
+     * 
+     * @see com.gmp.auth.entity.Role
      */
     List<Role> getUserRoles(Long userId);
 
     /**
-     * 获取用户的角色代码集合
+     * @brief 获取用户的角色代码集合
+     * 
+     * @details 获取指定用户的角色代码集合
+     * 
      * @param userId 用户ID
-     * @return 角色代码集合
+     * @return Set<String> 角色代码集合
      */
     Set<String> getUserRoleCodes(Long userId);
 
     /**
-     * 检查用户是否拥有指定角色
+     * @brief 检查用户是否拥有指定角色
+     * 
+     * @details 检查指定用户是否拥有指定角色
+     * 
      * @param userId 用户ID
      * @param roleCode 角色代码
-     * @return 是否拥有
+     * @return boolean 如果用户拥有该角色返回true，否则返回false
      */
     boolean hasRole(Long userId, String roleCode);
 
     /**
-     * 检查用户是否拥有指定角色之一
+     * @brief 检查用户是否拥有指定角色之一
+     * 
+     * @details 检查指定用户是否拥有指定角色列表中的任一角色
+     * 
      * @param userId 用户ID
      * @param roleCodes 角色代码列表
-     * @return 是否拥有任一角色
+     * @return boolean 如果用户拥有任一角色返回true，否则返回false
      */
     boolean hasAnyRole(Long userId, List<String> roleCodes);
 
     /**
-     * 刷新用户过期的角色
+     * @brief 刷新用户过期的角色
+     * 
+     * @details 刷新用户过期的角色，更新角色状态
      */
     void refreshExpiredUserRoles();
 }

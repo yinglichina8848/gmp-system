@@ -1,0 +1,25 @@
+var classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment =
+[
+    [ "AssessmentIndicator", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator.html", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment_1_1AssessmentIndicator" ],
+    [ "assessmentConclusion", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a93b964bdcf15dd536c2fa69c8fab446e", null ],
+    [ "assessmentDate", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a5874a020e77bed64468f6309f2b1aac6", null ],
+    [ "assessmentIndicators", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#ae261613f92a4069c4cf71fd168a46225", null ],
+    [ "assessmentLevel", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a59cbeca20abd3f874a0fbe38720a30eb", null ],
+    [ "assessmentPerson", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a9ee8d33c1214b2ebd57bf4d900c85ad0", null ],
+    [ "authenticAreaStandard", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a7a4649527aba8833bd0c4d109d596a1d", null ],
+    [ "comprehensiveScore", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a01756a06e31511c4fb8565f4bbdd482d", null ],
+    [ "createdTime", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#afc83aadfa4dbb4c3ee152ea375dfb325", null ],
+    [ "id", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#af2c98589a0848a73b79d0ee952888ffd", null ],
+    [ "medicineName", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a0b247e9b98f8ac155a18983d72df265f", null ],
+    [ "productionArea", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a8d17bc6da6defd881a363be1507986b8", null ],
+    [ "remark", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a111185a58c65f701a467e751aaeeb0aa", null ],
+    [ "reviewDate", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a7ce136c42c22811a2d3e66cd1653f67c", null ],
+    [ "reviewPerson", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#ac6262f95b53feebd34a09f6cf5e3c223", null ],
+    [ "reviewStatus", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a00c26a3c55c698678e165ed1e032a498", null ],
+    [ "sampleCode", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a52136b7b34ed85e84bd5584703f37717", null ],
+    [ "sampleId", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a816ea1dd5b814764387a6250c18abee2", null ],
+    [ "specialComponentAnalysis", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a14f84b129920f20d380ef17c0b0e3343", null ],
+    [ "taskCode", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#ad9de2c88ec6d51abd11d7494cb61d493", null ],
+    [ "taskId", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#aa92211bfa59e259c86920aace1abf771", null ],
+    [ "updatedTime", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1AuthenticityAssessment.html#a76c26de4e2c6b54caf054880420799e0", null ]
+];

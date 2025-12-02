@@ -1,11 +1,8 @@
 package com.gmp.auth.util;
 
-import org.springframework.stereotype.Component;
-
 /**
  * 基于时间的一次性密码工具类
  */
-@Component
 public class TotpUtils {
     
     // 验证TOTP码

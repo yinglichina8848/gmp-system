@@ -1,7 +1,6 @@
 package com.gmp.auth.config;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -10,12 +9,5 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(AuthSystemProperties.class)
 public class AuthSystemConfig {
-    
-    /**
-     * 配置认证系统属性
-     */
-    @Bean
-    public AuthSystemProperties authSystemProperties() {
-        return new AuthSystemProperties();
-    }
+    // 配置属性由@EnableConfigurationProperties自动处理
 }

@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TestUtils_8java" kind="file" language="Java">
+    <compoundname>TestUtils.java</compoundname>
+    <includes local="no">com.gmp.lims.dto.InspectionResultDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>lims-service/src/test/java/com/gmp/lims/util/TestUtils.java</label>
+        <link refid="TestUtils_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.lims.dto.InspectionResultDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils" prot="public">com::gmp::lims::util::TestUtils</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1lims_1_1util">com::gmp::lims::util</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1lims_1_1util" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.lims.util;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.dto.InspectionResultDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.dto.InspectionTaskDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.dto.SampleDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.entity.InspectionResult;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.entity.InspectionTask;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.entity.Sample;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.entity.mongo.AuthenticityAssessment;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.entity.mongo.FingerprintAnalysis;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.entity.mongo.TraditionalIdentifyRecord;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Date;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.HashMap;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils" kindref="compound">TestUtils</ref><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a0c4ff33bf8457880c71cda0de7f20859" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>Sample<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a0c4ff33bf8457880c71cda0de7f20859" kindref="member">createSample</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Sample<sp/>sample<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Sample();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setId(1L);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setSampleCode(</highlight><highlight class="stringliteral">&quot;S20230001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setSampleName(</highlight><highlight class="stringliteral">&quot;人参样品1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setSampleType(</highlight><highlight class="stringliteral">&quot;中药材&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setBatchNumber(</highlight><highlight class="stringliteral">&quot;B20230001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setSampleQuantity(500);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setUnit(</highlight><highlight class="stringliteral">&quot;g&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setSampleSource(</highlight><highlight class="stringliteral">&quot;供应商A&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setReceiptDate(LocalDateTime.now().minusDays(10));</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setStatus(</highlight><highlight class="stringliteral">&quot;已接收&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setRemark(</highlight><highlight class="stringliteral">&quot;道地药材，需要特殊保存&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>保留基本属性，移除可能不存在的中药特有属性</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setSpecification(</highlight><highlight class="stringliteral">&quot;一等品&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setCreatedTime(LocalDateTime.now().minusDays(10));</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample.setUpdatedTime(LocalDateTime.now().minusDays(10));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sample;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a493d56ca93e685ac4dfe4e7b3f70e88e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>SampleDTO<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a493d56ca93e685ac4dfe4e7b3f70e88e" kindref="member">createSampleDTO</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SampleDTO<sp/>sampleDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>SampleDTO();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sampleDTO.setId(1L);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sampleDTO.setSampleCode(</highlight><highlight class="stringliteral">&quot;S20230001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sampleDTO.setSampleName(</highlight><highlight class="stringliteral">&quot;人参样品1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sampleDTO.setSampleType(</highlight><highlight class="stringliteral">&quot;中药材&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sampleDTO.setBatchNumber(</highlight><highlight class="stringliteral">&quot;B20230001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sampleDTO.setUnit(</highlight><highlight class="stringliteral">&quot;g&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sampleDTO.setSampleSource(</highlight><highlight class="stringliteral">&quot;供应商A&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sampleDTO.setReceiptDate(LocalDateTime.now().minusDays(10));</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sampleDTO.setStatus(</highlight><highlight class="stringliteral">&quot;已接收&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>保留DTO中的属性设置</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sampleDTO;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a458753432eb3ea374271fd065fd39f04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>InspectionTask<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a458753432eb3ea374271fd065fd39f04" kindref="member">createInspectionTask</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InspectionTask<sp/>task<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>InspectionTask();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setId(1L);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setTaskCode(</highlight><highlight class="stringliteral">&quot;IT20230001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setInspectionType(</highlight><highlight class="stringliteral">&quot;全面检测&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setInspectionPurpose(</highlight><highlight class="stringliteral">&quot;入库检验&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setStatus(</highlight><highlight class="stringliteral">&quot;进行中&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setResponsiblePerson(</highlight><highlight class="stringliteral">&quot;张三&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setCreateDate(LocalDateTime.now().minusDays(5));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setPlanStartDate(LocalDateTime.now().minusDays(3));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setPlanCompleteDate(LocalDateTime.now().plusDays(2));</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setActualStartDate(LocalDateTime.now().minusDays(3));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setIncludeFingerprint(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setIncludeTraditionalIdentify(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.setNeedAuthenticityAssessment(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>task;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a8ee549112a649f064d22dbfa02e4fdc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>InspectionTaskDTO<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a8ee549112a649f064d22dbfa02e4fdc6" kindref="member">createInspectionTaskDTO</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InspectionTaskDTO<sp/>taskDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>InspectionTaskDTO();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setId(1L);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setTaskCode(</highlight><highlight class="stringliteral">&quot;IT20230001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setSampleId(1L);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setSampleCode(</highlight><highlight class="stringliteral">&quot;S20230001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setSampleName(</highlight><highlight class="stringliteral">&quot;人参样品1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setInspectionType(</highlight><highlight class="stringliteral">&quot;全面检测&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setInspectionPurpose(</highlight><highlight class="stringliteral">&quot;入库检验&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setStatus(</highlight><highlight class="stringliteral">&quot;进行中&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setResponsiblePerson(</highlight><highlight class="stringliteral">&quot;张三&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setCreateDate(LocalDateTime.now().minusDays(5));</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setPlanStartDate(LocalDateTime.now().minusDays(3));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setPlanCompleteDate(LocalDateTime.now().plusDays(2));</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setActualStartDate(LocalDateTime.now().minusDays(3));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setIncludeFingerprint(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setIncludeTraditionalIdentify(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setNeedAuthenticityAssessment(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taskDTO.setRemark(</highlight><highlight class="stringliteral">&quot;重点关注道地性和有效成分含量&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>taskDTO;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a2749e31083c23471549204026b38d408" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>InspectionResult<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a2749e31083c23471549204026b38d408" kindref="member">createInspectionResult</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InspectionResult<sp/>result<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>InspectionResult();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setId(1L);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>移除不存在的方法调用</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setItemName(</highlight><highlight class="stringliteral">&quot;人参皂苷Rg1含量&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setTestMethod(</highlight><highlight class="stringliteral">&quot;高效液相色谱法&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setTestValue(</highlight><highlight class="stringliteral">&quot;0.35&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setMeasurementUnit(</highlight><highlight class="stringliteral">&quot;%&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setStandardValue(</highlight><highlight class="stringliteral">&quot;≥0.30&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setStandardRange(</highlight><highlight class="stringliteral">&quot;0.30-0.50&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setJudgmentResult(</highlight><highlight class="stringliteral">&quot;合格&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setTestDate(LocalDateTime.now().minusDays(1));</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setTestPerson(</highlight><highlight class="stringliteral">&quot;李四&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setReviewPerson(</highlight><highlight class="stringliteral">&quot;王五&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setReviewDate(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setReviewStatus(</highlight><highlight class="stringliteral">&quot;已审核&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setRemark(</highlight><highlight class="stringliteral">&quot;含量符合《中国药典》标准&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setResultDescription(</highlight><highlight class="stringliteral">&quot;色谱峰分离度良好，含量测定准确&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setIsKeyIndicator(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setCreatedTime(LocalDateTime.now().minusDays(1));</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setUpdatedTime(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a54aa67a7a21754a914eaa0bcbafe06d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>InspectionResultDTO<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a54aa67a7a21754a914eaa0bcbafe06d0" kindref="member">createInspectionResultDTO</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InspectionResultDTO<sp/>resultDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>InspectionResultDTO();</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setId(1L);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setTaskId(1L);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setTaskCode(</highlight><highlight class="stringliteral">&quot;IT20230001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setItemName(</highlight><highlight class="stringliteral">&quot;人参皂苷Rg1含量&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setTestMethod(</highlight><highlight class="stringliteral">&quot;高效液相色谱法&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setTestValue(</highlight><highlight class="stringliteral">&quot;0.35&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setMeasurementUnit(</highlight><highlight class="stringliteral">&quot;%&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setStandardValue(</highlight><highlight class="stringliteral">&quot;≥0.30&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setStandardRange(</highlight><highlight class="stringliteral">&quot;0.30-0.50&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setJudgmentResult(</highlight><highlight class="stringliteral">&quot;合格&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setTestDate(LocalDateTime.now().minusDays(1));</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setTestPerson(</highlight><highlight class="stringliteral">&quot;李四&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setReviewPerson(</highlight><highlight class="stringliteral">&quot;王五&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setReviewDate(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setReviewStatus(</highlight><highlight class="stringliteral">&quot;已审核&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setRemark(</highlight><highlight class="stringliteral">&quot;含量符合《中国药典》标准&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setResultDescription(</highlight><highlight class="stringliteral">&quot;色谱峰分离度良好，含量测定准确&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setIsKeyIndicator(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setCreatedTime(LocalDateTime.now().minusDays(1));</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resultDTO.setUpdatedTime(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>resultDTO;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a7c5720bcc11c9584ca9458d020584e84" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>TraditionalIdentifyRecord<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a7c5720bcc11c9584ca9458d020584e84" kindref="member">createTraditionalIdentifyRecord</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TraditionalIdentifyRecord<sp/>record<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TraditionalIdentifyRecord();</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>record.setId(</highlight><highlight class="stringliteral">&quot;TIR001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>record.setTaskId(1L);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>record.setSampleId(1L);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>record.setCharacterIdentify(</highlight><highlight class="stringliteral">&quot;主根呈纺锤形或圆柱形，表面灰黄色，上部或全体有疏浅断续的粗横纹及明显的纵皱，下部有支根2-3条，并着生多数细长的须根。&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>record.setMicroscopicIdentify(</highlight><highlight class="stringliteral">&quot;无显微鉴别数据&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>record.setIdentifyImages(Arrays.asList(</highlight><highlight class="stringliteral">&quot;image1.jpg&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;image2.jpg&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>record.setIdentifyPerson(</highlight><highlight class="stringliteral">&quot;赵六&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>record.setIdentifyDate(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>record.setRemark(</highlight><highlight class="stringliteral">&quot;色泽较好，质地坚实&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>record.setCreatedTime(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>record.setUpdatedTime(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>record;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a531e5adf14607f7780ac409578404e59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>FingerprintAnalysis<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a531e5adf14607f7780ac409578404e59" kindref="member">createFingerprintAnalysis</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FingerprintAnalysis<sp/>analysis<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>FingerprintAnalysis();</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setId(</highlight><highlight class="stringliteral">&quot;FPA001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setTaskId(1L);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setSampleId(1L);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setFingerprintType(</highlight><highlight class="stringliteral">&quot;HPLC指纹图谱&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setAnalysisMethod(</highlight><highlight class="stringliteral">&quot;《中国药典》人参项下方法&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>移除不存在的方法调用</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>修复指纹数据类型</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>fingerprintData<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fingerprintData.put(</highlight><highlight class="stringliteral">&quot;data1&quot;</highlight><highlight class="normal">,<sp/>0.1);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fingerprintData.put(</highlight><highlight class="stringliteral">&quot;data2&quot;</highlight><highlight class="normal">,<sp/>0.2);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setFingerprintData(fingerprintData);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;FingerprintAnalysis.CharacteristicPeak&gt;<sp/>peaks<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FingerprintAnalysis.CharacteristicPeak<sp/>peak1<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>FingerprintAnalysis.CharacteristicPeak();</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peak1.setPeakNumber(1);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peak1.setRetentionTime(2.5);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peak1.setPeakArea(1000.0);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peak1.setPeakHeight(500.0);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peak1.setPeakName(</highlight><highlight class="stringliteral">&quot;峰1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peaks.add(peak1);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FingerprintAnalysis.CharacteristicPeak<sp/>peak2<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>FingerprintAnalysis.CharacteristicPeak();</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peak2.setPeakNumber(2);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peak2.setRetentionTime(5.2);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peak2.setPeakArea(2000.0);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peak2.setPeakHeight(1000.0);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peak2.setPeakName(</highlight><highlight class="stringliteral">&quot;峰2（人参皂苷Rg1）&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peaks.add(peak2);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setCharacteristicPeaks(peaks);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setReferenceFingerprintId(</highlight><highlight class="stringliteral">&quot;REF001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>修复类型兼容性问题</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setSimilarityResult(0.95);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setAnalysisPerson(</highlight><highlight class="stringliteral">&quot;钱七&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setAnalysisDate(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setRemark(</highlight><highlight class="stringliteral">&quot;图谱基线平稳，分离度良好&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setCreatedTime(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>analysis.setUpdatedTime(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>analysis;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a046c5c770c922306b8c6d16bddb20310" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>AuthenticityAssessment<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a046c5c770c922306b8c6d16bddb20310" kindref="member">createAuthenticityAssessment</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AuthenticityAssessment<sp/>assessment<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AuthenticityAssessment();</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assessment.setId(</highlight><highlight class="stringliteral">&quot;AA001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assessment.setTaskId(1L);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assessment.setSampleId(1L);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assessment.setRemark(</highlight><highlight class="stringliteral">&quot;推荐使用&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assessment.setCreatedTime(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assessment.setUpdatedTime(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>assessment;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a52d7f9de662a24f8cfeb5de0d9baaeed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>List&lt;Sample&gt;<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a52d7f9de662a24f8cfeb5de0d9baaeed" kindref="member">getSamplesWithDifferentStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Sample&gt;<sp/>samples<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Sample<sp/>sample1<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a0c4ff33bf8457880c71cda0de7f20859" kindref="member">createSample</ref>();</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample1.setId(1L);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample1.setSampleCode(</highlight><highlight class="stringliteral">&quot;S20230001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample1.setStatus(</highlight><highlight class="stringliteral">&quot;已接收&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>samples.add(sample1);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Sample<sp/>sample2<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a0c4ff33bf8457880c71cda0de7f20859" kindref="member">createSample</ref>();</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample2.setId(2L);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample2.setSampleCode(</highlight><highlight class="stringliteral">&quot;S20230002&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample2.setSampleName(</highlight><highlight class="stringliteral">&quot;当归样品1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample2.setChineseMedicineName(</highlight><highlight class="stringliteral">&quot;当归&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample2.setAuthenticProductionArea(</highlight><highlight class="stringliteral">&quot;甘肃岷县&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample2.setStatus(</highlight><highlight class="stringliteral">&quot;检测中&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>samples.add(sample2);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Sample<sp/>sample3<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a0c4ff33bf8457880c71cda0de7f20859" kindref="member">createSample</ref>();</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample3.setId(3L);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample3.setSampleCode(</highlight><highlight class="stringliteral">&quot;S20230003&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample3.setSampleName(</highlight><highlight class="stringliteral">&quot;黄芪样品1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample3.setChineseMedicineName(</highlight><highlight class="stringliteral">&quot;黄芪&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample3.setAuthenticProductionArea(</highlight><highlight class="stringliteral">&quot;内蒙古&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample3.setStatus(</highlight><highlight class="stringliteral">&quot;已完成&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>samples.add(sample3);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>samples;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287" refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a921c9f18d8af892a3d8ced09ad7e7523" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>List&lt;InspectionTask&gt;<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a921c9f18d8af892a3d8ced09ad7e7523" kindref="member">getTasksWithDifferentStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;InspectionTask&gt;<sp/>tasks<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InspectionTask<sp/>task1<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a458753432eb3ea374271fd065fd39f04" kindref="member">createInspectionTask</ref>();</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task1.setId(1L);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task1.setTaskCode(</highlight><highlight class="stringliteral">&quot;IT20230001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task1.setStatus(</highlight><highlight class="stringliteral">&quot;待分配&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tasks.add(task1);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InspectionTask<sp/>task2<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a458753432eb3ea374271fd065fd39f04" kindref="member">createInspectionTask</ref>();</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task2.setId(2L);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task2.setTaskCode(</highlight><highlight class="stringliteral">&quot;IT20230002&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task2.setStatus(</highlight><highlight class="stringliteral">&quot;进行中&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tasks.add(task2);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InspectionTask<sp/>task3<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1util_1_1TestUtils_1a458753432eb3ea374271fd065fd39f04" kindref="member">createInspectionTask</ref>();</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task3.setId(3L);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task3.setTaskCode(</highlight><highlight class="stringliteral">&quot;IT20230003&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task3.setStatus(</highlight><highlight class="stringliteral">&quot;已完成&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task3.setActualCompleteDate(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tasks.add(task3);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tasks;</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="311"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lims-service/src/test/java/com/gmp/lims/util/TestUtils.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,26 @@
+var classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest =
+[
+    [ "setUp", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a23814e18cddfe52cad46a08169d59de0", null ],
+    [ "testEqualsAndHashCode", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a67a08f10e4857a683a2e309a47adcd76", null ],
+    [ "testSetAndGetActualQuantity", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#ac43ea86e6a68dd6bbbd9b4b414e3b996", null ],
+    [ "testSetAndGetAmount", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#ad376bb0fb9edeabd660733ae231e1f66", null ],
+    [ "testSetAndGetBatchNo", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a42f5e8939f4e0cff4e6a30ecfbdd7eb6", null ],
+    [ "testSetAndGetCreatedAt", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#abc5760f2f5052d126858327cd472f1e4", null ],
+    [ "testSetAndGetCreatedBy", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a4c789c5c306c77d472928b4b62a9cb48", null ],
+    [ "testSetAndGetExpiryDate", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#ad85905ad4e6070e038cb69618e5c19e5", null ],
+    [ "testSetAndGetId", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a2f547e16cf3d297d9d850d5bd52ccbce", null ],
+    [ "testSetAndGetLocation", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a755b2b74aad04f442bff5337834f0c37", null ],
+    [ "testSetAndGetMaterial", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#ad5369d2aa4a21b7b33a2e01d48e45031", null ],
+    [ "testSetAndGetProductionDate", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a91e135d42d52035848c9da53507006d6", null ],
+    [ "testSetAndGetQualityStatus", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#ae4e15702a3992cf6435da9734000e9dd", null ],
+    [ "testSetAndGetQuantity", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#ad8c418af0a019c2d5576de6959e3a8a0", null ],
+    [ "testSetAndGetRemark", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a10afdde30131ad1ea72fd13d72400227", null ],
+    [ "testSetAndGetSpecification", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a3d3221ed51b4e79d849362813a7882a4", null ],
+    [ "testSetAndGetStockInOrder", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a8631f8e9b19cf99bcb695962a7fb9145", null ],
+    [ "testSetAndGetUnit", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a87a3720f14aab0fd9461ee42d765302a", null ],
+    [ "testSetAndGetUnitCost", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a6185225064e81fcca8f012108352d177", null ],
+    [ "testSetAndGetUpdatedAt", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a2df12b9d51b41caf6c088c1232160f67", null ],
+    [ "testSetAndGetUpdatedBy", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a1031c637859bac94c39320f895f34808", null ],
+    [ "testSetAndGetWarehouse", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a6c97613418b47827abc370742d15566e", null ],
+    [ "stockInOrderItem", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1StockInOrderItemTest.html#a9af5650a2d741b2c4d35c06f5e9c2b14", null ]
+];

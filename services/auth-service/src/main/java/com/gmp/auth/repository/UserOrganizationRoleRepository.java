@@ -96,4 +96,14 @@ public interface UserOrganizationRoleRepository extends JpaRepository<UserOrgani
      * @return 有效的用户组织角色关联列表
      */
     List<UserOrganizationRole> findByRoleIdAndStatusIn(Long roleId, Set<UserOrganizationRole.AssignmentStatus> activeStatuses);
+    
+    /**
+     * 根据用户ID、组织ID和角色ID查找有效的用户组织角色关联
+     * @param userId 用户ID
+     * @param organizationId 组织ID
+     * @param roleId 角色ID
+     * @param activeStatuses 活动状态集合
+     * @return 有效的用户组织角色关联
+     */
+    java.util.Optional<UserOrganizationRole> findByUserIdAndOrganizationIdAndRoleIdAndStatusIn(Long userId, Long organizationId, Long roleId, Set<UserOrganizationRole.AssignmentStatus> activeStatuses);
 }

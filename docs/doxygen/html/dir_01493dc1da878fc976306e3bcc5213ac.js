@@ -9,6 +9,6 @@ var dir_01493dc1da878fc976306e3bcc5213ac =
     [ "SubsystemRepository.java", "SubsystemRepository_8java.html", "SubsystemRepository_8java" ],
     [ "UserOrganizationRoleRepository.java", "UserOrganizationRoleRepository_8java.html", "UserOrganizationRoleRepository_8java" ],
     [ "UserPasswordHistoryRepository.java", "UserPasswordHistoryRepository_8java.html", "UserPasswordHistoryRepository_8java" ],
-    [ "UserRepository.java", "UserRepository_8java.html", "UserRepository_8java" ],
+    [ "UserRepository.java", "auth-service_2src_2main_2java_2com_2gmp_2auth_2repository_2UserRepository_8java.html", "auth-service_2src_2main_2java_2com_2gmp_2auth_2repository_2UserRepository_8java" ],
     [ "UserRoleRepository.java", "UserRoleRepository_8java.html", "UserRoleRepository_8java" ]
 ];

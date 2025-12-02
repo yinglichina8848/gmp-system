@@ -132,7 +132,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0edc815688642b8537e45da414e98e71"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据资源类型查找权限  <br /></td></tr>
 <tr class="separator:a0edc815688642b8537e45da414e98e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b0d037dc55ae4de6d1d93794dfae59b" id="r_a6b0d037dc55ae4de6d1d93794dfae59b"><td class="memItemLeft" align="right" valign="top">List&lt; Permission &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository.html#a6b0d037dc55ae4de6d1d93794dfae59b">searchPermissions</a> (@Param(&quot;keyword&quot;) String keyword)</td></tr>
-<tr class="memdesc:a6b0d037dc55ae4de6d1d93794dfae59b"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据权限名称模糊搜索  <br /></td></tr>
+<tr class="memdesc:a6b0d037dc55ae4de6d1d93794dfae59b"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据权限名称或代码模糊搜索  <br /></td></tr>
 <tr class="separator:a6b0d037dc55ae4de6d1d93794dfae59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a353de95750e65a50f830d1f6461a7ddf" id="r_a353de95750e65a50f830d1f6461a7ddf"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1gmp_1_1auth_1_1repository_1_1PermissionRepository.html#a353de95750e65a50f830d1f6461a7ddf">existsByPermissionCode</a> (String permissionCode)</td></tr>
 <tr class="memdesc:a353de95750e65a50f830d1f6461a7ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查权限代码是否存在  <br /></td></tr>
@@ -146,9 +146,15 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>权限数据访问层 </p>
+<p>该接口定义了权限实体的数据库操作方法，包括CRUD操作和复杂查询。 继承自Spring Data JPA的JpaRepository，自动生成基本的CRUD方法。</p>
 <dl class="section author"><dt>Author</dt><dd>GMP系统开发团队 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section since"><dt>Since</dt><dd>2023-01-01</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>org.springframework.data.jpa.repository.JpaRepository </dd>
+<dd>
+<a class="el" href="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission.html" title="GMP系统权限实体">com.gmp.auth.entity.Permission</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="PermissionRepository_8java_source.html#l00018">18</a> of file <a class="el" href="PermissionRepository_8java_source.html">PermissionRepository.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PermissionRepository_8java_source.html#l00026">26</a> of file <a class="el" href="PermissionRepository_8java_source.html">PermissionRepository.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a353de95750e65a50f830d1f6461a7ddf" name="a353de95750e65a50f830d1f6461a7ddf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a353de95750e65a50f830d1f6461a7ddf">&#9670;&#160;</a></span>existsByPermissionCode()</h2>
@@ -167,6 +173,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查权限代码是否存在 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">permissionCode</td><td>权限代码 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果权限代码存在返回true，否则返回false </dd></dl>
 
 </div>
 </div>
@@ -186,6 +199,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>查找所有活跃权限 </p>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;Permission&gt; 活跃权限列表 </dd></dl>
 
 </div>
 </div>
@@ -206,6 +220,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>根据权限代码查找权限 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">permissionCode</td><td>权限代码 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Optional&lt;Permission&gt; 权限实体，如果不存在则返回Optional.empty() </dd></dl>
 
 </div>
 </div>
@@ -226,6 +247,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>根据资源类型查找权限 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resourceType</td><td>资源类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;Permission&gt; 指定资源类型的活跃权限列表 </dd></dl>
 
 </div>
 </div>
@@ -246,6 +274,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>根据角色ID查找关联的权限 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roleId</td><td>角色ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;Permission&gt; 角色关联的活跃权限列表 </dd></dl>
 
 </div>
 </div>
@@ -266,6 +301,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>根据用户ID查找关联的权限 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userId</td><td>用户ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;Permission&gt; 用户关联的活跃权限列表 </dd></dl>
 
 </div>
 </div>
@@ -285,7 +327,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>根据权限名称模糊搜索 </p>
+<p>根据权限名称或代码模糊搜索 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keyword</td><td>搜索关键词 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;Permission&gt; 匹配的权限列表 </dd></dl>
 
 </div>
 </div>

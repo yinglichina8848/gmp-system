@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_edms-service_2MERGE__PLAN" kind="page">
+    <compoundname>md_edms-service_2MERGE__PLAN</compoundname>
+    <title>File服务合并到EDMS服务方案</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">1. 背景与目标</heading>
+</para>
+<para>根据系统重构需求，需要将独立的File服务合并到现有的EDMS（Electronic Document Management System）服务中，以简化系统架构，减少服务间调用，并实现文件管理功能的统一维护。</para>
+<para><heading level="1">2. 当前系统分析</heading>
+</para>
+<para><heading level="2">2.1 File服务现状</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>File服务目录为空，可能是待实现或已被移除的服务</para>
+</listitem><listitem><para>假设其预期功能是提供通用文件存储和管理功能</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">2.2 EDMS服务现状</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>已实现完整的文件存储功能，通过MinioFileStorageServiceImpl实现FileStorageService接口</para>
+</listitem><listitem><para>使用Minio作为底层对象存储</para>
+</listitem><listitem><para>已支持文档管理、版本控制和文件操作</para>
+</listitem><listitem><para>提供了丰富的文件操作API，包括：<itemizedlist>
+<listitem><para>文件上传、下载、删除</para>
+</listitem><listitem><para>预签名URL生成</para>
+</listitem><listitem><para>文件信息获取</para>
+</listitem><listitem><para>文件复制和移动</para>
+</listitem><listitem><para>目录列表和桶管理</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">3. 合并方案</heading>
+</para>
+<para><heading level="2">3.1 功能整合策略</heading>
+</para>
+<para><heading level="3">3.1.1 文件存储功能扩展</heading>
+</para>
+<para><orderedlist>
+<listitem><para>保留现有的MinioFileStorageServiceImpl作为底层实现</para>
+</listitem><listitem><para>扩展FileStorageService接口以支持更通用的文件操作需求</para>
+</listitem><listitem><para>实现多租户隔离机制，确保不同业务模块的文件存储隔离</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="3">3.1.2 API整合方案</heading>
+</para>
+<para><orderedlist>
+<listitem><para>为原File服务API创建兼容层，使用Spring MVC的控制器映射实现</para>
+</listitem><listitem><para>现有的EDMS文档相关API保持不变</para>
+</listitem><listitem><para>新增通用文件操作API，路径前缀为<computeroutput>/api/v1/files</computeroutput></para>
+</listitem></orderedlist>
+</para>
+<para><heading level="3">3.1.3 存储结构设计</heading>
+</para>
+<para><programlisting><codeline><highlight class="normal">minio-bucket/</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>edms-documents/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>现有文档存储区</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>versions/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>文档版本存储</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>common-files/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>通用文件存储区（新增）</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>[module]/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>模块标识</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──<sp/>[year]/[month]/[day]<sp/>#<sp/>按日期组织</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>...</highlight></codeline>
+<codeline><highlight class="normal">└──<sp/>temp/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>临时文件存储区（新增）</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">3.2 技术实现细节</heading>
+</para>
+<para><heading level="3">3.2.1 服务层扩展</heading>
+</para>
+<para><orderedlist>
+<listitem><para>创建通用文件管理服务接口<computeroutput>CommonFileService</computeroutput></para>
+</listitem><listitem><para>实现<computeroutput>CommonFileServiceImpl</computeroutput>，委托<computeroutput>FileStorageService</computeroutput>完成实际存储操作</para>
+</listitem><listitem><para>添加文件元数据管理，支持文件分类、标签和搜索</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="3">3.2.2 控制器层实现</heading>
+</para>
+<para><orderedlist>
+<listitem><para>创建<computeroutput>FileController</computeroutput>提供通用文件操作API</para>
+</listitem><listitem><para>实现原File服务的API兼容层，重定向到新的实现</para>
+</listitem><listitem><para>为所有文件操作添加权限控制和审计日志</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="3">3.2.3 数据模型扩展</heading>
+</para>
+<para><orderedlist>
+<listitem><para>创建<computeroutput>CommonFile</computeroutput>实体类存储文件元数据</para>
+</listitem><listitem><para>添加<computeroutput>FileModule</computeroutput>枚举标识文件所属模块</para>
+</listitem><listitem><para>设计文件索引结构支持快速检索</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="2">3.3 迁移策略</heading>
+</para>
+<para><heading level="3">3.3.1 数据迁移</heading>
+</para>
+<para><orderedlist>
+<listitem><para>如果有现有File服务数据，创建迁移脚本将其导入新结构</para>
+</listitem><listitem><para>使用批处理方式迁移大量文件，最小化服务中断</para>
+</listitem><listitem><para>迁移后进行校验确保数据完整性</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="3">3.3.2 服务部署</heading>
+</para>
+<para><orderedlist>
+<listitem><para>更新EDMS服务配置，添加必要的Minio配置和文件路径设置</para>
+</listitem><listitem><para>部署更新后的EDMS服务</para>
+</listitem><listitem><para>更新API网关配置，将原File服务请求路由到EDMS服务</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">4. 兼容性保障</heading>
+</para>
+<para><heading level="2">4.1 API兼容性</heading>
+</para>
+<para><orderedlist>
+<listitem><para>实现API版本控制策略</para>
+</listitem><listitem><para>为原File服务API提供兼容层</para>
+</listitem><listitem><para>提供API文档和迁移指南</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="2">4.2 错误处理</heading>
+</para>
+<para><orderedlist>
+<listitem><para>统一错误响应格式</para>
+</listitem><listitem><para>添加详细的错误日志</para>
+</listitem><listitem><para>实现重试机制和熔断保护</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">5. 实施计划</heading>
+</para>
+<para><heading level="2">5.1 阶段一：准备工作</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>更新项目依赖和配置</para>
+</listitem><listitem><para>创建开发分支</para>
+</listitem><listitem><para>设计详细的API规范</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">5.2 阶段二：核心实现</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>扩展FileStorageService功能</para>
+</listitem><listitem><para>实现CommonFileService</para>
+</listitem><listitem><para>创建控制器层API</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">5.3 阶段三：测试与验证</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>编写单元测试和集成测试</para>
+</listitem><listitem><para>性能测试和负载测试</para>
+</listitem><listitem><para>安全审计</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">5.4 阶段四：部署与切换</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>数据迁移（如果需要）</para>
+</listitem><listitem><para>更新服务配置</para>
+</listitem><listitem><para>流量切换和监控</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">6. 风险评估</heading>
+</para>
+<para><table rows="5" cols="4"><row>
+<entry thead="yes"><para>风险项   </para>
+</entry><entry thead="yes"><para>可能性   </para>
+</entry><entry thead="yes"><para>影响程度   </para>
+</entry><entry thead="yes"><para>缓解措施    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>存储性能下降   </para>
+</entry><entry thead="no"><para>中   </para>
+</entry><entry thead="no"><para>高   </para>
+</entry><entry thead="no"><para>优化Minio配置，添加缓存层    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>API兼容性问题   </para>
+</entry><entry thead="no"><para>高   </para>
+</entry><entry thead="no"><para>高   </para>
+</entry><entry thead="no"><para>完整的API测试和兼容层实现    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>数据迁移失败   </para>
+</entry><entry thead="no"><para>中   </para>
+</entry><entry thead="no"><para>高   </para>
+</entry><entry thead="no"><para>备份机制，回滚计划，分批次迁移    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>服务不可用时间   </para>
+</entry><entry thead="no"><para>低   </para>
+</entry><entry thead="no"><para>高   </para>
+</entry><entry thead="no"><para>蓝绿部署，最小化切换窗口   </para>
+</entry></row>
+</table>
+</para>
+<para><heading level="1">7. 成功标准</heading>
+</para>
+<para><orderedlist>
+<listitem><para>EDMS服务能处理所有原File服务的请求</para>
+</listitem><listitem><para>服务性能满足或超过当前水平</para>
+</listitem><listitem><para>API兼容性测试通过</para>
+</listitem><listitem><para>系统监控显示正常运行</para>
+</listitem><listitem><para>开发和测试团队确认功能完整性 </para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <location file="edms-service/MERGE_PLAN.md"/>
+  </compounddef>
+</doxygen>

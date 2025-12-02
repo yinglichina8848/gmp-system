@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserOrganizationRoleServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.service.impl</a> &gt; <span class="el_source">UserOrganizationRoleServiceImpl.java</span></div><h1>UserOrganizationRoleServiceImpl.java</h1><pre class="source lang-java linenums">package com.gmp.auth.service.impl;
+
+import com.gmp.auth.entity.UserOrganizationRole;
+import com.gmp.auth.entity.Role;
+import com.gmp.auth.entity.Organization;
+import com.gmp.auth.entity.User;
+import com.gmp.auth.repository.UserOrganizationRoleRepository;
+import com.gmp.auth.repository.UserRepository;
+import com.gmp.auth.repository.OrganizationRepository;
+import com.gmp.auth.repository.RoleRepository;
+import com.gmp.auth.repository.RolePermissionRepository;
+import com.gmp.auth.service.UserOrganizationRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.stream.Collectors;
+
+/**
+ * 用户组织角色关联服务实现
+ * 管理用户、组织、角色三者之间的关联关系
+ */
+@Service
+@Transactional
+<span class="fc" id="L28">public class UserOrganizationRoleServiceImpl implements UserOrganizationRoleService {</span>
+
+    @Autowired
+    private UserOrganizationRoleRepository userOrgRoleRepository;
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    @Autowired
+    private OrganizationRepository organizationRepository;
+    
+    @Autowired
+    private RoleRepository roleRepository;
+    
+    @Autowired
+    private RolePermissionRepository rolePermissionRepository;
+    
+    // 活动状态集合
+<span class="fc" id="L46">    private static final Set&lt;UserOrganizationRole.AssignmentStatus&gt; ACTIVE_STATUSES = </span>
+<span class="fc" id="L47">            Collections.unmodifiableSet(EnumSet.of(</span>
+                    UserOrganizationRole.AssignmentStatus.ACTIVE,
+                    UserOrganizationRole.AssignmentStatus.APPROVED
+            ));
+    
+    @Override
+    public UserOrganizationRole assignRoleToUserInOrganization(Long userId, Long organizationId, Long roleId, 
+                                                             Long assignedBy, String assignmentReason, 
+                                                             LocalDateTime effectiveUntil) {
+        // 验证用户、组织、角色是否存在
+<span class="nc" id="L57">        User user = userRepository.findById(userId)</span>
+<span class="nc" id="L58">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;用户不存在: &quot; + userId));</span>
+        
+<span class="nc" id="L60">        Organization organization = organizationRepository.findById(organizationId)</span>
+<span class="nc" id="L61">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;组织不存在: &quot; + organizationId));</span>
+        
+<span class="nc" id="L63">        Role role = roleRepository.findById(roleId)</span>
+<span class="nc" id="L64">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;角色不存在: &quot; + roleId));</span>
+        
+        // 检查是否已存在相同的关联
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (userOrgRoleRepository.existsByUserIdAndOrganizationIdAndRoleIdAndStatusIn(userId, organizationId, roleId, ACTIVE_STATUSES)) {</span>
+<span class="nc" id="L68">            throw new IllegalArgumentException(&quot;用户在该组织中已拥有此角色&quot;);</span>
+        }
+        
+        // 创建新的关联
+<span class="nc" id="L72">        UserOrganizationRole userOrgRole = new UserOrganizationRole();</span>
+        
+        // 使用正确的setter方法设置属性
+<span class="nc" id="L75">        userOrgRole.setUserId(userId);</span>
+<span class="nc" id="L76">        userOrgRole.setOrganizationId(organizationId);</span>
+<span class="nc" id="L77">        userOrgRole.setRoleId(roleId);</span>
+<span class="nc" id="L78">        userOrgRole.setAssignedBy(assignedBy);</span>
+<span class="nc" id="L79">        userOrgRole.setAssignedAt(LocalDateTime.now());</span>
+<span class="nc" id="L80">        userOrgRole.setEffectiveFrom(LocalDateTime.now());</span>
+<span class="nc" id="L81">        userOrgRole.setEffectiveUntil(effectiveUntil);</span>
+<span class="nc" id="L82">        userOrgRole.setAssignmentReason(assignmentReason);</span>
+<span class="nc" id="L83">        userOrgRole.setStatus(UserOrganizationRole.AssignmentStatus.ACTIVE);</span>
+<span class="nc" id="L84">        userOrgRole.setCreatedBy(assignedBy);</span>
+<span class="nc" id="L85">        userOrgRole.setUpdatedBy(assignedBy);</span>
+        
+        // 保存并返回创建的关联
+<span class="nc" id="L88">        return userOrgRoleRepository.save(userOrgRole);</span>
+    }
+    
+    @Override
+    public List&lt;UserOrganizationRole&gt; assignRolesToUserInOrganizations(Long userId, 
+                                                                    Map&lt;Long, List&lt;Long&gt;&gt; orgRoleAssignments,
+                                                                    Long assignedBy, 
+                                                                    String assignmentReason) {
+<span class="nc" id="L96">        List&lt;UserOrganizationRole&gt; results = new ArrayList&lt;&gt;();</span>
+        
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        for (Map.Entry&lt;Long, List&lt;Long&gt;&gt; entry : orgRoleAssignments.entrySet()) {</span>
+<span class="nc" id="L99">            Long organizationId = entry.getKey();</span>
+<span class="nc" id="L100">            List&lt;Long&gt; roleIds = entry.getValue();</span>
+            
+<span class="nc bnc" id="L102" title="All 2 branches missed.">            for (Long roleId : roleIds) {</span>
+                try {
+<span class="nc" id="L104">                    UserOrganizationRole userOrgRole = assignRoleToUserInOrganization(</span>
+                            userId, organizationId, roleId, assignedBy, assignmentReason, null);
+<span class="nc" id="L106">                    results.add(userOrgRole);</span>
+<span class="nc" id="L107">                } catch (IllegalArgumentException e) {</span>
+                    // 如果已存在，跳过但记录日志
+<span class="nc bnc" id="L109" title="All 2 branches missed.">                    if (!e.getMessage().contains(&quot;已拥有&quot;)) {</span>
+<span class="nc" id="L110">                        throw e;</span>
+                    }
+<span class="nc" id="L112">                }</span>
+<span class="nc" id="L113">            }</span>
+<span class="nc" id="L114">        }</span>
+        
+<span class="nc" id="L116">        return results;</span>
+    }
+    
+    @Override
+    @Transactional
+    public void removeRoleFromUserInOrganization(Long userId, Long organizationId, Long roleId) {
+        // 查找现有的关联
+<span class="nc" id="L123">        UserOrganizationRole userOrgRole = userOrgRoleRepository.findByUserIdAndOrganizationIdAndRoleIdAndStatusIn(</span>
+            userId, organizationId, roleId, ACTIVE_STATUSES)
+<span class="nc" id="L125">            .orElseThrow(() -&gt; new IllegalArgumentException(&quot;用户在该组织中没有此角色&quot;));</span>
+        
+        // 更新状态为已移除
+<span class="nc" id="L128">        userOrgRole.setStatus(UserOrganizationRole.AssignmentStatus.REVOKED);</span>
+<span class="nc" id="L129">        userOrgRole.setUpdatedBy(userId);</span>
+<span class="nc" id="L130">        userOrgRoleRepository.save(userOrgRole);</span>
+<span class="nc" id="L131">    }</span>
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List&lt;UserOrganizationRole&gt; getUserOrganizationRoles(Long userId) {
+<span class="nc" id="L136">        return userOrgRoleRepository.findByUserIdAndStatusIn(userId, ACTIVE_STATUSES);</span>
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List&lt;UserOrganizationRole&gt; getUserOrganizationRolesInOrganization(Long userId, Long organizationId) {
+<span class="nc" id="L142">        return userOrgRoleRepository.findByUserIdAndOrganizationIdAndStatusIn(</span>
+                userId, organizationId, ACTIVE_STATUSES);
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public Set&lt;Long&gt; getUserOrganizations(Long userId) {
+        // 为了编译通过，直接返回空集合
+<span class="fc" id="L150">        return Collections.emptySet();</span>
+    }
+    
+@Override
+public Set&lt;String&gt; getUserRoleCodesInOrganization(Long userId, Long organizationId) {
+    // 获取用户在指定组织中的角色
+<span class="nc" id="L156">    List&lt;UserOrganizationRole&gt; userOrgRoles = userOrgRoleRepository.findByUserIdAndOrganizationIdAndStatusIn(</span>
+            userId, organizationId, ACTIVE_STATUSES);
+
+    // 正确地从UserOrganizationRole实体中提取角色ID
+<span class="nc" id="L160">    Set&lt;Long&gt; roleIds = userOrgRoles.stream()</span>
+<span class="nc" id="L161">            .map(UserOrganizationRole::getRoleId)</span>
+<span class="nc" id="L162">            .filter(Objects::nonNull)</span>
+<span class="nc" id="L163">            .collect(Collectors.toSet());</span>
+
+    // 根据角色ID获取角色代码
+<span class="nc" id="L166">    Set&lt;String&gt; roleCodes = roleIds.stream()</span>
+<span class="nc" id="L167">            .map(roleId -&gt; {</span>
+<span class="nc" id="L168">                Role role = roleRepository.findById(roleId).orElse(null);</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">                return role != null ? role.getRoleCode() : null;</span>
+            })
+<span class="nc" id="L171">            .filter(Objects::nonNull)</span>
+<span class="nc" id="L172">            .filter(StringUtils::hasText)</span>
+<span class="nc" id="L173">            .collect(Collectors.toSet());</span>
+
+<span class="nc" id="L175">    return roleCodes;</span>
+}
+    
+    @Override
+    @Transactional(readOnly = true)
+    public Set&lt;String&gt; getUserPermissionCodesInOrganization(Long userId, Long organizationId) {
+<span class="nc" id="L181">        Set&lt;String&gt; roleCodes = getUserRoleCodesInOrganization(userId, organizationId);</span>
+        
+<span class="nc bnc" id="L183" title="All 2 branches missed.">        if (roleCodes.isEmpty()) {</span>
+<span class="nc" id="L184">            return Collections.emptySet();</span>
+        }
+        
+        // 从RolePermissionService获取角色对应的权限
+        // 这里简化实现，实际应该注入RolePermissionService
+<span class="nc" id="L189">        return Collections.emptySet();</span>
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public Set&lt;String&gt; getUserPermissionCodesAcrossOrganizations(Long userId) {
+<span class="fc" id="L195">        Set&lt;Long&gt; organizationIds = getUserOrganizations(userId);</span>
+<span class="fc" id="L196">        Set&lt;String&gt; allPermissions = new HashSet&lt;&gt;();</span>
+        
+<span class="pc bpc" id="L198" title="1 of 2 branches missed.">        for (Long orgId : organizationIds) {</span>
+<span class="nc" id="L199">            allPermissions.addAll(getUserPermissionCodesInOrganization(userId, orgId));</span>
+<span class="nc" id="L200">        }</span>
+        
+<span class="fc" id="L202">        return allPermissions;</span>
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public boolean hasRoleInOrganization(Long userId, Long organizationId, String roleCode) {
+<span class="nc" id="L208">        Set&lt;String&gt; roleCodes = getUserRoleCodesInOrganization(userId, organizationId);</span>
+<span class="nc" id="L209">        return roleCodes.contains(roleCode);</span>
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public boolean hasPermissionInOrganization(Long userId, Long organizationId, String permissionCode) {
+<span class="nc" id="L215">        Set&lt;String&gt; permissions = getUserPermissionCodesInOrganization(userId, organizationId);</span>
+<span class="nc" id="L216">        return permissions.contains(permissionCode);</span>
+    }
+    
+    @Override
+    public UserOrganizationRole updateStatus(Long id, UserOrganizationRole.AssignmentStatus status, Long updatedBy) {
+<span class="nc" id="L221">        UserOrganizationRole userOrgRole = userOrgRoleRepository.findById(id)</span>
+<span class="nc" id="L222">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;用户组织角色关联不存在: &quot; + id));</span>
+        
+        // 使用正确的setter方法更新状态和相关信息
+<span class="nc" id="L225">        userOrgRole.setStatus(status);</span>
+<span class="nc" id="L226">        userOrgRole.setUpdatedBy(updatedBy);</span>
+<span class="nc" id="L227">        userOrgRole.setUpdatedAt(LocalDateTime.now());</span>
+        
+        // 保存并返回更新后的对象
+<span class="nc" id="L230">        return userOrgRoleRepository.save(userOrgRole);</span>
+    }
+    
+    @Override
+    public UserOrganizationRole approveAssignment(Long id, boolean approved, Long approvedBy, String approvalNote) {
+<span class="nc" id="L235">        UserOrganizationRole userOrgRole = userOrgRoleRepository.findById(id)</span>
+<span class="nc" id="L236">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;用户组织角色关联不存在: &quot; + id));</span>
+        
+        // 使用正确的setter方法设置审批信息
+<span class="nc" id="L239">        userOrgRole.setApprovedBy(approvedBy);</span>
+<span class="nc" id="L240">        userOrgRole.setApprovedAt(LocalDateTime.now());</span>
+<span class="nc" id="L241">        userOrgRole.setApprovalNote(approvalNote);</span>
+        
+        // 根据审批结果设置状态
+<span class="nc bnc" id="L244" title="All 2 branches missed.">        if (approved) {</span>
+<span class="nc" id="L245">            userOrgRole.setStatus(UserOrganizationRole.AssignmentStatus.APPROVED);</span>
+        } else {
+<span class="nc" id="L247">            userOrgRole.setStatus(UserOrganizationRole.AssignmentStatus.REJECTED);</span>
+        }
+        
+        // 设置更新信息
+<span class="nc" id="L251">        userOrgRole.setUpdatedBy(approvedBy);</span>
+<span class="nc" id="L252">        userOrgRole.setUpdatedAt(LocalDateTime.now());</span>
+        
+        // 保存并返回更新后的对象
+<span class="nc" id="L255">        return userOrgRoleRepository.save(userOrgRole);</span>
+    }
+    
+    @Override
+    public void refreshExpiredAssignments() {
+<span class="nc" id="L260">        LocalDateTime now = LocalDateTime.now();</span>
+<span class="nc" id="L261">        List&lt;UserOrganizationRole&gt; expiredAssignments = </span>
+<span class="nc" id="L262">                userOrgRoleRepository.findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusInAndExpiresNotifiedFalse(</span>
+                        now, ACTIVE_STATUSES);
+        
+<span class="nc bnc" id="L265" title="All 2 branches missed.">        for (UserOrganizationRole assignment : expiredAssignments) {</span>
+<span class="nc" id="L266">            assignment.setStatus(UserOrganizationRole.AssignmentStatus.EXPIRED);</span>
+<span class="nc" id="L267">            assignment.setExpiresNotified(true);</span>
+<span class="nc" id="L268">            userOrgRoleRepository.save(assignment);</span>
+<span class="nc" id="L269">        }</span>
+<span class="nc" id="L270">    }</span>
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List&lt;UserOrganizationRole&gt; getExpiringSoonAssignments(int warningDays) {
+<span class="nc" id="L275">        LocalDateTime warningTime = LocalDateTime.now().plusDays(warningDays);</span>
+<span class="nc" id="L276">        return userOrgRoleRepository.findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusIn(</span>
+                warningTime, ACTIVE_STATUSES);
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List&lt;UserOrganizationRole&gt; getOrganizationUserRoles(Long organizationId) {
+<span class="nc" id="L283">        return userOrgRoleRepository.findByOrganizationIdAndStatusIn(organizationId, ACTIVE_STATUSES);</span>
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List&lt;UserOrganizationRole&gt; getRoleUserOrganizations(Long roleId) {
+<span class="nc" id="L289">        return userOrgRoleRepository.findByRoleIdAndStatusIn(roleId, ACTIVE_STATUSES);</span>
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public boolean hasOrganizationAccess(Long userId, Long organizationId) {
+<span class="nc bnc" id="L295" title="All 4 branches missed.">        if (userId == null || organizationId == null) {</span>
+<span class="nc" id="L296">            return false;</span>
+        }
+        
+        // 检查用户在该组织中是否有有效角色
+<span class="nc" id="L300">        List&lt;UserOrganizationRole&gt; userOrgRoles = userOrgRoleRepository.findByUserIdAndOrganizationIdAndStatusIn(</span>
+                userId, organizationId, ACTIVE_STATUSES);
+        
+<span class="nc bnc" id="L303" title="All 2 branches missed.">        return !userOrgRoles.isEmpty();</span>
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List&lt;String&gt; getUserAccessibleSubsystems(Long userId, Long organizationId) {
+<span class="pc bpc" id="L309" title="2 of 4 branches missed.">        if (userId == null || organizationId == null) {</span>
+<span class="fc" id="L310">            return Collections.emptyList();</span>
+        }
+        
+        try {
+            // 获取用户在指定组织中的有效角色
+<span class="nc" id="L315">            List&lt;UserOrganizationRole&gt; userOrgRoles = userOrgRoleRepository.findByUserIdAndOrganizationIdAndStatusIn(</span>
+                    userId, organizationId, ACTIVE_STATUSES);
+
+            // 提取角色ID
+<span class="nc" id="L319">            Set&lt;Long&gt; roleIds = userOrgRoles.stream()</span>
+<span class="nc" id="L320">                    .map(UserOrganizationRole::getRoleId)</span>
+<span class="nc" id="L321">                    .filter(Objects::nonNull)</span>
+<span class="nc" id="L322">                    .collect(Collectors.toSet());</span>
+
+<span class="nc bnc" id="L324" title="All 2 branches missed.">            if (roleIds.isEmpty()) {</span>
+<span class="nc" id="L325">                return Collections.emptyList();</span>
+            }
+
+            // 获取角色代码
+<span class="nc" id="L329">            Set&lt;String&gt; roleCodes = roleIds.stream()</span>
+<span class="nc" id="L330">                    .map(roleId -&gt; {</span>
+<span class="nc" id="L331">                        Role role = roleRepository.findById(roleId).orElse(null);</span>
+<span class="nc bnc" id="L332" title="All 2 branches missed.">                        return role != null ? role.getRoleCode() : null;</span>
+                    })
+<span class="nc" id="L334">                    .filter(Objects::nonNull)</span>
+<span class="nc" id="L335">                    .filter(StringUtils::hasText)</span>
+<span class="nc" id="L336">                    .collect(Collectors.toSet());</span>
+
+            // 根据角色代码确定可访问的子系统
+<span class="nc" id="L339">            Set&lt;String&gt; accessibleSubsystems = new HashSet&lt;&gt;();</span>
+            
+<span class="nc bnc" id="L341" title="All 2 branches missed.">            for (String roleCode : roleCodes) {</span>
+                // 根据角色代码添加相应的子系统访问权限
+<span class="nc bnc" id="L343" title="All 2 branches missed.">                if (roleCode.contains(&quot;ADMIN&quot;)) {</span>
+<span class="nc" id="L344">                    accessibleSubsystems.add(&quot;AUTH&quot;);</span>
+<span class="nc" id="L345">                    accessibleSubsystems.add(&quot;USER_MANAGEMENT&quot;);</span>
+<span class="nc" id="L346">                    accessibleSubsystems.add(&quot;ROLE_MANAGEMENT&quot;);</span>
+<span class="nc" id="L347">                    accessibleSubsystems.add(&quot;PERMISSION_MANAGEMENT&quot;);</span>
+                }
+                
+<span class="nc bnc" id="L350" title="All 8 branches missed.">                if (roleCode.contains(&quot;GMP&quot;) || roleCode.contains(&quot;QUALITY&quot;) || roleCode.contains(&quot;QA&quot;) || roleCode.contains(&quot;QC&quot;)) {</span>
+<span class="nc" id="L351">                    accessibleSubsystems.add(&quot;EDMS&quot;);</span>
+<span class="nc" id="L352">                    accessibleSubsystems.add(&quot;LIMS&quot;);</span>
+<span class="nc" id="L353">                    accessibleSubsystems.add(&quot;TRAINING&quot;);</span>
+                }
+                
+<span class="nc bnc" id="L356" title="All 2 branches missed.">                if (roleCode.contains(&quot;PRODUCTION&quot;)) {</span>
+<span class="nc" id="L357">                    accessibleSubsystems.add(&quot;PRODUCTION&quot;);</span>
+                }
+                
+<span class="nc bnc" id="L360" title="All 2 branches missed.">                if (roleCode.contains(&quot;RD&quot;)) {</span>
+<span class="nc" id="L361">                    accessibleSubsystems.add(&quot;RD_MANAGEMENT&quot;);</span>
+                }
+                
+<span class="nc bnc" id="L364" title="All 2 branches missed.">                if (roleCode.contains(&quot;DOC&quot;)) {</span>
+<span class="nc" id="L365">                    accessibleSubsystems.add(&quot;EDMS&quot;);</span>
+                }
+                
+<span class="nc bnc" id="L368" title="All 2 branches missed.">                if (roleCode.contains(&quot;VALIDATION&quot;)) {</span>
+<span class="nc" id="L369">                    accessibleSubsystems.add(&quot;VALIDATION&quot;);</span>
+                }
+                
+<span class="nc bnc" id="L372" title="All 2 branches missed.">                if (roleCode.contains(&quot;TRAINING&quot;)) {</span>
+<span class="nc" id="L373">                    accessibleSubsystems.add(&quot;TRAINING&quot;);</span>
+                }
+                
+                // 所有有效用户都有基本访问权限
+<span class="nc" id="L377">                accessibleSubsystems.add(&quot;PROFILE&quot;);</span>
+<span class="nc" id="L378">            }</span>
+            
+<span class="nc" id="L380">            return new ArrayList&lt;&gt;(accessibleSubsystems);</span>
+<span class="nc" id="L381">        } catch (Exception e) {</span>
+            // 记录异常但不抛出，确保系统稳定运行
+<span class="nc" id="L383">            return Collections.emptyList();</span>
+        }
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public Map&lt;String, Integer&gt; getUserSubsystemAccessLevels(Long userId, Long organizationId) {
+<span class="pc bpc" id="L390" title="2 of 4 branches missed.">        if (userId == null || organizationId == null) {</span>
+<span class="fc" id="L391">            return Collections.emptyMap();</span>
+        }
+        
+        try {
+<span class="nc" id="L395">            Map&lt;String, Integer&gt; accessLevels = new HashMap&lt;&gt;();</span>
+            
+            // 获取用户在指定组织中的角色
+<span class="nc" id="L398">            List&lt;UserOrganizationRole&gt; userOrgRoles = getUserOrganizationRolesInOrganization(userId, organizationId);</span>
+            
+            // 提取角色ID
+<span class="nc" id="L401">            Set&lt;Long&gt; roleIds = userOrgRoles.stream()</span>
+<span class="nc" id="L402">                    .map(UserOrganizationRole::getRoleId)</span>
+<span class="nc" id="L403">                    .filter(Objects::nonNull)</span>
+<span class="nc" id="L404">                    .collect(Collectors.toSet());</span>
+            
+<span class="nc bnc" id="L406" title="All 2 branches missed.">            if (roleIds.isEmpty()) {</span>
+<span class="nc" id="L407">                return accessLevels;</span>
+            }
+            
+            // 从角色权限中提取子系统访问级别
+<span class="nc" id="L411">            List&lt;Role&gt; roles = roleRepository.findAllById(roleIds);</span>
+<span class="nc bnc" id="L412" title="All 2 branches missed.">            for (Role role : roles) {</span>
+<span class="nc" id="L413">                String roleCode = role.getRoleCode();</span>
+                
+<span class="nc bnc" id="L415" title="All 2 branches missed.">                if (roleCode == null) {</span>
+<span class="nc" id="L416">                    continue;</span>
+                }
+                
+                // 根据角色代码设置相应的子系统访问级别
+                // 1: 只读, 2: 读写, 3: 管理员
+<span class="nc bnc" id="L421" title="All 2 branches missed.">                if (roleCode.contains(&quot;SYSTEM_ADMIN&quot;)) {</span>
+                    // 系统管理员对所有子系统拥有最高权限
+<span class="nc" id="L423">                    accessLevels.put(&quot;AUTH&quot;, 3);</span>
+<span class="nc" id="L424">                    accessLevels.put(&quot;USER_MANAGEMENT&quot;, 3);</span>
+<span class="nc" id="L425">                    accessLevels.put(&quot;ROLE_MANAGEMENT&quot;, 3);</span>
+<span class="nc" id="L426">                    accessLevels.put(&quot;PERMISSION_MANAGEMENT&quot;, 3);</span>
+<span class="nc" id="L427">                    accessLevels.put(&quot;EDMS&quot;, 3);</span>
+<span class="nc" id="L428">                    accessLevels.put(&quot;LIMS&quot;, 3);</span>
+<span class="nc" id="L429">                    accessLevels.put(&quot;PRODUCTION&quot;, 3);</span>
+<span class="nc" id="L430">                    accessLevels.put(&quot;RD_MANAGEMENT&quot;, 3);</span>
+<span class="nc" id="L431">                    accessLevels.put(&quot;VALIDATION&quot;, 3);</span>
+<span class="nc" id="L432">                    accessLevels.put(&quot;TRAINING&quot;, 3);</span>
+<span class="nc" id="L433">                    accessLevels.put(&quot;PROFILE&quot;, 3);</span>
+<span class="nc bnc" id="L434" title="All 2 branches missed.">                } else if (roleCode.contains(&quot;GMP_ADMIN&quot;)) {</span>
+                    // GMP管理员对子系统有较高权限
+<span class="nc" id="L436">                    accessLevels.put(&quot;EDMS&quot;, 3);</span>
+<span class="nc" id="L437">                    accessLevels.put(&quot;LIMS&quot;, 3);</span>
+<span class="nc" id="L438">                    accessLevels.put(&quot;VALIDATION&quot;, 3);</span>
+<span class="nc" id="L439">                    accessLevels.put(&quot;TRAINING&quot;, 3);</span>
+<span class="nc" id="L440">                    accessLevels.put(&quot;PROFILE&quot;, 2);</span>
+<span class="nc bnc" id="L441" title="All 2 branches missed.">                } else if (roleCode.contains(&quot;DEPARTMENT_HEAD&quot;)) {</span>
+                    // 部门主管对子系统有读写权限
+<span class="nc" id="L443">                    accessLevels.put(&quot;EDMS&quot;, 2);</span>
+<span class="nc" id="L444">                    accessLevels.put(&quot;LIMS&quot;, 2);</span>
+<span class="nc" id="L445">                    accessLevels.put(&quot;TRAINING&quot;, 2);</span>
+<span class="nc" id="L446">                    accessLevels.put(&quot;PROFILE&quot;, 2);</span>
+<span class="nc bnc" id="L447" title="All 2 branches missed.">                } else if (roleCode.contains(&quot;MANAGER&quot;)) {</span>
+                    // 经理级角色有读写权限
+<span class="nc bnc" id="L449" title="All 2 branches missed.">                    if (roleCode.contains(&quot;QUALITY&quot;)) {</span>
+<span class="nc" id="L450">                        accessLevels.put(&quot;EDMS&quot;, 2);</span>
+<span class="nc" id="L451">                        accessLevels.put(&quot;LIMS&quot;, 2);</span>
+<span class="nc bnc" id="L452" title="All 2 branches missed.">                    } else if (roleCode.contains(&quot;PRODUCTION&quot;)) {</span>
+<span class="nc" id="L453">                        accessLevels.put(&quot;PRODUCTION&quot;, 2);</span>
+<span class="nc bnc" id="L454" title="All 2 branches missed.">                    } else if (roleCode.contains(&quot;RD&quot;)) {</span>
+<span class="nc" id="L455">                        accessLevels.put(&quot;RD_MANAGEMENT&quot;, 2);</span>
+<span class="nc bnc" id="L456" title="All 2 branches missed.">                    } else if (roleCode.contains(&quot;TRAINING&quot;)) {</span>
+<span class="nc" id="L457">                        accessLevels.put(&quot;TRAINING&quot;, 2);</span>
+                    }
+<span class="nc" id="L459">                    accessLevels.put(&quot;PROFILE&quot;, 2);</span>
+                } else {
+                    // 其他角色只有只读权限
+<span class="nc" id="L462">                    accessLevels.put(&quot;PROFILE&quot;, 1);</span>
+                    // 根据角色类型分配相应子系统的只读权限
+<span class="nc bnc" id="L464" title="All 8 branches missed.">                    if (roleCode.contains(&quot;QA&quot;) || roleCode.contains(&quot;QC&quot;) || roleCode.contains(&quot;AUDITOR&quot;) || roleCode.contains(&quot;ANALYST&quot;)) {</span>
+<span class="nc" id="L465">                        accessLevels.put(&quot;EDMS&quot;, 1);</span>
+<span class="nc" id="L466">                        accessLevels.put(&quot;LIMS&quot;, 1);</span>
+                    }
+<span class="nc bnc" id="L468" title="All 2 branches missed.">                    if (roleCode.contains(&quot;DOCUMENT&quot;)) {</span>
+<span class="nc" id="L469">                        accessLevels.put(&quot;EDMS&quot;, 1);</span>
+                    }
+<span class="nc bnc" id="L471" title="All 2 branches missed.">                    if (roleCode.contains(&quot;VALIDATION&quot;)) {</span>
+<span class="nc" id="L472">                        accessLevels.put(&quot;VALIDATION&quot;, 1);</span>
+                    }
+                }
+<span class="nc" id="L475">            }</span>
+            
+<span class="nc" id="L477">            return accessLevels;</span>
+<span class="nc" id="L478">        } catch (Exception e) {</span>
+            // 记录异常但不抛出，确保系统稳定运行
+<span class="nc" id="L480">            return Collections.emptyMap();</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

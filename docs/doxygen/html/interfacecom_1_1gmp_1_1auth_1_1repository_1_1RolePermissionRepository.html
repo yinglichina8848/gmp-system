@@ -146,9 +146,15 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>角色权限关联数据访问层 </p>
+<p>该接口定义了角色权限关联实体的数据库操作方法，包括CRUD操作和复杂查询。 继承自Spring Data JPA的JpaRepository，自动生成基本的CRUD方法。</p>
 <dl class="section author"><dt>Author</dt><dd>GMP系统开发团队 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section since"><dt>Since</dt><dd>2023-01-01</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>org.springframework.data.jpa.repository.JpaRepository </dd>
+<dd>
+<a class="el" href="classcom_1_1gmp_1_1auth_1_1entity_1_1RolePermission.html" title="角色权限关联实体">com.gmp.auth.entity.RolePermission</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RolePermissionRepository_8java_source.html#l00016">16</a> of file <a class="el" href="RolePermissionRepository_8java_source.html">RolePermissionRepository.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RolePermissionRepository_8java_source.html#l00024">24</a> of file <a class="el" href="RolePermissionRepository_8java_source.html">RolePermissionRepository.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab89bbd347c176fb81f661197ec2668ad" name="ab89bbd347c176fb81f661197ec2668ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab89bbd347c176fb81f661197ec2668ad">&#9670;&#160;</a></span>deleteByPermissionId()</h2>
@@ -167,6 +173,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>根据权限ID删除所有关联 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">permissionId</td><td>权限ID </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -187,6 +199,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>根据角色ID删除所有关联 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roleId</td><td>角色ID </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -217,6 +235,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查角色是否拥有特定权限 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roleId</td><td>角色ID </td></tr>
+    <tr><td class="paramname">permissionId</td><td>权限ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果角色拥有该权限返回true，否则返回false </dd></dl>
 
 </div>
 </div>
@@ -237,6 +263,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>根据权限ID查找关联的角色 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">permissionId</td><td>权限ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;RolePermission&gt; 权限关联的角色列表 </dd></dl>
 
 </div>
 </div>
@@ -257,6 +290,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>根据角色ID查找关联的权限 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roleId</td><td>角色ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;RolePermission&gt; 角色关联的权限列表 </dd></dl>
 
 </div>
 </div>
@@ -287,6 +327,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>根据角色ID和状态查找关联的权限 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roleId</td><td>角色ID </td></tr>
+    <tr><td class="paramname">isActive</td><td>是否活跃 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;RolePermission&gt; 角色关联的指定状态的权限列表 </dd></dl>
 
 </div>
 </div>
@@ -317,6 +365,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>查找角色的特定权限 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roleId</td><td>角色ID </td></tr>
+    <tr><td class="paramname">permissionId</td><td>权限ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Optional&lt;RolePermission&gt; 角色权限关联实体，如果不存在则返回Optional.empty() </dd></dl>
 
 </div>
 </div>

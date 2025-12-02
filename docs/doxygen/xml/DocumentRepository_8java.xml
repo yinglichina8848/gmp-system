@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="DocumentRepository_8java" kind="file" language="Java">
+    <compoundname>DocumentRepository.java</compoundname>
+    <includes local="no">com.gmp.edms.entity.Document</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/repository/DocumentRepository.java</label>
+        <link refid="DocumentRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.entity.Document</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository" prot="public">com::gmp::edms::repository::DocumentRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1repository">com::gmp::edms::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.entity.Document;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="19" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository" kindref="compound">DocumentRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Document,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;Document&gt;<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a2299017411961a9eed55bce39a4f4b59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Optional&lt;Document&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a2299017411961a9eed55bce39a4f4b59" kindref="member">findByDocCode</ref>(String<sp/>docCode);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1ac4ee7206e532591d5553dd7b257d01cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Document&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1ac4ee7206e532591d5553dd7b257d01cd" kindref="member">findByCategoryId</ref>(Long<sp/>categoryId);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a8245283a1fe03c1d2d46f5da6396710e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Document&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a8245283a1fe03c1d2d46f5da6396710e" kindref="member">findByCreatedBy</ref>(String<sp/>createdBy);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a4670f530b2e02b09d9976764af0048d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Document&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a4670f530b2e02b09d9976764af0048d0" kindref="member">findByTitleContaining</ref>(String<sp/>keyword);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a5ad333a0aaf6a6550ed8071e9aea12f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Document&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a5ad333a0aaf6a6550ed8071e9aea12f8" kindref="member">searchByKeyword</ref>(String<sp/>keyword,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>limit);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a578cd83b603d0141a6be8783b3f1e167" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Document&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a578cd83b603d0141a6be8783b3f1e167" kindref="member">findByStatus</ref>(String<sp/>status,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1aef15cdf35efe1dda93b0ba8a950910a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1aef15cdf35efe1dda93b0ba8a950910a8" kindref="member">countByCategoryId</ref>(Long<sp/>categoryId);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1aaa8d4235ae0ca235b192cc66e44e23a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Document&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1aaa8d4235ae0ca235b192cc66e44e23a3" kindref="member">findByDepartmentId</ref>(Long<sp/>departmentId);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a6a2fc6a27faf6801aa2202cf13a1a286" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Document&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a6a2fc6a27faf6801aa2202cf13a1a286" kindref="member">findByApprovalStatus</ref>(String<sp/>approvalStatus);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>d<sp/>FROM<sp/>Document<sp/>d<sp/>WHERE<sp/>&quot;</highlight><highlight class="normal"><sp/>+</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;(:keyword<sp/>IS<sp/>NULL<sp/>OR<sp/>d.title<sp/>LIKE<sp/>%:keyword%<sp/>OR<sp/>d.docCode<sp/>LIKE<sp/>%:keyword%)<sp/>AND<sp/>&quot;</highlight><highlight class="normal"><sp/>+</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;(:categoryId<sp/>IS<sp/>NULL<sp/>OR<sp/>d.categoryId<sp/>=<sp/>:categoryId)<sp/>AND<sp/>&quot;</highlight><highlight class="normal"><sp/>+</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;(:status<sp/>IS<sp/>NULL<sp/>OR<sp/>d.status<sp/>=<sp/>:status)<sp/>AND<sp/>&quot;</highlight><highlight class="normal"><sp/>+</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;(:departmentId<sp/>IS<sp/>NULL<sp/>OR<sp/>d.departmentId<sp/>=<sp/>:departmentId)<sp/>AND<sp/>&quot;</highlight><highlight class="normal"><sp/>+</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;(:approvalStatus<sp/>IS<sp/>NULL<sp/>OR<sp/>d.approvalStatus<sp/>=<sp/>:approvalStatus)&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="75" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a9f575d8c4d1fa02be3e91e5c4010b6f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Document&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a9f575d8c4d1fa02be3e91e5c4010b6f7" kindref="member">advancedSearch</ref>(</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;keyword&quot;)<sp/>String<sp/>keyword,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;categoryId&quot;)<sp/>Long<sp/>categoryId,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;status&quot;)<sp/>String<sp/>status,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;departmentId&quot;)<sp/>Long<sp/>departmentId,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;approvalStatus&quot;)<sp/>String<sp/>approvalStatus,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>d<sp/>FROM<sp/>Document<sp/>d<sp/>WHERE<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;d.createdBy<sp/>=<sp/>:username<sp/>OR<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;d.approvalStatus<sp/>=<sp/>&apos;APPROVED&apos;&quot;)</highlight></codeline>
+<codeline lineno="89" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a60830b3eab6db61bca9dc5525a15306f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Document&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentRepository_1a60830b3eab6db61bca9dc5525a15306f" kindref="member">findDocumentsByUserPermission</ref>(@Param(&quot;username&quot;)<sp/>String<sp/>username);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/repository/DocumentRepository.java"/>
+  </compounddef>
+</doxygen>

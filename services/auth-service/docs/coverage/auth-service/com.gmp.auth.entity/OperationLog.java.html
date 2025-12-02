@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OperationLog.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.entity</a> &gt; <span class="el_source">OperationLog.java</span></div><h1>OperationLog.java</h1><pre class="source lang-java linenums">package com.gmp.auth.entity;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
+import java.time.LocalDateTime;
+
+/**
+ * @brief 用户操作审计日志实体类
+ * 
+ * @details 该类用于记录用户在系统中的所有操作，包括认证操作、用户管理、角色管理和系统管理等。
+ * 支持审计追踪、操作监控和安全分析等功能。
+ * 
+ * @author GMP系统开发团队
+ * @version 1.0
+ * @since 2023-01-01
+ * 
+ * @see jakarta.persistence.Entity
+ * @see jakarta.persistence.Table
+ */
+@Entity
+@Table(name = &quot;user_operation_logs&quot;)
+public class OperationLog {
+
+    /**
+     * @brief 日志唯一标识符
+     * 
+     * @details 主键，自增生成
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    /**
+     * @brief 用户ID
+     * 
+     * @details 执行操作的用户ID
+     */
+    @Column(name = &quot;user_id&quot;)
+    private Long userId;
+
+    /**
+     * @brief 用户名
+     * 
+     * @details 执行操作的用户名
+     */
+    @Column(name = &quot;username&quot;)
+    private String username;
+
+    /**
+     * @brief 操作类型
+     * 
+     * @details 操作的类型，对应OperationType枚举
+     */
+    @NotBlank(message = &quot;操作类型不能为空&quot;)
+    @Column(nullable = false)
+    private String operation;
+
+    /**
+     * @brief 操作模块
+     * 
+     * @details 操作所属的模块，对应Module枚举
+     */
+    @NotBlank(message = &quot;模块不能为空&quot;)
+    @Column(nullable = false)
+    private String module;
+
+    /**
+     * @brief 操作动作
+     * 
+     * @details 具体的操作动作描述
+     */
+    @NotBlank(message = &quot;操作动作不能为空&quot;)
+    @Column(nullable = false)
+    private String action;
+
+    /**
+     * @brief 操作结果
+     * 
+     * @details 操作的执行结果，成功或失败
+     */
+<span class="fc" id="L87">    @NotNull(message = &quot;结果不能为空&quot;)</span>
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Result result = Result.SUCCESS;
+
+    /**
+     * @brief IP地址
+     * 
+     * @details 执行操作的客户端IP地址
+     */
+    @Column(name = &quot;ip_address&quot;)
+    private String ipAddress;
+
+    /**
+     * @brief 用户代理
+     * 
+     * @details 执行操作的客户端浏览器信息
+     */
+    @Column(name = &quot;user_agent&quot;, columnDefinition = &quot;TEXT&quot;)
+    private String userAgent;
+
+    /**
+     * @brief 请求数据
+     * 
+     * @details 操作的请求数据，JSON格式
+     */
+    @Column(name = &quot;request_data&quot;, columnDefinition = &quot;TEXT&quot;)
+    private String requestData;
+
+    /**
+     * @brief 响应数据
+     * 
+     * @details 操作的响应数据，JSON格式
+     */
+    @Column(name = &quot;response_data&quot;, columnDefinition = &quot;TEXT&quot;)
+    private String responseData;
+
+    /**
+     * @brief 操作时间
+     * 
+     * @details 操作执行的时间
+     */
+    @NotNull(message = &quot;操作时间不能为空&quot;)
+    @Column(name = &quot;operation_time&quot;, nullable = false)
+    private LocalDateTime operationTime;
+
+    /**
+     * @brief 操作耗时
+     * 
+     * @details 操作执行的耗时，单位为毫秒
+     */
+    @Column(name = &quot;duration_ms&quot;)
+    private Integer durationMs;
+
+    /**
+     * @brief 元数据
+     * 
+     * @details 操作的额外元数据，JSON格式
+     */
+    @Column(columnDefinition = &quot;TEXT&quot;)
+    private String metadata;
+    
+    /**
+     * 无参构造函数
+     */
+<span class="fc" id="L152">    public OperationLog() {</span>
+<span class="fc" id="L153">        this.operationTime = LocalDateTime.now();</span>
+<span class="fc" id="L154">        this.result = Result.SUCCESS;</span>
+<span class="fc" id="L155">    }</span>
+    
+    /**
+     * 全参构造函数
+     */
+    public OperationLog(Long id, Long userId, String username, String operation, String module, 
+                       String action, Result result, String ipAddress, String userAgent, 
+                       String requestData, String responseData, LocalDateTime operationTime, 
+<span class="fc" id="L163">                       Integer durationMs, String metadata) {</span>
+<span class="fc" id="L164">        this.id = id;</span>
+<span class="fc" id="L165">        this.userId = userId;</span>
+<span class="fc" id="L166">        this.username = username;</span>
+<span class="fc" id="L167">        this.operation = operation;</span>
+<span class="fc" id="L168">        this.module = module;</span>
+<span class="fc" id="L169">        this.action = action;</span>
+<span class="fc" id="L170">        this.result = result;</span>
+<span class="fc" id="L171">        this.ipAddress = ipAddress;</span>
+<span class="fc" id="L172">        this.userAgent = userAgent;</span>
+<span class="fc" id="L173">        this.requestData = requestData;</span>
+<span class="fc" id="L174">        this.responseData = responseData;</span>
+<span class="fc" id="L175">        this.operationTime = operationTime;</span>
+<span class="fc" id="L176">        this.durationMs = durationMs;</span>
+<span class="fc" id="L177">        this.metadata = metadata;</span>
+<span class="fc" id="L178">    }</span>
+    
+    /**
+     * Builder方法实现
+     */
+    public static Builder builder() {
+<span class="fc" id="L184">        return new Builder();</span>
+    }
+    
+    /**
+     * Builder内部类
+     */
+<span class="fc" id="L190">    public static class Builder {</span>
+        private Long id;
+        private Long userId;
+        private String username;
+        private String operation;
+        private String module;
+        private String action;
+<span class="fc" id="L197">        private Result result = Result.SUCCESS;</span>
+        private String ipAddress;
+        private String userAgent;
+        private String requestData;
+        private String responseData;
+<span class="fc" id="L202">        private LocalDateTime operationTime = LocalDateTime.now();</span>
+        private Integer durationMs;
+        private String metadata;
+        
+        public Builder id(Long id) {
+<span class="fc" id="L207">            this.id = id;</span>
+<span class="fc" id="L208">            return this;</span>
+        }
+        
+        public Builder userId(Long userId) {
+<span class="fc" id="L212">            this.userId = userId;</span>
+<span class="fc" id="L213">            return this;</span>
+        }
+        
+        public Builder username(String username) {
+<span class="fc" id="L217">            this.username = username;</span>
+<span class="fc" id="L218">            return this;</span>
+        }
+        
+        public Builder operation(String operation) {
+<span class="fc" id="L222">            this.operation = operation;</span>
+<span class="fc" id="L223">            return this;</span>
+        }
+        
+        public Builder module(String module) {
+<span class="fc" id="L227">            this.module = module;</span>
+<span class="fc" id="L228">            return this;</span>
+        }
+        
+        public Builder action(String action) {
+<span class="fc" id="L232">            this.action = action;</span>
+<span class="fc" id="L233">            return this;</span>
+        }
+        
+        public Builder result(Result result) {
+<span class="fc" id="L237">            this.result = result;</span>
+<span class="fc" id="L238">            return this;</span>
+        }
+        
+        public Builder ipAddress(String ipAddress) {
+<span class="fc" id="L242">            this.ipAddress = ipAddress;</span>
+<span class="fc" id="L243">            return this;</span>
+        }
+        
+        public Builder userAgent(String userAgent) {
+<span class="fc" id="L247">            this.userAgent = userAgent;</span>
+<span class="fc" id="L248">            return this;</span>
+        }
+        
+        public Builder requestData(String requestData) {
+<span class="fc" id="L252">            this.requestData = requestData;</span>
+<span class="fc" id="L253">            return this;</span>
+        }
+        
+        public Builder responseData(String responseData) {
+<span class="fc" id="L257">            this.responseData = responseData;</span>
+<span class="fc" id="L258">            return this;</span>
+        }
+        
+        public Builder operationTime(LocalDateTime operationTime) {
+<span class="fc" id="L262">            this.operationTime = operationTime;</span>
+<span class="fc" id="L263">            return this;</span>
+        }
+        
+        public Builder durationMs(Integer durationMs) {
+<span class="fc" id="L267">            this.durationMs = durationMs;</span>
+<span class="fc" id="L268">            return this;</span>
+        }
+        
+        public Builder metadata(String metadata) {
+<span class="fc" id="L272">            this.metadata = metadata;</span>
+<span class="fc" id="L273">            return this;</span>
+        }
+        
+        public OperationLog build() {
+<span class="fc" id="L277">            return new OperationLog(id, userId, username, operation, module, action, result, </span>
+                                  ipAddress, userAgent, requestData, responseData, operationTime, 
+                                  durationMs, metadata);
+        }
+    }
+    
+    // Getter and Setter methods
+    public Long getId() {
+<span class="fc" id="L285">        return id;</span>
+    }
+    
+    public void setId(Long id) {
+<span class="fc" id="L289">        this.id = id;</span>
+<span class="fc" id="L290">    }</span>
+    
+    public Long getUserId() {
+<span class="fc" id="L293">        return userId;</span>
+    }
+    
+    public void setUserId(Long userId) {
+<span class="fc" id="L297">        this.userId = userId;</span>
+<span class="fc" id="L298">    }</span>
+    
+    public String getUsername() {
+<span class="fc" id="L301">        return username;</span>
+    }
+    
+    public void setUsername(String username) {
+<span class="fc" id="L305">        this.username = username;</span>
+<span class="fc" id="L306">    }</span>
+    
+    public String getOperation() {
+<span class="fc" id="L309">        return operation;</span>
+    }
+    
+    public void setOperation(String operation) {
+<span class="fc" id="L313">        this.operation = operation;</span>
+<span class="fc" id="L314">    }</span>
+    
+    public String getModule() {
+<span class="fc" id="L317">        return module;</span>
+    }
+    
+    public void setModule(String module) {
+<span class="fc" id="L321">        this.module = module;</span>
+<span class="fc" id="L322">    }</span>
+    
+    public String getAction() {
+<span class="fc" id="L325">        return action;</span>
+    }
+    
+    public void setAction(String action) {
+<span class="fc" id="L329">        this.action = action;</span>
+<span class="fc" id="L330">    }</span>
+    
+    public Result getResult() {
+<span class="fc" id="L333">        return result;</span>
+    }
+    
+    public void setResult(Result result) {
+<span class="fc" id="L337">        this.result = result;</span>
+<span class="fc" id="L338">    }</span>
+    
+    public String getIpAddress() {
+<span class="fc" id="L341">        return ipAddress;</span>
+    }
+    
+    public void setIpAddress(String ipAddress) {
+<span class="fc" id="L345">        this.ipAddress = ipAddress;</span>
+<span class="fc" id="L346">    }</span>
+    
+    public String getUserAgent() {
+<span class="fc" id="L349">        return userAgent;</span>
+    }
+    
+    public void setUserAgent(String userAgent) {
+<span class="fc" id="L353">        this.userAgent = userAgent;</span>
+<span class="fc" id="L354">    }</span>
+    
+    public String getRequestData() {
+<span class="fc" id="L357">        return requestData;</span>
+    }
+    
+    public void setRequestData(String requestData) {
+<span class="fc" id="L361">        this.requestData = requestData;</span>
+<span class="fc" id="L362">    }</span>
+    
+    public String getResponseData() {
+<span class="fc" id="L365">        return responseData;</span>
+    }
+    
+    public void setResponseData(String responseData) {
+<span class="fc" id="L369">        this.responseData = responseData;</span>
+<span class="fc" id="L370">    }</span>
+    
+    public LocalDateTime getOperationTime() {
+<span class="fc" id="L373">        return operationTime;</span>
+    }
+    
+    public void setOperationTime(LocalDateTime operationTime) {
+<span class="fc" id="L377">        this.operationTime = operationTime;</span>
+<span class="fc" id="L378">    }</span>
+    
+    public Integer getDurationMs() {
+<span class="fc" id="L381">        return durationMs;</span>
+    }
+    
+    public void setDurationMs(Integer durationMs) {
+<span class="fc" id="L385">        this.durationMs = durationMs;</span>
+<span class="fc" id="L386">    }</span>
+    
+    public String getMetadata() {
+<span class="fc" id="L389">        return metadata;</span>
+    }
+    
+    public void setMetadata(String metadata) {
+<span class="fc" id="L393">        this.metadata = metadata;</span>
+<span class="fc" id="L394">    }</span>
+
+    /**
+     * @brief 操作结果枚举
+     * 
+     * @details 定义了操作的执行结果
+     */
+<span class="fc" id="L401">    public enum Result {</span>
+        /**
+         * @brief 成功
+         * 
+         * @details 操作执行成功
+         */
+<span class="fc" id="L407">        SUCCESS(&quot;成功&quot;),</span>
+        
+        /**
+         * @brief 失败
+         * 
+         * @details 操作执行失败
+         */
+<span class="fc" id="L414">        FAILED(&quot;失败&quot;);</span>
+
+        /**
+         * @brief 结果描述
+         */
+        private final String description;
+
+        /**
+         * @brief 构造函数
+         * 
+         * @param description 结果描述
+         */
+<span class="fc" id="L426">        Result(String description) {</span>
+<span class="fc" id="L427">            this.description = description;</span>
+<span class="fc" id="L428">        }</span>
+
+        /**
+         * @brief 获取结果描述
+         * 
+         * @return String 结果描述
+         */
+        public String getDescription() {
+<span class="fc" id="L436">            return description;</span>
+        }
+    }
+
+    /**
+     * @brief 操作类型枚举
+     * 
+     * @details 定义了系统支持的各种操作类型
+     */
+<span class="fc" id="L445">    public enum OperationType {</span>
+        /**
+         * @brief 用户登录
+         * 
+         * @details 用户登录系统
+         */
+<span class="fc" id="L451">        LOGIN(&quot;用户登录&quot;),</span>
+        
+        /**
+         * @brief 用户登出
+         * 
+         * @details 用户退出系统
+         */
+<span class="fc" id="L458">        LOGOUT(&quot;用户登出&quot;),</span>
+
+        /**
+         * @brief 创建用户
+         * 
+         * @details 创建新用户
+         */
+<span class="fc" id="L465">        USER_CREATE(&quot;创建用户&quot;),</span>
+        
+        /**
+         * @brief 更新用户
+         * 
+         * @details 更新现有用户信息
+         */
+<span class="fc" id="L472">        USER_UPDATE(&quot;更新用户&quot;),</span>
+        
+        /**
+         * @brief 删除用户
+         * 
+         * @details 删除用户
+         */
+<span class="fc" id="L479">        USER_DELETE(&quot;删除用户&quot;),</span>
+        
+        /**
+         * @brief 用户状态变更
+         * 
+         * @details 变更用户状态
+         */
+<span class="fc" id="L486">        USER_STATUS_CHANGE(&quot;用户状态变更&quot;),</span>
+
+        /**
+         * @brief 分配角色
+         * 
+         * @details 为用户分配角色
+         */
+<span class="fc" id="L493">        ROLE_ASSIGN(&quot;分配角色&quot;),</span>
+        
+        /**
+         * @brief 撤销角色
+         * 
+         * @details 撤销用户的角色
+         */
+<span class="fc" id="L500">        ROLE_REVOKE(&quot;撤销角色&quot;),</span>
+        
+        /**
+         * @brief 角色权限变更
+         * 
+         * @details 变更角色的权限
+         */
+<span class="fc" id="L507">        ROLE_PERMISSION_CHANGE(&quot;角色权限变更&quot;),</span>
+
+        /**
+         * @brief 权限变更
+         * 
+         * @details 变更权限设置
+         */
+<span class="fc" id="L514">        PERMISSION_CHANGE(&quot;权限变更&quot;),</span>
+        
+        /**
+         * @brief 系统配置
+         * 
+         * @details 变更系统配置
+         */
+<span class="fc" id="L521">        SYSTEM_CONFIG(&quot;系统配置&quot;),</span>
+        
+        /**
+         * @brief 审计审查
+         * 
+         * @details 审查系统审计日志
+         */
+<span class="fc" id="L528">        AUDIT_REVIEW(&quot;审计审查&quot;);</span>
+
+        /**
+         * @brief 操作类型描述
+         */
+        private final String description;
+
+        /**
+         * @brief 构造函数
+         * 
+         * @param description 操作类型描述
+         */
+<span class="fc" id="L540">        OperationType(String description) {</span>
+<span class="fc" id="L541">            this.description = description;</span>
+<span class="fc" id="L542">        }</span>
+
+        /**
+         * @brief 获取操作类型描述
+         * 
+         * @return String 操作类型描述
+         */
+        public String getDescription() {
+<span class="fc" id="L550">            return description;</span>
+        }
+    }
+
+    /**
+     * @brief 模块枚举
+     * 
+     * @details 定义了系统的各个模块
+     */
+<span class="fc" id="L559">    public enum Module {</span>
+        /**
+         * @brief 认证模块
+         * 
+         * @details 负责用户认证和授权
+         */
+<span class="fc" id="L565">        AUTH(&quot;认证模块&quot;),</span>
+        
+        /**
+         * @brief 用户管理
+         * 
+         * @details 负责用户信息管理
+         */
+<span class="fc" id="L572">        USER(&quot;用户管理&quot;),</span>
+        
+        /**
+         * @brief 角色管理
+         * 
+         * @details 负责角色信息管理
+         */
+<span class="fc" id="L579">        ROLE(&quot;角色管理&quot;),</span>
+        
+        /**
+         * @brief 权限管理
+         * 
+         * @details 负责权限信息管理
+         */
+<span class="fc" id="L586">        PERMISSION(&quot;权限管理&quot;),</span>
+        
+        /**
+         * @brief 系统管理
+         * 
+         * @details 负责系统配置和管理
+         */
+<span class="fc" id="L593">        SYSTEM(&quot;系统管理&quot;);</span>
+
+        /**
+         * @brief 模块描述
+         */
+        private final String description;
+
+        /**
+         * @brief 构造函数
+         * 
+         * @param description 模块描述
+         */
+<span class="fc" id="L605">        Module(String description) {</span>
+<span class="fc" id="L606">            this.description = description;</span>
+<span class="fc" id="L607">        }</span>
+
+        /**
+         * @brief 获取模块描述
+         * 
+         * @return String 模块描述
+         */
+        public String getDescription() {
+<span class="fc" id="L615">            return description;</span>
+        }
+    }
+
+    /**
+     * @brief 预持久化处理
+     * 
+     * @details 在实体持久化之前执行，设置默认值
+     */
+    @PrePersist
+    protected void onCreate() {
+<span class="pc bpc" id="L626" title="1 of 2 branches missed.">        if (operationTime == null) {</span>
+<span class="nc" id="L627">            operationTime = LocalDateTime.now();</span>
+        }
+<span class="pc bpc" id="L629" title="1 of 2 branches missed.">        if (result == null) {</span>
+<span class="nc" id="L630">            result = Result.SUCCESS;</span>
+        }
+<span class="fc" id="L632">    }</span>
+
+    /**
+     * @brief 创建登录日志
+     * 
+     * @details 创建用户登录操作的日志记录
+     * 
+     * @param userId 用户ID
+     * @param username 用户名
+     * @param ipAddress IP地址
+     * @param userAgent 用户代理
+     * @param success 是否登录成功
+     * @return OperationLog 登录日志实体
+     */
+    public static OperationLog createLoginLog(Long userId, String username, String ipAddress,
+            String userAgent, boolean success) {
+<span class="fc" id="L648">        return OperationLog.builder()</span>
+<span class="fc" id="L649">                .userId(userId)</span>
+<span class="fc" id="L650">                .username(username)</span>
+<span class="fc" id="L651">                .operation(OperationType.LOGIN.name())</span>
+<span class="fc" id="L652">                .module(Module.AUTH.name())</span>
+<span class="fc bfc" id="L653" title="All 2 branches covered.">                .action(success ? &quot;用户登录成功&quot; : &quot;用户登录失败&quot;)</span>
+<span class="fc bfc" id="L654" title="All 2 branches covered.">                .result(success ? Result.SUCCESS : Result.FAILED)</span>
+<span class="fc" id="L655">                .ipAddress(ipAddress)</span>
+<span class="fc" id="L656">                .userAgent(userAgent)</span>
+<span class="fc" id="L657">                .build();</span>
+    }
+
+    /**
+     * @brief 创建登出日志
+     * 
+     * @details 创建用户登出操作的日志记录
+     * 
+     * @param userId 用户ID
+     * @param username 用户名
+     * @param ipAddress IP地址
+     * @return OperationLog 登出日志实体
+     */
+    public static OperationLog createLogoutLog(Long userId, String username, String ipAddress) {
+<span class="fc" id="L671">        return OperationLog.builder()</span>
+<span class="fc" id="L672">                .userId(userId)</span>
+<span class="fc" id="L673">                .username(username)</span>
+<span class="fc" id="L674">                .operation(OperationType.LOGOUT.name())</span>
+<span class="fc" id="L675">                .module(Module.AUTH.name())</span>
+<span class="fc" id="L676">                .action(&quot;用户登出&quot;)</span>
+<span class="fc" id="L677">                .result(Result.SUCCESS)</span>
+<span class="fc" id="L678">                .ipAddress(ipAddress)</span>
+<span class="fc" id="L679">                .build();</span>
+    }
+
+    /**
+     * @brief 创建用户操作日志
+     * 
+     * @details 创建用户管理操作的日志记录
+     * 
+     * @param userId 用户ID
+     * @param username 用户名
+     * @param operationType 操作类型
+     * @param action 操作动作
+     * @param success 是否操作成功
+     * @return OperationLog 用户操作日志实体
+     */
+    public static OperationLog createUserOperationLog(Long userId, String username,
+            OperationType operationType,
+            String action, boolean success) {
+<span class="fc" id="L697">        return OperationLog.builder()</span>
+<span class="fc" id="L698">                .userId(userId)</span>
+<span class="fc" id="L699">                .username(username)</span>
+<span class="fc" id="L700">                .operation(operationType.name())</span>
+<span class="fc" id="L701">                .module(Module.USER.name())</span>
+<span class="fc" id="L702">                .action(action)</span>
+<span class="fc bfc" id="L703" title="All 2 branches covered.">                .result(success ? Result.SUCCESS : Result.FAILED)</span>
+<span class="fc" id="L704">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

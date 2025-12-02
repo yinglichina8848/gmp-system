@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="DeviationServiceImplTest_8java" kind="file" language="Java">
+    <compoundname>DeviationServiceImplTest.java</compoundname>
+    <includes local="no">com.gmp.qms.dto.DeviationDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/test/java/com/gmp/qms/service/impl/DeviationServiceImplTest.java</label>
+        <link refid="DeviationServiceImplTest_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.dto.DeviationDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest" prot="public">com::gmp::qms::service::impl::DeviationServiceImplTest</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1service_1_1impl">com::gmp::qms::service::impl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.service.impl;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.DeviationDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.DeviationSearchCriteria;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.entity.Deviation;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.entity.DeviationAttachment;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.exception.ResourceNotFoundException;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.repository.DeviationAttachmentRepository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.repository.DeviationRepository;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.BeforeEach;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Disabled;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.extension.ExtendWith;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.InjectMocks;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.Mock;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.junit.jupiter.MockitoExtension;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.PageImpl;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.PageRequest;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.Specification;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.mock.web.MockMultipartFile;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.*;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.any;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.eq;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.Mockito.*;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">@ExtendWith(MockitoExtension.class)</highlight></codeline>
+<codeline lineno="45" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest" kindref="compound">DeviationServiceImplTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline lineno="48" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1ada307b30d18b0a4be9129923c5a16225" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>DeviationRepository<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1ada307b30d18b0a4be9129923c5a16225" kindref="member">deviationRepository</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1ad096bcc6859666303c909b87932296b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>DeviationAttachmentRepository<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1ad096bcc6859666303c909b87932296b3" kindref="member">deviationAttachmentRepository</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@InjectMocks</highlight></codeline>
+<codeline lineno="54" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a60c9d1f0b23369f98bd592b70bfdbaec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl" kindref="compound">DeviationServiceImpl</ref><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a60c9d1f0b23369f98bd592b70bfdbaec" kindref="member">deviationService</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a7d5029239d5fd5b764acb6a83da8296f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Deviation<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a7d5029239d5fd5b764acb6a83da8296f" kindref="member">deviation</ref>;</highlight></codeline>
+<codeline lineno="57" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1aa3729aca6d73581defe8192e32819db2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>DeviationDTO<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1aa3729aca6d73581defe8192e32819db2" kindref="member">deviationDTO</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@BeforeEach</highlight></codeline>
+<codeline lineno="60" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a929c5b4da1a2b982f565cc676f6e386d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a929c5b4da1a2b982f565cc676f6e386d" kindref="member">setUp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>初始化测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Deviation();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setId(1L);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setDeviationCode(</highlight><highlight class="stringliteral">&quot;DEV-2024-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setTitle(</highlight><highlight class="stringliteral">&quot;测试偏差&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setDescription(</highlight><highlight class="stringliteral">&quot;测试偏差描述&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setOccurrenceDate(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setSeverityLevel(Deviation.SeverityLevel.MEDIUM);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setStatus(Deviation.DeviationStatus.IDENTIFIED);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setAttachments(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;());</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DeviationDTO();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setTitle(</highlight><highlight class="stringliteral">&quot;测试偏差&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setDescription(</highlight><highlight class="stringliteral">&quot;测试偏差描述&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setOccurrenceDate(LocalDate.now());</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setSeverityLevel(Deviation.SeverityLevel.MEDIUM.name());</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setResponsiblePersonId(1L);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="81" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1acd26d17397aac9027bce52320701ffe6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1acd26d17397aac9027bce52320701ffe6" kindref="member">testGetDeviationById</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findById(1L)).thenReturn(Optional.of(deviation));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Deviation<sp/>result<sp/>=<sp/>deviationService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl_1a6a392d52be146cb0dce886cc2e9d7d86" kindref="member">getDeviationById</ref>(1L);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;DEV-2024-0001&quot;</highlight><highlight class="normal">,<sp/>result.getDeviationCode());</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationRepository).findById(1L);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="92" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1acd55ef7dff0c3b21a747eb97719765ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1acd55ef7dff0c3b21a747eb97719765ff" kindref="member">testGetDeviationByIdNotFound</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findById(1L)).thenReturn(Optional.empty());</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResourceNotFoundException<sp/>exception<sp/>=<sp/>assertThrows(ResourceNotFoundException.class,<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationService.getDeviationById(1L);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;Deviation<sp/>not<sp/>found<sp/>with<sp/>id:<sp/>1&quot;</highlight><highlight class="normal">,<sp/>exception.getMessage());</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="103" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a9b4f9631b4896ce08c29453cb5398665" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a9b4f9631b4896ce08c29453cb5398665" kindref="member">testGetDeviationByCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findByDeviationCode(</highlight><highlight class="stringliteral">&quot;DEV-2024-0001&quot;</highlight><highlight class="normal">)).thenReturn(deviation);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Deviation<sp/>result<sp/>=<sp/>deviationService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl_1a2637d44759f76b107d615457a430f377" kindref="member">getDeviationByCode</ref>(</highlight><highlight class="stringliteral">&quot;DEV-2024-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1L,<sp/>result.getId());</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationRepository).findByDeviationCode(</highlight><highlight class="stringliteral">&quot;DEV-2024-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="114" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1ae77e220cd8a22b3c26cbc865233b5aea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1ae77e220cd8a22b3c26cbc865233b5aea" kindref="member">testCreateDeviation</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.count()).thenReturn(9L);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.save(any(Deviation.class))).thenReturn(deviation);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Deviation<sp/>result<sp/>=<sp/>deviationService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl_1a7c2abd215e16c6ff68fa486d7062af76" kindref="member">createDeviation</ref>(deviationDTO);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;测试偏差&quot;</highlight><highlight class="normal">,<sp/>result.getTitle());</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationRepository).count();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationRepository).save(any(Deviation.class));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="127" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a610b567efedf6c49fd5a017b33eb25c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a610b567efedf6c49fd5a017b33eb25c9" kindref="member">testUpdateDeviation</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findById(1L)).thenReturn(Optional.of(deviation));</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.save(any(Deviation.class))).thenReturn(deviation);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationDTO.setTitle(</highlight><highlight class="stringliteral">&quot;更新后的标题&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Deviation<sp/>result<sp/>=<sp/>deviationService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl_1a296f8137dcadaca82456396a21d69170" kindref="member">updateDeviation</ref>(1L,<sp/>deviationDTO);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;更新后的标题&quot;</highlight><highlight class="normal">,<sp/>result.getTitle());</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="139" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a188761a364369f8366dd848de4d99cbd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a188761a364369f8366dd848de4d99cbd" kindref="member">testFindAllDeviations</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Deviation&gt;<sp/>deviations<sp/>=<sp/>Arrays.asList(deviation);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Deviation&gt;<sp/>page<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(deviations,<sp/>pageable,<sp/>deviations.size());</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findAll(pageable)).thenReturn(page);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Deviation&gt;<sp/>result<sp/>=<sp/>deviationService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl_1ac0e32b8937a0ab694efe35069ced8fa8" kindref="member">findAllDeviations</ref>(pageable);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="153" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a135335cce5ace107323621efaa364b91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a135335cce5ace107323621efaa364b91" kindref="member">testSearchDeviations</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(0,<sp/>10);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DeviationSearchCriteria<sp/>criteria<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DeviationSearchCriteria();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>criteria.setKeyword(</highlight><highlight class="stringliteral">&quot;测试&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Deviation&gt;<sp/>deviations<sp/>=<sp/>Arrays.asList(deviation);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Deviation&gt;<sp/>page<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>PageImpl&lt;&gt;(deviations,<sp/>pageable,<sp/>deviations.size());</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findAll(any(Specification.class),<sp/>eq(pageable))).thenReturn(page);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;Deviation&gt;<sp/>result<sp/>=<sp/>deviationService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl_1a5bd722bbbf278242a450822d0d18359c" kindref="member">searchDeviations</ref>(criteria,<sp/>pageable);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.getTotalElements());</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="170" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1ac5ee4f37b9eb5e8776c1f508e5919e4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1ac5ee4f37b9eb5e8776c1f508e5919e4c" kindref="member">testUpdateDeviationStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findById(1L)).thenReturn(Optional.of(deviation));</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.save(any(Deviation.class))).thenReturn(deviation);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Deviation<sp/>result<sp/>=<sp/>deviationService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl_1a276c6529b97ccb4b2ae9e5721906c24e" kindref="member">updateDeviationStatus</ref>(1L,<sp/>Deviation.DeviationStatus.CLOSED,<sp/></highlight><highlight class="stringliteral">&quot;测试关闭备注&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(Deviation.DeviationStatus.CLOSED,<sp/>result.getStatus());</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="181" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a415e556cd17fe733d6ec5f8a98840b5f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a415e556cd17fe733d6ec5f8a98840b5f" kindref="member">testGenerateDeviationCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.count()).thenReturn(9L);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>code<sp/>=<sp/>deviationService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl_1a3426c9275ea81671d3d23e2a268fdd10" kindref="member">generateDeviationCode</ref>();</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(code);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(code.startsWith(</highlight><highlight class="stringliteral">&quot;DEV-&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(code.matches(</highlight><highlight class="stringliteral">&quot;DEV-\\d{8}-\\d{5}&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationRepository).count();</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="193" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a9374dfb2691e75f9256712090705e96e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a9374dfb2691e75f9256712090705e96e" kindref="member">testAddAttachment</ref>()<sp/>throws<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockMultipartFile<sp/>file<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MockMultipartFile(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;test.pdf&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;application/pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Test<sp/>content&quot;</highlight><highlight class="normal">.getBytes());</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>description<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;测试附件描述&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>初始化偏差的attachments列表，避免空指针异常</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setAttachments(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;());</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findById(1L)).thenReturn(Optional.of(deviation));</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>由于测试环境可能无法访问文件系统，我们只验证Repository的findById调用</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl_1ae42b63167eef2061f53edb382f27e2fb" kindref="member">addAttachment</ref>(1L,<sp/>file,<sp/>description);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<ref refid="classRuntimeException" kindref="compound">RuntimeException</ref><sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>捕获异常但继续验证</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证结果<sp/>-<sp/>只验证findById调用，因为save调用可能在文件操作失败后不会执行</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationRepository).findById(1L);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="216" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a70527f155c5c49ea343596b76d2f0fb4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a70527f155c5c49ea343596b76d2f0fb4" kindref="member">testAddAttachmentNotFound</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockMultipartFile<sp/>file<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MockMultipartFile(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;test.pdf&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;application/pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Test<sp/>content&quot;</highlight><highlight class="normal">.getBytes());</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>description<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;测试附件描述&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findById(1L)).thenReturn(Optional.empty());</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证异常</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResourceNotFoundException<sp/>exception<sp/>=<sp/>assertThrows(ResourceNotFoundException.class,<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationService.addAttachment(1L,<sp/>file,<sp/>description);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;Deviation<sp/>not<sp/>found<sp/>with<sp/>id:<sp/>1&quot;</highlight><highlight class="normal">,<sp/>exception.getMessage());</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="233" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1aadd01856769834837571b11df5d7a5bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1aadd01856769834837571b11df5d7a5bb" kindref="member">testAddAttachmentIOException</ref>()<sp/>throws<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>创建一个会抛出IOException的MockMultipartFile</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockMultipartFile<sp/>file<sp/>=<sp/>mock(MockMultipartFile.class);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>使用lenient()来允许这个stubbing可能未被使用</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lenient().doThrow(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IOException(</highlight><highlight class="stringliteral">&quot;测试IO异常&quot;</highlight><highlight class="normal">)).when(file).getInputStream();</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>初始化偏差的attachments列表，避免空指针异常</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviation.setAttachments(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;());</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>description<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;测试附件描述&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证异常</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRuntimeException" kindref="compound">RuntimeException</ref><sp/>exception<sp/>=<sp/>assertThrows(<ref refid="classRuntimeException" kindref="compound">RuntimeException</ref>.class,<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationService.addAttachment(1L,<sp/>file,<sp/>description);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(exception);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>检查异常是否由IOException引起，而不是检查具体消息</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(exception.getCause()<sp/>instanceof<sp/>IOException<sp/>||</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exception.getMessage().toLowerCase().contains(</highlight><highlight class="stringliteral">&quot;io&quot;</highlight><highlight class="normal">)<sp/>||</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exception.getMessage().toLowerCase().contains(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="258" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a545a2b3c3f77c827111fdcf087c26619" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a545a2b3c3f77c827111fdcf087c26619" kindref="member">testRemoveAttachment</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findById(1L)).thenReturn(Optional.of(deviation));</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DeviationAttachment<sp/>attachment<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DeviationAttachment();</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>attachment.setId(1L);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>attachment.setFileName(</highlight><highlight class="stringliteral">&quot;test.pdf&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationAttachmentRepository.findById(1L)).thenReturn(Optional.of(attachment));</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>doNothing().when(deviationAttachmentRepository).delete(attachment);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>调用服务方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Deviation<sp/>result<sp/>=<sp/>deviationService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl_1abb967f14da70c36d5d3c73834865a223" kindref="member">removeAttachment</ref>(1L,<sp/>1L);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证结果</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationRepository).findById(1L);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationAttachmentRepository).findById(1L);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationAttachmentRepository).delete(attachment);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="280" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a55431db2cf675a9b64529b455ec78642" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a55431db2cf675a9b64529b455ec78642" kindref="member">testRemoveAttachmentDeviationNotFound</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findById(1L)).thenReturn(Optional.empty());</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证异常</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResourceNotFoundException<sp/>exception<sp/>=<sp/>assertThrows(ResourceNotFoundException.class,<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationService.removeAttachment(1L,<sp/>1L);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;Deviation<sp/>not<sp/>found<sp/>with<sp/>id:<sp/>1&quot;</highlight><highlight class="normal">,<sp/>exception.getMessage());</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="293" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1af727e0448e89f48195a3f30586fb88bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1af727e0448e89f48195a3f30586fb88bf" kindref="member">testRemoveAttachmentNotFound</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findById(1L)).thenReturn(Optional.of(deviation));</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationAttachmentRepository.findById(99L)).thenReturn(Optional.empty());</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证异常</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ResourceNotFoundException<sp/>exception<sp/>=<sp/>assertThrows(ResourceNotFoundException.class,<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviationService.removeAttachment(1L,<sp/>99L);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;Attachment<sp/>not<sp/>found<sp/>with<sp/>id:<sp/>99&quot;</highlight><highlight class="normal">,<sp/>exception.getMessage());</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="307" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a208297c41a51c8dea26e02add3dbc849" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImplTest_1a208297c41a51c8dea26e02add3dbc849" kindref="member">testFindOverdueDeviations</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Deviation&gt;<sp/>deviations<sp/>=<sp/>Arrays.asList(deviation);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocalDateTime<sp/>now<sp/>=<sp/>LocalDateTime.now();</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(deviationRepository.findOverdueDeviations(eq(Deviation.DeviationStatus.IDENTIFIED),</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>any(LocalDateTime.class)))</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.thenReturn(deviations);</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>调用服务方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Deviation&gt;<sp/>result<sp/>=<sp/>deviationService.<ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1DeviationServiceImpl_1a73525319d4f29ec70ad164260adfe35b" kindref="member">findOverdueDeviations</ref>();</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证结果</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(1,<sp/>result.size());</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(deviationRepository).findOverdueDeviations(eq(Deviation.DeviationStatus.IDENTIFIED),</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>any(LocalDateTime.class));</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="325"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/test/java/com/gmp/qms/service/impl/DeviationServiceImplTest.java"/>
+  </compounddef>
+</doxygen>

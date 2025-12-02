@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="hr-service_2src_2main_2java_2com_2gmp_2hr_2repository_2TrainingRecordRepository_8java" kind="file" language="Java">
+    <compoundname>TrainingRecordRepository.java</compoundname>
+    <includes local="no">com.gmp.hr.entity.TrainingRecord</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>hr-service/src/main/java/com/gmp/hr/repository/TrainingRecordRepository.java</label>
+        <link refid="hr-service_2src_2main_2java_2com_2gmp_2hr_2repository_2TrainingRecordRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.hr.entity.TrainingRecord</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository" prot="public">com::gmp::hr::repository::TrainingRecordRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1hr_1_1repository">com::gmp::hr::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.hr.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.entity.TrainingRecord;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Modifying;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="22" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository" kindref="compound">TrainingRecordRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;TrainingRecord,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;TrainingRecord&gt;<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af501a895cafc3b8153f2d7093de3761c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;TrainingRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af501a895cafc3b8153f2d7093de3761c" kindref="member">findByEmployeeIdAndDeletedFalse</ref>(Long<sp/>employeeId,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1acb4f4e43077d3778f2157fcf984e6aef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;TrainingRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1acb4f4e43077d3778f2157fcf984e6aef" kindref="member">findByTrainingTypeAndDeletedFalse</ref>(String<sp/>trainingType,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="49" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1ae91414d6a01afcc711ed8fa0b792ea4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1ae91414d6a01afcc711ed8fa0b792ea4e" kindref="member">findByStartDateBetweenAndDeletedFalse</ref>(LocalDate<sp/>startDate,<sp/>LocalDate<sp/>endDate);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af1adcfbb3273f2ea7f9ada820b237244" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af1adcfbb3273f2ea7f9ada820b237244" kindref="member">findByResultAndDeletedFalse</ref>(String<sp/>result);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1afbf7b8c18f459d8d8b0fe09614426d5b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingRecord&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1afbf7b8c18f459d8d8b0fe09614426d5b" kindref="member">findByEmployeeIdAndStartDateBetweenAndDeletedFalse</ref>(Long<sp/>employeeId,<sp/>LocalDate<sp/>startDate,<sp/>LocalDate<sp/>endDate);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>SUM(tr.durationHours)<sp/>FROM<sp/>TrainingRecord<sp/>tr<sp/>WHERE<sp/>tr.employeeId<sp/>=<sp/>:employeeId<sp/>AND<sp/>tr.deleted<sp/>=<sp/>false&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="76" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af697029f3e2c14236a0be9abd556f820" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Integer<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af697029f3e2c14236a0be9abd556f820" kindref="member">sumTrainingHoursByEmployeeId</ref>(Long<sp/>employeeId);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@Modifying</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;UPDATE<sp/>TrainingRecord<sp/>tr<sp/>SET<sp/>tr.deleted<sp/>=<sp/>true<sp/>WHERE<sp/>tr.</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>:</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">&quot;)</highlight></codeline>
+<codeline lineno="86" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1ac58b6ab94c05c0c5e457f25d59a31622" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1ac58b6ab94c05c0c5e457f25d59a31622" kindref="member">softDeleteById</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="hr-service/src/main/java/com/gmp/hr/repository/TrainingRecordRepository.java"/>
+  </compounddef>
+</doxygen>

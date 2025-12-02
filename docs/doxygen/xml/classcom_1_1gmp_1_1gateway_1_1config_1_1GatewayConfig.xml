@@ -10,13 +10,17 @@
         <name>userKeyResolver</name>
         <qualifiedname>com.gmp.gateway.config.GatewayConfig.userKeyResolver</qualifiedname>
         <briefdescription>
-<para>用户Key解析器 - 基于用户ID进行限流 </para>
+<para>用户Key解析器 </para>
         </briefdescription>
         <detaileddescription>
+<para>基于用户ID进行限流的Key解析器，从请求头中获取X-User-Id，如果不存在则使用&quot;anonymous&quot;</para>
+<para><simplesect kind="return"><para>KeyResolver 用户Key解析器 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" line="20" column="24" bodyfile="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" bodystart="20" bodyend="24"/>
+        <location file="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" line="33" column="24" bodyfile="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" bodystart="33" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1af9f4c7ec599bd99ed8ace2f1cb2bcbc6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>KeyResolver</type>
@@ -25,21 +29,37 @@
         <name>ipKeyResolver</name>
         <qualifiedname>com.gmp.gateway.config.GatewayConfig.ipKeyResolver</qualifiedname>
         <briefdescription>
-<para>IP Key解析器 - 基于IP进行限流 </para>
+<para>IP Key解析器 </para>
         </briefdescription>
         <detaileddescription>
+<para>基于IP地址进行限流的Key解析器，获取请求的远程IP地址</para>
+<para><simplesect kind="return"><para>KeyResolver IP Key解析器 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" line="30" column="24" bodyfile="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" bodystart="30" bodyend="33"/>
+        <location file="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" line="47" column="24" bodyfile="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" bodystart="47" bodyend="50"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Gateway配置类 配置限流策略、路由过滤器等 </para>
+<para>Gateway配置类 </para>
     </briefdescription>
     <detaileddescription>
+<para>该类负责配置API网关的各种功能，包括限流策略、路由过滤器等。 提供了基于用户ID和IP地址的限流Key解析器。</para>
+<para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+<simplesect kind="since"><para>2023-01-01</para>
+</simplesect>
+<simplesect kind="see"><para>org.springframework.cloud.gateway.filter.ratelimit.KeyResolver </para>
+</simplesect>
+<simplesect kind="see"><para>org.springframework.context.annotation.Configuration </para>
+</simplesect>
+</para>
     </detaileddescription>
-    <location file="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" line="14" column="7" bodyfile="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" bodystart="14" bodyend="34"/>
+    <location file="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" line="23" column="7" bodyfile="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java" bodystart="23" bodyend="51"/>
     <listofallmembers>
       <member refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1af9f4c7ec599bd99ed8ace2f1cb2bcbc6" prot="public" virt="non-virtual"><scope>com::gmp::gateway::config::GatewayConfig</scope><name>ipKeyResolver</name></member>
       <member refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1a20efbd7dafe5c70b2486b8c84318dc4a" prot="public" virt="non-virtual"><scope>com::gmp::gateway::config::GatewayConfig</scope><name>userKeyResolver</name></member>

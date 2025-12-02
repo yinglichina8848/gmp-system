@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::hr::repository::TrainingRecordRepository</compoundname>
+    <basecompoundref refid="classJpaRepository" prot="public" virt="non-virtual">JpaRepository&lt; TrainingRecord, Long &gt;</basecompoundref>
+    <basecompoundref refid="classJpaSpecificationExecutor" prot="public" virt="non-virtual">JpaSpecificationExecutor&lt; TrainingRecord &gt;</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af501a895cafc3b8153f2d7093de3761c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Page&lt; TrainingRecord &gt;</type>
+        <definition>Page&lt; TrainingRecord &gt; com.gmp.hr.repository.TrainingRecordRepository.findByEmployeeIdAndDeletedFalse</definition>
+        <argsstring>(Long employeeId, Pageable pageable)</argsstring>
+        <name>findByEmployeeIdAndDeletedFalse</name>
+        <qualifiedname>com.gmp.hr.repository.TrainingRecordRepository.findByEmployeeIdAndDeletedFalse</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>employeeId</declname>
+        </param>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>根据员工ID查找培训记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>employeeId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>员工ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页培训记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hr-service/src/main/java/com/gmp/hr/repository/TrainingRecordRepository.java" line="31" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1acb4f4e43077d3778f2157fcf984e6aef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Page&lt; TrainingRecord &gt;</type>
+        <definition>Page&lt; TrainingRecord &gt; com.gmp.hr.repository.TrainingRecordRepository.findByTrainingTypeAndDeletedFalse</definition>
+        <argsstring>(String trainingType, Pageable pageable)</argsstring>
+        <name>findByTrainingTypeAndDeletedFalse</name>
+        <qualifiedname>com.gmp.hr.repository.TrainingRecordRepository.findByTrainingTypeAndDeletedFalse</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>trainingType</declname>
+        </param>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>根据培训类型查找培训记录列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>trainingType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>培训类型 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页培训记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hr-service/src/main/java/com/gmp/hr/repository/TrainingRecordRepository.java" line="40" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1ae91414d6a01afcc711ed8fa0b792ea4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; TrainingRecord &gt;</type>
+        <definition>List&lt; TrainingRecord &gt; com.gmp.hr.repository.TrainingRecordRepository.findByStartDateBetweenAndDeletedFalse</definition>
+        <argsstring>(LocalDate startDate, LocalDate endDate)</argsstring>
+        <name>findByStartDateBetweenAndDeletedFalse</name>
+        <qualifiedname>com.gmp.hr.repository.TrainingRecordRepository.findByStartDateBetweenAndDeletedFalse</qualifiedname>
+        <param>
+          <type>LocalDate</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>LocalDate</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+<para>根据培训日期范围查找培训记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hr-service/src/main/java/com/gmp/hr/repository/TrainingRecordRepository.java" line="49" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af1adcfbb3273f2ea7f9ada820b237244" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; TrainingRecord &gt;</type>
+        <definition>List&lt; TrainingRecord &gt; com.gmp.hr.repository.TrainingRecordRepository.findByResultAndDeletedFalse</definition>
+        <argsstring>(String result)</argsstring>
+        <name>findByResultAndDeletedFalse</name>
+        <qualifiedname>com.gmp.hr.repository.TrainingRecordRepository.findByResultAndDeletedFalse</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>根据培训结果查找培训记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>培训结果 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hr-service/src/main/java/com/gmp/hr/repository/TrainingRecordRepository.java" line="57" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1afbf7b8c18f459d8d8b0fe09614426d5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; TrainingRecord &gt;</type>
+        <definition>List&lt; TrainingRecord &gt; com.gmp.hr.repository.TrainingRecordRepository.findByEmployeeIdAndStartDateBetweenAndDeletedFalse</definition>
+        <argsstring>(Long employeeId, LocalDate startDate, LocalDate endDate)</argsstring>
+        <name>findByEmployeeIdAndStartDateBetweenAndDeletedFalse</name>
+        <qualifiedname>com.gmp.hr.repository.TrainingRecordRepository.findByEmployeeIdAndStartDateBetweenAndDeletedFalse</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>employeeId</declname>
+        </param>
+        <param>
+          <type>LocalDate</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>LocalDate</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+<para>查找指定员工在指定日期范围内的培训记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>employeeId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>员工ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hr-service/src/main/java/com/gmp/hr/repository/TrainingRecordRepository.java" line="67" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af697029f3e2c14236a0be9abd556f820" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Integer</type>
+        <definition>Integer com.gmp.hr.repository.TrainingRecordRepository.sumTrainingHoursByEmployeeId</definition>
+        <argsstring>(Long employeeId)</argsstring>
+        <name>sumTrainingHoursByEmployeeId</name>
+        <qualifiedname>com.gmp.hr.repository.TrainingRecordRepository.sumTrainingHoursByEmployeeId</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>employeeId</declname>
+        </param>
+        <briefdescription>
+<para>统计员工的培训时长 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>employeeId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>员工ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训总时长 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hr-service/src/main/java/com/gmp/hr/repository/TrainingRecordRepository.java" line="76" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1ac58b6ab94c05c0c5e457f25d59a31622" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.gmp.hr.repository.TrainingRecordRepository.softDeleteById</definition>
+        <argsstring>(Long id)</argsstring>
+        <name>softDeleteById</name>
+        <qualifiedname>com.gmp.hr.repository.TrainingRecordRepository.softDeleteById</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>软删除培训记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>培训记录ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>更新记录数 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hr-service/src/main/java/com/gmp/hr/repository/TrainingRecordRepository.java" line="86" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>培训记录数据访问接口 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GMP Team </para>
+</simplesect>
+<simplesect kind="version"><para>1.0.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JpaRepository&lt; TrainingRecord, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; TrainingRecord &gt;</label>
+        <link refid="classJpaSpecificationExecutor"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.hr.repository.TrainingRecordRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JpaRepository&lt; TrainingRecord, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; TrainingRecord &gt;</label>
+        <link refid="classJpaSpecificationExecutor"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.hr.repository.TrainingRecordRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="hr-service/src/main/java/com/gmp/hr/repository/TrainingRecordRepository.java" line="22" column="18" bodyfile="hr-service/src/main/java/com/gmp/hr/repository/TrainingRecordRepository.java" bodystart="22" bodyend="87"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af501a895cafc3b8153f2d7093de3761c" prot="public" virt="non-virtual"><scope>com::gmp::hr::repository::TrainingRecordRepository</scope><name>findByEmployeeIdAndDeletedFalse</name></member>
+      <member refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1afbf7b8c18f459d8d8b0fe09614426d5b" prot="public" virt="non-virtual"><scope>com::gmp::hr::repository::TrainingRecordRepository</scope><name>findByEmployeeIdAndStartDateBetweenAndDeletedFalse</name></member>
+      <member refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af1adcfbb3273f2ea7f9ada820b237244" prot="public" virt="non-virtual"><scope>com::gmp::hr::repository::TrainingRecordRepository</scope><name>findByResultAndDeletedFalse</name></member>
+      <member refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1ae91414d6a01afcc711ed8fa0b792ea4e" prot="public" virt="non-virtual"><scope>com::gmp::hr::repository::TrainingRecordRepository</scope><name>findByStartDateBetweenAndDeletedFalse</name></member>
+      <member refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1acb4f4e43077d3778f2157fcf984e6aef" prot="public" virt="non-virtual"><scope>com::gmp::hr::repository::TrainingRecordRepository</scope><name>findByTrainingTypeAndDeletedFalse</name></member>
+      <member refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1ac58b6ab94c05c0c5e457f25d59a31622" prot="public" virt="non-virtual"><scope>com::gmp::hr::repository::TrainingRecordRepository</scope><name>softDeleteById</name></member>
+      <member refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1TrainingRecordRepository_1af697029f3e2c14236a0be9abd556f820" prot="public" virt="non-virtual"><scope>com::gmp::hr::repository::TrainingRecordRepository</scope><name>sumTrainingHoursByEmployeeId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

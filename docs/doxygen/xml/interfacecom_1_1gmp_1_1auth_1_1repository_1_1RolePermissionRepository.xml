@@ -18,10 +18,22 @@
 <para>根据角色ID查找关联的权限 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List&lt;RolePermission&gt; 角色关联的权限列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="21" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="32" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RolePermissionRepository_1a46622da6877f13546c28c93e83302569" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; RolePermission &gt;</type>
@@ -41,10 +53,30 @@
 <para>根据角色ID和状态查找关联的权限 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isActive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>是否活跃 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List&lt;RolePermission&gt; 角色关联的指定状态的权限列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="26" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="41" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RolePermissionRepository_1a138092e701cec7d3fc2285a0540309b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; RolePermission &gt;</type>
@@ -60,10 +92,22 @@
 <para>根据权限ID查找关联的角色 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>permissionId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List&lt;RolePermission&gt; 权限关联的角色列表 </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="31" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="49" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RolePermissionRepository_1abea3c91807d97ace7ef275fa3b31efa5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Optional&lt; RolePermission &gt;</type>
@@ -83,10 +127,30 @@
 <para>查找角色的特定权限 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>permissionId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional&lt;RolePermission&gt; 角色权限关联实体，如果不存在则返回Optional.empty() </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="36" column="14"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="58" column="14"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RolePermissionRepository_1a155a7deec833fa15af247ad507bf1b5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>boolean</type>
@@ -106,10 +170,30 @@
 <para>检查角色是否拥有特定权限 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>permissionId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boolean 如果角色拥有该权限返回true，否则返回false </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="41" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="67" column="13"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RolePermissionRepository_1a5a6b065b0e3e26fa83ec0c3b48c55eab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -125,10 +209,20 @@
 <para>根据角色ID删除所有关联 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>roleId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>角色ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="46" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="74" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RolePermissionRepository_1ab89bbd347c176fb81f661197ec2668ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -144,17 +238,36 @@
 <para>根据权限ID删除所有关联 </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>permissionId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>权限ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="51" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="81" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
 <para>角色权限关联数据访问层 </para>
     </briefdescription>
     <detaileddescription>
+<para>该接口定义了角色权限关联实体的数据库操作方法，包括CRUD操作和复杂查询。 继承自Spring Data JPA的JpaRepository，自动生成基本的CRUD方法。</para>
 <para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+<simplesect kind="since"><para>2023-01-01</para>
+</simplesect>
+<simplesect kind="see"><para>org.springframework.data.jpa.repository.JpaRepository </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1RolePermission" kindref="compound">com.gmp.auth.entity.RolePermission</ref> </para>
 </simplesect>
 </para>
     </detaileddescription>
@@ -182,7 +295,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="16" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" bodystart="16" bodyend="52"/>
+    <location file="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" line="24" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/repository/RolePermissionRepository.java" bodystart="24" bodyend="82"/>
     <listofallmembers>
       <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RolePermissionRepository_1ab89bbd347c176fb81f661197ec2668ad" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::RolePermissionRepository</scope><name>deleteByPermissionId</name></member>
       <member refid="interfacecom_1_1gmp_1_1auth_1_1repository_1_1RolePermissionRepository_1a5a6b065b0e3e26fa83ec0c3b48c55eab" prot="public" virt="non-virtual"><scope>com::gmp::auth::repository::RolePermissionRepository</scope><name>deleteByRoleId</name></member>

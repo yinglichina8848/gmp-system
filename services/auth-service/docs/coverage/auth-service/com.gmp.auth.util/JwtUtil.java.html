@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JwtUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.util</a> &gt; <span class="el_source">JwtUtil.java</span></div><h1>JwtUtil.java</h1><pre class="source lang-java linenums">package com.gmp.auth.util;
+
+import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.security.SignatureException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+
+import java.security.Key;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+@Component
+<span class="fc" id="L19">public class JwtUtil {</span>
+
+<span class="fc" id="L21">    private static final Logger logger = LoggerFactory.getLogger(JwtUtil.class);</span>
+
+    // 使用Value注解代替JwtProperties依赖
+    @Value(&quot;${jwt.secret:default-secret-key-for-gmp-system}&quot;)
+    private String jwtSecret;
+    
+    @Value(&quot;${jwt.expiration:3600}&quot;)
+    private long expiration;
+    
+    @Value(&quot;${jwt.refresh-expiration:86400}&quot;)
+    private long refreshExpiration;
+    
+    // 存储已撤销的令牌ID
+<span class="fc" id="L34">    private Set&lt;String&gt; revokedTokens = Collections.synchronizedSet(new HashSet&lt;&gt;());</span>
+
+    // 从令牌中获取用户名
+    public String getUsernameFromToken(String token) {
+<span class="fc" id="L38">        return getClaimFromToken(token, Claims::getSubject);</span>
+    }
+
+    // 从令牌中获取过期时间
+    public Date getExpirationDateFromToken(String token) {
+<span class="fc" id="L43">        return getClaimFromToken(token, Claims::getExpiration);</span>
+    }
+    
+    // 从令牌中获取令牌ID
+    public String getTokenIdFromToken(String token) {
+<span class="fc" id="L48">        return getClaimFromToken(token, Claims::getId);</span>
+    }
+
+    // 获取令牌中的指定声明
+    public &lt;T&gt; T getClaimFromToken(String token, Function&lt;Claims, T&gt; claimsResolver) {
+<span class="fc" id="L53">        final Claims claims = getAllClaimsFromToken(token);</span>
+<span class="fc" id="L54">        return claimsResolver.apply(claims);</span>
+    }
+
+    // 从令牌中获取所有声明
+    private Claims getAllClaimsFromToken(String token) {
+        try {
+<span class="fc" id="L60">            return Jwts.parserBuilder()</span>
+<span class="fc" id="L61">                    .setSigningKey(getSigningKey())</span>
+<span class="fc" id="L62">                    .setClock(() -&gt; new Date())</span>
+<span class="fc" id="L63">                    .build()</span>
+<span class="fc" id="L64">                    .parseClaimsJws(token)</span>
+<span class="fc" id="L65">                    .getBody();</span>
+<span class="nc" id="L66">        } catch (SignatureException e) {</span>
+<span class="nc" id="L67">            logger.error(&quot;JWT签名验证失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L68">            throw new JwtException(&quot;JWT签名验证失败&quot;, e);</span>
+<span class="nc" id="L69">        } catch (ExpiredJwtException e) {</span>
+<span class="nc" id="L70">            logger.error(&quot;JWT令牌已过期: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L71">            throw new JwtException(&quot;JWT令牌已过期&quot;, e);</span>
+<span class="fc" id="L72">        } catch (MalformedJwtException e) {</span>
+<span class="fc" id="L73">            logger.error(&quot;JWT令牌格式错误: {}&quot;, e.getMessage());</span>
+<span class="fc" id="L74">            throw new JwtException(&quot;JWT令牌格式错误&quot;, e);</span>
+<span class="nc" id="L75">        } catch (UnsupportedJwtException e) {</span>
+<span class="nc" id="L76">            logger.error(&quot;不支持的JWT令牌: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L77">            throw new JwtException(&quot;不支持的JWT令牌&quot;, e);</span>
+<span class="nc" id="L78">        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L79">            logger.error(&quot;JWT令牌参数错误: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L80">            throw new JwtException(&quot;JWT令牌参数错误&quot;, e);</span>
+        }
+    }
+    
+    // 获取签名密钥
+    private Key getSigningKey() {
+        // 确保密钥长度足够安全（至少256位）
+<span class="fc" id="L87">        byte[] keyBytes = jwtSecret.getBytes();</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">        if (keyBytes.length &lt; 32) { // 256位 = 32字节</span>
+<span class="nc" id="L89">            logger.warn(&quot;JWT密钥长度不足，建议至少32字节&quot;);</span>
+        }
+<span class="fc" id="L91">        return Keys.hmacShaKeyFor(keyBytes);</span>
+    }
+
+    // 检查令牌是否过期
+    public Boolean isTokenExpired(String token) {
+        try {
+<span class="fc" id="L97">            final Date expiration = getExpirationDateFromToken(token);</span>
+<span class="fc" id="L98">            return expiration.before(new Date());</span>
+<span class="nc" id="L99">        } catch (JwtException e) {</span>
+<span class="nc" id="L100">            logger.error(&quot;检查JWT过期状态时出错: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L101">            return true; // 出错时视为过期</span>
+        }
+    }
+    
+    // 检查令牌是否已被撤销
+    public Boolean isTokenRevoked(String token) {
+        try {
+<span class="fc" id="L108">            String tokenId = getTokenIdFromToken(token);</span>
+<span class="fc" id="L109">            return revokedTokens.contains(tokenId);</span>
+<span class="nc" id="L110">        } catch (JwtException e) {</span>
+<span class="nc" id="L111">            logger.error(&quot;检查JWT撤销状态时出错: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L112">            return true; // 出错时视为已撤销</span>
+        }
+    }
+
+    // 生成访问令牌
+    public String generateAccessToken(UserDetails userDetails) {
+<span class="fc" id="L118">        Map&lt;String, Object&gt; claims = new HashMap&lt;&gt;();</span>
+        // 添加用户角色信息
+<span class="fc" id="L120">        claims.put(&quot;roles&quot;, userDetails.getAuthorities().stream()</span>
+<span class="fc" id="L121">                .map(GrantedAuthority::getAuthority)</span>
+<span class="fc" id="L122">                .collect(Collectors.toList()));</span>
+        
+<span class="fc" id="L124">        return doGenerateToken(claims, userDetails.getUsername(), expiration);</span>
+    }
+    
+    // 添加缺失的generateToken方法，用于兼容测试和其他调用
+    public String generateToken(String username) {
+<span class="fc" id="L129">        Map&lt;String, Object&gt; claims = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L130">        return doGenerateToken(claims, username, expiration);</span>
+    }
+
+    // 生成刷新令牌
+    public String generateRefreshToken(UserDetails userDetails) {
+<span class="fc" id="L135">        Map&lt;String, Object&gt; claims = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L136">        return doGenerateToken(claims, userDetails.getUsername(), refreshExpiration);</span>
+    }
+    
+    // 添加缺失的generateRefreshToken方法，用于兼容测试和其他调用
+    public String generateRefreshToken(String username) {
+<span class="nc" id="L141">        Map&lt;String, Object&gt; claims = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L142">        return doGenerateToken(claims, username, refreshExpiration);</span>
+    }
+
+    // 创建令牌
+    private String doGenerateToken(Map&lt;String, Object&gt; claims, String subject, long expiration) {
+<span class="fc" id="L147">        String tokenId = UUID.randomUUID().toString();</span>
+        
+<span class="fc" id="L149">        return Jwts.builder()</span>
+<span class="fc" id="L150">                .setClaims(claims)</span>
+<span class="fc" id="L151">                .setSubject(subject)</span>
+<span class="fc" id="L152">                .setId(tokenId)</span>
+<span class="fc" id="L153">                .setIssuedAt(new Date(System.currentTimeMillis()))</span>
+<span class="fc" id="L154">                .setExpiration(new Date(System.currentTimeMillis() + expiration * 1000))</span>
+<span class="fc" id="L155">                .setIssuer(&quot;GMP-Auth-Service&quot;)</span>
+<span class="fc" id="L156">                .setNotBefore(new Date(System.currentTimeMillis()))</span>
+<span class="fc" id="L157">                .signWith(getSigningKey(), SignatureAlgorithm.HS256) // 使用HS256算法，只需要256位密钥，更适合测试环境</span>
+<span class="fc" id="L158">                .compact();</span>
+    }
+
+    // 验证令牌
+    public Boolean validateToken(String token, UserDetails userDetails) {
+        try {
+            // 检查token和userDetails是否为null
+<span class="pc bpc" id="L165" title="1 of 4 branches missed.">            if (token == null || userDetails == null) {</span>
+<span class="fc" id="L166">                logger.warn(&quot;JWT令牌或用户详情为空，验证失败&quot;);</span>
+<span class="fc" id="L167">                return false;</span>
+            }
+            
+<span class="fc" id="L170">            final String username = getUsernameFromToken(token);</span>
+<span class="pc bpc" id="L171" title="1 of 2 branches missed.">            return (username.equals(userDetails.getUsername()) &amp;&amp; </span>
+<span class="pc bpc" id="L172" title="1 of 2 branches missed.">                   !isTokenExpired(token) &amp;&amp; </span>
+<span class="pc bpc" id="L173" title="1 of 2 branches missed.">                   !isTokenRevoked(token));</span>
+<span class="fc" id="L174">        } catch (Exception e) {</span>
+<span class="fc" id="L175">            logger.error(&quot;JWT令牌验证异常: {}&quot;, e.getMessage());</span>
+<span class="fc" id="L176">            return false;</span>
+        }
+    }
+    
+    // 添加单参数版本的validateToken方法，用于兼容测试和其他调用
+    // 仅检查令牌是否过期和是否被撤销
+    public Boolean validateToken(String token) {
+        try {
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">            if (token == null) {</span>
+<span class="nc" id="L185">                logger.warn(&quot;JWT令牌为空，验证失败&quot;);</span>
+<span class="nc" id="L186">                return false;</span>
+            }
+            
+            // 检查令牌是否被撤销
+<span class="pc bpc" id="L190" title="1 of 2 branches missed.">            if (isTokenRevoked(token)) {</span>
+<span class="nc" id="L191">                logger.warn(&quot;JWT令牌已被撤销&quot;);</span>
+<span class="nc" id="L192">                return false;</span>
+            }
+            
+            // 检查令牌是否过期
+<span class="pc bpc" id="L196" title="1 of 2 branches missed.">            if (isTokenExpired(token)) {</span>
+<span class="nc" id="L197">                logger.warn(&quot;JWT令牌已过期&quot;);</span>
+<span class="nc" id="L198">                return false;</span>
+            }
+            
+            // 验证签名
+<span class="fc" id="L202">            Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token);</span>
+<span class="fc" id="L203">            return true;</span>
+<span class="nc" id="L204">        } catch (SignatureException e) {</span>
+<span class="nc" id="L205">            logger.error(&quot;JWT签名验证失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L206">            return false;</span>
+<span class="nc" id="L207">        } catch (MalformedJwtException e) {</span>
+<span class="nc" id="L208">            logger.error(&quot;无效的JWT令牌: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L209">            return false;</span>
+<span class="nc" id="L210">        } catch (ExpiredJwtException e) {</span>
+<span class="nc" id="L211">            logger.error(&quot;JWT令牌已过期: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L212">            return false;</span>
+<span class="nc" id="L213">        } catch (UnsupportedJwtException e) {</span>
+<span class="nc" id="L214">            logger.error(&quot;不支持的JWT令牌: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L215">            return false;</span>
+<span class="nc" id="L216">        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L217">            logger.error(&quot;JWT声明字符串为空: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L218">            return false;</span>
+<span class="nc" id="L219">        } catch (Exception e) {</span>
+<span class="nc" id="L220">            logger.error(&quot;JWT验证异常: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L221">            return false;</span>
+        }
+    }
+    
+    // 撤销令牌
+    public void revokeToken(String token) {
+        try {
+<span class="fc" id="L228">            String tokenId = getTokenIdFromToken(token);</span>
+<span class="fc" id="L229">            revokedTokens.add(tokenId);</span>
+<span class="fc" id="L230">            logger.info(&quot;已撤销令牌: {}&quot;, tokenId);</span>
+<span class="nc" id="L231">        } catch (JwtException e) {</span>
+<span class="nc" id="L232">            logger.error(&quot;撤销JWT令牌时出错: {}&quot;, e.getMessage());</span>
+<span class="fc" id="L233">        }</span>
+<span class="fc" id="L234">    }</span>
+    
+    // 清除过期的撤销令牌
+    public void cleanupRevokedTokens() {
+<span class="fc" id="L238">        logger.info(&quot;当前已撤销令牌数量: {}&quot;, revokedTokens.size());</span>
+<span class="fc" id="L239">    }</span>
+    
+    // 解析令牌而不验证
+    public Claims parseTokenWithoutValidation(String token) {
+<span class="fc" id="L243">        return Jwts.parserBuilder()</span>
+<span class="fc" id="L244">                .setSigningKey(getSigningKey())</span>
+<span class="fc" id="L245">                .setClock(() -&gt; new Date())</span>
+<span class="fc" id="L246">                .build()</span>
+<span class="fc" id="L247">                .parseClaimsJws(token)</span>
+<span class="fc" id="L248">                .getBody();</span>
+    }
+    
+    // 添加公共方法用于测试获取令牌的claims
+    public Claims parseToken(String token) {
+<span class="fc" id="L253">        return getAllClaimsFromToken(token);</span>
+    }
+    
+    // 添加接收额外声明的generateToken方法，用于测试
+    public String generateToken(Map&lt;String, Object&gt; extraClaims, String username) {
+<span class="fc" id="L258">        return doGenerateToken(extraClaims, username, expiration);</span>
+    }
+    
+    // 实现refreshToken方法，用于刷新令牌
+    public String refreshToken(String refreshToken) {
+        try {
+            // 验证刷新令牌
+<span class="pc bpc" id="L265" title="1 of 2 branches missed.">            if (!validateToken(refreshToken)) {</span>
+<span class="nc" id="L266">                throw new IllegalArgumentException(&quot;无效的刷新令牌&quot;);</span>
+            }
+            
+            // 从刷新令牌中获取用户名
+<span class="fc" id="L270">            String username = getUsernameFromToken(refreshToken);</span>
+            
+            // 生成新的访问令牌
+<span class="fc" id="L273">            return generateToken(username);</span>
+<span class="nc" id="L274">        } catch (Exception e) {</span>
+<span class="nc" id="L275">            logger.error(&quot;刷新令牌失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L276">            throw e;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

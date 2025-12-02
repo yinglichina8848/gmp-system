@@ -1,0 +1,25 @@
+var classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis =
+[
+    [ "CharacteristicPeak", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak.html", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis_1_1CharacteristicPeak" ],
+    [ "analysisConclusion", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#a1056568099b74132d96001ba2de5ec4c", null ],
+    [ "analysisDate", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#aeab2eb3c1b82d0aff0f6ed7238826f31", null ],
+    [ "analysisMethod", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#a4323036054216ae72df29071e7d68f0a", null ],
+    [ "analysisPerson", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#ac15a29cbf57c8ddd4f53d699db7c9e0f", null ],
+    [ "characteristicPeaks", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#a608e91250082bef89c3d09bbec33f5f2", null ],
+    [ "createdTime", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#ad596dcb496020c5ded68f39e64028845", null ],
+    [ "fingerprintData", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#a589b8a52b7c3222a9a9f2525c191ac43", null ],
+    [ "fingerprintFilePath", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#a4f428b402bee1a294cc20f6ecae86cd1", null ],
+    [ "fingerprintType", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#ae799d5ef23148e193589c85f650f4007", null ],
+    [ "id", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#aac1b240a6bed4a8d579320454ba6fd03", null ],
+    [ "referenceFingerprintId", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#a85c518b0247e3710c671d798fca74091", null ],
+    [ "remark", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#af61481f03fa5ded1db271284a3607c76", null ],
+    [ "reviewDate", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#a9fda0bdc78a6fd0c3d918854c6e4e765", null ],
+    [ "reviewPerson", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#a1b8895be0bc9d90d1e9bec937e126819", null ],
+    [ "reviewStatus", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#a5450b5a453e7262a41562228f8956de8", null ],
+    [ "sampleCode", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#a4822dc1fbce74295f42a8217b013fa80", null ],
+    [ "sampleId", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#a4113fdc9393ddb7b49d4397cd46f8cda", null ],
+    [ "similarityResult", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#ae4191ec251964e0807ba068c3a7caeba", null ],
+    [ "taskCode", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#afc224fa034f0f89f34fc82baadf815e4", null ],
+    [ "taskId", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#af80c9ddd2be2d82761f48c3b8d25d9e4", null ],
+    [ "updatedTime", "classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1FingerprintAnalysis.html#ae8f39d24c71b20efa2688f1c8f3faf1f", null ]
+];

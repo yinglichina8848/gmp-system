@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['代码覆盖率测试指南_0',['GMP认证服务 - 代码覆盖率测试指南',['../md_auth-service_2COVERAGE-README.html',1,'']]]
+  ['edms服务架构文档_0',['EDMS服务架构文档',['../md_edms-service_2ARCHITECTURE.html',1,'']]]
 ];

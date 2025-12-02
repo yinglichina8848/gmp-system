@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="EmployeeMapperImpl_8java" kind="file" language="Java">
+    <compoundname>EmployeeMapperImpl.java</compoundname>
+    <includes local="no">com.gmp.hr.dto.EmployeeDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>hr-service/target/generated-sources/annotations/com/gmp/hr/mapper/EmployeeMapperImpl.java</label>
+        <link refid="EmployeeMapperImpl_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.hr.dto.EmployeeDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl" prot="public">com::gmp::hr::mapper::EmployeeMapperImpl</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1hr_1_1mapper">com::gmp::hr::mapper</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.hr.mapper;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.dto.EmployeeDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.dto.QualificationDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.dto.TrainingRecordDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.entity.Department;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.entity.Employee;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.entity.Position;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.entity.Qualification;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.entity.TrainingRecord;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>javax.annotation.processing.Generated;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Component;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Generated(</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>value<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;org.mapstruct.ap.MappingProcessor&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>date<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;2025-11-28T22:21:35+0800&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>comments<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;version:<sp/>1.5.5.Final,<sp/>compiler:<sp/>Eclipse<sp/>JDT<sp/>(IDE)<sp/>3.44.0.v20251118-1623,<sp/>environment:<sp/>Java<sp/>21.0.9<sp/>(Eclipse<sp/>Adoptium)&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@Component</highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl" kindref="compound">EmployeeMapperImpl</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapper" kindref="compound">EmployeeMapper</ref><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1abb07a8b51fff0b555b91ae59f3b18d75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>EmployeeDTO<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1abb07a8b51fff0b555b91ae59f3b18d75" kindref="member">toDTO</ref>(Employee<sp/>employee)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>employee<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EmployeeDTO<sp/>employeeDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EmployeeDTO();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setDepartmentId(<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a53f7614d8c1f84ba62ad6e11860513a5" kindref="member">employeeDepartmentId</ref>(<sp/>employee<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setDepartment(<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a0c977ebdfb166a9a93d84876aa2c924b" kindref="member">employeeDepartmentDepartmentName</ref>(<sp/>employee<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setPositionId(<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a19eeba3bfd9e368936d924160f7e3df9" kindref="member">employeePositionId</ref>(<sp/>employee<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setPosition(<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a36366c5531becafc07da6a7f872e812c" kindref="member">employeePositionPositionName</ref>(<sp/>employee<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setBirthDate(<sp/>employee.getBirthDate()<sp/>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setCreatedAt(<sp/>employee.getCreatedAt()<sp/>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setCreatedBy(<sp/>employee.getCreatedBy()<sp/>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setDepartureDate(<sp/>employee.getDepartureDate()<sp/>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setEmail(<sp/>employee.getEmail()<sp/>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setEmployeeCode(<sp/>employee.getEmployeeCode()<sp/>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setGender(<sp/>employee.getGender()<sp/>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setHireDate(<sp/>employee.getHireDate()<sp/>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setId(<sp/>employee.getId()<sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setIdCard(<sp/>employee.getIdCard()<sp/>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setName(<sp/>employee.getName()<sp/>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setQualifications(<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a7705de5b5cb11b98be071d45b3522a00" kindref="member">qualificationSetToQualificationDTOList</ref>(<sp/>employee.getQualifications()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setStatus(<sp/>employee.getStatus()<sp/>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setTrainingRecords(<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a6e00d312dc9d1aea79f4a2387d05f6f1" kindref="member">trainingRecordSetToTrainingRecordDTOList</ref>(<sp/>employee.getTrainingRecords()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setUpdatedAt(<sp/>employee.getUpdatedAt()<sp/>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employeeDTO.setUpdatedBy(<sp/>employee.getUpdatedBy()<sp/>);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>employeeDTO;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="58" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1af7e41eb2e8e4776766cdf269474673bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Employee<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1af7e41eb2e8e4776766cdf269474673bf" kindref="member">toEntity</ref>(EmployeeDTO<sp/>dto)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>dto<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Employee<sp/>employee<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Employee();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setIdCard(<sp/>dto.getIdCard()<sp/>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setPhoneNumber(<sp/>dto.getPhone()<sp/>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setBirthDate(<sp/>dto.getBirthDate()<sp/>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setDepartureDate(<sp/>dto.getDepartureDate()<sp/>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setEmail(<sp/>dto.getEmail()<sp/>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setEmployeeCode(<sp/>dto.getEmployeeCode()<sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setGender(<sp/>dto.getGender()<sp/>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setHireDate(<sp/>dto.getHireDate()<sp/>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setId(<sp/>dto.getId()<sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setName(<sp/>dto.getName()<sp/>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setStatus(<sp/>dto.getStatus()<sp/>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>employee;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="81" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a604c7ad223a0261f5c16554bec8bfa4f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;EmployeeDTO&gt;<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a604c7ad223a0261f5c16554bec8bfa4f" kindref="member">toDTOList</ref>(List&lt;Employee&gt;<sp/>employees)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>employees<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;EmployeeDTO&gt;<sp/>list<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;EmployeeDTO&gt;(<sp/>employees.size()<sp/>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>Employee<sp/>employee<sp/>:<sp/>employees<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list.add(<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1abb07a8b51fff0b555b91ae59f3b18d75" kindref="member">toDTO</ref>(<sp/>employee<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>list;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="95" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a0d0f4d9aa3f517c5286daeaa4e74e2de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Employee<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a0d0f4d9aa3f517c5286daeaa4e74e2de" kindref="member">updateEntityFromDTO</ref>(EmployeeDTO<sp/>dto,<sp/>Employee<sp/>entity)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>dto<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>entity<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Employee<sp/>employee<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Employee();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>dto<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setId(<sp/>dto.getId()<sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setEmployeeCode(<sp/>dto.getEmployeeCode()<sp/>);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setName(<sp/>dto.getName()<sp/>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setGender(<sp/>dto.getGender()<sp/>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setBirthDate(<sp/>dto.getBirthDate()<sp/>);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setHireDate(<sp/>dto.getHireDate()<sp/>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setDepartureDate(<sp/>dto.getDepartureDate()<sp/>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setEmail(<sp/>dto.getEmail()<sp/>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setIdCard(<sp/>dto.getIdCard()<sp/>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setPhoneNumber(<sp/>dto.getPhone()<sp/>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>employee.setStatus(<sp/>dto.getStatus()<sp/>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>employee;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a53f7614d8c1f84ba62ad6e11860513a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a53f7614d8c1f84ba62ad6e11860513a5" kindref="member">employeeDepartmentId</ref>(Employee<sp/>employee)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>employee<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Department<sp/>department<sp/>=<sp/>employee.getDepartment();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>department<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>department.getId();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a0c977ebdfb166a9a93d84876aa2c924b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a0c977ebdfb166a9a93d84876aa2c924b" kindref="member">employeeDepartmentDepartmentName</ref>(Employee<sp/>employee)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>employee<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Department<sp/>department<sp/>=<sp/>employee.getDepartment();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>department<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>departmentName<sp/>=<sp/>department.getDepartmentName();</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>departmentName<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>departmentName;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a19eeba3bfd9e368936d924160f7e3df9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a19eeba3bfd9e368936d924160f7e3df9" kindref="member">employeePositionId</ref>(Employee<sp/>employee)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>employee<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Position<sp/>position<sp/>=<sp/>employee.getPosition();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>position<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>position.getId();</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a36366c5531becafc07da6a7f872e812c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a36366c5531becafc07da6a7f872e812c" kindref="member">employeePositionPositionName</ref>(Employee<sp/>employee)<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>employee<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Position<sp/>position<sp/>=<sp/>employee.getPosition();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>position<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>positionName<sp/>=<sp/>position.getPositionName();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>positionName<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>positionName;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1acdc98111292d5fbed6371f5a8724b6c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>QualificationDTO<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1acdc98111292d5fbed6371f5a8724b6c4" kindref="member">qualificationToQualificationDTO</ref>(Qualification<sp/>qualification)<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>qualification<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QualificationDTO<sp/>qualificationDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QualificationDTO();</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qualificationDTO.setCertificateNumber(<sp/>qualification.getCertificateNumber()<sp/>);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qualificationDTO.setCreatedAt(<sp/>qualification.getCreatedAt()<sp/>);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qualificationDTO.setCreatedBy(<sp/>qualification.getCreatedBy()<sp/>);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qualificationDTO.setExpiryDate(<sp/>qualification.getExpiryDate()<sp/>);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qualificationDTO.setId(<sp/>qualification.getId()<sp/>);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qualificationDTO.setIssueDate(<sp/>qualification.getIssueDate()<sp/>);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qualificationDTO.setStatus(<sp/>qualification.getStatus()<sp/>);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qualificationDTO.setUpdatedAt(<sp/>qualification.getUpdatedAt()<sp/>);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qualificationDTO.setUpdatedBy(<sp/>qualification.getUpdatedBy()<sp/>);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>qualificationDTO;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a7705de5b5cb11b98be071d45b3522a00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>List&lt;QualificationDTO&gt;<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a7705de5b5cb11b98be071d45b3522a00" kindref="member">qualificationSetToQualificationDTOList</ref>(Set&lt;Qualification&gt;<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal"><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;QualificationDTO&gt;<sp/>list<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;QualificationDTO&gt;(<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">.size()<sp/>);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>Qualification<sp/>qualification<sp/>:<sp/>set<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list.add(<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1acdc98111292d5fbed6371f5a8724b6c4" kindref="member">qualificationToQualificationDTO</ref>(<sp/>qualification<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>list;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a4c5d702688afff183856806ad212b44b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>TrainingRecordDTO<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a4c5d702688afff183856806ad212b44b" kindref="member">trainingRecordToTrainingRecordDTO</ref>(TrainingRecord<sp/>trainingRecord)<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>trainingRecord<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingRecordDTO<sp/>trainingRecordDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TrainingRecordDTO();</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setCourseName(<sp/>trainingRecord.getCourseName()<sp/>);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setCreatedAt(<sp/>trainingRecord.getCreatedAt()<sp/>);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setCreatedBy(<sp/>trainingRecord.getCreatedBy()<sp/>);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setDurationHours(<sp/>trainingRecord.getDurationHours()<sp/>);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setEndDate(<sp/>trainingRecord.getEndDate()<sp/>);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setId(<sp/>trainingRecord.getId()<sp/>);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setRemarks(<sp/>trainingRecord.getRemarks()<sp/>);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setResult(<sp/>trainingRecord.getResult()<sp/>);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setScore(<sp/>trainingRecord.getScore()<sp/>);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setStartDate(<sp/>trainingRecord.getStartDate()<sp/>);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setTrainer(<sp/>trainingRecord.getTrainer()<sp/>);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setTrainingContent(<sp/>trainingRecord.getTrainingContent()<sp/>);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setTrainingProvider(<sp/>trainingRecord.getTrainingProvider()<sp/>);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setTrainingType(<sp/>trainingRecord.getTrainingType()<sp/>);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setUpdatedAt(<sp/>trainingRecord.getUpdatedAt()<sp/>);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trainingRecordDTO.setUpdatedBy(<sp/>trainingRecord.getUpdatedBy()<sp/>);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>trainingRecordDTO;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239" refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a6e00d312dc9d1aea79f4a2387d05f6f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>List&lt;TrainingRecordDTO&gt;<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a6e00d312dc9d1aea79f4a2387d05f6f1" kindref="member">trainingRecordSetToTrainingRecordDTOList</ref>(Set&lt;TrainingRecord&gt;<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal"><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingRecordDTO&gt;<sp/>list<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;TrainingRecordDTO&gt;(<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">.size()<sp/>);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>TrainingRecord<sp/>trainingRecord<sp/>:<sp/>set<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list.add(<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1mapper_1_1EmployeeMapperImpl_1a4c5d702688afff183856806ad212b44b" kindref="member">trainingRecordToTrainingRecordDTO</ref>(<sp/>trainingRecord<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>list;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="hr-service/target/generated-sources/annotations/com/gmp/hr/mapper/EmployeeMapperImpl.java"/>
+  </compounddef>
+</doxygen>

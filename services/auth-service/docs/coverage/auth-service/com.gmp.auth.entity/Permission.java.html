@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Permission.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.entity</a> &gt; <span class="el_source">Permission.java</span></div><h1>Permission.java</h1><pre class="source lang-java linenums">package com.gmp.auth.entity;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
+
+/**
+ * GMP系统权限实体
+ *
+ * @author GMP系统开发团队
+ */
+<span class="pc bpc" id="L20" title="104 of 118 branches missed.">@Data</span>
+<span class="fc" id="L21">@NoArgsConstructor</span>
+<span class="fc" id="L22">@AllArgsConstructor</span>
+<span class="pc bfc" id="L23" title="All 4 branches covered.">@Builder</span>
+@Entity
+@Table(name = &quot;sys_permissions&quot;)
+@EntityListeners(AuditingEntityListener.class)
+public class Permission {
+
+    /**
+     * 资源类型枚举
+     */
+<span class="fc" id="L32">    public enum ResourceType {</span>
+<span class="fc" id="L33">        MENU,    // 菜单</span>
+<span class="fc" id="L34">        API,     // API接口</span>
+<span class="fc" id="L35">        BUTTON,  // 按钮</span>
+<span class="fc" id="L36">        DATA     // 数据权限</span>
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank(message = &quot;权限代码不能为空&quot;)
+    @Size(min = 5, max = 100, message = &quot;权限代码长度必须在5-100字符之间&quot;)
+    @Pattern(regexp = &quot;^PERMISSION_[A-Z_]+$&quot;, message = &quot;权限代码必须以PERMISSION_开头并使用大写字母和下划线&quot;)
+    @Column(name = &quot;permission_code&quot;, unique = true, nullable = false)
+    private String permissionCode;
+
+    @NotBlank(message = &quot;权限名称不能为空&quot;)
+    @Size(max = 200, message = &quot;权限名称长度不能超过200字符&quot;)
+    @Column(name = &quot;permission_name&quot;, nullable = false)
+    private String permissionName;
+
+    @Size(max = 100, message = &quot;权限组名称长度不能超过100字符&quot;)
+    @Column(name = &quot;group_name&quot;)
+    private String groupName;
+
+    @NotBlank(message = &quot;资源类型不能为空&quot;)
+    @Pattern(regexp = &quot;^(MENU|API|BUTTON|DATA)$&quot;, message = &quot;资源类型必须是MENU、API、BUTTON或DATA&quot;)
+    @Column(name = &quot;resource_type&quot;, nullable = false)
+    private String resourceType;
+
+    @Size(max = 200, message = &quot;资源URL长度不能超过200字符&quot;)
+    @Column(name = &quot;resource_url&quot;)
+    private String resourceUrl;
+
+    @Builder.Default
+    @Pattern(regexp = &quot;^(GET|POST|PUT|DELETE|ALL)$&quot;, message = &quot;HTTP方法必须是GET、POST、PUT、DELETE或ALL&quot;)
+    @Column(name = &quot;http_method&quot;)
+    private String httpMethod = &quot;ALL&quot;;
+
+    @Size(max = 500, message = &quot;权限描述长度不能超过500字符&quot;)
+    private String description;
+
+    @Builder.Default
+    @Column(name = &quot;is_active&quot;, nullable = false)
+<span class="fc" id="L77">    private Boolean isActive = true;</span>
+
+    // 审计字段
+    @CreatedDate
+    @Column(name = &quot;created_at&quot;, nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate
+    @Column(name = &quot;updated_at&quot;, nullable = false)
+    private LocalDateTime updatedAt;
+
+    @Column(name = &quot;created_by&quot;)
+    private Long createdBy;
+
+    @Column(name = &quot;updated_by&quot;)
+    private Long updatedBy;
+
+<span class="fc" id="L94">    @Version</span>
+    @Column(nullable = false)
+<span class="fc" id="L96">    private Integer version = 1;</span>
+    
+    // Setter方法
+    public void setPermissionCode(String permissionCode) {
+<span class="nc" id="L100">        this.permissionCode = permissionCode;</span>
+<span class="nc" id="L101">    }</span>
+    
+    public void setPermissionName(String permissionName) {
+<span class="nc" id="L104">        this.permissionName = permissionName;</span>
+<span class="nc" id="L105">    }</span>
+    
+    public void setGroupName(String groupName) {
+<span class="nc" id="L108">        this.groupName = groupName;</span>
+<span class="nc" id="L109">    }</span>
+    
+    public void setResourceType(String resourceType) {
+<span class="nc" id="L112">        this.resourceType = resourceType;</span>
+<span class="nc" id="L113">    }</span>
+    
+    public void setResourceUrl(String resourceUrl) {
+<span class="nc" id="L116">        this.resourceUrl = resourceUrl;</span>
+<span class="nc" id="L117">    }</span>
+    
+    public void setHttpMethod(String httpMethod) {
+<span class="nc" id="L120">        this.httpMethod = httpMethod;</span>
+<span class="nc" id="L121">    }</span>
+    
+    public void setDescription(String description) {
+<span class="nc" id="L124">        this.description = description;</span>
+<span class="nc" id="L125">    }</span>
+    
+    public void setActive(Boolean active) {
+<span class="nc" id="L128">        isActive = active;</span>
+<span class="nc" id="L129">    }</span>
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+<span class="nc" id="L132">        this.createdAt = createdAt;</span>
+<span class="nc" id="L133">    }</span>
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+<span class="nc" id="L136">        this.updatedAt = updatedAt;</span>
+<span class="nc" id="L137">    }</span>
+    
+    public void setCreatedBy(Long createdBy) {
+<span class="nc" id="L140">        this.createdBy = createdBy;</span>
+<span class="nc" id="L141">    }</span>
+    
+    public void setUpdatedBy(Long updatedBy) {
+<span class="nc" id="L144">        this.updatedBy = updatedBy;</span>
+<span class="nc" id="L145">    }</span>
+    
+    public void setVersion(Integer version) {
+<span class="nc" id="L148">        this.version = version;</span>
+<span class="nc" id="L149">    }</span>
+    
+    // Getter方法
+    public Long getId() {
+<span class="fc" id="L153">        return id;</span>
+    }
+    
+    public String getPermissionCode() {
+<span class="fc" id="L157">        return permissionCode;</span>
+    }
+    
+    public String getPermissionName() {
+<span class="fc" id="L161">        return permissionName;</span>
+    }
+    
+    public String getGroupName() {
+<span class="fc" id="L165">        return groupName;</span>
+    }
+    
+    public String getResourceType() {
+<span class="fc" id="L169">        return resourceType;</span>
+    }
+    
+    public String getResourceUrl() {
+<span class="fc" id="L173">        return resourceUrl;</span>
+    }
+    
+    public String getHttpMethod() {
+<span class="fc" id="L177">        return httpMethod;</span>
+    }
+    
+    public String getDescription() {
+<span class="fc" id="L181">        return description;</span>
+    }
+    
+    public Boolean getActive() {
+<span class="nc" id="L185">        return isActive;</span>
+    }
+    
+    public LocalDateTime getCreatedAt() {
+<span class="fc" id="L189">        return createdAt;</span>
+    }
+    
+    public LocalDateTime getUpdatedAt() {
+<span class="fc" id="L193">        return updatedAt;</span>
+    }
+    
+    public Long getCreatedBy() {
+<span class="fc" id="L197">        return createdBy;</span>
+    }
+    
+    public Long getUpdatedBy() {
+<span class="fc" id="L201">        return updatedBy;</span>
+    }
+    
+    public Integer getVersion() {
+<span class="fc" id="L205">        return version;</span>
+    }
+
+    /**
+     * 检查权限是否有效
+     */
+    @Transient
+    public boolean isValid() {
+<span class="pc bpc" id="L213" title="1 of 6 branches missed.">        return this.isActive &amp;&amp; this.permissionCode != null &amp;&amp; !this.permissionCode.trim().isEmpty();</span>
+    }
+
+    /**
+     * 检查是否匹配给定的请求
+     */
+    @Transient
+    public boolean matches(String url, String method) {
+<span class="fc bfc" id="L221" title="All 4 branches covered.">        if (!this.isActive || this.resourceUrl == null) {</span>
+<span class="fc" id="L222">            return false;</span>
+        }
+
+        // URL匹配 (简单的路径前缀匹配)
+<span class="pc bpc" id="L226" title="1 of 4 branches missed.">        boolean urlMatch = url != null &amp;&amp; url.startsWith(this.resourceUrl.replace(&quot;/**&quot;, &quot;&quot;));</span>
+
+        // HTTP方法匹配
+<span class="pc bpc" id="L229" title="2 of 4 branches missed.">        boolean methodMatch = &quot;ALL&quot;.equals(this.httpMethod) ||</span>
+<span class="fc bfc" id="L230" title="All 2 branches covered.">                (method != null &amp;&amp; this.httpMethod.equals(method));</span>
+
+<span class="fc bfc" id="L232" title="All 4 branches covered.">        return urlMatch &amp;&amp; methodMatch;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

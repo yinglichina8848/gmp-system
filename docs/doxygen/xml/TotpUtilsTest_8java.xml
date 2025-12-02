@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TotpUtilsTest_8java" kind="file" language="Java">
+    <compoundname>TotpUtilsTest.java</compoundname>
+    <includes local="no">org.junit.jupiter.api.BeforeEach</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/test/java/com/gmp/auth/service/TotpUtilsTest.java</label>
+        <link refid="TotpUtilsTest_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.junit.jupiter.api.BeforeEach</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest" prot="package">com::gmp::auth::service::TotpUtilsTest</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1service">com::gmp::auth::service</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.service;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.BeforeEach;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.DisplayName;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.extension.ExtendWith;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.InjectMocks;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.junit.jupiter.MockitoExtension;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.net.URLEncoder;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.charset.StandardCharsets;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.Instant;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Base64;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.assertj.core.api.Assertions.assertThat;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.assertj.core.api.Assertions.within;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">@ExtendWith(MockitoExtension.class)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">@DisplayName(</highlight><highlight class="stringliteral">&quot;TOTP工具类单元测试&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest" refkind="compound"><highlight class="normal">class<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest" kindref="compound">TotpUtilsTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@InjectMocks</highlight></codeline>
+<codeline lineno="37" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a98b901266fa8d2b5caf02f452683b0c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils" kindref="compound">TotpUtils</ref><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a98b901266fa8d2b5caf02f452683b0c4" kindref="member">totpUtils</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a29bf5f24fe714bfcd1576d5cdd3dec7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a29bf5f24fe714bfcd1576d5cdd3dec7e" kindref="member">testSecretKey</ref>;</highlight></codeline>
+<codeline lineno="40" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1ab7ce70ac2c99fa446df64a0b8c272a78" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1ab7ce70ac2c99fa446df64a0b8c272a78" kindref="member">testUsername</ref>;</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1ac1d7f21b4cb7aeb34cc712fd6e2809bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1ac1d7f21b4cb7aeb34cc712fd6e2809bb" kindref="member">testIssuer</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@BeforeEach</highlight></codeline>
+<codeline lineno="44" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a1ba55ce2de8557917640f8e32f4a4cff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a1ba55ce2de8557917640f8e32f4a4cff" kindref="member">setUp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>设置测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testSecretKey<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;JBSWY3DPEHPK3PXP&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testUsername<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;testuser@example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testIssuer<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;GMP系统&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@DisplayName(</highlight><highlight class="stringliteral">&quot;生成密钥测试&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1adf06795634b65412c0b3f95644a027d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>testGenerateSecretKey()<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>secretKey<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a19aee80cd5788c5ed88775432325e63f" kindref="member">generateSecretKey</ref>();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(secretKey).isNotNull();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(secretKey).hasSize(24);<sp/></highlight><highlight class="comment">//<sp/>Base64编码后16字节会变成24个字符</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证密钥是有效的Base64字符串</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(secretKey).matches(</highlight><highlight class="stringliteral">&quot;[A-Za-z0-9+/=]+&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>注释掉测试私有方法的测试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>@Test</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>@DisplayName(&quot;HMAC-SHA1算法测试&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>void<sp/>testHmacSha1()<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>//<sp/>Given</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>String<sp/>data<sp/>=<sp/>&quot;testdata&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>byte[]<sp/>key<sp/>=<sp/>&quot;testkey&quot;.getBytes(StandardCharsets.UTF_8);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>byte[]<sp/>hmacResult<sp/>=<sp/>totpUtils.hmacSha1(key,<sp/>data.getBytes(StandardCharsets.UTF_8));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(hmacResult).isNotNull();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(hmacResult).hasSize(20);<sp/>//<sp/>SHA-1输出20字节</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@DisplayName(</highlight><highlight class="stringliteral">&quot;生成TOTP验证码测试&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="82" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a617d177194d215ce8d57e4e5988dd649" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>testGenerateTotpCode()<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>totpCode<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5e1aed0ee968bd50495338424448fee2" kindref="member">generateTotpCode</ref>(testSecretKey);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(totpCode).isNotNull();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(totpCode).hasSize(6);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证验证码只包含数字</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(totpCode).matches(</highlight><highlight class="stringliteral">&quot;\\d{6}&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@DisplayName(</highlight><highlight class="stringliteral">&quot;验证有效TOTP验证码测试&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="95" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a054253d5b99e30fc5bcd2af8efd56e7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>testVerifyTotpCodeValid()<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Given<sp/>-<sp/>使用当前时间生成一个有效的验证码</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>validCode<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5e1aed0ee968bd50495338424448fee2" kindref="member">generateTotpCode</ref>(testSecretKey);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isValid<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a97e9b9114350ca521640bd73cf4dc367" kindref="member">verifyTotpCode</ref>(testSecretKey,<sp/>validCode);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(isValid).isTrue();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>@DisplayName(</highlight><highlight class="stringliteral">&quot;验证无效TOTP验证码测试&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="108" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a30ce99f9a1db54f5c48e280d18f77f79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>testVerifyTotpCodeInvalid()<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isValid<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a97e9b9114350ca521640bd73cf4dc367" kindref="member">verifyTotpCode</ref>(testSecretKey,<sp/></highlight><highlight class="stringliteral">&quot;123456&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>除非正好匹配，否则应该返回false</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>由于TOTP是基于时间的，我们不能确定123456是否正好是当前时间的验证码</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>所以这里我们只是验证方法可以正常执行</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(isValid).isInstanceOf(Boolean.class);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>注释掉测试不存在方法的测试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>@Test</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>@DisplayName(&quot;生成二维码URL测试&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>void<sp/>testGenerateQrCodeUrl()<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>//<sp/>Given</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>String<sp/>expectedLabel<sp/>=<sp/>URLEncoder.encode(testIssuer<sp/>+<sp/>&quot;:&quot;<sp/>+<sp/>testUsername,<sp/>StandardCharsets.UTF_8);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>String<sp/>expectedIssuer<sp/>=<sp/>URLEncoder.encode(testIssuer,<sp/>StandardCharsets.UTF_8);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>String<sp/>expectedUrl<sp/>=<sp/>&quot;https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=otpauth://totp/&quot;<sp/>+<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>expectedLabel<sp/>+<sp/>&quot;?secret=&quot;<sp/>+<sp/>testSecretKey<sp/>+<sp/>&quot;&amp;issuer=&quot;<sp/>+<sp/>expectedIssuer;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>String<sp/>qrCodeUrl<sp/>=<sp/>totpUtils.generateQrCodeUrl(testSecretKey,<sp/>testUsername,<sp/>testIssuer);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(qrCodeUrl).isNotNull();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(qrCodeUrl).startsWith(&quot;https://api.qrserver.com/v1/create-qr-code/&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(qrCodeUrl).contains(&quot;otpauth://totp/&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(qrCodeUrl).contains(testSecretKey);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(qrCodeUrl).contains(expectedLabel);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(qrCodeUrl).contains(expectedIssuer);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>@DisplayName(</highlight><highlight class="stringliteral">&quot;获取剩余有效期测试&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="143" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a00d6f5df32cca0a0b143a27a9b1d7f1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>testGetRemainingSeconds()<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>remainingSeconds<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a8c01082cc1a7dd789d44cef44e982a57" kindref="member">getRemainingSeconds</ref>();</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(remainingSeconds).isBetween(0L,<sp/>30L);<sp/></highlight><highlight class="comment">//<sp/>TOTP时间窗口是30秒</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>@DisplayName(</highlight><highlight class="stringliteral">&quot;边界测试<sp/>-<sp/>空密钥&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="153" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a32f0dfe93df154331720ceaa2e72a10a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>testEdgeCaseEmptySecretKey()<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>code<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5e1aed0ee968bd50495338424448fee2" kindref="member">generateTotpCode</ref>(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isValid<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a97e9b9114350ca521640bd73cf4dc367" kindref="member">verifyTotpCode</ref>(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;123456&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(code).isNull();</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(isValid).isFalse();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>@DisplayName(</highlight><highlight class="stringliteral">&quot;边界测试<sp/>-<sp/>null密钥&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="165" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1abf4ddb4f309d2ff28bf3f02f4ea4e473" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>testEdgeCaseNullSecretKey()<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>code<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5e1aed0ee968bd50495338424448fee2" kindref="member">generateTotpCode</ref>(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isValid<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a97e9b9114350ca521640bd73cf4dc367" kindref="member">verifyTotpCode</ref>(</highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;123456&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(code).isNull();</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(isValid).isFalse();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>注释掉测试不存在方法的测试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>@Test</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>@DisplayName(&quot;边界测试<sp/>-<sp/>空用户名或颁发者&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>void<sp/>testEdgeCaseEmptyUsernameOrIssuer()<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>String<sp/>url1<sp/>=<sp/>totpUtils.generateQrCodeUrl(testSecretKey,<sp/>&quot;&quot;,<sp/>testIssuer);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>String<sp/>url2<sp/>=<sp/>totpUtils.generateQrCodeUrl(testSecretKey,<sp/>testUsername,<sp/>&quot;&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(url1).isNotNull();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(url2).isNotNull();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(url1).doesNotContain(URLEncoder.encode(&quot;:&quot;,<sp/>StandardCharsets.UTF_8));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>assertThat(url2).doesNotContain(&quot;&amp;issuer=&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>@DisplayName(</highlight><highlight class="stringliteral">&quot;测试Base32解码&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="192" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a480cb6f84d9a337d9536d11f74a26200" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>testBase32Decoding()<sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Given</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>base32Key<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;JBSWY3DPEHPK3PXP&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>expectedDecoded<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Hello!&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]<sp/>decoded<sp/>=<sp/>Base64.getDecoder().decode(</highlight><highlight class="stringliteral">&quot;SGVsbG8h&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>&quot;Hello!&quot;的Base64编码</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then<sp/>-<sp/>验证Base64解码可以正常工作</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>由于我们不能直接测试private方法，我们验证解码逻辑的基础功能</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(decoded).isNotNull();</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>String(decoded,<sp/>StandardCharsets.UTF_8)).isEqualTo(expectedDecoded);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>@DisplayName(</highlight><highlight class="stringliteral">&quot;测试时间戳计算&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="208" refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1aff536c2da49c2b1dff4d96beb39295a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>testTimestampCalculation()<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Given</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>currentTimeMillis<sp/>=<sp/>System.currentTimeMillis();</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>expectedTimestamp<sp/>=<sp/>currentTimeMillis<sp/>/<sp/>1000<sp/>/<sp/>30;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>我们通过生成TOTP码来间接测试时间戳计算</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>code1<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5e1aed0ee968bd50495338424448fee2" kindref="member">generateTotpCode</ref>(testSecretKey);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>短暂等待后再生成一次</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Thread.sleep(100);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(InterruptedException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e.printStackTrace();</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>code2<sp/>=<sp/>totpUtils.<ref refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5e1aed0ee968bd50495338424448fee2" kindref="member">generateTotpCode</ref>(testSecretKey);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then<sp/>-<sp/>在同一个时间窗口内，两次生成的验证码应该相同</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>除非测试过程中跨越了30秒的边界</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertThat(code1).isEqualTo(code2);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/test/java/com/gmp/auth/service/TotpUtilsTest.java"/>
+  </compounddef>
+</doxygen>

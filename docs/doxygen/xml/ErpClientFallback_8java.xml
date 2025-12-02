@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ErpClientFallback_8java" kind="file" language="Java">
+    <compoundname>ErpClientFallback.java</compoundname>
+    <includes local="no">com.gmp.qms.dto.MaterialDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/client/ErpClientFallback.java</label>
+        <link refid="ErpClientFallback_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.dto.MaterialDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback" prot="public">com::gmp::qms::client::ErpClientFallback</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1client">com::gmp::qms::client</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.client;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.MaterialDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.NotificationDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.SupplierDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.slf4j.Logger;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.slf4j.LoggerFactory;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Component;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">@Component</highlight></codeline>
+<codeline lineno="16" refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback" kindref="compound">ErpClientFallback</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1ErpClient" kindref="compound">ErpClient</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a76e52c8eff162d8930439d56376eecb0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a76e52c8eff162d8930439d56376eecb0" kindref="member">log</ref><sp/>=<sp/>LoggerFactory.getLogger(<ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback" kindref="compound">ErpClientFallback</ref>.class);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="21" refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a9c2ac8244ff152432caa183623923914" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>SupplierDTO<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a9c2ac8244ff152432caa183623923914" kindref="member">getSupplier</ref>(String<sp/>supplierId)<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a76e52c8eff162d8930439d56376eecb0" kindref="member">log</ref>.warn(</highlight><highlight class="stringliteral">&quot;ERP服务调用降级:<sp/>getSupplier，supplierId={}&quot;</highlight><highlight class="normal">,<sp/>supplierId);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a6c733abf7c18430049a1739cadc4bf98" kindref="member">recordFallbackRequest</ref>(</highlight><highlight class="stringliteral">&quot;getSupplier&quot;</highlight><highlight class="normal">,<sp/>supplierId);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SupplierDTO<sp/>defaultSupplier<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>SupplierDTO();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>defaultSupplier.setSupplierId(supplierId);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>defaultSupplier.setSupplierName(</highlight><highlight class="stringliteral">&quot;未知供应商&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>defaultSupplier.setStatus(</highlight><highlight class="stringliteral">&quot;降级数据&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>defaultSupplier;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="32" refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a6c06b1de214193514f8d8bb8b77c9fc5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>MaterialDTO<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a6c06b1de214193514f8d8bb8b77c9fc5" kindref="member">getMaterial</ref>(String<sp/>materialCode)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a76e52c8eff162d8930439d56376eecb0" kindref="member">log</ref>.warn(</highlight><highlight class="stringliteral">&quot;ERP服务调用降级:<sp/>getMaterial，materialCode={}&quot;</highlight><highlight class="normal">,<sp/>materialCode);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a6c733abf7c18430049a1739cadc4bf98" kindref="member">recordFallbackRequest</ref>(</highlight><highlight class="stringliteral">&quot;getMaterial&quot;</highlight><highlight class="normal">,<sp/>materialCode);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MaterialDTO<sp/>defaultMaterial<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MaterialDTO();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>defaultMaterial.setMaterialCode(materialCode);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>defaultMaterial.setMaterialName(</highlight><highlight class="stringliteral">&quot;未知物料&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>defaultMaterial.setStatus(</highlight><highlight class="stringliteral">&quot;降级数据&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>defaultMaterial;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="43" refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a7a0acbe724c805c09ac1c07fed772ffb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a7a0acbe724c805c09ac1c07fed772ffb" kindref="member">sendNotification</ref>(NotificationDTO<sp/>notificationDTO)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a76e52c8eff162d8930439d56376eecb0" kindref="member">log</ref>.warn(</highlight><highlight class="stringliteral">&quot;ERP服务调用降级:<sp/>sendNotification，通知内容={}&quot;</highlight><highlight class="normal">,<sp/>notificationDTO);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a6c733abf7c18430049a1739cadc4bf98" kindref="member">recordFallbackRequest</ref>(</highlight><highlight class="stringliteral">&quot;sendNotification&quot;</highlight><highlight class="normal">,<sp/>notificationDTO.toString());</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>记录失败的通知，可在后续重试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1ac5024451df43f6bba9c8508bc8755705" kindref="member">saveToRetryQueue</ref>(</highlight><highlight class="stringliteral">&quot;ERP_NOTIFICATION&quot;</highlight><highlight class="normal">,<sp/>notificationDTO);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a5df7a71c6a58957ec50919dc15b0b66c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a5df7a71c6a58957ec50919dc15b0b66c" kindref="member">isSupplierQualified</ref>(String<sp/>supplierId)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a76e52c8eff162d8930439d56376eecb0" kindref="member">log</ref>.warn(</highlight><highlight class="stringliteral">&quot;ERP服务调用降级:<sp/>isSupplierQualified，supplierId={}&quot;</highlight><highlight class="normal">,<sp/>supplierId);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a6c733abf7c18430049a1739cadc4bf98" kindref="member">recordFallbackRequest</ref>(</highlight><highlight class="stringliteral">&quot;isSupplierQualified&quot;</highlight><highlight class="normal">,<sp/>supplierId);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>降级策略：默认返回false，表示需要进一步验证</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a85ef02d615906d29ab539094e9a9abcc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>MaterialDTO<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a85ef02d615906d29ab539094e9a9abcc" kindref="member">getMaterialBatch</ref>(String<sp/>materialCode,<sp/>String<sp/>batchNumber)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a76e52c8eff162d8930439d56376eecb0" kindref="member">log</ref>.warn(</highlight><highlight class="stringliteral">&quot;ERP服务调用降级:<sp/>getMaterialBatch，materialCode={},<sp/>batchNumber={}&quot;</highlight><highlight class="normal">,<sp/>materialCode,<sp/>batchNumber);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a6c733abf7c18430049a1739cadc4bf98" kindref="member">recordFallbackRequest</ref>(</highlight><highlight class="stringliteral">&quot;getMaterialBatch&quot;</highlight><highlight class="normal">,<sp/>materialCode<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal"><sp/>+<sp/>batchNumber);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MaterialDTO<sp/>defaultMaterial<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MaterialDTO();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>defaultMaterial.setMaterialCode(materialCode);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>defaultMaterial.setBatchNumber(batchNumber);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>defaultMaterial.setMaterialName(</highlight><highlight class="stringliteral">&quot;未知物料批次&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>defaultMaterial.setStatus(</highlight><highlight class="stringliteral">&quot;降级数据&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>defaultMaterial;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a6c733abf7c18430049a1739cadc4bf98" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a6c733abf7c18430049a1739cadc4bf98" kindref="member">recordFallbackRequest</ref>(String<sp/>methodName,<sp/>String<sp/>params)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>这里可以实现记录降级请求的逻辑，例如保存到数据库或发送到监控系统</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a76e52c8eff162d8930439d56376eecb0" kindref="member">log</ref>.info(</highlight><highlight class="stringliteral">&quot;降级请求记录:<sp/>方法={},<sp/>参数={}&quot;</highlight><highlight class="normal">,<sp/>methodName,<sp/>params);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1ac5024451df43f6bba9c8508bc8755705" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>&lt;T&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1ac5024451df43f6bba9c8508bc8755705" kindref="member">saveToRetryQueue</ref>(String<sp/>queueType,<sp/>T<sp/>data)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>这里可以实现将请求保存到重试队列的逻辑</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1ErpClientFallback_1a76e52c8eff162d8930439d56376eecb0" kindref="member">log</ref>.info(</highlight><highlight class="stringliteral">&quot;保存到重试队列:<sp/>类型={},<sp/>数据={}&quot;</highlight><highlight class="normal">,<sp/>queueType,<sp/>data);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/client/ErpClientFallback.java"/>
+  </compounddef>
+</doxygen>

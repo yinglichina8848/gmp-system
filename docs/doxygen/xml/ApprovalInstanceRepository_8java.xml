@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ApprovalInstanceRepository_8java" kind="file" language="Java">
+    <compoundname>ApprovalInstanceRepository.java</compoundname>
+    <includes local="no">com.gmp.edms.entity.ApprovalInstance</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/repository/ApprovalInstanceRepository.java</label>
+        <link refid="ApprovalInstanceRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.entity.ApprovalInstance</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository" prot="public">com::gmp::edms::repository::ApprovalInstanceRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1repository">com::gmp::edms::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1edms_1_1repository" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.entity.ApprovalInstance;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="19" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository" kindref="compound">ApprovalInstanceRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;ApprovalInstance,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1aa338ee303da2ee59afb62b1cac1a3ed9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1aa338ee303da2ee59afb62b1cac1a3ed9" kindref="member">findByWorkflowId</ref>(Long<sp/>workflowId);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a7b188c5e420e3a3a5aff229dfb44ca28" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a7b188c5e420e3a3a5aff229dfb44ca28" kindref="member">findByDocumentId</ref>(Long<sp/>documentId);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a420c34047aa7b05ed67aaebcc14e6929" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a420c34047aa7b05ed67aaebcc14e6929" kindref="member">findByInitiator</ref>(String<sp/>initiator);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a21a727128843d0e4b6e7a0732491bc75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a21a727128843d0e4b6e7a0732491bc75" kindref="member">findByStatus</ref>(String<sp/>status);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a11d622891caa1f69ed56d53af0227515" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a11d622891caa1f69ed56d53af0227515" kindref="member">findByCurrentStep</ref>(String<sp/>currentStep);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a4c7958ceb1a7dc26fbc1df80e7651438" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a4c7958ceb1a7dc26fbc1df80e7651438" kindref="member">findByPriority</ref>(String<sp/>priority);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>ai<sp/>FROM<sp/>ApprovalInstance<sp/>ai<sp/>WHERE<sp/>ai.currentStep<sp/>IN<sp/>&quot;</highlight><highlight class="normal"><sp/>+</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;(SELECT<sp/>stepName<sp/>FROM<sp/>ApprovalStep<sp/>WHERE<sp/>approverId<sp/>=<sp/>:userId)<sp/>&quot;</highlight><highlight class="normal"><sp/>+</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;AND<sp/>ai.status<sp/>=<sp/>&apos;IN_PROGRESS&apos;&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="57" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1ae64a04c073c1dde0e914c37805eb2f07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1ae64a04c073c1dde0e914c37805eb2f07" kindref="member">findPendingTasksByUser</ref>(@Param(&quot;userId&quot;)<sp/>String<sp/>userId);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ai<sp/>FROM<sp/>ApprovalInstance<sp/>ai<sp/>WHERE<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;(:workflowId<sp/>IS<sp/>NULL<sp/>OR<sp/>ai.workflowId<sp/>=<sp/>:workflowId)<sp/>AND<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;(:documentId<sp/>IS<sp/>NULL<sp/>OR<sp/>ai.documentId<sp/>=<sp/>:documentId)<sp/>AND<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;(:initiator<sp/>IS<sp/>NULL<sp/>OR<sp/>ai.initiator<sp/>=<sp/>:initiator)<sp/>AND<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;(:status<sp/>IS<sp/>NULL<sp/>OR<sp/>ai.status<sp/>=<sp/>:status)<sp/>AND<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;(:currentStep<sp/>IS<sp/>NULL<sp/>OR<sp/>ai.currentStep<sp/>=<sp/>:currentStep)<sp/>AND<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;(:priority<sp/>IS<sp/>NULL<sp/>OR<sp/>ai.priority<sp/>=<sp/>:priority)&quot;)</highlight></codeline>
+<codeline lineno="69" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1abd5090a7a0fd19fe05b117bb97cfc0c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1abd5090a7a0fd19fe05b117bb97cfc0c3" kindref="member">findByMultipleConditions</ref>(</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;workflowId&quot;)<sp/>Long<sp/>workflowId,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;documentId&quot;)<sp/>Long<sp/>documentId,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;initiator&quot;)<sp/>String<sp/>initiator,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;status&quot;)<sp/>String<sp/>status,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;currentStep&quot;)<sp/>String<sp/>currentStep,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;priority&quot;)<sp/>String<sp/>priority,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ai<sp/>FROM<sp/>ApprovalInstance<sp/>ai<sp/>WHERE<sp/>ai.status<sp/>=<sp/>&apos;IN_PROGRESS&apos;<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;AND<sp/>ai.deadline<sp/>BETWEEN<sp/>:startTime<sp/>AND<sp/>:endTime&quot;)</highlight></codeline>
+<codeline lineno="84" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a0971ba36b75540a9f233788f24b65186" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a0971ba36b75540a9f233788f24b65186" kindref="member">findExpiringSoon</ref>(@Param(&quot;startTime&quot;)<sp/>LocalDateTime<sp/>startTime,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;endTime&quot;)<sp/>LocalDateTime<sp/>endTime);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ai<sp/>FROM<sp/>ApprovalInstance<sp/>ai<sp/>WHERE<sp/>ai.status<sp/>=<sp/>&apos;IN_PROGRESS&apos;<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;AND<sp/>ai.deadline<sp/>&lt;<sp/>:currentTime&quot;)</highlight></codeline>
+<codeline lineno="92" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a5b9f567356baaa218bde4d6c9e347ffa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a5b9f567356baaa218bde4d6c9e347ffa" kindref="member">findOverdue</ref>(@Param(&quot;currentTime&quot;)<sp/>LocalDateTime<sp/>currentTime);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a6bad264305b36fe95b7c2429564aafb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a6bad264305b36fe95b7c2429564aafb1" kindref="member">countByStatus</ref>(String<sp/>status);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a8377c882a2ab025831fbad80aac471a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a8377c882a2ab025831fbad80aac471a0" kindref="member">countByInitiator</ref>(String<sp/>initiator);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ai<sp/>FROM<sp/>ApprovalInstance<sp/>ai<sp/>WHERE<sp/>ai.startedAt<sp/>BETWEEN<sp/>:startTime<sp/>AND<sp/>:endTime&quot;)</highlight></codeline>
+<codeline lineno="108" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a17fb802e108456992b63a18833baa174" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a17fb802e108456992b63a18833baa174" kindref="member">findByStartedAtBetween</ref>(@Param(&quot;startTime&quot;)<sp/>LocalDateTime<sp/>startTime,</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;endTime&quot;)<sp/>LocalDateTime<sp/>endTime);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>ai<sp/>FROM<sp/>ApprovalInstance<sp/>ai<sp/>WHERE<sp/>ai.completedAt<sp/>BETWEEN<sp/>:startTime<sp/>AND<sp/>:endTime<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;AND<sp/>ai.status<sp/>IN<sp/>(&apos;APPROVED&apos;,<sp/>&apos;REJECTED&apos;)&quot;)</highlight></codeline>
+<codeline lineno="116" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a926c8d6fd83ffdb57dcedfb2c7154ba7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a926c8d6fd83ffdb57dcedfb2c7154ba7" kindref="member">findByCompletedAtBetween</ref>(@Param(&quot;startTime&quot;)<sp/>LocalDateTime<sp/>startTime,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;endTime&quot;)<sp/>LocalDateTime<sp/>endTime);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a3f399c507c8aa04647bf85ea40b1789b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a3f399c507c8aa04647bf85ea40b1789b" kindref="member">findTop10ByOrderByStartedAtDesc</ref>();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a4a78aa303d4a8db31a150f61e407c6fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;ApprovalInstance&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1ApprovalInstanceRepository_1a4a78aa303d4a8db31a150f61e407c6fa" kindref="member">findTopByDocumentIdOrderByStartedAtDesc</ref>(Long<sp/>documentId);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/repository/ApprovalInstanceRepository.java"/>
+  </compounddef>
+</doxygen>

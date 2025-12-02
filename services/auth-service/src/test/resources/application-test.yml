@@ -7,27 +7,28 @@ spring:
     name: auth-service-test
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/auth_db
+    url: jdbc:postgresql://localhost:5432/auth_db_test
     driver-class-name: org.postgresql.Driver
-    username: gmp_user
-    password: gmp_password_2024
+    username: postgres
+    password: postgres
     hikari:
       maximum-pool-size: 5
       minimum-idle: 2
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create  # 创建表结构，但不删除
+      generate_statistics: true
     show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
         jdbc.lob.non_contextual_creation: true
+        use_sql_comments: true
   sql:
     init:
-      mode: always
-      data-locations: classpath:data-test.sql
+      mode: never  # 禁用SQL脚本初始化，让Hibernate先创建表结构
 
   data:
     redis:
@@ -41,6 +42,15 @@ spring:
           max-wait: -1ms
           max-idle: 8
           min-idle: 0
+
+  # Spring Security配置 - 测试环境禁用安全
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          enabled: false
+    filter:
+      order: -100
 
 # JWT配置 - 使用测试密钥
 jwt:
@@ -61,5 +71,6 @@ logging:
     org.springframework.test: DEBUG
     org.springframework.security: DEBUG
     org.hibernate.SQL: DEBUG
+    org.springframework.web: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

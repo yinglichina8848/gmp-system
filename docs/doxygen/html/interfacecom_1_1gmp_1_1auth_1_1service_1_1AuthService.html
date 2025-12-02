@@ -187,9 +187,13 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>认证服务接口 </p>
+<p>该接口定义了GMP系统的认证和授权服务，包括用户登录、登出、令牌管理、权限验证等功能。 继承自Spring Security的UserDetailsService，用于用户信息加载。</p>
 <dl class="section author"><dt>Author</dt><dd>GMP系统开发团队 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section since"><dt>Since</dt><dd>2023-01-01</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>org.springframework.security.core.userdetails.UserDetailsService </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="AuthService_8java_source.html#l00017">17</a> of file <a class="el" href="AuthService_8java_source.html">AuthService.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuthService_8java_source.html#l00024">24</a> of file <a class="el" href="AuthService_8java_source.html">AuthService.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a42ae2d07a51c8b7117a7442ce00770d4" name="a42ae2d07a51c8b7117a7442ce00770d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a42ae2d07a51c8b7117a7442ce00770d4">&#9670;&#160;</a></span>changePassword()</h2>
@@ -218,14 +222,16 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>修改密码 </p>
+<p>处理用户密码修改请求</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
-    <tr><td class="paramname">request</td><td>密码修改请求 </td></tr>
+    <tr><td class="paramname">request</td><td>密码修改请求，包含旧密码和新密码 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否成功 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果密码修改成功返回true，否则返回false</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1dto_1_1PasswordChangeRequest.html" title="密码修改请求DTO">com.gmp.auth.dto.PasswordChangeRequest</a> </dd></dl>
 
 </div>
 </div>
@@ -245,7 +251,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取密码复杂度要求 </p>
-<dl class="section return"><dt>Returns</dt><dd>密码复杂度要求描述 </dd></dl>
+<p>获取系统的密码复杂度要求描述</p>
+<dl class="section return"><dt>Returns</dt><dd>String 密码复杂度要求描述 </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a4640924fdf538e43f0363d7bddcade6e">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -278,6 +285,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户对子系统的访问级别 </p>
+<p>获取用户对指定子系统的访问级别</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
@@ -285,7 +293,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>访问级别，无权限返回0 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Integer 访问级别，无权限返回0 </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ae9dffb499b9b812164cc6d74ecca1435">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -308,13 +316,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户可访问的子系统代码集合 </p>
+<p>获取用户可以访问的所有子系统代码集合</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>子系统代码集合 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Set&lt;String&gt; 子系统代码集合 </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ab7900e9ed85981250147701576c49caa">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -337,13 +346,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户可访问的子系统列表 </p>
+<p>获取用户可以访问的所有子系统列表</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>可访问的子系统列表 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;String&gt; 可访问的子系统列表 </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a6d8950189e8c52da7583372345d37ccd">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -366,13 +376,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户所有权限 </p>
+<p>获取用户拥有的所有权限列表</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>权限列表 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>java.util.List&lt;String&gt; 用户权限列表 </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a172e38afdeb09cd2740318cf4eb8fc99">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -397,13 +408,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户所有角色 </p>
+<p>获取用户拥有的所有角色列表</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>角色列表 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>java.util.Set&lt;String&gt; 用户角色列表 </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a0930e3b3fd91343514b7dbe83c76a0ef">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -428,13 +440,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户对子系统的访问级别映射 </p>
+<p>获取用户对所有子系统的访问级别映射</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>子系统代码与访问级别的映射 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Map&lt;String, Integer&gt; 子系统代码与访问级别的映射 </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a60e0e27343a0d1df9d44500c209969f6">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -467,6 +480,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>验证用户权限 </p>
+<p>验证用户是否拥有指定的权限</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
@@ -474,7 +488,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否有权限 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果用户拥有所有指定权限返回true，否则返回false </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ad226b79928213037bc766d5c3fc3bf56">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -509,6 +523,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>验证用户角色 </p>
+<p>验证用户是否拥有指定的角色</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
@@ -516,7 +531,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否有角色 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果用户拥有所有指定角色返回true，否则返回false </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#af0c2c4c2487285de506cee22c4c64927">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -551,6 +566,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>验证用户是否有子系统访问权限 </p>
+<p>验证用户是否可以访问指定的子系统</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
@@ -558,7 +574,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否有访问权限 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果用户有访问权限返回true，否则返回false </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a0fd84b7fbe37216741617fced5a03adc">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -591,6 +607,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查用户是否有子系统的管理权限 </p>
+<p>检查用户是否对指定子系统有管理权限</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
@@ -598,7 +615,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否有管理权限 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果用户有管理权限返回true，否则返回false </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a41ed3f3193ada3d8e8e697906afe3ac1">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -631,6 +648,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查用户是否有子系统的写入权限 </p>
+<p>检查用户是否对指定子系统有写入权限</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
@@ -638,7 +656,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否有写入权限 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果用户有写入权限返回true，否则返回false </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a423a78f04550d5a88bc3ef901fc23991">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -677,15 +695,19 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>用户登录 </p>
+<p>处理用户登录请求，验证用户凭证，生成JWT令牌</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">request</td><td>登录请求 </td></tr>
-    <tr><td class="paramname">ipAddress</td><td>客户端IP地址 </td></tr>
-    <tr><td class="paramname">userAgent</td><td>用户代理 </td></tr>
+    <tr><td class="paramname">request</td><td>登录请求，包含用户名和密码 </td></tr>
+    <tr><td class="paramname">ipAddress</td><td>客户端IP地址，用于审计日志 </td></tr>
+    <tr><td class="paramname">userAgent</td><td>用户代理，用于审计日志 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>登录响应，包含JWT令牌 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>LoginResponse 登录响应，包含JWT令牌和用户信息</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginRequest.html" title="用户登录请求DTO">com.gmp.auth.dto.LoginRequest</a> </dd>
+<dd>
+<a class="el" href="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html" title="登录响应DTO">com.gmp.auth.dto.LoginResponse</a> </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#aae922e9ee392ec8efda1a3ddde2880b8">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -720,6 +742,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>用户登出 </p>
+<p>处理用户登出请求，将JWT令牌加入黑名单</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
@@ -751,13 +774,15 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>刷新访问令牌 </p>
+<p>使用刷新令牌生成新的访问令牌</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">refreshToken</td><td>刷新令牌 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>新的令牌响应 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1dto_1_1TokenResponse.html" title="JWT令牌响应DTO.">com.gmp.auth.dto.TokenResponse</a> 新的令牌响应</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1dto_1_1TokenResponse.html" title="JWT令牌响应DTO.">com.gmp.auth.dto.TokenResponse</a> </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#aa4a4fa21c6cd3a8aa2eac482e192ca3d">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -782,13 +807,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>重新生成恢复码 </p>
+<p>为用户重新生成MFA恢复码</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>新的恢复码列表 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>java.util.List&lt;String&gt; 新的恢复码列表 </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#acf3bbe8183a9dcc55ea69498bd874ae9">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -821,6 +847,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>重置密码 </p>
+<p>重置用户密码</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">username</td><td>用户名 </td></tr>
@@ -828,7 +855,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否成功 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果密码重置成功返回true，否则返回false </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ab8bf1b9f564e40cd7365ad53b2acc7ab">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -851,13 +878,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>验证JWT令牌 </p>
+<p>验证JWT令牌的有效性，包括签名、过期时间等</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">token</td><td>JWT令牌 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否有效 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果令牌有效返回true，否则返回false </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a8b43f216ad52fe724cda9fad06134533">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 
@@ -882,13 +910,17 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>验证MFA </p>
+<p>验证多因素认证码</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">request</td><td>MFA验证请求 </td></tr>
+    <tr><td class="paramname">request</td><td>MFA验证请求，包含用户名和MFA码 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>登录响应 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>LoginResponse 登录响应，包含JWT令牌</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1dto_1_1MfaVerifyRequest.html">com.gmp.auth.dto.MfaVerifyRequest</a> </dd>
+<dd>
+<a class="el" href="classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html" title="登录响应DTO">com.gmp.auth.dto.LoginResponse</a> </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#abd5db9b353b29b137f0d41917150d4d6">com.gmp.auth.service.impl.AuthServiceImpl</a>.</p>
 

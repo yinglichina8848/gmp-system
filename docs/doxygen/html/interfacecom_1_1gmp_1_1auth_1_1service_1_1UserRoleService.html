@@ -139,9 +139,15 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>用户角色管理服务接口 </p>
+<p>该接口定义了用户角色管理的服务，包括角色分配、移除、查询等功能。</p>
 <dl class="section author"><dt>Author</dt><dd>GMP系统开发团队 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section since"><dt>Since</dt><dd>2023-01-01</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1entity_1_1Role.html" title="GMP系统角色实体">com.gmp.auth.entity.Role</a> </dd>
+<dd>
+<a class="el" href="classcom_1_1gmp_1_1auth_1_1entity_1_1UserRole.html" title="用户角色关联实体">com.gmp.auth.entity.UserRole</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="UserRoleService_8java_source.html#l00013">13</a> of file <a class="el" href="UserRoleService_8java_source.html">UserRoleService.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UserRoleService_8java_source.html#l00020">20</a> of file <a class="el" href="UserRoleService_8java_source.html">UserRoleService.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aaede180ffec69c398166c531fd051482" name="aaede180ffec69c398166c531fd051482"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaede180ffec69c398166c531fd051482">&#9670;&#160;</a></span>assignRolesToUser()</h2>
@@ -176,15 +182,17 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>为用户分配多个角色 </p>
+<p>为指定用户分配多个角色</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
     <tr><td class="paramname">roleIds</td><td>角色ID列表 </td></tr>
-    <tr><td class="paramname">assignedBy</td><td>分配人 </td></tr>
+    <tr><td class="paramname">assignedBy</td><td>分配人ID </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>分配结果列表 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;UserRole&gt; 分配结果列表</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1entity_1_1UserRole.html" title="用户角色关联实体">com.gmp.auth.entity.UserRole</a> </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserRoleServiceImpl.html#ad36780030876ab6bced7c9605685b9c2">com.gmp.auth.service.impl.UserRoleServiceImpl</a>.</p>
 
@@ -223,15 +231,17 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>为用户分配角色 </p>
+<p>为指定用户分配指定角色</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
     <tr><td class="paramname">roleId</td><td>角色ID </td></tr>
-    <tr><td class="paramname">assignedBy</td><td>分配人 </td></tr>
+    <tr><td class="paramname">assignedBy</td><td>分配人ID </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>分配结果 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>UserRole 分配结果</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1entity_1_1UserRole.html" title="用户角色关联实体">com.gmp.auth.entity.UserRole</a> </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserRoleServiceImpl.html#aee3b085f7e91bbe3001df12f42d40c7d">com.gmp.auth.service.impl.UserRoleServiceImpl</a>.</p>
 
@@ -254,17 +264,18 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户的角色代码集合 </p>
+<p>获取指定用户的角色代码集合</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>角色代码集合 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Set&lt;String&gt; 角色代码集合 </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserRoleServiceImpl.html#a4172a9e820a773630bbc740e7717d362">com.gmp.auth.service.impl.UserRoleServiceImpl</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="AuthServiceImplTest_8java_source.html#l00361">com.gmp.auth.service.impl.AuthServiceImplTest.testHasRole_UserDoesNotHaveRequiredRole()</a>, <a class="el" href="AuthServiceImplTest_8java_source.html#l00348">com.gmp.auth.service.impl.AuthServiceImplTest.testHasRole_UserHasRequiredRole()</a>, <a class="el" href="AuthServiceImplTest_8java_source.html#l00110">com.gmp.auth.service.impl.AuthServiceImplTest.testLoadUserByUsername_Success()</a>, <a class="el" href="AuthServiceImplTest_8java_source.html#l00152">com.gmp.auth.service.impl.AuthServiceImplTest.testLogin_Success()</a>, and <a class="el" href="AuthServiceImplTest_8java_source.html#l00460">com.gmp.auth.service.impl.AuthServiceImplTest.testVerifyMfa_Success()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="AuthServiceImpl_8java_source.html#l00115">com.gmp.auth.service.impl.AuthServiceImpl.loadUserByUsername()</a>, <a class="el" href="AuthServiceImplTest_8java_source.html#l00369">com.gmp.auth.service.impl.AuthServiceImplTest.testHasRole_UserDoesNotHaveRequiredRole()</a>, <a class="el" href="AuthServiceImplTest_8java_source.html#l00356">com.gmp.auth.service.impl.AuthServiceImplTest.testHasRole_UserHasRequiredRole()</a>, <a class="el" href="AuthServiceImplTest_8java_source.html#l00118">com.gmp.auth.service.impl.AuthServiceImplTest.testLoadUserByUsername_Success()</a>, <a class="el" href="AuthServiceImplTest_8java_source.html#l00160">com.gmp.auth.service.impl.AuthServiceImplTest.testLogin_Success()</a>, <a class="el" href="AuthServiceImplTest_8java_source.html#l00468">com.gmp.auth.service.impl.AuthServiceImplTest.testVerifyMfa_Success()</a>, and <a class="el" href="AuthServiceImpl_8java_source.html#l00635">com.gmp.auth.service.impl.AuthServiceImpl.verifyMfa()</a>.</p>
 
 </div>
 </div>
@@ -285,13 +296,15 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获取用户的所有角色 </p>
+<p>获取指定用户的所有角色列表</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>角色列表 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;Role&gt; 角色列表</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcom_1_1gmp_1_1auth_1_1entity_1_1Role.html" title="GMP系统角色实体">com.gmp.auth.entity.Role</a> </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserRoleServiceImpl.html#a6e814821fd28aed98175dec9e99150cb">com.gmp.auth.service.impl.UserRoleServiceImpl</a>.</p>
 
@@ -324,6 +337,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查用户是否拥有指定角色之一 </p>
+<p>检查指定用户是否拥有指定角色列表中的任一角色</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
@@ -331,7 +345,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否拥有任一角色 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果用户拥有任一角色返回true，否则返回false </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserRoleServiceImpl.html#a2081280997ee0557b5eb3bba4c95e1c3">com.gmp.auth.service.impl.UserRoleServiceImpl</a>.</p>
 
@@ -364,6 +378,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查用户是否拥有指定角色 </p>
+<p>检查指定用户是否拥有指定角色</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>
@@ -371,7 +386,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>是否拥有 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean 如果用户拥有该角色返回true，否则返回false </dd></dl>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserRoleServiceImpl.html#a1580e11fa4a1474d01f4ca23f6feb909">com.gmp.auth.service.impl.UserRoleServiceImpl</a>.</p>
 
@@ -393,6 +408,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>刷新用户过期的角色 </p>
+<p>刷新用户过期的角色，更新角色状态 </p>
 
 <p>Implemented in <a class="el" href="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1UserRoleServiceImpl.html#ad9e985314eb4634dfd7c888ded2b6081">com.gmp.auth.service.impl.UserRoleServiceImpl</a>.</p>
 
@@ -425,6 +441,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>移除用户的角色 </p>
+<p>移除指定用户的指定角色</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">userId</td><td>用户ID </td></tr>

@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_warehouse-service_2COVERAGE-README" kind="page">
+    <compoundname>md_warehouse-service_2COVERAGE-README</compoundname>
+    <title>GMP仓库管理子系统 - 代码覆盖率测试指南</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">📊 概述</heading>
+</para>
+<para>本文档介绍如何使用JaCoCo代码覆盖率工具测试GMP仓库管理子系统的代码覆盖率，确保代码质量符合企业标准。</para>
+<para><heading level="1">🎯 覆盖率目标</heading>
+</para>
+<para><table rows="7" cols="3"><row>
+<entry thead="yes"><para>指标   </para>
+</entry><entry thead="yes"><para>目标值   </para>
+</entry><entry thead="yes"><para>说明    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>行覆盖率   </para>
+</entry><entry thead="no"><para>≥80%   </para>
+</entry><entry thead="no"><para>代码行的执行覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>分支覆盖率   </para>
+</entry><entry thead="no"><para>≥70%   </para>
+</entry><entry thead="no"><para>条件分支的覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>类覆盖率   </para>
+</entry><entry thead="no"><para>≥90%   </para>
+</entry><entry thead="no"><para>类的覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>方法覆盖率   </para>
+</entry><entry thead="no"><para>≥80%   </para>
+</entry><entry thead="no"><para>方法的覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>指令覆盖率   </para>
+</entry><entry thead="no"><para>≥75%   </para>
+</entry><entry thead="no"><para>字节码指令的覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>圈复杂度覆盖率   </para>
+</entry><entry thead="no"><para>≥70%   </para>
+</entry><entry thead="no"><para>复杂条件的覆盖率   </para>
+</entry></row>
+</table>
+</para>
+<para><heading level="1">🛠️ 环境配置</heading>
+</para>
+<para><heading level="2">技术栈</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>JaCoCo</bold>: 0.8.8 - 代码覆盖率工具</para>
+</listitem><listitem><para><bold>JUnit 5</bold>: 单元测试框架</para>
+</listitem><listitem><para><bold>AssertJ</bold>: 流畅断言库</para>
+</listitem><listitem><para><bold>H2 Database</bold>: 测试内存数据库</para>
+</listitem><listitem><para><bold>Redis</bold>: 测试缓存数据库（DB 15）</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">配置说明</heading>
+</para>
+<para><heading level="3">测试配置文件</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>src/test/resources/application-test.yml</computeroutput>: 测试环境配置</para>
+</listitem><listitem><para><computeroutput>src/test/resources/jacoco-rules.properties</computeroutput>: 覆盖率质量阈值</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="3">Maven插件配置</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>JaCoCo插件: 自动注入覆盖率代理</para>
+</listitem><listitem><para>Surefire插件: 执行单元测试</para>
+</listitem><listitem><para>Failsafe插件: 执行集成测试</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">🚀 运行测试</heading>
+</para>
+<para><heading level="2">方法1: 使用自动化脚本（推荐）</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>从项目根目录运行</highlight></codeline>
+<codeline><highlight class="normal">./scripts/run-coverage-tests.sh</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">方法2: 手动运行Maven命令</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>进入warehouse-service目录</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>/home/liying/gmp-system/services/warehouse-service</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>运行单元测试并生成覆盖率报告</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>clean<sp/>test<sp/>jacoco:report</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">方法3: 运行特定测试类</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>运行特定测试类</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>test<sp/>-Dtest=WarehouseServiceImplTest</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">📈 查看覆盖率报告</heading>
+</para>
+<para>运行测试后，覆盖率报告将生成在以下目录：</para>
+<para><programlisting><codeline><highlight class="normal">/home/liying/gmp-system/services/warehouse-service/target/site/jacoco/</highlight></codeline>
+</programlisting></para>
+<para>打开<computeroutput>index.html</computeroutput>文件即可查看详细的覆盖率报告。</para>
+<para><heading level="1">📋 覆盖率报告说明</heading>
+</para>
+<para><heading level="2">报告结构</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>项目总览</bold>: 显示整体覆盖率指标</para>
+</listitem><listitem><para><bold>包覆盖率</bold>: 按包查看覆盖率</para>
+</listitem><listitem><para><bold>类覆盖率</bold>: 按类查看覆盖率</para>
+</listitem><listitem><para><bold>源代码覆盖率</bold>: 查看具体源代码的覆盖情况</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">覆盖率指标说明</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>行覆盖率</bold>: 已执行的代码行数占总代码行数的百分比</para>
+</listitem><listitem><para><bold>分支覆盖率</bold>: 已执行的条件分支占总分支数的百分比</para>
+</listitem><listitem><para><bold>类覆盖率</bold>: 已执行的类占总类数的百分比</para>
+</listitem><listitem><para><bold>方法覆盖率</bold>: 已执行的方法占总方法数的百分比</para>
+</listitem><listitem><para><bold>指令覆盖率</bold>: 已执行的字节码指令占总指令数的百分比</para>
+</listitem><listitem><para><bold>圈复杂度覆盖率</bold>: 已执行的独立路径占总独立路径数的百分比</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">🔍 提高覆盖率的策略</heading>
+</para>
+<para><orderedlist>
+<listitem><para><bold>单元测试优先</bold>: 为每个类和方法编写单元测试</para>
+</listitem><listitem><para><bold>边界条件测试</bold>: 测试边界值、空值、异常情况</para>
+</listitem><listitem><para><bold>分支覆盖</bold>: 确保所有条件分支都被测试</para>
+</listitem><listitem><para><bold>集成测试</bold>: 测试组件间的交互</para>
+</listitem><listitem><para><bold>参数化测试</bold>: 使用不同的参数组合测试方法</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">⚠️ 常见问题与解决方案</heading>
+</para>
+<para><heading level="2">1. 覆盖率报告为空</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>问题</bold>: 运行测试后没有生成覆盖率数据</para>
+</listitem><listitem><para><bold>解决方案</bold>: 检查JaCoCo插件配置是否正确，确保测试正常运行</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">2. 特定类/方法未被覆盖</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>问题</bold>: 某些类或方法在覆盖率报告中显示为0覆盖</para>
+</listitem><listitem><para><bold>解决方案</bold>: 检查测试是否正确调用了这些类和方法，可能需要添加额外的测试用例</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">3. 覆盖率低于阈值</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>问题</bold>: 运行<computeroutput>mvn jacoco:check</computeroutput>时失败，提示覆盖率低于阈值</para>
+</listitem><listitem><para><bold>解决方案</bold>: 查看覆盖率报告，针对未覆盖的代码添加测试用例</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">4. 测试环境配置问题</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><bold>问题</bold>: 测试在本地运行正常，但在CI环境中失败</para>
+</listitem><listitem><para><bold>解决方案</bold>: 确保测试环境配置与CI环境一致，特别是数据库和Redis连接配置</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">📝 测试最佳实践</heading>
+</para>
+<para><orderedlist>
+<listitem><para><bold>测试命名规范</bold>: 使用清晰的命名，如<computeroutput>testMethodName_Scenario_ExpectedResult</computeroutput></para>
+</listitem><listitem><para><bold>测试隔离</bold>: 每个测试方法应独立，不依赖于其他测试方法的状态</para>
+</listitem><listitem><para><bold>模拟依赖</bold>: 使用Mockito等工具模拟外部依赖</para>
+</listitem><listitem><para><bold>断言精确</bold>: 使用具体的断言，避免使用过于宽泛的断言</para>
+</listitem><listitem><para><bold>测试可读性</bold>: 编写清晰、简洁的测试代码，添加适当的注释</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">📊 覆盖率趋势跟踪</heading>
+</para>
+<para>建议定期运行覆盖率测试，跟踪覆盖率的变化趋势。可以将覆盖率报告集成到CI/CD流程中，确保覆盖率不会随着代码的更新而下降。</para>
+<para><heading level="1">📋 附录: 覆盖率检查命令</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>运行覆盖率检查</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>jacoco:check</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>生成详细的覆盖率报告</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>jacoco:report</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>运行测试并生成覆盖率报告</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>clean<sp/>test<sp/>jacoco:report</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">🚀 附录: 示例测试代码</heading>
+</para>
+<para><programlisting filename=".java"><codeline><highlight class="normal">@SpringBootTest</highlight></codeline>
+<codeline><highlight class="normal">@ActiveProfiles(</highlight><highlight class="stringliteral">&quot;test&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">class<sp/>WarehouseServiceImplTest<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>WarehouseService<sp/>warehouseService;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>@MockBean</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>MaterialRepository<sp/>materialRepository;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>testGetMaterialById()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Given</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>materialId<sp/>=<sp/>1L;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Material<sp/>material<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Material();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>material.setId(materialId);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>material.setName(</highlight><highlight class="stringliteral">&quot;Test<sp/>Material&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(materialRepository.findById(materialId)).thenReturn(Optional.of(material));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Material<sp/>result<sp/>=<sp/>warehouseService.getMaterialById(materialId);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;Test<sp/>Material&quot;</highlight><highlight class="normal">,<sp/>result.getName());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(materialRepository).findById(materialId);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><hruler/>
+</para>
+<para>通过定期运行代码覆盖率测试，可以持续监控和提高代码质量，确保仓库管理子系统的稳定性和可靠性。 </para>
+    </detaileddescription>
+    <location file="warehouse-service/COVERAGE-README.md"/>
+  </compounddef>
+</doxygen>

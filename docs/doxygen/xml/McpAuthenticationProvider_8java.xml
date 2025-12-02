@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="McpAuthenticationProvider_8java" kind="file" language="Java">
+    <compoundname>McpAuthenticationProvider.java</compoundname>
+    <includes local="no">io.jsonwebtoken.Claims</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/security/McpAuthenticationProvider.java</label>
+        <link refid="McpAuthenticationProvider_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>io.jsonwebtoken.Claims</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1security_1_1McpAuthenticationProvider" prot="public">com::gmp::qms::security::McpAuthenticationProvider</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1security">com::gmp::qms::security</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1qms_1_1security" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.security;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>io.jsonwebtoken.Claims;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>io.jsonwebtoken.Jwts;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>io.jsonwebtoken.SignatureException;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Value;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.security.authentication.AuthenticationProvider;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.security.authentication.BadCredentialsException;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.security.core.Authentication;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.security.core.AuthenticationException;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.security.core.authority.SimpleGrantedAuthority;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Component;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@Component</highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1gmp_1_1qms_1_1security_1_1McpAuthenticationProvider" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1qms_1_1security_1_1McpAuthenticationProvider" kindref="compound">McpAuthenticationProvider</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="classAuthenticationProvider" kindref="compound">AuthenticationProvider</ref><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>@Value(</highlight><highlight class="stringliteral">&quot;${gmp.mcp.jwt.secret:defaultSecretKey}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1qms_1_1security_1_1McpAuthenticationProvider_1ac225c42441634d10d4bdf1aba4960182" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1security_1_1McpAuthenticationProvider_1ac225c42441634d10d4bdf1aba4960182" kindref="member">jwtSecret</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>@Value(&quot;${gmp.mcp.jwt.issuer:gmp-system}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="30" refid="classcom_1_1gmp_1_1qms_1_1security_1_1McpAuthenticationProvider_1a11013461003f148695bd19d00104b9a3" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>jwtIssuer;</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1gmp_1_1qms_1_1security_1_1McpAuthenticationProvider_1abad5a9da78e3932d2f6f18e139f385ae" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>Authentication<sp/>authenticate(Authentication<sp/>authentication)<sp/>throws<sp/>AuthenticationException<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>McpAuthenticationToken<sp/>authToken<sp/>=<sp/>(McpAuthenticationToken)<sp/>authentication;</highlight></codeline>
+<codeline lineno="35"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>token<sp/>=<sp/>authToken.getCredentials().toString();</highlight></codeline>
+<codeline lineno="36"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>try<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>解析JWT令牌</highlight></codeline>
+<codeline lineno="39"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Claims<sp/>claims<sp/>=<sp/>Jwts.parserBuilder()</highlight></codeline>
+<codeline lineno="40"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.setSigningKey(jwtSecret.getBytes())</highlight></codeline>
+<codeline lineno="41"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.requireIssuer(jwtIssuer)</highlight></codeline>
+<codeline lineno="42"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.build()</highlight></codeline>
+<codeline lineno="43"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.parseClaimsJws(token)</highlight></codeline>
+<codeline lineno="44"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.getBody();</highlight></codeline>
+<codeline lineno="45"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>从令牌中提取用户信息</highlight></codeline>
+<codeline lineno="47"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>clientId<sp/>=<sp/>claims.getSubject();</highlight></codeline>
+<codeline lineno="48"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>clientType<sp/>=<sp/>claims.get(&quot;</highlight><highlight class="normal">client_type</highlight><highlight class="stringliteral">&quot;,<sp/>String.class);</highlight></codeline>
+<codeline lineno="49"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>从令牌中提取权限信息</highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;SimpleGrantedAuthority&gt;<sp/>authorities<sp/>=<sp/>extractAuthorities(claims);</highlight></codeline>
+<codeline lineno="52"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>创建并返回认证对象</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>new<sp/>McpAuthenticationToken(</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>new<sp/>McpPrincipal(clientId,<sp/>clientType,<sp/>claims),</highlight></codeline>
+<codeline lineno="56"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>token,</highlight></codeline>
+<codeline lineno="57"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>authorities</highlight></codeline>
+<codeline lineno="58"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="59"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>catch<sp/>(SignatureException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>BadCredentialsException(&quot;</highlight><highlight class="normal">Invalid<sp/>token<sp/>signature</highlight><highlight class="stringliteral">&quot;,<sp/>e);</highlight></codeline>
+<codeline lineno="62"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>catch<sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>BadCredentialsException(&quot;</highlight><highlight class="normal">Invalid<sp/>token</highlight><highlight class="stringliteral">&quot;,<sp/>e);</highlight></codeline>
+<codeline lineno="64"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="68" refid="classcom_1_1gmp_1_1qms_1_1security_1_1McpAuthenticationProvider_1a33ab97524bdfb31110057225eca9e195" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>boolean<sp/>supports(Class&lt;?&gt;<sp/>authentication)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>McpAuthenticationToken.class.isAssignableFrom(authentication);</highlight></codeline>
+<codeline lineno="70"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75" refid="classcom_1_1gmp_1_1qms_1_1security_1_1McpAuthenticationProvider_1a36174e4d6201ce1f176fea57d88b13f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;SimpleGrantedAuthority&gt;<sp/>extractAuthorities(Claims<sp/>claims)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;SimpleGrantedAuthority&gt;<sp/>authorities<sp/>=<sp/>new<sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>检查是否有roles或authorities声明</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(claims.containsKey(&quot;roles</highlight><highlight class="stringliteral">&quot;))<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Object<sp/>roles<sp/>=<sp/>claims.get(&quot;</highlight><highlight class="normal">roles</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="81"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(roles<sp/>instanceof<sp/>List)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(Object<sp/>role<sp/>:<sp/>(List&lt;?&gt;)<sp/>roles)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>authorities.add(new<sp/>SimpleGrantedAuthority(&quot;</highlight><highlight class="normal">ROLE_</highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>role.toString()));</highlight></codeline>
+<codeline lineno="84"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(claims.containsKey(&quot;</highlight><highlight class="normal">authorities</highlight><highlight class="stringliteral">&quot;))<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Object<sp/>permissions<sp/>=<sp/>claims.get(&quot;</highlight><highlight class="normal">authorities</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="90"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(permissions<sp/>instanceof<sp/>List)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(Object<sp/>perm<sp/>:<sp/>(List&lt;?&gt;)<sp/>permissions)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>authorities.add(new<sp/>SimpleGrantedAuthority(perm.toString()));</highlight></codeline>
+<codeline lineno="93"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>如果没有权限信息，添加默认的MCP客户端权限</highlight></codeline>
+<codeline lineno="98"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(authorities.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>authorities.add(new<sp/>SimpleGrantedAuthority(&quot;</highlight><highlight class="normal">ROLE_MCP_CLIENT</highlight><highlight class="stringliteral">&quot;));</highlight></codeline>
+<codeline lineno="100"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>authorities;</highlight></codeline>
+<codeline lineno="103"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="stringliteral">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/security/McpAuthenticationProvider.java"/>
+  </compounddef>
+</doxygen>

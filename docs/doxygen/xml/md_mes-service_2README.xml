@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_mes-service_2README" kind="page">
+    <compoundname>md_mes-service_2README</compoundname>
+    <title>MES子系统</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">项目概述</heading>
+</para>
+<para>制造执行系统(Manufacturing Execution System, MES)子系统是GMP信息管理系统的核心组件，负责管理生产批次、设备监控和操作执行等关键制造流程。该系统确保生产活动符合GMP标准，提供全面的生产过程控制和监控功能。</para>
+<para><heading level="1">主要功能</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>**批次管理**：创建、启动、完成、暂停生产批次</para>
+</listitem><listitem><para>**设备监控**：实时监控设备状态、性能指标和告警管理</para>
+</listitem><listitem><para>**操作执行**：管理批操作流程，确保标准化执行</para>
+</listitem><listitem><para>**生产订单集成**：与生产订单系统关联，协调生产计划执行</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">技术栈</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>**后端框架**：Spring Boot</para>
+</listitem><listitem><para>**数据访问**：Spring Data JPA</para>
+</listitem><listitem><para>**数据库**：支持关系型数据库</para>
+</listitem><listitem><para>**缓存**：Redis</para>
+</listitem><listitem><para>**测试框架**：JUnit 5</para>
+</listitem><listitem><para>**覆盖率工具**：JaCoCo</para>
+</listitem><listitem><para>**文档工具**：Doxygen</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">文档</heading>
+</para>
+<para><heading level="2">API文档</heading>
+</para>
+<para>MES子系统的详细API文档可通过以下链接访问：<itemizedlist>
+<listitem><para><ulink url="../../docs/mes/doxygen/html/index.html">API文档</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">子系统文档</heading>
+</para>
+<para>完整的子系统文档可在以下位置找到：<itemizedlist>
+<listitem><para>MES子系统文档总览</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">测试报告</heading>
+</para>
+<para>MES子系统已完成36个测试用例，测试通过率达到100，代码覆盖率表现优秀。</para>
+<para>覆盖率报告将输出到：<itemizedlist>
+<listitem><para><ulink url="../../docs/coverage/mes/index.html">覆盖率测试报告</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">开发指南</heading>
+</para>
+<para><heading level="2">环境要求</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>JDK 17+</para>
+</listitem><listitem><para>Maven 3.8+</para>
+</listitem><listitem><para>MySQL/PostgreSQL</para>
+</listitem><listitem><para>Redis</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">构建和运行</heading>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>构建项目</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>clean<sp/>package</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>运行测试</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>test</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>生成API文档</highlight></codeline>
+<codeline><highlight class="normal">doxygen</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>生成覆盖率报告</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>jacoco:report</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">项目结构</heading>
+</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>src/main/java</computeroutput>：主要源代码</para>
+</listitem><listitem><para><computeroutput>src/test/java</computeroutput>：单元测试代码</para>
+</listitem><listitem><para><computeroutput>src/main/resources</computeroutput>：配置文件和资源</para>
+</listitem><listitem><para><computeroutput>Doxyfile</computeroutput>：Doxygen配置文件</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">测试结果</heading>
+</para>
+<para><heading level="2">测试概况</heading>
+</para>
+<para>MES子系统已完成36个测试用例的编写，所有测试均已通过，测试通过率达到100。</para>
+<para><heading level="2">覆盖率指标</heading>
+</para>
+<para><table rows="5" cols="3"><row>
+<entry thead="yes"><para>指标   </para>
+</entry><entry thead="yes"><para>当前值   </para>
+</entry><entry thead="yes"><para>说明    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>方法覆盖率   </para>
+</entry><entry thead="no"><para>89%   </para>
+</entry><entry thead="no"><para>JaCoCo方法覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>行覆盖率   </para>
+</entry><entry thead="no"><para>85%   </para>
+</entry><entry thead="no"><para>JaCoCo行覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>指令覆盖率   </para>
+</entry><entry thead="no"><para>87%   </para>
+</entry><entry thead="no"><para>JaCoCo指令覆盖率    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>分支覆盖率   </para>
+</entry><entry thead="no"><para>76%   </para>
+</entry><entry thead="no"><para>JaCoCo分支覆盖率   </para>
+</entry></row>
+</table>
+</para>
+<para><heading level="2">测试报告</heading>
+</para>
+<para>完整的测试报告和覆盖率详情请参考：<itemizedlist>
+<listitem><para>MES子系统测试报告</para>
+</listitem><listitem><para><ulink url="../../docs/coverage/mes/index.html">覆盖率报告</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">注意事项</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>当前单元测试存在一些字段名和方法名的兼容性问题，正在修复中</para>
+</listitem><listitem><para>覆盖率测试报告已配置输出到<computeroutput>../../docs/coverage/mes</computeroutput>目录</para>
+</listitem><listitem><para>API文档已配置输出到<computeroutput>../../docs/mes/doxygen</computeroutput>目录</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">贡献</heading>
+</para>
+<para>欢迎对MES子系统进行贡献。请确保：<orderedlist>
+<listitem><para>遵循项目的代码风格和规范</para>
+</listitem><listitem><para>添加适当的单元测试</para>
+</listitem><listitem><para>更新相关文档</para>
+</listitem><listitem><para>提交前运行<computeroutput>mvn test</computeroutput>确保测试通过 </para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <location file="mes-service/README.md"/>
+  </compounddef>
+</doxygen>

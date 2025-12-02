@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="CommonFileRepository_8java" kind="file" language="Java">
+    <compoundname>CommonFileRepository.java</compoundname>
+    <includes local="no">com.gmp.edms.entity.CommonFile</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/repository/CommonFileRepository.java</label>
+        <link refid="CommonFileRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.entity.CommonFile</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository" prot="public">com::gmp::edms::repository::CommonFileRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1repository">com::gmp::edms::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.entity.CommonFile;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository" kindref="compound">CommonFileRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;CommonFile,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a04db487eb0b11b0b7fbcd4810d5ab7ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;CommonFile&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a04db487eb0b11b0b7fbcd4810d5ab7ee" kindref="member">findByModule</ref>(String<sp/>module,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a596474c41cdd31bb7c55e8a08d6fe3f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;CommonFile&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a596474c41cdd31bb7c55e8a08d6fe3f3" kindref="member">findByModuleAndStatus</ref>(String<sp/>module,<sp/>String<sp/>status,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a2e9d4cc0d8c752bb8637dc52b346c1fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;CommonFile&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a2e9d4cc0d8c752bb8637dc52b346c1fc" kindref="member">findByChecksum</ref>(String<sp/>checksum);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a2b047fd1e554f7d225782a5827e315b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;CommonFile&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a2b047fd1e554f7d225782a5827e315b3" kindref="member">findByIdIn</ref>(List&lt;Long&gt;<sp/>ids);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1abafe1c69f034c2613288bc7b7c3bd300" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;CommonFile&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1abafe1c69f034c2613288bc7b7c3bd300" kindref="member">findByCreatedBy</ref>(String<sp/>createdBy,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>f.module,<sp/>COUNT(f)<sp/>FROM<sp/>CommonFile<sp/>f<sp/>WHERE<sp/>f.status<sp/>=<sp/>&apos;ACTIVE&apos;<sp/>GROUP<sp/>BY<sp/>f.module&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="47" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1adf5b6debb44b222ae7ffbca29feed721" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1adf5b6debb44b222ae7ffbca29feed721" kindref="member">countByModule</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>f.module,<sp/>SUM(f.fileSize)<sp/>FROM<sp/>CommonFile<sp/>f<sp/>WHERE<sp/>f.status<sp/>=<sp/>&apos;ACTIVE&apos;<sp/>GROUP<sp/>BY<sp/>f.module&quot;)</highlight></codeline>
+<codeline lineno="53" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a43db6f6cbbca4e3fdda9fbd75cc55519" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a43db6f6cbbca4e3fdda9fbd75cc55519" kindref="member">sumFileSizeByModule</ref>();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>f<sp/>FROM<sp/>CommonFile<sp/>f<sp/>WHERE<sp/>f.fileName<sp/>LIKE<sp/>%:keyword%<sp/>AND<sp/>f.status<sp/>=<sp/>&apos;ACTIVE&apos;&quot;)</highlight></codeline>
+<codeline lineno="59" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1abcab44b662783035a85c3b01964ccdde" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;CommonFile&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1abcab44b662783035a85c3b01964ccdde" kindref="member">searchByFileName</ref>(@Param(&quot;keyword&quot;)<sp/>String<sp/>keyword,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a1868474ae7704b77075460a68ec6c781" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a1868474ae7704b77075460a68ec6c781" kindref="member">countByModuleAndStatus</ref>(String<sp/>module,<sp/>String<sp/>status);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a6c44f447995469cdfa328ee65bed3cba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;CommonFile&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1CommonFileRepository_1a6c44f447995469cdfa328ee65bed3cba" kindref="member">findByStatusOrderByCreatedAtDesc</ref>(String<sp/>status,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/repository/CommonFileRepository.java"/>
+  </compounddef>
+</doxygen>

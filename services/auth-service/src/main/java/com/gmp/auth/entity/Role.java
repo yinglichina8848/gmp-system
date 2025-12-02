@@ -73,6 +73,100 @@ public class Role {
     @Version
     @Column(nullable = false)
     private Integer version = 1;
+    
+    // Setter方法
+    public void setRoleCode(String roleCode) {
+        this.roleCode = roleCode;
+    }
+    
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
+    
+    public void setBuiltin(Boolean builtin) {
+        isBuiltin = builtin;
+    }
+    
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+    
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
+    }
+    
+    public void setUpdatedBy(Long updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+    
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+    
+    // Getter方法
+    public Long getId() {
+        return id;
+    }
+    
+    public String getRoleCode() {
+        return roleCode;
+    }
+    
+    public String getRoleName() {
+        return roleName;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
+    
+    public Integer getPriority() {
+        return priority;
+    }
+    
+    public Boolean getBuiltin() {
+        return isBuiltin;
+    }
+    
+    public Boolean getActive() {
+        return isActive;
+    }
+    
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+    
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+    
+    public Long getUpdatedBy() {
+        return updatedBy;
+    }
+    
+    public Integer getVersion() {
+        return version;
+    }
 
     /**
      * 检查角色是否有效

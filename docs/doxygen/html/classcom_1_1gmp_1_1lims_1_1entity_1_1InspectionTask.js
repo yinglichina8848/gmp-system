@@ -1,0 +1,25 @@
+var classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask =
+[
+    [ "actualCompleteDate", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a456dcc9d0b32b8a4dd9f7544ba853eb8", null ],
+    [ "actualStartDate", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a553fbe1f0f2a9c427b224eb62c043a9d", null ],
+    [ "createDate", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#abe3fcd54e23bae57cd9d807226362a65", null ],
+    [ "createdBy", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a028db1bb5b292b958df7f416f4f0f640", null ],
+    [ "id", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a75dbcb3433108b3a3111044200ac578d", null ],
+    [ "includeFingerprint", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a582da1faa4612096991c2a0d4efffbe7", null ],
+    [ "includeTraditionalIdentify", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#aef04e70907b93850a99c1a0b4854c892", null ],
+    [ "inspectionBasis", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a2c4caa87e1e053b5140f7900fe4a68cf", null ],
+    [ "inspectionItems", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a106e9c75fd783fefe620de04d9845622", null ],
+    [ "inspectionPurpose", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#ad0cb65cf173a9757e520f5a445a5f21b", null ],
+    [ "inspectionResults", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#aba84eca6817a7e519f550c639a27de28", null ],
+    [ "inspectionType", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a94adc65b82fbae5717d503374dacd76f", null ],
+    [ "needAuthenticityAssessment", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a14fb05aff76874866c75bb923adbc975", null ],
+    [ "planCompleteDate", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#af0aca2573a50e6d216feea368144ed36", null ],
+    [ "planStartDate", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a5018d47423f4e1f155b3b15662e433d7", null ],
+    [ "remark", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#aa805c577c2149c784f43cde49d68781d", null ],
+    [ "responsiblePerson", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a0d7c7d0e264823e6c8a9826e78cefba9", null ],
+    [ "sample", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a4f00521f6f24c42245bc7c69f962efb0", null ],
+    [ "status", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a5e589c2e573ff177ce27610104dbed91", null ],
+    [ "taskCode", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a813362ba98112c05bc52b57dadd77a7f", null ],
+    [ "updatedBy", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a2ab16f609ebc4b0b2fb74ffd44834a3b", null ],
+    [ "updatedTime", "classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask.html#a693d2d48b27fb116e302084b505eed64", null ]
+];

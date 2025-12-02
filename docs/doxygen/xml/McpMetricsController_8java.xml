@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="McpMetricsController_8java" kind="file" language="Java">
+    <compoundname>McpMetricsController.java</compoundname>
+    <includes local="no">com.gmp.qms.monitoring.McpMonitoringService</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/controller/McpMetricsController.java</label>
+        <link refid="McpMetricsController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.monitoring.McpMonitoringService</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpMetricsController" prot="public">com::gmp::qms::controller::McpMetricsController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1controller">com::gmp::qms::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.monitoring.McpMonitoringService;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.ResponseEntity;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.security.access.prepost.PreAuthorize;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/mcp/metrics&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@PreAuthorize(</highlight><highlight class="stringliteral">&quot;hasRole(&apos;ADMIN&apos;)<sp/>or<sp/>hasPermission(&apos;MCP_METRICS&apos;,<sp/>&apos;VIEW&apos;)&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpMetricsController" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpMetricsController" kindref="compound">McpMetricsController</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="22" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpMetricsController_1afe39e81d5b327eafb33073faea4ed0c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>McpMonitoringService<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpMetricsController_1afe39e81d5b327eafb33073faea4ed0c1" kindref="member">monitoringService</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/system&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpMetricsController_1a2d8d13b51aa872f41bab8c6bc356bbcd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;?&gt;<sp/>getSystemMetrics()<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>McpMonitoringService.SystemMetrics<sp/>metrics<sp/>=<sp/>monitoringService.getSystemMetrics();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>response<sp/>=<sp/>Map.of(</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;totalCalls&quot;</highlight><highlight class="normal">,<sp/>metrics.getTotalCalls(),</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;successCalls&quot;</highlight><highlight class="normal">,<sp/>metrics.getSuccessCalls(),</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;failedCalls&quot;</highlight><highlight class="normal">,<sp/>metrics.getFailedCalls(),</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;successRate&quot;</highlight><highlight class="normal">,<sp/>String.format(</highlight><highlight class="stringliteral">&quot;%.2f%%&quot;</highlight><highlight class="normal">,<sp/>metrics.getSuccessRate()),</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;avgResponseTime&quot;</highlight><highlight class="normal">,<sp/>String.format(</highlight><highlight class="stringliteral">&quot;%.2fms&quot;</highlight><highlight class="normal">,<sp/>metrics.getAverageDuration()),</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;maxResponseTime&quot;</highlight><highlight class="normal">,<sp/>metrics.getMaxDuration()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;ms&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;activeCalls&quot;</highlight><highlight class="normal">,<sp/>metrics.getActiveCalls(),</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;peakConcurrentCalls&quot;</highlight><highlight class="normal">,<sp/>metrics.getPeakConcurrentCalls()</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(response);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/tools/{toolName}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="49" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpMetricsController_1ab33eaf7946802e7c2416f7a30af21c01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;?&gt;<sp/>getToolMetrics(@PathVariable<sp/>String<sp/>toolName)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>McpMonitoringService.ToolMetrics<sp/>metrics<sp/>=<sp/>monitoringService.getToolMetrics(toolName);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(metrics.getTotalCalls()<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.notFound().build();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>response<sp/>=<sp/>Map.of(</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;toolName&quot;</highlight><highlight class="normal">,<sp/>toolName,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;totalCalls&quot;</highlight><highlight class="normal">,<sp/>metrics.getTotalCalls(),</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;successCalls&quot;</highlight><highlight class="normal">,<sp/>metrics.getSuccessCalls(),</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;failedCalls&quot;</highlight><highlight class="normal">,<sp/>metrics.getFailedCalls(),</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;successRate&quot;</highlight><highlight class="normal">,<sp/>String.format(</highlight><highlight class="stringliteral">&quot;%.2f%%&quot;</highlight><highlight class="normal">,<sp/>metrics.getSuccessRate()),</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;avgResponseTime&quot;</highlight><highlight class="normal">,<sp/>String.format(</highlight><highlight class="stringliteral">&quot;%.2fms&quot;</highlight><highlight class="normal">,<sp/>metrics.getAverageDuration()),</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;maxResponseTime&quot;</highlight><highlight class="normal">,<sp/>metrics.getMaxDuration()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;ms&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(response);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/resources/{resourceName}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="73" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpMetricsController_1ac64bcb247065c8af3bad4936f3d9c0fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;?&gt;<sp/>getResourceMetrics(@PathVariable<sp/>String<sp/>resourceName)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>McpMonitoringService.ResourceMetrics<sp/>metrics<sp/>=<sp/>monitoringService.getResourceMetrics(resourceName);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(metrics.getTotalCalls()<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.notFound().build();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>response<sp/>=<sp/>Map.of(</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;resourceName&quot;</highlight><highlight class="normal">,<sp/>resourceName,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;totalCalls&quot;</highlight><highlight class="normal">,<sp/>metrics.getTotalCalls(),</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;successCalls&quot;</highlight><highlight class="normal">,<sp/>metrics.getSuccessCalls(),</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;failedCalls&quot;</highlight><highlight class="normal">,<sp/>metrics.getFailedCalls(),</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;successRate&quot;</highlight><highlight class="normal">,<sp/>String.format(</highlight><highlight class="stringliteral">&quot;%.2f%%&quot;</highlight><highlight class="normal">,<sp/>metrics.getSuccessRate()),</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;avgResponseTime&quot;</highlight><highlight class="normal">,<sp/>String.format(</highlight><highlight class="stringliteral">&quot;%.2fms&quot;</highlight><highlight class="normal">,<sp/>metrics.getAverageDuration()),</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;maxResponseTime&quot;</highlight><highlight class="normal">,<sp/>metrics.getMaxDuration()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;ms&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(response);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(</highlight><highlight class="stringliteral">&quot;/reset&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="97" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpMetricsController_1a0eb19b4cdae6471d361c340c9ec80688" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;?&gt;<sp/>resetMetrics()<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>monitoringService.resetMetrics();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(Map.of(</highlight><highlight class="stringliteral">&quot;message&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;MCP<sp/>metrics<sp/>have<sp/>been<sp/>reset<sp/>successfully&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/health&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="106" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpMetricsController_1a7e4457d498e4c24dfc8115d2c10d9a5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;?&gt;<sp/>getHealthStatus()<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>McpMonitoringService.SystemMetrics<sp/>metrics<sp/>=<sp/>monitoringService.getSystemMetrics();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>计算健康状态</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>status;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>message;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(metrics.getTotalCalls()<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;UNKNOWN&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;No<sp/>MCP<sp/>calls<sp/>recorded<sp/>yet&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(metrics.getSuccessRate()<sp/>&gt;=<sp/>95)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;HEALTHY&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;MCP<sp/>performance<sp/>is<sp/>healthy&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(metrics.getSuccessRate()<sp/>&gt;=<sp/>80)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;DEGRADED&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;MCP<sp/>performance<sp/>is<sp/>slightly<sp/>degraded&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;UNHEALTHY&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;MCP<sp/>performance<sp/>is<sp/>unhealthy,<sp/>please<sp/>investigate&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>response<sp/>=<sp/>Map.of(</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;status&quot;</highlight><highlight class="normal">,<sp/>status,</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;message&quot;</highlight><highlight class="normal">,<sp/>message,</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;successRate&quot;</highlight><highlight class="normal">,<sp/>String.format(</highlight><highlight class="stringliteral">&quot;%.2f%%&quot;</highlight><highlight class="normal">,<sp/>metrics.getSuccessRate()),</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;avgResponseTime&quot;</highlight><highlight class="normal">,<sp/>String.format(</highlight><highlight class="stringliteral">&quot;%.2fms&quot;</highlight><highlight class="normal">,<sp/>metrics.getAverageDuration())</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(response);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/controller/McpMetricsController.java"/>
+  </compounddef>
+</doxygen>

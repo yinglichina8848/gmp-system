@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="SampleRepository_8java" kind="file" language="Java">
+    <compoundname>SampleRepository.java</compoundname>
+    <includes local="no">com.gmp.lims.entity.Sample</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>lims-service/src/main/java/com/gmp/lims/repository/jpa/SampleRepository.java</label>
+        <link refid="SampleRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.lims.entity.Sample</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository" prot="public">com::gmp::lims::repository::jpa::SampleRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1lims_1_1repository_1_1jpa">com::gmp::lims::repository::jpa</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.lims.repository.jpa;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.lims.entity.Sample;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="19" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository" kindref="compound">SampleRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Sample,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;Sample&gt;<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1ad5b97aa0b7e500f4a26f70ca199f0e39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Sample&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1ad5b97aa0b7e500f4a26f70ca199f0e39" kindref="member">findBySampleCode</ref>(String<sp/>sampleCode);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1a84a5e3d8df95e9d2a91094cf125183da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Sample&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1a84a5e3d8df95e9d2a91094cf125183da" kindref="member">findByStatus</ref>(String<sp/>status);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1a33bcaf09e7ce9727e48f598d1efaec08" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Sample&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1a33bcaf09e7ce9727e48f598d1efaec08" kindref="member">findBySampleType</ref>(String<sp/>sampleType);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1a53228dad2e04bf2cc405f23a863d9cca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Sample&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1a53228dad2e04bf2cc405f23a863d9cca" kindref="member">findBySampleSource</ref>(String<sp/>sampleSource);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1a8bbd3ec47f0b17f3da9de4afb1ee98fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Sample&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1a8bbd3ec47f0b17f3da9de4afb1ee98fd" kindref="member">findByCreatedTimeBetween</ref>(LocalDateTime<sp/>startTime,<sp/>LocalDateTime<sp/>endTime);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1adcae176d3184427daa385a2c2b4e5ff2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Sample&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1adcae176d3184427daa385a2c2b4e5ff2" kindref="member">findByReceiptDateBetween</ref>(LocalDateTime<sp/>startDate,<sp/>LocalDateTime<sp/>endDate);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1ada4adf2ad4cdf0c53be284c9bc615756" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Sample&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1ada4adf2ad4cdf0c53be284c9bc615756" kindref="member">findByChineseMedicineName</ref>(String<sp/>chineseMedicineName);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1aa56736f77c4d9e8961c89062a14638d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Sample&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1aa56736f77c4d9e8961c89062a14638d1" kindref="member">findByAuthenticProductionArea</ref>(String<sp/>authenticProductionArea);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>s.sampleType,<sp/>COUNT(s.id)<sp/>FROM<sp/>Sample<sp/>s<sp/>GROUP<sp/>BY<sp/>s.sampleType&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="93" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1a2659a21e5db97c82bf935b0bcb7329e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1a2659a21e5db97c82bf935b0bcb7329e1" kindref="member">countBySampleType</ref>();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1adf4279b9cddbb0225ae27a65883714c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1adf4279b9cddbb0225ae27a65883714c2" kindref="member">countByStatus</ref>(String<sp/>status);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>s<sp/>FROM<sp/>Sample<sp/>s<sp/>WHERE<sp/>s.sampleCode<sp/>LIKE<sp/>%:keyword%<sp/>OR<sp/>s.sampleName<sp/>LIKE<sp/>%:keyword%<sp/>OR<sp/>s.batchNumber<sp/>LIKE<sp/>%:keyword%&quot;)</highlight></codeline>
+<codeline lineno="110" refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1af1b5aafda66dc0c7b36a989c984ec186" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Sample&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1lims_1_1repository_1_1jpa_1_1SampleRepository_1af1b5aafda66dc0c7b36a989c984ec186" kindref="member">findByKeyword</ref>(@Param(&quot;keyword&quot;)<sp/>String<sp/>keyword);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lims-service/src/main/java/com/gmp/lims/repository/jpa/SampleRepository.java"/>
+  </compounddef>
+</doxygen>

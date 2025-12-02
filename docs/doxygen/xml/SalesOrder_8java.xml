@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="SalesOrder_8java" kind="file" language="Java">
+    <compoundname>SalesOrder.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>crm-sales/src/main/java/com/gmp/crm/entity/SalesOrder.java</label>
+        <link refid="SalesOrder_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder" prot="public">com::gmp::crm::entity::SalesOrder</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1crm_1_1entity">com::gmp::crm::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.crm.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.CreationTimestamp;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.UpdateTimestamp;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.math.BigDecimal;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sales_order&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="21" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder" kindref="compound">SalesOrder</ref><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1a9692b99f4b62526515468b55e29edd7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;order_number&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>unique<sp/>=<sp/>true,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1afdd4b497a453d94549a8dc78f90a67bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>orderNumber;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;customer_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1aea0732cbacd86b3ef62cd905432fa06d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer" kindref="compound">Customer</ref><sp/>customer;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1abf0f863ec29642634e20b275b8e66ec6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>status<sp/>=<sp/>&quot;PENDING&quot;;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;total_amount&quot;,<sp/>precision<sp/>=<sp/>19,<sp/>scale<sp/>=<sp/>4)</highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1ad31f8c541058dc59419cc17ae42eab19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>BigDecimal<sp/>totalAmount;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;remarks&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1a31c71fc3900e9391dff8b6e5d4f2459d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>remarks;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1aa2b780f5467b1efe49d01efcdad8fa8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreationTimestamp</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1a8ef508b316fb533b5e65cf50ec429127" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@UpdateTimestamp</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;)</highlight></codeline>
+<codeline lineno="79" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1aa2ba2df0f742a264fd48ba095cc00af4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;order&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1a54456e18b8ce0f562b0c7843e77220de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1crm_1_1entity_1_1OrderItem" kindref="compound">OrderItem</ref>&gt;<sp/>items<sp/>=<sp/>new<sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1a911a590a007eec804df8cb2d86246dee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addItem(<ref refid="classcom_1_1gmp_1_1crm_1_1entity_1_1OrderItem" kindref="compound">OrderItem</ref><sp/>item)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>items.add(item);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>item.setOrder(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1a456a9166624e2becbdb4cc76db7de499" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1a456a9166624e2becbdb4cc76db7de499" kindref="member">removeItem</ref>(<ref refid="classcom_1_1gmp_1_1crm_1_1entity_1_1OrderItem" kindref="compound">OrderItem</ref><sp/>item)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>items.remove(item);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>item.setOrder(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>@PrePersist</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>@PreUpdate</highlight></codeline>
+<codeline lineno="108" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1a3a2157608c44514acf84c9cc1970f4ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder_1a3a2157608c44514acf84c9cc1970f4ff" kindref="member">calculateTotalAmount</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.totalAmount<sp/>=<sp/>items.stream()</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.map(OrderItem::getSubTotal)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.reduce(BigDecimal.ZERO,<sp/>BigDecimal::add);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="crm-sales/src/main/java/com/gmp/crm/entity/SalesOrder.java"/>
+  </compounddef>
+</doxygen>

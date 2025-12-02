@@ -24,6 +24,7 @@ var classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse =
     [ "setRoles", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#a125d09e1724547847569a06953c0764d", null ],
     [ "setRoles", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#a4da14b4c1384f57874c564100521ffcc", null ],
     [ "setSubsystemAccessLevels", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#a008bb9e6ece444dde4ab13234ba4c1e6", null ],
+    [ "setToken", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#ac19a15623245e7f4a3797e3c26082fb1", null ],
     [ "setTokenType", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#a0eb100802d6119bc7c50441f1c20ab2b", null ],
     [ "setUserId", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#ab9faf3ff52488bfb7de4f5fea01226d7", null ],
     [ "setUsername", "classcom_1_1gmp_1_1auth_1_1dto_1_1LoginResponse.html#a60b84149b9b76a5459ec9d75bacaacd5", null ],

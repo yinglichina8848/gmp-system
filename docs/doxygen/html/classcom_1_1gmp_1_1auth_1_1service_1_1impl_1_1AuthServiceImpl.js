@@ -2,6 +2,7 @@ var classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl =
 [
     [ "changePassword", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a42ae2d07a51c8b7117a7442ce00770d4", null ],
     [ "changePassword", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#afe3a07532919909a0e64c402b44ce6af", null ],
+    [ "generateRandomRecoveryCode", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#adfb93997b76d5a2e5dc5a85715594867", null ],
     [ "getPasswordComplexityRequirements", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a4640924fdf538e43f0363d7bddcade6e", null ],
     [ "getSubsystemAccessLevel", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ae9dffb499b9b812164cc6d74ecca1435", null ],
     [ "getUserAccessibleSubsystemCodes", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ab7900e9ed85981250147701576c49caa", null ],
@@ -28,16 +29,23 @@ var classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl =
     [ "logout", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ab72565511281999cad269697dcde2fe2", null ],
     [ "refreshToken", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#aa4a4fa21c6cd3a8aa2eac482e192ca3d", null ],
     [ "regenerateRecoveryCodes", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#acf3bbe8183a9dcc55ea69498bd874ae9", null ],
+    [ "removeUsedRecoveryCode", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a14d8cd0903520d7d0356e7633dc89126", null ],
     [ "resetPassword", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ab8bf1b9f564e40cd7365ad53b2acc7ab", null ],
     [ "validateToken", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a8b43f216ad52fe724cda9fad06134533", null ],
     [ "verifyMfa", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#abd5db9b353b29b137f0d41917150d4d6", null ],
+    [ "verifyRecoveryCode", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a137fc92acdcc12627d0f41e24f528602", null ],
+    [ "auditLogService", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ae01784fc1615c696f28bf57e8ec486f6", null ],
     [ "authenticationManager", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#add32cee79551097205c0895095e63887", null ],
     [ "jwtProperties", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#abbbf8e64c554163e1083d42c689e652b", null ],
     [ "jwtUtil", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#af3ed3ad831d43f80dc30a17ea1d78e5a", null ],
     [ "logger", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a654f4b94dd3d2fef4c3e909fd9d4349f", null ],
     [ "passwordEncoder", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ab30a0b8935512303adfc62ffc7c98a7e", null ],
+    [ "passwordPolicyService", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a6f136f71555051d262a08008df8a6384", null ],
+    [ "rolePermissionService", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ae4ca615f726f4dd922ae2cee2e4e5ee0", null ],
     [ "subsystemService", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a5a573e3f378c91e87ba9d2c3a1549958", null ],
     [ "tokenBlacklistService", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a1ca0c92aa53240b85f28abe1fd4de85f", null ],
     [ "userOrganizationRoleService", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#a957b89a3221e6a23694c8cfba0f6a242", null ],
-    [ "userRepository", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ae0c83c1435651cfd1fb3e40eae10b975", null ]
+    [ "userPasswordHistoryService", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#abe2c53376fa74f693035882174055afc", null ],
+    [ "userRepository", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ae0c83c1435651cfd1fb3e40eae10b975", null ],
+    [ "userRoleService", "classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl.html#ad20fa8bcc25dc42ffb0b3e8bb01fbfb8", null ]
 ];

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="SalesOrderRepository_8java" kind="file" language="Java">
+    <compoundname>SalesOrderRepository.java</compoundname>
+    <includes local="no">com.gmp.crm.entity.SalesOrder</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>crm-sales/src/main/java/com/gmp/crm/repository/SalesOrderRepository.java</label>
+        <link refid="SalesOrderRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.crm.entity.SalesOrder</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository" prot="public">com::gmp::crm::repository::SalesOrderRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1crm_1_1repository">com::gmp::crm::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.crm.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.crm.entity.SalesOrder;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="19" refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository" kindref="compound">SalesOrderRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;SalesOrder,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;SalesOrder&gt;<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1ab87f2e40a36825bf1dd3304cb1c7fce9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;SalesOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1ab87f2e40a36825bf1dd3304cb1c7fce9" kindref="member">findByOrderNumber</ref>(String<sp/>orderNumber);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1adbd715c84ed9f056488b7a4e033b9fb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;SalesOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1adbd715c84ed9f056488b7a4e033b9fb1" kindref="member">findByCustomerId</ref>(Long<sp/>customerId,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a45a826329f2c78287f2a7d533ea7190d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;SalesOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a45a826329f2c78287f2a7d533ea7190d" kindref="member">findByCustomerIdAndStatus</ref>(Long<sp/>customerId,<sp/>String<sp/>status,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a9b5938f315c8f60836c2bfdbf6068d3b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;SalesOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a9b5938f315c8f60836c2bfdbf6068d3b" kindref="member">findByStatus</ref>(String<sp/>status,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a4b4a38ca3849857697c5fd915103265b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a4b4a38ca3849857697c5fd915103265b" kindref="member">countByCustomerId</ref>(Long<sp/>customerId);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a8c49c34d5ef2855263aff9365040e4f6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;SalesOrder&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1crm_1_1repository_1_1SalesOrderRepository_1a8c49c34d5ef2855263aff9365040e4f6" kindref="member">findTopByOrderByCreatedAtDesc</ref>(Pageable<sp/>limit);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="crm-sales/src/main/java/com/gmp/crm/repository/SalesOrderRepository.java"/>
+  </compounddef>
+</doxygen>

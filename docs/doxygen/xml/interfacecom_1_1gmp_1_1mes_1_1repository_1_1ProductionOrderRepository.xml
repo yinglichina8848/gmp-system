@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::mes::repository::ProductionOrderRepository</compoundname>
+    <basecompoundref refid="classJpaRepository" prot="public" virt="non-virtual">JpaRepository&lt; ProductionOrder, Long &gt;</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1aa00caeb35938ca3817c17eee60424586" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional&lt; ProductionOrder &gt;</type>
+        <definition>Optional&lt; ProductionOrder &gt; com.gmp.mes.repository.ProductionOrderRepository.findByOrderNumber</definition>
+        <argsstring>(String orderNumber)</argsstring>
+        <name>findByOrderNumber</name>
+        <qualifiedname>com.gmp.mes.repository.ProductionOrderRepository.findByOrderNumber</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>orderNumber</declname>
+        </param>
+        <briefdescription>
+<para>根据订单编号查询订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>orderNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单编号 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>生产订单对象 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/ProductionOrderRepository.java" line="27" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1a81457133f93fc4709ea1ecdea4a54564" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; ProductionOrder &gt;</type>
+        <definition>List&lt; ProductionOrder &gt; com.gmp.mes.repository.ProductionOrderRepository.findByStatus</definition>
+        <argsstring>(ProductionOrder.OrderStatus status)</argsstring>
+        <name>findByStatus</name>
+        <qualifiedname>com.gmp.mes.repository.ProductionOrderRepository.findByStatus</qualifiedname>
+        <param>
+          <type>ProductionOrder.OrderStatus</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>根据状态查询订单列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/ProductionOrderRepository.java" line="35" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1a2ae43ecd0447c025de6a1405b0b6a893" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; ProductionOrder &gt;</type>
+        <definition>List&lt; ProductionOrder &gt; com.gmp.mes.repository.ProductionOrderRepository.findByRequester</definition>
+        <argsstring>(String requester)</argsstring>
+        <name>findByRequester</name>
+        <qualifiedname>com.gmp.mes.repository.ProductionOrderRepository.findByRequester</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>requester</declname>
+        </param>
+        <briefdescription>
+<para>根据申请人查询订单列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>requester</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>申请人 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/ProductionOrderRepository.java" line="43" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1ab6181df712b68095259881bafb88f545" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; ProductionOrder &gt;</type>
+        <definition>List&lt; ProductionOrder &gt; com.gmp.mes.repository.ProductionOrderRepository.findByPlannedStartDateBetween</definition>
+        <argsstring>(LocalDateTime startDate, LocalDateTime endDate)</argsstring>
+        <name>findByPlannedStartDateBetween</name>
+        <qualifiedname>com.gmp.mes.repository.ProductionOrderRepository.findByPlannedStartDateBetween</qualifiedname>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type>LocalDateTime</type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+<para>根据计划开始日期范围查询订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>开始日期 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>结束日期 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/ProductionOrderRepository.java" line="52" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1a2ccc9ffa4b4baee46831b8188742b171" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; ProductionOrder &gt;</type>
+        <definition>List&lt; ProductionOrder &gt; com.gmp.mes.repository.ProductionOrderRepository.findByProductId</definition>
+        <argsstring>(Long productId)</argsstring>
+        <name>findByProductId</name>
+        <qualifiedname>com.gmp.mes.repository.ProductionOrderRepository.findByProductId</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>productId</declname>
+        </param>
+        <briefdescription>
+<para>根据产品ID查询订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>productId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>产品ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/ProductionOrderRepository.java" line="60" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1ade2f941c3294b88d4cff81bcc5a8835c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; ProductionOrder &gt;</type>
+        <definition>List&lt; ProductionOrder &gt; com.gmp.mes.repository.ProductionOrderRepository.findByPriorityGreaterThanEqualOrderByPriorityDesc</definition>
+        <argsstring>(@Param(&quot;priority&quot;) ProductionOrder.OrderPriority priority)</argsstring>
+        <name>findByPriorityGreaterThanEqualOrderByPriorityDesc</name>
+        <qualifiedname>com.gmp.mes.repository.ProductionOrderRepository.findByPriorityGreaterThanEqualOrderByPriorityDesc</qualifiedname>
+        <param>
+          <type>@Param(&quot;priority&quot;) ProductionOrder.OrderPriority</type>
+          <declname>priority</declname>
+        </param>
+        <briefdescription>
+<para>查询优先级高于或等于指定优先级的订单 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>优先级 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/ProductionOrderRepository.java" line="69" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1a7954e1d4b969f2c4d8430b58b34c99fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long com.gmp.mes.repository.ProductionOrderRepository.countByStatus</definition>
+        <argsstring>(ProductionOrder.OrderStatus status)</argsstring>
+        <name>countByStatus</name>
+        <qualifiedname>com.gmp.mes.repository.ProductionOrderRepository.countByStatus</qualifiedname>
+        <param>
+          <type>ProductionOrder.OrderStatus</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>统计指定状态的订单数量 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>订单状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>订单数量 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mes-service/src/main/java/com/gmp/mes/repository/ProductionOrderRepository.java" line="77" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>生产订单数据访问接口 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>gmp-system </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JpaRepository&lt; ProductionOrder, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.mes.repository.ProductionOrderRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JpaRepository&lt; ProductionOrder, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.mes.repository.ProductionOrderRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="mes-service/src/main/java/com/gmp/mes/repository/ProductionOrderRepository.java" line="19" column="18" bodyfile="mes-service/src/main/java/com/gmp/mes/repository/ProductionOrderRepository.java" bodystart="19" bodyend="78"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1a7954e1d4b969f2c4d8430b58b34c99fd" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::ProductionOrderRepository</scope><name>countByStatus</name></member>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1aa00caeb35938ca3817c17eee60424586" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::ProductionOrderRepository</scope><name>findByOrderNumber</name></member>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1ab6181df712b68095259881bafb88f545" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::ProductionOrderRepository</scope><name>findByPlannedStartDateBetween</name></member>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1ade2f941c3294b88d4cff81bcc5a8835c" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::ProductionOrderRepository</scope><name>findByPriorityGreaterThanEqualOrderByPriorityDesc</name></member>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1a2ccc9ffa4b4baee46831b8188742b171" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::ProductionOrderRepository</scope><name>findByProductId</name></member>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1a2ae43ecd0447c025de6a1405b0b6a893" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::ProductionOrderRepository</scope><name>findByRequester</name></member>
+      <member refid="interfacecom_1_1gmp_1_1mes_1_1repository_1_1ProductionOrderRepository_1a81457133f93fc4709ea1ecdea4a54564" prot="public" virt="non-virtual"><scope>com::gmp::mes::repository::ProductionOrderRepository</scope><name>findByStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

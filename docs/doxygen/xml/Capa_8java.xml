@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Capa_8java" kind="file" language="Java">
+    <compoundname>Capa.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/entity/Capa.java</label>
+        <link refid="Capa_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa" prot="public">com::gmp::qms::entity::Capa</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1PriorityLevel" prot="public">com::gmp::qms::entity::Capa::PriorityLevel</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus" prot="public">com::gmp::qms::entity::Capa::CapaStatus</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1entity">com::gmp::qms::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1qms_1_1entity" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.CreationTimestamp;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.hibernate.annotations.UpdateTimestamp;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;capa&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa" kindref="compound">Capa</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1af8234d82446eeecae1e9387432affedd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;capa_code&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>unique<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a5800a7690646a798711e6ff3fe0e045a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a5800a7690646a798711e6ff3fe0e045a" kindref="member">capaCode</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a26aa15787b7a71e112b348c9901e6aa8" kindref="member">title</ref>&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="29" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a26aa15787b7a71e112b348c9901e6aa8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a26aa15787b7a71e112b348c9901e6aa8" kindref="member">title</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a2339f721c8358b17b421bcc0fb86107d" kindref="member">description</ref>&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="32" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a2339f721c8358b17b421bcc0fb86107d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a2339f721c8358b17b421bcc0fb86107d" kindref="member">description</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;source_type&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1adb4905c2c3b2dfbaea16e791084c2eab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1adb4905c2c3b2dfbaea16e791084c2eab" kindref="member">sourceType</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;source_id&quot;)</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a34a7e7c8a41325856c67207450a10611" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a34a7e7c8a41325856c67207450a10611" kindref="member">sourceId</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;priority_level&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="42" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1ab7b8ec114edfc851da013c0c92fd9f02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1PriorityLevel" kindref="compound">PriorityLevel</ref><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1ab7b8ec114edfc851da013c0c92fd9f02" kindref="member">priorityLevel</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a7617188aca9721aa03467d2ec1daf2e2" kindref="member">status</ref>&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="46" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a7617188aca9721aa03467d2ec1daf2e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus" kindref="compound">CapaStatus</ref><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a7617188aca9721aa03467d2ec1daf2e2" kindref="member">status</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;target_completion_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="49" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a8ecac43dab86be6dcba65a31d6fb605d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a8ecac43dab86be6dcba65a31d6fb605d" kindref="member">targetCompletionDate</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;actual_completion_date&quot;)</highlight></codeline>
+<codeline lineno="52" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a9139f2e28e8945eda772872348bc06cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a9139f2e28e8945eda772872348bc06cf" kindref="member">actualCompletionDate</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;root_cause_analysis&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a0169666364767f705a1e2c6dac44c3c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a0169666364767f705a1e2c6dac44c3c4" kindref="member">rootCauseAnalysis</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;implementation_summary&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="58" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a14cb4e6fe27837241cf6b75c4a20294b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a14cb4e6fe27837241cf6b75c4a20294b" kindref="member">implementationSummary</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;effectiveness_assessment&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="61" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1ab326431d365f3f327faa77359e1c3954" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1ab326431d365f3f327faa77359e1c3954" kindref="member">effectivenessAssessment</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;responsible_person_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="64" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1aababe21e38144fa3d9e11f750cf07fe2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1aababe21e38144fa3d9e11f750cf07fe2" kindref="member">responsiblePersonId</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;reviewer_id&quot;)</highlight></codeline>
+<codeline lineno="67" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1aff5940eaeb8ea8035a72048d736215f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1aff5940eaeb8ea8035a72048d736215f1" kindref="member">reviewerId</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;approver_id&quot;)</highlight></codeline>
+<codeline lineno="70" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1ac6bb4dc4535eb21ec2fcd22a426f49a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1ac6bb4dc4535eb21ec2fcd22a426f49a7" kindref="member">approverId</ref>;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;closed_date&quot;)</highlight></codeline>
+<codeline lineno="73" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a419c37a479248156dfa6eeb5ffc0ac5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a419c37a479248156dfa6eeb5ffc0ac5a" kindref="member">closedDate</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;closed_by&quot;)</highlight></codeline>
+<codeline lineno="76" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a3bf0d1dd9c809862961a020f4e27b43f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a3bf0d1dd9c809862961a020f4e27b43f" kindref="member">closedBy</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;capa&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="79" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1ac03b52e4ec71bc5826280336f0867380" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1CapaAttachment" kindref="compound">CapaAttachment</ref>&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1ac03b52e4ec71bc5826280336f0867380" kindref="member">attachments</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;capa&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="82" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a0c309dbe075bbfaf6cdb409cbe3a2310" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1CapaAction" kindref="compound">CapaAction</ref>&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a0c309dbe075bbfaf6cdb409cbe3a2310" kindref="member">actions</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;capa&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a47e96fbf20688e609b3548bce124c4bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1CapaHistory" kindref="compound">CapaHistory</ref>&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a47e96fbf20688e609b3548bce124c4bd" kindref="member">history</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreationTimestamp</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="89" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a59ea50ff931b657bada9ba084b7054ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a59ea50ff931b657bada9ba084b7054ae" kindref="member">createdAt</ref>;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@UpdateTimestamp</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="93" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1afe4cc5eb88064ff923044659ee5c8777" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1afe4cc5eb88064ff923044659ee5c8777" kindref="member">updatedAt</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="96" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a0d94ac95833d214d0d852ee4b3a62455" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1a0d94ac95833d214d0d852ee4b3a62455" kindref="member">createdBy</ref>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;)</highlight></codeline>
+<codeline lineno="99" refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1aaf6f677e7b50aea94de8b9a97b52a8a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1aaf6f677e7b50aea94de8b9a97b52a8a5" kindref="member">updatedBy</ref>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1PriorityLevel" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1PriorityLevel" kindref="compound">PriorityLevel</ref><sp/>{</highlight></codeline>
+<codeline lineno="105" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1PriorityLevel_1a7233f35ccf8c4bbd6e0ae85281d0ea79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1PriorityLevel_1a7233f35ccf8c4bbd6e0ae85281d0ea79" kindref="member">URGENT</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>紧急</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1PriorityLevel_1adc566f59b8c1bf2298c067189dce985d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1PriorityLevel_1adc566f59b8c1bf2298c067189dce985d" kindref="member">HIGH</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>高</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1PriorityLevel_1a925d768e53125972b03e24003b7b4cbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1PriorityLevel_1a925d768e53125972b03e24003b7b4cbb" kindref="member">MEDIUM</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOW<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>低</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1PriorityLevel_1a22bbcd5a0a0d29ee62d80064424a8c5f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus" kindref="compound">CapaStatus</ref><sp/>{</highlight></codeline>
+<codeline lineno="115" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1af5c77fef278b2ae50ec2b093a39e2a73" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1af5c77fef278b2ae50ec2b093a39e2a73" kindref="member">IDENTIFIED</ref>,<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>已识别</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1af94c205ba299e19cadd8c39c22d522e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1af94c205ba299e19cadd8c39c22d522e1" kindref="member">IN_ANALYSIS</ref>,<sp/><sp/></highlight><highlight class="comment">//<sp/>分析中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1ab1168101515831ef1b14f33b851f5fc3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1ab1168101515831ef1b14f33b851f5fc3" kindref="member">IN_IMPLEMENTATION</ref>,<sp/></highlight><highlight class="comment">//<sp/>实施中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1a943c42c1fc4ed1a491df4070bdaf41bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1a943c42c1fc4ed1a491df4070bdaf41bf" kindref="member">IN_EFFECTIVENESS_CHECK</ref>,<sp/></highlight><highlight class="comment">//<sp/>有效性检查中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1adfa5d7e6f5296922a8f19bf416f74be8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1adfa5d7e6f5296922a8f19bf416f74be8" kindref="member">PENDING_REVIEW</ref>,<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>待审核</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1aaae390ec04a21761c52c1a92a24155d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1aaae390ec04a21761c52c1a92a24155d0" kindref="member">PENDING_APPROVAL</ref>,<sp/></highlight><highlight class="comment">//<sp/>待批准</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1a0a732c885d0a2dcb48436072f87ca1a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1a0a732c885d0a2dcb48436072f87ca1a6" kindref="member">CLOSED</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>已关闭</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>REJECTED<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>已拒绝</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="enumcom_1_1gmp_1_1qms_1_1entity_1_1Capa_1_1CapaStatus_1aaf549f6464804be72edcde88e5c48c3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/entity/Capa.java"/>
+  </compounddef>
+</doxygen>

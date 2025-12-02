@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="DocumentServiceImplTest_8java" kind="file" language="Java">
+    <compoundname>DocumentServiceImplTest.java</compoundname>
+    <includes local="no">com.gmp.edms.dto.DocumentCreateDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/test/java/com/gmp/edms/service/impl/DocumentServiceImplTest.java</label>
+        <link refid="DocumentServiceImplTest_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.dto.DocumentCreateDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest" prot="package">com::gmp::edms::service::impl::DocumentServiceImplTest</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1service_1_1impl">com::gmp::edms::service::impl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.service.impl;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.DocumentCreateDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.DocumentDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.DocumentUpdateDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.entity.Document;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.entity.DocumentCategory;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.repository.DocumentRepository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.service.DocumentCategoryService;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.BeforeEach;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.InjectMocks;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.Mock;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.MockitoAnnotations;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.modelmapper.ModelMapper;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.*;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.any;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.Mockito.*;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest" kindref="compound">DocumentServiceImplTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>DocumentRepository<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a3c7b08317332783cdd091d10ac88ee58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentCategoryService" kindref="compound">DocumentCategoryService</ref><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a3c7b08317332783cdd091d10ac88ee58" kindref="member">documentCategoryService</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1acf23c7c666cc970c1a1573bb89115b00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>ModelMapper<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1acf23c7c666cc970c1a1573bb89115b00" kindref="member">modelMapper</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@InjectMocks</highlight></codeline>
+<codeline lineno="37" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1af468dc0022d5d4a0f18f7bacc9a7553c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImpl" kindref="compound">DocumentServiceImpl</ref><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1af468dc0022d5d4a0f18f7bacc9a7553c" kindref="member">documentService</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@BeforeEach</highlight></codeline>
+<codeline lineno="40" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a51bc92fe68d39527ed0cde81dead1233" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a51bc92fe68d39527ed0cde81dead1233" kindref="member">setUp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockitoAnnotations.openMocks(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="45" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1ab50aaf5478dc0fd25bd82561096820ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1ab50aaf5478dc0fd25bd82561096820ac" kindref="member">testCreateDocument</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentCreateDTO<sp/>createDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DocumentCreateDTO();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>createDTO.setTitle(</highlight><highlight class="stringliteral">&quot;Test<sp/>Document&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>createDTO.setDocumentType(</highlight><highlight class="stringliteral">&quot;SOP&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>createDTO.setCategoryId(1L);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>createDTO.setAuthor(</highlight><highlight class="stringliteral">&quot;admin&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>直接创建Document对象，避免ModelMapper和DocumentCategoryService的模拟问题</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Document<sp/>document<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Document();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setId(1L);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setTitle(createDTO.getTitle());</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setDocumentType(createDTO.getDocumentType());</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setAuthor(createDTO.getAuthor());</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟Repository保存操作</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>.save(any(Document.class))).thenReturn(document);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>直接返回文档对象，避免类型转换问题</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentDTO<sp/>result<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DocumentDTO();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setId(document.getId());</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.setTitle(document.getTitle());</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟modelMapper行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1acf23c7c666cc970c1a1573bb89115b00" kindref="member">modelMapper</ref>.map(document,<sp/>DocumentDTO.class)).thenReturn(result);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentDTO<sp/>actualResult<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1af468dc0022d5d4a0f18f7bacc9a7553c" kindref="member">documentService</ref>.<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImpl_1a4400f3353114f5e790d10ec513f2de26" kindref="member">createDocument</ref>(createDTO);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(actualResult);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>).save(any(Document.class));</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="77" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a4b09381f80d0c10cc5a875346b602912" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a4b09381f80d0c10cc5a875346b602912" kindref="member">testGetDocumentById</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>documentId<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Document<sp/>document<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Document();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setId(documentId);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentDTO<sp/>documentDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DocumentDTO();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>documentDTO.setId(documentId);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>.findById(documentId)).thenReturn(Optional.of(document));</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1acf23c7c666cc970c1a1573bb89115b00" kindref="member">modelMapper</ref>.map(document,<sp/>DocumentDTO.class)).thenReturn(documentDTO);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentDTO<sp/>result<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1af468dc0022d5d4a0f18f7bacc9a7553c" kindref="member">documentService</ref>.<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImpl_1a42732dcc7c5e2ebf837b3ec76d3872e0" kindref="member">getDocumentById</ref>(documentId);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(documentId,<sp/>result.getId());</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="95" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1ae144cdfb8cc37d4007879a48ea784e7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1ae144cdfb8cc37d4007879a48ea784e7f" kindref="member">testGetDocumentByDocCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>docCode<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;DOC-2024-0101-001&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Document<sp/>document<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Document();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setDocumentNumber(docCode);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentDTO<sp/>documentDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DocumentDTO();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>documentDTO.setDocumentNumber(docCode);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>.findByDocCode(docCode)).thenReturn(Optional.of(document));</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1acf23c7c666cc970c1a1573bb89115b00" kindref="member">modelMapper</ref>.map(document,<sp/>DocumentDTO.class)).thenReturn(documentDTO);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentDTO<sp/>result<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1af468dc0022d5d4a0f18f7bacc9a7553c" kindref="member">documentService</ref>.<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImpl_1a61a701c361889f45e5bdb9232e7d6546" kindref="member">getDocumentByDocCode</ref>(docCode);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(docCode,<sp/>result.getDocumentNumber());</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="113" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a0d80f2cf55cb0e1a24d4dcec5f900be6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a0d80f2cf55cb0e1a24d4dcec5f900be6" kindref="member">testUpdateDocument</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>documentId<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentUpdateDTO<sp/>updateDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DocumentUpdateDTO();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateDTO.setTitle(</highlight><highlight class="stringliteral">&quot;Updated<sp/>Title&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateDTO.setCategoryId(2L);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Document<sp/>document<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Document();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setId(documentId);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setTitle(</highlight><highlight class="stringliteral">&quot;Old<sp/>Title&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>使用DTO对象而不是实体类</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentCategoryDTO" kindref="compound">com.gmp.edms.dto.DocumentCategoryDTO</ref><sp/>category<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.DocumentCategoryDTO();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>category.setId(2L);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentDTO<sp/>documentDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DocumentDTO();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>documentDTO.setId(documentId);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>documentDTO.setTitle(</highlight><highlight class="stringliteral">&quot;Updated<sp/>Title&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>.findById(documentId)).thenReturn(Optional.of(document));</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a3c7b08317332783cdd091d10ac88ee58" kindref="member">documentCategoryService</ref>.<ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentCategoryService_1ac2249908f4c3789715c4b026bfcd00a9" kindref="member">getCategoryById</ref>(2L)).thenReturn(category);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>.save(document)).thenReturn(document);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1acf23c7c666cc970c1a1573bb89115b00" kindref="member">modelMapper</ref>.map(document,<sp/>DocumentDTO.class)).thenReturn(documentDTO);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentDTO<sp/>result<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1af468dc0022d5d4a0f18f7bacc9a7553c" kindref="member">documentService</ref>.<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImpl_1a005b8201ad010bded702832e5eab9843" kindref="member">updateDocument</ref>(documentId,<sp/>updateDTO);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(</highlight><highlight class="stringliteral">&quot;Updated<sp/>Title&quot;</highlight><highlight class="normal">,<sp/>result.getTitle());</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>).save(document);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="144" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a0fe4ce188a72822185c5ce8c92261058" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a0fe4ce188a72822185c5ce8c92261058" kindref="member">testDeleteDocument</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>documentId<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Document<sp/>document<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Document();</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setId(documentId);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>.findById(documentId)).thenReturn(Optional.of(document));</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1af468dc0022d5d4a0f18f7bacc9a7553c" kindref="member">documentService</ref>.<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImpl_1af1cf5926459f8a0732b696a9d5c95ce5" kindref="member">deleteDocument</ref>(documentId);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>).delete(document);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="157" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a3dacecac80cdbc4161b33b772d96e4b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a3dacecac80cdbc4161b33b772d96e4b2" kindref="member">testUpdateDocumentStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>documentId<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>newStatus<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;APPROVED&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Document<sp/>document<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Document();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setId(documentId);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setStatus(</highlight><highlight class="stringliteral">&quot;DRAFT&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DocumentDTO<sp/>documentDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DocumentDTO();</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>documentDTO.setId(documentId);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>documentDTO.setStatus(newStatus);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>.findById(documentId)).thenReturn(Optional.of(document));</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>.save(document)).thenReturn(document);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1acf23c7c666cc970c1a1573bb89115b00" kindref="member">modelMapper</ref>.map(document,<sp/>DocumentDTO.class)).thenReturn(documentDTO);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1af468dc0022d5d4a0f18f7bacc9a7553c" kindref="member">documentService</ref>.<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImpl_1a529f6ac23f85f87bfac0a4bc85cdcdfb" kindref="member">updateDocumentStatus</ref>(documentId,<sp/>newStatus);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证状态已更新</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(newStatus,<sp/>document.getStatus());</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>).save(document);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="180" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1aa66d0d8f80a11170aa0b8c352d352726" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1aa66d0d8f80a11170aa0b8c352d352726" kindref="member">testGenerateDocCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>测试generateDocCode方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>docCode<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1af468dc0022d5d4a0f18f7bacc9a7553c" kindref="member">documentService</ref>.<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImpl_1a8a598368def0a88410806f1ee3707d98" kindref="member">generateDocCode</ref>();</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(docCode);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(docCode.startsWith(</highlight><highlight class="stringliteral">&quot;DOC_&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证包含日期部分<sp/>(YYYYMMDD格式)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(docCode.matches(</highlight><highlight class="stringliteral">&quot;DOC_\\d{8}_\\d{4}&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="191" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a0cc8c384ade514126c331b6b066f37d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a0cc8c384ade514126c331b6b066f37d7" kindref="member">testSearchDocuments</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>测试搜索文档方法</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>keyword<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;test&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>调用方法并验证repository调用</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1af468dc0022d5d4a0f18f7bacc9a7553c" kindref="member">documentService</ref>.<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImpl_1a9d547866e0777e4b1fc8270bd188f5b2" kindref="member">searchDocuments</ref>(keyword,<sp/>1,<sp/>10);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>).searchByKeyword(keyword,<sp/>0,<sp/>10);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="202" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a742861679d6f145474652720a1eef0fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a742861679d6f145474652720a1eef0fb" kindref="member">testFindDocumentsByCategory</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>categoryId<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>使用实际存在的方法进行测试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>.findByCategoryId(categoryId)).thenReturn(List.of(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Document()));</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>调用正确的方法名getDocumentsByCategory</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1af468dc0022d5d4a0f18f7bacc9a7553c" kindref="member">documentService</ref>.<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImpl_1a20c5b34b69be24a3ed85b005ae99b038" kindref="member">getDocumentsByCategory</ref>(categoryId);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>验证repository调用</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verify(<ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentServiceImplTest_1a8f12ff518fb342c4c9a7f243a4c00eae" kindref="member">documentRepository</ref>).findByCategoryId(categoryId);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/test/java/com/gmp/edms/service/impl/DocumentServiceImplTest.java"/>
+  </compounddef>
+</doxygen>

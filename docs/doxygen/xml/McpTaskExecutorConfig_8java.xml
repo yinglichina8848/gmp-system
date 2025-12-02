@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="McpTaskExecutorConfig_8java" kind="file" language="Java">
+    <compoundname>McpTaskExecutorConfig.java</compoundname>
+    <includes local="no">org.springframework.beans.factory.annotation.Autowired</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/config/McpTaskExecutorConfig.java</label>
+        <link refid="McpTaskExecutorConfig_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.springframework.beans.factory.annotation.Autowired</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig" prot="public">com::gmp::qms::config::McpTaskExecutorConfig</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1config">com::gmp::qms::config</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.config;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.context.annotation.Bean;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.context.annotation.Configuration;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.core.task.TaskExecutor;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.ThreadPoolExecutor;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@Configuration</highlight></codeline>
+<codeline lineno="17" refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig" kindref="compound">McpTaskExecutorConfig</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="20" refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig_1a9d4fa4655e7019a5a68a71913ab26b3c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpPerformanceConfig" kindref="compound">McpPerformanceConfig</ref><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig_1a9d4fa4655e7019a5a68a71913ab26b3c" kindref="member">performanceConfig</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;mcpTaskExecutor&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig_1a11eff5f35e08eaf7f28a6d7acac9769f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>TaskExecutor<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig_1a11eff5f35e08eaf7f28a6d7acac9769f" kindref="member">mcpTaskExecutor</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>McpPerformanceConfig.ThreadPool<sp/>poolConfig<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig_1a9d4fa4655e7019a5a68a71913ab26b3c" kindref="member">performanceConfig</ref>.getThreadPool();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThreadPoolTaskExecutor<sp/>executor<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadPoolTaskExecutor();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>核心线程数</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setCorePoolSize(poolConfig.getCoreThreads());</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>最大线程数</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setMaxPoolSize(poolConfig.getMaxThreads());</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>线程名称前缀</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setThreadNamePrefix(</highlight><highlight class="stringliteral">&quot;mcp-executor-&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>队列容量</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setQueueCapacity(poolConfig.getQueueCapacity());</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>线程存活时间（非核心线程）</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setKeepAliveSeconds(poolConfig.getKeepAliveSeconds());</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>拒绝策略：当线程池饱和时如何处理新任务</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setRejectedExecutionHandler(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadPoolExecutor.CallerRunsPolicy());</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>初始化</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.initialize();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>executor;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;mcpMonitoringTaskExecutor&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig_1a0e2beab14603d448b1cc5de5cbf66496" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>TaskExecutor<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig_1a0e2beab14603d448b1cc5de5cbf66496" kindref="member">mcpMonitoringTaskExecutor</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThreadPoolTaskExecutor<sp/>executor<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadPoolTaskExecutor();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>监控任务使用较小的线程池</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setCorePoolSize(2);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setMaxPoolSize(4);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setThreadNamePrefix(</highlight><highlight class="stringliteral">&quot;mcp-monitoring-&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setQueueCapacity(1000);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setKeepAliveSeconds(60);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>使用DiscardPolicy，监控任务可以丢弃以保证主业务</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setRejectedExecutionHandler(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadPoolExecutor.DiscardPolicy());</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.initialize();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>executor;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;mcpCacheTaskExecutor&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="76" refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig_1a6954aad350b076a0dba1a072e8c0dd14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>TaskExecutor<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig_1a6954aad350b076a0dba1a072e8c0dd14" kindref="member">mcpCacheTaskExecutor</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThreadPoolTaskExecutor<sp/>executor<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadPoolTaskExecutor();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setCorePoolSize(3);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setMaxPoolSize(6);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setThreadNamePrefix(</highlight><highlight class="stringliteral">&quot;mcp-cache-&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setQueueCapacity(500);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setKeepAliveSeconds(30);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setRejectedExecutionHandler(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadPoolExecutor.CallerRunsPolicy());</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.initialize();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>executor;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;mcpRetryTaskExecutor&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="95" refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig_1a482f413e6b7551afc29c19f9eb28f7a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>TaskExecutor<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1config_1_1McpTaskExecutorConfig_1a482f413e6b7551afc29c19f9eb28f7a9" kindref="member">mcpRetryTaskExecutor</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThreadPoolTaskExecutor<sp/>executor<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadPoolTaskExecutor();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setCorePoolSize(2);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setMaxPoolSize(5);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setThreadNamePrefix(</highlight><highlight class="stringliteral">&quot;mcp-retry-&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setQueueCapacity(100);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setKeepAliveSeconds(60);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.setRejectedExecutionHandler(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadPoolExecutor.DiscardOldestPolicy());</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executor.initialize();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>executor;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/config/McpTaskExecutorConfig.java"/>
+  </compounddef>
+</doxygen>

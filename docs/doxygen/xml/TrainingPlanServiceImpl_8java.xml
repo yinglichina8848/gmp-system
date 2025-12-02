@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TrainingPlanServiceImpl_8java" kind="file" language="Java">
+    <compoundname>TrainingPlanServiceImpl.java</compoundname>
+    <includes local="no">com.gmp.training.entity.TrainingNeed</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java</label>
+        <link refid="TrainingPlanServiceImpl_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.training.entity.TrainingNeed</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl" prot="public">com::gmp::training::service::impl::TrainingPlanServiceImpl</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1service_1_1impl">com::gmp::training::service::impl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.service.impl;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.entity.TrainingNeed;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.entity.TrainingPlan;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.entity.User;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.repository.TrainingPlanRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.service.TrainingPlanService;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Service;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.transaction.annotation.Transactional;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@Service</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl" kindref="compound">TrainingPlanServiceImpl</ref><sp/>extends<sp/><ref refid="classBaseServiceImpl" kindref="compound">BaseServiceImpl</ref>&lt;TrainingPlan,<sp/>Long,<sp/>TrainingPlanRepository&gt;<sp/>implements<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1service_1_1TrainingPlanService" kindref="compound">TrainingPlanService</ref><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a3247d40fa99c4f51c1645f76216a426b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a3247d40fa99c4f51c1645f76216a426b" kindref="member">TrainingPlanServiceImpl</ref>(TrainingPlanRepository<sp/>repository)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(<ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aa00117e12b932422fc59393c84415f4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Optional&lt;TrainingPlan&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aa00117e12b932422fc59393c84415f4c" kindref="member">findByName</ref>(String<sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByName(name);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="36" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1acec69b8f129fc42d6dd144ea84a2f1e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;TrainingPlan&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1acec69b8f129fc42d6dd144ea84a2f1e3" kindref="member">findByYear</ref>(Integer<sp/>year)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByYear(year);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ac5c211694e5e8a4459cb2a23c7d77391" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;TrainingPlan&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ac5c211694e5e8a4459cb2a23c7d77391" kindref="member">findByYearAndQuarter</ref>(Integer<sp/>year,<sp/>Integer<sp/>quarter)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByYearAndQuarter(year,<sp/>quarter);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="46" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aeb7a0c933aaef1779a09bffcfc59384f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;TrainingPlan&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aeb7a0c933aaef1779a09bffcfc59384f" kindref="member">findByOwner</ref>(User<sp/>owner)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByOwner(owner);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a45a354c8f6585ed9d09fb19e21cc3ae3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;TrainingPlan&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a45a354c8f6585ed9d09fb19e21cc3ae3" kindref="member">findByStatus</ref>(TrainingPlan.Status<sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByStatus(status);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="56" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a2c07e42be21f4b59914572792421b3b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;TrainingPlan&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a2c07e42be21f4b59914572792421b3b5" kindref="member">findByTrainingNeed</ref>(TrainingNeed<sp/>trainingNeed)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByTrainingNeedsContaining(trainingNeed);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="61" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a257513dd2e40b692387d080acdc561b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;TrainingPlan&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a257513dd2e40b692387d080acdc561b8" kindref="member">findByPlanStartDateBetween</ref>(LocalDate<sp/>startDate,<sp/>LocalDate<sp/>endDate)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByPlanStartDateBetween(startDate,<sp/>endDate);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="66" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aaf6d85ab2106de5772d8a443056d6700" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;TrainingPlan&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1aaf6d85ab2106de5772d8a443056d6700" kindref="member">findByDepartmentId</ref>(Long<sp/>departmentId)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByDepartmentId(departmentId);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ae6e98c9d9da2f4ae68755dc48764c159" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>TrainingPlan<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ae6e98c9d9da2f4ae68755dc48764c159" kindref="member">updateStatus</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>TrainingPlan.Status<sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingPlan<sp/>plan<sp/>=<sp/>getById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plan.setStatus(status);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>如果标记为已完成，更新完成时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(status<sp/>==<sp/>TrainingPlan.Status.COMPLETED)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plan.setActualEndDate(LocalDate.now());</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.save(plan);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="84" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a5a6dd2534aab622fd0420b4af175a97c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a5a6dd2534aab622fd0420b4af175a97c" kindref="member">batchUpdateStatus</ref>(List&lt;Long&gt;<sp/>ids,<sp/>TrainingPlan.Status<sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TrainingPlan&gt;<sp/>plans<sp/>=<sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findAllById(ids);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plans.forEach(plan<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plan.setStatus(status);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>如果标记为已完成，更新完成时间</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(status<sp/>==<sp/>TrainingPlan.Status.COMPLETED)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plan.setActualEndDate(LocalDate.now());</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.saveAll(plans);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>plans.size();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="98" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1adbd45cba437846afc7384554ff58febd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;TrainingPlan&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1adbd45cba437846afc7384554ff58febd" kindref="member">findActivePlans</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocalDate<sp/>now<sp/>=<sp/>LocalDate.now();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByStatusInAndPlanStartDateLessThanEqualAndPlanEndDateGreaterThanEqual(</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List.of(TrainingPlan.Status.IN_PROGRESS,<sp/>TrainingPlan.Status.PLANNED),<sp/>now,<sp/>now);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="105" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ac9dbeb36a5d1a8147feffca97f368ed4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;TrainingPlan&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ac9dbeb36a5d1a8147feffca97f368ed4" kindref="member">findCompletedPlans</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByStatus(TrainingPlan.Status.COMPLETED);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="110" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a2794aa0f3ba308fe402b72e8a80a5bff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;TrainingPlan&gt;<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a2794aa0f3ba308fe402b72e8a80a5bff" kindref="member">search</ref>(String<sp/>keyword)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="BaseServiceImpl_8java_1a4aa804f209caa152ca66821629e6259a" kindref="member">repository</ref>.findByNameContainingOrDescriptionContaining(keyword,<sp/>keyword);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="115" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ae8f3e603d58a88a37abeeaa459032fe1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Double<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ae8f3e603d58a88a37abeeaa459032fe1" kindref="member">calculateCompletionRate</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>这里需要根据实际的业务逻辑实现完成率计算</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>基本思路：计算计划中已完成的课程数量占总课程数量的比例</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingPlan<sp/>plan<sp/>=<sp/>getById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>假设计划中有关联的课程，通过统计课程完成情况计算完成率</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>实际实现可能需要更复杂的逻辑，比如考虑培训场次的完成情况</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;<sp/></highlight><highlight class="comment">//<sp/>暂时返回默认值，实际实现需要根据具体业务逻辑调整</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="125" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1af1fcb7c6c51358a16ef4ea9c451f94e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Double<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1af1fcb7c6c51358a16ef4ea9c451f94e9" kindref="member">calculateActualCost</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>这里需要根据实际的业务逻辑实现实际花费计算</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>基本思路：统计计划中所有培训活动的实际花费</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TrainingPlan<sp/>plan<sp/>=<sp/>getById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>实际实现可能需要查询培训场次、材料费用等信息进行汇总</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;<sp/></highlight><highlight class="comment">//<sp/>暂时返回默认值，实际实现需要根据具体业务逻辑调整</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="135" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a75033a9a390441dd2763acdc78881bc2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>TrainingPlan<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1a75033a9a390441dd2763acdc78881bc2" kindref="member">save</ref>(TrainingPlan<sp/>plan)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>新增培训计划时设置默认状态</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(plan.getId()<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plan.setStatus(TrainingPlan.Status.PLANNED);<sp/></highlight><highlight class="comment">//<sp/>默认状态为已规划</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.save(plan);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="144" refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ad3153a3f7f1a0d185d3a6b96a60a6b59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1training_1_1service_1_1impl_1_1TrainingPlanServiceImpl_1ad3153a3f7f1a0d185d3a6b96a60a6b59" kindref="member">getEntityName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;TrainingPlan&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/main/java/com/gmp/training/service/impl/TrainingPlanServiceImpl.java"/>
+  </compounddef>
+</doxygen>

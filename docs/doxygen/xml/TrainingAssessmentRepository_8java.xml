@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TrainingAssessmentRepository_8java" kind="file" language="Java">
+    <compoundname>TrainingAssessmentRepository.java</compoundname>
+    <includes local="no">com.gmp.training.entity.TrainingAssessment</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/main/java/com/gmp/training/repository/TrainingAssessmentRepository.java</label>
+        <link refid="TrainingAssessmentRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.training.entity.TrainingAssessment</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository" prot="public">com::gmp::training::repository::TrainingAssessmentRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1repository">com::gmp::training::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.entity.TrainingAssessment;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="18" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository" kindref="compound">TrainingAssessmentRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;TrainingAssessment,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a65ac7a52ac0665175d5bc6f47f92b9de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a65ac7a52ac0665175d5bc6f47f92b9de" kindref="member">findByTrainingSessionId</ref>(Long<sp/>sessionId);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1aa77f205626f738615b64ea053506bf0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1aa77f205626f738615b64ea053506bf0f" kindref="member">findByUserId</ref>(Long<sp/>userId);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1ab5716c116494e2e1c745a1ea85d19450" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1ab5716c116494e2e1c745a1ea85d19450" kindref="member">findByTrainingCourseId</ref>(Long<sp/>courseId);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1aacd4503d9d107b89f8b6ff17d65bb356" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>TrainingAssessment<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1aacd4503d9d107b89f8b6ff17d65bb356" kindref="member">findByUserIdAndTrainingSessionId</ref>(Long<sp/>userId,<sp/>Long<sp/>sessionId);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1afc2ab9f244309d2dd1c3ed8fced595d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1afc2ab9f244309d2dd1c3ed8fced595d6" kindref="member">findByUserIdAndTrainingCourseId</ref>(Long<sp/>userId,<sp/>Long<sp/>courseId);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>COUNT(CASE<sp/>WHEN<sp/>a.score<sp/>&gt;=<sp/>60<sp/>THEN<sp/>1<sp/>END)<sp/>*<sp/>100.0<sp/>/<sp/>COUNT(a)<sp/>FROM<sp/>TrainingAssessment<sp/>a<sp/>WHERE<sp/>a.trainingSession.id<sp/>=<sp/>:sessionId&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="69" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1ab340131287fedcb7575bc374fb6f27a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Double<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1ab340131287fedcb7575bc374fb6f27a7" kindref="member">calculatePassRateBySession</ref>(@Param(&quot;sessionId&quot;)<sp/>Long<sp/>sessionId);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>a<sp/>FROM<sp/>TrainingAssessment<sp/>a<sp/>WHERE<sp/>a.trainingSession.</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>:sessionId<sp/>AND<sp/>a.score<sp/>&lt;<sp/>60&quot;)</highlight></codeline>
+<codeline lineno="78" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1af6eb8434e5d6ce3080bcb570522d746c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1af6eb8434e5d6ce3080bcb570522d746c" kindref="member">findFailedAssessmentsBySession</ref>(@Param(&quot;sessionId&quot;)<sp/>Long<sp/>sessionId);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a32e7553d6c9a6c1c0f3413420ecf3eff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a32e7553d6c9a6c1c0f3413420ecf3eff" kindref="member">findByTrainingCourse</ref>(com.gmp.training.entity.TrainingCourse<sp/>trainingCourse);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a5d0a1be60da28a75342d887e8dee9b04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a5d0a1be60da28a75342d887e8dee9b04" kindref="member">findByUser</ref>(com.gmp.training.entity.User<sp/>user);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a3cb225eba642d199502e5176fb96d923" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a3cb225eba642d199502e5176fb96d923" kindref="member">findByStatus</ref>(TrainingAssessment.Status<sp/>status);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1aca19506d3321ba8f56e848fa4b61ef25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1aca19506d3321ba8f56e848fa4b61ef25" kindref="member">findByUserAndTrainingCourse</ref>(com.gmp.training.entity.User<sp/>user,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>com.gmp.training.entity.TrainingCourse<sp/>trainingCourse);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1ae76d932b44e1f14e30d34637754c04b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1ae76d932b44e1f14e30d34637754c04b8" kindref="member">findByAssessmentDateBetween</ref>(LocalDate<sp/>startDate,<sp/>LocalDate<sp/>endDate);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a2bd2e8e8a3f0a3bbec45e7c62ca36145" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a2bd2e8e8a3f0a3bbec45e7c62ca36145" kindref="member">findByNotesContaining</ref>(String<sp/>notes);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a93d175298a9feb830c7b7de3f98616fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1a93d175298a9feb830c7b7de3f98616fd" kindref="member">findByType</ref>(TrainingAssessment.Type<sp/>type);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="146" refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1ac144a646f6180537e0ddb89a4698d7de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;TrainingAssessment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1training_1_1repository_1_1TrainingAssessmentRepository_1ac144a646f6180537e0ddb89a4698d7de" kindref="member">findByScoreGreaterThanEqualAndStatus</ref>(Double<sp/>score,<sp/>TrainingAssessment.Status<sp/>status);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/main/java/com/gmp/training/repository/TrainingAssessmentRepository.java"/>
+  </compounddef>
+</doxygen>

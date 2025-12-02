@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="InspectionResultDTO_8java" kind="file" language="Java">
+    <compoundname>InspectionResultDTO.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>lims-service/src/main/java/com/gmp/lims/dto/InspectionResultDTO.java</label>
+        <link refid="InspectionResultDTO_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO" prot="public">com::gmp::lims::dto::InspectionResultDTO</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1lims_1_1dto">com::gmp::lims::dto</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.lims.dto;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.EqualsAndHashCode;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.NoArgsConstructor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.AllArgsConstructor;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotBlank;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.Size;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@NoArgsConstructor</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@AllArgsConstructor</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@EqualsAndHashCode(of<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO" refkind="compound"><highlight class="normal"><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">public</ref><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">class</ref><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO" kindref="compound">InspectionResultDTO</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1af3449f8b6e6228a83e2153c27f530b11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1af3449f8b6e6228a83e2153c27f530b11" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a3f923fd9eed4d6de10903846b64d2468" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Long<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a3f923fd9eed4d6de10903846b64d2468" kindref="member">taskId</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a9df64ff95ff9bb851130d20b81843f28" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a9df64ff95ff9bb851130d20b81843f28" kindref="member">taskCode</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">NotBlank</ref>(message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;检测项目名称不能为空&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>100,<sp/>message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;检测项目名称长度不能超过100个字符&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1aeb2fe19ff50954d7ff6b670b94d8abbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>itemName;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">检测方法长度不能超过200个字符</ref>&quot;)</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1ac320be92b34f7fb9a801c7286cd2db88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>testMethod;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">检测结果值长度不能超过200个字符</ref>&quot;)</highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a5d9fc099edfa4ad3d3fc74c1f55e8cd0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>testValue;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>20,<sp/>message<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">计量单位长度不能超过20个字符</ref>&quot;)</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a4c9ac5277db707e6936dc645e41bb6b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>measurementUnit;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">标准值长度不能超过200个字符</ref>&quot;)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a2e1aae0a0c68f09b4751bc41c3581b7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>standardValue;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">标准范围长度不能超过200个字符</ref>&quot;)</highlight></codeline>
+<codeline lineno="71" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a5ffba0995f12e08f84fc4e733e587112" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>standardRange;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>20,<sp/>message<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">判定结果长度不能超过20个字符</ref>&quot;)</highlight></codeline>
+<codeline lineno="77" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1ac52349bcb5030f3e23f249eac02cedb2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>judgmentResult;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a95a197a591c61f574e6489ff0b4aa523" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>LocalDateTime<sp/>testDate;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">检测人员长度不能超过50个字符</ref>&quot;)</highlight></codeline>
+<codeline lineno="88" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a365e14e7b46529e3bc9f1e0e99e820d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>testPerson;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">审核人员长度不能超过50个字符</ref>&quot;)</highlight></codeline>
+<codeline lineno="94" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a1026150d81a8d26cea22047c95749734" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>reviewPerson;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a916f557eb83b0ccdbd3ee4a074401762" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>LocalDateTime<sp/>reviewDate;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a6004d0ac9a80d53de9b23c05d6f9d478" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>reviewStatus;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">备注长度不能超过500个字符</ref>&quot;)</highlight></codeline>
+<codeline lineno="110" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a681355fd4aa153db8f989c482a82f10d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>remark;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a1505893d26f9a81e63ca2e85e50e1602" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>LocalDateTime<sp/>createdTime;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a7a45d862a0682af20a6bc62c4a4a273e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>LocalDateTime<sp/>updatedTime;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">Size</ref>(<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">max</ref><sp/>=<sp/>1000,<sp/>message<sp/>=<sp/>&quot;<ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">检测结果描述长度不能超过1000个字符</ref>&quot;)</highlight></codeline>
+<codeline lineno="126" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a867600b6006e9a8f37ea2be2da49670f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>String<sp/>resultDescription;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="classcom_1_1gmp_1_1lims_1_1dto_1_1InspectionResultDTO_1a19f241602b0f3c850728a4bf3ecb0b33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">private</ref><sp/>Boolean<sp/>isKeyIndicator<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1dto_1_1ApiResponse" kindref="compound">false</ref>;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lims-service/src/main/java/com/gmp/lims/dto/InspectionResultDTO.java"/>
+  </compounddef>
+</doxygen>

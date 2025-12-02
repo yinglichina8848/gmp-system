@@ -29,22 +29,22 @@
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.context.annotation.Configuration;</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>reactor.core.publisher.Mono;</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal">@Configuration</highlight></codeline>
-<codeline lineno="14" refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig" kindref="compound">GatewayConfig</ref><sp/>{</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean</highlight></codeline>
-<codeline lineno="20" refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1a20efbd7dafe5c70b2486b8c84318dc4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>KeyResolver<sp/><ref refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1a20efbd7dafe5c70b2486b8c84318dc4a" kindref="member">userKeyResolver</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exchange<sp/>-&gt;<sp/>Mono.just(exchange.getRequest().getHeaders()</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.getFirst(</highlight><highlight class="stringliteral">&quot;X-User-Id&quot;</highlight><highlight class="normal">))</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.defaultIfEmpty(</highlight><highlight class="stringliteral">&quot;anonymous&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean</highlight></codeline>
-<codeline lineno="30" refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1af9f4c7ec599bd99ed8ace2f1cb2bcbc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>KeyResolver<sp/><ref refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1af9f4c7ec599bd99ed8ace2f1cb2bcbc6" kindref="member">ipKeyResolver</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exchange<sp/>-&gt;<sp/>Mono.just(exchange.getRequest().getRemoteAddress()</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.getAddress().getHostAddress());</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@Configuration</highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig" kindref="compound">GatewayConfig</ref><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean</highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1a20efbd7dafe5c70b2486b8c84318dc4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>KeyResolver<sp/><ref refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1a20efbd7dafe5c70b2486b8c84318dc4a" kindref="member">userKeyResolver</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exchange<sp/>-&gt;<sp/>Mono.just(exchange.getRequest().getHeaders()</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.getFirst(</highlight><highlight class="stringliteral">&quot;X-User-Id&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.defaultIfEmpty(</highlight><highlight class="stringliteral">&quot;anonymous&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Bean</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1af9f4c7ec599bd99ed8ace2f1cb2bcbc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>KeyResolver<sp/><ref refid="classcom_1_1gmp_1_1gateway_1_1config_1_1GatewayConfig_1af9f4c7ec599bd99ed8ace2f1cb2bcbc6" kindref="member">ipKeyResolver</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exchange<sp/>-&gt;<sp/>Mono.just(exchange.getRequest().getRemoteAddress()</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.getAddress().getHostAddress());</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="gateway/src/main/java/com/gmp/gateway/config/GatewayConfig.java"/>
   </compounddef>

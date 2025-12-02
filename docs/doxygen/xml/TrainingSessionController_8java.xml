@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TrainingSessionController_8java" kind="file" language="Java">
+    <compoundname>TrainingSessionController.java</compoundname>
+    <includes local="no">com.gmp.training.entity.TrainingSession</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/main/java/com/gmp/training/controller/TrainingSessionController.java</label>
+        <link refid="TrainingSessionController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.training.entity.TrainingSession</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController" prot="public">com::gmp::training::controller::TrainingSessionController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1controller">com::gmp::training::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.entity.TrainingSession;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.service.TrainingSessionService;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.web.PageableDefault;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.format.annotation.DateTimeFormat;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.ResponseEntity;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.Valid;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/training-sessions&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController" kindref="compound">TrainingSessionController</ref><sp/>extends<sp/><ref refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController" kindref="compound">BaseController</ref>&lt;TrainingSession,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a317286cc8a2fdca7c12b461a310be6e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>TrainingSessionService<sp/><ref refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a317286cc8a2fdca7c12b461a310be6e6" kindref="member">trainingSessionService</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/course/{courseId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="37" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1aadcbe3b421e03121d98301ca9af4e733" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingSession&gt;&gt;<sp/>findByCourseId(</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/>courseId,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.findByCourseId(courseId,<sp/>pageable));</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/lecturer/{lecturerId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a1df6b351f0da2662287ce4f3d0558d88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingSession&gt;&gt;<sp/>findByLecturerId(</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/>lecturerId,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.findByLecturerId(lecturerId,<sp/>pageable));</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/status/{status}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a79697d1595bf397ada5350470514f55e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingSession&gt;&gt;<sp/>findByStatus(</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>TrainingSession.Status<sp/>status,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.findByStatus(status,<sp/>pageable));</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/method/{method}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="79" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a60624a2d8ad2b2755028077e4f55803f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingSession&gt;&gt;<sp/>findByMethod(</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>TrainingSession.Method<sp/>method,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.findByMethod(method,<sp/>pageable));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/venue/{venue}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="93" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a610e982b5d6768bbd5d1f0d1f5e517cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingSession&gt;&gt;<sp/>findByVenue(</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>String<sp/>venue,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.findByVenue(venue,<sp/>pageable));</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/date-range&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="108" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a76e4f2d5369a1eb0d7a6dae76e9d8537" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingSession&gt;&gt;<sp/>findBySessionDateBetween(</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam<sp/>@DateTimeFormat(iso<sp/>=<sp/>DateTimeFormat.ISO.DATE)<sp/>LocalDate<sp/>startDate,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam<sp/>@DateTimeFormat(iso<sp/>=<sp/>DateTimeFormat.ISO.DATE)<sp/>LocalDate<sp/>endDate,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.findBySessionDateBetween(startDate,<sp/>endDate,<sp/>pageable));</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/future&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="122" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a109fffbbb6d2016607d6363d02b5cf94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingSession&gt;&gt;<sp/>findFutureSessions(@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.findFutureSessions(pageable));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/completed&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="133" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a3116aee4f1e62245a753a7b27fbff9a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingSession&gt;&gt;<sp/>findCompletedSessions(@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.findCompletedSessions(pageable));</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/ongoing&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="144" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1aca17b274aa27e11efd705f31d6049f57" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingSession&gt;&gt;<sp/>findOngoingSessions(@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.findOngoingSessions(pageable));</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{id}/status&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="156" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a94bc9b372f4d5c772f36b699bc451fa8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;TrainingSession&gt;<sp/>updateStatus(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam<sp/>TrainingSession.Status<sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.updateStatus(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>status));</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/batch/status&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="169" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a5a3c3df1b8683052761fb5978984282a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Integer&gt;<sp/>batchUpdateStatus(@RequestBody<sp/>List&lt;Long&gt;<sp/>ids,</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam<sp/>TrainingSession.Status<sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.batchUpdateStatus(ids,<sp/>status));</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/search&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="182" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a0ca0dff0b06b1569f7fad22974e6800b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingSession&gt;&gt;<sp/>search(@RequestParam<sp/>String<sp/>keyword,</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.search(keyword,<sp/>pageable));</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{id}/actual-attendance&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="194" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1a5a07316c907b308b5e925c2e129cdf87" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Integer&gt;<sp/>getActualAttendance(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.getActualAttendance(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{id}/attendance-rate&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="205" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingSessionController_1ab67ab56f3fda46fef0d21ec2408aeb73" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Double&gt;<sp/>getAttendanceRate(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingSessionService.getAttendanceRate(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/main/java/com/gmp/training/controller/TrainingSessionController.java"/>
+  </compounddef>
+</doxygen>

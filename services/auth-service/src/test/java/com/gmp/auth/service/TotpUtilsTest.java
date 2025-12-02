@@ -56,9 +56,9 @@ class TotpUtilsTest {
         
         // Then
         assertThat(secretKey).isNotNull();
-        assertThat(secretKey).hasSize(16); // 生成的密钥长度应该是16
-        // 验证密钥只包含Base32字符
-        assertThat(secretKey).matches("[A-Z2-7]+");
+        assertThat(secretKey).hasSize(24); // Base64编码后16字节会变成24个字符
+        // 验证密钥是有效的Base64字符串
+        assertThat(secretKey).matches("[A-Za-z0-9+/=]+");
     }
 
     // 注释掉测试私有方法的测试

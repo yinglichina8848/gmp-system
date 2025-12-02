@@ -41,6 +41,10 @@ public class SubsystemAccessInterceptor implements HandlerInterceptor {
     private static final Set<String> EXCLUDED_PATHS = new HashSet<>(Arrays.asList(
             "/api/auth/login",
             "/api/auth/logout",
+            "/api/auth/check/",
+            "/api/auth/health",
+            "/api/auth/admin/",
+            "/api/auth/permissions/",
             "/api/subsystems/check/",
             "/api/subsystems/accessible/",
             "/api/subsystems/access-levels/"

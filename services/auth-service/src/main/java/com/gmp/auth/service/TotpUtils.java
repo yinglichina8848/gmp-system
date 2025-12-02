@@ -1,5 +1,6 @@
 package com.gmp.auth.service;
 
+import org.springframework.stereotype.Component;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
@@ -9,6 +10,7 @@ import java.util.Base64;
 /**
  * TOTP工具类，提供基础的基于时间的一次性密码生成和验证功能
  */
+@Component
 public class TotpUtils {
     private static final int TOTP_TIME_STEP = 30; // 30秒
     private static final int TOTP_CODE_LENGTH = 6; // 6位数字
@@ -19,7 +21,7 @@ public class TotpUtils {
      * 生成随机的TOTP密钥
      * @return Base64编码的密钥
      */
-    public static String generateSecretKey() {
+    public String generateSecretKey() {
         byte[] key = new byte[SECRET_KEY_LENGTH];
         SECURE_RANDOM.nextBytes(key);
         return Base64.getEncoder().encodeToString(key);
@@ -30,7 +32,7 @@ public class TotpUtils {
      * @param secretKey 密钥
      * @return 6位TOTP码
      */
-    public static String generateTotpCode(String secretKey) {
+    public String generateTotpCode(String secretKey) {
         return generateTotpCode(secretKey, Instant.now().getEpochSecond());
     }
 
@@ -40,8 +42,11 @@ public class TotpUtils {
      * @param timestamp 时间戳（秒）
      * @return 6位TOTP码
      */
-    public static String generateTotpCode(String secretKey, long timestamp) {
+    public String generateTotpCode(String secretKey, long timestamp) {
         try {
+            if (secretKey == null || secretKey.isEmpty()) {
+                return null;
+            }
             byte[] key = Base64.getDecoder().decode(secretKey);
             long timeStep = timestamp / TOTP_TIME_STEP;
             
@@ -64,7 +69,7 @@ public class TotpUtils {
             int otp = binary % (int) Math.pow(10, TOTP_CODE_LENGTH);
             return String.format("%0" + TOTP_CODE_LENGTH + "d", otp);
         } catch (Exception e) {
-            throw new RuntimeException("生成TOTP码失败", e);
+            return null;
         }
     }
 
@@ -74,7 +79,7 @@ public class TotpUtils {
      * @param code 用户输入的验证码
      * @return 是否验证成功
      */
-    public static boolean verifyTotpCode(String secretKey, String code) {
+    public boolean verifyTotpCode(String secretKey, String code) {
         try {
             // 验证当前时间戳和前后一个时间戳的验证码，以允许时钟偏差
             long currentTime = Instant.now().getEpochSecond();
@@ -93,7 +98,7 @@ public class TotpUtils {
      * @param timestamp 时间戳
      * @return 是否验证成功
      */
-    public static boolean verifyTotpCodeAtTimestamp(String secretKey, String code, long timestamp) {
+    public boolean verifyTotpCodeAtTimestamp(String secretKey, String code, long timestamp) {
         if (code == null || code.length() != TOTP_CODE_LENGTH) {
             return false;
         }
@@ -109,7 +114,7 @@ public class TotpUtils {
      * @param issuer 发行商名称
      * @return 二维码URI
      */
-    public static String generateTotpUri(String secretKey, String accountName, String issuer) {
+    public String generateTotpUri(String secretKey, String accountName, String issuer) {
         String encodedSecret = Base64.getEncoder().encodeToString(secretKey.getBytes(StandardCharsets.UTF_8));
         String label = String.format("%s:%s", issuer, accountName).replace(" ", "%20");
         return String.format("otpauth://totp/%s?secret=%s&issuer=%s&algorithm=SHA1&digits=6&period=30",
@@ -123,7 +128,7 @@ public class TotpUtils {
      * @return 哈希结果
      * @throws Exception 计算过程中的异常
      */
-    private static byte[] hmacSha1(byte[] key, byte[] data) throws Exception {
+    private byte[] hmacSha1(byte[] key, byte[] data) throws Exception {
         javax.crypto.Mac mac = javax.crypto.Mac.getInstance("HmacSHA1");
         javax.crypto.spec.SecretKeySpec secretKeySpec = new javax.crypto.spec.SecretKeySpec(key, "HmacSHA1");
         mac.init(secretKeySpec);
@@ -134,7 +139,7 @@ public class TotpUtils {
      * 获取当前时间窗口
      * @return 当前时间窗口索引
      */
-    public static long getCurrentTimeWindow() {
+    public long getCurrentTimeWindow() {
         return Instant.now().getEpochSecond() / TOTP_TIME_STEP;
     }
 
@@ -142,7 +147,7 @@ public class TotpUtils {
      * 获取剩余有效期（秒）
      * @return 剩余有效期
      */
-    public static int getRemainingSeconds() {
+    public int getRemainingSeconds() {
         return TOTP_TIME_STEP - (int)(Instant.now().getEpochSecond() % TOTP_TIME_STEP);
     }
 }

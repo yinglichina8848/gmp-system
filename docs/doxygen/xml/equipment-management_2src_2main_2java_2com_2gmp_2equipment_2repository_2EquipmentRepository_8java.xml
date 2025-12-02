@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="equipment-management_2src_2main_2java_2com_2gmp_2equipment_2repository_2EquipmentRepository_8java" kind="file" language="Java">
+    <compoundname>EquipmentRepository.java</compoundname>
+    <includes local="no">com.gmp.equipment.entity.Equipment</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>equipment-management/src/main/java/com/gmp/equipment/repository/EquipmentRepository.java</label>
+        <link refid="equipment-management_2src_2main_2java_2com_2gmp_2equipment_2repository_2EquipmentRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.equipment.entity.Equipment</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository" prot="public">com::gmp::equipment::repository::EquipmentRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1equipment_1_1repository">com::gmp::equipment::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1equipment_1_1repository" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.equipment.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>设备数据仓库接口</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dịp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WHY:<sp/>在GMP设备管理系统中，需要通过多种查询维度来高效访问设备数据，</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>包括按状态、位置、类型等条件检索设备，支持分页和聚合查询，</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>为业务逻辑层提供统一的数据访问接口。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WHAT:<sp/>EquipmentRepository定义了设备的CRUD操作和各种业务查询方法，</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>包含标准查询、统计查询和特殊业务查询，为设备管理系统提供完整的数据访问能力。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>HOW:<sp/>继承JpaRepository获得基本CRUD能力，通过@Query注解自定义复杂查询，</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>使用Spring<sp/>Data<sp/>JPA命名方法约定优化查询开发效率，确保数据库访问的类型安全。</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.equipment.entity.Equipment;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="40" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository" kindref="compound">EquipmentRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Equipment,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1ace5babbfd2ce0fd053b1c8d7b52b0984" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Equipment<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1ace5babbfd2ce0fd053b1c8d7b52b0984" kindref="member">findByEquipmentCode</ref>(String<sp/>equipmentCode);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1af29536b840e4514ec7b8f57b18fbf3f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1af29536b840e4514ec7b8f57b18fbf3f5" kindref="member">existsByEquipmentCode</ref>(String<sp/>equipmentCode);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a9d3df19a3b467064ae49329ff9f50862" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a9d3df19a3b467064ae49329ff9f50862" kindref="member">findByEquipmentStatus</ref>(Equipment.EquipmentStatus<sp/>status);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1abc1ead020626c69cb7de04c4e559055c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1abc1ead020626c69cb7de04c4e559055c" kindref="member">findByEquipmentStatus</ref>(Equipment.EquipmentStatus<sp/>status,<sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a27e1526d0948c2587b46ee7546516fe1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a27e1526d0948c2587b46ee7546516fe1" kindref="member">findByLocation</ref>(String<sp/>location);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a9c4078afc6baaa60de3c3c0a9208189e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a9c4078afc6baaa60de3c3c0a9208189e" kindref="member">findByEquipmentType</ref>(String<sp/>equipmentType);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a1fe7229e247507ef4b1e6849d288b19c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a1fe7229e247507ef4b1e6849d288b19c" kindref="member">findByManufacturer</ref>(String<sp/>manufacturer);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>e<sp/>FROM<sp/>Equipment<sp/>e<sp/>WHERE<sp/>e.nextMaintenanceDate<sp/>&lt;=<sp/>:currentDate&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="81" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1aa97357171fe7d4eabf8ebdc613060a62" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1aa97357171fe7d4eabf8ebdc613060a62" kindref="member">findEquipmentDueForMaintenance</ref>(@Param(&quot;currentDate&quot;)<sp/>LocalDateTime<sp/>currentDate);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>e<sp/>FROM<sp/>Equipment<sp/>e<sp/>WHERE<sp/>e.nextCalibrationDate<sp/>&lt;=<sp/>:currentDate<sp/>AND<sp/>e.equipmentStatus<sp/>!=<sp/>&apos;DECOMMISSIONED&apos;&quot;)</highlight></codeline>
+<codeline lineno="87" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a9f16cd822be12d04254bc7821fa30e35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a9f16cd822be12d04254bc7821fa30e35" kindref="member">findCalibrationOverdueEquipment</ref>(@Param(&quot;currentDate&quot;)<sp/>LocalDateTime<sp/>currentDate);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>e<sp/>FROM<sp/>Equipment<sp/>e<sp/>WHERE<sp/>e.nextCalibrationDate<sp/>BETWEEN<sp/>:currentDate<sp/>AND<sp/>:futureDate<sp/>AND<sp/>e.equipmentStatus<sp/>=<sp/>&apos;ACTIVE&apos;&quot;)</highlight></codeline>
+<codeline lineno="93" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a5adfac2bf1cf9257fa134048e75bdd0a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a5adfac2bf1cf9257fa134048e75bdd0a" kindref="member">findEquipmentDueForCalibration</ref>(@Param(&quot;currentDate&quot;)<sp/>LocalDateTime<sp/>currentDate,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;futureDate&quot;)<sp/>LocalDateTime<sp/>futureDate);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>e<sp/>FROM<sp/>Equipment<sp/>e<sp/>WHERE<sp/>e.warrantyExpiry<sp/>&gt;<sp/>:currentDate<sp/>AND<sp/>e.equipmentStatus<sp/>=<sp/>&apos;ACTIVE&apos;&quot;)</highlight></codeline>
+<codeline lineno="100" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1aa5e4c1c863b853f0aa9031f5c87eb6cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1aa5e4c1c863b853f0aa9031f5c87eb6cf" kindref="member">findEquipmentUnderWarranty</ref>(@Param(&quot;currentDate&quot;)<sp/>LocalDateTime<sp/>currentDate);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>e.equipmentType,<sp/>COUNT(e)<sp/>FROM<sp/>Equipment<sp/>e<sp/>GROUP<sp/>BY<sp/>e.equipmentType&quot;)</highlight></codeline>
+<codeline lineno="106" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a74a1afb8397279199d18cc343aa4ccd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a74a1afb8397279199d18cc343aa4ccd9" kindref="member">countEquipmentByType</ref>();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>e.equipmentStatus,<sp/>COUNT(e)<sp/>FROM<sp/>Equipment<sp/>e<sp/>GROUP<sp/>BY<sp/>e.equipmentStatus&quot;)</highlight></codeline>
+<codeline lineno="112" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a5f7d573025511fd048741180da398ab1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a5f7d573025511fd048741180da398ab1" kindref="member">countEquipmentByStatus</ref>();</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>e.operationalStatus,<sp/>COUNT(e)<sp/>FROM<sp/>Equipment<sp/>e<sp/>GROUP<sp/>BY<sp/>e.operationalStatus&quot;)</highlight></codeline>
+<codeline lineno="118" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1ac887e9db2bcbc544ae5badc2105ac496" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1ac887e9db2bcbc544ae5badc2105ac496" kindref="member">countEquipmentByOperationalStatus</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>e<sp/>FROM<sp/>Equipment<sp/>e<sp/>WHERE<sp/>e.criticalEquipment<sp/>=<sp/>true<sp/>AND<sp/>e.equipmentStatus<sp/>=<sp/>&apos;ACTIVE&apos;&quot;)</highlight></codeline>
+<codeline lineno="124" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a73675225d1d15010d4f40948a86b2caa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a73675225d1d15010d4f40948a86b2caa" kindref="member">findCriticalEquipment</ref>();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>e<sp/>FROM<sp/>Equipment<sp/>e<sp/>WHERE<sp/>e.installationDate<sp/>BETWEEN<sp/>:startDate<sp/>AND<sp/>:endDate&quot;)</highlight></codeline>
+<codeline lineno="130" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a68f543013851f30942eed55733945ed2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a68f543013851f30942eed55733945ed2" kindref="member">findEquipmentInstalledBetween</ref>(@Param(&quot;startDate&quot;)<sp/>LocalDateTime<sp/>startDate,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;endDate&quot;)<sp/>LocalDateTime<sp/>endDate);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>e<sp/>FROM<sp/>Equipment<sp/>e<sp/>WHERE<sp/>e.monitoringEnabled<sp/>=<sp/>true<sp/>AND<sp/>e.equipmentStatus<sp/>=<sp/>&apos;ACTIVE&apos;&quot;)</highlight></codeline>
+<codeline lineno="137" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a176f033303c757eea03d44cf38bb599b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a176f033303c757eea03d44cf38bb599b" kindref="member">findMonitoredEquipment</ref>();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SELECT<sp/>e<sp/>FROM<sp/>Equipment<sp/>e</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WHERE<sp/>(:equipmentCode<sp/>IS<sp/>NULL<sp/>OR<sp/>LOWER(e.equipmentCode)<sp/>LIKE<sp/>LOWER(CONCAT(&apos;%&apos;,<sp/>:equipmentCode,<sp/>&apos;%&apos;)))</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AND<sp/>(:equipmentName<sp/>IS<sp/>NULL<sp/>OR<sp/>LOWER(e.equipmentName)<sp/>LIKE<sp/>LOWER(CONCAT(&apos;%&apos;,<sp/>:equipmentName,<sp/>&apos;%&apos;)))</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AND<sp/>(:equipmentType<sp/>IS<sp/>NULL<sp/>OR<sp/>e.equipmentType<sp/>=<sp/>:equipmentType)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AND<sp/>(:manufacturer<sp/>IS<sp/>NULL<sp/>OR<sp/>LOWER(e.manufacturer)<sp/>LIKE<sp/>LOWER(CONCAT(&apos;%&apos;,<sp/>:manufacturer,<sp/>&apos;%&apos;)))</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AND<sp/>(:location<sp/>IS<sp/>NULL<sp/>OR<sp/>LOWER(e.location)<sp/>LIKE<sp/>LOWER(CONCAT(&apos;%&apos;,<sp/>:location,<sp/>&apos;%&apos;)))</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AND<sp/>(:equipmentStatus<sp/>IS<sp/>NULL<sp/>OR<sp/>e.equipmentStatus<sp/>=<sp/>:equipmentStatus)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AND<sp/>e.equipmentStatus<sp/>!=<sp/>&apos;DECOMMISSIONED&apos;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;)</highlight></codeline>
+<codeline lineno="152" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a0e5c82fc1d78e666915a042fd4b9d159" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Page&lt;Equipment&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a0e5c82fc1d78e666915a042fd4b9d159" kindref="member">findEquipmentWithFilters</ref>(@Param(&quot;equipmentCode&quot;)<sp/>String<sp/>equipmentCode,</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;equipmentName&quot;)<sp/>String<sp/>equipmentName,</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;equipmentType&quot;)<sp/>String<sp/>equipmentType,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;manufacturer&quot;)<sp/>String<sp/>manufacturer,</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;location&quot;)<sp/>String<sp/>location,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Param(&quot;equipmentStatus&quot;)<sp/>Equipment.EquipmentStatus<sp/>equipmentStatus,</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a2ae33cd2f3078c9fd8317e14c6d4f575" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Equipment<sp/><ref refid="interfacecom_1_1gmp_1_1equipment_1_1repository_1_1EquipmentRepository_1a2ae33cd2f3078c9fd8317e14c6d4f575" kindref="member">findBySensorId</ref>(String<sp/>sensorId);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="equipment-management/src/main/java/com/gmp/equipment/repository/EquipmentRepository.java"/>
+  </compounddef>
+</doxygen>

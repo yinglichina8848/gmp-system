@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="training-service_2src_2main_2java_2com_2gmp_2training_2controller_2TrainingRecordController_8java" kind="file" language="Java">
+    <compoundname>TrainingRecordController.java</compoundname>
+    <includes local="no">com.gmp.training.entity.TrainingRecord</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/main/java/com/gmp/training/controller/TrainingRecordController.java</label>
+        <link refid="training-service_2src_2main_2java_2com_2gmp_2training_2controller_2TrainingRecordController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.training.entity.TrainingRecord</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController" prot="public">com::gmp::training::controller::TrainingRecordController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1controller">com::gmp::training::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.entity.TrainingRecord;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.training.service.TrainingRecordService;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.web.PageableDefault;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.ResponseEntity;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.Valid;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/training-records&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController" kindref="compound">TrainingRecordController</ref><sp/>extends<sp/><ref refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController" kindref="compound">BaseController</ref>&lt;TrainingRecord,<sp/>Long&gt;<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="25" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1a798ecf3b33cc67a840dcf55cb89b18e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>TrainingRecordService<sp/><ref refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1a798ecf3b33cc67a840dcf55cb89b18e6" kindref="member">trainingRecordService</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/user/{userId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1a58ea4e95c3dc9d534d4f386e86d363a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingRecord&gt;&gt;<sp/>findByUserId(</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/>userId,<sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingRecordService.findByUserId(userId,<sp/>pageable));</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/session/{sessionId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="49" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1a3c79e0a2512f098e62b8982a0afd959b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingRecord&gt;&gt;<sp/>findBySessionId(</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/>sessionId,<sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingRecordService.findBySessionId(sessionId,<sp/>pageable));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/course/{courseId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="63" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1af19b30fad9cecc41387657843f94e740" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingRecord&gt;&gt;<sp/>findByCourseId(</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/>courseId,<sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingRecordService.findByCourseId(courseId,<sp/>pageable));</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/status/{status}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="77" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1a0b7302181517ab65e11698a95185d75c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingRecord&gt;&gt;<sp/>findByStatus(</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>TrainingRecord.Status<sp/>status,<sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingRecordService.findByStatus(status,<sp/>pageable));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/department/{departmentId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="91" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1aa953e7e5ad8c8b3a829c5b9742cc8ba1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingRecord&gt;&gt;<sp/>findByDepartmentId(</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/>departmentId,<sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingRecordService.findByDepartmentId(departmentId,<sp/>pageable));</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/position/{positionId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="105" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1a5f159c139d62151f11b5ece4c86d588e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingRecord&gt;&gt;<sp/>findByPositionId(</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/>positionId,<sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingRecordService.findByPositionId(positionId,<sp/>pageable));</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{id}/status&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="119" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1acf5ee53409b27a163b13e6ce56670dc1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;TrainingRecord&gt;<sp/>updateStatus(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>@RequestParam<sp/>TrainingRecord.Status<sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingRecordService.updateStatus(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>status));</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/batch/status&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="131" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1a92dd5158eebd57c06baf3a33195b42a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Integer&gt;<sp/>batchUpdateStatus(@RequestBody<sp/>List&lt;Long&gt;<sp/>ids,<sp/>@RequestParam<sp/>TrainingRecord.Status<sp/>status)<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingRecordService.batchUpdateStatus(ids,<sp/>status));</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/search&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="143" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1a02db7de9d7bce2718acb719867222e96" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Page&lt;TrainingRecord&gt;&gt;<sp/>search(@RequestParam<sp/>String<sp/>keyword,<sp/>@PageableDefault<sp/>Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingRecordService.search(keyword,<sp/>pageable));</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/user/{userId}/completion-rate&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="154" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1a1c98838c48e7c32a2a9da27c792a15d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Double&gt;<sp/>getUserCompletionRate(@PathVariable<sp/>Long<sp/>userId)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingRecordService.getUserCompletionRate(userId));</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/course/{courseId}/completion-rate&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="165" refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingRecordController_1a5e28f7181aeb163840fc6d719cb2d2c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Double&gt;<sp/>getCourseCompletionRate(@PathVariable<sp/>Long<sp/>courseId)<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(trainingRecordService.getCourseCompletionRate(courseId));</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/main/java/com/gmp/training/controller/TrainingRecordController.java"/>
+  </compounddef>
+</doxygen>

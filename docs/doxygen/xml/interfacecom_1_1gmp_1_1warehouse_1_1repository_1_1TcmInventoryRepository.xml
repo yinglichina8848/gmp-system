@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1TcmInventoryRepository" kind="interface" language="Java" prot="public">
+    <compoundname>com::gmp::warehouse::repository::TcmInventoryRepository</compoundname>
+    <basecompoundref refid="classJpaRepository" prot="public" virt="non-virtual">JpaRepository&lt; TcmInventory, Long &gt;</basecompoundref>
+    <basecompoundref refid="classJpaSpecificationExecutor" prot="public" virt="non-virtual">JpaSpecificationExecutor&lt; TcmInventory &gt;</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1TcmInventoryRepository_1a311a3d51621554494d11b6ba88a9c482" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; TcmInventory &gt;</type>
+        <definition>List&lt; TcmInventory &gt; com.gmp.warehouse.repository.TcmInventoryRepository.findByHerbName</definition>
+        <argsstring>(String herbName)</argsstring>
+        <name>findByHerbName</name>
+        <qualifiedname>com.gmp.warehouse.repository.TcmInventoryRepository.findByHerbName</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>herbName</declname>
+        </param>
+        <briefdescription>
+<para>根据中药材名称查找库存记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>herbName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>中药材名称 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>库存记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="warehouse-service/src/main/java/com/gmp/warehouse/repository/TcmInventoryRepository.java" line="30" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1TcmInventoryRepository_1a582be4518870da62537147071de4f8d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional&lt; TcmInventory &gt;</type>
+        <definition>Optional&lt; TcmInventory &gt; com.gmp.warehouse.repository.TcmInventoryRepository.findByBatchNumber</definition>
+        <argsstring>(String batchNumber)</argsstring>
+        <name>findByBatchNumber</name>
+        <qualifiedname>com.gmp.warehouse.repository.TcmInventoryRepository.findByBatchNumber</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>batchNumber</declname>
+        </param>
+        <briefdescription>
+<para>根据批号查找库存记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>batchNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>批号 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>库存记录Optional对象 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="warehouse-service/src/main/java/com/gmp/warehouse/repository/TcmInventoryRepository.java" line="38" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1TcmInventoryRepository_1a7a3d79ce148d8e629fdabe5fbf4275c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; TcmInventory &gt;</type>
+        <definition>List&lt; TcmInventory &gt; com.gmp.warehouse.repository.TcmInventoryRepository.findByHerbNameAndWarehouseId</definition>
+        <argsstring>(String herbName, Long warehouseId)</argsstring>
+        <name>findByHerbNameAndWarehouseId</name>
+        <qualifiedname>com.gmp.warehouse.repository.TcmInventoryRepository.findByHerbNameAndWarehouseId</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>herbName</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>warehouseId</declname>
+        </param>
+        <briefdescription>
+<para>根据中药材名称和仓库ID查找库存记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>herbName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>中药材名称 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>warehouseId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>仓库ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>库存记录列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="warehouse-service/src/main/java/com/gmp/warehouse/repository/TcmInventoryRepository.java" line="47" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>中药特色库存仓库接口 </para>
+    </briefdescription>
+    <detaileddescription>
+<para>提供中药材库存信息的数据访问接口。 </para>
+<para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0.0 </para>
+</simplesect>
+<simplesect kind="since"><para>2024-01-01 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JpaRepository&lt; TcmInventory, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; TcmInventory &gt;</label>
+        <link refid="classJpaSpecificationExecutor"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.warehouse.repository.TcmInventoryRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1TcmInventoryRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JpaRepository&lt; TcmInventory, Long &gt;</label>
+        <link refid="classJpaRepository"/>
+      </node>
+      <node id="3">
+        <label>JpaSpecificationExecutor&lt; TcmInventory &gt;</label>
+        <link refid="classJpaSpecificationExecutor"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.warehouse.repository.TcmInventoryRepository</label>
+        <link refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1TcmInventoryRepository"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="warehouse-service/src/main/java/com/gmp/warehouse/repository/TcmInventoryRepository.java" line="22" column="18" bodyfile="warehouse-service/src/main/java/com/gmp/warehouse/repository/TcmInventoryRepository.java" bodystart="22" bodyend="48"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1TcmInventoryRepository_1a582be4518870da62537147071de4f8d8" prot="public" virt="non-virtual"><scope>com::gmp::warehouse::repository::TcmInventoryRepository</scope><name>findByBatchNumber</name></member>
+      <member refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1TcmInventoryRepository_1a311a3d51621554494d11b6ba88a9c482" prot="public" virt="non-virtual"><scope>com::gmp::warehouse::repository::TcmInventoryRepository</scope><name>findByHerbName</name></member>
+      <member refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1TcmInventoryRepository_1a7a3d79ce148d8e629fdabe5fbf4275c1" prot="public" virt="non-virtual"><scope>com::gmp::warehouse::repository::TcmInventoryRepository</scope><name>findByHerbNameAndWarehouseId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

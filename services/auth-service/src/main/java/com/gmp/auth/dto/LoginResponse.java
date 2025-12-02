@@ -74,11 +74,6 @@ public class LoginResponse {
         }
     }
     
-    // 添加设置Set类型roles的方法
-    public void setRoles(Set<String> roles) {
-        this.roles = roles;
-    }
-    
     // 添加userId的getter和setter
     public Long getUserId() {
         return userId;

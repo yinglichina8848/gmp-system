@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::qms::controller::McpVersionController</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1ae20c283a12a46543fe69692fe9bc9fe5" prot="private" static="no" mutable="no">
+        <type>final McpVersionControl</type>
+        <definition>final McpVersionControl com.gmp.qms.controller.McpVersionController.versionControl</definition>
+        <argsstring></argsstring>
+        <name>versionControl</name>
+        <qualifiedname>com.gmp.qms.controller.McpVersionController.versionControl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" line="22" column="37" bodyfile="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" bodystart="22" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a3ded941f0ab13e186436bc3c896abc0e" compoundref="McpVersionController_8java" startline="45" endline="80">com.gmp.qms.controller.McpVersionController.checkCompatibility</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a502e950f257412e5dc65d8ab524b11f0" compoundref="McpVersionController_8java" startline="165" endline="206">com.gmp.qms.controller.McpVersionController.compareVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a638a1761e0ef919e3b80896b07ce0ec1" compoundref="McpVersionController_8java" startline="86" endline="104">com.gmp.qms.controller.McpVersionController.getDetailedCompatibilityInfo</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1aaab5ad98dd25bf718c502c50c8c49233" compoundref="McpVersionController_8java" startline="110" endline="124">com.gmp.qms.controller.McpVersionController.getUpgradePath</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a511430aab1861c205e1079089d053ef5" prot="private" static="no" mutable="no">
+        <type>final McpVersionCompatibilityFilter</type>
+        <definition>final McpVersionCompatibilityFilter com.gmp.qms.controller.McpVersionController.versionFilter</definition>
+        <argsstring></argsstring>
+        <name>versionFilter</name>
+        <qualifiedname>com.gmp.qms.controller.McpVersionController.versionFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" line="23" column="49" bodyfile="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" bodystart="23" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a92d4fb7f004059d0f154ceba79feda89" compoundref="McpVersionController_8java" startline="131" endline="143">com.gmp.qms.controller.McpVersionController.clearVersionCache</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1ad3f2ae8f6eeca0f980d2267119d3f6d9" compoundref="McpVersionController_8java" startline="149" endline="159">com.gmp.qms.controller.McpVersionController.getCacheStatistics</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a65c8b297e9891792bf1510da2325970d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Map&lt; String, String &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Map&lt; String, String &gt; &gt; com.gmp.qms.controller.McpVersionController.getCurrentVersion</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentVersion</name>
+        <qualifiedname>com.gmp.qms.controller.McpVersionController.getCurrentVersion</qualifiedname>
+        <briefdescription>
+<para>获取当前MCP集成版本信息 此接口允许所有系统查询当前版本，用于自我检查 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" line="30" column="27" bodyfile="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a3ded941f0ab13e186436bc3c896abc0e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Map&lt; String, Object &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Map&lt; String, Object &gt; &gt; com.gmp.qms.controller.McpVersionController.checkCompatibility</definition>
+        <argsstring>( @RequestParam String clientVersion, @RequestParam(required=false) String systemName)</argsstring>
+        <name>checkCompatibility</name>
+        <qualifiedname>com.gmp.qms.controller.McpVersionController.checkCompatibility</qualifiedname>
+        <param>
+          <type>@RequestParam String</type>
+          <declname>clientVersion</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) String</type>
+          <declname>systemName</declname>
+        </param>
+        <briefdescription>
+<para>检查客户端版本的兼容性 允许客户端在进行实际操作前验证自己的版本是否兼容 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" line="45" column="27" bodyfile="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" bodystart="45" bodyend="80"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1ae20c283a12a46543fe69692fe9bc9fe5" compoundref="McpVersionController_8java" startline="22">com.gmp.qms.controller.McpVersionController.versionControl</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a638a1761e0ef919e3b80896b07ce0ec1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Map&lt; String, String &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Map&lt; String, String &gt; &gt; com.gmp.qms.controller.McpVersionController.getDetailedCompatibilityInfo</definition>
+        <argsstring>( @RequestParam String clientVersion)</argsstring>
+        <name>getDetailedCompatibilityInfo</name>
+        <qualifiedname>com.gmp.qms.controller.McpVersionController.getDetailedCompatibilityInfo</qualifiedname>
+        <param>
+          <type>@RequestParam String</type>
+          <declname>clientVersion</declname>
+        </param>
+        <briefdescription>
+<para>获取详细的兼容性信息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" line="86" column="27" bodyfile="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" bodystart="86" bodyend="104"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1ae20c283a12a46543fe69692fe9bc9fe5" compoundref="McpVersionController_8java" startline="22">com.gmp.qms.controller.McpVersionController.versionControl</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1aaab5ad98dd25bf718c502c50c8c49233" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Map&lt; String, String &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Map&lt; String, String &gt; &gt; com.gmp.qms.controller.McpVersionController.getUpgradePath</definition>
+        <argsstring>( @RequestParam String fromVersion, @RequestParam String toVersion)</argsstring>
+        <name>getUpgradePath</name>
+        <qualifiedname>com.gmp.qms.controller.McpVersionController.getUpgradePath</qualifiedname>
+        <param>
+          <type>@RequestParam String</type>
+          <declname>fromVersion</declname>
+        </param>
+        <param>
+          <type>@RequestParam String</type>
+          <declname>toVersion</declname>
+        </param>
+        <briefdescription>
+<para>获取升级路径建议 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" line="110" column="27" bodyfile="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" bodystart="110" bodyend="124"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1ae20c283a12a46543fe69692fe9bc9fe5" compoundref="McpVersionController_8java" startline="22">com.gmp.qms.controller.McpVersionController.versionControl</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a92d4fb7f004059d0f154ceba79feda89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Map&lt; String, String &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Map&lt; String, String &gt; &gt; com.gmp.qms.controller.McpVersionController.clearVersionCache</definition>
+        <argsstring>()</argsstring>
+        <name>clearVersionCache</name>
+        <qualifiedname>com.gmp.qms.controller.McpVersionController.clearVersionCache</qualifiedname>
+        <briefdescription>
+<para>清除版本兼容性缓存 用于管理员在系统更新后刷新缓存 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" line="131" column="27" bodyfile="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" bodystart="131" bodyend="143"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a511430aab1861c205e1079089d053ef5" compoundref="McpVersionController_8java" startline="23">com.gmp.qms.controller.McpVersionController.versionFilter</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1ad3f2ae8f6eeca0f980d2267119d3f6d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Map&lt; String, Object &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Map&lt; String, Object &gt; &gt; com.gmp.qms.controller.McpVersionController.getCacheStatistics</definition>
+        <argsstring>()</argsstring>
+        <name>getCacheStatistics</name>
+        <qualifiedname>com.gmp.qms.controller.McpVersionController.getCacheStatistics</qualifiedname>
+        <briefdescription>
+<para>获取版本缓存统计信息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" line="149" column="27" bodyfile="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" bodystart="149" bodyend="159"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a511430aab1861c205e1079089d053ef5" compoundref="McpVersionController_8java" startline="23">com.gmp.qms.controller.McpVersionController.versionFilter</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a502e950f257412e5dc65d8ab524b11f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Map&lt; String, Object &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Map&lt; String, Object &gt; &gt; com.gmp.qms.controller.McpVersionController.compareVersions</definition>
+        <argsstring>( @RequestParam String version1, @RequestParam String version2)</argsstring>
+        <name>compareVersions</name>
+        <qualifiedname>com.gmp.qms.controller.McpVersionController.compareVersions</qualifiedname>
+        <param>
+          <type>@RequestParam String</type>
+          <declname>version1</declname>
+        </param>
+        <param>
+          <type>@RequestParam String</type>
+          <declname>version2</declname>
+        </param>
+        <briefdescription>
+<para>比较两个版本的大小 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" line="165" column="27" bodyfile="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" bodystart="165" bodyend="206"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1ae20c283a12a46543fe69692fe9bc9fe5" compoundref="McpVersionController_8java" startline="22">com.gmp.qms.controller.McpVersionController.versionControl</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1ae54a9668e4b118f45f413f93bd1846b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Map&lt; String, String &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Map&lt; String, String &gt; &gt; com.gmp.qms.controller.McpVersionController.getChangeLog</definition>
+        <argsstring>( @RequestParam(required=false) String version)</argsstring>
+        <name>getChangeLog</name>
+        <qualifiedname>com.gmp.qms.controller.McpVersionController.getChangeLog</qualifiedname>
+        <param>
+          <type>@RequestParam(required=false) String</type>
+          <declname>version</declname>
+        </param>
+        <briefdescription>
+<para>获取版本变更日志信息 注意：此接口需要与实际的变更日志存储系统集成 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" line="213" column="27" bodyfile="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" bodystart="213" bodyend="231"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>MCP版本管理控制器 提供版本信息查询、兼容性检查和升级路径建议等API. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>com.gmp.qms.controller.McpVersionController</label>
+        <link refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>versionControl</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>versionFilter</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>final McpVersionCompatibilityFilter</label>
+      </node>
+      <node id="2">
+        <label>final McpVersionControl</label>
+      </node>
+    </collaborationgraph>
+    <location file="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" line="20" column="7" bodyfile="qms-service/src/main/java/com/gmp/qms/controller/McpVersionController.java" bodystart="20" bodyend="232"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a3ded941f0ab13e186436bc3c896abc0e" prot="public" virt="non-virtual"><scope>com::gmp::qms::controller::McpVersionController</scope><name>checkCompatibility</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a92d4fb7f004059d0f154ceba79feda89" prot="public" virt="non-virtual"><scope>com::gmp::qms::controller::McpVersionController</scope><name>clearVersionCache</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a502e950f257412e5dc65d8ab524b11f0" prot="public" virt="non-virtual"><scope>com::gmp::qms::controller::McpVersionController</scope><name>compareVersions</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1ad3f2ae8f6eeca0f980d2267119d3f6d9" prot="public" virt="non-virtual"><scope>com::gmp::qms::controller::McpVersionController</scope><name>getCacheStatistics</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1ae54a9668e4b118f45f413f93bd1846b1" prot="public" virt="non-virtual"><scope>com::gmp::qms::controller::McpVersionController</scope><name>getChangeLog</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a65c8b297e9891792bf1510da2325970d" prot="public" virt="non-virtual"><scope>com::gmp::qms::controller::McpVersionController</scope><name>getCurrentVersion</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a638a1761e0ef919e3b80896b07ce0ec1" prot="public" virt="non-virtual"><scope>com::gmp::qms::controller::McpVersionController</scope><name>getDetailedCompatibilityInfo</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1aaab5ad98dd25bf718c502c50c8c49233" prot="public" virt="non-virtual"><scope>com::gmp::qms::controller::McpVersionController</scope><name>getUpgradePath</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1ae20c283a12a46543fe69692fe9bc9fe5" prot="private" virt="non-virtual"><scope>com::gmp::qms::controller::McpVersionController</scope><name>versionControl</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1controller_1_1McpVersionController_1a511430aab1861c205e1079089d053ef5" prot="private" virt="non-virtual"><scope>com::gmp::qms::controller::McpVersionController</scope><name>versionFilter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -7,19 +7,26 @@ import com.gmp.edms.entity.Document;
 import com.gmp.edms.entity.DocumentCategory;
 import com.gmp.edms.repository.DocumentRepository;
 import com.gmp.edms.service.DocumentCategoryService;
+import com.gmp.edms.service.DocumentSearchService;
+import com.gmp.edms.service.FileStorageService;
+import com.gmp.edms.event.EventPublisher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 class DocumentServiceImplTest {
@@ -32,6 +39,15 @@ class DocumentServiceImplTest {
 
     @Mock
     private ModelMapper modelMapper;
+
+    @Mock
+    private DocumentSearchService documentSearchService;
+
+    @Mock
+    private FileStorageService fileStorageService;
+
+    @Mock
+    private EventPublisher eventPublisher;
 
     @InjectMocks
     private DocumentServiceImpl documentService;
@@ -210,5 +226,127 @@ class DocumentServiceImplTest {
 
         // 验证repository调用
         verify(documentRepository).findByCategoryId(categoryId);
+    }
+
+    @Test
+    void testUploadDocumentFile() throws Exception {
+        Long documentId = 1L;
+        String fileName = "test.txt";
+        String fileContent = "Test file content";
+        MultipartFile multipartFile = new MockMultipartFile(
+                fileName,
+                fileName,
+                "text/plain",
+                fileContent.getBytes()
+        );
+
+        Document document = new Document();
+        document.setId(documentId);
+        document.setTitle("Test Document");
+
+        DocumentDTO documentDTO = new DocumentDTO();
+        documentDTO.setId(documentId);
+        documentDTO.setTitle(document.getTitle());
+
+        when(documentRepository.findById(documentId)).thenReturn(Optional.of(document));
+        when(documentRepository.save(any(Document.class))).thenReturn(document);
+        when(modelMapper.map(document, DocumentDTO.class)).thenReturn(documentDTO);
+
+        DocumentDTO result = documentService.uploadDocumentFile(documentId, multipartFile);
+
+        assertNotNull(result);
+        verify(documentRepository).save(document);
+        verify(fileStorageService).uploadFile(eq(multipartFile), eq("edms-documents"), anyString());
+    }
+
+    @Test
+    void testUploadDocumentFileWithEmptyFile() {
+        Long documentId = 1L;
+        MultipartFile emptyFile = new MockMultipartFile(
+                "empty.txt",
+                "empty.txt",
+                "text/plain",
+                new byte[0]
+        );
+
+        Document document = new Document();
+        document.setId(documentId);
+
+        when(documentRepository.findById(documentId)).thenReturn(Optional.of(document));
+
+        Exception exception = assertThrows(Exception.class, () -> {
+            documentService.uploadDocumentFile(documentId, emptyFile);
+        });
+
+        assertEquals("文件不能为空", exception.getMessage());
+    }
+
+    @Test
+    void testUploadDocumentFileWithNonExistingDocument() {
+        Long documentId = 1L;
+        MultipartFile multipartFile = new MockMultipartFile(
+                "test.txt",
+                "test.txt",
+                "text/plain",
+                "Test content".getBytes()
+        );
+
+        when(documentRepository.findById(documentId)).thenReturn(Optional.empty());
+
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            documentService.uploadDocumentFile(documentId, multipartFile);
+        });
+
+        assertEquals("文档不存在: " + documentId, exception.getMessage());
+    }
+
+    @Test
+    void testDownloadDocumentFile() throws Exception {
+        Long documentId = 1L;
+        String fileContent = "Test file content";
+        InputStream inputStream = new ByteArrayInputStream(fileContent.getBytes());
+
+        Document document = new Document();
+        document.setId(documentId);
+        document.setFilePath("documents/1/test.txt");
+
+        when(documentRepository.findById(documentId)).thenReturn(Optional.of(document));
+        when(fileStorageService.downloadFile(eq("edms-documents"), eq(document.getFilePath()))).thenReturn(inputStream);
+
+        byte[] result = documentService.downloadDocumentFile(documentId);
+
+        assertNotNull(result);
+        assertEquals(fileContent, new String(result));
+        verify(fileStorageService).downloadFile(eq("edms-documents"), eq(document.getFilePath()));
+    }
+
+    @Test
+    void testDownloadDocumentFileWithNonExistingDocument() {
+        Long documentId = 1L;
+
+        when(documentRepository.findById(documentId)).thenReturn(Optional.empty());
+
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            documentService.downloadDocumentFile(documentId);
+        });
+
+        assertEquals("文档不存在: " + documentId, exception.getMessage());
+    }
+
+    @Test
+    void testDownloadDocumentFileWithoutFilePath() throws Exception {
+        Long documentId = 1L;
+
+        Document document = new Document();
+        document.setId(documentId);
+        document.setFilePath(null); // 没有关联文件
+
+        when(documentRepository.findById(documentId)).thenReturn(Optional.of(document));
+
+        Exception exception = assertThrows(Exception.class, () -> {
+            documentService.downloadDocumentFile(documentId);
+        });
+
+        assertEquals("文档没有关联文件", exception.getMessage());
     }
 }

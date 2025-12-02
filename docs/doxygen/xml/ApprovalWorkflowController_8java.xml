@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ApprovalWorkflowController_8java" kind="file" language="Java">
+    <compoundname>ApprovalWorkflowController.java</compoundname>
+    <includes local="no">com.gmp.edms.dto.ApiResponse</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/controller/ApprovalWorkflowController.java</label>
+        <link refid="ApprovalWorkflowController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.dto.ApiResponse</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController" prot="public">com::gmp::edms::controller::ApprovalWorkflowController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1controller">com::gmp::edms::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1edms_1_1controller" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.ApiResponse;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.ApprovalInstanceDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.ApprovalStepDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.ApprovalWorkflowDTO;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.service.ApprovalWorkflowService;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/edms/approvals&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="20" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController" kindref="compound">ApprovalWorkflowController</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1a170a0f25afc74dee5c59a1b575cae592" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>ApprovalWorkflowService<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1a170a0f25afc74dee5c59a1b575cae592" kindref="member">approvalWorkflowService</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(</highlight><highlight class="stringliteral">&quot;/start&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="29" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1a6940b756a3f486f34680fbe9a449f6f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;ApprovalInstanceDTO&gt;<sp/>startApprovalProcess(@RequestBody<sp/>Map&lt;String,<sp/>Object&gt;<sp/>request)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Long<sp/>documentId<sp/>=<sp/>Long.valueOf(request.get(</highlight><highlight class="stringliteral">&quot;documentId&quot;</highlight><highlight class="normal">).toString());</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>workflowCode<sp/>=<sp/>request.get(</highlight><highlight class="stringliteral">&quot;workflowCode&quot;</highlight><highlight class="normal">).toString();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>initiator<sp/>=<sp/>request.get(</highlight><highlight class="stringliteral">&quot;initiator&quot;</highlight><highlight class="normal">).toString();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>这里需要先获取文档对象，简化实现</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ApprovalInstanceDTO<sp/>instance<sp/>=<sp/>approvalWorkflowService.startApprovalProcess(</highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/>workflowCode,<sp/>initiator);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;审批流程启动成功&quot;</highlight><highlight class="normal">,<sp/>instance);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(</highlight><highlight class="stringliteral">&quot;/{instanceId}/step/{stepId}/action&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="43" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1a1d1af5e759b7710a458d71330df9ef09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Boolean&gt;<sp/>executeApprovalStep(@PathVariable<sp/>Long<sp/>instanceId,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>String<sp/>stepId,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestBody<sp/>Map&lt;String,<sp/>String&gt;<sp/>request)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>userId<sp/>=<sp/>request.get(</highlight><highlight class="stringliteral">&quot;userId&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>action<sp/>=<sp/>request.get(</highlight><highlight class="stringliteral">&quot;action&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>APPROVE,<sp/>REJECT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>comments<sp/>=<sp/>request.get(</highlight><highlight class="stringliteral">&quot;comments&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>approvalWorkflowService.executeApprovalStep(instanceId,<sp/>userId,<sp/>action,<sp/>comments);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;审批执行成功&quot;</highlight><highlight class="normal">,<sp/>result);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{instanceId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="58" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1ae3e2f2a6283e28d29bc1c75c8b150cb5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;ApprovalInstanceDTO&gt;<sp/>getApprovalInstance(@PathVariable<sp/>Long<sp/>instanceId)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ApprovalInstanceDTO<sp/>instance<sp/>=<sp/>approvalWorkflowService.getApprovalInstance(instanceId);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;获取审批实例成功&quot;</highlight><highlight class="normal">,<sp/>instance);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/pending/{userId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="67" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1a75e997a084765801ae563da3a5d7e19a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;List&lt;ApprovalInstanceDTO&gt;&gt;<sp/>getPendingTasks(@PathVariable<sp/>String<sp/>userId)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;ApprovalInstanceDTO&gt;<sp/>tasks<sp/>=<sp/>approvalWorkflowService.getPendingTasks(userId);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;获取待办任务成功&quot;</highlight><highlight class="normal">,<sp/>tasks);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/history/{documentId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="76" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1af26016271116977e1ae5a26c034d8015" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;List&lt;ApprovalInstanceDTO&gt;&gt;<sp/>getDocumentApprovalHistory(@PathVariable<sp/>Long<sp/>documentId)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;ApprovalInstanceDTO&gt;<sp/>history<sp/>=<sp/>approvalWorkflowService.getDocumentApprovalHistory(documentId);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;获取审批历史成功&quot;</highlight><highlight class="normal">,<sp/>history);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(</highlight><highlight class="stringliteral">&quot;/workflows&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1aefe904d43c0153c2f9ceb62f4e80ae6b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;ApprovalWorkflowDTO&gt;<sp/>createWorkflow(@RequestBody<sp/>ApprovalWorkflowDTO<sp/>workflowDTO)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ApprovalWorkflowDTO<sp/>workflow<sp/>=<sp/>approvalWorkflowService.createWorkflow(workflowDTO);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;创建工作流成功&quot;</highlight><highlight class="normal">,<sp/>workflow);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/workflows&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="94" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1a590deb2fdd2efe1df9c762b82f648881" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;List&lt;ApprovalWorkflowDTO&gt;&gt;<sp/>getAllWorkflows()<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;ApprovalWorkflowDTO&gt;<sp/>workflows<sp/>=<sp/>approvalWorkflowService.getAllWorkflows();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;获取工作流列表成功&quot;</highlight><highlight class="normal">,<sp/>workflows);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/workflows/by-document-type/{documentType}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="103" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1a4bfd4f1cd0f381de7a4ede58aa520c6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;List&lt;ApprovalWorkflowDTO&gt;&gt;<sp/>getWorkflowsByDocumentType(@PathVariable<sp/>String<sp/>documentType)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;ApprovalWorkflowDTO&gt;<sp/>workflows<sp/>=<sp/>approvalWorkflowService.getWorkflowsByDocumentType(documentType);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;获取适用工作流成功&quot;</highlight><highlight class="normal">,<sp/>workflows);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{instanceId}/withdraw&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="112" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1a7475bfe7a43f9ed6ce7d7404a0efe3ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Boolean&gt;<sp/>withdrawApproval(@PathVariable<sp/>Long<sp/>instanceId,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestBody<sp/>Map&lt;String,<sp/>String&gt;<sp/>request)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>userId<sp/>=<sp/>request.get(</highlight><highlight class="stringliteral">&quot;userId&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>reason<sp/>=<sp/>request.get(</highlight><highlight class="stringliteral">&quot;reason&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>approvalWorkflowService.withdrawApproval(instanceId,<sp/>userId,<sp/>reason);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;撤回审批成功&quot;</highlight><highlight class="normal">,<sp/>result);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{instanceId}/transfer&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="125" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1a424b775aabff5ad02928fe5e8dbbefbf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Boolean&gt;<sp/>transferApproval(@PathVariable<sp/>Long<sp/>instanceId,</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestBody<sp/>Map&lt;String,<sp/>String&gt;<sp/>request)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>fromUserId<sp/>=<sp/>request.get(</highlight><highlight class="stringliteral">&quot;fromUserId&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>toUserId<sp/>=<sp/>request.get(</highlight><highlight class="stringliteral">&quot;toUserId&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>reason<sp/>=<sp/>request.get(</highlight><highlight class="stringliteral">&quot;reason&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>approvalWorkflowService.transferApproval(instanceId,<sp/>fromUserId,<sp/>toUserId,<sp/>reason);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;转办审批成功&quot;</highlight><highlight class="normal">,<sp/>result);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{instanceId}/progress&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="139" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1a996776860926f967aab776f76be10eda" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;ApprovalStepDTO&gt;<sp/>getCurrentStep(@PathVariable<sp/>Long<sp/>instanceId)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ApprovalStepDTO<sp/>currentStep<sp/>=<sp/>approvalWorkflowService.getCurrentStep(instanceId);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;获取审批进度成功&quot;</highlight><highlight class="normal">,<sp/>currentStep);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(</highlight><highlight class="stringliteral">&quot;/{instanceId}/urge&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="148" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ApprovalWorkflowController_1a2c2ef84ff4ad5376b90275122faf5135" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Boolean&gt;<sp/>urgeApproval(@PathVariable<sp/>Long<sp/>instanceId,</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestBody<sp/>Map&lt;String,<sp/>String&gt;<sp/>request)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>userId<sp/>=<sp/>request.get(</highlight><highlight class="stringliteral">&quot;userId&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>approvalWorkflowService.urgeApproval(instanceId,<sp/>userId);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="stringliteral">&quot;催办成功&quot;</highlight><highlight class="normal">,<sp/>result);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/controller/ApprovalWorkflowController.java"/>
+  </compounddef>
+</doxygen>

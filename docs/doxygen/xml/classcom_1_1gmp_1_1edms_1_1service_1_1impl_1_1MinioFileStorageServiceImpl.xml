@@ -1,0 +1,745 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</compoundname>
+    <basecompoundref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService" prot="public" virt="non-virtual">com.gmp.edms.service.FileStorageService</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ad5521d15e7a29b02abd5000534b2652d" prot="private" static="yes" mutable="no">
+        <type>final Logger</type>
+        <definition>final Logger com.gmp.edms.service.impl.MinioFileStorageServiceImpl.log</definition>
+        <argsstring></argsstring>
+        <name>log</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.log</qualifiedname>
+        <initializer>= LoggerFactory.getLogger(MinioFileStorageServiceImpl.class)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="51" column="33" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="51" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a3c44765f8cf9a4a59e941501a6712aa5" compoundref="MinioFileStorageServiceImpl_8java" startline="424" endline="440">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileSize</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" prot="private" static="no" mutable="no">
+        <type>MinioClient</type>
+        <definition>MinioClient com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</definition>
+        <argsstring></argsstring>
+        <name>minioClient</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="54" column="25" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="54" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1af1c2bb848e61aeb9ef06621985e267f3" compoundref="MinioFileStorageServiceImpl_8java" startline="122" endline="151">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.batchDeleteFiles</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a290d26e2199282451e134e08d3e79719" compoundref="MinioFileStorageServiceImpl_8java" startline="282" endline="291">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.bucketExists</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1aa10e211db34aeb95de353061a9e5cc93" compoundref="MinioFileStorageServiceImpl_8java" startline="210" endline="225">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.copyFile</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a8e6e6bba27936e90df52e329fa9531d7" compoundref="MinioFileStorageServiceImpl_8java" startline="266" endline="271">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.createBucket</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a5b2aa611100ec18150475337a486f8da" compoundref="MinioFileStorageServiceImpl_8java" startline="338" endline="360">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.createDirectory</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a745ff29a28e118f09be952eed1ffeaf6" compoundref="MinioFileStorageServiceImpl_8java" startline="274" endline="279">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteBucket</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a0764e1f1bc007d63f2c92ab9b5938f8c" compoundref="MinioFileStorageServiceImpl_8java" startline="109" endline="119">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteFile</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1afb50f2c216ee187aa3cac24f7fdd0f73" compoundref="MinioFileStorageServiceImpl_8java" startline="310" endline="335">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.directoryExists</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a47c068da962da9445dab387b71bc76a2" compoundref="MinioFileStorageServiceImpl_8java" startline="96" endline="106">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.downloadFile</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae5b9484d22b20b0a132690e2197ee48b" compoundref="MinioFileStorageServiceImpl_8java" startline="154" endline="169">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.fileExists</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a45f42c14af6518e15cf82a6498fc9ea7" compoundref="MinioFileStorageServiceImpl_8java" startline="172" endline="185">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.generatePresignedUrl</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ad09f3614822de521eece570797becd71" compoundref="MinioFileStorageServiceImpl_8java" startline="443" endline="476">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getBucketStorageInfo</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a507e7b49839c664747e27da54c8b1a40" compoundref="MinioFileStorageServiceImpl_8java" startline="188" endline="207">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileInfo</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ab58a6317124a4f40c94fa6d3e7575034" compoundref="MinioFileStorageServiceImpl_8java" startline="410" endline="421">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileLastModified</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a3c44765f8cf9a4a59e941501a6712aa5" compoundref="MinioFileStorageServiceImpl_8java" startline="424" endline="440">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileSize</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a4079cb69197d70a6aa7eda8eed817f8d" compoundref="MinioFileStorageServiceImpl_8java" startline="293" endline="307">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.listBuckets</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1af2cc7085aa7dd79a7c700d11dd8b96a4" compoundref="MinioFileStorageServiceImpl_8java" startline="238" endline="263">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.listFiles</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ac2d93087276a6672cde0b22800ed0c6b" compoundref="MinioFileStorageServiceImpl_8java" startline="60" endline="93">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.uploadFile</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</definition>
+        <argsstring></argsstring>
+        <name>defaultBucket</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="57" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="57" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1af1c2bb848e61aeb9ef06621985e267f3" compoundref="MinioFileStorageServiceImpl_8java" startline="122" endline="151">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.batchDeleteFiles</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1aa10e211db34aeb95de353061a9e5cc93" compoundref="MinioFileStorageServiceImpl_8java" startline="210" endline="225">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.copyFile</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a5b2aa611100ec18150475337a486f8da" compoundref="MinioFileStorageServiceImpl_8java" startline="338" endline="360">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.createDirectory</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1abb144c8da61bdf2555ecbf2bc4dd5778" compoundref="MinioFileStorageServiceImpl_8java" startline="363" endline="375">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteDirectory</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a0764e1f1bc007d63f2c92ab9b5938f8c" compoundref="MinioFileStorageServiceImpl_8java" startline="109" endline="119">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteFile</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1afb50f2c216ee187aa3cac24f7fdd0f73" compoundref="MinioFileStorageServiceImpl_8java" startline="310" endline="335">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.directoryExists</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a47c068da962da9445dab387b71bc76a2" compoundref="MinioFileStorageServiceImpl_8java" startline="96" endline="106">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.downloadFile</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae5b9484d22b20b0a132690e2197ee48b" compoundref="MinioFileStorageServiceImpl_8java" startline="154" endline="169">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.fileExists</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a45f42c14af6518e15cf82a6498fc9ea7" compoundref="MinioFileStorageServiceImpl_8java" startline="172" endline="185">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.generatePresignedUrl</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ad09f3614822de521eece570797becd71" compoundref="MinioFileStorageServiceImpl_8java" startline="443" endline="476">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getBucketStorageInfo</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a507e7b49839c664747e27da54c8b1a40" compoundref="MinioFileStorageServiceImpl_8java" startline="188" endline="207">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileInfo</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ab58a6317124a4f40c94fa6d3e7575034" compoundref="MinioFileStorageServiceImpl_8java" startline="410" endline="421">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileLastModified</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a3c44765f8cf9a4a59e941501a6712aa5" compoundref="MinioFileStorageServiceImpl_8java" startline="424" endline="440">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileSize</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1af2cc7085aa7dd79a7c700d11dd8b96a4" compoundref="MinioFileStorageServiceImpl_8java" startline="238" endline="263">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.listFiles</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ac2d93087276a6672cde0b22800ed0c6b" compoundref="MinioFileStorageServiceImpl_8java" startline="60" endline="93">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.uploadFile</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ac2d93087276a6672cde0b22800ed0c6b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.MinioFileStorageServiceImpl.uploadFile</definition>
+        <argsstring>(MultipartFile file, String bucketName, String prefix)</argsstring>
+        <name>uploadFile</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.uploadFile</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1acc2c6cd04b72081218743e09790cad81">uploadFile</reimplements>
+        <param>
+          <type>MultipartFile</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>prefix</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>上传文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="60" column="19" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="60" bodyend="93"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a290d26e2199282451e134e08d3e79719" compoundref="MinioFileStorageServiceImpl_8java" startline="282" endline="291">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.bucketExists</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a8e6e6bba27936e90df52e329fa9531d7" compoundref="MinioFileStorageServiceImpl_8java" startline="266" endline="271">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.createBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1a0e4cbb114637846aa9fbaf14718a2142" compoundref="MinioFileStorageServiceImplTest_8java" startline="53" endline="67">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testUploadFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a47c068da962da9445dab387b71bc76a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>InputStream</type>
+        <definition>InputStream com.gmp.edms.service.impl.MinioFileStorageServiceImpl.downloadFile</definition>
+        <argsstring>(String bucketName, String filePath)</argsstring>
+        <name>downloadFile</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.downloadFile</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a9b347c1bfdfca4baf5109c529af13b40">downloadFile</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>filePath</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>下载文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="96" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="96" bodyend="106"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1aa93bb37d63c6fe45efaabbcc25bf369c" compoundref="MinioFileStorageServiceImplTest_8java" startline="70" endline="86">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testDownloadFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a0764e1f1bc007d63f2c92ab9b5938f8c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteFile</definition>
+        <argsstring>(String bucketName, String filePath)</argsstring>
+        <name>deleteFile</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteFile</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a91570fa0d997c030fc3397afd9df7841">deleteFile</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>filePath</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>删除文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="109" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="109" bodyend="119"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a31d8b6bd6387bb43582e149dc88c6b62" compoundref="MinioFileStorageServiceImpl_8java" startline="228" endline="235">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.moveFile</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1abd6dc8ba834b3f511ac40ce4c9d08d21" compoundref="MinioFileStorageServiceImplTest_8java" startline="89" endline="98">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testDeleteFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1af1c2bb848e61aeb9ef06621985e267f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.MinioFileStorageServiceImpl.batchDeleteFiles</definition>
+        <argsstring>(String bucketName, List&lt; String &gt; filePaths)</argsstring>
+        <name>batchDeleteFiles</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.batchDeleteFiles</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a8cd243f8f068c3099a1f700fa4b61be0">batchDeleteFiles</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>List&lt; String &gt;</type>
+          <declname>filePaths</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>批量删除文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="122" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="122" bodyend="151"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1abb144c8da61bdf2555ecbf2bc4dd5778" compoundref="MinioFileStorageServiceImpl_8java" startline="363" endline="375">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteDirectory</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1aa109f975f1b18d51d7d95629a341127a" compoundref="MinioFileStorageServiceImplTest_8java" startline="101" endline="111">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testBatchDeleteFiles</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae5b9484d22b20b0a132690e2197ee48b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.MinioFileStorageServiceImpl.fileExists</definition>
+        <argsstring>(String bucketName, String filePath)</argsstring>
+        <name>fileExists</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.fileExists</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a3d118c2d1cef3734aa222a8c54e8b1af">fileExists</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+<para>检查文件是否存在 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="154" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="154" bodyend="169"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1a15c3e314dd1ef5265cad2bd0805e2d10" compoundref="MinioFileStorageServiceImplTest_8java" startline="114" endline="125">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testFileExists</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1a7575434035448555c5d1d37357776263" compoundref="MinioFileStorageServiceImplTest_8java" startline="128" endline="137">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testFileExists_FileNotFound</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a45f42c14af6518e15cf82a6498fc9ea7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.MinioFileStorageServiceImpl.generatePresignedUrl</definition>
+        <argsstring>(String bucketName, String filePath, int expiration)</argsstring>
+        <name>generatePresignedUrl</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.generatePresignedUrl</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1aa4ee80d4be8186b0560098776074a0df">generatePresignedUrl</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>expiration</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>生成预签名URL </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="172" column="19" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="172" bodyend="185"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1abc9cc98c8dace11eca3b16d8869bd684" compoundref="MinioFileStorageServiceImplTest_8java" startline="140" endline="151">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testGeneratePresignedUrl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a507e7b49839c664747e27da54c8b1a40" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; String, Object &gt;</type>
+        <definition>Map&lt; String, Object &gt; com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileInfo</definition>
+        <argsstring>(String bucketName, String filePath)</argsstring>
+        <name>getFileInfo</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileInfo</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1ae04dd0706fc9c1e60e53000f32663b5c">getFileInfo</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>filePath</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>获取文件信息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="188" column="16" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="188" bodyend="207"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1a532a9f54532cae2f56be5b939e24bb1f" compoundref="MinioFileStorageServiceImplTest_8java" startline="154" endline="167">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testGetFileInfo</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1aa10e211db34aeb95de353061a9e5cc93" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.MinioFileStorageServiceImpl.copyFile</definition>
+        <argsstring>(String sourceBucket, String sourcePath, String targetBucket, String targetPath)</argsstring>
+        <name>copyFile</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.copyFile</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a7c310219aab3b0394651f12b254eda3f">copyFile</reimplements>
+        <param>
+          <type>String</type>
+          <declname>sourceBucket</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>sourcePath</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>targetBucket</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>targetPath</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>复制文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="210" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="210" bodyend="225"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a31d8b6bd6387bb43582e149dc88c6b62" compoundref="MinioFileStorageServiceImpl_8java" startline="228" endline="235">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.moveFile</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1a1de706e484da655894e99e7ad0b6207b" compoundref="MinioFileStorageServiceImplTest_8java" startline="170" endline="182">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testCopyFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a31d8b6bd6387bb43582e149dc88c6b62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.MinioFileStorageServiceImpl.moveFile</definition>
+        <argsstring>(String sourceBucket, String sourcePath, String targetBucket, String targetPath)</argsstring>
+        <name>moveFile</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.moveFile</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a8b12a728982f620e0e892c7a7272f3b6">moveFile</reimplements>
+        <param>
+          <type>String</type>
+          <declname>sourceBucket</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>sourcePath</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>targetBucket</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>targetPath</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>移动文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="228" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="228" bodyend="235"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1aa10e211db34aeb95de353061a9e5cc93" compoundref="MinioFileStorageServiceImpl_8java" startline="210" endline="225">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.copyFile</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a0764e1f1bc007d63f2c92ab9b5938f8c" compoundref="MinioFileStorageServiceImpl_8java" startline="109" endline="119">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteFile</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1a300036832736aa9192b47bc3b45c352e" compoundref="MinioFileStorageServiceImplTest_8java" startline="185" endline="199">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testMoveFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1af2cc7085aa7dd79a7c700d11dd8b96a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; String &gt;</type>
+        <definition>List&lt; String &gt; com.gmp.edms.service.impl.MinioFileStorageServiceImpl.listFiles</definition>
+        <argsstring>(String bucketName, String prefix)</argsstring>
+        <name>listFiles</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.listFiles</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a6e6e08fc959fdd68fd98512eced76801">listFiles</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>prefix</declname>
+        </param>
+        <briefdescription>
+<para>列出存储桶中的文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="238" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="238" bodyend="263"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1abb144c8da61bdf2555ecbf2bc4dd5778" compoundref="MinioFileStorageServiceImpl_8java" startline="363" endline="375">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteDirectory</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1a55c212779cd66076b3cb5fdda85ae99a" compoundref="MinioFileStorageServiceImplTest_8java" startline="202" endline="224">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testListFiles</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a8e6e6bba27936e90df52e329fa9531d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.MinioFileStorageServiceImpl.createBucket</definition>
+        <argsstring>(String bucketName)</argsstring>
+        <name>createBucket</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.createBucket</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1adfc4e08b0ca431258a047f0c611c328b">createBucket</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>创建存储桶 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="266" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="266" bodyend="271"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1a16925ca15935bef8b1f0f9e58b55d73e" compoundref="MinioFileStorageServiceImplTest_8java" startline="227" endline="237">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testCreateBucket</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ac2d93087276a6672cde0b22800ed0c6b" compoundref="MinioFileStorageServiceImpl_8java" startline="60" endline="93">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.uploadFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a745ff29a28e118f09be952eed1ffeaf6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteBucket</definition>
+        <argsstring>(String bucketName)</argsstring>
+        <name>deleteBucket</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteBucket</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a2dc64eb491ffe40144d7f635b66589a4">deleteBucket</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>删除存储桶 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="274" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="274" bodyend="279"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1a0850637b17d96be8d47c7d654ff136da" compoundref="MinioFileStorageServiceImplTest_8java" startline="240" endline="250">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testDeleteBucket</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a290d26e2199282451e134e08d3e79719" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.MinioFileStorageServiceImpl.bucketExists</definition>
+        <argsstring>(String bucketName)</argsstring>
+        <name>bucketExists</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.bucketExists</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1aff35250c90c760cee56b2b2c4dcd6b27">bucketExists</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <briefdescription>
+<para>检查存储桶是否存在 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="282" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="282" bodyend="291"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ad09f3614822de521eece570797becd71" compoundref="MinioFileStorageServiceImpl_8java" startline="443" endline="476">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getBucketStorageInfo</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1a6b842d7c875cff3461c4bdf33d3130fd" compoundref="MinioFileStorageServiceImplTest_8java" startline="253" endline="263">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testBucketExists</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ac2d93087276a6672cde0b22800ed0c6b" compoundref="MinioFileStorageServiceImpl_8java" startline="60" endline="93">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.uploadFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a4079cb69197d70a6aa7eda8eed817f8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; String &gt;</type>
+        <definition>List&lt; String &gt; com.gmp.edms.service.impl.MinioFileStorageServiceImpl.listBuckets</definition>
+        <argsstring>()</argsstring>
+        <name>listBuckets</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.listBuckets</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a95b981a69d0678866081d78491a477b7">listBuckets</reimplements>
+        <briefdescription>
+<para>列出所有存储桶 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="293" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="293" bodyend="307"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImplTest_1a52394606ddb95793d113604f40d2cced" compoundref="MinioFileStorageServiceImplTest_8java" startline="266" endline="283">com.gmp.edms.service.impl.MinioFileStorageServiceImplTest.testListBuckets</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1afb50f2c216ee187aa3cac24f7fdd0f73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.MinioFileStorageServiceImpl.directoryExists</definition>
+        <argsstring>(String bucketName, String directoryPath)</argsstring>
+        <name>directoryExists</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.directoryExists</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1aa69de24886846a66d422aca559bf5f0c">directoryExists</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>directoryPath</declname>
+        </param>
+        <briefdescription>
+<para>检查目录是否存在 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="310" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="310" bodyend="335"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a5b2aa611100ec18150475337a486f8da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.MinioFileStorageServiceImpl.createDirectory</definition>
+        <argsstring>(String bucketName, String directoryPath)</argsstring>
+        <name>createDirectory</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.createDirectory</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a4d489302c565dbfe203c241302caddd5">createDirectory</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>directoryPath</declname>
+        </param>
+        <briefdescription>
+<para>创建目录 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="338" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="338" bodyend="360"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1abb144c8da61bdf2555ecbf2bc4dd5778" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteDirectory</definition>
+        <argsstring>(String bucketName, String directoryPath)</argsstring>
+        <name>deleteDirectory</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.deleteDirectory</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1ad817fb100932eaec2d4c0d9a8f069342">deleteDirectory</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>directoryPath</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>删除目录 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="363" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="363" bodyend="375"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1af1c2bb848e61aeb9ef06621985e267f3" compoundref="MinioFileStorageServiceImpl_8java" startline="122" endline="151">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.batchDeleteFiles</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1af2cc7085aa7dd79a7c700d11dd8b96a4" compoundref="MinioFileStorageServiceImpl_8java" startline="238" endline="263">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.listFiles</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a1319e0f1bf97fa2e016ec956a08d4373" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getContentType</definition>
+        <argsstring>(String bucketName, String filePath)</argsstring>
+        <name>getContentType</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getContentType</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a165a93f57a9038f901813329b516a2df">getContentType</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+<para>获取文件内容类型 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="378" column="19" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="378" bodyend="407"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ab58a6317124a4f40c94fa6d3e7575034" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileLastModified</definition>
+        <argsstring>(String bucketName, String filePath)</argsstring>
+        <name>getFileLastModified</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileLastModified</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a82f3d9ae29a4e6521319a39323a0ec7c">getFileLastModified</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>filePath</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>获取文件最后修改时间 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="410" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="410" bodyend="421"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a3c44765f8cf9a4a59e941501a6712aa5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileSize</definition>
+        <argsstring>(String bucketName, String filePath)</argsstring>
+        <name>getFileSize</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getFileSize</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1abaec32968f89a5d3e5972263669caa61">getFileSize</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>filePath</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>获取文件大小 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="424" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="424" bodyend="440"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ad5521d15e7a29b02abd5000534b2652d" compoundref="MinioFileStorageServiceImpl_8java" startline="51">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.log</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ad09f3614822de521eece570797becd71" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; String, Long &gt;</type>
+        <definition>Map&lt; String, Long &gt; com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getBucketStorageInfo</definition>
+        <argsstring>(String bucketName)</argsstring>
+        <name>getBucketStorageInfo</name>
+        <qualifiedname>com.gmp.edms.service.impl.MinioFileStorageServiceImpl.getBucketStorageInfo</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a0fcbae63a5a1aeeb36284ab1423a8623">getBucketStorageInfo</reimplements>
+        <param>
+          <type>String</type>
+          <declname>bucketName</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>获取存储桶存储使用情况 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="443" column="16" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="443" bodyend="476"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a290d26e2199282451e134e08d3e79719" compoundref="MinioFileStorageServiceImpl_8java" startline="282" endline="291">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.bucketExists</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" compoundref="MinioFileStorageServiceImpl_8java" startline="57">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.defaultBucket</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" compoundref="MinioFileStorageServiceImpl_8java" startline="54">com.gmp.edms.service.impl.MinioFileStorageServiceImpl.minioClient</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>MinIO文件存储服务实现 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>com.gmp.edms.service.impl.MinioFileStorageServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.service.FileStorageService</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>MinioClient</label>
+      </node>
+      <node id="5">
+        <label>String</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.edms.service.impl.MinioFileStorageServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>log</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>minioClient</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>defaultBucket</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.service.FileStorageService</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService"/>
+      </node>
+      <node id="3">
+        <label>static final Logger</label>
+      </node>
+    </collaborationgraph>
+    <location file="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" line="49" column="7" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/MinioFileStorageServiceImpl.java" bodystart="49" bodyend="477"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1af1c2bb848e61aeb9ef06621985e267f3" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>batchDeleteFiles</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a290d26e2199282451e134e08d3e79719" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>bucketExists</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1aa10e211db34aeb95de353061a9e5cc93" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>copyFile</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a8e6e6bba27936e90df52e329fa9531d7" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>createBucket</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a5b2aa611100ec18150475337a486f8da" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>createDirectory</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a602a7a895cb20ab8b409127c1009540c" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>defaultBucket</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a745ff29a28e118f09be952eed1ffeaf6" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>deleteBucket</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1abb144c8da61bdf2555ecbf2bc4dd5778" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>deleteDirectory</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a0764e1f1bc007d63f2c92ab9b5938f8c" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>deleteFile</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1afb50f2c216ee187aa3cac24f7fdd0f73" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>directoryExists</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a47c068da962da9445dab387b71bc76a2" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>downloadFile</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae5b9484d22b20b0a132690e2197ee48b" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>fileExists</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a45f42c14af6518e15cf82a6498fc9ea7" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>generatePresignedUrl</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ad09f3614822de521eece570797becd71" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>getBucketStorageInfo</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a1319e0f1bf97fa2e016ec956a08d4373" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>getContentType</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a507e7b49839c664747e27da54c8b1a40" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>getFileInfo</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ab58a6317124a4f40c94fa6d3e7575034" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>getFileLastModified</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a3c44765f8cf9a4a59e941501a6712aa5" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>getFileSize</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a4079cb69197d70a6aa7eda8eed817f8d" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>listBuckets</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1af2cc7085aa7dd79a7c700d11dd8b96a4" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>listFiles</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ad5521d15e7a29b02abd5000534b2652d" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>log</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ae8083035a70295554f44d873c20f7ff7" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>minioClient</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1a31d8b6bd6387bb43582e149dc88c6b62" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>moveFile</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1MinioFileStorageServiceImpl_1ac2d93087276a6672cde0b22800ed0c6b" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::MinioFileStorageServiceImpl</scope><name>uploadFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

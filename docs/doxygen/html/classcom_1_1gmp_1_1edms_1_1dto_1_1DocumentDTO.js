@@ -1,0 +1,26 @@
+var classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO =
+[
+    [ "approver", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#aa2b8f139cbd15342007acbf9afb7c709", null ],
+    [ "author", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a3e52d9fdb997594060716abd900e61db", null ],
+    [ "category", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a02a1ed6082071dc25db9241fe59d7e75", null ],
+    [ "categoryDTO", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#aa434aef07834301cd81ae2d69e3fccf8", null ],
+    [ "checksum", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#ad76f29c283f2d9142b5e7c61c2db6aad", null ],
+    [ "confidentialityLevel", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a1510283a02a81a2b422d0e196d28ec11", null ],
+    [ "contentType", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a313ca17b2c9025d31b0e392fadc16e68", null ],
+    [ "createdAt", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a75db24040e2380b1b31cdee647998dc3", null ],
+    [ "currentVersion", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a3fd80db1d06d60ac3203373d7faf56fb", null ],
+    [ "documentNumber", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#aaea5f93b1131de43e6e322664657af3d", null ],
+    [ "documentType", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#af62ab38dedc232727e92dcc02b4a1059", null ],
+    [ "effectiveDate", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a46e7ed95379c9383ac2416fa74ced483", null ],
+    [ "expiryDate", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#ae79031cd1ee482347146eeb181022a6b", null ],
+    [ "filePath", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a00ba23e6d948e13db06e39b6a0085a61", null ],
+    [ "fileSize", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#aba497c91c419276ccc0b53855f726b65", null ],
+    [ "id", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a34d65a6890a4829bf0283bd241e48ecd", null ],
+    [ "ownerDepartment", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a1cb99da2f4bb432f455ebaa7eaaaf6be", null ],
+    [ "retentionPeriod", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#aeb3f32f5a6e5335a6f280516e1c931e4", null ],
+    [ "status", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a8fb363c563ee40e51fccc8262873cc12", null ],
+    [ "templateId", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a1eb90c225d4edaf5e49c51c234943d3e", null ],
+    [ "title", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#ad723539b3af0663698c7ab1d6d72fd5b", null ],
+    [ "updatedAt", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a35be3c6d95ce6924d907a09d44f39186", null ],
+    [ "versions", "classcom_1_1gmp_1_1edms_1_1dto_1_1DocumentDTO.html#a4fe4b8f34bf914c7e35ad5f6667a67e7", null ]
+];

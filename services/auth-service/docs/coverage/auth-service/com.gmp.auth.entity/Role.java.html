@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Role.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.entity</a> &gt; <span class="el_source">Role.java</span></div><h1>Role.java</h1><pre class="source lang-java linenums">package com.gmp.auth.entity;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
+
+/**
+ * GMP系统角色实体
+ *
+ * @author GMP系统开发团队
+ */
+<span class="nc bnc" id="L20" title="All 102 branches missed.">@Data</span>
+<span class="fc" id="L21">@NoArgsConstructor</span>
+<span class="fc" id="L22">@AllArgsConstructor</span>
+<span class="pc bfc" id="L23" title="All 4 branches covered.">@Builder</span>
+@Entity
+@Table(name = &quot;sys_roles&quot;)
+@EntityListeners(AuditingEntityListener.class)
+public class Role {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank(message = &quot;角色代码不能为空&quot;)
+    @Size(min = 2, max = 50, message = &quot;角色代码长度必须在2-50字符之间&quot;)
+    @Pattern(regexp = &quot;^ROLE_[A-Z_]+$&quot;, message = &quot;角色代码必须以ROLE_开头并使用大写字母和下划线&quot;)
+    @Column(name = &quot;role_code&quot;, unique = true, nullable = false)
+    private String roleCode;
+
+    @NotBlank(message = &quot;角色名称不能为空&quot;)
+    @Size(max = 100, message = &quot;角色名称长度不能超过100字符&quot;)
+    @Column(name = &quot;role_name&quot;, nullable = false)
+    private String roleName;
+
+    @Size(max = 500, message = &quot;角色描述长度不能超过500字符&quot;)
+    private String description;
+
+<span class="fc" id="L47">    @Min(value = 0, message = &quot;角色优先级不能为负数&quot;)</span>
+<span class="fc" id="L48">    private Integer priority = 0;</span>
+
+    @Builder.Default
+    @Column(name = &quot;is_builtin&quot;, nullable = false)
+<span class="fc" id="L52">    private Boolean isBuiltin = false;</span>
+
+    @Builder.Default
+    @Column(name = &quot;is_active&quot;, nullable = false)
+<span class="fc" id="L56">    private Boolean isActive = true;</span>
+
+    // 审计字段
+    @CreatedDate
+    @Column(name = &quot;created_at&quot;, nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate
+    @Column(name = &quot;updated_at&quot;, nullable = false)
+    private LocalDateTime updatedAt;
+
+    @Column(name = &quot;created_by&quot;)
+    private Long createdBy;
+
+    @Column(name = &quot;updated_by&quot;)
+    private Long updatedBy;
+
+<span class="fc" id="L73">    @Version</span>
+    @Column(nullable = false)
+<span class="fc" id="L75">    private Integer version = 1;</span>
+    
+    // Setter方法
+    public void setRoleCode(String roleCode) {
+<span class="nc" id="L79">        this.roleCode = roleCode;</span>
+<span class="nc" id="L80">    }</span>
+    
+    public void setRoleName(String roleName) {
+<span class="nc" id="L83">        this.roleName = roleName;</span>
+<span class="nc" id="L84">    }</span>
+    
+    public void setDescription(String description) {
+<span class="nc" id="L87">        this.description = description;</span>
+<span class="nc" id="L88">    }</span>
+    
+    public void setPriority(Integer priority) {
+<span class="nc" id="L91">        this.priority = priority;</span>
+<span class="nc" id="L92">    }</span>
+    
+    public void setBuiltin(Boolean builtin) {
+<span class="nc" id="L95">        isBuiltin = builtin;</span>
+<span class="nc" id="L96">    }</span>
+    
+    public void setActive(Boolean active) {
+<span class="nc" id="L99">        isActive = active;</span>
+<span class="nc" id="L100">    }</span>
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+<span class="nc" id="L103">        this.createdAt = createdAt;</span>
+<span class="nc" id="L104">    }</span>
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+<span class="nc" id="L107">        this.updatedAt = updatedAt;</span>
+<span class="nc" id="L108">    }</span>
+    
+    public void setCreatedBy(Long createdBy) {
+<span class="nc" id="L111">        this.createdBy = createdBy;</span>
+<span class="nc" id="L112">    }</span>
+    
+    public void setUpdatedBy(Long updatedBy) {
+<span class="nc" id="L115">        this.updatedBy = updatedBy;</span>
+<span class="nc" id="L116">    }</span>
+    
+    public void setVersion(Integer version) {
+<span class="nc" id="L119">        this.version = version;</span>
+<span class="nc" id="L120">    }</span>
+    
+    // Getter方法
+    public Long getId() {
+<span class="fc" id="L124">        return id;</span>
+    }
+    
+    public String getRoleCode() {
+<span class="fc" id="L128">        return roleCode;</span>
+    }
+    
+    public String getRoleName() {
+<span class="fc" id="L132">        return roleName;</span>
+    }
+    
+    public String getDescription() {
+<span class="fc" id="L136">        return description;</span>
+    }
+    
+    public Integer getPriority() {
+<span class="fc" id="L140">        return priority;</span>
+    }
+    
+    public Boolean getBuiltin() {
+<span class="nc" id="L144">        return isBuiltin;</span>
+    }
+    
+    public Boolean getActive() {
+<span class="nc" id="L148">        return isActive;</span>
+    }
+    
+    public LocalDateTime getCreatedAt() {
+<span class="fc" id="L152">        return createdAt;</span>
+    }
+    
+    public LocalDateTime getUpdatedAt() {
+<span class="fc" id="L156">        return updatedAt;</span>
+    }
+    
+    public Long getCreatedBy() {
+<span class="nc" id="L160">        return createdBy;</span>
+    }
+    
+    public Long getUpdatedBy() {
+<span class="nc" id="L164">        return updatedBy;</span>
+    }
+    
+    public Integer getVersion() {
+<span class="fc" id="L168">        return version;</span>
+    }
+
+    /**
+     * 检查角色是否有效
+     */
+    @Transient
+    public boolean isValid() {
+<span class="pc bpc" id="L176" title="1 of 6 branches missed.">        return this.isActive &amp;&amp; this.roleCode != null &amp;&amp; !this.roleCode.trim().isEmpty();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

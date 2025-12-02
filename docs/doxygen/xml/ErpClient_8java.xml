@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ErpClient_8java" kind="file" language="Java">
+    <compoundname>ErpClient.java</compoundname>
+    <includes local="no">com.gmp.qms.dto.MaterialDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/client/ErpClient.java</label>
+        <link refid="ErpClient_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.dto.MaterialDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1ErpClient" prot="public">com::gmp::qms::client::ErpClient</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1client">com::gmp::qms::client</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.client;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.MaterialDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.NotificationDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.SupplierDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.cloud.openfeign.FeignClient;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">@FeignClient(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;erp-service&quot;</highlight><highlight class="normal">,<sp/>url<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;${feign.client.erp.url}&quot;</highlight><highlight class="normal">,<sp/>fallback<sp/>=<sp/>ErpClientFallback.class)</highlight></codeline>
+<codeline lineno="15" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1ErpClient" refkind="compound"><highlight class="normal">public<sp/>interface<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1ErpClient" kindref="compound">ErpClient</ref><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/api/suppliers/{supplierId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="24" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1ErpClient_1abf83be06eb38df7e8a2f38cddbf70197" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>SupplierDTO<sp/>getSupplier(@PathVariable(&quot;supplierId&quot;)<sp/>String<sp/>supplierId);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(&quot;/api/materials/{materialCode}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="33" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1ErpClient_1a0a42f3179940aa3c6cec5a11effc57c0" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>MaterialDTO<sp/>getMaterial(@PathVariable(&quot;</highlight><highlight class="normal">materialCode</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>materialCode);</highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(&quot;/api/notifications</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="41" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1ErpClient_1a83df39cd5588a69bb3cadbeaef40ce03" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>void<sp/>sendNotification(@RequestBody<sp/>NotificationDTO<sp/>notificationDTO);</highlight></codeline>
+<codeline lineno="42"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(&quot;/api/suppliers/{supplierId}/qualified</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="50" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1ErpClient_1a42d94473859a5176590788bfdb8a4988" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>boolean<sp/>isSupplierQualified(@PathVariable(&quot;</highlight><highlight class="normal">supplierId</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>supplierId);</highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(&quot;/api/materials/{materialCode}/batches/{batchNumber}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="60" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1ErpClient_1a845e647f78e9e7d136a9dd25513215c0" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>MaterialDTO<sp/>getMaterialBatch(@PathVariable(&quot;</highlight><highlight class="normal">materialCode</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>materialCode,<sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable(&quot;</highlight><highlight class="normal">batchNumber</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>batchNumber);</highlight></codeline>
+<codeline lineno="62"><highlight class="stringliteral">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/client/ErpClient.java"/>
+  </compounddef>
+</doxygen>

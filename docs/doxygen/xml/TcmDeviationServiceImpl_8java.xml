@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TcmDeviationServiceImpl_8java" kind="file" language="Java">
+    <compoundname>TcmDeviationServiceImpl.java</compoundname>
+    <includes local="no">com.gmp.qms.dto.TcmDeviationDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/service/impl/TcmDeviationServiceImpl.java</label>
+        <link refid="TcmDeviationServiceImpl_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.dto.TcmDeviationDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl" prot="public">com::gmp::qms::service::impl::TcmDeviationServiceImpl</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1service_1_1impl">com::gmp::qms::service::impl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.service.impl;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.TcmDeviationDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.entity.TcmDeviation;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.exception.ResourceNotFoundException;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.repository.TcmDeviationRepository;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.service.TcmDeviationService;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.RequiredArgsConstructor;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.BeanUtils;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Service;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.transaction.annotation.Transactional;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.format.DateTimeFormatter;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@Service</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@RequiredArgsConstructor</highlight></codeline>
+<codeline lineno="25" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl" kindref="compound">TcmDeviationServiceImpl</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1TcmDeviationService" kindref="compound">TcmDeviationService</ref><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ab6d7d2edb2b2c2b795f41b883c9564c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>TcmDeviationRepository<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ab6d7d2edb2b2c2b795f41b883c9564c3" kindref="member">tcmDeviationRepository</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1adf90db3aa7852095924e4655a525550f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>TcmDeviation<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1adf90db3aa7852095924e4655a525550f" kindref="member">createTcmDeviation</ref>(TcmDeviationDTO<sp/>tcmDeviationDTO)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDeviation<sp/>tcmDeviation<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TcmDeviation();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BeanUtils.copyProperties(tcmDeviationDTO,<sp/>tcmDeviation);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>生成中药特色偏差编号</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>deviationCode<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ada3e6c611cffbf559b35e2148c2f59bd" kindref="member">generateTcmDeviationCode</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tcmDeviation.setDeviationCode(deviationCode);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ab6d7d2edb2b2c2b795f41b883c9564c3" kindref="member">tcmDeviationRepository</ref>.save(tcmDeviation);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="44" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1a16e12370df3e531fb1d804cdf5973433" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>TcmDeviation<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1a16e12370df3e531fb1d804cdf5973433" kindref="member">updateTcmDeviation</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>TcmDeviationDTO<sp/>tcmDeviationDTO)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDeviation<sp/>existingTcmDeviation<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ab6d7d2edb2b2c2b795f41b883c9564c3" kindref="member">tcmDeviationRepository</ref>.findById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.orElseThrow(()<sp/>-&gt;<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ResourceNotFoundException(</highlight><highlight class="stringliteral">&quot;中药特色偏差未找到，ID:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BeanUtils.copyProperties(tcmDeviationDTO,<sp/>existingTcmDeviation,<sp/></highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;deviationCode&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;createdAt&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;createdBy&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ab6d7d2edb2b2c2b795f41b883c9564c3" kindref="member">tcmDeviationRepository</ref>.save(existingTcmDeviation);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1af373d26a76a4b43965d59a0ac1dc8a17" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>TcmDeviation<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1af373d26a76a4b43965d59a0ac1dc8a17" kindref="member">getTcmDeviationById</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ab6d7d2edb2b2c2b795f41b883c9564c3" kindref="member">tcmDeviationRepository</ref>.findById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.orElseThrow(()<sp/>-&gt;<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ResourceNotFoundException(</highlight><highlight class="stringliteral">&quot;中药特色偏差未找到，ID:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="62" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1a70fac719956574a0bb38a13f5e54fc5e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>TcmDeviation<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1a70fac719956574a0bb38a13f5e54fc5e" kindref="member">getTcmDeviationByCode</ref>(String<sp/>deviationCode)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ab6d7d2edb2b2c2b795f41b883c9564c3" kindref="member">tcmDeviationRepository</ref>.findByDeviationCode(deviationCode)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.orElseThrow(()<sp/>-&gt;<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ResourceNotFoundException(</highlight><highlight class="stringliteral">&quot;中药特色偏差未找到，编号:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>deviationCode));</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional(readOnly<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="69" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1a8be2aad3f913681790cf1b181fef9721" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>Page&lt;TcmDeviation&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1a8be2aad3f913681790cf1b181fef9721" kindref="member">getTcmDeviations</ref>(Pageable<sp/>pageable)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ab6d7d2edb2b2c2b795f41b883c9564c3" kindref="member">tcmDeviationRepository</ref>.findAll(pageable);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="75" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1a464b1600bbc641896bd5aef76bfceb92" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1a464b1600bbc641896bd5aef76bfceb92" kindref="member">deleteTcmDeviation</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDeviation<sp/>tcmDeviation<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ab6d7d2edb2b2c2b795f41b883c9564c3" kindref="member">tcmDeviationRepository</ref>.findById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.orElseThrow(()<sp/>-&gt;<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ResourceNotFoundException(</highlight><highlight class="stringliteral">&quot;中药特色偏差未找到，ID:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ab6d7d2edb2b2c2b795f41b883c9564c3" kindref="member">tcmDeviationRepository</ref>.delete(tcmDeviation);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ada3e6c611cffbf559b35e2148c2f59bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1TcmDeviationServiceImpl_1ada3e6c611cffbf559b35e2148c2f59bd" kindref="member">generateTcmDeviationCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>datePrefix<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;TCM-DEV-&quot;</highlight><highlight class="normal"><sp/>+<sp/>LocalDateTime.now().format(DateTimeFormatter.ofPattern(</highlight><highlight class="stringliteral">&quot;yyyyMMdd&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>实际应用中这里应该查询数据库获取当日最大序号</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sequence<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0001&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datePrefix<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;-&quot;</highlight><highlight class="normal"><sp/>+<sp/>sequence;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/service/impl/TcmDeviationServiceImpl.java"/>
+  </compounddef>
+</doxygen>

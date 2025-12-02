@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserOrganizationRole.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.entity</a> &gt; <span class="el_source">UserOrganizationRole.java</span></div><h1>UserOrganizationRole.java</h1><pre class="source lang-java linenums">package com.gmp.auth.entity;
+
+// ============================================================================
+//                    GMP系统用户组织角色关联实体定义
+// dịp
+//
+// WHY: 传统的RBAC模型不支持用户在多个组织内拥有不同角色的复杂权限场景，
+//      在GMP企业中，一个质量工程师可能同时在质量组织、生产组织、培训组织中
+//      担任不同角色，这种多组织多角色的权限需求需要专门的实体进行管理。
+//
+// WHAT: UserOrganizationRole实体实现用户、组织、角色三者间的关联管理，
+//      支持临时权限、权限过期、分配审核等高级权限管理特性，确保权限
+//      分配的追溯性和合规性，满足GMP审计要求。
+//
+// HOW: 使用唯一约束保证用户在同一组织内只能有一个角色，通过枚举约束赋值状态，
+//      使用审计字段记录完整的权限变更历史，支持权限的动态激活和自动失效。
+// ============================================================================
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
+
+/**
+ * GMP系统用户组织角色关联实体
+ *
+ * 实现用户、组织、角色三者间的关联管理，支持：
+ * - 用户可同时拥有多个组织内的不同角色
+ * - 临时权限分配和自动过期
+ * - 权限分配的审批流程
+ * - 完整的权限变更历史记录
+ * - GMP合规的权限追溯要求
+ */
+<span class="nc bnc" id="L41" title="All 222 branches missed.">@Data</span>
+<span class="fc" id="L42">@NoArgsConstructor</span>
+<span class="fc" id="L43">@AllArgsConstructor</span>
+<span class="pc bpc" id="L44" title="4 of 8 branches missed.">@Builder</span>
+@Entity
+@Table(name = &quot;sys_user_org_roles&quot;,
+       uniqueConstraints = @UniqueConstraint(
+           columnNames = {&quot;user_id&quot;, &quot;organization_id&quot;, &quot;role_id&quot;},
+           name = &quot;uk_user_org_role&quot;
+       ),
+       indexes = {
+           @Index(name = &quot;idx_uor_user&quot;, columnList = &quot;user_id&quot;),
+           @Index(name = &quot;idx_uor_org&quot;, columnList = &quot;organization_id&quot;),
+           @Index(name = &quot;idx_uor_role&quot;, columnList = &quot;role_id&quot;),
+           @Index(name = &quot;idx_uor_status&quot;, columnList = &quot;assignment_status&quot;),
+           @Index(name = &quot;idx_uor_effective&quot;, columnList = &quot;effective_from,effective_until&quot;)
+       })
+@EntityListeners(AuditingEntityListener.class)
+public class UserOrganizationRole {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    // 核心关联关系
+    @NotNull(message = &quot;用户ID不能为空&quot;)
+    @Column(name = &quot;user_id&quot;, nullable = false)
+    private Long userId;
+
+    @NotNull(message = &quot;组织ID不能为空&quot;)
+    @Column(name = &quot;organization_id&quot;, nullable = false)
+    private Long organizationId;
+
+    @NotNull(message = &quot;角色ID不能为空&quot;)
+    @Column(name = &quot;role_id&quot;, nullable = false)
+    private Long roleId;
+
+    // 权限分配状态管理
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;assignment_status&quot;, nullable = false)
+    private AssignmentStatus status = AssignmentStatus.ACTIVE;
+
+    @Column(name = &quot;assigned_by&quot;)
+    private Long assignedBy;  // 分配人ID
+
+    @Builder.Default
+    @Column(name = &quot;assigned_at&quot;, nullable = false)
+<span class="fc" id="L89">    private LocalDateTime assignedAt = LocalDateTime.now();</span>
+
+    // 生效时间控制 - 支持临时权限
+    @Builder.Default
+    @Column(name = &quot;effective_from&quot;, nullable = false)
+<span class="fc" id="L94">    private LocalDateTime effectiveFrom = LocalDateTime.now();</span>
+
+    @Column(name = &quot;effective_until&quot;)
+    private LocalDateTime effectiveUntil;  // 到期时间，为null表示永久有效
+
+<span class="fc" id="L99">    @Column(name = &quot;expires_notified&quot;)</span>
+<span class="fc" id="L100">    private Boolean expiresNotified = false;  // 到期提醒标志</span>
+
+    // 权限分配理由和备注
+    @Size(max = 500, message = &quot;分配理由长度不能超过500字符&quot;)
+    @Column(name = &quot;assignment_reason&quot;, columnDefinition = &quot;TEXT&quot;)
+    private String assignmentReason;
+
+    @Size(max = 1000, message = &quot;备注信息长度不能超过1000字符&quot;)
+    @Column(name = &quot;notes&quot;, columnDefinition = &quot;TEXT&quot;)
+    private String notes;
+
+    // GMP合规相关扩展字段
+<span class="fc" id="L112">    @Column(name = &quot;gmp_required&quot;)</span>
+<span class="fc" id="L113">    private Boolean gmpRequired = false;  // 是否GMP必备权限</span>
+
+    @Column(name = &quot;qualification_required&quot;)
+    private String qualificationRequired;  // 需要的资质证明
+
+    @Column(name = &quot;training_required&quot;)
+    private String trainingRequired;      // 需要的培训记录
+
+<span class="fc" id="L121">    @Column(name = &quot;approval_required&quot;)</span>
+<span class="fc" id="L122">    private Boolean approvalRequired = false;  // 是否需要上级审批</span>
+
+    @Column(name = &quot;approved_by&quot;)
+    private Long approvedBy;  // 审批人ID
+
+    @Column(name = &quot;approved_at&quot;)
+    private LocalDateTime approvedAt;      // 审批时间
+
+    @Size(max = 500, message = &quot;审批意见长度不能超过500字符&quot;)
+    @Column(name = &quot;approval_note&quot;)
+    private String approvalNote;
+
+    // 角色移除相关字段
+    @Column(name = &quot;removed_by&quot;)
+    private Long removedBy;  // 移除人ID
+
+    @Column(name = &quot;removed_at&quot;)
+    private LocalDateTime removedAt;      // 移除时间
+
+    @Size(max = 500, message = &quot;移除原因长度不能超过500字符&quot;)
+    @Column(name = &quot;removal_reason&quot;)
+    private String removalReason;
+
+    // 审计字段 - GMP合规要求完整审计记录
+    @CreatedDate
+    @Column(name = &quot;created_at&quot;, nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate
+    @Column(name = &quot;updated_at&quot;, nullable = false)
+    private LocalDateTime updatedAt;
+
+    @Column(name = &quot;created_by&quot;)
+    private Long createdBy;
+
+    @Column(name = &quot;updated_by&quot;)
+    private Long updatedBy;
+
+    @Builder.Default
+    @Version
+    @Column(nullable = false)
+<span class="fc" id="L163">    private Integer version = 1;</span>
+
+    /**
+     * 权限分配状态枚举
+     * 支持完整的权限生命周期管理
+     */
+<span class="fc" id="L169">    public enum AssignmentStatus {</span>
+<span class="fc" id="L170">        PENDING(&quot;待审批&quot;),      // 权限分配申请已提交，等待审批</span>
+<span class="fc" id="L171">        APPROVED(&quot;已批准&quot;),      // 权限分配已通过审批</span>
+<span class="fc" id="L172">        ACTIVE(&quot;生效中&quot;),       // 权限已生效，可以正常使用</span>
+<span class="fc" id="L173">        SUSPENDED(&quot;已暂停&quot;),    // 权限暂时被暂停（非永久）</span>
+<span class="fc" id="L174">        EXPIRED(&quot;已过期&quot;),      // 权限超过有效期</span>
+<span class="fc" id="L175">        REVOKED(&quot;已撤销&quot;),      // 权限被主动撤销</span>
+<span class="fc" id="L176">        REJECTED(&quot;已拒绝&quot;);     // 权限分配申请被拒绝</span>
+
+        private final String description;
+
+<span class="fc" id="L180">        AssignmentStatus(String description) {</span>
+<span class="fc" id="L181">            this.description = description;</span>
+<span class="fc" id="L182">        }</span>
+
+        public String getDescription() {
+<span class="nc" id="L185">            return description;</span>
+        }
+
+        /**
+         * 判断是否为活动状态（可以正常使用的状态）
+         */
+        public boolean isActiveStatus() {
+<span class="nc bnc" id="L192" title="All 4 branches missed.">            return this == ACTIVE || this == APPROVED;</span>
+        }
+    }
+
+    /**
+     * 判断权限分配是否有效（可使用状态）
+     */
+    @Transient
+    public boolean isEffective() {
+        // 1. 检查状态是否为活动状态
+<span class="nc bnc" id="L202" title="All 2 branches missed.">        if (!status.isActiveStatus()) {</span>
+<span class="nc" id="L203">            return false;</span>
+        }
+
+        // 2. 检查生效时间
+<span class="nc" id="L207">        LocalDateTime now = LocalDateTime.now();</span>
+<span class="nc bnc" id="L208" title="All 2 branches missed.">        if (now.isBefore(effectiveFrom)) {</span>
+<span class="nc" id="L209">            return false;  // 还未到生效时间</span>
+        }
+
+        // 3. 检查到期时间
+<span class="nc bnc" id="L213" title="All 4 branches missed.">        if (effectiveUntil != null &amp;&amp; now.isAfter(effectiveUntil)) {</span>
+<span class="nc" id="L214">            return false;  // 已过期</span>
+        }
+
+<span class="nc" id="L217">        return true;</span>
+    }
+
+    /**
+     * 判断权限是否即将过期（需要在指定天数前预警）
+     */
+    @Transient
+    public boolean isExpiringSoon(int warningDays) {
+<span class="nc bnc" id="L225" title="All 2 branches missed.">        if (effectiveUntil == null) {</span>
+<span class="nc" id="L226">            return false;  // 永久有效，无需警告</span>
+        }
+
+<span class="nc" id="L229">        LocalDateTime warningTime = LocalDateTime.now().plusDays(warningDays);</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">        return LocalDateTime.now().isBefore(effectiveUntil) &amp;&amp;</span>
+<span class="nc bnc" id="L231" title="All 2 branches missed.">               effectiveUntil.isBefore(warningTime);</span>
+    }
+
+    /**
+     * 判断权限是否已经过期
+     */
+    @Transient
+    public boolean isExpired() {
+<span class="nc bnc" id="L239" title="All 4 branches missed.">        return effectiveUntil != null &amp;&amp; LocalDateTime.now().isAfter(effectiveUntil);</span>
+    }
+
+    /**
+     * 判断是否需要审批流程
+     */
+    @Transient
+    public boolean requiresApproval() {
+<span class="nc bnc" id="L247" title="All 6 branches missed.">        return approvalRequired &amp;&amp; (assignedBy == null || assignedBy.equals(createdBy));</span>
+    }
+
+    /**
+     * 计算权限剩余有效天数
+     */
+    @Transient
+    public Integer getRemainingDays() {
+<span class="nc bnc" id="L255" title="All 2 branches missed.">        if (effectiveUntil == null) {</span>
+<span class="nc" id="L256">            return null;  // 永久有效</span>
+        }
+
+<span class="nc" id="L259">        LocalDateTime now = LocalDateTime.now();</span>
+<span class="nc bnc" id="L260" title="All 2 branches missed.">        if (now.isAfter(effectiveUntil)) {</span>
+<span class="nc" id="L261">            return 0;  // 已过期</span>
+        }
+
+<span class="nc" id="L264">        return (int) java.time.Duration.between(now, effectiveUntil).toDays();</span>
+    }
+    
+    // Setter方法
+    public void setId(Long id) {
+<span class="nc" id="L269">        this.id = id;</span>
+<span class="nc" id="L270">    }</span>
+    
+    public void setUserId(Long userId) {
+<span class="nc" id="L273">        this.userId = userId;</span>
+<span class="nc" id="L274">    }</span>
+    
+    public void setOrganizationId(Long organizationId) {
+<span class="nc" id="L277">        this.organizationId = organizationId;</span>
+<span class="nc" id="L278">    }</span>
+    
+    public void setRoleId(Long roleId) {
+<span class="nc" id="L281">        this.roleId = roleId;</span>
+<span class="nc" id="L282">    }</span>
+    
+    public void setStatus(AssignmentStatus status) {
+<span class="nc" id="L285">        this.status = status;</span>
+<span class="nc" id="L286">    }</span>
+    
+    public void setAssignedBy(Long assignedBy) {
+<span class="nc" id="L289">        this.assignedBy = assignedBy;</span>
+<span class="nc" id="L290">    }</span>
+    
+    public void setAssignedAt(LocalDateTime assignedAt) {
+<span class="nc" id="L293">        this.assignedAt = assignedAt;</span>
+<span class="nc" id="L294">    }</span>
+    
+    public void setEffectiveFrom(LocalDateTime effectiveFrom) {
+<span class="nc" id="L297">        this.effectiveFrom = effectiveFrom;</span>
+<span class="nc" id="L298">    }</span>
+    
+    public void setEffectiveUntil(LocalDateTime effectiveUntil) {
+<span class="nc" id="L301">        this.effectiveUntil = effectiveUntil;</span>
+<span class="nc" id="L302">    }</span>
+    
+    public void setExpiresNotified(Boolean expiresNotified) {
+<span class="nc" id="L305">        this.expiresNotified = expiresNotified;</span>
+<span class="nc" id="L306">    }</span>
+    
+    public void setAssignmentReason(String assignmentReason) {
+<span class="nc" id="L309">        this.assignmentReason = assignmentReason;</span>
+<span class="nc" id="L310">    }</span>
+    
+    public void setNotes(String notes) {
+<span class="nc" id="L313">        this.notes = notes;</span>
+<span class="nc" id="L314">    }</span>
+    
+    public void setGmpRequired(Boolean gmpRequired) {
+<span class="nc" id="L317">        this.gmpRequired = gmpRequired;</span>
+<span class="nc" id="L318">    }</span>
+    
+    public void setQualificationRequired(String qualificationRequired) {
+<span class="nc" id="L321">        this.qualificationRequired = qualificationRequired;</span>
+<span class="nc" id="L322">    }</span>
+    
+    public void setTrainingRequired(String trainingRequired) {
+<span class="nc" id="L325">        this.trainingRequired = trainingRequired;</span>
+<span class="nc" id="L326">    }</span>
+    
+    public void setApprovalRequired(Boolean approvalRequired) {
+<span class="nc" id="L329">        this.approvalRequired = approvalRequired;</span>
+<span class="nc" id="L330">    }</span>
+    
+    public void setApprovedBy(Long approvedBy) {
+<span class="nc" id="L333">        this.approvedBy = approvedBy;</span>
+<span class="nc" id="L334">    }</span>
+    
+    public void setApprovedAt(LocalDateTime approvedAt) {
+<span class="nc" id="L337">        this.approvedAt = approvedAt;</span>
+<span class="nc" id="L338">    }</span>
+    
+    public void setApprovalNote(String approvalNote) {
+<span class="nc" id="L341">        this.approvalNote = approvalNote;</span>
+<span class="nc" id="L342">    }</span>
+    
+    public void setRemovedBy(Long removedBy) {
+<span class="nc" id="L345">        this.removedBy = removedBy;</span>
+<span class="nc" id="L346">    }</span>
+    
+    public void setRemovedAt(LocalDateTime removedAt) {
+<span class="nc" id="L349">        this.removedAt = removedAt;</span>
+<span class="nc" id="L350">    }</span>
+    
+    public void setRemovalReason(String removalReason) {
+<span class="nc" id="L353">        this.removalReason = removalReason;</span>
+<span class="nc" id="L354">    }</span>
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+<span class="nc" id="L357">        this.createdAt = createdAt;</span>
+<span class="nc" id="L358">    }</span>
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+<span class="nc" id="L361">        this.updatedAt = updatedAt;</span>
+<span class="nc" id="L362">    }</span>
+    
+    public void setCreatedBy(Long createdBy) {
+<span class="nc" id="L365">        this.createdBy = createdBy;</span>
+<span class="nc" id="L366">    }</span>
+    
+    public void setUpdatedBy(Long updatedBy) {
+<span class="nc" id="L369">        this.updatedBy = updatedBy;</span>
+<span class="nc" id="L370">    }</span>
+    
+    public void setVersion(Integer version) {
+<span class="nc" id="L373">        this.version = version;</span>
+<span class="nc" id="L374">    }</span>
+    
+    // Getter方法
+    public Long getId() {
+<span class="nc" id="L378">        return id;</span>
+    }
+    
+    public Long getUserId() {
+<span class="fc" id="L382">        return userId;</span>
+    }
+    
+    public Long getOrganizationId() {
+<span class="fc" id="L386">        return organizationId;</span>
+    }
+    
+    public Long getRoleId() {
+<span class="fc" id="L390">        return roleId;</span>
+    }
+    
+    public AssignmentStatus getStatus() {
+<span class="fc" id="L394">        return status;</span>
+    }
+    
+    public Long getAssignedBy() {
+<span class="nc" id="L398">        return assignedBy;</span>
+    }
+    
+    public LocalDateTime getAssignedAt() {
+<span class="nc" id="L402">        return assignedAt;</span>
+    }
+    
+    public LocalDateTime getEffectiveFrom() {
+<span class="nc" id="L406">        return effectiveFrom;</span>
+    }
+    
+    public LocalDateTime getEffectiveUntil() {
+<span class="nc" id="L410">        return effectiveUntil;</span>
+    }
+    
+    public Boolean getExpiresNotified() {
+<span class="nc" id="L414">        return expiresNotified;</span>
+    }
+    
+    public String getAssignmentReason() {
+<span class="nc" id="L418">        return assignmentReason;</span>
+    }
+    
+    public String getNotes() {
+<span class="nc" id="L422">        return notes;</span>
+    }
+    
+    public Boolean getGmpRequired() {
+<span class="nc" id="L426">        return gmpRequired;</span>
+    }
+    
+    public String getQualificationRequired() {
+<span class="nc" id="L430">        return qualificationRequired;</span>
+    }
+    
+    public String getTrainingRequired() {
+<span class="nc" id="L434">        return trainingRequired;</span>
+    }
+    
+    public Boolean getApprovalRequired() {
+<span class="nc" id="L438">        return approvalRequired;</span>
+    }
+    
+    public Long getApprovedBy() {
+<span class="nc" id="L442">        return approvedBy;</span>
+    }
+    
+    public LocalDateTime getApprovedAt() {
+<span class="nc" id="L446">        return approvedAt;</span>
+    }
+    
+    public String getApprovalNote() {
+<span class="nc" id="L450">        return approvalNote;</span>
+    }
+    
+    public Long getRemovedBy() {
+<span class="nc" id="L454">        return removedBy;</span>
+    }
+    
+    public LocalDateTime getRemovedAt() {
+<span class="nc" id="L458">        return removedAt;</span>
+    }
+    
+    public String getRemovalReason() {
+<span class="nc" id="L462">        return removalReason;</span>
+    }
+    
+    public LocalDateTime getCreatedAt() {
+<span class="nc" id="L466">        return createdAt;</span>
+    }
+    
+    public LocalDateTime getUpdatedAt() {
+<span class="nc" id="L470">        return updatedAt;</span>
+    }
+    
+    public Long getCreatedBy() {
+<span class="nc" id="L474">        return createdBy;</span>
+    }
+    
+    public Long getUpdatedBy() {
+<span class="nc" id="L478">        return updatedBy;</span>
+    }
+    
+    public Integer getVersion() {
+<span class="nc" id="L482">        return version;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

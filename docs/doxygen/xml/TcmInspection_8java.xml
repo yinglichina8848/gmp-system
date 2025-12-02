@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TcmInspection_8java" kind="file" language="Java">
+    <compoundname>TcmInspection.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>lims-service/src/main/java/com/gmp/lims/entity/TcmInspection.java</label>
+        <link refid="TcmInspection_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection" prot="public">com::gmp::lims::entity::TcmInspection</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod" prot="public">com::gmp::lims::entity::TcmInspection::InspectionMethod</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1ResultJudgment" prot="public">com::gmp::lims::entity::TcmInspection::ResultJudgment</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1lims_1_1entity">com::gmp::lims::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.lims.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.EqualsAndHashCode;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.NoArgsConstructor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.AllArgsConstructor;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.ToString;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotBlank;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.Size;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@NoArgsConstructor</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@AllArgsConstructor</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@EqualsAndHashCode(of<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@ToString</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;lims_tcm_inspection&quot;</highlight><highlight class="normal">,<sp/>indexes<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_tcm_inspection_code&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;inspection_code&quot;</highlight><highlight class="normal">,<sp/>unique<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_tcm_inspection_task_id&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;task_id&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_tcm_inspection_herb_name&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;herb_name&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_tcm_inspection_create_date&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;create_date&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">})</highlight></codeline>
+<codeline lineno="30" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection" kindref="compound">TcmInspection</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="37" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1a7288ae941fa05c8523c7b083561bff64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;检验编号不能为空&quot;)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;检验编号长度不能超过50个字符&quot;)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;inspection_code&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>unique<sp/>=<sp/>true,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="45" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1a028fc2a5059d938f6988fce4639f1bcb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>inspectionCode;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;task_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1afb3d1d02ad51ed3440e8a8daf0ec1629" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>taskId;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;中药材名称不能为空&quot;)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;中药材名称长度不能超过100个字符&quot;)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;herb_name&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1a1fe16589a08524aa7341a33964f29de1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>herbName;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;inspection_method&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="66" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1a3ee0d89e011747cb0d5e46ecf65133d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod" kindref="compound">InspectionMethod</ref><sp/>inspectionMethod;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;appearance_result&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1a791b53361613ab0fe38be40051de55b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>appearanceResult;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;microscopic_result&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="78" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1ae4b566d9804faece988c30ce1d6f1ce8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>microscopicResult;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;tlc_result&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="84" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1a3534a385877c162c1ac1aabc994132ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>tlcResult;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;hplc_result&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="90" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1a08135255638fe700b5da857e74449c3e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>hplcResult;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;result_judgment&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="97" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1af3fd8a8939d7d43234529da2eff12f7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1ResultJudgment" kindref="compound">ResultJudgment</ref><sp/>resultJudgment;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;inspector_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="103" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1af62bb2c8cf14ad95862962dcd74699e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>inspectorId;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;reviewer_id&quot;)</highlight></codeline>
+<codeline lineno="109" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1a93a9d33f616d841e79dffd25dfbfbd5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>reviewerId;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;remark&quot;,<sp/>columnDefinition<sp/>=<sp/>&quot;TEXT&quot;)</highlight></codeline>
+<codeline lineno="115" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1aa03ae592e90e766d3fbedca51625ac6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>remark;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;create_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="121" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1aa7520ba8cc690b197ff57cc18858845e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createDate;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;update_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="127" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1a8229ac245c51a7c428f9efe2c7eea46b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updateDate;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod" kindref="compound">InspectionMethod</ref><sp/>{</highlight></codeline>
+<codeline lineno="136" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1ae4578ef030416c5dd50f44f604512608" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1ae4578ef030416c5dd50f44f604512608" kindref="member">APPEARANCE</ref>,</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1ad0f67bce6d2b498b2e4f7ff4d7b3478c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1ad0f67bce6d2b498b2e4f7ff4d7b3478c" kindref="member">MICROSCOPIC</ref>,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a14f8aea21a94d4417677ff7614f08fe8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a14f8aea21a94d4417677ff7614f08fe8" kindref="member">TLC</ref>,</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a6a4c571e20d02890bcf658bf3fea7beb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a6a4c571e20d02890bcf658bf3fea7beb" kindref="member">HPLC</ref>,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a1f1ce8f1d56ae1b91ddaaad1d3110e3d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a1f1ce8f1d56ae1b91ddaaad1d3110e3d" kindref="member">GC</ref>,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a7f7e549150ccded00037aaa238bc5309" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a7f7e549150ccded00037aaa238bc5309" kindref="member">UV_VIS</ref>,</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a45a4b161cd865581d0c0321029f356ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a45a4b161cd865581d0c0321029f356ae" kindref="member">AAS</ref>,</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a7b8032bbb3b5aea95b2863f4e4cb2e29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a7b8032bbb3b5aea95b2863f4e4cb2e29" kindref="member">ICP_MS</ref>,</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a89636768b0f7202ce7933a289fa016da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1a89636768b0f7202ce7933a289fa016da" kindref="member">DNA_BARCODING</ref>,</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OTHER</highlight></codeline>
+<codeline lineno="182" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1InspectionMethod_1abc10c5ca556d7ff553be3eec9b7832be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1ResultJudgment" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1ResultJudgment" kindref="compound">ResultJudgment</ref><sp/>{</highlight></codeline>
+<codeline lineno="191" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1ResultJudgment_1af378a252873a49c56740380a973059bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1ResultJudgment_1af378a252873a49c56740380a973059bb" kindref="member">COMPLIES</ref>,</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1ResultJudgment_1a863c1bfdc0a147a818b542b09015709e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1ResultJudgment_1a863c1bfdc0a147a818b542b09015709e" kindref="member">NON_COMPLIANCE</ref>,</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1ResultJudgment_1a5222cb64758e366c416dcb66ecbdaba9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1ResultJudgment_1a5222cb64758e366c416dcb66ecbdaba9" kindref="member">PENDING_RETEST</ref>,</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ABNORMAL</highlight></codeline>
+<codeline lineno="207" refid="enumcom_1_1gmp_1_1lims_1_1entity_1_1TcmInspection_1_1ResultJudgment_1afdf08d71b559095bc0566fa882202564" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lims-service/src/main/java/com/gmp/lims/entity/TcmInspection.java"/>
+  </compounddef>
+</doxygen>

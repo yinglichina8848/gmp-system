@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::qms::listener::McpMessageListener</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ab500d520848a2db2c112a38476c8097f" prot="private" static="no" mutable="no">
+        <type>McpMonitoringService</type>
+        <definition>McpMonitoringService com.gmp.qms.listener.McpMessageListener.monitoringService</definition>
+        <argsstring></argsstring>
+        <name>monitoringService</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.monitoringService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="23" column="34" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="23" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1aa2e5a4a47ba5e8b1532cd090984a35e0" compoundref="McpMessageListener_8java" startline="80" endline="94">com.gmp.qms.listener.McpMessageListener.listenDeadLetterMessages</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a465f47802922d9fb47b58c141041b86c" compoundref="McpMessageListener_8java" startline="116" endline="147">com.gmp.qms.listener.McpMessageListener.processMessage</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a05dc672f9d00db6bd2bd2ff706bbb927" prot="private" static="no" mutable="no">
+        <type>final Map&lt; String, Consumer&lt; Map&lt; String, Object &gt; &gt; &gt;</type>
+        <definition>final Map&lt;String, Consumer&lt;Map&lt;String, Object&gt; &gt; &gt; com.gmp.qms.listener.McpMessageListener.messageHandlers</definition>
+        <argsstring></argsstring>
+        <name>messageHandlers</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.messageHandlers</qualifiedname>
+        <initializer>= new ConcurrentHashMap&lt;&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="26" column="23" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="26" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a6837dd15642e723e0572d9ec0b251a80" compoundref="McpMessageListener_8java" startline="165" endline="167">com.gmp.qms.listener.McpMessageListener.getRegisteredHandlersCount</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1abeb10afe26644fca25c3e0d689862b33" compoundref="McpMessageListener_8java" startline="172" endline="174">com.gmp.qms.listener.McpMessageListener.hasHandlerForOperation</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a465f47802922d9fb47b58c141041b86c" compoundref="McpMessageListener_8java" startline="116" endline="147">com.gmp.qms.listener.McpMessageListener.processMessage</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ae65221db770789daaf964cc885a85bb3" compoundref="McpMessageListener_8java" startline="101" endline="103">com.gmp.qms.listener.McpMessageListener.registerMessageHandler</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ad89fc40efb3d167139b6b80924dea04a" compoundref="McpMessageListener_8java" startline="109" endline="111">com.gmp.qms.listener.McpMessageListener.unregisterMessageHandler</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a398b0282f11fba572ba2a6f00031b208" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.qms.listener.McpMessageListener.listenEdmsMessages</definition>
+        <argsstring>(Map&lt; String, Object &gt; message)</argsstring>
+        <name>listenEdmsMessages</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.listenEdmsMessages</qualifiedname>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>监听来自EDMS系统的消息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="32" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="32" bodyend="34"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a465f47802922d9fb47b58c141041b86c" compoundref="McpMessageListener_8java" startline="116" endline="147">com.gmp.qms.listener.McpMessageListener.processMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ae16b5685b1d147fb0f992eee2030e67d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.qms.listener.McpMessageListener.listenMesMessages</definition>
+        <argsstring>(Map&lt; String, Object &gt; message)</argsstring>
+        <name>listenMesMessages</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.listenMesMessages</qualifiedname>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>监听来自MES系统的消息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="40" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="40" bodyend="42"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a465f47802922d9fb47b58c141041b86c" compoundref="McpMessageListener_8java" startline="116" endline="147">com.gmp.qms.listener.McpMessageListener.processMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ab5cd2afeb1af9d3fc2e21197128d482c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.qms.listener.McpMessageListener.listenLimsMessages</definition>
+        <argsstring>(Map&lt; String, Object &gt; message)</argsstring>
+        <name>listenLimsMessages</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.listenLimsMessages</qualifiedname>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>监听来自LIMS系统的消息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="48" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="48" bodyend="50"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a465f47802922d9fb47b58c141041b86c" compoundref="McpMessageListener_8java" startline="116" endline="147">com.gmp.qms.listener.McpMessageListener.processMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a5dfffb7e4d51074e2e0072694feb5468" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.qms.listener.McpMessageListener.listenErpMessages</definition>
+        <argsstring>(Map&lt; String, Object &gt; message)</argsstring>
+        <name>listenErpMessages</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.listenErpMessages</qualifiedname>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>监听来自ERP系统的消息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="56" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="56" bodyend="58"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a465f47802922d9fb47b58c141041b86c" compoundref="McpMessageListener_8java" startline="116" endline="147">com.gmp.qms.listener.McpMessageListener.processMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a20c8f12896457420cbb169a801f4be63" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.qms.listener.McpMessageListener.listenTrainingMessages</definition>
+        <argsstring>(Map&lt; String, Object &gt; message)</argsstring>
+        <name>listenTrainingMessages</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.listenTrainingMessages</qualifiedname>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>监听来自培训系统的消息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="64" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="64" bodyend="66"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a465f47802922d9fb47b58c141041b86c" compoundref="McpMessageListener_8java" startline="116" endline="147">com.gmp.qms.listener.McpMessageListener.processMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a3492441373f7bb901e517e2b1647c5c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.qms.listener.McpMessageListener.listenEquipmentMessages</definition>
+        <argsstring>(Map&lt; String, Object &gt; message)</argsstring>
+        <name>listenEquipmentMessages</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.listenEquipmentMessages</qualifiedname>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>监听来自设备系统的消息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="72" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="72" bodyend="74"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a465f47802922d9fb47b58c141041b86c" compoundref="McpMessageListener_8java" startline="116" endline="147">com.gmp.qms.listener.McpMessageListener.processMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1aa2e5a4a47ba5e8b1532cd090984a35e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.qms.listener.McpMessageListener.listenDeadLetterMessages</definition>
+        <argsstring>(Map&lt; String, Object &gt; message)</argsstring>
+        <name>listenDeadLetterMessages</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.listenDeadLetterMessages</qualifiedname>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>监听死信队列中的失败消息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="80" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="80" bodyend="94"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ab500d520848a2db2c112a38476c8097f" compoundref="McpMessageListener_8java" startline="23">com.gmp.qms.listener.McpMessageListener.monitoringService</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ae65221db770789daaf964cc885a85bb3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.qms.listener.McpMessageListener.registerMessageHandler</definition>
+        <argsstring>(String operation, Consumer&lt; Map&lt; String, Object &gt; &gt; handler)</argsstring>
+        <name>registerMessageHandler</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.registerMessageHandler</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>Consumer&lt; Map&lt; String, Object &gt; &gt;</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>注册消息处理器 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>操作类型 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>消息处理函数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="101" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="101" bodyend="103"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a05dc672f9d00db6bd2bd2ff706bbb927" compoundref="McpMessageListener_8java" startline="26">com.gmp.qms.listener.McpMessageListener.messageHandlers</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ad89fc40efb3d167139b6b80924dea04a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.qms.listener.McpMessageListener.unregisterMessageHandler</definition>
+        <argsstring>(String operation)</argsstring>
+        <name>unregisterMessageHandler</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.unregisterMessageHandler</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>注销消息处理器 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>操作类型 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="109" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="109" bodyend="111"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a05dc672f9d00db6bd2bd2ff706bbb927" compoundref="McpMessageListener_8java" startline="26">com.gmp.qms.listener.McpMessageListener.messageHandlers</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a6837dd15642e723e0572d9ec0b251a80" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.gmp.qms.listener.McpMessageListener.getRegisteredHandlersCount</definition>
+        <argsstring>()</argsstring>
+        <name>getRegisteredHandlersCount</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.getRegisteredHandlersCount</qualifiedname>
+        <briefdescription>
+<para>获取当前注册的消息处理器数量 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="165" column="16" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="165" bodyend="167"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a05dc672f9d00db6bd2bd2ff706bbb927" compoundref="McpMessageListener_8java" startline="26">com.gmp.qms.listener.McpMessageListener.messageHandlers</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1abeb10afe26644fca25c3e0d689862b33" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.qms.listener.McpMessageListener.hasHandlerForOperation</definition>
+        <argsstring>(String operation)</argsstring>
+        <name>hasHandlerForOperation</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.hasHandlerForOperation</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>检查是否有针对特定操作的处理器 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="172" column="20" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="172" bodyend="174"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a05dc672f9d00db6bd2bd2ff706bbb927" compoundref="McpMessageListener_8java" startline="26">com.gmp.qms.listener.McpMessageListener.messageHandlers</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a465f47802922d9fb47b58c141041b86c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.qms.listener.McpMessageListener.processMessage</definition>
+        <argsstring>(String sourceSystem, Map&lt; String, Object &gt; message)</argsstring>
+        <name>processMessage</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.processMessage</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>sourceSystem</declname>
+        </param>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>处理接收到的消息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="116" column="18" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="116" bodyend="147"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1aecac98a17e707ece5e018104a922cb9c" compoundref="McpMessageListener_8java" startline="152" endline="160">com.gmp.qms.listener.McpMessageListener.handleDefaultMessage</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a05dc672f9d00db6bd2bd2ff706bbb927" compoundref="McpMessageListener_8java" startline="26">com.gmp.qms.listener.McpMessageListener.messageHandlers</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ab500d520848a2db2c112a38476c8097f" compoundref="McpMessageListener_8java" startline="23">com.gmp.qms.listener.McpMessageListener.monitoringService</references>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a398b0282f11fba572ba2a6f00031b208" compoundref="McpMessageListener_8java" startline="32" endline="34">com.gmp.qms.listener.McpMessageListener.listenEdmsMessages</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a3492441373f7bb901e517e2b1647c5c4" compoundref="McpMessageListener_8java" startline="72" endline="74">com.gmp.qms.listener.McpMessageListener.listenEquipmentMessages</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a5dfffb7e4d51074e2e0072694feb5468" compoundref="McpMessageListener_8java" startline="56" endline="58">com.gmp.qms.listener.McpMessageListener.listenErpMessages</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ab5cd2afeb1af9d3fc2e21197128d482c" compoundref="McpMessageListener_8java" startline="48" endline="50">com.gmp.qms.listener.McpMessageListener.listenLimsMessages</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ae16b5685b1d147fb0f992eee2030e67d" compoundref="McpMessageListener_8java" startline="40" endline="42">com.gmp.qms.listener.McpMessageListener.listenMesMessages</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a20c8f12896457420cbb169a801f4be63" compoundref="McpMessageListener_8java" startline="64" endline="66">com.gmp.qms.listener.McpMessageListener.listenTrainingMessages</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1aecac98a17e707ece5e018104a922cb9c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.qms.listener.McpMessageListener.handleDefaultMessage</definition>
+        <argsstring>(String sourceSystem, Map&lt; String, Object &gt; message)</argsstring>
+        <name>handleDefaultMessage</name>
+        <qualifiedname>com.gmp.qms.listener.McpMessageListener.handleDefaultMessage</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>sourceSystem</declname>
+        </param>
+        <param>
+          <type>Map&lt; String, Object &gt;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>默认消息处理逻辑 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="152" column="18" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="152" bodyend="160"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a465f47802922d9fb47b58c141041b86c" compoundref="McpMessageListener_8java" startline="116" endline="147">com.gmp.qms.listener.McpMessageListener.processMessage</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>MCP消息监听器，用于接收和处理来自其他系统的消息 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>McpMonitoringService</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.qms.listener.McpMessageListener</label>
+        <link refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>monitoringService</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>messageHandlers</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>final Map&lt; String, Consumer&lt; Map&lt; String, Object &gt; &gt; &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" line="20" column="7" bodyfile="qms-service/src/main/java/com/gmp/qms/listener/McpMessageListener.java" bodystart="20" bodyend="175"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a6837dd15642e723e0572d9ec0b251a80" prot="public" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>getRegisteredHandlersCount</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1aecac98a17e707ece5e018104a922cb9c" prot="private" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>handleDefaultMessage</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1abeb10afe26644fca25c3e0d689862b33" prot="public" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>hasHandlerForOperation</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1aa2e5a4a47ba5e8b1532cd090984a35e0" prot="public" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>listenDeadLetterMessages</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a398b0282f11fba572ba2a6f00031b208" prot="public" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>listenEdmsMessages</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a3492441373f7bb901e517e2b1647c5c4" prot="public" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>listenEquipmentMessages</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a5dfffb7e4d51074e2e0072694feb5468" prot="public" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>listenErpMessages</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ab5cd2afeb1af9d3fc2e21197128d482c" prot="public" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>listenLimsMessages</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ae16b5685b1d147fb0f992eee2030e67d" prot="public" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>listenMesMessages</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a20c8f12896457420cbb169a801f4be63" prot="public" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>listenTrainingMessages</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a05dc672f9d00db6bd2bd2ff706bbb927" prot="private" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>messageHandlers</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ab500d520848a2db2c112a38476c8097f" prot="private" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>monitoringService</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1a465f47802922d9fb47b58c141041b86c" prot="private" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>processMessage</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ae65221db770789daaf964cc885a85bb3" prot="public" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>registerMessageHandler</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1listener_1_1McpMessageListener_1ad89fc40efb3d167139b6b80924dea04a" prot="public" virt="non-virtual"><scope>com::gmp::qms::listener::McpMessageListener</scope><name>unregisterMessageHandler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

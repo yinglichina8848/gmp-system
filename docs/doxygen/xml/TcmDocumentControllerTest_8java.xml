@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TcmDocumentControllerTest_8java" kind="file" language="Java">
+    <compoundname>TcmDocumentControllerTest.java</compoundname>
+    <includes local="no">com.fasterxml.jackson.databind.ObjectMapper</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/test/java/com/gmp/edms/controller/TcmDocumentControllerTest.java</label>
+        <link refid="TcmDocumentControllerTest_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.fasterxml.jackson.databind.ObjectMapper</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest" prot="public">com::gmp::edms::controller::TcmDocumentControllerTest</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1controller">com::gmp::edms::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.fasterxml.jackson.databind.ObjectMapper;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.TcmDocumentDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.entity.TcmDocument;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.service.TcmDocumentService;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.boot.test.mock.mockito.MockBean;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.MediaType;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.MockMvc;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.any;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.eq;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.Mockito.when;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">@WebMvcTest(TcmDocumentController.class)</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest" kindref="compound">TcmDocumentControllerTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="31" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1a4022dbf760d9385b5311006528f36bf4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>MockMvc<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1a4022dbf760d9385b5311006528f36bf4" kindref="member">mockMvc</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@MockBean</highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1a288c4a3f6b69c3e5363bf5d2566c41bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>TcmDocumentService<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1a288c4a3f6b69c3e5363bf5d2566c41bb" kindref="member">tcmDocumentService</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="37" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1af66bdefe783d6e40185be1536c386ffe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>ObjectMapper<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1af66bdefe783d6e40185be1536c386ffe" kindref="member">objectMapper</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="40" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1afbe570fea9af041d51451ee8ca19af6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1afbe570fea9af041d51451ee8ca19af6d" kindref="member">testCreateTcmDocument</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDocumentDTO<sp/>dto<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TcmDocumentDTO();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setTitle(</highlight><highlight class="stringliteral">&quot;人参炮制标准操作程序&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setDocumentType(</highlight><highlight class="stringliteral">&quot;TCM_SOP&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setHerbName(</highlight><highlight class="stringliteral">&quot;人参&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setProcessingMethod(</highlight><highlight class="stringliteral">&quot;蒸制&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setAuthor(</highlight><highlight class="stringliteral">&quot;张药师&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDocument<sp/>document<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TcmDocument();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setId(1L);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setDocumentNumber(</highlight><highlight class="stringliteral">&quot;TCM-DOC-20251127-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setTitle(</highlight><highlight class="stringliteral">&quot;人参炮制标准操作程序&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setDocumentType(</highlight><highlight class="stringliteral">&quot;TCM_SOP&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setHerbName(</highlight><highlight class="stringliteral">&quot;人参&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setProcessingMethod(</highlight><highlight class="stringliteral">&quot;蒸制&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setAuthor(</highlight><highlight class="stringliteral">&quot;张药师&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setCreatedAt(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setUpdatedAt(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟服务层行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(tcmDocumentService.createTcmDocument(any(TcmDocumentDTO.class))).thenReturn(document);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行测试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(post(</highlight><highlight class="stringliteral">&quot;/api/v1/tcm-documents&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.APPLICATION_JSON)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.content(objectMapper.writeValueAsString(dto)))</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.id&quot;</highlight><highlight class="normal">).value(1L))</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.documentNumber&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;TCM-DOC-20251127-0001&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.title&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;人参炮制标准操作程序&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="74" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1acdacf1ed2803380c58cc8bfa638c34a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1acdacf1ed2803380c58cc8bfa638c34a0" kindref="member">testGetTcmDocumentById</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDocument<sp/>document<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TcmDocument();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setId(1L);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setDocumentNumber(</highlight><highlight class="stringliteral">&quot;TCM-DOC-20251127-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setTitle(</highlight><highlight class="stringliteral">&quot;人参炮制标准操作程序&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setDocumentType(</highlight><highlight class="stringliteral">&quot;TCM_SOP&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setHerbName(</highlight><highlight class="stringliteral">&quot;人参&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setProcessingMethod(</highlight><highlight class="stringliteral">&quot;蒸制&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setAuthor(</highlight><highlight class="stringliteral">&quot;张药师&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setCreatedAt(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setUpdatedAt(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟服务层行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(tcmDocumentService.getTcmDocumentById(1L)).thenReturn(document);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行测试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;/api/v1/tcm-documents/1&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.id&quot;</highlight><highlight class="normal">).value(1L))</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.documentNumber&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;TCM-DOC-20251127-0001&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.title&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;人参炮制标准操作程序&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="99" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1ac38213d2f61ffa860f2c6cd5477bec6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1ac38213d2f61ffa860f2c6cd5477bec6d" kindref="member">testUpdateTcmDocument</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDocumentDTO<sp/>dto<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TcmDocumentDTO();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setTitle(</highlight><highlight class="stringliteral">&quot;人参炮制标准操作程序<sp/>-<sp/>更新版&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setDocumentType(</highlight><highlight class="stringliteral">&quot;TCM_SOP&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setHerbName(</highlight><highlight class="stringliteral">&quot;人参&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setProcessingMethod(</highlight><highlight class="stringliteral">&quot;蒸制&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setAuthor(</highlight><highlight class="stringliteral">&quot;张药师&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setApprover(</highlight><highlight class="stringliteral">&quot;李主任&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDocument<sp/>document<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TcmDocument();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setId(1L);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setDocumentNumber(</highlight><highlight class="stringliteral">&quot;TCM-DOC-20251127-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setTitle(</highlight><highlight class="stringliteral">&quot;人参炮制标准操作程序<sp/>-<sp/>更新版&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setDocumentType(</highlight><highlight class="stringliteral">&quot;TCM_SOP&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setHerbName(</highlight><highlight class="stringliteral">&quot;人参&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setProcessingMethod(</highlight><highlight class="stringliteral">&quot;蒸制&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setAuthor(</highlight><highlight class="stringliteral">&quot;张药师&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setApprover(</highlight><highlight class="stringliteral">&quot;李主任&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setCreatedAt(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.setUpdatedAt(LocalDateTime.now());</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟服务层行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(tcmDocumentService.updateTcmDocument(eq(1L),<sp/>any(TcmDocumentDTO.class))).thenReturn(document);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行测试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(put(</highlight><highlight class="stringliteral">&quot;/api/v1/tcm-documents/1&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.APPLICATION_JSON)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.content(objectMapper.writeValueAsString(dto)))</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.id&quot;</highlight><highlight class="normal">).value(1L))</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.title&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;人参炮制标准操作程序<sp/>-<sp/>更新版&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.approver&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;李主任&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="135" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1aa699253457f85622a6d10cdb0b6e7ac5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1aa699253457f85622a6d10cdb0b6e7ac5" kindref="member">testGetTcmDocumentsByHerbName</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>准备测试数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDocument<sp/>document1<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TcmDocument();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document1.setId(1L);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document1.setDocumentNumber(</highlight><highlight class="stringliteral">&quot;TCM-DOC-20251127-0001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document1.setTitle(</highlight><highlight class="stringliteral">&quot;人参炮制标准操作规程&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document1.setHerbName(</highlight><highlight class="stringliteral">&quot;人参&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TcmDocument<sp/>document2<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TcmDocument();</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document2.setId(2L);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document2.setDocumentNumber(</highlight><highlight class="stringliteral">&quot;TCM-DOC-20251127-0002&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document2.setTitle(</highlight><highlight class="stringliteral">&quot;人参质量标准&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document2.setHerbName(</highlight><highlight class="stringliteral">&quot;人参&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TcmDocument&gt;<sp/>documents<sp/>=<sp/>Arrays.asList(document1,<sp/>document2);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>模拟服务层行为</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(tcmDocumentService.getTcmDocumentsByHerbName(</highlight><highlight class="stringliteral">&quot;人参&quot;</highlight><highlight class="normal">)).thenReturn(documents);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行测试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;/api/v1/tcm-documents/herb/人参&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data.length()&quot;</highlight><highlight class="normal">).value(2))</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data[0].documentNumber&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;TCM-DOC-20251127-0001&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.data[1].documentNumber&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;TCM-DOC-20251127-0002&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="163" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1a5c8bff3c71233faf04da65a1ec7c352a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1TcmDocumentControllerTest_1a5c8bff3c71233faf04da65a1ec7c352a" kindref="member">testDeleteTcmDocument</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>执行测试</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(delete(</highlight><highlight class="stringliteral">&quot;/api/v1/tcm-documents/1&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.success&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="keyword">true</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/test/java/com/gmp/edms/controller/TcmDocumentControllerTest.java"/>
+  </compounddef>
+</doxygen>

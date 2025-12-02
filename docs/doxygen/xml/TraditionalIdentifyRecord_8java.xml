@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TraditionalIdentifyRecord_8java" kind="file" language="Java">
+    <compoundname>TraditionalIdentifyRecord.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>lims-service/src/main/java/com/gmp/lims/entity/mongo/TraditionalIdentifyRecord.java</label>
+        <link refid="TraditionalIdentifyRecord_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord" prot="public">com::gmp::lims::entity::mongo::TraditionalIdentifyRecord</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1lims_1_1entity_1_1mongo">com::gmp::lims::entity::mongo</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.lims.entity.mongo;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.NoArgsConstructor;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.AllArgsConstructor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.Id;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.mongodb.core.mapping.Document;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.mongodb.core.mapping.Field;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@NoArgsConstructor</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@AllArgsConstructor</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@Document(collection<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;traditional_identify_records&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="21" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord" kindref="compound">TraditionalIdentifyRecord</ref><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1ab7ebc27ea84f89cc9c5ba624e0cc98f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1ab7ebc27ea84f89cc9c5ba624e0cc98f5" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(</highlight><highlight class="stringliteral">&quot;sample_id&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a9493e129c040aa5ee338a8f33d2d77cb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>sampleId;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;sample_code&quot;)</highlight></codeline>
+<codeline lineno="39" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a7d4bc68984c02ef55f01793f0bf6151d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>sampleCode;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;task_id&quot;)</highlight></codeline>
+<codeline lineno="45" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a5fe1ff9e0b16e81954d88bb9680e11ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>taskId;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;task_code&quot;)</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a0d7dcaecb43f750b74a64ac2b6676642" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>taskCode;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;character_identify&quot;)</highlight></codeline>
+<codeline lineno="57" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1af02bbc46367cc40af459795a3249d213" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>characterIdentify;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;microscopic_identify&quot;)</highlight></codeline>
+<codeline lineno="63" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a405455cb20c6c9a7a8a903c93985a8ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>microscopicIdentify;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;physical_chemical_identify&quot;)</highlight></codeline>
+<codeline lineno="69" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1aed8f14587c0b8ea623454d6123bd270c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>physicalChemicalIdentify;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;identify_images&quot;)</highlight></codeline>
+<codeline lineno="75" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1ac5f676a69b12bfac6856005495add1ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;String&gt;<sp/>identifyImages;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;identify_conclusion&quot;)</highlight></codeline>
+<codeline lineno="81" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a3f97e0489914d7d99b7b57a0e797fbb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>identifyConclusion;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;identify_person&quot;)</highlight></codeline>
+<codeline lineno="87" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1ae9990abcf8da6473278977d4f898a6f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>identifyPerson;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;identify_date&quot;)</highlight></codeline>
+<codeline lineno="93" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1ad71dc47f23847d6e5d87e56c8c645a7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>identifyDate;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;review_person&quot;)</highlight></codeline>
+<codeline lineno="99" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1af15f7e93d3a5d6f898bcd53ac031a02e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>reviewPerson;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;review_date&quot;)</highlight></codeline>
+<codeline lineno="105" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a81cfff58dd11d21ce5573578c8b02384" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>reviewDate;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;review_status&quot;)</highlight></codeline>
+<codeline lineno="111" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a4f7d15e52637edfba42e808122b99032" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>reviewStatus;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;remark&quot;)</highlight></codeline>
+<codeline lineno="117" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a6baf0c429df93472658c376f563323e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>remark;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;created_time&quot;)</highlight></codeline>
+<codeline lineno="123" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a1cb25d143a89caa6569fa04a951c6227" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdTime;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;updated_time&quot;)</highlight></codeline>
+<codeline lineno="129" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1af23d0dd399cca8a151c63d240df8d88f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedTime;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;feature_description&quot;)</highlight></codeline>
+<codeline lineno="135" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a99bc516864df38ac1390d4493ec4081d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>featureDescription;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;experience_points&quot;)</highlight></codeline>
+<codeline lineno="141" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1adc8285876250184037d3a1dc746a597b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>experiencePoints;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>@Field(&quot;reference_standard&quot;)</highlight></codeline>
+<codeline lineno="147" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1mongo_1_1TraditionalIdentifyRecord_1a44596ddb27553d034852f1a25e30dd56" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>referenceStandard;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lims-service/src/main/java/com/gmp/lims/entity/mongo/TraditionalIdentifyRecord.java"/>
+  </compounddef>
+</doxygen>

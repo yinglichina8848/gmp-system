@@ -1,0 +1,900 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::edms::service::impl::DocumentVersionServiceImpl</compoundname>
+    <basecompoundref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService" prot="public" virt="non-virtual">com.gmp.edms.service.DocumentVersionService</basecompoundref>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1_1MockMultipartFile" prot="private">com::gmp::edms::service::impl::DocumentVersionServiceImpl::MockMultipartFile</innerclass>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6c4031f29d028910fc49b81bdd523450" prot="private" static="yes" mutable="no">
+        <type>final Logger</type>
+        <definition>final Logger com.gmp.edms.service.impl.DocumentVersionServiceImpl.log</definition>
+        <argsstring></argsstring>
+        <name>log</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.log</qualifiedname>
+        <initializer>= LoggerFactory.getLogger(DocumentVersionServiceImpl.class)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="39" column="33" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" prot="private" static="no" mutable="no">
+        <type>DocumentVersionRepository</type>
+        <definition>DocumentVersionRepository com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</definition>
+        <argsstring></argsstring>
+        <name>documentVersionRepository</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="42" column="39" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="42" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a63a555834cdab00e807b32cf2fabc230" compoundref="DocumentVersionServiceImpl_8java" startline="262" endline="275">com.gmp.edms.service.impl.DocumentVersionServiceImpl.approveVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a85632c8f283c22ab03b92a153947b422" compoundref="DocumentVersionServiceImpl_8java" startline="594" endline="602">com.gmp.edms.service.impl.DocumentVersionServiceImpl.calculateUsageStatistics</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0336aa48b1c99c40f70cb0a5c5a42168" compoundref="DocumentVersionServiceImpl_8java" startline="334" endline="336">com.gmp.edms.service.impl.DocumentVersionServiceImpl.checkFileExists</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aa1efa11c79c1188880c8aaf1960ddacf" compoundref="DocumentVersionServiceImpl_8java" startline="629" endline="683">com.gmp.edms.service.impl.DocumentVersionServiceImpl.compareDocumentVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6d941143b16e1a899963a56e93142504" compoundref="DocumentVersionServiceImpl_8java" startline="344" endline="359">com.gmp.edms.service.impl.DocumentVersionServiceImpl.compareVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0ea0db65100fd8984335f3fc4794948b" compoundref="DocumentVersionServiceImpl_8java" startline="186" endline="226">com.gmp.edms.service.impl.DocumentVersionServiceImpl.deleteDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac272a4184fe3c657faa6e77ca062427f" compoundref="DocumentVersionServiceImpl_8java" startline="172" endline="182">com.gmp.edms.service.impl.DocumentVersionServiceImpl.downloadDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a490d64cbbad1caaeb906b3721e0dfb26" compoundref="DocumentVersionServiceImpl_8java" startline="295" endline="331">com.gmp.edms.service.impl.DocumentVersionServiceImpl.generateNewVersionNumber</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a5c7aba5ff645d3aca86305e00dafd1c2" compoundref="DocumentVersionServiceImpl_8java" startline="281" endline="292">com.gmp.edms.service.impl.DocumentVersionServiceImpl.generatePresignedUrl</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a97045a6345cefce4c772ffbd8a33280c" compoundref="DocumentVersionServiceImpl_8java" startline="139" endline="156">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a3315f58e4f7a9f70896e7097e0b940cd" compoundref="DocumentVersionServiceImpl_8java" startline="127" endline="137">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6d376a6d4e014d7889a6eb3b5b644c7d" compoundref="DocumentVersionServiceImpl_8java" startline="112" endline="124">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getDocumentVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a8c7d0bab66d5289b1b06db99fcecd0b2" compoundref="DocumentVersionServiceImpl_8java" startline="159" endline="169">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getVersionById</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aaae9110bda31bb6a52d7a80ae0af98bc" compoundref="DocumentVersionServiceImpl_8java" startline="339" endline="341">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getVersionCount</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a9195a4dffe0dd493ab6fed115fa7041d" compoundref="DocumentVersionServiceImpl_8java" startline="606" endline="626">com.gmp.edms.service.impl.DocumentVersionServiceImpl.restoreDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac8da70e07a872e0a77ca145942d40f16" compoundref="DocumentVersionServiceImpl_8java" startline="363" endline="403">com.gmp.edms.service.impl.DocumentVersionServiceImpl.rollbackToVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aeafe357dfd4d3155d1b108de11b6e81f" compoundref="DocumentVersionServiceImpl_8java" startline="237" endline="255">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setCurrentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a76f7616c0e5b38742327f2d0abfb1364" compoundref="DocumentVersionServiceImpl_8java" startline="55" endline="109">com.gmp.edms.service.impl.DocumentVersionServiceImpl.uploadDocumentVersion</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ae904ae54f16bcc678b71b0fb29e51fc3" prot="private" static="no" mutable="no">
+        <type>DocumentRepository</type>
+        <definition>DocumentRepository com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentRepository</definition>
+        <argsstring></argsstring>
+        <name>documentRepository</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="45" column="32" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="45" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aa1efa11c79c1188880c8aaf1960ddacf" compoundref="DocumentVersionServiceImpl_8java" startline="629" endline="683">com.gmp.edms.service.impl.DocumentVersionServiceImpl.compareDocumentVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0ea0db65100fd8984335f3fc4794948b" compoundref="DocumentVersionServiceImpl_8java" startline="186" endline="226">com.gmp.edms.service.impl.DocumentVersionServiceImpl.deleteDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a97045a6345cefce4c772ffbd8a33280c" compoundref="DocumentVersionServiceImpl_8java" startline="139" endline="156">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a9195a4dffe0dd493ab6fed115fa7041d" compoundref="DocumentVersionServiceImpl_8java" startline="606" endline="626">com.gmp.edms.service.impl.DocumentVersionServiceImpl.restoreDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aeafe357dfd4d3155d1b108de11b6e81f" compoundref="DocumentVersionServiceImpl_8java" startline="237" endline="255">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setCurrentVersion</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4d30f5bbee4ca57ae32085c242c61563" prot="private" static="no" mutable="no">
+        <type><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService" kindref="compound">FileStorageService</ref></type>
+        <definition>FileStorageService com.gmp.edms.service.impl.DocumentVersionServiceImpl.fileStorageService</definition>
+        <argsstring></argsstring>
+        <name>fileStorageService</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.fileStorageService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="48" column="32" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="48" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0ea0db65100fd8984335f3fc4794948b" compoundref="DocumentVersionServiceImpl_8java" startline="186" endline="226">com.gmp.edms.service.impl.DocumentVersionServiceImpl.deleteDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac272a4184fe3c657faa6e77ca062427f" compoundref="DocumentVersionServiceImpl_8java" startline="172" endline="182">com.gmp.edms.service.impl.DocumentVersionServiceImpl.downloadDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a5c7aba5ff645d3aca86305e00dafd1c2" compoundref="DocumentVersionServiceImpl_8java" startline="281" endline="292">com.gmp.edms.service.impl.DocumentVersionServiceImpl.generatePresignedUrl</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac8da70e07a872e0a77ca145942d40f16" compoundref="DocumentVersionServiceImpl_8java" startline="363" endline="403">com.gmp.edms.service.impl.DocumentVersionServiceImpl.rollbackToVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a76f7616c0e5b38742327f2d0abfb1364" compoundref="DocumentVersionServiceImpl_8java" startline="55" endline="109">com.gmp.edms.service.impl.DocumentVersionServiceImpl.uploadDocumentVersion</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a918000af501f4489552060b7b0dd47dd" prot="private" static="no" mutable="no">
+        <type>ModelMapper</type>
+        <definition>ModelMapper com.gmp.edms.service.impl.DocumentVersionServiceImpl.modelMapper</definition>
+        <argsstring></argsstring>
+        <name>modelMapper</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.modelMapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="51" column="25" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="51" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a63a555834cdab00e807b32cf2fabc230" compoundref="DocumentVersionServiceImpl_8java" startline="262" endline="275">com.gmp.edms.service.impl.DocumentVersionServiceImpl.approveVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a97045a6345cefce4c772ffbd8a33280c" compoundref="DocumentVersionServiceImpl_8java" startline="139" endline="156">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a3315f58e4f7a9f70896e7097e0b940cd" compoundref="DocumentVersionServiceImpl_8java" startline="127" endline="137">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6d376a6d4e014d7889a6eb3b5b644c7d" compoundref="DocumentVersionServiceImpl_8java" startline="112" endline="124">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getDocumentVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a8c7d0bab66d5289b1b06db99fcecd0b2" compoundref="DocumentVersionServiceImpl_8java" startline="159" endline="169">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getVersionById</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a76f7616c0e5b38742327f2d0abfb1364" compoundref="DocumentVersionServiceImpl_8java" startline="55" endline="109">com.gmp.edms.service.impl.DocumentVersionServiceImpl.uploadDocumentVersion</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a76f7616c0e5b38742327f2d0abfb1364" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>DocumentVersionDTO</type>
+        <definition>DocumentVersionDTO com.gmp.edms.service.impl.DocumentVersionServiceImpl.uploadDocumentVersion</definition>
+        <argsstring>(Long documentId, MultipartFile file, String versionType, String changeReason, String changeSummary, String author)</argsstring>
+        <name>uploadDocumentVersion</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.uploadDocumentVersion</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1a5ddebfd0204eefb83d14bffa24b7ec0f">uploadDocumentVersion</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <param>
+          <type>MultipartFile</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>versionType</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>changeReason</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>changeSummary</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>author</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>上传新版本文档 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="55" column="31" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="55" bodyend="109"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a66513d7a3cb9706b43d030508fed057e" compoundref="DocumentVersionServiceImpl_8java" startline="418" endline="438">com.gmp.edms.service.impl.DocumentVersionServiceImpl.calculateChecksum</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0336aa48b1c99c40f70cb0a5c5a42168" compoundref="DocumentVersionServiceImpl_8java" startline="334" endline="336">com.gmp.edms.service.impl.DocumentVersionServiceImpl.checkFileExists</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4d30f5bbee4ca57ae32085c242c61563" compoundref="DocumentVersionServiceImpl_8java" startline="48">com.gmp.edms.service.impl.DocumentVersionServiceImpl.fileStorageService</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a490d64cbbad1caaeb906b3721e0dfb26" compoundref="DocumentVersionServiceImpl_8java" startline="295" endline="331">com.gmp.edms.service.impl.DocumentVersionServiceImpl.generateNewVersionNumber</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a918000af501f4489552060b7b0dd47dd" compoundref="DocumentVersionServiceImpl_8java" startline="51">com.gmp.edms.service.impl.DocumentVersionServiceImpl.modelMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" compoundref="DocumentVersionServiceImpl_8java" startline="546" endline="577">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</references>
+        <references refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1acc2c6cd04b72081218743e09790cad81">com.gmp.edms.service.FileStorageService.uploadFile</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac8da70e07a872e0a77ca145942d40f16" compoundref="DocumentVersionServiceImpl_8java" startline="363" endline="403">com.gmp.edms.service.impl.DocumentVersionServiceImpl.rollbackToVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6d376a6d4e014d7889a6eb3b5b644c7d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; DocumentVersionDTO &gt;</type>
+        <definition>List&lt; DocumentVersionDTO &gt; com.gmp.edms.service.impl.DocumentVersionServiceImpl.getDocumentVersions</definition>
+        <argsstring>(Long documentId)</argsstring>
+        <name>getDocumentVersions</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.getDocumentVersions</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1ad98eea18fab30151478a2c6280c46a35">getDocumentVersions</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+<para>获取文档版本列表 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="112" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="112" bodyend="124"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6805c1a23b019d59236b23530c88e95b" compoundref="DocumentVersionServiceImpl_8java" startline="443" endline="451">com.gmp.edms.service.impl.DocumentVersionServiceImpl.formatFileSize</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a918000af501f4489552060b7b0dd47dd" compoundref="DocumentVersionServiceImpl_8java" startline="51">com.gmp.edms.service.impl.DocumentVersionServiceImpl.modelMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" compoundref="DocumentVersionServiceImpl_8java" startline="546" endline="577">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImplTest_1a7ef2d454482df83b4062e6c667f7f1f4" compoundref="DocumentVersionServiceImplTest_8java" startline="50" endline="63">com.gmp.edms.service.impl.DocumentVersionServiceImplTest.testGetDocumentVersions</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a3315f58e4f7a9f70896e7097e0b940cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>DocumentVersionDTO</type>
+        <definition>DocumentVersionDTO com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentVersion</definition>
+        <argsstring>(Long documentId)</argsstring>
+        <name>getCurrentVersion</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentVersion</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1a74d76b20ce59c4e102529f50cb2cb6c9">getCurrentVersion</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+<para>获取文档当前版本 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="127" column="31" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="127" bodyend="137"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6805c1a23b019d59236b23530c88e95b" compoundref="DocumentVersionServiceImpl_8java" startline="443" endline="451">com.gmp.edms.service.impl.DocumentVersionServiceImpl.formatFileSize</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a918000af501f4489552060b7b0dd47dd" compoundref="DocumentVersionServiceImpl_8java" startline="51">com.gmp.edms.service.impl.DocumentVersionServiceImpl.modelMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" compoundref="DocumentVersionServiceImpl_8java" startline="546" endline="577">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a97045a6345cefce4c772ffbd8a33280c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>DocumentVersionDTO</type>
+        <definition>DocumentVersionDTO com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentDocumentVersion</definition>
+        <argsstring>(Long documentId)</argsstring>
+        <name>getCurrentDocumentVersion</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentDocumentVersion</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="139" column="31" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="139" bodyend="156"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ae904ae54f16bcc678b71b0fb29e51fc3" compoundref="DocumentVersionServiceImpl_8java" startline="45">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6805c1a23b019d59236b23530c88e95b" compoundref="DocumentVersionServiceImpl_8java" startline="443" endline="451">com.gmp.edms.service.impl.DocumentVersionServiceImpl.formatFileSize</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a918000af501f4489552060b7b0dd47dd" compoundref="DocumentVersionServiceImpl_8java" startline="51">com.gmp.edms.service.impl.DocumentVersionServiceImpl.modelMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" compoundref="DocumentVersionServiceImpl_8java" startline="546" endline="577">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a8c7d0bab66d5289b1b06db99fcecd0b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>DocumentVersionDTO</type>
+        <definition>DocumentVersionDTO com.gmp.edms.service.impl.DocumentVersionServiceImpl.getVersionById</definition>
+        <argsstring>(Long versionId)</argsstring>
+        <name>getVersionById</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.getVersionById</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1af93e1208507e120eae2f2f24245b6ab5">getVersionById</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>versionId</declname>
+        </param>
+        <briefdescription>
+<para>根据版本ID获取版本信息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="159" column="31" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="159" bodyend="169"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6805c1a23b019d59236b23530c88e95b" compoundref="DocumentVersionServiceImpl_8java" startline="443" endline="451">com.gmp.edms.service.impl.DocumentVersionServiceImpl.formatFileSize</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a918000af501f4489552060b7b0dd47dd" compoundref="DocumentVersionServiceImpl_8java" startline="51">com.gmp.edms.service.impl.DocumentVersionServiceImpl.modelMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" compoundref="DocumentVersionServiceImpl_8java" startline="546" endline="577">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac272a4184fe3c657faa6e77ca062427f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] com.gmp.edms.service.impl.DocumentVersionServiceImpl.downloadDocumentVersion</definition>
+        <argsstring>(Long versionId)</argsstring>
+        <name>downloadDocumentVersion</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.downloadDocumentVersion</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1af37b72a92659bbe9b4f2b6fcbc9d0a6b">downloadDocumentVersion</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>versionId</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>下载文档版本 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="172" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="172" bodyend="182"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a9b347c1bfdfca4baf5109c529af13b40">com.gmp.edms.service.FileStorageService.downloadFile</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4d30f5bbee4ca57ae32085c242c61563" compoundref="DocumentVersionServiceImpl_8java" startline="48">com.gmp.edms.service.impl.DocumentVersionServiceImpl.fileStorageService</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0ea0db65100fd8984335f3fc4794948b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.DocumentVersionServiceImpl.deleteDocumentVersion</definition>
+        <argsstring>(Long versionId)</argsstring>
+        <name>deleteDocumentVersion</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.deleteDocumentVersion</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1ac22a05c475c0e8dd2a0419a5827e3bfe">deleteDocumentVersion</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>versionId</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>删除文档版本 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="186" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="186" bodyend="226"/>
+        <references refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a91570fa0d997c030fc3397afd9df7841">com.gmp.edms.service.FileStorageService.deleteFile</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ae904ae54f16bcc678b71b0fb29e51fc3" compoundref="DocumentVersionServiceImpl_8java" startline="45">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4d30f5bbee4ca57ae32085c242c61563" compoundref="DocumentVersionServiceImpl_8java" startline="48">com.gmp.edms.service.impl.DocumentVersionServiceImpl.fileStorageService</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" compoundref="DocumentVersionServiceImpl_8java" startline="546" endline="577">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImplTest_1ae9454dc1e42a3cb2f79702672ab2203f" compoundref="DocumentVersionServiceImplTest_8java" startline="202" endline="220">com.gmp.edms.service.impl.DocumentVersionServiceImplTest.testDeleteDocumentVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aeafe357dfd4d3155d1b108de11b6e81f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.DocumentVersionServiceImpl.setCurrentVersion</definition>
+        <argsstring>(Long documentId, Long versionId)</argsstring>
+        <name>setCurrentVersion</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.setCurrentVersion</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1adccdbb53d410e4c894783e5a0923b2ca">setCurrentVersion</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>versionId</declname>
+        </param>
+        <briefdescription>
+<para>设置文档当前版本 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="237" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="237" bodyend="255"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ae904ae54f16bcc678b71b0fb29e51fc3" compoundref="DocumentVersionServiceImpl_8java" startline="45">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" compoundref="DocumentVersionServiceImpl_8java" startline="546" endline="577">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a63a555834cdab00e807b32cf2fabc230" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>DocumentVersionDTO</type>
+        <definition>DocumentVersionDTO com.gmp.edms.service.impl.DocumentVersionServiceImpl.approveVersion</definition>
+        <argsstring>(Long versionId, String approver, boolean isApproved, String comments)</argsstring>
+        <name>approveVersion</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.approveVersion</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1a693defd758b9d09d2e2dfc13337ac40b">approveVersion</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>versionId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>approver</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>isApproved</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>comments</declname>
+        </param>
+        <briefdescription>
+<para>审批文档版本 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="262" column="31" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="262" bodyend="275"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a918000af501f4489552060b7b0dd47dd" compoundref="DocumentVersionServiceImpl_8java" startline="51">com.gmp.edms.service.impl.DocumentVersionServiceImpl.modelMapper</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" compoundref="DocumentVersionServiceImpl_8java" startline="546" endline="577">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImplTest_1aad372deda53cd2e6085b3511e728adc8" compoundref="DocumentVersionServiceImplTest_8java" startline="83" endline="104">com.gmp.edms.service.impl.DocumentVersionServiceImplTest.testApproveVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a5c7aba5ff645d3aca86305e00dafd1c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.DocumentVersionServiceImpl.generatePresignedUrl</definition>
+        <argsstring>(Long versionId)</argsstring>
+        <name>generatePresignedUrl</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.generatePresignedUrl</qualifiedname>
+        <param>
+          <type>Long</type>
+          <declname>versionId</declname>
+        </param>
+        <briefdescription>
+<para>生成预签名URL用于文件访问 注意：此方法目前不是接口定义的一部分 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="281" column="19" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="281" bodyend="292"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4d30f5bbee4ca57ae32085c242c61563" compoundref="DocumentVersionServiceImpl_8java" startline="48">com.gmp.edms.service.impl.DocumentVersionServiceImpl.fileStorageService</references>
+        <references refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1aa4ee80d4be8186b0560098776074a0df">com.gmp.edms.service.FileStorageService.generatePresignedUrl</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a490d64cbbad1caaeb906b3721e0dfb26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.DocumentVersionServiceImpl.generateNewVersionNumber</definition>
+        <argsstring>(Long documentId, String versionType)</argsstring>
+        <name>generateNewVersionNumber</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.generateNewVersionNumber</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1a24edbbad01e35d709be4ce116acd9f0d">generateNewVersionNumber</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>versionType</declname>
+        </param>
+        <briefdescription>
+<para>生成新版本号 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="295" column="19" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="295" bodyend="331"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac8da70e07a872e0a77ca145942d40f16" compoundref="DocumentVersionServiceImpl_8java" startline="363" endline="403">com.gmp.edms.service.impl.DocumentVersionServiceImpl.rollbackToVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a76f7616c0e5b38742327f2d0abfb1364" compoundref="DocumentVersionServiceImpl_8java" startline="55" endline="109">com.gmp.edms.service.impl.DocumentVersionServiceImpl.uploadDocumentVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0336aa48b1c99c40f70cb0a5c5a42168" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.edms.service.impl.DocumentVersionServiceImpl.checkFileExists</definition>
+        <argsstring>(String checksum)</argsstring>
+        <name>checkFileExists</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.checkFileExists</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1a2749a2807c4015fce2907913781a82e5">checkFileExists</reimplements>
+        <param>
+          <type>String</type>
+          <declname>checksum</declname>
+        </param>
+        <briefdescription>
+<para>检查文件是否已存在（基于校验和） </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="334" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="334" bodyend="336"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a76f7616c0e5b38742327f2d0abfb1364" compoundref="DocumentVersionServiceImpl_8java" startline="55" endline="109">com.gmp.edms.service.impl.DocumentVersionServiceImpl.uploadDocumentVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aaae9110bda31bb6a52d7a80ae0af98bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long com.gmp.edms.service.impl.DocumentVersionServiceImpl.getVersionCount</definition>
+        <argsstring>(Long documentId)</argsstring>
+        <name>getVersionCount</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.getVersionCount</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1a1bc6bcb52da386e80cfcf1700821ded5">getVersionCount</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <briefdescription>
+<para>获取版本历史统计 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="339" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="339" bodyend="341"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6d941143b16e1a899963a56e93142504" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.DocumentVersionServiceImpl.compareVersions</definition>
+        <argsstring>(Long versionId1, Long versionId2)</argsstring>
+        <name>compareVersions</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.compareVersions</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1ae0abbd785ca14baae3d074569c742911">compareVersions</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>versionId1</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>versionId2</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>比较两个版本的差异 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="344" column="19" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="344" bodyend="359"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac8da70e07a872e0a77ca145942d40f16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>DocumentVersionDTO</type>
+        <definition>DocumentVersionDTO com.gmp.edms.service.impl.DocumentVersionServiceImpl.rollbackToVersion</definition>
+        <argsstring>(Long versionId)</argsstring>
+        <name>rollbackToVersion</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.rollbackToVersion</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1a636d70732b19f010ff30ffb218a66f31">rollbackToVersion</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>versionId</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>回滚到指定版本 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="363" column="31" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="363" bodyend="403"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService_1a9b347c1bfdfca4baf5109c529af13b40">com.gmp.edms.service.FileStorageService.downloadFile</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4d30f5bbee4ca57ae32085c242c61563" compoundref="DocumentVersionServiceImpl_8java" startline="48">com.gmp.edms.service.impl.DocumentVersionServiceImpl.fileStorageService</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a490d64cbbad1caaeb906b3721e0dfb26" compoundref="DocumentVersionServiceImpl_8java" startline="295" endline="331">com.gmp.edms.service.impl.DocumentVersionServiceImpl.generateNewVersionNumber</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a74bdec53512117bc2111d2060cbae477" compoundref="DocumentVersionServiceImpl_8java" startline="408" endline="413">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFileExtension</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a76f7616c0e5b38742327f2d0abfb1364" compoundref="DocumentVersionServiceImpl_8java" startline="55" endline="109">com.gmp.edms.service.impl.DocumentVersionServiceImpl.uploadDocumentVersion</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a85632c8f283c22ab03b92a153947b422" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; String, Long &gt;</type>
+        <definition>Map&lt; String, Long &gt; com.gmp.edms.service.impl.DocumentVersionServiceImpl.calculateUsageStatistics</definition>
+        <argsstring>()</argsstring>
+        <name>calculateUsageStatistics</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.calculateUsageStatistics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="594" column="16" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="594" bodyend="602"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4171dce4c9fbea7844b53b418465b020" compoundref="DocumentVersionServiceImpl_8java" startline="229" endline="233">com.gmp.edms.service.impl.DocumentVersionServiceImpl.sumFileSize</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a9195a4dffe0dd493ab6fed115fa7041d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.DocumentVersionServiceImpl.restoreDocumentVersion</definition>
+        <argsstring>(Long documentId, Long versionId)</argsstring>
+        <name>restoreDocumentVersion</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.restoreDocumentVersion</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1a1fa34dd4e108dd2a3fdd5ee147a94df5">restoreDocumentVersion</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>versionId</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>恢复文档到指定版本 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="606" column="17" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="606" bodyend="626"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ae904ae54f16bcc678b71b0fb29e51fc3" compoundref="DocumentVersionServiceImpl_8java" startline="45">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" compoundref="DocumentVersionServiceImpl_8java" startline="546" endline="577">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aa1efa11c79c1188880c8aaf1960ddacf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.DocumentVersionServiceImpl.compareDocumentVersions</definition>
+        <argsstring>(Long documentId, Long fromVersionId, Long toVersionId)</argsstring>
+        <name>compareDocumentVersions</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.compareDocumentVersions</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService_1a377ed13f395798ba93b5fcb24721ebd2">compareDocumentVersions</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>documentId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>fromVersionId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>toVersionId</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>比较文档版本（详细比较） </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="629" column="19" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="629" bodyend="683"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ae904ae54f16bcc678b71b0fb29e51fc3" compoundref="DocumentVersionServiceImpl_8java" startline="45">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" compoundref="DocumentVersionServiceImpl_8java" startline="42">com.gmp.edms.service.impl.DocumentVersionServiceImpl.documentVersionRepository</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6805c1a23b019d59236b23530c88e95b" compoundref="DocumentVersionServiceImpl_8java" startline="443" endline="451">com.gmp.edms.service.impl.DocumentVersionServiceImpl.formatFileSize</references>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImplTest_1a29a836bb062c292b143e4682a19e9232" compoundref="DocumentVersionServiceImplTest_8java" startline="107" endline="127">com.gmp.edms.service.impl.DocumentVersionServiceImplTest.testCompareVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImplTest_1a4a2186367679006d6ffa057d462076e3" compoundref="DocumentVersionServiceImplTest_8java" startline="153" endline="173">com.gmp.edms.service.impl.DocumentVersionServiceImplTest.testCompareVersionsDifferentChecksum</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImplTest_1a79065165d844b47e40c34737ff631568" compoundref="DocumentVersionServiceImplTest_8java" startline="130" endline="150">com.gmp.edms.service.impl.DocumentVersionServiceImplTest.testCompareVersionsDifferentSize</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4171dce4c9fbea7844b53b418465b020" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Long</type>
+        <definition>Long com.gmp.edms.service.impl.DocumentVersionServiceImpl.sumFileSize</definition>
+        <argsstring>(List&lt; DocumentVersion &gt; versions)</argsstring>
+        <name>sumFileSize</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.sumFileSize</qualifiedname>
+        <param>
+          <type>List&lt; DocumentVersion &gt;</type>
+          <declname>versions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="229" column="18" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="229" bodyend="233"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a85632c8f283c22ab03b92a153947b422" compoundref="DocumentVersionServiceImpl_8java" startline="594" endline="602">com.gmp.edms.service.impl.DocumentVersionServiceImpl.calculateUsageStatistics</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a74bdec53512117bc2111d2060cbae477" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFileExtension</definition>
+        <argsstring>(String fileName)</argsstring>
+        <name>getFileExtension</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFileExtension</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+<para>获取文件扩展名 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="408" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="408" bodyend="413"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac8da70e07a872e0a77ca145942d40f16" compoundref="DocumentVersionServiceImpl_8java" startline="363" endline="403">com.gmp.edms.service.impl.DocumentVersionServiceImpl.rollbackToVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object</type>
+        <definition>Object com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</definition>
+        <argsstring>(Object obj, String fieldName)</argsstring>
+        <name>getFieldValue</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fieldName</declname>
+        </param>
+        <briefdescription>
+<para>使用反射获取对象的字段值 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="517" column="20" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="517" bodyend="541"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4515ee5fd202d0212f69f5881bd1c800" compoundref="DocumentVersionServiceImpl_8java" startline="582" endline="592">com.gmp.edms.service.impl.DocumentVersionServiceImpl.findField</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aa1efa11c79c1188880c8aaf1960ddacf" compoundref="DocumentVersionServiceImpl_8java" startline="629" endline="683">com.gmp.edms.service.impl.DocumentVersionServiceImpl.compareDocumentVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6d941143b16e1a899963a56e93142504" compoundref="DocumentVersionServiceImpl_8java" startline="344" endline="359">com.gmp.edms.service.impl.DocumentVersionServiceImpl.compareVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0ea0db65100fd8984335f3fc4794948b" compoundref="DocumentVersionServiceImpl_8java" startline="186" endline="226">com.gmp.edms.service.impl.DocumentVersionServiceImpl.deleteDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac272a4184fe3c657faa6e77ca062427f" compoundref="DocumentVersionServiceImpl_8java" startline="172" endline="182">com.gmp.edms.service.impl.DocumentVersionServiceImpl.downloadDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a5c7aba5ff645d3aca86305e00dafd1c2" compoundref="DocumentVersionServiceImpl_8java" startline="281" endline="292">com.gmp.edms.service.impl.DocumentVersionServiceImpl.generatePresignedUrl</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a97045a6345cefce4c772ffbd8a33280c" compoundref="DocumentVersionServiceImpl_8java" startline="139" endline="156">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a3315f58e4f7a9f70896e7097e0b940cd" compoundref="DocumentVersionServiceImpl_8java" startline="127" endline="137">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6d376a6d4e014d7889a6eb3b5b644c7d" compoundref="DocumentVersionServiceImpl_8java" startline="112" endline="124">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getDocumentVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a8c7d0bab66d5289b1b06db99fcecd0b2" compoundref="DocumentVersionServiceImpl_8java" startline="159" endline="169">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getVersionById</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a9195a4dffe0dd493ab6fed115fa7041d" compoundref="DocumentVersionServiceImpl_8java" startline="606" endline="626">com.gmp.edms.service.impl.DocumentVersionServiceImpl.restoreDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac8da70e07a872e0a77ca145942d40f16" compoundref="DocumentVersionServiceImpl_8java" startline="363" endline="403">com.gmp.edms.service.impl.DocumentVersionServiceImpl.rollbackToVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aeafe357dfd4d3155d1b108de11b6e81f" compoundref="DocumentVersionServiceImpl_8java" startline="237" endline="255">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setCurrentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4171dce4c9fbea7844b53b418465b020" compoundref="DocumentVersionServiceImpl_8java" startline="229" endline="233">com.gmp.edms.service.impl.DocumentVersionServiceImpl.sumFileSize</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a76f7616c0e5b38742327f2d0abfb1364" compoundref="DocumentVersionServiceImpl_8java" startline="55" endline="109">com.gmp.edms.service.impl.DocumentVersionServiceImpl.uploadDocumentVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</definition>
+        <argsstring>(Object obj, String fieldName, Object value)</argsstring>
+        <name>setFieldValue</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fieldName</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>使用反射设置对象的字段值 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="546" column="18" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="546" bodyend="577"/>
+        <references refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4515ee5fd202d0212f69f5881bd1c800" compoundref="DocumentVersionServiceImpl_8java" startline="582" endline="592">com.gmp.edms.service.impl.DocumentVersionServiceImpl.findField</references>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a63a555834cdab00e807b32cf2fabc230" compoundref="DocumentVersionServiceImpl_8java" startline="262" endline="275">com.gmp.edms.service.impl.DocumentVersionServiceImpl.approveVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0ea0db65100fd8984335f3fc4794948b" compoundref="DocumentVersionServiceImpl_8java" startline="186" endline="226">com.gmp.edms.service.impl.DocumentVersionServiceImpl.deleteDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a97045a6345cefce4c772ffbd8a33280c" compoundref="DocumentVersionServiceImpl_8java" startline="139" endline="156">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a3315f58e4f7a9f70896e7097e0b940cd" compoundref="DocumentVersionServiceImpl_8java" startline="127" endline="137">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6d376a6d4e014d7889a6eb3b5b644c7d" compoundref="DocumentVersionServiceImpl_8java" startline="112" endline="124">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getDocumentVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a8c7d0bab66d5289b1b06db99fcecd0b2" compoundref="DocumentVersionServiceImpl_8java" startline="159" endline="169">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getVersionById</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a9195a4dffe0dd493ab6fed115fa7041d" compoundref="DocumentVersionServiceImpl_8java" startline="606" endline="626">com.gmp.edms.service.impl.DocumentVersionServiceImpl.restoreDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aeafe357dfd4d3155d1b108de11b6e81f" compoundref="DocumentVersionServiceImpl_8java" startline="237" endline="255">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setCurrentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a76f7616c0e5b38742327f2d0abfb1364" compoundref="DocumentVersionServiceImpl_8java" startline="55" endline="109">com.gmp.edms.service.impl.DocumentVersionServiceImpl.uploadDocumentVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4515ee5fd202d0212f69f5881bd1c800" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>java.lang.reflect.Field</type>
+        <definition>java.lang.reflect.Field com.gmp.edms.service.impl.DocumentVersionServiceImpl.findField</definition>
+        <argsstring>(Class&lt;?&gt; clazz, String fieldName)</argsstring>
+        <name>findField</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.findField</qualifiedname>
+        <param>
+          <type>Class&lt;?&gt;</type>
+          <declname>clazz</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fieldName</declname>
+        </param>
+        <briefdescription>
+<para>查找字段，包括父类中的字段 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="582" column="34" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="582" bodyend="592"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" compoundref="DocumentVersionServiceImpl_8java" startline="517" endline="541">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getFieldValue</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" compoundref="DocumentVersionServiceImpl_8java" startline="546" endline="577">com.gmp.edms.service.impl.DocumentVersionServiceImpl.setFieldValue</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a66513d7a3cb9706b43d030508fed057e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.DocumentVersionServiceImpl.calculateChecksum</definition>
+        <argsstring>(MultipartFile file)</argsstring>
+        <name>calculateChecksum</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.calculateChecksum</qualifiedname>
+        <param>
+          <type>MultipartFile</type>
+          <declname>file</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+<para>计算文件哈希值 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="418" column="22" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="418" bodyend="438"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImplTest_1a8ccba3db400c6d4d6af44f8225718c2d" compoundref="DocumentVersionServiceImplTest_8java" startline="176" endline="190">com.gmp.edms.service.impl.DocumentVersionServiceImplTest.testCalculateChecksum</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a76f7616c0e5b38742327f2d0abfb1364" compoundref="DocumentVersionServiceImpl_8java" startline="55" endline="109">com.gmp.edms.service.impl.DocumentVersionServiceImpl.uploadDocumentVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6805c1a23b019d59236b23530c88e95b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.edms.service.impl.DocumentVersionServiceImpl.formatFileSize</definition>
+        <argsstring>(long size)</argsstring>
+        <name>formatFileSize</name>
+        <qualifiedname>com.gmp.edms.service.impl.DocumentVersionServiceImpl.formatFileSize</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>格式化文件大小 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="443" column="22" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="443" bodyend="451"/>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aa1efa11c79c1188880c8aaf1960ddacf" compoundref="DocumentVersionServiceImpl_8java" startline="629" endline="683">com.gmp.edms.service.impl.DocumentVersionServiceImpl.compareDocumentVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a97045a6345cefce4c772ffbd8a33280c" compoundref="DocumentVersionServiceImpl_8java" startline="139" endline="156">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentDocumentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a3315f58e4f7a9f70896e7097e0b940cd" compoundref="DocumentVersionServiceImpl_8java" startline="127" endline="137">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getCurrentVersion</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6d376a6d4e014d7889a6eb3b5b644c7d" compoundref="DocumentVersionServiceImpl_8java" startline="112" endline="124">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getDocumentVersions</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a8c7d0bab66d5289b1b06db99fcecd0b2" compoundref="DocumentVersionServiceImpl_8java" startline="159" endline="169">com.gmp.edms.service.impl.DocumentVersionServiceImpl.getVersionById</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImplTest_1a4fab198d036956b067d50769bde0ed4d" compoundref="DocumentVersionServiceImplTest_8java" startline="193" endline="199">com.gmp.edms.service.impl.DocumentVersionServiceImplTest.testFormatFileSize</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>文档版本服务实现 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>com.gmp.edms.service.impl.DocumentVersionServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.service.DocumentVersionService</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>DocumentRepository</label>
+      </node>
+      <node id="4">
+        <label>DocumentVersionRepository</label>
+      </node>
+      <node id="7">
+        <label>ModelMapper</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.edms.service.impl.DocumentVersionServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>log</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>documentVersionRepository</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>documentRepository</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>fileStorageService</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>modelMapper</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.service.DocumentVersionService</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1DocumentVersionService"/>
+      </node>
+      <node id="6">
+        <label>com.gmp.edms.service.FileStorageService</label>
+        <link refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService"/>
+      </node>
+      <node id="3">
+        <label>static final Logger</label>
+      </node>
+    </collaborationgraph>
+    <location file="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" line="38" column="7" bodyfile="edms-service/src/main/java/com/gmp/edms/service/impl/DocumentVersionServiceImpl.java" bodystart="38" bodyend="685"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a63a555834cdab00e807b32cf2fabc230" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>approveVersion</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a66513d7a3cb9706b43d030508fed057e" prot="protected" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>calculateChecksum</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a85632c8f283c22ab03b92a153947b422" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>calculateUsageStatistics</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0336aa48b1c99c40f70cb0a5c5a42168" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>checkFileExists</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aa1efa11c79c1188880c8aaf1960ddacf" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>compareDocumentVersions</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6d941143b16e1a899963a56e93142504" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>compareVersions</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0ea0db65100fd8984335f3fc4794948b" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>deleteDocumentVersion</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ae904ae54f16bcc678b71b0fb29e51fc3" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>documentRepository</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ad8416248cad5f31bf29e9ae9dd0c264c" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>documentVersionRepository</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac272a4184fe3c657faa6e77ca062427f" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>downloadDocumentVersion</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4d30f5bbee4ca57ae32085c242c61563" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>fileStorageService</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4515ee5fd202d0212f69f5881bd1c800" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>findField</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6805c1a23b019d59236b23530c88e95b" prot="protected" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>formatFileSize</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a490d64cbbad1caaeb906b3721e0dfb26" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>generateNewVersionNumber</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a5c7aba5ff645d3aca86305e00dafd1c2" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>generatePresignedUrl</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a97045a6345cefce4c772ffbd8a33280c" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>getCurrentDocumentVersion</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a3315f58e4f7a9f70896e7097e0b940cd" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>getCurrentVersion</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6d376a6d4e014d7889a6eb3b5b644c7d" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>getDocumentVersions</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a0f218ed6e4484ad9fb8ccbea833367f5" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>getFieldValue</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a74bdec53512117bc2111d2060cbae477" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>getFileExtension</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a8c7d0bab66d5289b1b06db99fcecd0b2" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>getVersionById</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aaae9110bda31bb6a52d7a80ae0af98bc" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>getVersionCount</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a6c4031f29d028910fc49b81bdd523450" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>log</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a918000af501f4489552060b7b0dd47dd" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>modelMapper</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a9195a4dffe0dd493ab6fed115fa7041d" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>restoreDocumentVersion</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1ac8da70e07a872e0a77ca145942d40f16" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>rollbackToVersion</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1aeafe357dfd4d3155d1b108de11b6e81f" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>setCurrentVersion</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a1d0eda47603c001dfd0d2d261329c31e" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>setFieldValue</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a4171dce4c9fbea7844b53b418465b020" prot="private" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>sumFileSize</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1DocumentVersionServiceImpl_1a76f7616c0e5b38742327f2d0abfb1364" prot="public" virt="non-virtual"><scope>com::gmp::edms::service::impl::DocumentVersionServiceImpl</scope><name>uploadDocumentVersion</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

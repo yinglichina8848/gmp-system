@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="README__MCP_8md" kind="file" language="Markdown">
+    <compoundname>README_MCP.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>MCP集成文档<sp/>-<sp/>QMS系统</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>1.<sp/>概述</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">本文档详细介绍了QMS（质量管理系统）中MCP（Model<sp/>Context<sp/>Protocol）集成的实现、配置和使用方法。MCP协议是系统间通信的核心机制，通过统一的接口和安全认证确保各系统间数据交换的安全性和高效性。</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.<sp/>MCP架构</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.1<sp/>核心组件</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">QMS系统的MCP集成包含以下核心组件：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**安全认证模块**：负责MCP请求的身份验证和权限控制</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**服务集成接口**：提供与其他系统（EDMS、MES、LIMS、ERP等）的集成接口</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**性能优化模块**：包含缓存、断路器、异步执行等性能优化机制</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**监控系统**：收集和展示MCP调用的性能指标和健康状态</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**消息队列**：实现系统间的异步通信</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.2<sp/>数据流</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">外部系统<sp/>→<sp/>MCP认证<sp/>→<sp/>服务接口<sp/>→<sp/>业务处理<sp/>→<sp/>响应/消息通知<sp/>→<sp/>外部系统</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>3.<sp/>安全认证</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>3.1<sp/>认证机制</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">QMS系统使用`McpAuthenticationToken`进行身份验证，支持以下认证方式：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>令牌认证（推荐）</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>基本认证</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>系统证书认证</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>3.2<sp/>权限管理</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">权限通过基于角色的访问控制（RBAC）实现，主要权限包括：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>权限<sp/>|<sp/>说明<sp/>|<sp/>适用系统<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------|------|----------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>mcp:read<sp/>|<sp/>读取QMS数据<sp/>|<sp/>所有集成系统<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>mcp:write<sp/>|<sp/>写入QMS数据<sp/>|<sp/>EDMS,<sp/>MES<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>mcp:admin<sp/>|<sp/>管理权限<sp/>|<sp/>管理员系统<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>3.3<sp/>安全最佳实践</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>所有MCP通信必须使用HTTPS加密</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>令牌有效期最长为24小时</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>敏感操作需要二次验证</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>定期审计访问日志</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>4.<sp/>集成接口</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>4.1<sp/>RESTful<sp/>API</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">QMS系统提供以下MCP<sp/>RESTful接口：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>4.1.1<sp/>文档管理接口</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">GET<sp/>/api/mcp/documents/{documentId}</highlight></codeline>
+<codeline><highlight class="normal">POST<sp/>/api/mcp/documents</highlight></codeline>
+<codeline><highlight class="normal">PUT<sp/>/api/mcp/documents/{documentId}</highlight></codeline>
+<codeline><highlight class="normal">DELETE<sp/>/api/mcp/documents/{documentId}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>4.1.2<sp/>批次管理接口</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">GET<sp/>/api/mcp/batches/{batchId}</highlight></codeline>
+<codeline><highlight class="normal">POST<sp/>/api/mcp/batches</highlight></codeline>
+<codeline><highlight class="normal">GET<sp/>/api/mcp/batches/search</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>4.1.3<sp/>检测数据接口</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">GET<sp/>/api/mcp/inspections/{inspectionId}</highlight></codeline>
+<codeline><highlight class="normal">POST<sp/>/api/mcp/inspections</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>4.2<sp/>数据传输对象（DTOs）</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">系统使用以下DTO进行数据交换：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`DocumentDTO`：文档信息</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`BatchInfoDTO`：批次信息</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`ProcessParameterDTO`：工艺参数</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`MaintenanceRecordDTO`：维护记录</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>5.<sp/>消息队列集成</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>5.1<sp/>队列配置</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">QMS系统使用RabbitMQ作为消息中间件，配置了以下队列：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>队列名称<sp/>|<sp/>用途<sp/>|<sp/>目标系统<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|---------|------|----------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>qms.edms.queue<sp/>|<sp/>与EDMS系统通信<sp/>|<sp/>EDMS<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>qms.mes.queue<sp/>|<sp/>与MES系统通信<sp/>|<sp/>MES<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>qms.lims.queue<sp/>|<sp/>与LIMS系统通信<sp/>|<sp/>LIMS<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>qms.erp.queue<sp/>|<sp/>与ERP系统通信<sp/>|<sp/>ERP<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>qms.training.queue<sp/>|<sp/>与培训系统通信<sp/>|<sp/>Training<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>qms.equipment.queue<sp/>|<sp/>与设备系统通信<sp/>|<sp/>Equipment<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>qms.mcp.dead.letter.queue<sp/>|<sp/>死信队列<sp/>|<sp/>内部处理<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>5.2<sp/>消息格式</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">消息使用JSON格式，包含以下字段：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;messageId&quot;:<sp/>&quot;唯一消息ID&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;timestamp&quot;:<sp/>&quot;发送时间&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;sourceSystem&quot;:<sp/>&quot;发送系统&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;operation&quot;:<sp/>&quot;操作类型&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;payload&quot;:<sp/>{&quot;业务数据&quot;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;retryCount&quot;:<sp/>重试次数</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>5.3<sp/>消息发送示例</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```java</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>发送消息到EDMS系统</highlight></codeline>
+<codeline><highlight class="normal">Map&lt;String,<sp/>Object&gt;<sp/>payload<sp/>=<sp/>new<sp/>HashMap&lt;&gt;();</highlight></codeline>
+<codeline><highlight class="normal">payload.put(&quot;documentId&quot;,<sp/>&quot;DOC-001&quot;);</highlight></codeline>
+<codeline><highlight class="normal">payload.put(&quot;status&quot;,<sp/>&quot;APPROVED&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">String<sp/>messageId<sp/>=<sp/>mcpMessageService.sendToEdms(payload,<sp/>&quot;DOCUMENT_STATUS_UPDATE&quot;);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>6.<sp/>性能优化</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>6.1<sp/>缓存策略</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">系统实现了多级缓存机制：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>本地内存缓存：适用于频繁访问的数据</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Redis分布式缓存：适用于跨实例共享的数据</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>结果缓存：缓存MCP调用结果，减少重复计算</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">缓存配置可在`McpPerformanceConfig`中调整。</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>6.2<sp/>断路器模式</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">使用Resilience4J实现断路器模式，配置参数：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>失败阈值：50%</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>滑动窗口大小：100次调用</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>熔断时间：30秒</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>半开状态调用数：10次</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>6.3<sp/>异步执行</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">系统提供异步执行服务`McpAsyncExecutionService`，支持：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>批量异步调用</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>并行处理</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>带超时的异步执行</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>带重试机制的异步执行</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>7.<sp/>监控与日志</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>7.1<sp/>性能指标</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">系统收集以下MCP性能指标：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>调用次数（总次数、成功、失败）</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>平均响应时间</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>最大/最小响应时间</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>错误率</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>缓存命中率</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>7.2<sp/>监控API</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">访问以下API获取监控数据：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">GET<sp/>/api/mcp/metrics<sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>系统整体性能指标</highlight></codeline>
+<codeline><highlight class="normal">GET<sp/>/api/mcp/metrics/tools/{toolName}<sp/><sp/>#<sp/>特定工具性能指标</highlight></codeline>
+<codeline><highlight class="normal">GET<sp/>/api/mcp/metrics/resources/{resourceName}<sp/><sp/>#<sp/>特定资源性能指标</highlight></codeline>
+<codeline><highlight class="normal">GET<sp/>/api/mcp/health<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>系统健康状态</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>7.3<sp/>日志格式</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">MCP日志包含以下关键字段：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`mcp_trace_id`：追踪ID</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`source_system`：来源系统</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`operation`：操作类型</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`duration_ms`：执行时间</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`status`：执行状态</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>8.<sp/>故障排除</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>8.1<sp/>常见问题</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>问题<sp/>|<sp/>可能原因<sp/>|<sp/>解决方案<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------|---------|----------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>认证失败<sp/>|<sp/>令牌过期或无效<sp/>|<sp/>重新获取令牌<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>权限不足<sp/>|<sp/>缺少必要权限<sp/>|<sp/>检查权限配置<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>断路器触发<sp/>|<sp/>目标系统异常<sp/>|<sp/>检查目标系统状态，等待断路器重置<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>消息发送失败<sp/>|<sp/>队列连接问题<sp/>|<sp/>检查RabbitMQ连接<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>性能下降<sp/>|<sp/>缓存配置不当<sp/>|<sp/>调整缓存策略，增加资源<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>8.2<sp/>诊断工具</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>监控控制台：查看实时性能指标</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>日志分析：分析系统日志</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>健康检查API：检查系统状态</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>9.<sp/>开发与集成指南</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>9.1<sp/>集成步骤</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>在目标系统中实现MCP客户端</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>配置认证信息</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>实现业务逻辑</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>配置消息处理</highlight></codeline>
+<codeline><highlight class="normal">5.<sp/>进行集成测试</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>9.2<sp/>代码示例</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>服务集成示例</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```java</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>创建MCP客户端</highlight></codeline>
+<codeline><highlight class="normal">McpClient<sp/>client<sp/>=<sp/>new<sp/>McpClientBuilder()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.withBaseUrl(&quot;http://qms-system/api/mcp&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.withAuthToken(&quot;your-auth-token&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.build();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>调用文档接口</highlight></codeline>
+<codeline><highlight class="normal">DocumentDTO<sp/>document<sp/>=<sp/>client.getDocument(&quot;DOC-001&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>处理响应</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(document<sp/>!=<sp/>null)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>业务逻辑</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>消息处理示例</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```java</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>注册消息处理器</highlight></codeline>
+<codeline><highlight class="normal">mcpMessageListener.registerMessageHandler(&quot;DOCUMENT_APPROVED&quot;,<sp/>message<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>处理文档批准消息</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>payload<sp/>=<sp/>(Map&lt;String,<sp/>Object&gt;)<sp/>message.get(&quot;payload&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/>documentId<sp/>=<sp/>payload.get(&quot;documentId&quot;).toString();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>执行业务逻辑</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>documentService.updateDocumentStatus(documentId,<sp/>&quot;APPROVED&quot;);</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>10.<sp/>版本控制</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>10.1<sp/>当前版本</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>主要版本：1.x</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>最新版本：1.2.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>10.2<sp/>版本兼容性</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>1.x版本向下兼容0.x版本</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>主要版本升级（如1.x到2.x）可能不兼容</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>10.3<sp/>升级指南</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">版本升级时请参考升级文档，主要包括：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>备份现有配置</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>检查兼容性说明</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>升级依赖包</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>更新API调用</highlight></codeline>
+<codeline><highlight class="normal">5.<sp/>测试集成功能</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>11.<sp/>联系与支持</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">如有问题或需要支持，请联系：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>技术支持团队：support@gmp-system.com</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>集成专家：integration@gmp-system.com</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>紧急支持：emergency@gmp-system.com</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>12.<sp/>附录</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>12.1<sp/>错误代码</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>代码<sp/>|<sp/>描述<sp/>|<sp/>建议操作<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------|------|----------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>4001<sp/>|<sp/>认证失败<sp/>|<sp/>检查认证信息<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>4002<sp/>|<sp/>权限不足<sp/>|<sp/>申请必要权限<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>4003<sp/>|<sp/>参数错误<sp/>|<sp/>检查参数格式<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>5001<sp/>|<sp/>内部错误<sp/>|<sp/>联系技术支持<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>5002<sp/>|<sp/>外部系统错误<sp/>|<sp/>检查外部系统状态<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>5003<sp/>|<sp/>超时错误<sp/>|<sp/>增加超时时间或重试<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>12.2<sp/>配置参数</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">主要配置参数可在`application.yml`中设置：</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```yaml</highlight></codeline>
+<codeline><highlight class="normal">mcp:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>security:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>token-validity:<sp/>86400<sp/><sp/>#<sp/>令牌有效期（秒）</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>performance:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>cache-ttl:<sp/>3600<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>缓存有效期（秒）</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>max-concurrent-calls:<sp/>100<sp/><sp/>#<sp/>最大并发调用数</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>messaging:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>retry-count:<sp/>3<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>消息重试次数</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>retry-interval:<sp/>1000<sp/><sp/><sp/>#<sp/>重试间隔（毫秒）</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">本文档最后更新时间：2023年12月15日</highlight></codeline>
+<codeline><highlight class="normal">版本：1.0</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/README_MCP.md"/>
+  </compounddef>
+</doxygen>

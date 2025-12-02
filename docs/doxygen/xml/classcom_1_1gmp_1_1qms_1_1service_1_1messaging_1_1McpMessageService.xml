@@ -1,0 +1,419 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::qms::service::messaging::McpMessageService</compoundname>
+    <innerclass refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1_1MessageCallback" prot="public">com::gmp::qms::service::messaging::McpMessageService::MessageCallback</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1ab3de4d8be51cdd0a4390105f093e5dff" prot="private" static="no" mutable="no">
+        <type>RabbitTemplate</type>
+        <definition>RabbitTemplate com.gmp.qms.service.messaging.McpMessageService.rabbitTemplate</definition>
+        <argsstring></argsstring>
+        <name>rabbitTemplate</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.rabbitTemplate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="25" column="28" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="25" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4d93314c450fd1dcb2e707a2a3c966a5" compoundref="McpMessageService_8java" startline="116" endline="149">com.gmp.qms.service.messaging.McpMessageService.sendDelayedMessage</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a22747a6e9f21dfa6b368da168c53bc13" compoundref="McpMessageService_8java" startline="154" endline="201">com.gmp.qms.service.messaging.McpMessageService.sendMessageWithCallback</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a3c458ee2a7a42e65173c5a54dbe965b3" compoundref="McpMessageService_8java" startline="78" endline="111">com.gmp.qms.service.messaging.McpMessageService.sendPriorityMessage</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a2510c780a2866ca9376d511501eb0f34" prot="private" static="no" mutable="no">
+        <type>McpPerformanceConfig</type>
+        <definition>McpPerformanceConfig com.gmp.qms.service.messaging.McpMessageService.performanceConfig</definition>
+        <argsstring></argsstring>
+        <name>performanceConfig</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.performanceConfig</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="28" column="34" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a61d5c1a0659072ed3f92279635474ce8" prot="private" static="no" mutable="no">
+        <type>McpMonitoringService</type>
+        <definition>McpMonitoringService com.gmp.qms.service.messaging.McpMessageService.monitoringService</definition>
+        <argsstring></argsstring>
+        <name>monitoringService</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.monitoringService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="31" column="34" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="31" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4d93314c450fd1dcb2e707a2a3c966a5" compoundref="McpMessageService_8java" startline="116" endline="149">com.gmp.qms.service.messaging.McpMessageService.sendDelayedMessage</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a22747a6e9f21dfa6b368da168c53bc13" compoundref="McpMessageService_8java" startline="154" endline="201">com.gmp.qms.service.messaging.McpMessageService.sendMessageWithCallback</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a3c458ee2a7a42e65173c5a54dbe965b3" compoundref="McpMessageService_8java" startline="78" endline="111">com.gmp.qms.service.messaging.McpMessageService.sendPriorityMessage</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a10b8d27c4541eb5b6ab48fdb3d20f9b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.qms.service.messaging.McpMessageService.sendToEdms</definition>
+        <argsstring>(Object payload, String operation)</argsstring>
+        <name>sendToEdms</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.sendToEdms</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>发送消息到EDMS系统 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="36" column="19" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="36" bodyend="38"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4c069a914b48aa314805983d799cae2a" compoundref="McpMessageService_8java" startline="206" endline="236">com.gmp.qms.service.messaging.McpMessageService.sendMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a653d0769fd56fe7d5929af00c5158d45" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.qms.service.messaging.McpMessageService.sendToMes</definition>
+        <argsstring>(Object payload, String operation)</argsstring>
+        <name>sendToMes</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.sendToMes</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>发送消息到MES系统 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="43" column="19" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="43" bodyend="45"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4c069a914b48aa314805983d799cae2a" compoundref="McpMessageService_8java" startline="206" endline="236">com.gmp.qms.service.messaging.McpMessageService.sendMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1aaeddd64852d2623c373fe56ebaf4988a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.qms.service.messaging.McpMessageService.sendToLims</definition>
+        <argsstring>(Object payload, String operation)</argsstring>
+        <name>sendToLims</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.sendToLims</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>发送消息到LIMS系统 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="50" column="19" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="50" bodyend="52"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4c069a914b48aa314805983d799cae2a" compoundref="McpMessageService_8java" startline="206" endline="236">com.gmp.qms.service.messaging.McpMessageService.sendMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a6f5e7ccb8723e81753e9b86edbbf9b1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.qms.service.messaging.McpMessageService.sendToErp</definition>
+        <argsstring>(Object payload, String operation)</argsstring>
+        <name>sendToErp</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.sendToErp</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>发送消息到ERP系统 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="57" column="19" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="57" bodyend="59"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4c069a914b48aa314805983d799cae2a" compoundref="McpMessageService_8java" startline="206" endline="236">com.gmp.qms.service.messaging.McpMessageService.sendMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a67eaed7f466aea4a3e244ddbb092c536" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.qms.service.messaging.McpMessageService.sendToTraining</definition>
+        <argsstring>(Object payload, String operation)</argsstring>
+        <name>sendToTraining</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.sendToTraining</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>发送消息到培训系统 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="64" column="19" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="64" bodyend="66"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4c069a914b48aa314805983d799cae2a" compoundref="McpMessageService_8java" startline="206" endline="236">com.gmp.qms.service.messaging.McpMessageService.sendMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1aed777af89fc9cb0ca36dda0f1ec1f0f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.qms.service.messaging.McpMessageService.sendToEquipment</definition>
+        <argsstring>(Object payload, String operation)</argsstring>
+        <name>sendToEquipment</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.sendToEquipment</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>发送消息到设备系统 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="71" column="19" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="71" bodyend="73"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4c069a914b48aa314805983d799cae2a" compoundref="McpMessageService_8java" startline="206" endline="236">com.gmp.qms.service.messaging.McpMessageService.sendMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a3c458ee2a7a42e65173c5a54dbe965b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.qms.service.messaging.McpMessageService.sendPriorityMessage</definition>
+        <argsstring>(String targetSystem, Object payload, String operation, int priority)</argsstring>
+        <name>sendPriorityMessage</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.sendPriorityMessage</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>targetSystem</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>priority</declname>
+        </param>
+        <briefdescription>
+<para>发送优先级消息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="78" column="19" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="78" bodyend="111"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a6727dd1468b691701a3c861791d1a6c3" compoundref="McpMessageService_8java" startline="241" endline="263">com.gmp.qms.service.messaging.McpMessageService.createMessageWrapper</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a61d5c1a0659072ed3f92279635474ce8" compoundref="McpMessageService_8java" startline="31">com.gmp.qms.service.messaging.McpMessageService.monitoringService</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1ab3de4d8be51cdd0a4390105f093e5dff" compoundref="McpMessageService_8java" startline="25">com.gmp.qms.service.messaging.McpMessageService.rabbitTemplate</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4d93314c450fd1dcb2e707a2a3c966a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.qms.service.messaging.McpMessageService.sendDelayedMessage</definition>
+        <argsstring>(String targetSystem, Object payload, String operation, long delayMs)</argsstring>
+        <name>sendDelayedMessage</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.sendDelayedMessage</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>targetSystem</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>delayMs</declname>
+        </param>
+        <briefdescription>
+<para>发送延迟消息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="116" column="19" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="116" bodyend="149"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a6727dd1468b691701a3c861791d1a6c3" compoundref="McpMessageService_8java" startline="241" endline="263">com.gmp.qms.service.messaging.McpMessageService.createMessageWrapper</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a61d5c1a0659072ed3f92279635474ce8" compoundref="McpMessageService_8java" startline="31">com.gmp.qms.service.messaging.McpMessageService.monitoringService</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1ab3de4d8be51cdd0a4390105f093e5dff" compoundref="McpMessageService_8java" startline="25">com.gmp.qms.service.messaging.McpMessageService.rabbitTemplate</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a22747a6e9f21dfa6b368da168c53bc13" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.qms.service.messaging.McpMessageService.sendMessageWithCallback</definition>
+        <argsstring>(String targetSystem, Object payload, String operation, MessageCallback callback)</argsstring>
+        <name>sendMessageWithCallback</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.sendMessageWithCallback</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>targetSystem</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1_1MessageCallback" kindref="compound">MessageCallback</ref></type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>发送带回调的消息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="154" column="19" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="154" bodyend="201"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a6727dd1468b691701a3c861791d1a6c3" compoundref="McpMessageService_8java" startline="241" endline="263">com.gmp.qms.service.messaging.McpMessageService.createMessageWrapper</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a61d5c1a0659072ed3f92279635474ce8" compoundref="McpMessageService_8java" startline="31">com.gmp.qms.service.messaging.McpMessageService.monitoringService</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1ab3de4d8be51cdd0a4390105f093e5dff" compoundref="McpMessageService_8java" startline="25">com.gmp.qms.service.messaging.McpMessageService.rabbitTemplate</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4c069a914b48aa314805983d799cae2a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.qms.service.messaging.McpMessageService.sendMessage</definition>
+        <argsstring>(String targetSystem, String routingKey, Object payload, String operation)</argsstring>
+        <name>sendMessage</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.sendMessage</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>targetSystem</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>routingKey</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>通用消息发送方法 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="206" column="20" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="206" bodyend="236"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a10b8d27c4541eb5b6ab48fdb3d20f9b5" compoundref="McpMessageService_8java" startline="36" endline="38">com.gmp.qms.service.messaging.McpMessageService.sendToEdms</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1aed777af89fc9cb0ca36dda0f1ec1f0f5" compoundref="McpMessageService_8java" startline="71" endline="73">com.gmp.qms.service.messaging.McpMessageService.sendToEquipment</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a6f5e7ccb8723e81753e9b86edbbf9b1d" compoundref="McpMessageService_8java" startline="57" endline="59">com.gmp.qms.service.messaging.McpMessageService.sendToErp</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1aaeddd64852d2623c373fe56ebaf4988a" compoundref="McpMessageService_8java" startline="50" endline="52">com.gmp.qms.service.messaging.McpMessageService.sendToLims</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a653d0769fd56fe7d5929af00c5158d45" compoundref="McpMessageService_8java" startline="43" endline="45">com.gmp.qms.service.messaging.McpMessageService.sendToMes</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a67eaed7f466aea4a3e244ddbb092c536" compoundref="McpMessageService_8java" startline="64" endline="66">com.gmp.qms.service.messaging.McpMessageService.sendToTraining</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a6727dd1468b691701a3c861791d1a6c3" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; String, Object &gt;</type>
+        <definition>Map&lt; String, Object &gt; com.gmp.qms.service.messaging.McpMessageService.createMessageWrapper</definition>
+        <argsstring>(Object payload, String operation)</argsstring>
+        <name>createMessageWrapper</name>
+        <qualifiedname>com.gmp.qms.service.messaging.McpMessageService.createMessageWrapper</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>创建消息包装器，添加必要的元数据 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="241" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="241" bodyend="263"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4d93314c450fd1dcb2e707a2a3c966a5" compoundref="McpMessageService_8java" startline="116" endline="149">com.gmp.qms.service.messaging.McpMessageService.sendDelayedMessage</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a22747a6e9f21dfa6b368da168c53bc13" compoundref="McpMessageService_8java" startline="154" endline="201">com.gmp.qms.service.messaging.McpMessageService.sendMessageWithCallback</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a3c458ee2a7a42e65173c5a54dbe965b3" compoundref="McpMessageService_8java" startline="78" endline="111">com.gmp.qms.service.messaging.McpMessageService.sendPriorityMessage</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>MCP消息服务，用于处理系统间的消息发送操作 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>McpMonitoringService</label>
+      </node>
+      <node id="3">
+        <label>McpPerformanceConfig</label>
+      </node>
+      <node id="2">
+        <label>RabbitTemplate</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.qms.service.messaging.McpMessageService</label>
+        <link refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>rabbitTemplate</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>performanceConfig</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>monitoringService</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" line="22" column="7" bodyfile="qms-service/src/main/java/com/gmp/qms/service/messaging/McpMessageService.java" bodystart="22" bodyend="279"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a6727dd1468b691701a3c861791d1a6c3" prot="private" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>createMessageWrapper</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a61d5c1a0659072ed3f92279635474ce8" prot="private" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>monitoringService</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a2510c780a2866ca9376d511501eb0f34" prot="private" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>performanceConfig</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1ab3de4d8be51cdd0a4390105f093e5dff" prot="private" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>rabbitTemplate</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4d93314c450fd1dcb2e707a2a3c966a5" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>sendDelayedMessage</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a4c069a914b48aa314805983d799cae2a" prot="private" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>sendMessage</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a22747a6e9f21dfa6b368da168c53bc13" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>sendMessageWithCallback</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a3c458ee2a7a42e65173c5a54dbe965b3" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>sendPriorityMessage</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a10b8d27c4541eb5b6ab48fdb3d20f9b5" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>sendToEdms</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1aed777af89fc9cb0ca36dda0f1ec1f0f5" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>sendToEquipment</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a6f5e7ccb8723e81753e9b86edbbf9b1d" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>sendToErp</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1aaeddd64852d2623c373fe56ebaf4988a" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>sendToLims</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a653d0769fd56fe7d5929af00c5158d45" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>sendToMes</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1messaging_1_1McpMessageService_1a67eaed7f466aea4a3e244ddbb092c536" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::messaging::McpMessageService</scope><name>sendToTraining</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

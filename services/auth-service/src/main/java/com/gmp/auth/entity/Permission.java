@@ -94,6 +94,116 @@ public class Permission {
     @Version
     @Column(nullable = false)
     private Integer version = 1;
+    
+    // Setter方法
+    public void setPermissionCode(String permissionCode) {
+        this.permissionCode = permissionCode;
+    }
+    
+    public void setPermissionName(String permissionName) {
+        this.permissionName = permissionName;
+    }
+    
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+    
+    public void setResourceType(String resourceType) {
+        this.resourceType = resourceType;
+    }
+    
+    public void setResourceUrl(String resourceUrl) {
+        this.resourceUrl = resourceUrl;
+    }
+    
+    public void setHttpMethod(String httpMethod) {
+        this.httpMethod = httpMethod;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+    
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
+    }
+    
+    public void setUpdatedBy(Long updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+    
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+    
+    // Getter方法
+    public Long getId() {
+        return id;
+    }
+    
+    public String getPermissionCode() {
+        return permissionCode;
+    }
+    
+    public String getPermissionName() {
+        return permissionName;
+    }
+    
+    public String getGroupName() {
+        return groupName;
+    }
+    
+    public String getResourceType() {
+        return resourceType;
+    }
+    
+    public String getResourceUrl() {
+        return resourceUrl;
+    }
+    
+    public String getHttpMethod() {
+        return httpMethod;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
+    
+    public Boolean getActive() {
+        return isActive;
+    }
+    
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+    
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+    
+    public Long getUpdatedBy() {
+        return updatedBy;
+    }
+    
+    public Integer getVersion() {
+        return version;
+    }
 
     /**
      * 检查权限是否有效

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="MesClient_8java" kind="file" language="Java">
+    <compoundname>MesClient.java</compoundname>
+    <includes local="no">com.gmp.qms.dto.BatchInfoDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/client/MesClient.java</label>
+        <link refid="MesClient_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.dto.BatchInfoDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1MesClient" prot="public">com::gmp::qms::client::MesClient</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1client">com::gmp::qms::client</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.client;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.BatchInfoDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.NotificationDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.ProcessParameterDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.cloud.openfeign.FeignClient;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">@FeignClient(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;mes-service&quot;</highlight><highlight class="normal">,<sp/>url<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;${feign.client.mes.url}&quot;</highlight><highlight class="normal">,<sp/>fallback<sp/>=<sp/>MesClientFallback.class)</highlight></codeline>
+<codeline lineno="15" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1MesClient" refkind="compound"><highlight class="normal">public<sp/>interface<sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1MesClient" kindref="compound">MesClient</ref><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/api/batches/{batchNumber}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="24" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1MesClient_1aee2e54c8fa0387e5d664aa9559b86915" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>BatchInfoDTO<sp/>getBatchInfo(@PathVariable(&quot;batchNumber&quot;)<sp/>String<sp/>batchNumber);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(&quot;/api/processes/{processId}/parameters</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="33" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1MesClient_1a062f5d91dc4a472472c5236bcf97cd3a" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>ProcessParameterDTO<sp/>getProcessParameters(@PathVariable(&quot;</highlight><highlight class="normal">processId</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>processId);</highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(&quot;/api/notifications</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="41" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1MesClient_1a93a9d36841ac284f40d8ef43e8be8590" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>void<sp/>sendNotification(@RequestBody<sp/>NotificationDTO<sp/>notificationDTO);</highlight></codeline>
+<codeline lineno="42"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(&quot;/api/batches/{batchNumber}/status</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="50" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1MesClient_1a6811acb26f65136c3ae83835d15ec6d7" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>String<sp/>getBatchStatus(@PathVariable(&quot;</highlight><highlight class="normal">batchNumber</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>batchNumber);</highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(&quot;/api/batches/{batchNumber}/process-execution</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="59" refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1MesClient_1afb13b06139c92dc8944a3565a91ba896" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>ProcessParameterDTO<sp/>getBatchProcessExecution(@PathVariable(&quot;</highlight><highlight class="normal">batchNumber</highlight><highlight class="stringliteral">&quot;)<sp/>String<sp/>batchNumber);</highlight></codeline>
+<codeline lineno="60"><highlight class="stringliteral">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/client/MesClient.java"/>
+  </compounddef>
+</doxygen>

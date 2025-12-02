@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="CommonFileServiceImpl_8java" kind="file" language="Java">
+    <compoundname>CommonFileServiceImpl.java</compoundname>
+    <includes local="no">com.fasterxml.jackson.databind.JsonNode</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/service/impl/CommonFileServiceImpl.java</label>
+        <link refid="CommonFileServiceImpl_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.fasterxml.jackson.databind.JsonNode</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl" prot="public">com::gmp::edms::service::impl::CommonFileServiceImpl</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1service_1_1impl">com::gmp::edms::service::impl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.service.impl;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.fasterxml.jackson.databind.JsonNode;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.fasterxml.jackson.databind.ObjectMapper;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.CommonFileDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.CommonFileUploadDTO;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.entity.CommonFile;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.repository.CommonFileRepository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.service.CommonFileService;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.service.FileStorageService;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.modelmapper.ModelMapper;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Value;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Page;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.PageRequest;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.domain.Pageable;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Service;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.transaction.annotation.Transactional;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.multipart.MultipartFile;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.InputStream;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.charset.StandardCharsets;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.security.MessageDigest;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDate;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.format.DateTimeFormatter;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.*;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.stream.Collectors;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">@Service</highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl" kindref="compound">CommonFileServiceImpl</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1CommonFileService" kindref="compound">CommonFileService</ref><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="36" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a4d99db384fc016bf6340d72181fc98f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>CommonFileRepository<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a4d99db384fc016bf6340d72181fc98f1" kindref="member">commonFileRepository</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="39" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a56bf2b9cb1e92f7dd30aba4498a51498" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1service_1_1FileStorageService" kindref="compound">FileStorageService</ref><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a56bf2b9cb1e92f7dd30aba4498a51498" kindref="member">fileStorageService</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="42" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a9c2d1e64d6f5c6e43198b9689ed450ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>ModelMapper<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a9c2d1e64d6f5c6e43198b9689ed450ea" kindref="member">modelMapper</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="45" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a85979e1c644d7eea5abca7030467075f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>ObjectMapper<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a85979e1c644d7eea5abca7030467075f" kindref="member">objectMapper</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@Value(</highlight><highlight class="stringliteral">&quot;${minio.default-bucket}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="48" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1af3bdc06151193389816c920643b1e22f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1af3bdc06151193389816c920643b1e22f" kindref="member">defaultBucket</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Value(&quot;${minio.common-files-bucket:common-files}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1af8385ab937fe2303cfae91c8137e4387" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>commonFilesBucket;</highlight></codeline>
+<codeline lineno="52"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1aaea32c3dcb98d7eba64f25a1911afcb4" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>CommonFileDTO<sp/>uploadFile(MultipartFile<sp/>file,<sp/>String<sp/>module,<sp/>Map&lt;String,<sp/>Object&gt;<sp/>metadata)<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>验证文件</highlight></codeline>
+<codeline lineno="57"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(file<sp/>==<sp/>null<sp/>||<sp/>file.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>IllegalArgumentException(&quot;</highlight><highlight class="normal">文件不能为空</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="59"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>验证模块名称</highlight></codeline>
+<codeline lineno="62"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(module<sp/>==<sp/>null<sp/>||<sp/>module.trim().isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>IllegalArgumentException(&quot;</highlight><highlight class="normal">模块名称不能为空</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="64"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>计算文件校验和</highlight></codeline>
+<codeline lineno="67"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>checksum<sp/>=<sp/>calculateChecksum(file);</highlight></codeline>
+<codeline lineno="68"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>检查文件是否已存在</highlight></codeline>
+<codeline lineno="70"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Optional&lt;CommonFile&gt;<sp/>existingFile<sp/>=<sp/>commonFileRepository.findByChecksum(checksum);</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(existingFile.isPresent())<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>文件已存在，可以选择返回已存在的文件信息或抛出异常</highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>convertToDTO(existingFile.get());</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>生成文件路径</highlight></codeline>
+<codeline lineno="77"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>fileName<sp/>=<sp/>file.getOriginalFilename();</highlight></codeline>
+<codeline lineno="78"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>filePath<sp/>=<sp/>generateFilePath(module,<sp/>fileName);</highlight></codeline>
+<codeline lineno="79"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>创建文件实体</highlight></codeline>
+<codeline lineno="81"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CommonFile<sp/>commonFile<sp/>=<sp/>new<sp/>CommonFile();</highlight></codeline>
+<codeline lineno="82"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFile.setFileName(fileName);</highlight></codeline>
+<codeline lineno="83"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFile.setFileType(file.getContentType());</highlight></codeline>
+<codeline lineno="84"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFile.setFileSize(file.getSize());</highlight></codeline>
+<codeline lineno="85"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFile.setFilePath(filePath);</highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFile.setChecksum(checksum);</highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFile.setBucketName(commonFilesBucket);</highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFile.setModule(module);</highlight></codeline>
+<codeline lineno="89"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFile.setCreatedBy(&quot;</highlight><highlight class="normal">system</highlight><highlight class="stringliteral">&quot;);<sp/>//<sp/>实际应用中应该从认证信息获取</highlight></codeline>
+<codeline lineno="90"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>设置元数据</highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(metadata<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>!metadata.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFile.setMetadata(objectMapper.valueToTree(metadata));</highlight></codeline>
+<codeline lineno="94"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>保存文件信息到数据库</highlight></codeline>
+<codeline lineno="97"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFile<sp/>=<sp/>commonFileRepository.save(commonFile);</highlight></codeline>
+<codeline lineno="98"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>try<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>上传文件到存储服务</highlight></codeline>
+<codeline lineno="101"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fileStorageService.uploadFile(file,<sp/>commonFilesBucket,<sp/>filePath);</highlight></codeline>
+<codeline lineno="102"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>转换为DTO并返回</highlight></codeline>
+<codeline lineno="104"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>convertToDTO(commonFile);</highlight></codeline>
+<codeline lineno="105"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>catch<sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>如果文件上传失败，删除数据库记录</highlight></codeline>
+<codeline lineno="107"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFileRepository.delete(commonFile);</highlight></codeline>
+<codeline lineno="108"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>e;</highlight></codeline>
+<codeline lineno="109"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="113"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="114" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a3d8943acdc39a34e6c444c9ad662eaea" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>List&lt;CommonFileDTO&gt;<sp/>batchUploadFiles(List&lt;MultipartFile&gt;<sp/>files,<sp/>String<sp/>module,<sp/>Map&lt;String,<sp/>Object&gt;<sp/>metadata)<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;CommonFileDTO&gt;<sp/>result<sp/>=<sp/>new<sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="116"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(files<sp/>==<sp/>null<sp/>||<sp/>files.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>result;</highlight></codeline>
+<codeline lineno="119"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="121"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(MultipartFile<sp/>file<sp/>:<sp/>files)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>try<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CommonFileDTO<sp/>fileDTO<sp/>=<sp/>uploadFile(file,<sp/>module,<sp/>metadata);</highlight></codeline>
+<codeline lineno="124"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.add(fileDTO);</highlight></codeline>
+<codeline lineno="125"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>catch<sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>记录错误但继续处理其他文件</highlight></codeline>
+<codeline lineno="127"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.err.println(&quot;</highlight><highlight class="normal">文件上传失败:<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>file.getOriginalFilename()<sp/>+<sp/>&quot;</highlight><highlight class="normal">,<sp/>错误:<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="128"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="131"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>result;</highlight></codeline>
+<codeline lineno="132"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="135" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a30417be81219d966424e625897bdb0d2" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>InputStream<sp/>downloadFile(Long<sp/>fileId)<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CommonFile<sp/>file<sp/>=<sp/>getFileById(fileId);</highlight></codeline>
+<codeline lineno="137"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>fileStorageService.downloadFile(file.getBucketName(),<sp/>file.getFilePath());</highlight></codeline>
+<codeline lineno="138"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="141" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1acb7dacf62e573d69ef6bec3aab36efaa" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>CommonFileDTO<sp/>getFileInfo(Long<sp/>fileId)<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CommonFile<sp/>file<sp/>=<sp/>getFileById(fileId);</highlight></codeline>
+<codeline lineno="143"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>convertToDTO(file);</highlight></codeline>
+<codeline lineno="144"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="146"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="147"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="148" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1ae0577e985b94832b617bf159bb50d057" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>deleteFile(Long<sp/>fileId)<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CommonFile<sp/>file<sp/>=<sp/>getFileById(fileId);</highlight></codeline>
+<codeline lineno="150"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="151"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>先删除存储中的文件</highlight></codeline>
+<codeline lineno="152"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fileStorageService.deleteFile(file.getBucketName(),<sp/>file.getFilePath());</highlight></codeline>
+<codeline lineno="153"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>再删除数据库记录</highlight></codeline>
+<codeline lineno="155"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFileRepository.delete(file);</highlight></codeline>
+<codeline lineno="156"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="158"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="159"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="160" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a3f30ece573d41ef440fc9d232bfdb378" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>batchDeleteFiles(List&lt;Long&gt;<sp/>fileIds)<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(fileIds<sp/>==<sp/>null<sp/>||<sp/>fileIds.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;</highlight></codeline>
+<codeline lineno="163"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="165"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;CommonFile&gt;<sp/>files<sp/>=<sp/>commonFileRepository.findByIdIn(fileIds);</highlight></codeline>
+<codeline lineno="166"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="167"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(CommonFile<sp/>file<sp/>:<sp/>files)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>try<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>删除存储中的文件</highlight></codeline>
+<codeline lineno="170"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fileStorageService.deleteFile(file.getBucketName(),<sp/>file.getFilePath());</highlight></codeline>
+<codeline lineno="171"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="172"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>删除数据库记录</highlight></codeline>
+<codeline lineno="173"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFileRepository.delete(file);</highlight></codeline>
+<codeline lineno="174"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>catch<sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>记录错误但继续处理其他文件</highlight></codeline>
+<codeline lineno="176"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.err.println(&quot;</highlight><highlight class="normal">文件删除失败:<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>file.getId()<sp/>+<sp/>&quot;</highlight><highlight class="normal">,<sp/>错误:<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="177"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="181"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="182" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a81d72da6d6598d6a0763499bb142ddd4" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>String<sp/>generatePresignedUrl(Long<sp/>fileId,<sp/>int<sp/>expiration)<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CommonFile<sp/>file<sp/>=<sp/>getFileById(fileId);</highlight></codeline>
+<codeline lineno="184"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>fileStorageService.generatePresignedUrl(file.getBucketName(),<sp/>file.getFilePath(),<sp/>expiration);</highlight></codeline>
+<codeline lineno="185"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="187"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="188" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a36ab2f1097257bf8edf17c98c1cc508b" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>Map&lt;String,<sp/>Object&gt;<sp/>queryFiles(String<sp/>module,<sp/>Map&lt;String,<sp/>Object&gt;<sp/>filters,<sp/>int<sp/>page,<sp/>int<sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pageable<sp/>pageable<sp/>=<sp/>PageRequest.of(page<sp/>-<sp/>1,<sp/>size);</highlight></codeline>
+<codeline lineno="190"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Page&lt;CommonFile&gt;<sp/>filePage;</highlight></codeline>
+<codeline lineno="191"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="192"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>根据过滤条件构建查询</highlight></codeline>
+<codeline lineno="193"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(filters<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>filters.containsKey(&quot;</highlight><highlight class="normal">keyword</highlight><highlight class="stringliteral">&quot;))<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>keyword<sp/>=<sp/>(String)<sp/>filters.get(&quot;</highlight><highlight class="normal">keyword</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="195"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>filePage<sp/>=<sp/>commonFileRepository.searchByFileName(keyword,<sp/>pageable);</highlight></codeline>
+<codeline lineno="196"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>else<sp/>if<sp/>(module<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>!module.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(filters<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>filters.containsKey(&quot;</highlight><highlight class="normal">status</highlight><highlight class="stringliteral">&quot;))<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>status<sp/>=<sp/>(String)<sp/>filters.get(&quot;</highlight><highlight class="normal">status</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="199"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>filePage<sp/>=<sp/>commonFileRepository.findByModuleAndStatus(module,<sp/>status,<sp/>pageable);</highlight></codeline>
+<codeline lineno="200"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>else<sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>filePage<sp/>=<sp/>commonFileRepository.findByModule(module,<sp/>pageable);</highlight></codeline>
+<codeline lineno="202"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>else<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>filePage<sp/>=<sp/>commonFileRepository.findByStatusOrderByCreatedAtDesc(&quot;</highlight><highlight class="normal">ACTIVE</highlight><highlight class="stringliteral">&quot;,<sp/>pageable);</highlight></codeline>
+<codeline lineno="205"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="207"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;CommonFileDTO&gt;<sp/>fileDTOs<sp/>=<sp/>filePage.getContent().stream()</highlight></codeline>
+<codeline lineno="208"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.map(this::convertToDTO)</highlight></codeline>
+<codeline lineno="209"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.collect(Collectors.toList());</highlight></codeline>
+<codeline lineno="210"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="211"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>result<sp/>=<sp/>new<sp/>HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="212"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.put(&quot;</highlight><highlight class="normal">content</highlight><highlight class="stringliteral">&quot;,<sp/>fileDTOs);</highlight></codeline>
+<codeline lineno="213"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.put(&quot;</highlight><highlight class="normal">totalElements</highlight><highlight class="stringliteral">&quot;,<sp/>filePage.getTotalElements());</highlight></codeline>
+<codeline lineno="214"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.put(&quot;</highlight><highlight class="normal">totalPages</highlight><highlight class="stringliteral">&quot;,<sp/>filePage.getTotalPages());</highlight></codeline>
+<codeline lineno="215"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.put(&quot;</highlight><highlight class="normal">pageNumber</highlight><highlight class="stringliteral">&quot;,<sp/>filePage.getNumber()<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="216"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.put(&quot;</highlight><highlight class="normal">pageSize</highlight><highlight class="stringliteral">&quot;,<sp/>filePage.getSize());</highlight></codeline>
+<codeline lineno="217"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="218"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>result;</highlight></codeline>
+<codeline lineno="219"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="221"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="222"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Transactional</highlight></codeline>
+<codeline lineno="223" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1adb5742d7efb439b594a49a69a84b103a" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>updateFileMetadata(Long<sp/>fileId,<sp/>Map&lt;String,<sp/>Object&gt;<sp/>metadata)<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CommonFile<sp/>file<sp/>=<sp/>getFileById(fileId);</highlight></codeline>
+<codeline lineno="225"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="226"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(metadata<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>!metadata.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file.setMetadata(objectMapper.valueToTree(metadata));</highlight></codeline>
+<codeline lineno="228"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>commonFileRepository.save(file);</highlight></codeline>
+<codeline lineno="229"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="232"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="233" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a1a3c6a5f809963c31f7188785c7f40a0" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>public<sp/>Map&lt;String,<sp/>Object&gt;<sp/>getFileStatistics(String<sp/>module)<sp/>{</highlight></codeline>
+<codeline lineno="234"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>statistics<sp/>=<sp/>new<sp/>HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="235"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="236"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>获取文件数量统计</highlight></codeline>
+<codeline lineno="237"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/>countStats<sp/>=<sp/>commonFileRepository.countByModule();</highlight></codeline>
+<codeline lineno="238"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Long&gt;<sp/>moduleCountMap<sp/>=<sp/>new<sp/>HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="239"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(Object[]<sp/>stat<sp/>:<sp/>countStats)<sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>moduleCountMap.put((String)<sp/>stat[0],<sp/>(Long)<sp/>stat[1]);</highlight></codeline>
+<codeline lineno="241"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>statistics.put(&quot;</highlight><highlight class="normal">countByModule</highlight><highlight class="stringliteral">&quot;,<sp/>moduleCountMap);</highlight></codeline>
+<codeline lineno="243"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="244"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>获取文件大小统计</highlight></codeline>
+<codeline lineno="245"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Object[]&gt;<sp/>sizeStats<sp/>=<sp/>commonFileRepository.sumFileSizeByModule();</highlight></codeline>
+<codeline lineno="246"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Long&gt;<sp/>moduleSizeMap<sp/>=<sp/>new<sp/>HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="247"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(Object[]<sp/>stat<sp/>:<sp/>sizeStats)<sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>moduleSizeMap.put((String)<sp/>stat[0],<sp/>(Long)<sp/>stat[1]);</highlight></codeline>
+<codeline lineno="249"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>statistics.put(&quot;</highlight><highlight class="normal">sizeByModule</highlight><highlight class="stringliteral">&quot;,<sp/>moduleSizeMap);</highlight></codeline>
+<codeline lineno="251"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="252"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>如果指定了模块，获取该模块的详细统计</highlight></codeline>
+<codeline lineno="253"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(module<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>!module.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="254"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>long<sp/>fileCount<sp/>=<sp/>commonFileRepository.countByModuleAndStatus(module,<sp/>&quot;</highlight><highlight class="normal">ACTIVE</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="255"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>statistics.put(&quot;</highlight><highlight class="normal">currentModuleCount</highlight><highlight class="stringliteral">&quot;,<sp/>fileCount);</highlight></codeline>
+<codeline lineno="256"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="257"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="258"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>statistics;</highlight></codeline>
+<codeline lineno="259"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="260"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="264" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a1fb47f9f68e3bba3ac9838c14ab251ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>CommonFile<sp/>getFileById(Long<sp/>fileId)<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>commonFileRepository.findById(fileId)</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.orElseThrow(()<sp/>-&gt;<sp/>new<sp/>Exception(&quot;文件不存在:<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>fileId));</highlight></codeline>
+<codeline lineno="267"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="268"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="272" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1afced947a54bab2255d4e397f876a8117" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>calculateChecksum(MultipartFile<sp/>file)<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MessageDigest<sp/>digest<sp/>=<sp/>MessageDigest.getInstance(&quot;MD5</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="274"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>byte[]<sp/>bytes<sp/>=<sp/>file.getBytes();</highlight></codeline>
+<codeline lineno="275"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digest.update(bytes);</highlight></codeline>
+<codeline lineno="276"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>byte[]<sp/>hash<sp/>=<sp/>digest.digest();</highlight></codeline>
+<codeline lineno="277"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="278"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StringBuilder<sp/>hexString<sp/>=<sp/>new<sp/>StringBuilder();</highlight></codeline>
+<codeline lineno="279"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(byte<sp/>b<sp/>:<sp/>hash)<sp/>{</highlight></codeline>
+<codeline lineno="280"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hexString.append(String.format(&quot;</highlight><highlight class="normal">%02x</highlight><highlight class="stringliteral">&quot;,<sp/>b));</highlight></codeline>
+<codeline lineno="281"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="282"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>hexString.toString();</highlight></codeline>
+<codeline lineno="283"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="284"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="288" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a21923e0c2b061a7eaa58fad1bc1fb173" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>generateFilePath(String<sp/>module,<sp/>String<sp/>originalFileName)<sp/>{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>生成基于日期的目录结构</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>datePath<sp/>=<sp/>LocalDate.now().format(DateTimeFormatter.ofPattern(&quot;yyyy/MM/dd</highlight><highlight class="stringliteral">&quot;));</highlight></codeline>
+<codeline lineno="291"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>生成唯一文件名</highlight></codeline>
+<codeline lineno="292"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>uniqueFileName<sp/>=<sp/>UUID.randomUUID().toString()<sp/>+<sp/>&quot;</highlight><highlight class="normal">-</highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>originalFileName;</highlight></codeline>
+<codeline lineno="293"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>module<sp/>+<sp/>&quot;</highlight><highlight class="normal">/</highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>datePath<sp/>+<sp/>&quot;</highlight><highlight class="normal">/</highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>uniqueFileName;</highlight></codeline>
+<codeline lineno="294"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="295"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="299" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1adc7840b5915364614c4d5ea58136491e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>CommonFileDTO<sp/>convertToDTO(CommonFile<sp/>file)<sp/>{</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CommonFileDTO<sp/>dto<sp/>=<sp/>modelMapper.map(file,<sp/>CommonFileDTO.class);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>格式化文件大小</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setFormattedFileSize(formatFileSize(file.getFileSize()));</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>转换元数据</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>JsonNode<sp/>metadata<sp/>=<sp/>file.getMetadata();</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(metadata<sp/>!=<sp/>null)<sp/>{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dto.setMetadata(objectMapper.convertValue(metadata,<sp/>Map.class));</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>dto;</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="317" refid="classcom_1_1gmp_1_1edms_1_1service_1_1impl_1_1CommonFileServiceImpl_1a52902b709c02e82987500e0da1cf66d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>formatFileSize(Long<sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(size<sp/>==<sp/>null)<sp/>return<sp/>&quot;0<sp/>B</highlight><highlight class="stringliteral">&quot;;</highlight></codeline>
+<codeline lineno="319"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="320"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(size<sp/>&lt;<sp/>1024)<sp/>return<sp/>size<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/>B</highlight><highlight class="stringliteral">&quot;;</highlight></codeline>
+<codeline lineno="321"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(size<sp/>&lt;<sp/>1024<sp/>*<sp/>1024)<sp/>return<sp/>String.format(&quot;</highlight><highlight class="normal">%.2f<sp/>KB</highlight><highlight class="stringliteral">&quot;,<sp/>size<sp/>/<sp/>1024.0);</highlight></codeline>
+<codeline lineno="322"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(size<sp/>&lt;<sp/>1024<sp/>*<sp/>1024<sp/>*<sp/>1024)<sp/>return<sp/>String.format(&quot;</highlight><highlight class="normal">%.2f<sp/>MB</highlight><highlight class="stringliteral">&quot;,<sp/>size<sp/>/<sp/>(1024.0<sp/>*<sp/>1024));</highlight></codeline>
+<codeline lineno="323"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>return<sp/>String.format(&quot;</highlight><highlight class="normal">%.2f<sp/>GB</highlight><highlight class="stringliteral">&quot;,<sp/>size<sp/>/<sp/>(1024.0<sp/>*<sp/>1024<sp/>*<sp/>1024));</highlight></codeline>
+<codeline lineno="324"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="325"><highlight class="stringliteral">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/service/impl/CommonFileServiceImpl.java"/>
+  </compounddef>
+</doxygen>

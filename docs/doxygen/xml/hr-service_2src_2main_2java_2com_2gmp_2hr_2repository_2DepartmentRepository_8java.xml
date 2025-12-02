@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="hr-service_2src_2main_2java_2com_2gmp_2hr_2repository_2DepartmentRepository_8java" kind="file" language="Java">
+    <compoundname>DepartmentRepository.java</compoundname>
+    <includes local="no">com.gmp.hr.entity.Department</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>hr-service/src/main/java/com/gmp/hr/repository/DepartmentRepository.java</label>
+        <link refid="hr-service_2src_2main_2java_2com_2gmp_2hr_2repository_2DepartmentRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.hr.entity.Department</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository" prot="public">com::gmp::hr::repository::DepartmentRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1hr_1_1repository">com::gmp::hr::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1hr_1_1repository" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.hr.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.entity.Department;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Modifying;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="20" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository" kindref="compound">DepartmentRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Department,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;Department&gt;<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1af17f66e32389c33c7190b0b2dfb4f78b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Department&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1af17f66e32389c33c7190b0b2dfb4f78b" kindref="member">findByDepartmentCodeAndDeletedFalse</ref>(String<sp/>departmentCode);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1af5945f8d35ae8f604d02b58487c38fb7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Department&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1af5945f8d35ae8f604d02b58487c38fb7" kindref="member">findByDepartmentNameAndDeletedFalse</ref>(String<sp/>departmentName);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1a9e8e6b3b78c88725e7023c1b3e9f3290" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Department&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1a9e8e6b3b78c88725e7023c1b3e9f3290" kindref="member">findByParentIsNullAndDeletedFalse</ref>();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1abf063c57f1b4e9c7d8c67dbb72067ace" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Department&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1abf063c57f1b4e9c7d8c67dbb72067ace" kindref="member">findByParentIdAndDeletedFalse</ref>(Long<sp/>parentId);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1a50148ef817445ea989911b16967a2352" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Department&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1a50148ef817445ea989911b16967a2352" kindref="member">findByManagerIdAndDeletedFalse</ref>(Long<sp/>managerId);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Modifying</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;UPDATE<sp/>Department<sp/>d<sp/>SET<sp/>d.deleted<sp/>=<sp/>true<sp/>WHERE<sp/>d.id<sp/>=<sp/>:id&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="69" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1a01830df3b854a67bdec7a4003562a2ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1a01830df3b854a67bdec7a4003562a2ee" kindref="member">softDeleteById</ref>(Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(value<sp/>=<sp/>&quot;WITH<sp/>RECURSIVE<sp/>dept_tree<sp/>AS<sp/>(&quot;<sp/>+</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;<sp/><sp/><sp/><sp/>SELECT<sp/>*<sp/>FROM<sp/>hr_department<sp/>WHERE<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>:rootId<sp/>AND<sp/>deleted<sp/>=<sp/>false<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;<sp/><sp/><sp/><sp/>UNION<sp/>ALL<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;<sp/><sp/><sp/><sp/>SELECT<sp/>d.*<sp/>FROM<sp/>hr_department<sp/>d<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;<sp/><sp/><sp/><sp/>JOIN<sp/>dept_tree<sp/>dt<sp/>ON<sp/>d.parent_id<sp/>=<sp/>dt.</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;<sp/><sp/><sp/><sp/>WHERE<sp/>d.deleted<sp/>=<sp/>false<sp/>&quot;<sp/>+</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;)<sp/>SELECT<sp/>*<sp/>FROM<sp/>dept_tree&quot;,<sp/>nativeQuery<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="84" refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1a249d4b30a9d1f444f1a9849c7cb18c9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Department&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1hr_1_1repository_1_1DepartmentRepository_1a249d4b30a9d1f444f1a9849c7cb18c9b" kindref="member">findDepartmentTree</ref>(Long<sp/>rootId);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="hr-service/src/main/java/com/gmp/hr/repository/DepartmentRepository.java"/>
+  </compounddef>
+</doxygen>

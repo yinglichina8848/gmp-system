@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SubsystemController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.controller</a> &gt; <span class="el_source">SubsystemController.java</span></div><h1>SubsystemController.java</h1><pre class="source lang-java linenums">package com.gmp.auth.controller;
+
+import com.gmp.auth.dto.ApiResponse;
+import com.gmp.auth.entity.Subsystem;
+import com.gmp.auth.entity.SubsystemPermission;
+import com.gmp.auth.service.AuthService;
+import com.gmp.auth.service.SubsystemService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * 子系统管理API控制器
+ *
+ * @author GMP系统开发团队
+ */
+@RestController
+@RequestMapping(&quot;/api/subsystems&quot;)
+@CrossOrigin(&quot;*&quot;)
+<span class="fc" id="L27">public class SubsystemController {</span>
+<span class="fc" id="L28">    private static final Logger log = LoggerFactory.getLogger(SubsystemController.class);</span>
+
+    @Autowired
+    private SubsystemService subsystemService;
+    
+    @Autowired
+    private AuthService authService;
+
+    /**
+     * 获取所有子系统列表
+     */
+    @GetMapping
+    public ResponseEntity&lt;ApiResponse&lt;List&lt;Subsystem&gt;&gt;&gt; getAllSubsystems() {
+        try {
+<span class="nc" id="L42">            List&lt;Subsystem&gt; subsystems = subsystemService.getAllSubsystems();</span>
+<span class="nc" id="L43">            return ResponseEntity.ok(ApiResponse.success(&quot;获取子系统列表成功&quot;, subsystems));</span>
+<span class="nc" id="L44">        } catch (Exception e) {</span>
+<span class="nc" id="L45">            log.error(&quot;获取子系统列表失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L46">            return ResponseEntity.ok(ApiResponse.error(&quot;GET_SUBSYSTEMS_FAILED&quot;, &quot;获取子系统列表失败&quot;));</span>
+        }
+    }
+
+    /**
+     * 获取启用的子系统列表
+     */
+    @GetMapping(&quot;/enabled&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;List&lt;Subsystem&gt;&gt;&gt; getEnabledSubsystems() {
+        try {
+<span class="nc" id="L56">            List&lt;Subsystem&gt; subsystems = subsystemService.getEnabledSubsystems();</span>
+<span class="nc" id="L57">            return ResponseEntity.ok(ApiResponse.success(&quot;获取启用子系统列表成功&quot;, subsystems));</span>
+<span class="nc" id="L58">        } catch (Exception e) {</span>
+<span class="nc" id="L59">            log.error(&quot;获取启用子系统列表失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L60">            return ResponseEntity.ok(ApiResponse.error(&quot;GET_ENABLED_SUBSYSTEMS_FAILED&quot;, &quot;获取启用子系统列表失败&quot;));</span>
+        }
+    }
+
+    /**
+     * 根据ID获取子系统详情
+     */
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Subsystem&gt;&gt; getSubsystemById(@PathVariable Long id) {
+        try {
+<span class="nc" id="L70">            Subsystem subsystem = subsystemService.getSubsystemById(id);</span>
+<span class="nc" id="L71">            return ResponseEntity.ok(ApiResponse.success(&quot;获取子系统详情成功&quot;, subsystem));</span>
+<span class="nc" id="L72">        } catch (Exception e) {</span>
+<span class="nc" id="L73">            log.error(&quot;获取子系统详情失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L74">            return ResponseEntity.ok(ApiResponse.error(&quot;GET_SUBSYSTEM_FAILED&quot;, &quot;获取子系统详情失败&quot;));</span>
+        }
+    }
+
+    /**
+     * 根据代码获取子系统详情
+     */
+    @GetMapping(&quot;/code/{subsystemCode}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Subsystem&gt;&gt; getSubsystemByCode(@PathVariable String subsystemCode) {
+        try {
+<span class="nc" id="L84">            Subsystem subsystem = subsystemService.getSubsystemByCode(subsystemCode);</span>
+<span class="nc" id="L85">            return ResponseEntity.ok(ApiResponse.success(&quot;获取子系统详情成功&quot;, subsystem));</span>
+<span class="nc" id="L86">        } catch (Exception e) {</span>
+<span class="nc" id="L87">            log.error(&quot;获取子系统详情失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L88">            return ResponseEntity.ok(ApiResponse.error(&quot;GET_SUBSYSTEM_BY_CODE_FAILED&quot;, &quot;获取子系统详情失败&quot;));</span>
+        }
+    }
+
+    /**
+     * 创建子系统
+     */
+    @PostMapping
+    public ResponseEntity&lt;ApiResponse&lt;Subsystem&gt;&gt; createSubsystem(@RequestBody Subsystem subsystem) {
+        try {
+<span class="nc" id="L98">            Subsystem createdSubsystem = subsystemService.createSubsystem(subsystem);</span>
+<span class="nc" id="L99">            return ResponseEntity.ok(ApiResponse.success(&quot;创建子系统成功&quot;, createdSubsystem));</span>
+<span class="nc" id="L100">        } catch (Exception e) {</span>
+<span class="nc" id="L101">            log.error(&quot;创建子系统失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L102">            return ResponseEntity.ok(ApiResponse.error(&quot;CREATE_SUBSYSTEM_FAILED&quot;, &quot;创建子系统失败: &quot; + e.getMessage()));</span>
+        }
+    }
+
+    /**
+     * 更新子系统
+     */
+    @PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Subsystem&gt;&gt; updateSubsystem(
+            @PathVariable Long id, 
+            @RequestBody Subsystem subsystem) {
+        try {
+            // 不再调用setId方法，因为Subsystem类可能没有这个方法
+            // 让service层处理id的设置
+<span class="nc" id="L116">            Subsystem updatedSubsystem = subsystemService.updateSubsystem(subsystem);</span>
+<span class="nc" id="L117">            return ResponseEntity.ok(ApiResponse.success(&quot;更新子系统成功&quot;, updatedSubsystem));</span>
+<span class="nc" id="L118">        } catch (Exception e) {</span>
+<span class="nc" id="L119">            log.error(&quot;更新子系统失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L120">            return ResponseEntity.ok(ApiResponse.error(&quot;UPDATE_SUBSYSTEM_FAILED&quot;, &quot;更新子系统失败: &quot; + e.getMessage()));</span>
+        }
+    }
+
+    /**
+     * 删除子系统
+     */
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Void&gt;&gt; deleteSubsystem(@PathVariable Long id) {
+        try {
+<span class="nc" id="L130">            subsystemService.deleteSubsystem(id);</span>
+<span class="nc" id="L131">            return ResponseEntity.ok(ApiResponse.success(&quot;删除子系统成功&quot;, null));</span>
+<span class="nc" id="L132">        } catch (Exception e) {</span>
+<span class="nc" id="L133">            log.error(&quot;删除子系统失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L134">            return ResponseEntity.ok(ApiResponse.error(&quot;DELETE_SUBSYSTEM_FAILED&quot;, &quot;删除子系统失败&quot;));</span>
+        }
+    }
+
+    /**
+     * 切换子系统状态
+     */
+    @PutMapping(&quot;/{id}/status&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Subsystem&gt;&gt; toggleSubsystemStatus(
+            @PathVariable Long id, 
+            @RequestParam boolean enabled) {
+        try {
+<span class="nc" id="L146">            Subsystem subsystem = subsystemService.toggleSubsystemStatus(id, enabled);</span>
+<span class="nc" id="L147">            return ResponseEntity.ok(ApiResponse.success(&quot;切换子系统状态成功&quot;, subsystem));</span>
+<span class="nc" id="L148">        } catch (Exception e) {</span>
+<span class="nc" id="L149">            log.error(&quot;切换子系统状态失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L150">            return ResponseEntity.ok(ApiResponse.error(&quot;TOGGLE_SUBSYSTEM_STATUS_FAILED&quot;, &quot;切换子系统状态失败&quot;));</span>
+        }
+    }
+
+    /**
+     * 获取子系统权限列表
+     */
+    @GetMapping(&quot;/{subsystemId}/permissions&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;List&lt;SubsystemPermission&gt;&gt;&gt; getSubsystemPermissions(@PathVariable Long subsystemId) {
+        try {
+<span class="nc" id="L160">            List&lt;SubsystemPermission&gt; permissions = subsystemService.getSubsystemPermissions(subsystemId);</span>
+<span class="nc" id="L161">            return ResponseEntity.ok(ApiResponse.success(&quot;获取子系统权限列表成功&quot;, permissions));</span>
+<span class="nc" id="L162">        } catch (Exception e) {</span>
+<span class="nc" id="L163">            log.error(&quot;获取子系统权限列表失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L164">            return ResponseEntity.ok(ApiResponse.error(&quot;GET_SUBSYSTEM_PERMISSIONS_FAILED&quot;, &quot;获取子系统权限列表失败&quot;));</span>
+        }
+    }
+
+    /**
+     * 为子系统添加权限
+     */
+    @PostMapping(&quot;/{subsystemId}/permissions&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;SubsystemPermission&gt;&gt; addPermissionToSubsystem(
+            @PathVariable Long subsystemId, 
+            @RequestParam Long permissionId, 
+            @RequestParam Integer accessLevel) {
+        try {
+<span class="nc" id="L177">            SubsystemPermission subsystemPermission = subsystemService.addPermissionToSubsystem(subsystemId, permissionId, accessLevel);</span>
+<span class="nc" id="L178">            return ResponseEntity.ok(ApiResponse.success(&quot;添加子系统权限成功&quot;, subsystemPermission));</span>
+<span class="nc" id="L179">        } catch (Exception e) {</span>
+<span class="nc" id="L180">            log.error(&quot;添加子系统权限失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L181">            return ResponseEntity.ok(ApiResponse.error(&quot;ADD_SUBSYSTEM_PERMISSION_FAILED&quot;, &quot;添加子系统权限失败: &quot; + e.getMessage()));</span>
+        }
+    }
+
+    /**
+     * 从子系统移除权限
+     */
+    @DeleteMapping(&quot;/{subsystemId}/permissions/{permissionId}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Void&gt;&gt; removePermissionFromSubsystem(
+            @PathVariable Long subsystemId, 
+            @PathVariable Long permissionId) {
+        try {
+<span class="nc" id="L193">            subsystemService.removePermissionFromSubsystem(subsystemId, permissionId);</span>
+<span class="nc" id="L194">            return ResponseEntity.ok(ApiResponse.success(&quot;移除子系统权限成功&quot;, null));</span>
+<span class="nc" id="L195">        } catch (Exception e) {</span>
+<span class="nc" id="L196">            log.error(&quot;移除子系统权限失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L197">            return ResponseEntity.ok(ApiResponse.error(&quot;REMOVE_SUBSYSTEM_PERMISSION_FAILED&quot;, &quot;移除子系统权限失败&quot;));</span>
+        }
+    }
+
+    /**
+     * 更新子系统权限访问级别
+     */
+    @PutMapping(&quot;/{subsystemId}/permissions/{permissionId}/access-level&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;SubsystemPermission&gt;&gt; updateSubsystemPermissionAccessLevel(
+            @PathVariable Long subsystemId, 
+            @PathVariable Long permissionId, 
+            @RequestParam Integer accessLevel) {
+        try {
+<span class="nc" id="L210">            SubsystemPermission subsystemPermission = subsystemService.updateSubsystemPermissionAccessLevel(subsystemId, permissionId, accessLevel);</span>
+<span class="nc" id="L211">            return ResponseEntity.ok(ApiResponse.success(&quot;更新子系统权限访问级别成功&quot;, subsystemPermission));</span>
+<span class="nc" id="L212">        } catch (Exception e) {</span>
+<span class="nc" id="L213">            log.error(&quot;更新子系统权限访问级别失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L214">            return ResponseEntity.ok(ApiResponse.error(&quot;UPDATE_ACCESS_LEVEL_FAILED&quot;, &quot;更新子系统权限访问级别失败: &quot; + e.getMessage()));</span>
+        }
+    }
+
+    /**
+     * 检查用户对子系统的访问权限
+     */
+    @GetMapping(&quot;/check/{username}/access&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Map&lt;String, Object&gt;&gt;&gt; checkSubsystemAccess(
+            @PathVariable String username, 
+            @RequestParam String subsystemCode) {
+        try {
+<span class="nc" id="L226">            boolean hasAccess = authService.hasSubsystemAccess(username, subsystemCode);</span>
+<span class="nc" id="L227">            Integer accessLevel = authService.getSubsystemAccessLevel(username, subsystemCode);</span>
+            
+<span class="nc" id="L229">            Map&lt;String, Object&gt; result = Map.of(</span>
+                &quot;username&quot;, username,
+                &quot;subsystemCode&quot;, subsystemCode,
+<span class="nc" id="L232">                &quot;hasAccess&quot;, hasAccess,</span>
+                &quot;accessLevel&quot;, accessLevel
+            );
+            
+<span class="nc" id="L236">            return ResponseEntity.ok(ApiResponse.success(&quot;子系统访问权限检查完成&quot;, result));</span>
+<span class="nc" id="L237">        } catch (Exception e) {</span>
+<span class="nc" id="L238">            log.error(&quot;检查子系统访问权限失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L239">            return ResponseEntity.ok(ApiResponse.error(&quot;CHECK_SUBSYSTEM_ACCESS_FAILED&quot;, &quot;检查子系统访问权限失败&quot;));</span>
+        }
+    }
+
+    /**
+     * 获取用户可访问的子系统列表
+     */
+    @GetMapping(&quot;/accessible/{username}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;List&lt;String&gt;&gt;&gt; getUserAccessibleSubsystems(@PathVariable String username) {
+        try {
+            // getUserAccessibleSubsystems返回的是List&lt;String&gt;，保持返回类型一致
+<span class="nc" id="L250">            List&lt;String&gt; subsystemCodes = authService.getUserAccessibleSubsystems(username);</span>
+<span class="nc" id="L251">            return ResponseEntity.ok(ApiResponse.success(&quot;获取用户可访问子系统列表成功&quot;, subsystemCodes));</span>
+<span class="nc" id="L252">        } catch (Exception e) {</span>
+<span class="nc" id="L253">            log.error(&quot;获取用户可访问子系统列表失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L254">            return ResponseEntity.ok(ApiResponse.error(&quot;GET_ACCESSIBLE_SUBSYSTEMS_FAILED&quot;, &quot;获取用户可访问子系统列表失败&quot;));</span>
+        }
+    }
+
+    /**
+     * 获取用户可访问的子系统代码列表
+     */
+    @GetMapping(&quot;/accessible/{username}/codes&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Set&lt;String&gt;&gt;&gt; getUserAccessibleSubsystemCodes(@PathVariable String username) {
+        try {
+            // 直接使用getUserAccessibleSubsystemCodes方法
+<span class="nc" id="L265">            Set&lt;String&gt; subsystemCodes = authService.getUserAccessibleSubsystemCodes(username);</span>
+<span class="nc" id="L266">            return ResponseEntity.ok(ApiResponse.success(&quot;获取用户可访问子系统代码列表成功&quot;, subsystemCodes));</span>
+<span class="nc" id="L267">        } catch (Exception e) {</span>
+<span class="nc" id="L268">            log.error(&quot;获取用户可访问子系统代码列表失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L269">            return ResponseEntity.ok(ApiResponse.error(&quot;GET_ACCESSIBLE_SUBSYSTEM_CODES_FAILED&quot;, &quot;获取用户可访问子系统代码列表失败&quot;));</span>
+        }
+    }
+
+    /**
+     * 获取用户对子系统的访问级别映射
+     */
+    @GetMapping(&quot;/access-levels/{username}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Map&lt;String, Integer&gt;&gt;&gt; getUserSubsystemAccessLevels(@PathVariable String username) {
+        try {
+<span class="nc" id="L279">            Map&lt;String, Integer&gt; accessLevels = authService.getUserSubsystemAccessLevels(username);</span>
+<span class="nc" id="L280">            return ResponseEntity.ok(ApiResponse.success(&quot;获取用户子系统访问级别映射成功&quot;, accessLevels));</span>
+<span class="nc" id="L281">        } catch (Exception e) {</span>
+<span class="nc" id="L282">            log.error(&quot;获取用户子系统访问级别映射失败: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L283">            return ResponseEntity.ok(ApiResponse.error(&quot;GET_SUBSYSTEM_ACCESS_LEVELS_FAILED&quot;, &quot;获取用户子系统访问级别映射失败&quot;));</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

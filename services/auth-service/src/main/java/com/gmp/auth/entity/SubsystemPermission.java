@@ -1,5 +1,6 @@
 package com.gmp.auth.entity;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,22 +14,30 @@ import java.util.Objects;
  *
  * @author GMP系统开发团队
  */
+@Entity
+@Table(name = "subsystem_permissions")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class SubsystemPermission {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
      * 子系统ID
      */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "subsystem_id")
     private Subsystem subsystem;
 
     /**
      * 权限ID
      */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "permission_id")
     private Permission permission;
 
     /**
@@ -38,17 +47,26 @@ public class SubsystemPermission {
      * 2 - 读写权限
      * 3 - 管理权限
      */
+    @Column(nullable = false)
     private Integer accessLevel;
 
     /**
      * 是否为默认权限
      */
+    @Column(name = "is_default")
     private Boolean isDefault = Boolean.FALSE;
 
     // 审计字段
+    @Column(name = "created_by")
     private String createdBy;
+    
+    @Column(name = "created_time")
     private LocalDateTime createdTime;
+    
+    @Column(name = "updated_by")
     private String updatedBy;
+    
+    @Column(name = "updated_time")
     private LocalDateTime updatedTime;
 
     /**

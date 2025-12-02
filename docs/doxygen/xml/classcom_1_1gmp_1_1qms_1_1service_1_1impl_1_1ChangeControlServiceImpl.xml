@@ -1,0 +1,579 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::qms::service::impl::ChangeControlServiceImpl</compoundname>
+    <basecompoundref refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService" prot="public" virt="non-virtual">com.gmp.qms.service.ChangeControlService</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" prot="private" static="no" mutable="no">
+        <type>final ChangeControlRepository</type>
+        <definition>final ChangeControlRepository com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</definition>
+        <argsstring></argsstring>
+        <name>changeControlRepository</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="38" column="43" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a8794c4de5cdac1030abd5565a0c5696b" compoundref="ChangeControlServiceImpl_8java" startline="98" endline="129">com.gmp.qms.service.impl.ChangeControlServiceImpl.addAttachment</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a14cc15cd3ba8a44e8f78267dd2b1b013" compoundref="ChangeControlServiceImpl_8java" startline="44" endline="55">com.gmp.qms.service.impl.ChangeControlServiceImpl.createChangeControl</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a3789e43927061cc09d4d4afb47565b12" compoundref="ChangeControlServiceImpl_8java" startline="77" endline="79">com.gmp.qms.service.impl.ChangeControlServiceImpl.findAllChangeControls</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1ad9daffb2f5e90f1122f6e6621550a2e7" compoundref="ChangeControlServiceImpl_8java" startline="148" endline="155">com.gmp.qms.service.impl.ChangeControlServiceImpl.findOverdueChangeControls</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1aa364217962e560eb9923d1e1da1af95a" compoundref="ChangeControlServiceImpl_8java" startline="72" endline="74">com.gmp.qms.service.impl.ChangeControlServiceImpl.getChangeControlByCode</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1ae0e166e641c1ea68c8a63ade507f0f6c" compoundref="ChangeControlServiceImpl_8java" startline="66" endline="69">com.gmp.qms.service.impl.ChangeControlServiceImpl.getChangeControlById</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a2b1bc1ce4f7ba0b6fa0667b301809926" compoundref="ChangeControlServiceImpl_8java" startline="133" endline="145">com.gmp.qms.service.impl.ChangeControlServiceImpl.removeAttachment</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a293bb566a48ae3f4efbd1edae26282bc" compoundref="ChangeControlServiceImpl_8java" startline="82" endline="85">com.gmp.qms.service.impl.ChangeControlServiceImpl.searchChangeControls</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a2ee731e6c7e6cac0310bca1e15dd4108" compoundref="ChangeControlServiceImpl_8java" startline="59" endline="63">com.gmp.qms.service.impl.ChangeControlServiceImpl.updateChangeControl</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1afc016a6ab115cbdd546ca584d0311b31" compoundref="ChangeControlServiceImpl_8java" startline="89" endline="94">com.gmp.qms.service.impl.ChangeControlServiceImpl.updateChangeControlStatus</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a1fd6ad903c872a2cf05e6115ec323b84" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.gmp.qms.service.impl.ChangeControlServiceImpl.UPLOAD_DIR</definition>
+        <argsstring></argsstring>
+        <name>UPLOAD_DIR</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.UPLOAD_DIR</qualifiedname>
+        <initializer>= System.getProperty(&quot;gmp.upload.dir&quot;, System.getProperty(&quot;java.io.tmpdir&quot;)) + &quot;/change-controls/&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="40" column="33" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="40" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a8794c4de5cdac1030abd5565a0c5696b" compoundref="ChangeControlServiceImpl_8java" startline="98" endline="129">com.gmp.qms.service.impl.ChangeControlServiceImpl.addAttachment</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a14cc15cd3ba8a44e8f78267dd2b1b013" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ChangeControl</type>
+        <definition>ChangeControl com.gmp.qms.service.impl.ChangeControlServiceImpl.createChangeControl</definition>
+        <argsstring>(ChangeControlDTO changeControlDTO)</argsstring>
+        <name>createChangeControl</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.createChangeControl</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService_1abeebb3c8af377aaf7822aa094e61446c">createChangeControl</reimplements>
+        <param>
+          <type>ChangeControlDTO</type>
+          <declname>changeControlDTO</declname>
+        </param>
+        <briefdescription>
+<para>创建新的变更控制记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>changeControlDTO</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>变更控制信息DTO </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>创建的变更控制实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="44" column="26" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="44" bodyend="55"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" compoundref="ChangeControlServiceImpl_8java" startline="38">com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1aa468507a5de56b74a9e3c07cfe1288b5" compoundref="ChangeControlServiceImpl_8java" startline="158" endline="165">com.gmp.qms.service.impl.ChangeControlServiceImpl.generateChangeCode</references>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImplTest_1a684cd830ebc40b433ca26ddfdafe1ef1" compoundref="ChangeControlServiceImplTest_8java" startline="112" endline="120">com.gmp.qms.service.impl.ChangeControlServiceImplTest.testCreateChangeControl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a2ee731e6c7e6cac0310bca1e15dd4108" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ChangeControl</type>
+        <definition>ChangeControl com.gmp.qms.service.impl.ChangeControlServiceImpl.updateChangeControl</definition>
+        <argsstring>(Long id, ChangeControlDTO changeControlDTO)</argsstring>
+        <name>updateChangeControl</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.updateChangeControl</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService_1a852f102e397145a47820d95d1bf883ae">updateChangeControl</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>ChangeControlDTO</type>
+          <declname>changeControlDTO</declname>
+        </param>
+        <briefdescription>
+<para>更新变更控制记录 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>变更控制ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>changeControlDTO</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>更新的变更控制信息 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>更新后的变更控制实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="59" column="26" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="59" bodyend="63"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" compoundref="ChangeControlServiceImpl_8java" startline="38">com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1ae0e166e641c1ea68c8a63ade507f0f6c" compoundref="ChangeControlServiceImpl_8java" startline="66" endline="69">com.gmp.qms.service.impl.ChangeControlServiceImpl.getChangeControlById</references>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImplTest_1a9c674ec079b210c17da7672696d737c8" compoundref="ChangeControlServiceImplTest_8java" startline="123" endline="132">com.gmp.qms.service.impl.ChangeControlServiceImplTest.testUpdateChangeControl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1ae0e166e641c1ea68c8a63ade507f0f6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ChangeControl</type>
+        <definition>ChangeControl com.gmp.qms.service.impl.ChangeControlServiceImpl.getChangeControlById</definition>
+        <argsstring>(Long id)</argsstring>
+        <name>getChangeControlById</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.getChangeControlById</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService_1a2ca59975a6c23788a22d55e46a9eb599">getChangeControlById</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>根据ID查询变更控制 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>变更控制ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>变更控制实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="66" column="26" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="66" bodyend="69"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" compoundref="ChangeControlServiceImpl_8java" startline="38">com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a8794c4de5cdac1030abd5565a0c5696b" compoundref="ChangeControlServiceImpl_8java" startline="98" endline="129">com.gmp.qms.service.impl.ChangeControlServiceImpl.addAttachment</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a2b1bc1ce4f7ba0b6fa0667b301809926" compoundref="ChangeControlServiceImpl_8java" startline="133" endline="145">com.gmp.qms.service.impl.ChangeControlServiceImpl.removeAttachment</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImplTest_1a676b4dcc59d5eff7aaebe8f5919ec7f8" compoundref="ChangeControlServiceImplTest_8java" startline="79" endline="87">com.gmp.qms.service.impl.ChangeControlServiceImplTest.testGetChangeControlById</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a2ee731e6c7e6cac0310bca1e15dd4108" compoundref="ChangeControlServiceImpl_8java" startline="59" endline="63">com.gmp.qms.service.impl.ChangeControlServiceImpl.updateChangeControl</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1afc016a6ab115cbdd546ca584d0311b31" compoundref="ChangeControlServiceImpl_8java" startline="89" endline="94">com.gmp.qms.service.impl.ChangeControlServiceImpl.updateChangeControlStatus</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1aa364217962e560eb9923d1e1da1af95a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ChangeControl</type>
+        <definition>ChangeControl com.gmp.qms.service.impl.ChangeControlServiceImpl.getChangeControlByCode</definition>
+        <argsstring>(String changeCode)</argsstring>
+        <name>getChangeControlByCode</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.getChangeControlByCode</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService_1a16493a64546c451049b4c34b7005e947">getChangeControlByCode</reimplements>
+        <param>
+          <type>String</type>
+          <declname>changeCode</declname>
+        </param>
+        <briefdescription>
+<para>根据编号查询变更控制 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>changeCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>变更编号 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>变更控制实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="72" column="26" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="72" bodyend="74"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" compoundref="ChangeControlServiceImpl_8java" startline="38">com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImplTest_1af490eae6fd7ec2fc3cf7aa736965c671" compoundref="ChangeControlServiceImplTest_8java" startline="101" endline="109">com.gmp.qms.service.impl.ChangeControlServiceImplTest.testGetChangeControlByCode</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a3789e43927061cc09d4d4afb47565b12" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Page&lt; ChangeControl &gt;</type>
+        <definition>Page&lt; ChangeControl &gt; com.gmp.qms.service.impl.ChangeControlServiceImpl.findAllChangeControls</definition>
+        <argsstring>(Pageable pageable)</argsstring>
+        <name>findAllChangeControls</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.findAllChangeControls</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService_1ab4a3d8efe080a29a668d333f20eed37f">findAllChangeControls</reimplements>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>分页查询变更控制列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>变更控制分页列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="77" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="77" bodyend="79"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" compoundref="ChangeControlServiceImpl_8java" startline="38">com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImplTest_1ab56644aeee2a40393f5feb890c9e3088" compoundref="ChangeControlServiceImplTest_8java" startline="135" endline="146">com.gmp.qms.service.impl.ChangeControlServiceImplTest.testFindAllChangeControls</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a293bb566a48ae3f4efbd1edae26282bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Page&lt; ChangeControl &gt;</type>
+        <definition>Page&lt; ChangeControl &gt; com.gmp.qms.service.impl.ChangeControlServiceImpl.searchChangeControls</definition>
+        <argsstring>(ChangeControlSearchCriteria criteria, Pageable pageable)</argsstring>
+        <name>searchChangeControls</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.searchChangeControls</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService_1a12320149992fcaa038e11e53cb7686e9">searchChangeControls</reimplements>
+        <param>
+          <type>ChangeControlSearchCriteria</type>
+          <declname>criteria</declname>
+        </param>
+        <param>
+          <type>Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>根据条件查询变更控制列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>criteria</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>查询条件 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>变更控制分页列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="82" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="82" bodyend="85"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a8b7034c96b5bcc5d870a27652a558075" compoundref="ChangeControlServiceImpl_8java" startline="170" endline="178">com.gmp.qms.service.impl.ChangeControlServiceImpl.buildChangeControlSpecification</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" compoundref="ChangeControlServiceImpl_8java" startline="38">com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImplTest_1a202c7346dbdd931cc5b4428fa4156a33" compoundref="ChangeControlServiceImplTest_8java" startline="149" endline="163">com.gmp.qms.service.impl.ChangeControlServiceImplTest.testSearchChangeControls</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1afc016a6ab115cbdd546ca584d0311b31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ChangeControl</type>
+        <definition>ChangeControl com.gmp.qms.service.impl.ChangeControlServiceImpl.updateChangeControlStatus</definition>
+        <argsstring>(Long id, ChangeControl.ChangeStatus status, String comments)</argsstring>
+        <name>updateChangeControlStatus</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.updateChangeControlStatus</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService_1aaa80d8b0fcd028989dfdf8502ad83b57">updateChangeControlStatus</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>ChangeControl.ChangeStatus</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>comments</declname>
+        </param>
+        <briefdescription>
+<para>更新变更控制状态 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>变更控制ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>新状态 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>comments</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>状态变更说明 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>更新后的变更控制实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="89" column="26" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="89" bodyend="94"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" compoundref="ChangeControlServiceImpl_8java" startline="38">com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1ae0e166e641c1ea68c8a63ade507f0f6c" compoundref="ChangeControlServiceImpl_8java" startline="66" endline="69">com.gmp.qms.service.impl.ChangeControlServiceImpl.getChangeControlById</references>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImplTest_1a97fe62d3686397bd110a80ae1e47ce3c" compoundref="ChangeControlServiceImplTest_8java" startline="166" endline="176">com.gmp.qms.service.impl.ChangeControlServiceImplTest.testUpdateChangeControlStatus</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a8794c4de5cdac1030abd5565a0c5696b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ChangeControl</type>
+        <definition>ChangeControl com.gmp.qms.service.impl.ChangeControlServiceImpl.addAttachment</definition>
+        <argsstring>(Long changeControlId, MultipartFile file, String description)</argsstring>
+        <name>addAttachment</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.addAttachment</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService_1aeaa57a7702d1b1ebbe69bf9860e1dfa9">addAttachment</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>changeControlId</declname>
+        </param>
+        <param>
+          <type>MultipartFile</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+<para>为变更控制添加附件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>changeControlId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>变更控制ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>上传的文件 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件描述 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>更新后的变更控制实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="98" column="26" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="98" bodyend="129"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" compoundref="ChangeControlServiceImpl_8java" startline="38">com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1ae0e166e641c1ea68c8a63ade507f0f6c" compoundref="ChangeControlServiceImpl_8java" startline="66" endline="69">com.gmp.qms.service.impl.ChangeControlServiceImpl.getChangeControlById</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a1fd6ad903c872a2cf05e6115ec323b84" compoundref="ChangeControlServiceImpl_8java" startline="40">com.gmp.qms.service.impl.ChangeControlServiceImpl.UPLOAD_DIR</references>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImplTest_1a72f8b0db4754aeedc7cbd3d867718685" compoundref="ChangeControlServiceImplTest_8java" startline="189" endline="210">com.gmp.qms.service.impl.ChangeControlServiceImplTest.testAddAttachment</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a2b1bc1ce4f7ba0b6fa0667b301809926" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ChangeControl</type>
+        <definition>ChangeControl com.gmp.qms.service.impl.ChangeControlServiceImpl.removeAttachment</definition>
+        <argsstring>(Long changeControlId, Long attachmentId)</argsstring>
+        <name>removeAttachment</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.removeAttachment</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService_1a02f9ca2023a13b2611425731f6598d3e">removeAttachment</reimplements>
+        <param>
+          <type>Long</type>
+          <declname>changeControlId</declname>
+        </param>
+        <param>
+          <type>Long</type>
+          <declname>attachmentId</declname>
+        </param>
+        <briefdescription>
+<para>删除变更控制附件 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>changeControlId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>变更控制ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>attachmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>附件ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>更新后的变更控制实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="133" column="26" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="133" bodyend="145"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" compoundref="ChangeControlServiceImpl_8java" startline="38">com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</references>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1ae0e166e641c1ea68c8a63ade507f0f6c" compoundref="ChangeControlServiceImpl_8java" startline="66" endline="69">com.gmp.qms.service.impl.ChangeControlServiceImpl.getChangeControlById</references>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImplTest_1a28dda33cc3e2334a3bd6320fdf1d662a" compoundref="ChangeControlServiceImplTest_8java" startline="228" endline="246">com.gmp.qms.service.impl.ChangeControlServiceImplTest.testRemoveAttachment</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1ad9daffb2f5e90f1122f6e6621550a2e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; ChangeControl &gt;</type>
+        <definition>List&lt; ChangeControl &gt; com.gmp.qms.service.impl.ChangeControlServiceImpl.findOverdueChangeControls</definition>
+        <argsstring>()</argsstring>
+        <name>findOverdueChangeControls</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.findOverdueChangeControls</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService_1a3174d269624f99f4b5f7d2648dbc72ff">findOverdueChangeControls</reimplements>
+        <briefdescription>
+<para>查询逾期未实施的变更控制 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>逾期变更控制列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="148" column="17" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="148" bodyend="155"/>
+        <references refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" compoundref="ChangeControlServiceImpl_8java" startline="38">com.gmp.qms.service.impl.ChangeControlServiceImpl.changeControlRepository</references>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImplTest_1a2c44dc8bac264f4f0c3e72c0dec21260" compoundref="ChangeControlServiceImplTest_8java" startline="262" endline="277">com.gmp.qms.service.impl.ChangeControlServiceImplTest.testFindOverdueChangeControls</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1aa468507a5de56b74a9e3c07cfe1288b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.qms.service.impl.ChangeControlServiceImpl.generateChangeCode</definition>
+        <argsstring>()</argsstring>
+        <name>generateChangeCode</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.generateChangeCode</qualifiedname>
+        <reimplements refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService_1a2fbd59a8367f02f4036c38a0ef870476">generateChangeCode</reimplements>
+        <briefdescription>
+<para>生成变更控制编号 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>新的变更控制编号 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="158" column="19" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="158" bodyend="165"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a14cc15cd3ba8a44e8f78267dd2b1b013" compoundref="ChangeControlServiceImpl_8java" startline="44" endline="55">com.gmp.qms.service.impl.ChangeControlServiceImpl.createChangeControl</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImplTest_1a621749917149ef341eaa0265d2811673" compoundref="ChangeControlServiceImplTest_8java" startline="179" endline="186">com.gmp.qms.service.impl.ChangeControlServiceImplTest.testGenerateChangeCode</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a8b7034c96b5bcc5d870a27652a558075" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Specification&lt; ChangeControl &gt;</type>
+        <definition>Specification&lt; ChangeControl &gt; com.gmp.qms.service.impl.ChangeControlServiceImpl.buildChangeControlSpecification</definition>
+        <argsstring>(ChangeControlSearchCriteria criteria)</argsstring>
+        <name>buildChangeControlSpecification</name>
+        <qualifiedname>com.gmp.qms.service.impl.ChangeControlServiceImpl.buildChangeControlSpecification</qualifiedname>
+        <param>
+          <type>ChangeControlSearchCriteria</type>
+          <declname>criteria</declname>
+        </param>
+        <briefdescription>
+<para>构建变更控制查询条件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="170" column="27" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="170" bodyend="178"/>
+        <referencedby refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a293bb566a48ae3f4efbd1edae26282bc" compoundref="ChangeControlServiceImpl_8java" startline="82" endline="85">com.gmp.qms.service.impl.ChangeControlServiceImpl.searchChangeControls</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>变更控制服务实现类 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>com.gmp.qms.service.impl.ChangeControlServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.service.ChangeControlService</label>
+        <link refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>String</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.qms.service.impl.ChangeControlServiceImpl</label>
+        <link refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changeControlRepository</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>UPLOAD_DIR</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.service.ChangeControlService</label>
+        <link refid="interfacecom_1_1gmp_1_1qms_1_1service_1_1ChangeControlService"/>
+      </node>
+      <node id="3">
+        <label>final ChangeControlRepository</label>
+      </node>
+    </collaborationgraph>
+    <location file="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" line="36" column="7" bodyfile="qms-service/src/main/java/com/gmp/qms/service/impl/ChangeControlServiceImpl.java" bodystart="36" bodyend="179"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a8794c4de5cdac1030abd5565a0c5696b" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>addAttachment</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a8b7034c96b5bcc5d870a27652a558075" prot="private" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>buildChangeControlSpecification</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a27866a1a16d71be31a4324e1d5b36d98" prot="private" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>changeControlRepository</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a14cc15cd3ba8a44e8f78267dd2b1b013" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>createChangeControl</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a3789e43927061cc09d4d4afb47565b12" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>findAllChangeControls</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1ad9daffb2f5e90f1122f6e6621550a2e7" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>findOverdueChangeControls</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1aa468507a5de56b74a9e3c07cfe1288b5" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>generateChangeCode</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1aa364217962e560eb9923d1e1da1af95a" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>getChangeControlByCode</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1ae0e166e641c1ea68c8a63ade507f0f6c" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>getChangeControlById</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a2b1bc1ce4f7ba0b6fa0667b301809926" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>removeAttachment</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a293bb566a48ae3f4efbd1edae26282bc" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>searchChangeControls</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a2ee731e6c7e6cac0310bca1e15dd4108" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>updateChangeControl</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1afc016a6ab115cbdd546ca584d0311b31" prot="public" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>updateChangeControlStatus</name></member>
+      <member refid="classcom_1_1gmp_1_1qms_1_1service_1_1impl_1_1ChangeControlServiceImpl_1a1fd6ad903c872a2cf05e6115ec323b84" prot="private" virt="non-virtual"><scope>com::gmp::qms::service::impl::ChangeControlServiceImpl</scope><name>UPLOAD_DIR</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

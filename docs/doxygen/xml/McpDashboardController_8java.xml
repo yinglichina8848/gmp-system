@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="McpDashboardController_8java" kind="file" language="Java">
+    <compoundname>McpDashboardController.java</compoundname>
+    <includes local="no">com.gmp.qms.monitoring.McpMonitoringService</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/controller/dashboard/McpDashboardController.java</label>
+        <link refid="McpDashboardController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.monitoring.McpMonitoringService</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController" prot="public">com::gmp::qms::controller::dashboard::McpDashboardController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1controller_1_1dashboard">com::gmp::qms::controller::dashboard</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1qms_1_1controller_1_1dashboard" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.controller.dashboard;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.monitoring.McpMonitoringService;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.service.reporting.McpPerformanceReportService;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Controller;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.ui.Model;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.GetMapping;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.RequestMapping;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.RequestParam;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.ResponseBody;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@Controller</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/dashboard/mcp&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController" kindref="compound">McpDashboardController</ref><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1aba7d93162896ab8b796854b70ae26e1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>McpMonitoringService<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1aba7d93162896ab8b796854b70ae26e1c" kindref="member">monitoringService</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="30" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a6af2db952bc204fda8c4c10698cbad41" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>McpPerformanceReportService<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a6af2db952bc204fda8c4c10698cbad41" kindref="member">reportService</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping</highlight></codeline>
+<codeline lineno="36" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1af0c973b7b008c290289f35fb34f791dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1af0c973b7b008c290289f35fb34f791dc" kindref="member">dashboard</ref>(Model<sp/>model)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>获取系统整体性能指标</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Long&gt;<sp/>systemMetrics<sp/>=<sp/>monitoringService.getSystemMetrics();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>获取各系统调用统计</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Map&lt;String,<sp/>Long&gt;&gt;<sp/>systemCallStats<sp/>=<sp/>monitoringService.getAllSystemCallStats();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>获取最近的性能报告</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>latestReport<sp/>=<sp/>reportService.getLatestPerformanceReport();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>添加模型数据</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>model.addAttribute(</highlight><highlight class="stringliteral">&quot;systemMetrics&quot;</highlight><highlight class="normal">,<sp/>systemMetrics);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>model.addAttribute(</highlight><highlight class="stringliteral">&quot;systemCallStats&quot;</highlight><highlight class="normal">,<sp/>systemCallStats);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>model.addAttribute(</highlight><highlight class="stringliteral">&quot;latestReport&quot;</highlight><highlight class="normal">,<sp/>latestReport);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>model.addAttribute(</highlight><highlight class="stringliteral">&quot;timestamp&quot;</highlight><highlight class="normal">,<sp/>System.currentTimeMillis());</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;dashboard/mcp-dashboard&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/realtime&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="60" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a236a9cfa909e96226b03ca781d5bd2cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Map&lt;String,<sp/>Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a236a9cfa909e96226b03ca781d5bd2cc" kindref="member">getRealtimeData</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>data<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>java.util.HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.put(</highlight><highlight class="stringliteral">&quot;systemMetrics&quot;</highlight><highlight class="normal">,<sp/>monitoringService.getSystemMetrics());</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.put(</highlight><highlight class="stringliteral">&quot;systemCallStats&quot;</highlight><highlight class="normal">,<sp/>monitoringService.getAllSystemCallStats());</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.put(</highlight><highlight class="stringliteral">&quot;recentErrors&quot;</highlight><highlight class="normal">,<sp/>monitoringService.getRecentErrors(10));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.put(</highlight><highlight class="stringliteral">&quot;timestamp&quot;</highlight><highlight class="normal">,<sp/>System.currentTimeMillis());</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/health&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="76" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1ac9578a20c9c3acef1d0962e39360bbd0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Map&lt;String,<sp/>Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1ac9578a20c9c3acef1d0962e39360bbd0" kindref="member">getHealthStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>monitoringService.getSystemHealthStatus();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/trends&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="85" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a21c5500bfb772bcce35936781b739d15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Map&lt;String,<sp/>Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a21c5500bfb772bcce35936781b739d15" kindref="member">getPerformanceTrends</ref>(</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;hour&quot;</highlight><highlight class="normal">)<sp/>String<sp/>period,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;6&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(period)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;minute&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>reportService.getPerformanceTrendsByMinute(count);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;hour&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>reportService.getPerformanceTrendsByHour(count);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;day&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>reportService.getPerformanceTrendsByDay(count);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;week&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>reportService.getPerformanceTrendsByWeek(count);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>reportService.getPerformanceTrendsByHour(6);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/calls/detail&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="108" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a7c5961ce383fddbdd723ad75729ba30c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;Map&lt;String,<sp/>Object&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a7c5961ce383fddbdd723ad75729ba30c" kindref="member">getCallDetails</ref>(</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(required<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)<sp/>String<sp/>system,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;100&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>limit)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(system<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>!system.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>monitoringService.getCallDetailsBySystem(system,<sp/>limit);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>monitoringService.getRecentCallDetails(limit);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/errors&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="124" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1ade525f5f08bba80c610d768ed0d38a7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Map&lt;String,<sp/>Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1ade525f5f08bba80c610d768ed0d38a7e" kindref="member">getErrorLogs</ref>(</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>page,</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestParam(defaultValue<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;50&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>result<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>java.util.HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.put(</highlight><highlight class="stringliteral">&quot;errors&quot;</highlight><highlight class="normal">,<sp/>monitoringService.getErrorLogs(page,<sp/>size));</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.put(</highlight><highlight class="stringliteral">&quot;total&quot;</highlight><highlight class="normal">,<sp/>monitoringService.getErrorLogCount());</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.put(</highlight><highlight class="stringliteral">&quot;page&quot;</highlight><highlight class="normal">,<sp/>page);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.put(</highlight><highlight class="stringliteral">&quot;size&quot;</highlight><highlight class="normal">,<sp/>size);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/cache/status&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="142" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a44b5a44c102ca8f9bd9218d7a9c2ed44" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Map&lt;String,<sp/>Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a44b5a44c102ca8f9bd9218d7a9c2ed44" kindref="member">getCacheStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>monitoringService.getCacheStats();</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/mq/status&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="151" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a5c7f09554bd62802670fca4e245d655c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Map&lt;String,<sp/>Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1a5c7f09554bd62802670fca4e245d655c" kindref="member">getMessageQueueStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>monitoringService.getMessageQueueStats();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/circuit-breakers&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="160" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1aa1768afbdef9bfb7f69ccf22a6e7ebff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Map&lt;String,<sp/>Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1aa1768afbdef9bfb7f69ccf22a6e7ebff" kindref="member">getCircuitBreakerStatus</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>monitoringService.getCircuitBreakerStats();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/reset&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>@ResponseBody</highlight></codeline>
+<codeline lineno="169" refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1afa6f4580439dcaf1b02c1a1bb3d6372e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Map&lt;String,<sp/>Object&gt;<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1controller_1_1dashboard_1_1McpDashboardController_1afa6f4580439dcaf1b02c1a1bb3d6372e" kindref="member">resetMetrics</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>monitoringService.resetAllMetrics();</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>result<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>java.util.HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.put(</highlight><highlight class="stringliteral">&quot;success&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.put(</highlight><highlight class="stringliteral">&quot;message&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;所有性能指标已重置&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/controller/dashboard/McpDashboardController.java"/>
+  </compounddef>
+</doxygen>

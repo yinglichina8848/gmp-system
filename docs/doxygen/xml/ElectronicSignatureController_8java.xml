@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ElectronicSignatureController_8java" kind="file" language="Java">
+    <compoundname>ElectronicSignatureController.java</compoundname>
+    <includes local="no">com.gmp.edms.dto.ApiResponse</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/controller/ElectronicSignatureController.java</label>
+        <link refid="ElectronicSignatureController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.dto.ApiResponse</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController" prot="public">com::gmp::edms::controller::ElectronicSignatureController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1controller">com::gmp::edms::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.ApiResponse;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.dto.ElectronicSignatureDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.service.ElectronicSignatureService;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.RequiredArgsConstructor;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/edms/signatures&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@RequiredArgsConstructor</highlight></codeline>
+<codeline lineno="17" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController" kindref="compound">ElectronicSignatureController</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aac6f5427fae66545dc830cca11e52acd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>ElectronicSignatureService<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aac6f5427fae66545dc830cca11e52acd" kindref="member">electronicSignatureService</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1a5d7531d05571447ea3554b67bca43128" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ApiResponse&lt;ElectronicSignatureDTO&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1a5d7531d05571447ea3554b67bca43128" kindref="member">createSignature</ref>(@RequestBody<sp/>ElectronicSignatureDTO<sp/>signatureDTO)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ElectronicSignatureDTO<sp/>createdSignature<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aac6f5427fae66545dc830cca11e52acd" kindref="member">electronicSignatureService</ref>.createSignature(signatureDTO);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(createdSignature,<sp/></highlight><highlight class="stringliteral">&quot;电子签名创建成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="40" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1a20b958669347f250b0a37bd625ae4523" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;ElectronicSignatureDTO&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1a20b958669347f250b0a37bd625ae4523" kindref="member">getSignatureById</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ElectronicSignatureDTO<sp/>signature<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aac6f5427fae66545dc830cca11e52acd" kindref="member">electronicSignatureService</ref>.getSignatureById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(signature,<sp/></highlight><highlight class="stringliteral">&quot;电子签名查询成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/document/{documentId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="52" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1a0a56c4cede93d1368ade6307ae4220c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;List&lt;ElectronicSignatureDTO&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1a0a56c4cede93d1368ade6307ae4220c0" kindref="member">getSignaturesByDocumentId</ref>(@PathVariable<sp/>Long<sp/>documentId)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;ElectronicSignatureDTO&gt;<sp/>signatures<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aac6f5427fae66545dc830cca11e52acd" kindref="member">electronicSignatureService</ref>.getSignaturesByDocumentId(documentId);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(signatures,<sp/></highlight><highlight class="stringliteral">&quot;电子签名列表查询成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/version/{documentVersionId}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="64" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1ac272a4f432e44c59e13b1bd492edb5cb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;List&lt;ElectronicSignatureDTO&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1ac272a4f432e44c59e13b1bd492edb5cb" kindref="member">getSignaturesByDocumentVersionId</ref>(</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@PathVariable<sp/>Long<sp/>documentVersionId)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;ElectronicSignatureDTO&gt;<sp/>signatures<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aac6f5427fae66545dc830cca11e52acd" kindref="member">electronicSignatureService</ref></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.getSignaturesByDocumentVersionId(documentVersionId);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(signatures,<sp/></highlight><highlight class="stringliteral">&quot;电子签名列表查询成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(</highlight><highlight class="stringliteral">&quot;/{id}/verify&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="78" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aba3f7e2015cd302e2adcb1e394941c4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Boolean&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aba3f7e2015cd302e2adcb1e394941c4d" kindref="member">verifySignature</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aac6f5427fae66545dc830cca11e52acd" kindref="member">electronicSignatureService</ref>.verifySignature(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(result,<sp/></highlight><highlight class="stringliteral">&quot;电子签名验证成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping(</highlight><highlight class="stringliteral">&quot;/batch-verify&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="90" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1ae4c732c95f417a955899f59eb9f8376c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;List&lt;Boolean&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1ae4c732c95f417a955899f59eb9f8376c" kindref="member">batchVerifySignatures</ref>(@RequestBody<sp/>List&lt;Long&gt;<sp/>signatureIds)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Boolean&gt;<sp/>results<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aac6f5427fae66545dc830cca11e52acd" kindref="member">electronicSignatureService</ref>.batchVerifySignatures(signatureIds);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(results,<sp/></highlight><highlight class="stringliteral">&quot;电子签名批量验证成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@DeleteMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="102" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1a05b683324577a939efd51f5ffc7d709f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Void&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1a05b683324577a939efd51f5ffc7d709f" kindref="member">deleteSignature</ref>(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aac6f5427fae66545dc830cca11e52acd" kindref="member">electronicSignatureService</ref>.deleteSignature(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;电子签名删除成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>@DeleteMapping(</highlight><highlight class="stringliteral">&quot;/batch-delete&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="114" refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1a46d079f2c6f609b2703bae66ea2656ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ApiResponse&lt;Void&gt;<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1a46d079f2c6f609b2703bae66ea2656ea" kindref="member">batchDeleteSignatures</ref>(@RequestBody<sp/>List&lt;Long&gt;<sp/>ids)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1controller_1_1ElectronicSignatureController_1aac6f5427fae66545dc830cca11e52acd" kindref="member">electronicSignatureService</ref>.batchDeleteSignatures(ids);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ApiResponse.success(</highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;电子签名批量删除成功&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/controller/ElectronicSignatureController.java"/>
+  </compounddef>
+</doxygen>

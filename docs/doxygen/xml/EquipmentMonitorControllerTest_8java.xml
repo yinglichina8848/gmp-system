@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="EquipmentMonitorControllerTest_8java" kind="file" language="Java">
+    <compoundname>EquipmentMonitorControllerTest.java</compoundname>
+    <includes local="no">com.fasterxml.jackson.databind.ObjectMapper</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>mes-service/src/test/java/com/gmp/mes/controller/EquipmentMonitorControllerTest.java</label>
+        <link refid="EquipmentMonitorControllerTest_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.fasterxml.jackson.databind.ObjectMapper</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest" prot="package">com::gmp::mes::controller::EquipmentMonitorControllerTest</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1mes_1_1controller">com::gmp::mes::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.mes.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.fasterxml.jackson.databind.ObjectMapper;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.mes.entity.EquipmentMonitor;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.mes.service.EquipmentMonitorService;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.BeforeEach;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.InjectMocks;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.Mock;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.mockito.MockitoAnnotations;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.MediaType;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.MockMvc;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.setup.MockMvcBuilders;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.HashMap;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.any;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.anyLong;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.ArgumentMatchers.anyString;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.mockito.Mockito.when;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">@WebMvcTest(EquipmentMonitorController.class)</highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest" refkind="compound"><highlight class="normal">class<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest" kindref="compound">EquipmentMonitorControllerTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Mock</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1aebc5f78112e9591c63b0f3463be31e71" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>EquipmentMonitorService<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1aebc5f78112e9591c63b0f3463be31e71" kindref="member">equipmentMonitorService</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@InjectMocks</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1aea317e9b57db2ab37469de74f00f67f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorController" kindref="compound">EquipmentMonitorController</ref><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1aea317e9b57db2ab37469de74f00f67f5" kindref="member">equipmentMonitorController</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a52f7f34d2d20f7dde24290d29155a102" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>MockMvc<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a52f7f34d2d20f7dde24290d29155a102" kindref="member">mockMvc</ref>;</highlight></codeline>
+<codeline lineno="44" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a08bc9baaefa25cb7f633e3d496b0eeb4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>ObjectMapper<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a08bc9baaefa25cb7f633e3d496b0eeb4" kindref="member">objectMapper</ref>;</highlight></codeline>
+<codeline lineno="45" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1ae38d1b42687bd191504b57d3e2752ceb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>EquipmentMonitor<sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1ae38d1b42687bd191504b57d3e2752ceb" kindref="member">testEquipment</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@BeforeEach</highlight></codeline>
+<codeline lineno="48" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1acb3a82a28cad9cef5281b3dc0c2f712a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1acb3a82a28cad9cef5281b3dc0c2f712a" kindref="member">setUp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MockitoAnnotations.openMocks(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc<sp/>=<sp/>MockMvcBuilders.standaloneSetup(equipmentMonitorController).build();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>objectMapper<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ObjectMapper();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>创建设备监控对象</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EquipmentMonitor();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setId(1L);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setEquipmentId(</highlight><highlight class="stringliteral">&quot;EQP-001&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setEquipmentName(</highlight><highlight class="stringliteral">&quot;注塑机A&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setType(</highlight><highlight class="stringliteral">&quot;注塑机&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setLocation(</highlight><highlight class="stringliteral">&quot;车间1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setIpAddress(</highlight><highlight class="stringliteral">&quot;192.168.1.101&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setPort(8080);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setStatus(EquipmentMonitor.EquipmentStatus.RUNNING);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setTemperature(85.5);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setPressure(120.0);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setHumidity(45.0);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setVibration(2.5);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setTempThreshold(100.0);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setPressThreshold(150.0);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setHumidityThreshold(80.0);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setVibrationThreshold(5.0);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="74" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1aeee61d9c8d10b94eb2c80003e5ab746a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1aeee61d9c8d10b94eb2c80003e5ab746a" kindref="member">testCreateEquipmentMonitor</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(equipmentMonitorService.createEquipmentMonitor(any(EquipmentMonitor.class))).thenReturn(testEquipment);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(post(</highlight><highlight class="stringliteral">&quot;/mes/api/equipment/monitor&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.APPLICATION_JSON)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.content(objectMapper.writeValueAsString(testEquipment)))</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isCreated())</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.equipmentId&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;EQP-001&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.equipmentName&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;注塑机A&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="86" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a25db7cf943db0461c4d73e1b022d622b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a25db7cf943db0461c4d73e1b022d622b" kindref="member">testGetEquipmentMonitorById</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(equipmentMonitorService.getEquipmentMonitorById(1L)).thenReturn(Optional.of(testEquipment));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;/mes/api/equipment/monitor/1&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.equipmentId&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;EQP-001&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.status&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;RUNNING&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="96" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1aa6ffa080789b3854be35cf8e138cf526" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1aa6ffa080789b3854be35cf8e138cf526" kindref="member">testGetEquipmentMonitorByEquipmentId</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(equipmentMonitorService.getEquipmentMonitorByEquipmentId(</highlight><highlight class="stringliteral">&quot;EQP-001&quot;</highlight><highlight class="normal">)).thenReturn(Optional.of(testEquipment));</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;/mes/api/equipment/monitor/by-id/EQP-001&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.equipmentName&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;注塑机A&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="105" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1ac39f4f8ab7a427b5bb1237173dcc5cb9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1ac39f4f8ab7a427b5bb1237173dcc5cb9" kindref="member">testGetAllEquipmentMonitors</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(equipmentMonitorService.getAllEquipmentMonitors()).thenReturn(Arrays.asList(testEquipment));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;/mes/api/equipment/monitor&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.length()&quot;</highlight><highlight class="normal">).value(1))</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$[0].equipmentId&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;EQP-001&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="115" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a786a1ae58fafa8214c4bf5a4f4a0b997" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a786a1ae58fafa8214c4bf5a4f4a0b997" kindref="member">testUpdateEquipmentMonitor</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testEquipment.setEquipmentName(</highlight><highlight class="stringliteral">&quot;注塑机A-更新&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(equipmentMonitorService.updateEquipmentMonitor(any(EquipmentMonitor.class))).thenReturn(testEquipment);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(put(</highlight><highlight class="stringliteral">&quot;/mes/api/equipment/monitor&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.APPLICATION_JSON)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.content(objectMapper.writeValueAsString(testEquipment)))</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.equipmentName&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="stringliteral">&quot;注塑机A-更新&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="127" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1ad004ec1e3d2913700db1b1efea4c46ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1ad004ec1e3d2913700db1b1efea4c46ee" kindref="member">testDeleteEquipmentMonitor</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(delete(</highlight><highlight class="stringliteral">&quot;/mes/api/equipment/monitor/1&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isNoContent());</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="133" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1ac80f23f0e078dd686cd804c3d5eb0915" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1ac80f23f0e078dd686cd804c3d5eb0915" kindref="member">testUpdateEquipmentStatus</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Object&gt;<sp/>statusUpdate<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>statusUpdate.put(</highlight><highlight class="stringliteral">&quot;status&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;MAINTENANCE&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>statusUpdate.put(</highlight><highlight class="stringliteral">&quot;remark&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;设备维护中&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>statusUpdate.put(</highlight><highlight class="stringliteral">&quot;operator&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;操作员1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(equipmentMonitorService.updateEquipmentStatus(anyString(),<sp/>any(),<sp/>anyString(),<sp/>anyString()))</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.thenReturn(testEquipment);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(patch(</highlight><highlight class="stringliteral">&quot;/mes/api/equipment/monitor/EQP-001/status&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.APPLICATION_JSON)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.content(objectMapper.writeValueAsString(statusUpdate)))</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk());</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="149" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1accd1684ad4a5bcd9e9da10e8326434a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1accd1684ad4a5bcd9e9da10e8326434a2" kindref="member">testUpdateEquipmentParameters</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Double&gt;<sp/>parameters<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameters.put(</highlight><highlight class="stringliteral">&quot;temperature&quot;</highlight><highlight class="normal">,<sp/>88.0);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameters.put(</highlight><highlight class="stringliteral">&quot;pressure&quot;</highlight><highlight class="normal">,<sp/>125.0);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(equipmentMonitorService.updateEquipmentParameters(anyString(),<sp/>any(Map.class)))</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.thenReturn(testEquipment);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(patch(</highlight><highlight class="stringliteral">&quot;/mes/api/equipment/monitor/EQP-001/parameters&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.contentType(MediaType.APPLICATION_JSON)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.content(objectMapper.writeValueAsString(parameters)))</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk());</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="164" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1ab04712fee0248a38e335f19e4552ffdf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1ab04712fee0248a38e335f19e4552ffdf" kindref="member">testFindEquipmentMonitorsByStatus</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(equipmentMonitorService.findEquipmentMonitorsByStatus(any()))</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.thenReturn(Arrays.asList(testEquipment));</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;/mes/api/equipment/monitor/status/RUNNING&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.length()&quot;</highlight><highlight class="normal">).value(1));</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="174" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a5e27899a62bbd81f3dd064171d8dc959" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a5e27899a62bbd81f3dd064171d8dc959" kindref="member">testCleanRedisCache</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when(equipmentMonitorService.cleanRedisCache(anyString())).thenReturn(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(delete(</highlight><highlight class="stringliteral">&quot;/mes/api/equipment/monitor/EQP-001/cache&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk())</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(jsonPath(</highlight><highlight class="stringliteral">&quot;$.success&quot;</highlight><highlight class="normal">).value(</highlight><highlight class="keyword">true</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="183" refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a5e47088ad9871eabbf5285b048c7d074" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1mes_1_1controller_1_1EquipmentMonitorControllerTest_1a5e47088ad9871eabbf5285b048c7d074" kindref="member">testGetEquipmentStatusRecords</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mockMvc.perform(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;/mes/api/equipment/monitor/EQP-001/status-records?page=0&amp;size=10&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.andExpect(status().isOk());</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="mes-service/src/test/java/com/gmp/mes/controller/EquipmentMonitorControllerTest.java"/>
+  </compounddef>
+</doxygen>

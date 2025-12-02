@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TcmInventoryBatch_8java" kind="file" language="Java">
+    <compoundname>TcmInventoryBatch.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>warehouse-service/src/main/java/com/gmp/warehouse/entity/TcmInventoryBatch.java</label>
+        <link refid="TcmInventoryBatch_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch" prot="public">com::gmp::warehouse::entity::TcmInventoryBatch</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1warehouse_1_1entity">com::gmp::warehouse::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.warehouse.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.EqualsAndHashCode;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedBy;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedBy;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Serializable;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.math.BigDecimal;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;gmp_tcm_inventory_batch&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">@EqualsAndHashCode(callSuper<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="32" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch" kindref="compound">TcmInventoryBatch</ref><sp/>implements<sp/><ref refid="classSerializable" kindref="compound">Serializable</ref><sp/>{</highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1ab3caca7fdeba63cd5224042a2c6bd3d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>serialVersionUID<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">,<sp/>nullable<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>unique<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1af0f56afdcb674dff34f267e2d0b1827a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;inventory_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a62ca4aacf62bd5dbc65f20bbddfe2e22" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>inventoryId;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;batch_number&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a4de3a393c20a3d53bbf664d09229ee4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>batchNumber;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;production_date&quot;)</highlight></codeline>
+<codeline lineno="59" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1ad70c5a3526d3aa9a432e937e45313845" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>productionDate;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;storage_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1ad78c191fa43797af4c138ce5807ee3bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>storageDate;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;expiration_date&quot;)</highlight></codeline>
+<codeline lineno="71" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a03ed4050636671bc6f2434368a9572ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>expirationDate;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;quantity&quot;,<sp/>precision<sp/>=<sp/>18,<sp/>scale<sp/>=<sp/>3,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="77" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a9e4d2f53d44f6afbfef222d7ed647e6c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>BigDecimal<sp/>quantity;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;unit&quot;,<sp/>length<sp/>=<sp/>20,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="83" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a9d12f87916a5d17bfc0b3cb0de3b95d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>unit;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;origin_place&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="89" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a7353b926c6140a43bcf9f12b4457c9a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>originPlace;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;harvesting_period&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="95" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a0d2a42cd617c70e936e34e2075f9f6d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>harvestingPeriod;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;processing_method&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="101" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1aa0c1b8b68bea77e11003294ad585c564" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>processingMethod;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;processing_date&quot;)</highlight></codeline>
+<codeline lineno="107" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a095ac51afe31fa4f54434776e7089c3d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>processingDate;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;processing_batch_number&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="113" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1ad952412f3ffc46101413fcbfdc4818d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>processingBatchNumber;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;storage_condition&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="119" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1ad165fd05f3c8769aa44e9a12f811dc80" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>storageCondition;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;quality_status&quot;,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="125" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a016feff12ae953191298e6ab468bb7cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>qualityStatus;<sp/></highlight><highlight class="comment">//<sp/>NORMAL,<sp/>DAMAGED,<sp/>EXPIRED,<sp/>QUARANTINE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>length<sp/>=<sp/>20,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="131" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a5fe2ccce798bb29e30391b8f917ada0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>status;<sp/></highlight><highlight class="comment">//<sp/>ACTIVE,<sp/>INACTIVE,<sp/>DELETED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;supplier_id&quot;)</highlight></codeline>
+<codeline lineno="137" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a2b0dc489457fc818f9e136f9a57b1088" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>supplierId;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;purchase_order_no&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="143" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1aa0c31d9549a0c5d92f636afc121ab11b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>purchaseOrderNo;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;inspection_report_no&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="149" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a81d9197767031a35a9ab28fc607f3398" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>inspectionReportNo;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedBy</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="156" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a8b7541ec53154ebdf721d01ee8e56f98" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_time&quot;)</highlight></codeline>
+<codeline lineno="163" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1ad849685372d7d9f65eadec22e3deb42f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdTime;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedBy</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;last_modified_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="170" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a70ae8eb42e7504ada510f5e02b24e182" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>lastModifiedBy;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;last_modified_time&quot;)</highlight></codeline>
+<codeline lineno="177" refid="classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch_1a618003a656ddde0a3297b532a41e3590" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lastModifiedTime;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="warehouse-service/src/main/java/com/gmp/warehouse/entity/TcmInventoryBatch.java"/>
+  </compounddef>
+</doxygen>

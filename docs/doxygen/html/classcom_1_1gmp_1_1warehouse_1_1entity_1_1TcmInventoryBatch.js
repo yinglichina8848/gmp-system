@@ -1,0 +1,27 @@
+var classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch =
+[
+    [ "batchNumber", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a4de3a393c20a3d53bbf664d09229ee4e", null ],
+    [ "createdBy", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a8b7541ec53154ebdf721d01ee8e56f98", null ],
+    [ "createdTime", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#ad849685372d7d9f65eadec22e3deb42f", null ],
+    [ "expirationDate", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a03ed4050636671bc6f2434368a9572ac", null ],
+    [ "harvestingPeriod", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a0d2a42cd617c70e936e34e2075f9f6d8", null ],
+    [ "id", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#af0f56afdcb674dff34f267e2d0b1827a", null ],
+    [ "inspectionReportNo", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a81d9197767031a35a9ab28fc607f3398", null ],
+    [ "inventoryId", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a62ca4aacf62bd5dbc65f20bbddfe2e22", null ],
+    [ "lastModifiedBy", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a70ae8eb42e7504ada510f5e02b24e182", null ],
+    [ "lastModifiedTime", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a618003a656ddde0a3297b532a41e3590", null ],
+    [ "originPlace", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a7353b926c6140a43bcf9f12b4457c9a0", null ],
+    [ "processingBatchNumber", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#ad952412f3ffc46101413fcbfdc4818d8", null ],
+    [ "processingDate", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a095ac51afe31fa4f54434776e7089c3d", null ],
+    [ "processingMethod", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#aa0c1b8b68bea77e11003294ad585c564", null ],
+    [ "productionDate", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#ad70c5a3526d3aa9a432e937e45313845", null ],
+    [ "purchaseOrderNo", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#aa0c31d9549a0c5d92f636afc121ab11b", null ],
+    [ "qualityStatus", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a016feff12ae953191298e6ab468bb7cc", null ],
+    [ "quantity", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a9e4d2f53d44f6afbfef222d7ed647e6c", null ],
+    [ "serialVersionUID", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#ab3caca7fdeba63cd5224042a2c6bd3d2", null ],
+    [ "status", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a5fe2ccce798bb29e30391b8f917ada0e", null ],
+    [ "storageCondition", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#ad165fd05f3c8769aa44e9a12f811dc80", null ],
+    [ "storageDate", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#ad78c191fa43797af4c138ce5807ee3bd", null ],
+    [ "supplierId", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a2b0dc489457fc818f9e136f9a57b1088", null ],
+    [ "unit", "classcom_1_1gmp_1_1warehouse_1_1entity_1_1TcmInventoryBatch.html#a9d12f87916a5d17bfc0b3cb0de3b95d9", null ]
+];

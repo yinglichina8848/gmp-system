@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Customer_8java" kind="file" language="Java">
+    <compoundname>Customer.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>crm-sales/src/main/java/com/gmp/crm/entity/Customer.java</label>
+        <link refid="Customer_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer" prot="public">com::gmp::crm::entity::Customer</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1crm_1_1entity">com::gmp::crm::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1crm_1_1entity" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.crm.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.EqualsAndHashCode;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.ToString;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;crm_customers&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer" kindref="compound">Customer</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer_1a0bd34d793b17a7ef36d504fa806e8fbd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>255)</highlight></codeline>
+<codeline lineno="32" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer_1a6d065a880f831cbb64b352dfdee9fbf0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>name;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(unique<sp/>=<sp/>true,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer_1a4da25405015c4b3d6a2091dd75bdba4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>code;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="44" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer_1ae528512981ac1ddc7cee7298c8cffd88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>contactPerson;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="50" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer_1a4910908a63cc9a883df2691c9f3da181" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>phone;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="56" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer_1a6b21776db66fd0f899b8efbc3bd15486" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>email;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="62" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer_1a54b6a52cea657f1b8bff3d55e810cb8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>address;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="68" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer_1a4400086b53592826949f4a24a78c722a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>status<sp/>=<sp/>&quot;ACTIVE&quot;;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="74" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer_1af5648e9cf39a4396b491b4cbeded8fad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt<sp/>=<sp/>LocalDateTime.now();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="80" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer_1a6516471fdd951a796f0d27e7ece1def3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt<sp/>=<sp/>LocalDateTime.now();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;customer&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>@ToString.Exclude</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@EqualsAndHashCode.Exclude</highlight></codeline>
+<codeline lineno="88" refid="classcom_1_1gmp_1_1crm_1_1entity_1_1Customer_1a3db5bea44caa2f0988897ccfaeac9135" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1crm_1_1entity_1_1SalesOrder" kindref="compound">SalesOrder</ref>&gt;<sp/>salesOrders;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="crm-sales/src/main/java/com/gmp/crm/entity/Customer.java"/>
+  </compounddef>
+</doxygen>

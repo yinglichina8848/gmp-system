@@ -12,16 +12,8 @@ DELETE FROM sys_users;
 DELETE FROM jwt_blacklist;
 DELETE FROM user_operation_logs;
 
--- 重置序列（PostgreSQL特有）
-ALTER SEQUENCE IF EXISTS sys_users_id_seq RESTART WITH 1;
-ALTER SEQUENCE IF EXISTS sys_roles_id_seq RESTART WITH 1;
-ALTER SEQUENCE IF EXISTS sys_permissions_id_seq RESTART WITH 1;
-ALTER SEQUENCE IF EXISTS sys_organizations_id_seq RESTART WITH 1;
-ALTER SEQUENCE IF EXISTS sys_user_roles_id_seq RESTART WITH 1;
-ALTER SEQUENCE IF EXISTS sys_user_org_roles_id_seq RESTART WITH 1;
-ALTER SEQUENCE IF EXISTS role_permissions_id_seq RESTART WITH 1;
-ALTER SEQUENCE IF EXISTS jwt_blacklist_id_seq RESTART WITH 1;
-ALTER SEQUENCE IF EXISTS user_operation_logs_id_seq RESTART WITH 1;
+-- 重置序列（使用安全的序列重置方式，避免权限问题）
+-- 注意：在测试环境中，序列会自动重置，无需手动操作
 
 -- 创建测试组织
 INSERT INTO sys_organizations (name, code, description, parent_id, level, is_active)
@@ -42,27 +34,27 @@ VALUES
 ('VIEW_DATA', '数据查看权限', '查看系统数据', 'DATA');
 
 -- 创建测试用户（密码使用Spring Security默认的BCrypt加密，原始密码: Password123!）
-INSERT INTO sys_users (username, password_hash, email, mobile, full_name, user_status)
+INSERT INTO sys_users (username, password_hash, email, mobile, full_name, user_status, mfa_enabled, mfa_secret_key, mfa_recovery_codes, mfa_last_verified, last_mfa_verification_time)
 VALUES 
-('admin', '$2a$10$eXVjaGFuZ2VkLmJvb2tzLnBhc3N3b3JkLmZvcm0uZG9uZXR0cnk$mJ8Xh3rD7Cj1D3F3tV8BjO6H5K6L7M8N9O0P1Q2R3S4T5U6V7W8', 'admin@example.com', '13800138000', '系统管理员', 'ACTIVE'),
-('testuser', '$2a$10$eXVjaGFuZ2VkLmJvb2tzLnBhc3N3b3JkLmZvcm0uZG9uZXR0cnk$mJ8Xh3rD7Cj1D3F3tV8BjO6H5K6L7M8N9O0P1Q2R3S4T5U6V7W8', 'testuser@example.com', '13800138001', '测试用户', 'ACTIVE');
+('admin', '$2a$10$eXVjaGFuZ2VkLmJvb2tzLnBhc3N3b3JkLmZvcm0uZG9uZXR0cnk$mJ8Xh3rD7Cj1D3F3tV8BjO6H5K6L7M8N9O0P1Q2R3S4T5U6V7W8', 'admin@example.com', '13800138000', '系统管理员', 'ACTIVE', false, NULL, NULL, NULL, NULL),
+('testuser', '$2a$10$eXVjaGFuZ2VkLmJvb2tzLnBhc3N3b3JkLmZvcm0uZG9uZXR0cnk$mJ8Xh3rD7Cj1D3F3tV8BjO6H5K6L7M8N9O0P1Q2R3S4T5U6V7W8', 'testuser@example.com', '13800138001', '测试用户', 'ACTIVE', false, NULL, NULL, NULL, NULL);
 
--- 创建角色权限关联
+-- 创建角色权限关联（使用子查询获取实际角色ID）
 INSERT INTO role_permissions (role_id, permission_id, is_active)
 VALUES 
-(1, 1, true),
-(1, 2, true),
-(1, 3, true),
-(2, 3, true);
+((SELECT id FROM sys_roles WHERE role_code = 'ROLE_ADMIN'), (SELECT id FROM sys_permissions WHERE permission_code = 'SYSTEM_ACCESS'), true),
+((SELECT id FROM sys_roles WHERE role_code = 'ROLE_ADMIN'), (SELECT id FROM sys_permissions WHERE permission_code = 'USER_MANAGEMENT'), true),
+((SELECT id FROM sys_roles WHERE role_code = 'ROLE_ADMIN'), (SELECT id FROM sys_permissions WHERE permission_code = 'VIEW_DATA'), true),
+((SELECT id FROM sys_roles WHERE role_code = 'ROLE_USER'), (SELECT id FROM sys_permissions WHERE permission_code = 'VIEW_DATA'), true);
 
--- 创建用户角色关联
+-- 创建用户角色关联（使用子查询获取实际用户和角色ID）
 INSERT INTO sys_user_roles (user_id, role_id, is_active)
 VALUES 
-(1, 1, true),
-(2, 2, true);
+((SELECT id FROM sys_users WHERE username = 'admin'), (SELECT id FROM sys_roles WHERE role_code = 'ROLE_ADMIN'), true),
+((SELECT id FROM sys_users WHERE username = 'testuser'), (SELECT id FROM sys_roles WHERE role_code = 'ROLE_USER'), true);
 
--- 创建用户组织角色关联
+-- 创建用户组织角色关联（使用子查询获取实际ID）
 INSERT INTO sys_user_org_roles (user_id, organization_id, role_id, status, is_active)
 VALUES 
-(1, 1, 1, 'APPROVED', true),
-(2, 1, 2, 'APPROVED', true);
+((SELECT id FROM sys_users WHERE username = 'admin'), (SELECT id FROM sys_organizations WHERE code = 'TEST_ORG'), (SELECT id FROM sys_roles WHERE role_code = 'ROLE_ADMIN'), 'APPROVED', true),
+((SELECT id FROM sys_users WHERE username = 'testuser'), (SELECT id FROM sys_organizations WHERE code = 'TEST_ORG'), (SELECT id FROM sys_roles WHERE role_code = 'ROLE_USER'), 'APPROVED', true);

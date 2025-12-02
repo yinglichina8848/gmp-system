@@ -13,6 +13,7 @@ import com.gmp.auth.service.UserOrganizationRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -68,25 +69,23 @@ public class UserOrganizationRoleServiceImpl implements UserOrganizationRoleServ
         }
         
         // 创建新的关联
-        // 直接使用基本属性设置，避免使用可能不存在的setter方法
         UserOrganizationRole userOrgRole = new UserOrganizationRole();
         
-        // 为避免setter方法不存在的错误，我们只保留必要的属性设置
-        // 注释掉可能不存在的setter方法调用
-        // userOrgRole.setUserId(userId);
-        // userOrgRole.setOrganizationId(organizationId);
-        // userOrgRole.setRoleId(roleId);
-        // userOrgRole.setAssignedBy(assignedBy);
-        // userOrgRole.setAssignedAt(LocalDateTime.now());
-        // userOrgRole.setEffectiveFrom(LocalDateTime.now());
-        // userOrgRole.setEffectiveUntil(effectiveUntil);
-        // userOrgRole.setAssignmentReason(assignmentReason);
-        // userOrgRole.setStatus(UserOrganizationRole.AssignmentStatus.ACTIVE);
-        // userOrgRole.setCreatedBy(assignedBy);
-        // userOrgRole.setUpdatedBy(assignedBy);
+        // 使用正确的setter方法设置属性
+        userOrgRole.setUserId(userId);
+        userOrgRole.setOrganizationId(organizationId);
+        userOrgRole.setRoleId(roleId);
+        userOrgRole.setAssignedBy(assignedBy);
+        userOrgRole.setAssignedAt(LocalDateTime.now());
+        userOrgRole.setEffectiveFrom(LocalDateTime.now());
+        userOrgRole.setEffectiveUntil(effectiveUntil);
+        userOrgRole.setAssignmentReason(assignmentReason);
+        userOrgRole.setStatus(UserOrganizationRole.AssignmentStatus.ACTIVE);
+        userOrgRole.setCreatedBy(assignedBy);
+        userOrgRole.setUpdatedBy(assignedBy);
         
-        // 临时解决方案：直接返回一个空对象以通过编译
-        return userOrgRole;
+        // 保存并返回创建的关联
+        return userOrgRoleRepository.save(userOrgRole);
     }
     
     @Override
@@ -118,20 +117,17 @@ public class UserOrganizationRoleServiceImpl implements UserOrganizationRoleServ
     }
     
     @Override
+    @Transactional
     public void removeRoleFromUserInOrganization(Long userId, Long organizationId, Long roleId) {
-        List<UserOrganizationRole> userOrgRoles = userOrgRoleRepository.findByUserIdAndOrganizationIdAndStatusIn(
-                userId, organizationId, ACTIVE_STATUSES);
+        // 查找现有的关联
+        UserOrganizationRole userOrgRole = userOrgRoleRepository.findByUserIdAndOrganizationIdAndRoleIdAndStatusIn(
+            userId, organizationId, roleId, ACTIVE_STATUSES)
+            .orElseThrow(() -> new IllegalArgumentException("用户在该组织中没有此角色"));
         
-        UserOrganizationRole roleToRemove = userOrgRoles.stream()
-                // 避免使用getRoleId()方法，直接返回第一个元素
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("用户在该组织中没有此角色"));
-        
-        // 避免使用setStatus()方法
-        // roleToRemove.setStatus(UserOrganizationRole.AssignmentStatus.REVOKED);
-        
-        // 为了编译通过，暂时注释掉保存操作
-        // userOrgRoleRepository.save(roleToRemove);
+        // 更新状态为已移除
+        userOrgRole.setStatus(UserOrganizationRole.AssignmentStatus.REVOKED);
+        userOrgRole.setUpdatedBy(userId);
+        userOrgRoleRepository.save(userOrgRole);
     }
     
     @Override
@@ -154,12 +150,30 @@ public class UserOrganizationRoleServiceImpl implements UserOrganizationRoleServ
         return Collections.emptySet();
     }
     
-    @Override
-    @Transactional(readOnly = true)
-    public Set<String> getUserRoleCodesInOrganization(Long userId, Long organizationId) {
-        // 为了编译通过，直接返回空集合
-        return Collections.emptySet();
-    }
+@Override
+public Set<String> getUserRoleCodesInOrganization(Long userId, Long organizationId) {
+    // 获取用户在指定组织中的角色
+    List<UserOrganizationRole> userOrgRoles = userOrgRoleRepository.findByUserIdAndOrganizationIdAndStatusIn(
+            userId, organizationId, ACTIVE_STATUSES);
+
+    // 正确地从UserOrganizationRole实体中提取角色ID
+    Set<Long> roleIds = userOrgRoles.stream()
+            .map(UserOrganizationRole::getRoleId)
+            .filter(Objects::nonNull)
+            .collect(Collectors.toSet());
+
+    // 根据角色ID获取角色代码
+    Set<String> roleCodes = roleIds.stream()
+            .map(roleId -> {
+                Role role = roleRepository.findById(roleId).orElse(null);
+                return role != null ? role.getRoleCode() : null;
+            })
+            .filter(Objects::nonNull)
+            .filter(StringUtils::hasText)
+            .collect(Collectors.toSet());
+
+    return roleCodes;
+}
     
     @Override
     @Transactional(readOnly = true)
@@ -207,13 +221,13 @@ public class UserOrganizationRoleServiceImpl implements UserOrganizationRoleServ
         UserOrganizationRole userOrgRole = userOrgRoleRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("用户组织角色关联不存在: " + id));
         
-        // 注释掉可能不存在的setter方法
-        // userOrgRole.setStatus(status);
-        // userOrgRole.setUpdatedBy(updatedBy);
-        // userOrgRole.setUpdatedAt(LocalDateTime.now());
+        // 使用正确的setter方法更新状态和相关信息
+        userOrgRole.setStatus(status);
+        userOrgRole.setUpdatedBy(updatedBy);
+        userOrgRole.setUpdatedAt(LocalDateTime.now());
         
-        // 为了编译通过，直接返回原对象
-        return userOrgRole;
+        // 保存并返回更新后的对象
+        return userOrgRoleRepository.save(userOrgRole);
     }
     
     @Override
@@ -221,37 +235,38 @@ public class UserOrganizationRoleServiceImpl implements UserOrganizationRoleServ
         UserOrganizationRole userOrgRole = userOrgRoleRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("用户组织角色关联不存在: " + id));
         
-        // 注释掉可能不存在的setter方法
-        // userOrgRole.setApprovedBy(approvedBy);
-        // userOrgRole.setApprovedAt(LocalDateTime.now());
-        // userOrgRole.setApprovalNote(approvalNote);
-        // 
-        // if (approved) {
-        //     userOrgRole.setStatus(UserOrganizationRole.AssignmentStatus.APPROVED);
-        // } else {
-        //     userOrgRole.setStatus(UserOrganizationRole.AssignmentStatus.REJECTED);
-        // }
-        // 
-        // userOrgRole.setUpdatedBy(approvedBy);
-        // userOrgRole.setUpdatedAt(LocalDateTime.now());
+        // 使用正确的setter方法设置审批信息
+        userOrgRole.setApprovedBy(approvedBy);
+        userOrgRole.setApprovedAt(LocalDateTime.now());
+        userOrgRole.setApprovalNote(approvalNote);
         
-        // 为了编译通过，直接返回原对象
-        return userOrgRole;
+        // 根据审批结果设置状态
+        if (approved) {
+            userOrgRole.setStatus(UserOrganizationRole.AssignmentStatus.APPROVED);
+        } else {
+            userOrgRole.setStatus(UserOrganizationRole.AssignmentStatus.REJECTED);
+        }
+        
+        // 设置更新信息
+        userOrgRole.setUpdatedBy(approvedBy);
+        userOrgRole.setUpdatedAt(LocalDateTime.now());
+        
+        // 保存并返回更新后的对象
+        return userOrgRoleRepository.save(userOrgRole);
     }
     
     @Override
     public void refreshExpiredAssignments() {
-        // 为了编译通过，暂时注释掉实现
-        // LocalDateTime now = LocalDateTime.now();
-        // List<UserOrganizationRole> expiredAssignments = 
-        //         userOrgRoleRepository.findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusInAndExpiresNotifiedFalse(
-        //                 now, ACTIVE_STATUSES);
-        // 
-        // for (UserOrganizationRole assignment : expiredAssignments) {
-        //     assignment.setStatus(UserOrganizationRole.AssignmentStatus.EXPIRED);
-        //     assignment.setExpiresNotified(true);
-        //     userOrgRoleRepository.save(assignment);
-        // }
+        LocalDateTime now = LocalDateTime.now();
+        List<UserOrganizationRole> expiredAssignments = 
+                userOrgRoleRepository.findByEffectiveUntilIsNotNullAndEffectiveUntilBeforeAndStatusInAndExpiresNotifiedFalse(
+                        now, ACTIVE_STATUSES);
+        
+        for (UserOrganizationRole assignment : expiredAssignments) {
+            assignment.setStatus(UserOrganizationRole.AssignmentStatus.EXPIRED);
+            assignment.setExpiresNotified(true);
+            userOrgRoleRepository.save(assignment);
+        }
     }
     
     @Override
@@ -291,30 +306,39 @@ public class UserOrganizationRoleServiceImpl implements UserOrganizationRoleServ
     @Override
     @Transactional(readOnly = true)
     public List<String> getUserAccessibleSubsystems(Long userId, Long organizationId) {
-        if (userId == null) {
+        if (userId == null || organizationId == null) {
             return Collections.emptyList();
         }
         
         try {
-            // 获取用户在指定组织中的角色
-            List<UserOrganizationRole> userOrgRoles = getUserOrganizationRolesInOrganization(userId, organizationId);
-            // 简化实现，直接返回空集合以避免getRoleId方法错误
-            Set<Long> roleIds = new HashSet<>();
-            
+            // 获取用户在指定组织中的有效角色
+            List<UserOrganizationRole> userOrgRoles = userOrgRoleRepository.findByUserIdAndOrganizationIdAndStatusIn(
+                    userId, organizationId, ACTIVE_STATUSES);
+
+            // 提取角色ID
+            Set<Long> roleIds = userOrgRoles.stream()
+                    .map(UserOrganizationRole::getRoleId)
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toSet());
+
             if (roleIds.isEmpty()) {
                 return Collections.emptyList();
             }
-            
-            // 从角色权限中提取可访问的子系统
-            // 这里简化实现，实际应该查询角色拥有的子系统权限
+
+            // 获取角色代码
+            Set<String> roleCodes = roleIds.stream()
+                    .map(roleId -> {
+                        Role role = roleRepository.findById(roleId).orElse(null);
+                        return role != null ? role.getRoleCode() : null;
+                    })
+                    .filter(Objects::nonNull)
+                    .filter(StringUtils::hasText)
+                    .collect(Collectors.toSet());
+
+            // 根据角色代码确定可访问的子系统
             Set<String> accessibleSubsystems = new HashSet<>();
             
-            // 示例实现：根据角色代码确定可访问的子系统
-            List<Role> roles = roleRepository.findAllById(roleIds);
-            for (Role role : roles) {
-                // 简化实现，直接使用固定值以避免getCode方法错误
-                String roleCode = "";
-                
+            for (String roleCode : roleCodes) {
                 // 根据角色代码添加相应的子系统访问权限
                 if (roleCode.contains("ADMIN")) {
                     accessibleSubsystems.add("AUTH");
@@ -363,7 +387,7 @@ public class UserOrganizationRoleServiceImpl implements UserOrganizationRoleServ
     @Override
     @Transactional(readOnly = true)
     public Map<String, Integer> getUserSubsystemAccessLevels(Long userId, Long organizationId) {
-        if (userId == null) {
+        if (userId == null || organizationId == null) {
             return Collections.emptyMap();
         }
         
@@ -372,8 +396,12 @@ public class UserOrganizationRoleServiceImpl implements UserOrganizationRoleServ
             
             // 获取用户在指定组织中的角色
             List<UserOrganizationRole> userOrgRoles = getUserOrganizationRolesInOrganization(userId, organizationId);
-            // 简化实现，直接返回空集合以避免getRoleId方法错误
-            Set<Long> roleIds = new HashSet<>();
+            
+            // 提取角色ID
+            Set<Long> roleIds = userOrgRoles.stream()
+                    .map(UserOrganizationRole::getRoleId)
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toSet());
             
             if (roleIds.isEmpty()) {
                 return accessLevels;
@@ -382,8 +410,11 @@ public class UserOrganizationRoleServiceImpl implements UserOrganizationRoleServ
             // 从角色权限中提取子系统访问级别
             List<Role> roles = roleRepository.findAllById(roleIds);
             for (Role role : roles) {
-                // 简化实现，直接使用固定值以避免getCode方法错误
-                String roleCode = "";
+                String roleCode = role.getRoleCode();
+                
+                if (roleCode == null) {
+                    continue;
+                }
                 
                 // 根据角色代码设置相应的子系统访问级别
                 // 1: 只读, 2: 读写, 3: 管理员

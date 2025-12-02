@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Sample_8java" kind="file" language="Java">
+    <compoundname>Sample.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>lims-service/src/main/java/com/gmp/lims/entity/Sample.java</label>
+        <link refid="Sample_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample" prot="public">com::gmp::lims::entity::Sample</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1lims_1_1entity">com::gmp::lims::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.lims.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.EqualsAndHashCode;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.NoArgsConstructor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.AllArgsConstructor;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.ToString;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotBlank;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.Size;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@NoArgsConstructor</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@AllArgsConstructor</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@EqualsAndHashCode(of<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@ToString(exclude<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;inspectionTasks&quot;</highlight><highlight class="normal"><sp/>})</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;lims_sample&quot;</highlight><highlight class="normal">,<sp/>indexes<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_sample_code&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sample_code&quot;</highlight><highlight class="normal">,<sp/>unique<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_sample_status&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;status&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Index(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;idx_sample_receipt_date&quot;</highlight><highlight class="normal">,<sp/>columnList<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;receipt_date&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">})</highlight></codeline>
+<codeline lineno="30" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample" kindref="compound">Sample</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="37" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a27623508117f0489f6ed34f28e1d2004" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;样品编号不能为空&quot;)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;样品编号长度不能超过50个字符&quot;)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;sample_code&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>unique<sp/>=<sp/>true,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="45" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a413a0eefab7a106bf82e01aba48f86bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>sampleCode;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;样品名称不能为空&quot;)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;样品名称长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;sample_name&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="53" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1aaccfbf9dd1368ac8c917b27985a4d0bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>sampleName;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;样品类型不能为空&quot;)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;样品类型长度不能超过50个字符&quot;)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;sample_type&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="61" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a5e6725fc525ae02a90e2646939efb707" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>sampleType;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;样品来源长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;sample_source&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="68" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a9ed2c7bcc9f12385b8fdffbbd4a1726c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>sampleSource;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;批次号长度不能超过100个字符&quot;)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;batch_number&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="75" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a4c886b669460aad4b612ccdf55df60b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>batchNumber;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;规格长度不能超过100个字符&quot;)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="82" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a5257c5709be2018a93a822f18271515d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>specification;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;sample_quantity&quot;)</highlight></codeline>
+<codeline lineno="88" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a12d471e779d674d1aa694625cbdc6a66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>sampleQuantity;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>20,<sp/>message<sp/>=<sp/>&quot;单位长度不能超过20个字符&quot;)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(length<sp/>=<sp/>20)</highlight></codeline>
+<codeline lineno="95" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1acd6937408a53038f64dcb067e2ca4cf8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>unit;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;receipt_date&quot;)</highlight></codeline>
+<codeline lineno="101" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a8a1bc81ccdb3c2d640876b5193700340" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>receiptDate;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="107" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a418b43e2fa089be6f617f289bc27d2af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>status;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;备注长度不能超过500个字符&quot;)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="114" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a6e7dc2a25b4806454a8aa110bef9360a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>remark;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;创建人长度不能超过50个字符&quot;)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="121" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a026912cc09597843f9a010b7619e221a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_time&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="127" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1ac8a726ea47368aaf863e255607ab75fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdTime;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>50,<sp/>message<sp/>=<sp/>&quot;更新人长度不能超过50个字符&quot;)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="134" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a932ab49797c8d89bd5cd2f7b74bf541b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_time&quot;)</highlight></codeline>
+<codeline lineno="140" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a0efb3f4499d5be22bcb7fadac2c5d617" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedTime;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>@OneToMany(mappedBy<sp/>=<sp/>&quot;sample&quot;,<sp/>cascade<sp/>=<sp/>CascadeType.ALL,<sp/>orphanRemoval<sp/>=<sp/>true)</highlight></codeline>
+<codeline lineno="146" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1af25e652753d62d4ee228503b41deba31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>List&lt;<ref refid="classcom_1_1gmp_1_1lims_1_1entity_1_1InspectionTask" kindref="compound">InspectionTask</ref>&gt;<sp/>inspectionTasks;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;药材名称长度不能超过100个字符&quot;)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;chinese_medicine_name&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="153" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a7e09aa3226685bc33d9b6f80ece04cba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>chineseMedicineName;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;道地产区长度不能超过100个字符&quot;)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;authentic_production_area&quot;,<sp/>length<sp/>=<sp/>100)</highlight></codeline>
+<codeline lineno="160" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1adb0270439eabbd1f316d0d9b4e01d746" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>authenticProductionArea;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;harvest_time&quot;)</highlight></codeline>
+<codeline lineno="166" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a7f8b500f7559ef8c735b5936aa15dc10" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>harvestTime;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;加工方法长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;processing_method&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="173" refid="classcom_1_1gmp_1_1lims_1_1entity_1_1Sample_1a6bcefdf0f30a92d59582e62100acb652" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>processingMethod;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lims-service/src/main/java/com/gmp/lims/entity/Sample.java"/>
+  </compounddef>
+</doxygen>

@@ -6,6 +6,7 @@ var interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository =
     [ "existsByUsername", "interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository.html#a9120ed13e0f701057ec842d10e0c58cc", null ],
     [ "findAllActiveUsers", "interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository.html#a2b57fffb00b28071ea740b6e6575d135", null ],
     [ "findByEmail", "interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository.html#a490a25167517b09b72125ad9f30ed368", null ],
+    [ "findByLastLoginSession", "interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository.html#adbe639a27428f412ccea757532a246cc", null ],
     [ "findByMobile", "interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository.html#a61e4b26e7405430695a4b5047647e9d7", null ],
     [ "findByUsername", "interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository.html#a23dff8ec8a7e7f168ad9746f6475bcb3", null ],
     [ "findByUsernameOrEmail", "interfacecom_1_1gmp_1_1auth_1_1repository_1_1UserRepository.html#a49f03adeb967cf37fe65a4191836e9c2", null ],

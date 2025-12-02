@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="MaintenancePlan_8java" kind="file" language="Java">
+    <compoundname>MaintenancePlan.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>equipment-service/src/main/java/com/gmp/equipment/entity/MaintenancePlan.java</label>
+        <link refid="MaintenancePlan_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan" prot="public">com::gmp::equipment::entity::MaintenancePlan</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1equipment_1_1entity">com::gmp::equipment::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.equipment.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>javax.persistence.*;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Date;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;maintenance_plan&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="14" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan" kindref="compound">MaintenancePlan</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="21" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1aae663f0f02368567321b312324c7fa52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne(fetch<sp/>=<sp/>FetchType.LAZY)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;equipment_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a222c7204951992e0296a420172add6c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1Equipment" kindref="compound">Equipment</ref><sp/>equipment;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;plan_no&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1ab1fdd8c8e9cf111e2796f4c71a7c5337" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>planNo;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;maintenance_type&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a0a9e01340db88166311792ccb0d47c35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenanceType" kindref="compound">MaintenanceType</ref><sp/>maintenanceType;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;cycle_type&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="48" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1afb3587052ebf6ea28d94a43138844955" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenanceCycleType" kindref="compound">MaintenanceCycleType</ref><sp/>cycleType;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;planned_start_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Temporal(TemporalType.DATE)</highlight></codeline>
+<codeline lineno="55" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a47bf416922d400216c3fac193b3b4602" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Date<sp/>plannedStartDate;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;planned_end_date&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>@Temporal(TemporalType.DATE)</highlight></codeline>
+<codeline lineno="62" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a15dfd4111fe70f2202c0017f245d622e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Date<sp/>plannedEndDate;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;actual_start_date&quot;)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Temporal(TemporalType.DATE)</highlight></codeline>
+<codeline lineno="69" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a827a61cf2faf91a0c6bc5539a2d76de6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Date<sp/>actualStartDate;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;actual_end_date&quot;)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Temporal(TemporalType.DATE)</highlight></codeline>
+<codeline lineno="76" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a3aaac9d43eebf5ad631dbe8370175f48" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Date<sp/>actualEndDate;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="83" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a0f945b86a8dc23d4410f225fd87c7c6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlanStatus" kindref="compound">MaintenancePlanStatus</ref><sp/>status;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;responsible_person&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="89" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1afb57aad772c6048fd06c5ce58a9d173e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>responsiblePerson;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;maintenance_content&quot;,<sp/>length<sp/>=<sp/>1000)</highlight></codeline>
+<codeline lineno="95" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a34bd094bf993913c3787e95d252cf4e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>maintenanceContent;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;remark&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="101" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a3b19ce4a4352183433e1ab004f23c1df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>remark;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="107" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1af6d18ed39736150f6c9d2a3652194569" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_time&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>@Temporal(TemporalType.TIMESTAMP)</highlight></codeline>
+<codeline lineno="114" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a45c16f92f4ddb54b7094f5ec6647b3d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Date<sp/>createdTime;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;,<sp/>length<sp/>=<sp/>50)</highlight></codeline>
+<codeline lineno="120" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a450eccbe759580730e8447eb38e43953" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_time&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>@Temporal(TemporalType.TIMESTAMP)</highlight></codeline>
+<codeline lineno="127" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a763a89815aa09e611346b69012071842" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Date<sp/>updatedTime;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>@Version</highlight></codeline>
+<codeline lineno="133" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a850b69dd3d636411601f18f6993b6915" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>version;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>@PrePersist</highlight></codeline>
+<codeline lineno="139" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1abed19a738953215bc69642ce5395d404" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>prePersist()<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Date<sp/>now<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Date();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.createdTime<sp/>=<sp/>now;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.updatedTime<sp/>=<sp/>now;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>@PreUpdate</highlight></codeline>
+<codeline lineno="149" refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a740af57a30fe80829a97b4469bff9e7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1equipment_1_1entity_1_1MaintenancePlan_1a740af57a30fe80829a97b4469bff9e7e" kindref="member">preUpdate</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.updatedTime<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Date();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="equipment-service/src/main/java/com/gmp/equipment/entity/MaintenancePlan.java"/>
+  </compounddef>
+</doxygen>

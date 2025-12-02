@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TotpUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.service</a> &gt; <span class="el_source">TotpUtils.java</span></div><h1>TotpUtils.java</h1><pre class="source lang-java linenums">package com.gmp.auth.service;
+
+import org.springframework.stereotype.Component;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.security.SecureRandom;
+import java.time.Instant;
+import java.util.Base64;
+
+/**
+ * TOTP工具类，提供基础的基于时间的一次性密码生成和验证功能
+ */
+@Component
+<span class="fc" id="L14">public class TotpUtils {</span>
+    private static final int TOTP_TIME_STEP = 30; // 30秒
+    private static final int TOTP_CODE_LENGTH = 6; // 6位数字
+    private static final int SECRET_KEY_LENGTH = 16; // 16字节 = 128位
+<span class="fc" id="L18">    private static final SecureRandom SECURE_RANDOM = new SecureRandom();</span>
+
+    /**
+     * 生成随机的TOTP密钥
+     * @return Base64编码的密钥
+     */
+    public String generateSecretKey() {
+<span class="fc" id="L25">        byte[] key = new byte[SECRET_KEY_LENGTH];</span>
+<span class="fc" id="L26">        SECURE_RANDOM.nextBytes(key);</span>
+<span class="fc" id="L27">        return Base64.getEncoder().encodeToString(key);</span>
+    }
+
+    /**
+     * 生成当前时间的TOTP码
+     * @param secretKey 密钥
+     * @return 6位TOTP码
+     */
+    public String generateTotpCode(String secretKey) {
+<span class="fc" id="L36">        return generateTotpCode(secretKey, Instant.now().getEpochSecond());</span>
+    }
+
+    /**
+     * 生成指定时间戳的TOTP码
+     * @param secretKey 密钥
+     * @param timestamp 时间戳（秒）
+     * @return 6位TOTP码
+     */
+    public String generateTotpCode(String secretKey, long timestamp) {
+        try {
+<span class="fc bfc" id="L47" title="All 4 branches covered.">            if (secretKey == null || secretKey.isEmpty()) {</span>
+<span class="fc" id="L48">                return null;</span>
+            }
+<span class="fc" id="L50">            byte[] key = Base64.getDecoder().decode(secretKey);</span>
+<span class="fc" id="L51">            long timeStep = timestamp / TOTP_TIME_STEP;</span>
+            
+            // 将时间戳转换为字节数组
+<span class="fc" id="L54">            ByteBuffer buffer = ByteBuffer.allocate(8);</span>
+<span class="fc" id="L55">            buffer.putLong(0, timeStep);</span>
+<span class="fc" id="L56">            byte[] timeBytes = buffer.array();</span>
+            
+            // 使用HMAC-SHA1算法计算
+<span class="fc" id="L59">            byte[] hmacResult = hmacSha1(key, timeBytes);</span>
+            
+            // 动态截断
+<span class="fc" id="L62">            int offset = hmacResult[hmacResult.length - 1] &amp; 0xF;</span>
+<span class="fc" id="L63">            int binary = ((hmacResult[offset] &amp; 0x7F) &lt;&lt; 24) |</span>
+                        ((hmacResult[offset + 1] &amp; 0xFF) &lt;&lt; 16) |
+                        ((hmacResult[offset + 2] &amp; 0xFF) &lt;&lt; 8) |
+                        (hmacResult[offset + 3] &amp; 0xFF);
+            
+            // 生成6位验证码
+<span class="fc" id="L69">            int otp = binary % (int) Math.pow(10, TOTP_CODE_LENGTH);</span>
+<span class="fc" id="L70">            return String.format(&quot;%0&quot; + TOTP_CODE_LENGTH + &quot;d&quot;, otp);</span>
+<span class="nc" id="L71">        } catch (Exception e) {</span>
+<span class="nc" id="L72">            return null;</span>
+        }
+    }
+
+    /**
+     * 验证TOTP码（包含时间容错）
+     * @param secretKey 密钥
+     * @param code 用户输入的验证码
+     * @return 是否验证成功
+     */
+    public boolean verifyTotpCode(String secretKey, String code) {
+        try {
+            // 验证当前时间戳和前后一个时间戳的验证码，以允许时钟偏差
+<span class="fc" id="L85">            long currentTime = Instant.now().getEpochSecond();</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">            return verifyTotpCodeAtTimestamp(secretKey, code, currentTime) ||</span>
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">                   verifyTotpCodeAtTimestamp(secretKey, code, currentTime - TOTP_TIME_STEP) ||</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">                   verifyTotpCodeAtTimestamp(secretKey, code, currentTime + TOTP_TIME_STEP);</span>
+<span class="fc" id="L89">        } catch (Exception e) {</span>
+<span class="fc" id="L90">            return false;</span>
+        }
+    }
+
+    /**
+     * 在指定时间戳验证TOTP码
+     * @param secretKey 密钥
+     * @param code 用户输入的验证码
+     * @param timestamp 时间戳
+     * @return 是否验证成功
+     */
+    public boolean verifyTotpCodeAtTimestamp(String secretKey, String code, long timestamp) {
+<span class="pc bpc" id="L102" title="2 of 4 branches missed.">        if (code == null || code.length() != TOTP_CODE_LENGTH) {</span>
+<span class="nc" id="L103">            return false;</span>
+        }
+        
+<span class="fc" id="L106">        String expectedCode = generateTotpCode(secretKey, timestamp);</span>
+<span class="fc" id="L107">        return expectedCode.equals(code);</span>
+    }
+
+    /**
+     * 生成TOTP二维码的URI（符合Google Authenticator格式）
+     * @param secretKey 密钥
+     * @param accountName 账号名
+     * @param issuer 发行商名称
+     * @return 二维码URI
+     */
+    public String generateTotpUri(String secretKey, String accountName, String issuer) {
+<span class="nc" id="L118">        String encodedSecret = Base64.getEncoder().encodeToString(secretKey.getBytes(StandardCharsets.UTF_8));</span>
+<span class="nc" id="L119">        String label = String.format(&quot;%s:%s&quot;, issuer, accountName).replace(&quot; &quot;, &quot;%20&quot;);</span>
+<span class="nc" id="L120">        return String.format(&quot;otpauth://totp/%s?secret=%s&amp;issuer=%s&amp;algorithm=SHA1&amp;digits=6&amp;period=30&quot;,</span>
+                label, encodedSecret, issuer);
+    }
+
+    /**
+     * 计算HMAC-SHA1哈希值
+     * @param key 密钥
+     * @param data 数据
+     * @return 哈希结果
+     * @throws Exception 计算过程中的异常
+     */
+    private byte[] hmacSha1(byte[] key, byte[] data) throws Exception {
+<span class="fc" id="L132">        javax.crypto.Mac mac = javax.crypto.Mac.getInstance(&quot;HmacSHA1&quot;);</span>
+<span class="fc" id="L133">        javax.crypto.spec.SecretKeySpec secretKeySpec = new javax.crypto.spec.SecretKeySpec(key, &quot;HmacSHA1&quot;);</span>
+<span class="fc" id="L134">        mac.init(secretKeySpec);</span>
+<span class="fc" id="L135">        return mac.doFinal(data);</span>
+    }
+
+    /**
+     * 获取当前时间窗口
+     * @return 当前时间窗口索引
+     */
+    public long getCurrentTimeWindow() {
+<span class="nc" id="L143">        return Instant.now().getEpochSecond() / TOTP_TIME_STEP;</span>
+    }
+
+    /**
+     * 获取剩余有效期（秒）
+     * @return 剩余有效期
+     */
+    public int getRemainingSeconds() {
+<span class="fc" id="L151">        return TOTP_TIME_STEP - (int)(Instant.now().getEpochSecond() % TOTP_TIME_STEP);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

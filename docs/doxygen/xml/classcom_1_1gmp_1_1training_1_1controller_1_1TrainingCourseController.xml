@@ -1,0 +1,811 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::training::controller::TrainingCourseController</compoundname>
+    <basecompoundref refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController" prot="public" virt="non-virtual">com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1aa9b134ff882effb407e8eba112566774" prot="private" static="no" mutable="no">
+        <type>TrainingCourseService</type>
+        <definition>TrainingCourseService com.gmp.training.controller.TrainingCourseController.trainingCourseService</definition>
+        <argsstring></argsstring>
+        <name>trainingCourseService</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.trainingCourseService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="25" column="35" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a5c5d741776b6168684c1b1d2d2a223c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; TrainingCourse &gt;</type>
+        <definition>ResponseEntity&lt; TrainingCourse &gt; com.gmp.training.controller.TrainingCourseController.findByCode</definition>
+        <argsstring>(@PathVariable String code)</argsstring>
+        <name>findByCode</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.findByCode</qualifiedname>
+        <param>
+          <type>@PathVariable String</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>根据课程编码查找培训课程 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>课程编码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>培训课程 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="34" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="34" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a7126bcaa48268111bf423b37668275df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt; com.gmp.training.controller.TrainingCourseController.findByName</definition>
+        <argsstring>(@PathVariable String name, @PageableDefault Pageable pageable)</argsstring>
+        <name>findByName</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.findByName</qualifiedname>
+        <param>
+          <type>@PathVariable String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>@PageableDefault Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>根据课程名称查找培训课程 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>课程名称 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页培训课程列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="46" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="46" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a24a9b6bdef0348837875c269a5609873" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt; com.gmp.training.controller.TrainingCourseController.findByPlanId</definition>
+        <argsstring>(@PathVariable Long planId, @PageableDefault Pageable pageable)</argsstring>
+        <name>findByPlanId</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.findByPlanId</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>planId</declname>
+        </param>
+        <param>
+          <type>@PageableDefault Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>根据培训计划查找培训课程 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>planId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>培训计划ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页培训课程列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="58" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="58" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a35a84a7965549de1968079154d40e9f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt; com.gmp.training.controller.TrainingCourseController.findByStatus</definition>
+        <argsstring>( @PathVariable TrainingCourse.Status status, @PageableDefault Pageable pageable)</argsstring>
+        <name>findByStatus</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.findByStatus</qualifiedname>
+        <param>
+          <type>@PathVariable TrainingCourse.Status</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>@PageableDefault Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>根据培训课程状态查找 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>状态 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页培训课程列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="70" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="70" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a40c829eae9dcbc8f46b5f87be4f41218" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt; com.gmp.training.controller.TrainingCourseController.findByType</definition>
+        <argsstring>( @PathVariable TrainingCourse.Type type, @PageableDefault Pageable pageable)</argsstring>
+        <name>findByType</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.findByType</qualifiedname>
+        <param>
+          <type>@PathVariable TrainingCourse.Type</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>@PageableDefault Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>根据课程类型查找培训课程 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>课程类型 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页培训课程列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="84" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="84" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a119cb93b2a080858f3bae343f8127e1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt; com.gmp.training.controller.TrainingCourseController.findByLecturerId</definition>
+        <argsstring>( @PathVariable Long lecturerId, @PageableDefault Pageable pageable)</argsstring>
+        <name>findByLecturerId</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.findByLecturerId</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>lecturerId</declname>
+        </param>
+        <param>
+          <type>@PageableDefault Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>根据讲师ID查找培训课程 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lecturerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>讲师ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页培训课程列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="98" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="98" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a6ded774264ab95d4a4c194c0ddd5d1b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt; com.gmp.training.controller.TrainingCourseController.findByRequired</definition>
+        <argsstring>( @PathVariable Boolean required, @PageableDefault Pageable pageable)</argsstring>
+        <name>findByRequired</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.findByRequired</qualifiedname>
+        <param>
+          <type>@PathVariable Boolean</type>
+          <declname>required</declname>
+        </param>
+        <param>
+          <type>@PageableDefault Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>查找必修课程 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>required</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>是否必修 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页培训课程列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="112" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="112" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a08a3206cd4b3f39b925b99d34dab91e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt; com.gmp.training.controller.TrainingCourseController.findByDepartmentId</definition>
+        <argsstring>( @PathVariable Long departmentId, @PageableDefault Pageable pageable)</argsstring>
+        <name>findByDepartmentId</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.findByDepartmentId</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>departmentId</declname>
+        </param>
+        <param>
+          <type>@PageableDefault Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>根据部门ID查找相关培训课程 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>departmentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>部门ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页培训课程列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="126" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="126" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1abc066235c822b590d9785eea8037d85e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; TrainingCourse &gt;</type>
+        <definition>ResponseEntity&lt; TrainingCourse &gt; com.gmp.training.controller.TrainingCourseController.updateStatus</definition>
+        <argsstring>(@PathVariable Long id, @RequestParam TrainingCourse.Status status)</argsstring>
+        <name>updateStatus</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.updateStatus</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>@RequestParam TrainingCourse.Status</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>更新培训课程状态 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>课程ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>更新后的培训课程 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="140" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="140" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a9188dea2d62bf4a6f210673304dec215" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Integer &gt;</type>
+        <definition>ResponseEntity&lt; Integer &gt; com.gmp.training.controller.TrainingCourseController.batchUpdateStatus</definition>
+        <argsstring>(@RequestBody List&lt; Long &gt; ids, @RequestParam TrainingCourse.Status status)</argsstring>
+        <name>batchUpdateStatus</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.batchUpdateStatus</qualifiedname>
+        <param>
+          <type>@RequestBody List&lt; Long &gt;</type>
+          <declname>ids</declname>
+        </param>
+        <param>
+          <type>@RequestParam TrainingCourse.Status</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>批量更新培训课程状态 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>课程ID列表 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>状态 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>影响的行数 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="152" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="152" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1ab94c9f46d06d7f089cc11410fbbcf76c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Page&lt; TrainingCourse &gt; &gt; com.gmp.training.controller.TrainingCourseController.search</definition>
+        <argsstring>(@RequestParam String keyword, @PageableDefault Pageable pageable)</argsstring>
+        <name>search</name>
+        <qualifiedname>com.gmp.training.controller.TrainingCourseController.search</qualifiedname>
+        <param>
+          <type>@RequestParam String</type>
+          <declname>keyword</declname>
+        </param>
+        <param>
+          <type>@PageableDefault Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>搜索培训课程 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keyword</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>关键词 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页培训课程列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="164" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="164" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a9daee8d56ca797eed39e8b3cbcb05801" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; List&lt; T &gt; &gt;</type>
+        <definition>ResponseEntity&lt; List&lt; T &gt; &gt; com.gmp.training.controller.BaseController&lt; T, ID extends Serializable &gt;.getAll</definition>
+        <argsstring>()</argsstring>
+        <name>getAll</name>
+        <qualifiedname>com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;::getAll</qualifiedname>
+        <briefdescription>
+<para>获取所有实体列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>实体列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/BaseController.java" line="34" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/BaseController.java" bodystart="34" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1af752ce066f198fb3e076db7d128bbb36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Page&lt; T &gt; &gt;</type>
+        <definition>ResponseEntity&lt; Page&lt; T &gt; &gt; com.gmp.training.controller.BaseController&lt; T, ID extends Serializable &gt;.getPage</definition>
+        <argsstring>( @PageableDefault Pageable pageable)</argsstring>
+        <name>getPage</name>
+        <qualifiedname>com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;::getPage</qualifiedname>
+        <param>
+          <type>@PageableDefault Pageable</type>
+          <declname>pageable</declname>
+        </param>
+        <briefdescription>
+<para>分页获取实体列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pageable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>分页参数 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>分页实体列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/BaseController.java" line="45" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/BaseController.java" bodystart="45" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a772590361db93569ff9eb0602c4dad15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; T &gt;</type>
+        <definition>ResponseEntity&lt; T &gt; com.gmp.training.controller.BaseController&lt; T, ID extends Serializable &gt;.getById</definition>
+        <argsstring>( @PathVariable ID id)</argsstring>
+        <name>getById</name>
+        <qualifiedname>com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;::getById</qualifiedname>
+        <param>
+          <type>@PathVariable ID</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>根据ID获取实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/BaseController.java" line="56" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/BaseController.java" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a922cc03788d3407188d2c1ad568d4da1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; T &gt;</type>
+        <definition>ResponseEntity&lt; T &gt; com.gmp.training.controller.BaseController&lt; T, ID extends Serializable &gt;.create</definition>
+        <argsstring>( @Valid @RequestBody T entity)</argsstring>
+        <name>create</name>
+        <qualifiedname>com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;::create</qualifiedname>
+        <param>
+          <type>@Valid @RequestBody T</type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+<para>保存新实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体对象 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>保存后的实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/BaseController.java" line="67" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/BaseController.java" bodystart="67" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1acdefae3f2706c5657699db6f47f27bc0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; T &gt;</type>
+        <definition>ResponseEntity&lt; T &gt; com.gmp.training.controller.BaseController&lt; T, ID extends Serializable &gt;.update</definition>
+        <argsstring>( @PathVariable ID id, @Valid @RequestBody T entity)</argsstring>
+        <name>update</name>
+        <qualifiedname>com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;::update</qualifiedname>
+        <param>
+          <type>@PathVariable ID</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>@Valid @RequestBody T</type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+<para>更新实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>entity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>更新后的实体对象 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>更新后的实体 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/BaseController.java" line="79" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/BaseController.java" bodystart="79" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a991a4006d85a157651aa672a0c17d22e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Void &gt;</type>
+        <definition>ResponseEntity&lt; Void &gt; com.gmp.training.controller.BaseController&lt; T, ID extends Serializable &gt;.delete</definition>
+        <argsstring>( @PathVariable ID id)</argsstring>
+        <name>delete</name>
+        <qualifiedname>com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;::delete</qualifiedname>
+        <param>
+          <type>@PathVariable ID</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>删除实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>删除结果 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/BaseController.java" line="92" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/BaseController.java" bodystart="92" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a6cbd23531f01ccc1471cfeb9198a08c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; Void &gt;</type>
+        <definition>ResponseEntity&lt; Void &gt; com.gmp.training.controller.BaseController&lt; T, ID extends Serializable &gt;.deleteBatch</definition>
+        <argsstring>( @RequestBody List&lt; ID &gt; ids)</argsstring>
+        <name>deleteBatch</name>
+        <qualifiedname>com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;::deleteBatch</qualifiedname>
+        <param>
+          <type>@RequestBody List&lt; ID &gt;</type>
+          <declname>ids</declname>
+        </param>
+        <briefdescription>
+<para>批量删除实体 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体ID列表 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>删除结果 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/BaseController.java" line="104" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/BaseController.java" bodystart="104" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a97180a93bdfbb78a1aa2af4c4b7717a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; List&lt; T &gt; &gt;</type>
+        <definition>ResponseEntity&lt; List&lt; T &gt; &gt; com.gmp.training.controller.BaseController&lt; T, ID extends Serializable &gt;.getBatch</definition>
+        <argsstring>( @RequestParam List&lt; ID &gt; ids)</argsstring>
+        <name>getBatch</name>
+        <qualifiedname>com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;::getBatch</qualifiedname>
+        <param>
+          <type>@RequestParam List&lt; ID &gt;</type>
+          <declname>ids</declname>
+        </param>
+        <briefdescription>
+<para>根据ID列表获取实体列表 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>实体ID列表 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>实体列表 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/BaseController.java" line="116" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/BaseController.java" bodystart="116" bodyend="118"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a8d0c8a733b0a730669bf028fdc610df2" prot="protected" static="no" mutable="no">
+        <type>BaseService&lt; T, ID &gt;</type>
+        <definition>BaseService&lt;T, ID&gt; com.gmp.training.controller.BaseController&lt; T, ID extends Serializable &gt;.service</definition>
+        <argsstring></argsstring>
+        <name>service</name>
+        <qualifiedname>com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;::service</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="training-service/src/main/java/com/gmp/training/controller/BaseController.java" line="26" column="27" bodyfile="training-service/src/main/java/com/gmp/training/controller/BaseController.java" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>培训课程控制器，提供培训课程管理相关的API接口 </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;</label>
+        <link refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController"/>
+      </node>
+      <node id="1">
+        <label>com.gmp.training.controller.TrainingCourseController</label>
+        <link refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>com.gmp.training.controller.BaseController&lt; TrainingCourse, Long &gt;</label>
+        <link refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController"/>
+      </node>
+      <node id="3">
+        <label>TrainingCourseService</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.training.controller.TrainingCourseController</label>
+        <link refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>trainingCourseService</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" line="22" column="7" bodyfile="training-service/src/main/java/com/gmp/training/controller/TrainingCourseController.java" bodystart="22" bodyend="167"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a9188dea2d62bf4a6f210673304dec215" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>batchUpdateStatus</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a922cc03788d3407188d2c1ad568d4da1" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>create</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a991a4006d85a157651aa672a0c17d22e" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>delete</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a6cbd23531f01ccc1471cfeb9198a08c9" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>deleteBatch</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a5c5d741776b6168684c1b1d2d2a223c1" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>findByCode</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a08a3206cd4b3f39b925b99d34dab91e7" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>findByDepartmentId</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a119cb93b2a080858f3bae343f8127e1d" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>findByLecturerId</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a7126bcaa48268111bf423b37668275df" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>findByName</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a24a9b6bdef0348837875c269a5609873" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>findByPlanId</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a6ded774264ab95d4a4c194c0ddd5d1b5" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>findByRequired</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a35a84a7965549de1968079154d40e9f3" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>findByStatus</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1a40c829eae9dcbc8f46b5f87be4f41218" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>findByType</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a9daee8d56ca797eed39e8b3cbcb05801" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>getAll</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a97180a93bdfbb78a1aa2af4c4b7717a1" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>getBatch</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a772590361db93569ff9eb0602c4dad15" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>getById</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1af752ce066f198fb3e076db7d128bbb36" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>getPage</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1ab94c9f46d06d7f089cc11410fbbcf76c" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>search</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1a8d0c8a733b0a730669bf028fdc610df2" prot="protected" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>service</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1aa9b134ff882effb407e8eba112566774" prot="private" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>trainingCourseService</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1BaseController_1acdefae3f2706c5657699db6f47f27bc0" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>update</name></member>
+      <member refid="classcom_1_1gmp_1_1training_1_1controller_1_1TrainingCourseController_1abc066235c822b590d9785eea8037d85e" prot="public" virt="non-virtual"><scope>com::gmp::training::controller::TrainingCourseController</scope><name>updateStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

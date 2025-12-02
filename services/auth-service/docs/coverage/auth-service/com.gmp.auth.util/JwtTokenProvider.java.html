@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JwtTokenProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.util</a> &gt; <span class="el_source">JwtTokenProvider.java</span></div><h1>JwtTokenProvider.java</h1><pre class="source lang-java linenums">package com.gmp.auth.util;
+
+import org.springframework.stereotype.Component;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * JWT令牌提供者
+ */
+@Component
+<span class="fc" id="L13">public class JwtTokenProvider {</span>
+    
+    // 生成访问令牌
+    public String generateAccessToken(String username, Set&lt;String&gt; roles, List&lt;String&gt; permissions) {
+        // 简单实现，实际项目中应使用更安全的JWT生成方式
+<span class="fc" id="L18">        return &quot;access-token-&quot; + username;</span>
+    }
+    
+    // 生成刷新令牌
+    public String generateRefreshToken(String username) {
+        // 简单实现，实际项目中应使用更安全的JWT生成方式
+<span class="fc" id="L24">        return &quot;refresh-token-&quot; + username;</span>
+    }
+    
+    // 获取访问令牌过期时间
+    public long getAccessTokenExpirationTime() {
+        // 返回令牌过期时间（毫秒），这里返回2小时
+<span class="fc" id="L30">        return 7200000;</span>
+    }
+    
+    // 生成JWT令牌
+    public String generateToken(String username) {
+        // 简单实现，实际项目中应使用更安全的JWT生成方式
+<span class="fc" id="L36">        return &quot;mock-jwt-token-&quot; + username;</span>
+    }
+    
+    // 验证JWT令牌
+    public boolean validateToken(String token) {
+        // 简单实现，实际项目中应验证签名、过期时间等
+<span class="fc bfc" id="L42" title="All 4 branches covered.">        return token != null &amp;&amp; token.startsWith(&quot;mock-jwt-token-&quot;);</span>
+    }
+    
+    // 从令牌中获取用户名
+    public String getUsernameFromToken(String token) {
+        // 简单实现，实际项目中应从JWT声明中提取
+<span class="fc bfc" id="L48" title="All 4 branches covered.">        if (token != null &amp;&amp; token.startsWith(&quot;mock-jwt-token-&quot;)) {</span>
+<span class="fc" id="L49">            return token.substring(&quot;mock-jwt-token-&quot;.length());</span>
+        }
+<span class="fc" id="L51">        return null;</span>
+    }
+    
+    // 验证刷新令牌
+    public boolean validateRefreshToken(String token) {
+        // 简单实现，验证刷新令牌是否有效
+<span class="fc bfc" id="L57" title="All 4 branches covered.">        return token != null &amp;&amp; token.startsWith(&quot;refresh-token-&quot;);</span>
+    }
+    
+    // 从刷新令牌中获取用户名
+    public String getUsernameFromRefreshToken(String token) {
+        // 简单实现，从刷新令牌中提取用户名
+<span class="fc bfc" id="L63" title="All 4 branches covered.">        if (token != null &amp;&amp; token.startsWith(&quot;refresh-token-&quot;)) {</span>
+<span class="fc" id="L64">            return token.substring(&quot;refresh-token-&quot;.length());</span>
+        }
+<span class="fc" id="L66">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

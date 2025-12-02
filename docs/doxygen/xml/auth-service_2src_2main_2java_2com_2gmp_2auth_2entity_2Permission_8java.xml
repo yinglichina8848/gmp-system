@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="auth-service_2src_2main_2java_2com_2gmp_2auth_2entity_2Permission_8java" kind="file" language="Java">
+    <compoundname>Permission.java</compoundname>
+    <includes local="no">jakarta.persistence</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>auth-service/src/main/java/com/gmp/auth/entity/Permission.java</label>
+        <link refid="auth-service_2src_2main_2java_2com_2gmp_2auth_2entity_2Permission_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jakarta.persistence</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission" prot="public">com::gmp::auth::entity::Permission</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1_1ResourceType" prot="public">com::gmp::auth::entity::Permission::ResourceType</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1auth_1_1entity">com::gmp::auth::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.auth.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.*;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.NoArgsConstructor;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.AllArgsConstructor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Builder;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">@NoArgsConstructor</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@AllArgsConstructor</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@Builder</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sys_permissions&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="27" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission" kindref="compound">Permission</ref><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1_1ResourceType" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1_1ResourceType" kindref="compound">ResourceType</ref><sp/>{</highlight></codeline>
+<codeline lineno="33" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1_1ResourceType_1a2fad04b2015a0fc43c02c6fca476fc1d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1_1ResourceType_1a2fad04b2015a0fc43c02c6fca476fc1d" kindref="member">MENU</ref>,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>菜单</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1_1ResourceType_1a65dda0c8f20343b9ddbed76ff21880b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1_1ResourceType_1a65dda0c8f20343b9ddbed76ff21880b0" kindref="member">API</ref>,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>API接口</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1_1ResourceType_1ab0832524a985d26af7f8a27ce99f4588" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1_1ResourceType_1ab0832524a985d26af7f8a27ce99f4588" kindref="member">BUTTON</ref>,<sp/><sp/></highlight><highlight class="comment">//<sp/>按钮</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DATA<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>数据权限</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="enumcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1_1ResourceType_1ab3d061a05a79e4860783036ad4986774" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="41" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a4484f7d38ecc877bc06758f6a5e088ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;权限代码不能为空&quot;)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(min<sp/>=<sp/>5,<sp/>max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;权限代码长度必须在5-100字符之间&quot;)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>@Pattern(regexp<sp/>=<sp/>&quot;^PERMISSION_[A-Z_]+$&quot;,<sp/>message<sp/>=<sp/>&quot;权限代码必须以PERMISSION_开头并使用大写字母和下划线&quot;)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;permission_code&quot;,<sp/>unique<sp/>=<sp/>true,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1ac6c6e436ca711213080fb159ac9a1174" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>permissionCode;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;权限名称不能为空&quot;)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;权限名称长度不能超过200字符&quot;)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;permission_name&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="52" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a942b3ff0b7024c0ae540a4b5e976ac73" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>permissionName;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>100,<sp/>message<sp/>=<sp/>&quot;权限组名称长度不能超过100字符&quot;)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;group_name&quot;)</highlight></codeline>
+<codeline lineno="56" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1af68b35d696e215c8ed7471ec4a7f8d6b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>groupName;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;资源类型不能为空&quot;)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@Pattern(regexp<sp/>=<sp/>&quot;^(MENU|API|BUTTON|DATA)$&quot;,<sp/>message<sp/>=<sp/>&quot;资源类型必须是MENU、API、BUTTON或DATA&quot;)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;resource_type&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="61" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a26b7693200f5e7f162233d782cb94e23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>resourceType;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;资源URL长度不能超过200字符&quot;)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;resource_url&quot;)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a87aba4f982a5d3826f95a3d34682e953" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>resourceUrl;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Pattern(regexp<sp/>=<sp/>&quot;^(GET|POST|PUT|DELETE|ALL)$&quot;,<sp/>message<sp/>=<sp/>&quot;HTTP方法必须是GET、POST、PUT、DELETE或ALL&quot;)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;http_method&quot;)</highlight></codeline>
+<codeline lineno="70" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a01ea9575db33d0d23fec01dd351d849f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>httpMethod<sp/>=<sp/>&quot;ALL&quot;;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;权限描述长度不能超过500字符&quot;)</highlight></codeline>
+<codeline lineno="73" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1aec135a69266745365fff4e6a26dde74b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>description;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Builder.Default</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;is_active&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="77" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a94d5d05e18e760073e3958da57563346" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Boolean<sp/>isActive<sp/>=<sp/>true;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>审计字段</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_at&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="82" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a019f16efd64e5423825ed8ae912f44ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_at&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="86" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1ae366d700a78080667ba637e4cdd7b65d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;)</highlight></codeline>
+<codeline lineno="89" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a114f895f14e8ea0eb9bcc836e327f20a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>createdBy;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;updated_by&quot;)</highlight></codeline>
+<codeline lineno="92" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a490d94e1fa60d5bc7c913624ac7e0000" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/>updatedBy;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Version</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="96" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a23a7285d25179505205502b6f0acccb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>version<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="102" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1af64c7aa9bb156fc219d6198f2757f6e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isValid()<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this.isActive<sp/>&amp;&amp;<sp/>this.permissionCode<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>!this.permissionCode.trim().isEmpty();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Transient</highlight></codeline>
+<codeline lineno="110" refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a2440670a6c3145a6f32251dd46a4ba94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Permission_1a2440670a6c3145a6f32251dd46a4ba94" kindref="member">matches</ref>(String<sp/>url,<sp/>String<sp/>method)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!this.isActive<sp/>||<sp/>this.resourceUrl<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>URL匹配<sp/>(简单的路径前缀匹配)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>urlMatch<sp/>=<sp/>url<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>url.startsWith(this.resourceUrl.replace(</highlight><highlight class="stringliteral">&quot;/**&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>HTTP方法匹配</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>methodMatch<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ALL&quot;</highlight><highlight class="normal">.equals(this.httpMethod)<sp/>||</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(method<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>this.httpMethod.equals(method));</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>urlMatch<sp/>&amp;&amp;<sp/>methodMatch;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="auth-service/src/main/java/com/gmp/auth/entity/Permission.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="DocumentCategoryRepository_8java" kind="file" language="Java">
+    <compoundname>DocumentCategoryRepository.java</compoundname>
+    <includes local="no">com.gmp.edms.entity.DocumentCategory</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/repository/DocumentCategoryRepository.java</label>
+        <link refid="DocumentCategoryRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.entity.DocumentCategory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository" prot="public">com::gmp::edms::repository::DocumentCategoryRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1repository">com::gmp::edms::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.entity.DocumentCategory;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="17" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository" kindref="compound">DocumentCategoryRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;DocumentCategory,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;DocumentCategory&gt;<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="22" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a1f5e4be5ed3e9addab5ea173b42d5f40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;DocumentCategory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a1f5e4be5ed3e9addab5ea173b42d5f40" kindref="member">findByCategoryCode</ref>(String<sp/>categoryCode);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a31e28470b8acabd1e1b966d40d702d23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;DocumentCategory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a31e28470b8acabd1e1b966d40d702d23" kindref="member">findByParentIdIsNull</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1ad06e9baa0190d965424c82fb37a72c8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;DocumentCategory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1ad06e9baa0190d965424c82fb37a72c8a" kindref="member">findByParentId</ref>(Long<sp/>parentId);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1acb4e0f57dfa6e516d5e9b331adc2213f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;DocumentCategory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1acb4e0f57dfa6e516d5e9b331adc2213f" kindref="member">findByStatus</ref>(String<sp/>status);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a0735db52cba234863faba5c7035783b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;DocumentCategory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a0735db52cba234863faba5c7035783b0" kindref="member">findByLevel</ref>(Integer<sp/>level);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a01da4701b1a2bd3fdb40221cf82fe6ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a01da4701b1a2bd3fdb40221cf82fe6ca" kindref="member">existsByCategoryCode</ref>(String<sp/>categoryCode);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a82da966b6d3145f8774fe8f29c6989d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a82da966b6d3145f8774fe8f29c6989d7" kindref="member">existsByCategoryCodeAndIdNot</ref>(String<sp/>categoryCode,<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>d<sp/>FROM<sp/>DocumentCategory<sp/>d<sp/>WHERE<sp/>d.id<sp/>IN<sp/>:categoryIds<sp/>ORDER<sp/>BY<sp/>d.level&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="58" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a61714e28fc9ddab8e3c866e58a204a14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;DocumentCategory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a61714e28fc9ddab8e3c866e58a204a14" kindref="member">findCategoryPath</ref>(@Param(&quot;categoryIds&quot;)<sp/>List&lt;Long&gt;<sp/>categoryIds);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>d.</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>FROM<sp/>DocumentCategory<sp/>d<sp/>WHERE<sp/>d.categoryPath<sp/>LIKE<sp/>CONCAT(&apos;%&apos;,<sp/>:categoryCode,<sp/>&apos;%&apos;)&quot;)</highlight></codeline>
+<codeline lineno="64" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a461bb2a7f4810f6ebc062ec0a398fc23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Long&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1a461bb2a7f4810f6ebc062ec0a398fc23" kindref="member">findAllChildCategoryIds</ref>(@Param(&quot;categoryCode&quot;)<sp/>String<sp/>categoryCode);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69" refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1aae56b778c5769b08c67139bb0197ebce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1repository_1_1DocumentCategoryRepository_1aae56b778c5769b08c67139bb0197ebce" kindref="member">countByParentId</ref>(Long<sp/>parentId);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/repository/DocumentCategoryRepository.java"/>
+  </compounddef>
+</doxygen>

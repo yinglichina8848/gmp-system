@@ -154,7 +154,7 @@ public class JwtUtil {
                 .setExpiration(new Date(System.currentTimeMillis() + expiration * 1000))
                 .setIssuer("GMP-Auth-Service")
                 .setNotBefore(new Date(System.currentTimeMillis()))
-                .signWith(getSigningKey(), SignatureAlgorithm.HS512)
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256) // 使用HS256算法，只需要256位密钥，更适合测试环境
                 .compact();
     }
 

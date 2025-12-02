@@ -1,0 +1,27 @@
+var classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed =
+[
+    [ "NeedSource", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource.html", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedSource" ],
+    [ "NeedStatus", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus.html", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1NeedStatus" ],
+    [ "Priority", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Priority.html", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Priority" ],
+    [ "PriorityLevel", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel.html", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1PriorityLevel" ],
+    [ "Status", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status.html", "enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed_1_1Status" ],
+    [ "createdBy", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#ab35391138c954de8f11ee7300fbaf16d", null ],
+    [ "createdTime", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a5b9a23cd8936aa1fb074fe7a5ec8cd2a", null ],
+    [ "department", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a6a1dc3f82327bea7a9420708b16ec3f1", null ],
+    [ "description", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a40e29ae0143bfe2bf0fb73b476ae076b", null ],
+    [ "estimatedParticipants", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a4af20f4ad6c9164b6bbc8b845c628fa5", null ],
+    [ "expectedCompletionTime", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a43dd5b882c50362368cf04a3e7be3ee0", null ],
+    [ "gmpRelated", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a9ba7e5b0d9c736acdc517037c17cb482", null ],
+    [ "id", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a37e083e10bafea4d1f4fa1ddc3caea2d", null ],
+    [ "lastModifiedBy", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#aceedd430d0c1b8b977484c332db0143b", null ],
+    [ "lastModifiedTime", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a6ad720f57843dbef6906084a35efae7b", null ],
+    [ "needName", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a5973cda16e03eaebdb0e8084d4dd9dab", null ],
+    [ "position", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a61479987b2d0d399421804a434361e5f", null ],
+    [ "priority", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a349b336ed3008855e60852fc06951615", null ],
+    [ "requester", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a779e5ff669b359df317e789db4bc2bf5", null ],
+    [ "reviewComment", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a8804aa9a5dba22739ada8152d3398508", null ],
+    [ "reviewer", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a13c8770b320b53f49839038786194c90", null ],
+    [ "serialVersionUID", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a237f0fe6772df1a7e00452ed7710555e", null ],
+    [ "source", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#a31697a39a2fb2c3817ca6837102562de", null ],
+    [ "status", "classcom_1_1gmp_1_1training_1_1entity_1_1TrainingNeed.html#aa24c9f48c22ad0a97ce6ff5a80aba53d", null ]
+];

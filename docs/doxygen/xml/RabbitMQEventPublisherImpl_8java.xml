@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="RabbitMQEventPublisherImpl_8java" kind="file" language="Java">
+    <compoundname>RabbitMQEventPublisherImpl.java</compoundname>
+    <includes local="no">com.gmp.edms.event.DocumentEvent</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java</label>
+        <link refid="RabbitMQEventPublisherImpl_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.edms.event.DocumentEvent</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl" prot="public">com::gmp::edms::event::impl::RabbitMQEventPublisherImpl</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1edms_1_1event_1_1impl">com::gmp::edms::event::impl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1edms_1_1event_1_1impl" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.edms.event.impl;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.event.DocumentEvent;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.edms.event.EventPublisher;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.RequiredArgsConstructor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.amqp.rabbit.core.RabbitTemplate;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Component;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">@Component</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">@RequiredArgsConstructor</highlight></codeline>
+<codeline lineno="14" refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl" kindref="compound">RabbitMQEventPublisherImpl</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1edms_1_1event_1_1EventPublisher" kindref="compound">EventPublisher</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a86e96f08df510c75384f505065694f7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>RabbitTemplate<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a86e96f08df510c75384f505065694f7e" kindref="member">rabbitTemplate</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a983c004b8d576de62d5a330c033a0da8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a983c004b8d576de62d5a330c033a0da8" kindref="member">DOCUMENT_EVENT_EXCHANGE</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;edms.document.events&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a63b0308df1a6ad940ac4d573c33e0ec4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a63b0308df1a6ad940ac4d573c33e0ec4" kindref="member">DOCUMENT_EVENT_ROUTING_KEY_PREFIX</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;document.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="29" refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a735cffc986d66b387cafd7d3a2ce54b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a735cffc986d66b387cafd7d3a2ce54b7" kindref="member">publishDocumentEvent</ref>(<ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1DocumentEvent" kindref="compound">DocumentEvent</ref><sp/>event)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>构建路由键</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>routingKey<sp/>=<sp/><ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a63b0308df1a6ad940ac4d573c33e0ec4" kindref="member">DOCUMENT_EVENT_ROUTING_KEY_PREFIX</ref><sp/>+<sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal">.getEventType().name().toLowerCase();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>发布事件</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a86e96f08df510c75384f505065694f7e" kindref="member">rabbitTemplate</ref>.convertAndSend(<ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a983c004b8d576de62d5a330c033a0da8" kindref="member">DOCUMENT_EVENT_EXCHANGE</ref>,<sp/>routingKey,<sp/>event);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a8529ab2cd983b05dd222e216f9fd6b14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a8529ab2cd983b05dd222e216f9fd6b14" kindref="member">publishEvent</ref>(String<sp/>exchange,<sp/>String<sp/>routingKey,<sp/>Object<sp/>event)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>发布通用事件</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1edms_1_1event_1_1impl_1_1RabbitMQEventPublisherImpl_1a86e96f08df510c75384f505065694f7e" kindref="member">rabbitTemplate</ref>.convertAndSend(exchange,<sp/>routingKey,<sp/>event);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="edms-service/src/main/java/com/gmp/edms/event/impl/RabbitMQEventPublisherImpl.java"/>
+  </compounddef>
+</doxygen>

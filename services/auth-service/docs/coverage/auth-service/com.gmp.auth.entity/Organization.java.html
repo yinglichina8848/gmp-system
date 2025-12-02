@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Organization.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.entity</a> &gt; <span class="el_source">Organization.java</span></div><h1>Organization.java</h1><pre class="source lang-java linenums">package com.gmp.auth.entity;
+
+// ============================================================================
+//                        GMP系统组织架构实体定义
+// dịp
+//
+// WHY: GMP制药企业的组织架构复杂多样，需要建立灵活的多组织管理架构，
+//      支持用户同时拥有多个组织架构内的不同角色，实现精细化的权限控制，
+//      支撑GMP合规要求的组织职责分离和权限隔离。
+//
+// WHAT: Organization实体定义了组织架构的核心结构，包含组织类型、分层管理、
+//      状态控制等，支持部门管理、生产管理、质量管理等GMP企业常见组织形式，
+//      提供完整的组织生命周期管理和树状结构支持。
+//
+// HOW: 使用JPA注解定义实体映射，支持树状结构的父子关系，通过@Enumerated定义
+//      组织类型枚举，确保类型安全；使用审计注解自动填充创建和更新信息。
+// ============================================================================
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
+
+/**
+ * GMP系统组织架构实体
+ *
+ * 支持多层次组织架构管理，包括：
+ * - 部门管理架构：行政、人事、财务等职能部门
+ * - 生产管理架构：车间、分车间、生产线级别的生产组织
+ * - 质量管理架构：质量检验、审核、体系管理等
+ * - 合规审核架构：GMP审核、法规事务等
+ * - 培训管理架构：培训规划、执行、评估等
+ */
+<span class="nc bnc" id="L41" title="All 150 branches missed.">@Data</span>
+<span class="fc" id="L42">@NoArgsConstructor</span>
+<span class="fc" id="L43">@AllArgsConstructor</span>
+<span class="pc bfc" id="L44" title="All 10 branches covered.">@Builder</span>
+@Entity
+@Table(name = &quot;sys_organizations&quot;, indexes = {
+    @Index(name = &quot;idx_org_code&quot;, columnList = &quot;org_code&quot;, unique = true),
+    @Index(name = &quot;idx_org_parent&quot;, columnList = &quot;parent_id&quot;),
+    @Index(name = &quot;idx_org_type&quot;, columnList = &quot;org_type&quot;),
+    @Index(name = &quot;idx_org_status&quot;, columnList = &quot;org_status&quot;)
+})
+@EntityListeners(AuditingEntityListener.class)
+public class Organization {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L57">    private Long id;</span>
+
+    // 组织基本信息
+    @NotBlank(message = &quot;组织编码不能为空&quot;)
+    @Size(max = 50, message = &quot;组织编码长度不能超过50字符&quot;)
+    @Pattern(regexp = &quot;^ORG_[A-Z_]+$&quot;, message = &quot;组织编码必须以ORG_开头并使用大写字母和下划线&quot;)
+    @Column(name = &quot;org_code&quot;, unique = true, nullable = false)
+<span class="fc" id="L64">    private String orgCode;</span>
+
+    @NotBlank(message = &quot;组织名称不能为空&quot;)
+    @Size(max = 200, message = &quot;组织名称长度不能超过200字符&quot;)
+    @Column(name = &quot;org_name&quot;, nullable = false)
+<span class="fc" id="L69">    private String orgName;</span>
+
+    @Size(max = 500, message = &quot;组织描述长度不能超过500字符&quot;)
+    @Column(name = &quot;description&quot;)
+<span class="nc" id="L73">    private String description;</span>
+
+    // 组织类型 - GMP企业常见的组织架构
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;org_type&quot;, nullable = false)
+<span class="fc" id="L79">    private OrganizationType orgType = OrganizationType.DEPARTMENT;</span>
+
+    // 组织层级结构 - 支持多级组织架构
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;parent_id&quot;)
+<span class="fc" id="L84">    private Organization parent;</span>
+
+    @Builder.Default
+    @Column(name = &quot;hierarchy_level&quot;, nullable = false)
+<span class="fc" id="L88">    private Integer hierarchyLevel = 1;</span>
+
+    @Size(max = 100, message = &quot;负责人长度不能超过100字符&quot;)
+    @Column(name = &quot;manager&quot;)
+<span class="fc" id="L92">    private String manager;</span>
+
+    @Size(max = 500, message = &quot;联系方式长度不能超过500字符&quot;)
+    @Column(name = &quot;contact_info&quot;)
+<span class="nc" id="L96">    private String contactInfo;</span>
+
+    // 组织状态管理
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;org_status&quot;, nullable = false)
+<span class="fc" id="L102">    private OrganizationStatus orgStatus = OrganizationStatus.ACTIVE;</span>
+
+    // GMP合规相关信息
+    @Builder.Default
+    @Column(name = &quot;gmp_relevant&quot;)
+<span class="fc" id="L107">    private Boolean gmpRelevant = false;</span>
+
+    @Size(max = 100, message = &quot;GMP责任人长度不能超过100字符&quot;)
+    @Column(name = &quot;gmp_responsible&quot;)
+<span class="nc" id="L111">    private String gmpResponsible;</span>
+
+    @Size(max = 500, message = &quot;GMP要求长度不能超过500字符&quot;)
+    @Column(name = &quot;gmp_requirements&quot;)
+<span class="fc" id="L115">    private String gmpRequirements;</span>
+
+    // 审计字段
+    @CreatedDate
+    @Column(name = &quot;created_at&quot;, nullable = false, updatable = false)
+<span class="fc" id="L120">    private LocalDateTime createdAt;</span>
+
+    @LastModifiedDate
+    @Column(name = &quot;updated_at&quot;, nullable = false)
+<span class="fc" id="L124">    private LocalDateTime updatedAt;</span>
+
+    @Column(name = &quot;created_by&quot;)
+<span class="fc" id="L127">    private Long createdBy;</span>
+
+    @Column(name = &quot;updated_by&quot;)
+<span class="fc" id="L130">    private Long updatedBy;</span>
+
+    @Builder.Default
+    @Version
+    @Column(nullable = false)
+<span class="fc" id="L135">    private Integer version = 1;</span>
+
+    /**
+     * 组织类型枚举 - 定义GMP企业常见的组织架构类型
+     */
+<span class="fc" id="L140">    public enum OrganizationType {</span>
+<span class="fc" id="L141">        DEPARTMENT(&quot;部门管理&quot;),    // 部门组织：行政部门、人事部门等</span>
+<span class="fc" id="L142">        PRODUCTION(&quot;生产管理&quot;),    // 生产组织：车间、生产线、班组等</span>
+<span class="fc" id="L143">        QUALITY(&quot;质量管理&quot;),       // 质量组织：质量检验、审核、体系等</span>
+<span class="fc" id="L144">        COMPLIANCE(&quot;合规审核&quot;),    // 合规组织：法规事务、GMP审核等</span>
+<span class="fc" id="L145">        TRAINING(&quot;培训管理&quot;),      // 培训组织：培训规划、执行等</span>
+<span class="fc" id="L146">        HR(&quot;人力资源&quot;),             // HR组织：人力资源管理专用</span>
+<span class="fc" id="L147">        IT(&quot;信息技术&quot;),             // IT组织：信息系统管理</span>
+<span class="fc" id="L148">        MAINTENANCE(&quot;设备维护&quot;),  // 维护组织：设备维护和技术服务</span>
+<span class="fc" id="L149">        LOGISTICS(&quot;后勤保障&quot;),    // 后勤组织：设施、物料管理等</span>
+<span class="fc" id="L150">        SAFETY(&quot;安全环保&quot;);       // 安全组织：安全管理、环保等</span>
+
+        private final String description;
+
+<span class="fc" id="L154">        OrganizationType(String description) {</span>
+<span class="fc" id="L155">            this.description = description;</span>
+<span class="fc" id="L156">        }</span>
+
+        public String getDescription() {
+<span class="fc" id="L159">            return description;</span>
+        }
+    }
+
+    /**
+     * 组织状态枚举
+     */
+<span class="fc" id="L166">    public enum OrganizationStatus {</span>
+<span class="fc" id="L167">        ACTIVE(&quot;正常运行&quot;),      // 正常的活动组织</span>
+<span class="fc" id="L168">        INACTIVE(&quot;临时停用&quot;),    // 临时停用的组织</span>
+<span class="fc" id="L169">        UNDER_REVIEW(&quot;审核中&quot;),  // 正在审核调整中</span>
+<span class="fc" id="L170">        MERGED(&quot;已合并&quot;),        // 已被合并到其他组织</span>
+<span class="fc" id="L171">        ARCHIVED(&quot;已归档&quot;);      // 已被归档的历史组织</span>
+
+        private final String description;
+
+<span class="fc" id="L175">        OrganizationStatus(String description) {</span>
+<span class="fc" id="L176">            this.description = description;</span>
+<span class="fc" id="L177">        }</span>
+
+        public String getDescription() {
+<span class="fc" id="L180">            return description;</span>
+        }
+    }
+
+    /**
+     * 判断组织是否有效（可运营状态）
+     */
+    @Transient
+    public boolean isActive() {
+<span class="fc bfc" id="L189" title="All 2 branches covered.">        return this.orgStatus == OrganizationStatus.ACTIVE;</span>
+    }
+
+    /**
+     * 获取组织的完整层级路径
+     */
+    @Transient
+    public String getFullPath() {
+<span class="fc bfc" id="L197" title="All 2 branches covered.">        if (parent == null) {</span>
+<span class="fc" id="L198">            return orgName;</span>
+        }
+<span class="fc" id="L200">        return parent.getFullPath() + &quot; &gt; &quot; + orgName;</span>
+    }
+
+    /**
+     * 判断是否为GMP相关组织
+     */
+    @Transient
+    public boolean isGmpOrganization() {
+<span class="fc bfc" id="L208" title="All 10 branches covered.">        return Boolean.TRUE.equals(gmpRelevant) || orgType == OrganizationType.QUALITY ||</span>
+               orgType == OrganizationType.PRODUCTION ||
+               orgType == OrganizationType.COMPLIANCE ||
+               orgType == OrganizationType.TRAINING;
+    }
+
+    /**
+     * 获取组织的管理责任人
+     */
+    @Transient
+    public String getResponsibleManager() {
+<span class="pc bpc" id="L219" title="1 of 4 branches missed.">        if (gmpResponsible != null &amp;&amp; !gmpResponsible.trim().isEmpty()) {</span>
+<span class="fc" id="L220">            return gmpResponsible;</span>
+        }
+<span class="fc" id="L222">        return manager;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

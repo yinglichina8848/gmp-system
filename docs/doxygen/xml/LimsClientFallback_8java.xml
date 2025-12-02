@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="LimsClientFallback_8java" kind="file" language="Java">
+    <compoundname>LimsClientFallback.java</compoundname>
+    <includes local="no">com.gmp.qms.dto.NotificationDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>qms-service/src/main/java/com/gmp/qms/client/LimsClientFallback.java</label>
+        <link refid="LimsClientFallback_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.qms.dto.NotificationDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback" prot="public">com::gmp::qms::client::LimsClientFallback</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1qms_1_1client">com::gmp::qms::client</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.qms.client;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.NotificationDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.QualityStandardDTO;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.qms.dto.TestResultDTO;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.extern.slf4j.Slf4j;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Component;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">@Component</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">@Slf4j</highlight></codeline>
+<codeline lineno="17" refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback" kindref="compound">LimsClientFallback</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1gmp_1_1qms_1_1client_1_1LimsClient" kindref="compound">LimsClient</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="20" refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1af9f7a39da2a3971cd500e19c65823130" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>TestResultDTO<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1af9f7a39da2a3971cd500e19c65823130" kindref="member">getTestResults</ref>(String<sp/>sampleId)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log.warn(</highlight><highlight class="stringliteral">&quot;[LIMS系统降级]<sp/>获取测试结果失败，样品ID:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>sampleId);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>返回默认测试结果对象</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TestResultDTO<sp/>testResultDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TestResultDTO();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testResultDTO.setSampleId(sampleId);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testResultDTO.setStatus(</highlight><highlight class="stringliteral">&quot;UNKNOWN&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testResultDTO.setDescription(</highlight><highlight class="stringliteral">&quot;[服务暂不可用]<sp/>测试结果无法获取&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1ab980844de91ca9f2d188630b5a14ff11" kindref="member">recordFallbackRequest</ref>(</highlight><highlight class="stringliteral">&quot;getTestResults&quot;</highlight><highlight class="normal">,<sp/>sampleId);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>testResultDTO;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="34" refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1ab22f3e1af78331fe76796c2a76760b51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QualityStandardDTO<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1ab22f3e1af78331fe76796c2a76760b51" kindref="member">getQualityStandard</ref>(String<sp/>standardCode)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log.warn(</highlight><highlight class="stringliteral">&quot;[LIMS系统降级]<sp/>获取质量标准失败，标准代码:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>standardCode);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>返回默认质量标准对象</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QualityStandardDTO<sp/>standardDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QualityStandardDTO();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>standardDTO.setCode(standardCode);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>standardDTO.setName(</highlight><highlight class="stringliteral">&quot;[服务暂不可用]<sp/>质量标准&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1ab980844de91ca9f2d188630b5a14ff11" kindref="member">recordFallbackRequest</ref>(</highlight><highlight class="stringliteral">&quot;getQualityStandard&quot;</highlight><highlight class="normal">,<sp/>standardCode);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>standardDTO;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="47" refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1aa45e1926193d69f51b8da6fc1ad576bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1aa45e1926193d69f51b8da6fc1ad576bd" kindref="member">sendNotification</ref>(NotificationDTO<sp/>notificationDTO)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log.warn(</highlight><highlight class="stringliteral">&quot;[LIMS系统降级]<sp/>发送通知失败&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1a7c9061c023959e31cf5d271a351de2c9" kindref="member">saveToRetryQueue</ref>(</highlight><highlight class="stringliteral">&quot;sendNotification&quot;</highlight><highlight class="normal">,<sp/>notificationDTO);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1ab980844de91ca9f2d188630b5a14ff11" kindref="member">recordFallbackRequest</ref>(</highlight><highlight class="stringliteral">&quot;sendNotification&quot;</highlight><highlight class="normal">,<sp/>notificationDTO.getTitle());</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="54" refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1a4d91997b42d67d18d30990a578521693" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>TestResultDTO<sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1a4d91997b42d67d18d30990a578521693" kindref="member">getSampleInfo</ref>(String<sp/>sampleId)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log.warn(</highlight><highlight class="stringliteral">&quot;[LIMS系统降级]<sp/>获取样品信息失败，样品ID:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>sampleId);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>返回默认样品信息对象</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TestResultDTO<sp/>testResultDTO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TestResultDTO();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testResultDTO.setSampleId(sampleId);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testResultDTO.setSampleName(</highlight><highlight class="stringliteral">&quot;[服务暂不可用]<sp/>样品信息&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1ab980844de91ca9f2d188630b5a14ff11" kindref="member">recordFallbackRequest</ref>(</highlight><highlight class="stringliteral">&quot;getSampleInfo&quot;</highlight><highlight class="normal">,<sp/>sampleId);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>testResultDTO;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="67" refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1a4dc24f592700feaec1f6af7b58759c02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1a4dc24f592700feaec1f6af7b58759c02" kindref="member">isSampleTestCompleted</ref>(String<sp/>sampleId)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log.warn(</highlight><highlight class="stringliteral">&quot;[LIMS系统降级]<sp/>检查样品测试完成状态失败，样品ID:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>sampleId);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1ab980844de91ca9f2d188630b5a14ff11" kindref="member">recordFallbackRequest</ref>(</highlight><highlight class="stringliteral">&quot;isSampleTestCompleted&quot;</highlight><highlight class="normal">,<sp/>sampleId);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>默认返回false，避免在不确定的情况下误判</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="81" refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1ab980844de91ca9f2d188630b5a14ff11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1ab980844de91ca9f2d188630b5a14ff11" kindref="member">recordFallbackRequest</ref>(String<sp/>operation,<sp/>String<sp/>identifier)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log.warn(</highlight><highlight class="stringliteral">&quot;[LIMS系统降级记录]<sp/>操作:<sp/>{},<sp/>标识:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>operation,<sp/>identifier);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91" refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1a7c9061c023959e31cf5d271a351de2c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1gmp_1_1qms_1_1client_1_1LimsClientFallback_1a7c9061c023959e31cf5d271a351de2c9" kindref="member">saveToRetryQueue</ref>(String<sp/>operation,<sp/>Object<sp/>data)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log.info(</highlight><highlight class="stringliteral">&quot;[LIMS系统重试队列]<sp/>添加操作:<sp/>{},<sp/>数据:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>operation,<sp/>data);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>实现真正的重试队列存储逻辑</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="qms-service/src/main/java/com/gmp/qms/client/LimsClientFallback.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="warehouse-service_2README_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>GMP仓库管理子系统</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>概述</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">GMP仓库管理子系统是GMP系统的核心组件之一，负责物料主数据管理、入库管理、出库管理、库存管理、盘点管理、供应商管理、报表统计和基础配置等功能。系统严格遵循GMP标准，确保物料流转和库存管理的合规性、准确性和可追溯性。</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>功能模块</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**物料主数据管理**：物料信息的增删改查、分类管理、单位管理</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**入库管理**：采购入库、生产入库、退货入库、入库单管理</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**出库管理**：生产领料、销售出库、其他出库、出库单管理</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**库存管理**：库存查询、库位管理、库存预警、批次管理</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**盘点管理**：盘点计划、盘点执行、盘点差异处理、盘点报告</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**供应商管理**：供应商信息维护、资质管理、评级管理</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**报表统计**：库存报表、出入库报表、周转率分析、过期预警</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**基础配置**：库位设置、仓库设置、系统参数配置</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>技术栈</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**后端框架**：Spring<sp/>Boot<sp/>3.x</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**持久层**：Spring<sp/>Data<sp/>JPA</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**数据库**：PostgreSQL</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**缓存**：Redis</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**测试框架**：JUnit<sp/>5,<sp/>AssertJ</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**构建工具**：Maven</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>快速开始</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>环境要求</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>JDK<sp/>17+</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Maven<sp/>3.6+</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>PostgreSQL<sp/>14+</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Redis<sp/>6+</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>构建和运行</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">#<sp/>构建项目</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>clean<sp/>package</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>运行应用</highlight></codeline>
+<codeline><highlight class="normal">java<sp/>-jar<sp/>target/warehouse-service-0.1.0.jar</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>开发环境启动</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">#<sp/>使用Spring<sp/>Boot插件运行</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>spring-boot:run</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>测试</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">#<sp/>运行单元测试</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>test</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>运行覆盖率测试</highlight></codeline>
+<codeline><highlight class="normal">mvn<sp/>test<sp/>jacoco:report</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>API文档</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">服务启动后，API文档可通过以下地址访问：</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Swagger<sp/>UI:<sp/>http://localhost:8082/warehouse/swagger-ui.html</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>API文档:<sp/>http://localhost:8082/warehouse/v3/api-docs</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>配置说明</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">主要配置文件：</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`src/main/resources/application.yml`<sp/>-<sp/>生产环境配置</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`src/test/resources/application-test.yml`<sp/>-<sp/>测试环境配置</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>测试结果</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>测试概况</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">仓库管理子系统已完成全面的测试用例编写，测试通过率表现良好。</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>覆盖率指标</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>指标<sp/>|<sp/>当前值<sp/>|<sp/>目标值<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------|--------|--------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>行覆盖率<sp/>|<sp/>≥80%<sp/>|<sp/>≥80%<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>分支覆盖率<sp/>|<sp/>≥70%<sp/>|<sp/>≥70%<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>类覆盖率<sp/>|<sp/>≥90%<sp/>|<sp/>≥90%<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>方法覆盖率<sp/>|<sp/>≥80%<sp/>|<sp/>≥80%<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>测试报告</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">完整的测试报告和覆盖率详情请参考：</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[仓库管理子系统测试报告](../../docs/warehouse/测试/仓库管理子系统测试报告.md)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[覆盖率报告](../../docs/coverage/warehouse/index.html)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>故障排除</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>常见问题</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>**数据库连接失败**：检查PostgreSQL服务是否启动，连接参数是否正确</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>**Redis连接失败**：检查Redis服务是否启动，端口是否正确</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>**端口冲突**：修改`application.yml`中的server.port配置</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>贡献指南</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Fork本仓库</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>创建特性分支<sp/>(`git<sp/>checkout<sp/>-b<sp/>feature/amazing-feature`)</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>提交更改<sp/>(`git<sp/>commit<sp/>-m<sp/>&apos;Add<sp/>some<sp/>amazing<sp/>feature&apos;`)</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>推送到分支<sp/>(`git<sp/>push<sp/>origin<sp/>feature/amazing-feature`)</highlight></codeline>
+<codeline><highlight class="normal">5.<sp/>打开Pull<sp/>Request</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>相关文档</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>[仓库管理子系统文档总览](../../docs/warehouse/00_文档总览.md)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[仓库管理子系统详细设计文档](../../docs/warehouse/设计/仓库管理子系统详细设计文档.md)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[仓库管理子系统测试计划](../../docs/warehouse/测试/仓库管理子系统测试计划.md)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>许可证</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">本项目采用MIT许可证<sp/>-<sp/>详见LICENSE文件</highlight></codeline>
+    </programlisting>
+    <location file="warehouse-service/README.md"/>
+  </compounddef>
+</doxygen>

@@ -4,7 +4,6 @@ import com.gmp.auth.entity.OperationLog;
 import com.gmp.auth.service.AuditLogService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -14,8 +13,8 @@ import java.util.Map;
 /**
  * 测试用的审计日志服务适配器
  * 极简实现以通过编译
+ * 注意：移除了@Service注解，避免与主实现类冲突
  */
-@Service
 public class TestAuditLogServiceAdapter implements AuditLogService {
     // 实现缺失的抽象方法
     @Override

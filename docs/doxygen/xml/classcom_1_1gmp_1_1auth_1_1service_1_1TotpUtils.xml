@@ -1,0 +1,493 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::auth::service::TotpUtils</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a304174979bf97509f15ebeb3b53b2a97" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.gmp.auth.service.TotpUtils.TOTP_TIME_STEP</definition>
+        <argsstring></argsstring>
+        <name>TOTP_TIME_STEP</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.TOTP_TIME_STEP</qualifiedname>
+        <initializer>= 30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="15" column="30" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="15" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a8e7a73bc37edfb22e0e261717b9b58da" compoundref="service_2TotpUtils_8java" startline="45" endline="74">com.gmp.auth.service.TotpUtils.generateTotpCode</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a532416a437ab358f24354603e2a89cae" compoundref="service_2TotpUtils_8java" startline="142" endline="144">com.gmp.auth.service.TotpUtils.getCurrentTimeWindow</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a8c01082cc1a7dd789d44cef44e982a57" compoundref="service_2TotpUtils_8java" startline="150" endline="152">com.gmp.auth.service.TotpUtils.getRemainingSeconds</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a97e9b9114350ca521640bd73cf4dc367" compoundref="service_2TotpUtils_8java" startline="82" endline="92">com.gmp.auth.service.TotpUtils.verifyTotpCode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a77a30eb9b2f44f59b7432b21c41d04c6" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.gmp.auth.service.TotpUtils.TOTP_CODE_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>TOTP_CODE_LENGTH</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.TOTP_CODE_LENGTH</qualifiedname>
+        <initializer>= 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="16" column="30" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="16" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a8e7a73bc37edfb22e0e261717b9b58da" compoundref="service_2TotpUtils_8java" startline="45" endline="74">com.gmp.auth.service.TotpUtils.generateTotpCode</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5617ad5d1c9c72d2019d656075409133" compoundref="service_2TotpUtils_8java" startline="101" endline="108">com.gmp.auth.service.TotpUtils.verifyTotpCodeAtTimestamp</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1ab2357d3ba2c4e83124cf7e2607fa5e82" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.gmp.auth.service.TotpUtils.SECRET_KEY_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>SECRET_KEY_LENGTH</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.SECRET_KEY_LENGTH</qualifiedname>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="17" column="30" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="17" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a19aee80cd5788c5ed88775432325e63f" compoundref="service_2TotpUtils_8java" startline="24" endline="28">com.gmp.auth.service.TotpUtils.generateSecretKey</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a6c749926a2039bf95ae34e0394b95d9d" prot="private" static="yes" mutable="no">
+        <type>final SecureRandom</type>
+        <definition>final SecureRandom com.gmp.auth.service.TotpUtils.SECURE_RANDOM</definition>
+        <argsstring></argsstring>
+        <name>SECURE_RANDOM</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.SECURE_RANDOM</qualifiedname>
+        <initializer>= new SecureRandom()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="18" column="39" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="18" bodyend="-1"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a19aee80cd5788c5ed88775432325e63f" compoundref="service_2TotpUtils_8java" startline="24" endline="28">com.gmp.auth.service.TotpUtils.generateSecretKey</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a19aee80cd5788c5ed88775432325e63f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.service.TotpUtils.generateSecretKey</definition>
+        <argsstring>()</argsstring>
+        <name>generateSecretKey</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.generateSecretKey</qualifiedname>
+        <briefdescription>
+<para>生成随机的TOTP密钥 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Base64编码的密钥 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="24" column="19" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="24" bodyend="28"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1ab2357d3ba2c4e83124cf7e2607fa5e82" compoundref="service_2TotpUtils_8java" startline="17">com.gmp.auth.service.TotpUtils.SECRET_KEY_LENGTH</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a6c749926a2039bf95ae34e0394b95d9d" compoundref="service_2TotpUtils_8java" startline="18">com.gmp.auth.service.TotpUtils.SECURE_RANDOM</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaService_1aaedb5b17e6d0e92bbe459e98b60c1d0b" compoundref="MfaService_8java" startline="27" endline="29">com.gmp.auth.service.MfaService.generateSecretKey</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaServiceTest_1a5b31493f599aacf86129ee073bbe99a2" compoundref="MfaServiceTest_8java" startline="45" endline="56">com.gmp.auth.service.MfaServiceTest.testGenerateSecretKey</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1adf06795634b65412c0b3f95644a027d9" compoundref="TotpUtilsTest_8java" startline="53" endline="62">com.gmp.auth.service.TotpUtilsTest.testGenerateSecretKey</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5e1aed0ee968bd50495338424448fee2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.service.TotpUtils.generateTotpCode</definition>
+        <argsstring>(String secretKey)</argsstring>
+        <name>generateTotpCode</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.generateTotpCode</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>secretKey</declname>
+        </param>
+        <briefdescription>
+<para>生成当前时间的TOTP码 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>secretKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>密钥 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>6位TOTP码 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="35" column="19" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="35" bodyend="37"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5e1aed0ee968bd50495338424448fee2" compoundref="service_2TotpUtils_8java" startline="35" endline="37">com.gmp.auth.service.TotpUtils.generateTotpCode</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaService_1a9b7dbd2b247645a59228ea2666edd6dd" compoundref="MfaService_8java" startline="34" endline="36">com.gmp.auth.service.MfaService.generateTotpCode</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5e1aed0ee968bd50495338424448fee2" compoundref="service_2TotpUtils_8java" startline="35" endline="37">com.gmp.auth.service.TotpUtils.generateTotpCode</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a32f0dfe93df154331720ceaa2e72a10a" compoundref="TotpUtilsTest_8java" startline="153" endline="161">com.gmp.auth.service.TotpUtilsTest.testEdgeCaseEmptySecretKey</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1abf4ddb4f309d2ff28bf3f02f4ea4e473" compoundref="TotpUtilsTest_8java" startline="165" endline="173">com.gmp.auth.service.TotpUtilsTest.testEdgeCaseNullSecretKey</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaServiceTest_1ac637d0a5d1135406b69e25da343a9226" compoundref="MfaServiceTest_8java" startline="60" endline="71">com.gmp.auth.service.MfaServiceTest.testGenerateTotpCode</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a617d177194d215ce8d57e4e5988dd649" compoundref="TotpUtilsTest_8java" startline="82" endline="91">com.gmp.auth.service.TotpUtilsTest.testGenerateTotpCode</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1aff536c2da49c2b1dff4d96beb39295a7" compoundref="TotpUtilsTest_8java" startline="208" endline="227">com.gmp.auth.service.TotpUtilsTest.testTimestampCalculation</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a054253d5b99e30fc5bcd2af8efd56e7f" compoundref="TotpUtilsTest_8java" startline="95" endline="104">com.gmp.auth.service.TotpUtilsTest.testVerifyTotpCodeValid</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5617ad5d1c9c72d2019d656075409133" compoundref="service_2TotpUtils_8java" startline="101" endline="108">com.gmp.auth.service.TotpUtils.verifyTotpCodeAtTimestamp</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a8e7a73bc37edfb22e0e261717b9b58da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.service.TotpUtils.generateTotpCode</definition>
+        <argsstring>(String secretKey, long timestamp)</argsstring>
+        <name>generateTotpCode</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.generateTotpCode</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>secretKey</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+<para>生成指定时间戳的TOTP码 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>secretKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>密钥 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timestamp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>时间戳（秒） </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>6位TOTP码 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="45" column="19" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="45" bodyend="74"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1af75382e170931c8b48875cd199bd55ca" compoundref="service_2TotpUtils_8java" startline="131" endline="136">com.gmp.auth.service.TotpUtils.hmacSha1</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a77a30eb9b2f44f59b7432b21c41d04c6" compoundref="service_2TotpUtils_8java" startline="16">com.gmp.auth.service.TotpUtils.TOTP_CODE_LENGTH</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a304174979bf97509f15ebeb3b53b2a97" compoundref="service_2TotpUtils_8java" startline="15">com.gmp.auth.service.TotpUtils.TOTP_TIME_STEP</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a97e9b9114350ca521640bd73cf4dc367" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.service.TotpUtils.verifyTotpCode</definition>
+        <argsstring>(String secretKey, String code)</argsstring>
+        <name>verifyTotpCode</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.verifyTotpCode</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>secretKey</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>验证TOTP码（包含时间容错） </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>secretKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>密钥 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户输入的验证码 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否验证成功 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="82" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="82" bodyend="92"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a304174979bf97509f15ebeb3b53b2a97" compoundref="service_2TotpUtils_8java" startline="15">com.gmp.auth.service.TotpUtils.TOTP_TIME_STEP</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5617ad5d1c9c72d2019d656075409133" compoundref="service_2TotpUtils_8java" startline="101" endline="108">com.gmp.auth.service.TotpUtils.verifyTotpCodeAtTimestamp</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a32f0dfe93df154331720ceaa2e72a10a" compoundref="TotpUtilsTest_8java" startline="153" endline="161">com.gmp.auth.service.TotpUtilsTest.testEdgeCaseEmptySecretKey</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1abf4ddb4f309d2ff28bf3f02f4ea4e473" compoundref="TotpUtilsTest_8java" startline="165" endline="173">com.gmp.auth.service.TotpUtilsTest.testEdgeCaseNullSecretKey</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaServiceTest_1abe7f143894f7067e4e014676405b1534" compoundref="MfaServiceTest_8java" startline="89" endline="100">com.gmp.auth.service.MfaServiceTest.testVerifyTotpCode_Failure</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaServiceTest_1a5f46995390fc4cf5d7f2bc6040915690" compoundref="MfaServiceTest_8java" startline="75" endline="85">com.gmp.auth.service.MfaServiceTest.testVerifyTotpCode_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a30ce99f9a1db54f5c48e280d18f77f79" compoundref="TotpUtilsTest_8java" startline="108" endline="117">com.gmp.auth.service.TotpUtilsTest.testVerifyTotpCodeInvalid</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a054253d5b99e30fc5bcd2af8efd56e7f" compoundref="TotpUtilsTest_8java" startline="95" endline="104">com.gmp.auth.service.TotpUtilsTest.testVerifyTotpCodeValid</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaService_1a333a641ff419d1c9e87c27819f2bb023" compoundref="MfaService_8java" startline="41" endline="43">com.gmp.auth.service.MfaService.verifyTotpCode</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5617ad5d1c9c72d2019d656075409133" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.gmp.auth.service.TotpUtils.verifyTotpCodeAtTimestamp</definition>
+        <argsstring>(String secretKey, String code, long timestamp)</argsstring>
+        <name>verifyTotpCodeAtTimestamp</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.verifyTotpCodeAtTimestamp</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>secretKey</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+<para>在指定时间戳验证TOTP码 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>secretKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>密钥 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>用户输入的验证码 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timestamp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>时间戳 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>是否验证成功 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="101" column="20" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="101" bodyend="108"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5e1aed0ee968bd50495338424448fee2" compoundref="service_2TotpUtils_8java" startline="35" endline="37">com.gmp.auth.service.TotpUtils.generateTotpCode</references>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a77a30eb9b2f44f59b7432b21c41d04c6" compoundref="service_2TotpUtils_8java" startline="16">com.gmp.auth.service.TotpUtils.TOTP_CODE_LENGTH</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a97e9b9114350ca521640bd73cf4dc367" compoundref="service_2TotpUtils_8java" startline="82" endline="92">com.gmp.auth.service.TotpUtils.verifyTotpCode</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a488d855da4bb976e63e29fa78ae5aa97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.gmp.auth.service.TotpUtils.generateTotpUri</definition>
+        <argsstring>(String secretKey, String accountName, String issuer)</argsstring>
+        <name>generateTotpUri</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.generateTotpUri</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>secretKey</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>accountName</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>issuer</declname>
+        </param>
+        <briefdescription>
+<para>生成TOTP二维码的URI（符合Google Authenticator格式） </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>secretKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>密钥 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>accountName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>账号名 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>issuer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>发行商名称 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>二维码URI </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="117" column="19" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="117" bodyend="122"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaService_1ab90fe9a3d7949d45c77f0b7f9151a8e2" compoundref="MfaService_8java" startline="70" endline="72">com.gmp.auth.service.MfaService.generateQrCodeUrl</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaServiceTest_1afc858f2491f99d5d71a6ef22e37550ea" compoundref="MfaServiceTest_8java" startline="119" endline="131">com.gmp.auth.service.MfaServiceTest.testGenerateQrCodeUrl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a532416a437ab358f24354603e2a89cae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long com.gmp.auth.service.TotpUtils.getCurrentTimeWindow</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentTimeWindow</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.getCurrentTimeWindow</qualifiedname>
+        <briefdescription>
+<para>获取当前时间窗口 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>当前时间窗口索引 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="142" column="17" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="142" bodyend="144"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a304174979bf97509f15ebeb3b53b2a97" compoundref="service_2TotpUtils_8java" startline="15">com.gmp.auth.service.TotpUtils.TOTP_TIME_STEP</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a8c01082cc1a7dd789d44cef44e982a57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.gmp.auth.service.TotpUtils.getRemainingSeconds</definition>
+        <argsstring>()</argsstring>
+        <name>getRemainingSeconds</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.getRemainingSeconds</qualifiedname>
+        <briefdescription>
+<para>获取剩余有效期（秒） </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>剩余有效期 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="150" column="16" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="150" bodyend="152"/>
+        <references refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a304174979bf97509f15ebeb3b53b2a97" compoundref="service_2TotpUtils_8java" startline="15">com.gmp.auth.service.TotpUtils.TOTP_TIME_STEP</references>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaService_1ae4da100f74b0631172749f84a05e9a88" compoundref="MfaService_8java" startline="77" endline="79">com.gmp.auth.service.MfaService.getRemainingSeconds</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1MfaServiceTest_1a64115f2bcb23c48a10c4f46c6d767460" compoundref="MfaServiceTest_8java" startline="135" endline="146">com.gmp.auth.service.MfaServiceTest.testGetRemainingSeconds</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtilsTest_1a00d6f5df32cca0a0b143a27a9b1d7f1f" compoundref="TotpUtilsTest_8java" startline="143" endline="149">com.gmp.auth.service.TotpUtilsTest.testGetRemainingSeconds</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1af75382e170931c8b48875cd199bd55ca" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] com.gmp.auth.service.TotpUtils.hmacSha1</definition>
+        <argsstring>(byte[] key, byte[] data)</argsstring>
+        <name>hmacSha1</name>
+        <qualifiedname>com.gmp.auth.service.TotpUtils.hmacSha1</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>byte[]</type>
+          <declname>data</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+<para>计算HMAC-SHA1哈希值 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>密钥 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>数据 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>哈希结果 </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>Exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>计算过程中的异常 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="131" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="131" bodyend="136"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a8e7a73bc37edfb22e0e261717b9b58da" compoundref="service_2TotpUtils_8java" startline="45" endline="74">com.gmp.auth.service.TotpUtils.generateTotpCode</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>TOTP工具类，提供基础的基于时间的一次性密码生成和验证功能 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>com.gmp.auth.service.TotpUtils</label>
+        <link refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>SECRET_KEY_LENGTH</edgelabel>
+          <edgelabel>TOTP_CODE_LENGTH</edgelabel>
+          <edgelabel>TOTP_TIME_STEP</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>SECURE_RANDOM</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>int</label>
+      </node>
+      <node id="3">
+        <label>static final SecureRandom</label>
+      </node>
+    </collaborationgraph>
+    <location file="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" line="14" column="7" bodyfile="auth-service/src/main/java/com/gmp/auth/service/TotpUtils.java" bodystart="14" bodyend="153"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a19aee80cd5788c5ed88775432325e63f" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>generateSecretKey</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5e1aed0ee968bd50495338424448fee2" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>generateTotpCode</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a8e7a73bc37edfb22e0e261717b9b58da" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>generateTotpCode</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a488d855da4bb976e63e29fa78ae5aa97" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>generateTotpUri</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a532416a437ab358f24354603e2a89cae" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>getCurrentTimeWindow</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a8c01082cc1a7dd789d44cef44e982a57" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>getRemainingSeconds</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1af75382e170931c8b48875cd199bd55ca" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>hmacSha1</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1ab2357d3ba2c4e83124cf7e2607fa5e82" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>SECRET_KEY_LENGTH</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a6c749926a2039bf95ae34e0394b95d9d" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>SECURE_RANDOM</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a77a30eb9b2f44f59b7432b21c41d04c6" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>TOTP_CODE_LENGTH</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a304174979bf97509f15ebeb3b53b2a97" prot="private" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>TOTP_TIME_STEP</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a97e9b9114350ca521640bd73cf4dc367" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>verifyTotpCode</name></member>
+      <member refid="classcom_1_1gmp_1_1auth_1_1service_1_1TotpUtils_1a5617ad5d1c9c72d2019d656075409133" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::TotpUtils</scope><name>verifyTotpCodeAtTimestamp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

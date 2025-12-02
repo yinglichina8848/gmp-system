@@ -27,6 +27,7 @@
 <para>为用户分配角色 </para>
         </briefdescription>
         <detaileddescription>
+<para>为指定用户分配指定角色</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>userId</parametername>
@@ -48,17 +49,19 @@
 <parametername>assignedBy</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>分配人 </para>
+<para>分配人ID </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>分配结果 </para>
+<simplesect kind="return"><para>UserRole 分配结果</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserRole" kindref="compound">com.gmp.auth.entity.UserRole</ref> </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="22" column="14"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="34" column="14"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService_1aaede180ffec69c398166c531fd051482" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; UserRole &gt;</type>
@@ -83,6 +86,7 @@
 <para>为用户分配多个角色 </para>
         </briefdescription>
         <detaileddescription>
+<para>为指定用户分配多个角色</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>userId</parametername>
@@ -104,17 +108,19 @@
 <parametername>assignedBy</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>分配人 </para>
+<para>分配人ID </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>分配结果列表 </para>
+<simplesect kind="return"><para>List&lt;UserRole&gt; 分配结果列表</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserRole" kindref="compound">com.gmp.auth.entity.UserRole</ref> </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="31" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="48" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService_1ae6ca159687904b22108ef7df16891ac3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -135,6 +141,7 @@
 <para>移除用户的角色 </para>
         </briefdescription>
         <detaileddescription>
+<para>移除指定用户的指定角色</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>userId</parametername>
@@ -156,7 +163,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="38" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="58" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService_1ab8990069a7a5edeed7fa0840cdaad5fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>List&lt; Role &gt;</type>
@@ -173,6 +180,7 @@
 <para>获取用户的所有角色 </para>
         </briefdescription>
         <detaileddescription>
+<para>获取指定用户的所有角色列表</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>userId</parametername>
@@ -182,13 +190,15 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>角色列表 </para>
+<simplesect kind="return"><para>List&lt;Role&gt; 角色列表</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Role" kindref="compound">com.gmp.auth.entity.Role</ref> </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="45" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="70" column="10"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService_1af787c83cf757f3836e8f7e97e29223c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Set&lt; String &gt;</type>
@@ -205,6 +215,7 @@
 <para>获取用户的角色代码集合 </para>
         </briefdescription>
         <detaileddescription>
+<para>获取指定用户的角色代码集合</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>userId</parametername>
@@ -214,18 +225,20 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>角色代码集合 </para>
+<simplesect kind="return"><para>Set&lt;String&gt; 角色代码集合 </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="52" column="9"/>
-        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1ae1a44d4839154f894d0ea90967e05773" compoundref="AuthServiceImplTest_8java" startline="361" endline="371">com.gmp.auth.service.impl.AuthServiceImplTest.testHasRole_UserDoesNotHaveRequiredRole</referencedby>
-        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1a7d7ffea34ee3cafc82f4f7fc235ee2fc" compoundref="AuthServiceImplTest_8java" startline="348" endline="358">com.gmp.auth.service.impl.AuthServiceImplTest.testHasRole_UserHasRequiredRole</referencedby>
-        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1a309d27cf573febe13f7f62b91f7f103d" compoundref="AuthServiceImplTest_8java" startline="110" endline="126">com.gmp.auth.service.impl.AuthServiceImplTest.testLoadUserByUsername_Success</referencedby>
-        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1a69dc45f59596da9781681c97f5ec7d69" compoundref="AuthServiceImplTest_8java" startline="152" endline="192">com.gmp.auth.service.impl.AuthServiceImplTest.testLogin_Success</referencedby>
-        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1a4cdeed7077256c077de8cc1ac54dc43f" compoundref="AuthServiceImplTest_8java" startline="460" endline="508">com.gmp.auth.service.impl.AuthServiceImplTest.testVerifyMfa_Success</referencedby>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="80" column="9"/>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1a0d917307187b440f6c2139d4ef54a7c0" compoundref="AuthServiceImpl_8java" startline="115" endline="153">com.gmp.auth.service.impl.AuthServiceImpl.loadUserByUsername</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1ae1a44d4839154f894d0ea90967e05773" compoundref="AuthServiceImplTest_8java" startline="369" endline="379">com.gmp.auth.service.impl.AuthServiceImplTest.testHasRole_UserDoesNotHaveRequiredRole</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1a7d7ffea34ee3cafc82f4f7fc235ee2fc" compoundref="AuthServiceImplTest_8java" startline="356" endline="366">com.gmp.auth.service.impl.AuthServiceImplTest.testHasRole_UserHasRequiredRole</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1a309d27cf573febe13f7f62b91f7f103d" compoundref="AuthServiceImplTest_8java" startline="118" endline="134">com.gmp.auth.service.impl.AuthServiceImplTest.testLoadUserByUsername_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1a69dc45f59596da9781681c97f5ec7d69" compoundref="AuthServiceImplTest_8java" startline="160" endline="200">com.gmp.auth.service.impl.AuthServiceImplTest.testLogin_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImplTest_1a4cdeed7077256c077de8cc1ac54dc43f" compoundref="AuthServiceImplTest_8java" startline="468" endline="499">com.gmp.auth.service.impl.AuthServiceImplTest.testVerifyMfa_Success</referencedby>
+        <referencedby refid="classcom_1_1gmp_1_1auth_1_1service_1_1impl_1_1AuthServiceImpl_1abd5db9b353b29b137f0d41917150d4d6" compoundref="AuthServiceImpl_8java" startline="635" endline="787">com.gmp.auth.service.impl.AuthServiceImpl.verifyMfa</referencedby>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService_1a877a8d3d4dfd76e59ec2641a202101ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>boolean</type>
@@ -246,6 +259,7 @@
 <para>检查用户是否拥有指定角色 </para>
         </briefdescription>
         <detaileddescription>
+<para>检查指定用户是否拥有指定角色</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>userId</parametername>
@@ -263,13 +277,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>是否拥有 </para>
+<simplesect kind="return"><para>boolean 如果用户拥有该角色返回true，否则返回false </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="60" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="91" column="13"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService_1ad2faa32322385b1d2e3bfdb9fbd43029" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>boolean</type>
@@ -290,6 +304,7 @@
 <para>检查用户是否拥有指定角色之一 </para>
         </briefdescription>
         <detaileddescription>
+<para>检查指定用户是否拥有指定角色列表中的任一角色</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>userId</parametername>
@@ -307,13 +322,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>是否拥有任一角色 </para>
+<simplesect kind="return"><para>boolean 如果用户拥有任一角色返回true，否则返回false </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="68" column="13"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="102" column="13"/>
       </memberdef>
       <memberdef kind="function" id="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService_1a4db77701054a892267437fc34ce4c9c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -326,17 +341,27 @@
 <para>刷新用户过期的角色 </para>
         </briefdescription>
         <detaileddescription>
+<para>刷新用户过期的角色，更新角色状态 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="73" column="10"/>
+        <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="109" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
 <para>用户角色管理服务接口 </para>
     </briefdescription>
     <detaileddescription>
+<para>该接口定义了用户角色管理的服务，包括角色分配、移除、查询等功能。</para>
 <para><simplesect kind="author"><para>GMP系统开发团队 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+<simplesect kind="since"><para>2023-01-01</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1Role" kindref="compound">com.gmp.auth.entity.Role</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classcom_1_1gmp_1_1auth_1_1entity_1_1UserRole" kindref="compound">com.gmp.auth.entity.UserRole</ref> </para>
 </simplesect>
 </para>
     </detaileddescription>
@@ -352,7 +377,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="13" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" bodystart="13" bodyend="74"/>
+    <location file="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" line="20" column="18" bodyfile="auth-service/src/main/java/com/gmp/auth/service/UserRoleService.java" bodystart="20" bodyend="110"/>
     <listofallmembers>
       <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService_1aaede180ffec69c398166c531fd051482" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserRoleService</scope><name>assignRolesToUser</name></member>
       <member refid="interfacecom_1_1gmp_1_1auth_1_1service_1_1UserRoleService_1a8351f6218883c96171a6272a14b905f1" prot="public" virt="non-virtual"><scope>com::gmp::auth::service::UserRoleService</scope><name>assignRoleToUser</name></member>

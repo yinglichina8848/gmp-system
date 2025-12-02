@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginResponse.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.gmp.auth.dto</a> &gt; <span class="el_source">LoginResponse.java</span></div><h1>LoginResponse.java</h1><pre class="source lang-java linenums">package com.gmp.auth.dto;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * 登录响应DTO
+ *
+ * @author GMP系统开发团队
+ */
+<span class="fc" id="L13">public class LoginResponse {</span>
+
+    public String accessToken;
+    public String refreshToken;
+    public String tokenType;
+    public Long expiresIn;
+    public Long userId; // 添加用户ID
+    public String username;
+    public String fullName;
+    public Long organizationId; // 添加组织ID
+    public Set&lt;String&gt; roles; // 修改为Set确保唯一性
+    public List&lt;String&gt; permissions;
+    public LocalDateTime loginTime;
+    
+    /**
+     * 用户可访问的子系统代码列表
+     */
+    public List&lt;String&gt; accessibleSubsystems;
+    
+    /**
+     * 用户子系统访问级别映射
+     * key: 子系统代码
+     * value: 访问级别 (0-无访问权限, 1-只读, 2-读写, 3-管理)
+     */
+    public Map&lt;String, Integer&gt; subsystemAccessLevels;
+    
+    // 显式添加setter方法以避免Lombok编译问题
+    public void setAccessToken(String accessToken) {
+<span class="fc" id="L41">        this.accessToken = accessToken;</span>
+<span class="fc" id="L42">    }</span>
+    
+    public void setRefreshToken(String refreshToken) {
+<span class="fc" id="L45">        this.refreshToken = refreshToken;</span>
+<span class="fc" id="L46">    }</span>
+    
+    public void setTokenType(String tokenType) {
+<span class="fc" id="L49">        this.tokenType = tokenType;</span>
+<span class="fc" id="L50">    }</span>
+    
+    /**
+     * 为兼容测试代码添加的方法，委托给setAccessToken
+     */
+    public void setToken(String token) {
+<span class="nc" id="L56">        this.setAccessToken(token);</span>
+<span class="nc" id="L57">    }</span>
+    
+    public void setExpiresIn(Long expiresIn) {
+<span class="fc" id="L60">        this.expiresIn = expiresIn;</span>
+<span class="fc" id="L61">    }</span>
+    
+    public void setUsername(String username) {
+<span class="fc" id="L64">        this.username = username;</span>
+<span class="fc" id="L65">    }</span>
+    
+    public void setFullName(String fullName) {
+<span class="fc" id="L68">        this.fullName = fullName;</span>
+<span class="fc" id="L69">    }</span>
+    
+    public void setRoles(List&lt;String&gt; roles) {
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">        if (roles != null) {</span>
+<span class="fc" id="L73">            this.roles = new java.util.HashSet&lt;&gt;(roles);</span>
+        }
+<span class="fc" id="L75">    }</span>
+    
+    // 添加userId的getter和setter
+    public Long getUserId() {
+<span class="fc" id="L79">        return userId;</span>
+    }
+    
+    public void setUserId(Long userId) {
+<span class="fc" id="L83">        this.userId = userId;</span>
+<span class="fc" id="L84">    }</span>
+    
+    // 添加organizationId的getter和setter
+    public Long getOrganizationId() {
+<span class="fc" id="L88">        return organizationId;</span>
+    }
+    
+    public void setOrganizationId(Long organizationId) {
+<span class="fc" id="L92">        this.organizationId = organizationId;</span>
+<span class="fc" id="L93">    }</span>
+    
+
+    
+    public void setLoginTime(LocalDateTime loginTime) {
+<span class="fc" id="L98">        this.loginTime = loginTime;</span>
+<span class="fc" id="L99">    }</span>
+    
+    // 添加getter方法
+    public String getAccessToken() {
+<span class="fc" id="L103">        return accessToken;</span>
+    }
+    
+    public String getRefreshToken() {
+<span class="fc" id="L107">        return refreshToken;</span>
+    }
+    
+    public String getTokenType() {
+<span class="fc" id="L111">        return tokenType;</span>
+    }
+    
+    public Long getExpiresIn() {
+<span class="fc" id="L115">        return expiresIn;</span>
+    }
+    
+    public String getUsername() {
+<span class="fc" id="L119">        return username;</span>
+    }
+    
+    public String getFullName() {
+<span class="fc" id="L123">        return fullName;</span>
+    }
+    
+    public Set&lt;String&gt; getRoles() {
+<span class="fc" id="L127">        return roles;</span>
+    }
+    
+    public List&lt;String&gt; getPermissions() {
+<span class="fc" id="L131">        return permissions;</span>
+    }
+    
+    public LocalDateTime getLoginTime() {
+<span class="fc" id="L135">        return loginTime;</span>
+    }
+    
+    public void setPermissions(List&lt;String&gt; permissions) {
+<span class="fc" id="L139">        this.permissions = permissions;</span>
+<span class="fc" id="L140">    }</span>
+    
+    public List&lt;String&gt; getAccessibleSubsystems() {
+<span class="fc" id="L143">        return accessibleSubsystems;</span>
+    }
+    
+    public void setAccessibleSubsystems(List&lt;String&gt; accessibleSubsystems) {
+<span class="fc" id="L147">        this.accessibleSubsystems = accessibleSubsystems;</span>
+<span class="fc" id="L148">    }</span>
+    
+    public Map&lt;String, Integer&gt; getSubsystemAccessLevels() {
+<span class="fc" id="L151">        return subsystemAccessLevels;</span>
+    }
+    
+    public void setSubsystemAccessLevels(Map&lt;String, Integer&gt; subsystemAccessLevels) {
+<span class="fc" id="L155">        this.subsystemAccessLevels = subsystemAccessLevels;</span>
+<span class="fc" id="L156">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

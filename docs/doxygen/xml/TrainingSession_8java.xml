@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TrainingSession_8java" kind="file" language="Java">
+    <compoundname>TrainingSession.java</compoundname>
+    <includes local="no">lombok.Data</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>training-service/src/main/java/com/gmp/training/entity/TrainingSession.java</label>
+        <link refid="TrainingSession_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lombok.Data</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession" prot="public">com::gmp::training::entity::TrainingSession</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1TrainingMethod" prot="public">com::gmp::training::entity::TrainingSession::TrainingMethod</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Method" prot="public">com::gmp::training::entity::TrainingSession::Method</innerclass>
+    <innerclass refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status" prot="public">com::gmp::training::entity::TrainingSession::Status</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1training_1_1entity">com::gmp::training::entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.training.entity;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>lombok.Data;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedBy;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.CreatedDate;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedBy;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.annotation.LastModifiedDate;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.domain.support.AuditingEntityListener;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.persistence.*;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotBlank;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.NotNull;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>jakarta.validation.constraints.Size;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Serializable;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.LocalDateTime;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">@Data</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@Entity</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">@Table(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;t_training_session&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">@EntityListeners(AuditingEntityListener.class)</highlight></codeline>
+<codeline lineno="26" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession" kindref="compound">TrainingSession</ref><sp/>implements<sp/><ref refid="classSerializable" kindref="compound">Serializable</ref><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1af1790b50417fabca4b76fc1ea5b3c202" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>serialVersionUID<sp/>=<sp/>1L;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Id</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@GeneratedValue(strategy<sp/>=<sp/>GenerationType.IDENTITY)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;session_id&quot;</highlight><highlight class="normal">,<sp/>nullable<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="36" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1a0181bdbfc957c537802aada6554e64d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;training_course_id&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="43" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1acfc2f3fc9f26358490846a3add8970b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingCourse" kindref="compound">TrainingCourse</ref><sp/>trainingCourse;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotBlank(message<sp/>=<sp/>&quot;培训标题不能为空&quot;)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;培训标题长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;title&quot;,<sp/>length<sp/>=<sp/>200,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="51" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1a640e78734f66b598a33c0b400e0e78d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>title;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@ManyToOne</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@JoinColumn(name<sp/>=<sp/>&quot;trainer_id&quot;)</highlight></codeline>
+<codeline lineno="58" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1a6f4b56348d4c5580f0a38b91ce47fc57" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="classcom_1_1gmp_1_1training_1_1entity_1_1User" kindref="compound">User</ref><sp/>trainer;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotNull(message<sp/>=<sp/>&quot;培训开始时间不能为空&quot;)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;start_time&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="65" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1ae79c5dbec9901ace099df21f41c1d101" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>startTime;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@NotNull(message<sp/>=<sp/>&quot;培训结束时间不能为空&quot;)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;end_time&quot;,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="72" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1a3cf9764bbb4de8d75f3a67f7ef99da6c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>endTime;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>200,<sp/>message<sp/>=<sp/>&quot;培训地点长度不能超过200个字符&quot;)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;location&quot;,<sp/>length<sp/>=<sp/>200)</highlight></codeline>
+<codeline lineno="79" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1a8b9be12105bd8673a008d2d548df0ca9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>location;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;training_method&quot;,<sp/>length<sp/>=<sp/>50,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="86" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1ac57f474bd4d6e0a9bfc21992b8be0ee9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1TrainingMethod" kindref="compound">TrainingMethod</ref><sp/>trainingMethod;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>@Enumerated(EnumType.STRING)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;status&quot;,<sp/>length<sp/>=<sp/>50,<sp/>nullable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="93" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1ab784afd1481b1399e0bd5c85602bd553" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status" kindref="compound">Status</ref><sp/>status<sp/>=<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status" kindref="compound">Status</ref>.NOT_STARTED;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;expected_participants&quot;)</highlight></codeline>
+<codeline lineno="99" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1af14b68241de919134bc93cf76b5855b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>expectedParticipants;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;actual_participants&quot;)</highlight></codeline>
+<codeline lineno="105" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1a4fdaba31f4bb5236f2e667f53d4ddb75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>Integer<sp/>actualParticipants;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>500,<sp/>message<sp/>=<sp/>&quot;培训资料链接长度不能超过500个字符&quot;)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;training_materials&quot;,<sp/>length<sp/>=<sp/>500)</highlight></codeline>
+<codeline lineno="112" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1ae973831b1940a73c811c9143a266fdc1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>trainingMaterials;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>@Size(max<sp/>=<sp/>2000,<sp/>message<sp/>=<sp/>&quot;培训总结长度不能超过2000个字符&quot;)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;summary&quot;,<sp/>length<sp/>=<sp/>2000)</highlight></codeline>
+<codeline lineno="119" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1ad9090c4f2dbe77990a034e174a3e01c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>summary;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;is_gmp_related&quot;)</highlight></codeline>
+<codeline lineno="125" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1a496c95050743bdd9b530a3ef49e0675e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>gmpRelated<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedBy</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_by&quot;)</highlight></codeline>
+<codeline lineno="132" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1a09b5356cc1a32975bc56851996b0b753" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>createdBy;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>@CreatedDate</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;created_time&quot;,<sp/>nullable<sp/>=<sp/>false,<sp/>updatable<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="139" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1ae4e2597454f9fb7864dd5192d1d7fb52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>createdTime;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedBy</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;last_modified_by&quot;)</highlight></codeline>
+<codeline lineno="146" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1af97f051ca26e9cc5495b938f5b3f613d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>String<sp/>lastModifiedBy;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>@LastModifiedDate</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>@Column(name<sp/>=<sp/>&quot;last_modified_time&quot;)</highlight></codeline>
+<codeline lineno="153" refid="classcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1a33e036e721b9877e74409cf6fe1a1a8b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>LocalDateTime<sp/>lastModifiedTime;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1TrainingMethod" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>enum<sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1TrainingMethod" kindref="compound">TrainingMethod</ref><sp/>{</highlight></codeline>
+<codeline lineno="159" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1TrainingMethod_1a21a4ef45877d3b4a8db3fbf92eee9c0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1TrainingMethod_1a21a4ef45877d3b4a8db3fbf92eee9c0d" kindref="member">OFFLINE</ref>,<sp/></highlight><highlight class="comment">//<sp/>线下</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1TrainingMethod_1a007f8f71a940196de8bb1818d72dab7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1TrainingMethod_1a007f8f71a940196de8bb1818d72dab7e" kindref="member">ONLINE</ref>,<sp/></highlight><highlight class="comment">//<sp/>线上</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MIXED<sp/></highlight><highlight class="comment">//<sp/>混合</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1TrainingMethod_1ac8a607e520573f4d326f9b95a7e4da66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Method" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Method" kindref="compound">Method</ref><sp/>{</highlight></codeline>
+<codeline lineno="168" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Method_1a17b53fc72cab18357000283813551d99" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Method_1a17b53fc72cab18357000283813551d99" kindref="member">OFFLINE</ref>,<sp/></highlight><highlight class="comment">//<sp/>线下</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Method_1ac9128fd50ac5cc9dfbcf7b13333ff549" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Method_1ac9128fd50ac5cc9dfbcf7b13333ff549" kindref="member">ONLINE</ref>,<sp/></highlight><highlight class="comment">//<sp/>线上</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MIXED<sp/></highlight><highlight class="comment">//<sp/>混合</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Method_1a3e0f6fc479fb247a025cc3b820ccfc35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status" kindref="compound">Status</ref><sp/>{</highlight></codeline>
+<codeline lineno="177" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status_1a28b09723f11ef60c9c17dcc510068858" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status_1a28b09723f11ef60c9c17dcc510068858" kindref="member">NOT_STARTED</ref>,<sp/></highlight><highlight class="comment">//<sp/>未开始</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status_1a6013710f3d08a1cde9268da9c90acacd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status_1a6013710f3d08a1cde9268da9c90acacd" kindref="member">IN_PROGRESS</ref>,<sp/></highlight><highlight class="comment">//<sp/>进行中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status_1ac244e3f80d18566c842f0335cf371ce3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status_1ac244e3f80d18566c842f0335cf371ce3" kindref="member">COMPLETED</ref>,<sp/></highlight><highlight class="comment">//<sp/>已完成</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CANCELLED<sp/></highlight><highlight class="comment">//<sp/>已取消</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="enumcom_1_1gmp_1_1training_1_1entity_1_1TrainingSession_1_1Status_1a977ba4b282af5b4b620090dfe5bfe26a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="training-service/src/main/java/com/gmp/training/entity/TrainingSession.java"/>
+  </compounddef>
+</doxygen>

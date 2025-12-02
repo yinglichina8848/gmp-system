@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="InventoryRepository_8java" kind="file" language="Java">
+    <compoundname>InventoryRepository.java</compoundname>
+    <includes local="no">com.gmp.warehouse.entity.Inventory</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>warehouse-service/src/main/java/com/gmp/warehouse/repository/InventoryRepository.java</label>
+        <link refid="InventoryRepository_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.warehouse.entity.Inventory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository" prot="public">com::gmp::warehouse::repository::InventoryRepository</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1warehouse_1_1repository">com::gmp::warehouse::repository</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecom_1_1gmp_1_1warehouse_1_1repository" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.warehouse.repository;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.warehouse.entity.Inventory;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaRepository;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.JpaSpecificationExecutor;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.jpa.repository.Query;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.data.repository.query.Param;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.stereotype.Repository;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Optional;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">@Repository</highlight></codeline>
+<codeline lineno="24" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository" kindref="compound">InventoryRepository</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classJpaRepository" kindref="compound">JpaRepository</ref>&lt;Inventory,<sp/>Long&gt;,<sp/><ref refid="classJpaSpecificationExecutor" kindref="compound">JpaSpecificationExecutor</ref>&lt;Inventory&gt;<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a45b969e55dba0070ef892d29b481d18e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Inventory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a45b969e55dba0070ef892d29b481d18e" kindref="member">findByMaterialId</ref>(Long<sp/>materialId);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1abbc15e6062a2a403ec299cdbe1dd4d05" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Inventory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1abbc15e6062a2a403ec299cdbe1dd4d05" kindref="member">findByWarehouseId</ref>(Long<sp/>warehouseId);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a7a51479735c496181ce3b643c85cb5d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Inventory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a7a51479735c496181ce3b643c85cb5d9" kindref="member">findByLocationId</ref>(Long<sp/>locationId);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a90d05325db24e1e8f49ab01b0638dc38" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Inventory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a90d05325db24e1e8f49ab01b0638dc38" kindref="member">findByMaterialIdAndWarehouseId</ref>(Long<sp/>materialId,<sp/>Long<sp/>warehouseId);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1af0f724d5d625dd0de2ef10e2c2f94127" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Inventory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1af0f724d5d625dd0de2ef10e2c2f94127" kindref="member">findByMaterialIdAndWarehouseIdAndBatchNo</ref>(Long<sp/>materialId,<sp/>Long<sp/>warehouseId,<sp/>String<sp/>batchNo);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a76cfe6ccdada42e530f5b1a5cb437265" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Optional&lt;Inventory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a76cfe6ccdada42e530f5b1a5cb437265" kindref="member">findByMaterialIdAndLocationId</ref>(Long<sp/>materialId,<sp/>Long<sp/>locationId);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>i<sp/>FROM<sp/>Inventory<sp/>i<sp/>WHERE<sp/>i.availableQuantity<sp/>&lt;<sp/>i.minSafetyStock&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="84" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a929f0f792297744804ffeffccf841cbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Inventory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a929f0f792297744804ffeffccf841cbc" kindref="member">findInventoryShortages</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>i<sp/>FROM<sp/>Inventory<sp/>i<sp/>WHERE<sp/>i.expiryDate<sp/>IS<sp/>NOT<sp/>NULL<sp/>AND<sp/>i.expiryDate<sp/>&lt;=<sp/>CURRENT_DATE<sp/>+<sp/>:days&quot;)</highlight></codeline>
+<codeline lineno="93" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1aa4a30c281af9110fe52b7e1b5d18fdd2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>List&lt;Inventory&gt;<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1aa4a30c281af9110fe52b7e1b5d18fdd2" kindref="member">findExpiringMaterials</ref>(@Param(&quot;days&quot;)<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>days);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>COUNT(DISTINCT<sp/>i.materialId)<sp/>FROM<sp/>Inventory<sp/>i<sp/>WHERE<sp/>i.warehouseId<sp/>=<sp/>:warehouseId&quot;)</highlight></codeline>
+<codeline lineno="102" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a5c03bf584a0762f16c4482c0af63a061" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Long<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a5c03bf584a0762f16c4482c0af63a061" kindref="member">countMaterialsInWarehouse</ref>(@Param(&quot;warehouseId&quot;)<sp/>Long<sp/>warehouseId);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>@Query(&quot;SELECT<sp/>SUM(i.currentQuantity)<sp/>FROM<sp/>Inventory<sp/>i<sp/>WHERE<sp/>i.warehouseId<sp/>=<sp/>:warehouseId&quot;)</highlight></codeline>
+<codeline lineno="111" refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a2e0158253944abcf67dcb2f8933e3648" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Double<sp/><ref refid="interfacecom_1_1gmp_1_1warehouse_1_1repository_1_1InventoryRepository_1a2e0158253944abcf67dcb2f8933e3648" kindref="member">getTotalInventoryInWarehouse</ref>(@Param(&quot;warehouseId&quot;)<sp/>Long<sp/>warehouseId);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="warehouse-service/src/main/java/com/gmp/warehouse/repository/InventoryRepository.java"/>
+  </compounddef>
+</doxygen>

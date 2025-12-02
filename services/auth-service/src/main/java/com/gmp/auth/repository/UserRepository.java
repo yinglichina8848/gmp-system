@@ -97,4 +97,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * 检查手机号是否存在
      */
     boolean existsByMobile(String mobile);
+    
+    /**
+     * 根据登录会话ID查找用户
+     */
+    Optional<User> findByLastLoginSession(String sessionId);
 }

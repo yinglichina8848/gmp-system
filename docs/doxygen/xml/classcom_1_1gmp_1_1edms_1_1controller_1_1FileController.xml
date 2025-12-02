@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController" kind="class" language="Java" prot="public">
+    <compoundname>com::gmp::edms::controller::FileController</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a22c3a0aac0aa72d695f2f35b40f32870" prot="private" static="no" mutable="no">
+        <type>CommonFileService</type>
+        <definition>CommonFileService com.gmp.edms.controller.FileController.commonFileService</definition>
+        <argsstring></argsstring>
+        <name>commonFileService</name>
+        <qualifiedname>com.gmp.edms.controller.FileController.commonFileService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="31" column="31" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a15ac1bbe3d6317eecf2720d1cd4da1e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; CommonFileDTO &gt;</type>
+        <definition>ApiResponse&lt; CommonFileDTO &gt; com.gmp.edms.controller.FileController.uploadFile</definition>
+        <argsstring>( @RequestParam(&quot;file&quot;) MultipartFile file, @RequestParam(&quot;module&quot;) String module, @RequestParam(required=false) Map&lt; String, Object &gt; metadata)</argsstring>
+        <name>uploadFile</name>
+        <qualifiedname>com.gmp.edms.controller.FileController.uploadFile</qualifiedname>
+        <param>
+          <type>@RequestParam(&quot;file&quot;) MultipartFile</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>@RequestParam(&quot;module&quot;) String</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) Map&lt; String, Object &gt;</type>
+          <declname>metadata</declname>
+        </param>
+        <briefdescription>
+<para>上传单个文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="38" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="38" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a95280d861bbd1a359cacdfabf26eb2df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; List&lt; CommonFileDTO &gt; &gt;</type>
+        <definition>ApiResponse&lt; List&lt; CommonFileDTO &gt; &gt; com.gmp.edms.controller.FileController.batchUploadFiles</definition>
+        <argsstring>( @RequestParam(&quot;files&quot;) List&lt; MultipartFile &gt; files, @RequestParam(&quot;module&quot;) String module, @RequestParam(required=false) Map&lt; String, Object &gt; metadata)</argsstring>
+        <name>batchUploadFiles</name>
+        <qualifiedname>com.gmp.edms.controller.FileController.batchUploadFiles</qualifiedname>
+        <param>
+          <type>@RequestParam(&quot;files&quot;) List&lt; MultipartFile &gt;</type>
+          <declname>files</declname>
+        </param>
+        <param>
+          <type>@RequestParam(&quot;module&quot;) String</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) Map&lt; String, Object &gt;</type>
+          <declname>metadata</declname>
+        </param>
+        <briefdescription>
+<para>批量上传文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="55" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="55" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1afa7afda99c0d05a4602c7c6266defeb3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ResponseEntity&lt; byte[]&gt;</type>
+        <definition>ResponseEntity&lt; byte[]&gt; com.gmp.edms.controller.FileController.downloadFile</definition>
+        <argsstring>(@PathVariable Long fileId)</argsstring>
+        <name>downloadFile</name>
+        <qualifiedname>com.gmp.edms.controller.FileController.downloadFile</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>fileId</declname>
+        </param>
+        <briefdescription>
+<para>下载文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="72" column="27" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="72" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aa72aea42dc1808b38a63b67ef83ff2b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; CommonFileDTO &gt;</type>
+        <definition>ApiResponse&lt; CommonFileDTO &gt; com.gmp.edms.controller.FileController.getFileInfo</definition>
+        <argsstring>(@PathVariable Long fileId)</argsstring>
+        <name>getFileInfo</name>
+        <qualifiedname>com.gmp.edms.controller.FileController.getFileInfo</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>fileId</declname>
+        </param>
+        <briefdescription>
+<para>获取文件信息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="94" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="94" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aefc20ef5fa57f92b852a372eb3229296" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; Void &gt;</type>
+        <definition>ApiResponse&lt; Void &gt; com.gmp.edms.controller.FileController.deleteFile</definition>
+        <argsstring>(@PathVariable Long fileId)</argsstring>
+        <name>deleteFile</name>
+        <qualifiedname>com.gmp.edms.controller.FileController.deleteFile</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>fileId</declname>
+        </param>
+        <briefdescription>
+<para>删除文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="108" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="108" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aaa974119bf4fc04f7be88fef7177fc37" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; Void &gt;</type>
+        <definition>ApiResponse&lt; Void &gt; com.gmp.edms.controller.FileController.batchDeleteFiles</definition>
+        <argsstring>(@RequestBody List&lt; Long &gt; fileIds)</argsstring>
+        <name>batchDeleteFiles</name>
+        <qualifiedname>com.gmp.edms.controller.FileController.batchDeleteFiles</qualifiedname>
+        <param>
+          <type>@RequestBody List&lt; Long &gt;</type>
+          <declname>fileIds</declname>
+        </param>
+        <briefdescription>
+<para>批量删除文件 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="122" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="122" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aa37619123cf4ba4fbfcfc018fa01f143" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; Map&lt; String, String &gt; &gt;</type>
+        <definition>ApiResponse&lt; Map&lt; String, String &gt; &gt; com.gmp.edms.controller.FileController.generatePresignedUrl</definition>
+        <argsstring>( @PathVariable Long fileId, @RequestParam(defaultValue=&quot;3600&quot;) int expiration)</argsstring>
+        <name>generatePresignedUrl</name>
+        <qualifiedname>com.gmp.edms.controller.FileController.generatePresignedUrl</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>fileId</declname>
+        </param>
+        <param>
+          <type>@RequestParam(defaultValue=&quot;3600&quot;) int</type>
+          <declname>expiration</declname>
+        </param>
+        <briefdescription>
+<para>生成预签名URL </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="136" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="136" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1af877ee3a2d17042ed955afbd08fa8a94" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; Map&lt; String, Object &gt; &gt;</type>
+        <definition>ApiResponse&lt; Map&lt; String, Object &gt; &gt; com.gmp.edms.controller.FileController.queryFiles</definition>
+        <argsstring>( @RequestParam(required=false) String module, @RequestParam(required=false) Map&lt; String, Object &gt; filters, @RequestParam(defaultValue=&quot;1&quot;) int page, @RequestParam(defaultValue=&quot;10&quot;) int size)</argsstring>
+        <name>queryFiles</name>
+        <qualifiedname>com.gmp.edms.controller.FileController.queryFiles</qualifiedname>
+        <param>
+          <type>@RequestParam(required=false) String</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>@RequestParam(required=false) Map&lt; String, Object &gt;</type>
+          <declname>filters</declname>
+        </param>
+        <param>
+          <type>@RequestParam(defaultValue=&quot;1&quot;) int</type>
+          <declname>page</declname>
+        </param>
+        <param>
+          <type>@RequestParam(defaultValue=&quot;10&quot;) int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>查询文件列表 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="153" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="153" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1af1f092b237289669b69a739b1a028241" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; Void &gt;</type>
+        <definition>ApiResponse&lt; Void &gt; com.gmp.edms.controller.FileController.updateFileMetadata</definition>
+        <argsstring>( @PathVariable Long fileId, @RequestBody Map&lt; String, Object &gt; metadata)</argsstring>
+        <name>updateFileMetadata</name>
+        <qualifiedname>com.gmp.edms.controller.FileController.updateFileMetadata</qualifiedname>
+        <param>
+          <type>@PathVariable Long</type>
+          <declname>fileId</declname>
+        </param>
+        <param>
+          <type>@RequestBody Map&lt; String, Object &gt;</type>
+          <declname>metadata</declname>
+        </param>
+        <briefdescription>
+<para>更新文件元数据 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="171" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="171" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a42ee1ea04003fc5d9392725d6ee618b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApiResponse&lt; Map&lt; String, Object &gt; &gt;</type>
+        <definition>ApiResponse&lt; Map&lt; String, Object &gt; &gt; com.gmp.edms.controller.FileController.getFileStatistics</definition>
+        <argsstring>( @RequestParam(required=false) String module)</argsstring>
+        <name>getFileStatistics</name>
+        <qualifiedname>com.gmp.edms.controller.FileController.getFileStatistics</qualifiedname>
+        <param>
+          <type>@RequestParam(required=false) String</type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+<para>获取文件统计信息 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="187" column="24" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="187" bodyend="195"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>文件管理控制器 提供通用文件操作API </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>CommonFileService</label>
+      </node>
+      <node id="1">
+        <label>com.gmp.edms.controller.FileController</label>
+        <link refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>commonFileService</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" line="28" column="7" bodyfile="edms-service/src/main/java/com/gmp/edms/controller/FileController.java" bodystart="28" bodyend="196"/>
+    <listofallmembers>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aaa974119bf4fc04f7be88fef7177fc37" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::FileController</scope><name>batchDeleteFiles</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a95280d861bbd1a359cacdfabf26eb2df" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::FileController</scope><name>batchUploadFiles</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a22c3a0aac0aa72d695f2f35b40f32870" prot="private" virt="non-virtual"><scope>com::gmp::edms::controller::FileController</scope><name>commonFileService</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aefc20ef5fa57f92b852a372eb3229296" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::FileController</scope><name>deleteFile</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1afa7afda99c0d05a4602c7c6266defeb3" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::FileController</scope><name>downloadFile</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aa37619123cf4ba4fbfcfc018fa01f143" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::FileController</scope><name>generatePresignedUrl</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1aa72aea42dc1808b38a63b67ef83ff2b9" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::FileController</scope><name>getFileInfo</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a42ee1ea04003fc5d9392725d6ee618b4" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::FileController</scope><name>getFileStatistics</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1af877ee3a2d17042ed955afbd08fa8a94" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::FileController</scope><name>queryFiles</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1af1f092b237289669b69a739b1a028241" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::FileController</scope><name>updateFileMetadata</name></member>
+      <member refid="classcom_1_1gmp_1_1edms_1_1controller_1_1FileController_1a15ac1bbe3d6317eecf2720d1cd4da1e5" prot="public" virt="non-virtual"><scope>com::gmp::edms::controller::FileController</scope><name>uploadFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

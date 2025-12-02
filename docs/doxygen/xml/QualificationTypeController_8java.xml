@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QualificationTypeController_8java" kind="file" language="Java">
+    <compoundname>QualificationTypeController.java</compoundname>
+    <includes local="no">com.gmp.hr.dto.QualificationTypeDTO</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>hr-service/src/main/java/com/gmp/hr/controller/QualificationTypeController.java</label>
+        <link refid="QualificationTypeController_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>com.gmp.hr.dto.QualificationTypeDTO</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController" prot="public">com::gmp::hr::controller::QualificationTypeController</innerclass>
+    <innernamespace refid="namespacecom_1_1gmp_1_1hr_1_1controller">com::gmp::hr::controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.gmp.hr.controller;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.dto.QualificationTypeDTO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.gmp.hr.service.QualificationTypeService;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.beans.factory.annotation.Autowired;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.HttpStatus;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.http.ResponseEntity;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.springframework.web.bind.annotation.*;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">@RestController</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">@RequestMapping(</highlight><highlight class="stringliteral">&quot;/api/hr/qualification-types&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="20" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController" kindref="compound">QualificationTypeController</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>@Autowired</highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1ac9dc7468209fe9192225386b22f70960" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>QualificationTypeService<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1ac9dc7468209fe9192225386b22f70960" kindref="member">qualificationTypeService</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>@PostMapping</highlight></codeline>
+<codeline lineno="32" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1a19bd56c82ccb371fa824b3c699b68c84" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ResponseEntity&lt;QualificationTypeDTO&gt;<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1a19bd56c82ccb371fa824b3c699b68c84" kindref="member">createQualificationType</ref>(</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestBody<sp/>QualificationTypeDTO<sp/>qualificationTypeDTO)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QualificationTypeDTO<sp/>createdType<sp/>=<sp/>qualificationTypeService.createQualificationType(qualificationTypeDTO);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ResponseEntity&lt;&gt;(createdType,<sp/>HttpStatus.CREATED);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="45" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1a9087cae0f7e08e1031f818515b17186a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;QualificationTypeDTO&gt;<sp/>getQualificationTypeById(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QualificationTypeDTO<sp/>typeDTO<sp/>=<sp/>qualificationTypeService.getQualificationTypeById(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(typeDTO);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/code/{code}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="57" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1abbf60541068b4eb0bebc472a9c3aa0c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;QualificationTypeDTO&gt;<sp/>getQualificationTypeByCode(@PathVariable<sp/>String<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QualificationTypeDTO<sp/>typeDTO<sp/>=<sp/>qualificationTypeService.getQualificationTypeByCode(code);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(typeDTO);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>@PutMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="70" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1a382335ea55a130a4390588af92c1222c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;QualificationTypeDTO&gt;<sp/>updateQualificationType(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@RequestBody<sp/>QualificationTypeDTO<sp/>qualificationTypeDTO)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QualificationTypeDTO<sp/>updatedType<sp/>=<sp/>qualificationTypeService.updateQualificationType(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>qualificationTypeDTO);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(updatedType);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>@DeleteMapping(</highlight><highlight class="stringliteral">&quot;/{id}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="83" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1a853b28b70d9d0daa5d0ba9f6aab73eec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;Void&gt;<sp/>deleteQualificationType(@PathVariable<sp/>Long<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qualificationTypeService.deleteQualificationType(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.noContent().build();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping</highlight></codeline>
+<codeline lineno="94" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1a4c1a249a385a39dd0ebb8d93ce6a4ba0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ResponseEntity&lt;List&lt;QualificationTypeDTO&gt;&gt;<sp/><ref refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1a4c1a249a385a39dd0ebb8d93ce6a4ba0" kindref="member">getAllQualificationTypes</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;QualificationTypeDTO&gt;<sp/>types<sp/>=<sp/>qualificationTypeService.getAllQualificationTypes();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(types);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/search/name&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="106" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1a1c11366d218997e9e66aa95f8370915d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;List&lt;QualificationTypeDTO&gt;&gt;<sp/>getQualificationTypesByName(@RequestParam<sp/>String<sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;QualificationTypeDTO&gt;<sp/>types<sp/>=<sp/>qualificationTypeService.getQualificationTypesByName(name);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(types);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>@GetMapping(</highlight><highlight class="stringliteral">&quot;/need-update&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="117" refid="classcom_1_1gmp_1_1hr_1_1controller_1_1QualificationTypeController_1a84cf6879ed43e5692be74f2451c0c394" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>ResponseEntity&lt;List&lt;QualificationTypeDTO&gt;&gt;<sp/>getQualificationTypesNeedingUpdate()<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>方法不存在，返回空列表</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ResponseEntity.ok(java.util.Collections.emptyList());</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="hr-service/src/main/java/com/gmp/hr/controller/QualificationTypeController.java"/>
+  </compounddef>
+</doxygen>
